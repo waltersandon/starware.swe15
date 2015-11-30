@@ -4,7 +4,7 @@
 \usepackage{../../../template/stile}
 
 %Titolo documento
-\newcommand{\titoloDocumento}{Template documenti per SWE}
+\newcommand{\titoloDocumento}{Norme di Progetto}
 
 %Prima data di creazione del documento
 \newcommand{\dataCreazione}{30 novembre 2015}
@@ -13,10 +13,10 @@
 \newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Informale || Formale}
+\newcommand{\stato}{Informale}
 
 %Uso del documento
-\newcommand{\uso}{Interno || Esterno}
+\newcommand{\uso}{Interno}
 
 \rhead{\titoloDocumento}
 \lfoot{Versione: \versione}
@@ -49,18 +49,16 @@
 \textbf{Nome Documento}	&	\titoloDocumento	\\
 \textbf{Versione}	&	\versione	\\
 \textbf{Stato}	&	\emph{\stato}	\\
-\textbf{Uso}	&	\emph{Interno || Esterno}	\\
+\textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	&	Mr X	\\
-\ 	&	Mr Y	\\
-\ 	&	Mr Z	\\
-\textbf{Approvazione}	&	Mr K	\\
-\textbf{Verifica}	&	Mr Q	\\
+\textbf{Redazione}	&	\NDC	\\
+\ &	\AEV	\\
+\ &	\AV	\\
+\textbf{Verifica}	&	\IB	\\
+\ & \TP \\
+\textbf{Approvazione}	&	\ASB	\\
 \textbf{Lista distribuzione}	&	\nomeTeam	\\
-\ 	&	\Vardanega	\\
-\ 	&	\Cardin	\\
-\ 	&	Il proponente \Zucchetti	\\
 
 \end{tabular}
 \end{center}
@@ -76,14 +74,12 @@
 \begin{table}[h]
 \begin{center}
 
-\begin{tabular}{p{0.15\textwidth} p{0.3\textwidth} p{0.2\textwidth} p{0.35\textwidth}}
+\begin{tabular}{p{0.12\textwidth} p{0.25\textwidth} p{0.18\textwidth} p{0.4\textwidth}}
 \toprule
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-v1	&	Mr T	&	\today 	&	prima revisione\\
-\midrule
-v0	&	Mr X	&	30 Febbraio 1959	&	Partenza\\
+1.0.0 & \NDC & 2015-11-15 & Template di base \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -99,9 +95,18 @@ v0	&	Mr X	&	30 Febbraio 1959	&	Partenza\\
 \listoffigures
 \newpage
 
+\section{Introduzione}
 
-\section{prova link}
-\href{http://docs.oracle.com/javase/tutorial/}{Testo del link}
+\subsection{Scopo del documento}
+
+\subsection{Scopo del prodotto}
+
+\subsection{Glossario}
+
+\subsection{Riferimenti}
+
+\subsubsection{Informativi}
+
 \newpage
 
 \section{tabella}
