@@ -1,0 +1,98 @@
+%
+%	STARWARE - Stile base per la scrittura di documenti interni in LaTex
+%
+
+%
+%	Pacchetti globali
+%	Fare qui eventuali aggiunte!
+%
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[top=1cm,bottom=4cm,left=80pt,right=80pt]{geometry} %disegna la linea
+\usepackage{listings} %per grandi porzioni di codice
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{booktabs,tabularx}
+\usepackage{makeidx}
+
+\bibliographystyle{alpha}
+
+%
+%	VARIABILI GLOBALI
+%
+\newcommand{\nomeTeam}{StarWare}
+\newcommand{\mailGruppo}{starware.swe@gmail.com}
+\newcommand{\uni}{Universit\`{a} degli Studi di Padova}
+\newcommand{\uniAA}{2015/2016}
+\newcommand{\Cardin}{Prof. Riccardo Cardin}
+\newcommand{\Vardanega}{Prof. Tullio Vardanega}
+\newcommand{\Zucchetti}{Zucchetti S.p.a.}
+
+\newcommand{\AV}{Alessio Vitella}
+\newcommand{\AEV}{Andrea Egna Venier}
+\newcommand{\NDC}{Nicola De Cao}
+\newcommand{\IB}{Igor Baylyak}
+\newcommand{\WS}{Walter Sandon}
+\newcommand{\TP}{Thomas Pigarelli}
+\newcommand{\ASB}{Anna Sannie Bonaldo}
+
+\newcommand{\licenza}{GNU GENERAL PUBLIC LICENSE V2}
+
+%
+%	Setup stili
+%
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{light}{RGB}{255,255,190}
+
+%
+%	Setup di pagina
+%
+
+%colorazione link
+\hypersetup
+{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=blue
+}
+
+%	Setup Header + Footer
+
+\pagestyle{fancy}
+\setlength{\headheight}{2cm} %settato grandezza header
+
+\renewcommand{\footrulewidth}{0.5pt} %ridefinisco il valore della riga di intestazione
+\renewcommand{\headrulewidth}{0.5pt} %ridefinisco il valore della riga di pie' di pagina
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+
+\fancyhead{} %annulla head di default
+\fancyfoot{} %annulla foot di default
+
+%	Logo intestazione
+\lhead{\includegraphics[scale=0.12]{../imgs/logoLungo.png}}
+
+
+%	footer
+\cfoot{
+	\uni \ - \uniAA \\
+	\href{mailto:\mailGruppo}{\mailGruppo}\\
+	{\tiny Questo documento è distribuito sotto licenza {\licenza}}
+}
+\rfoot{
+	\thepage\ di \pageref{LastPage}
+}
+
+%\makeindex
