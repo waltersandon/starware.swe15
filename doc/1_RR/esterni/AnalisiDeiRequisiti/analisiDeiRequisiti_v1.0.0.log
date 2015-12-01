@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.4)  30 NOV 2015 23:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.4)  1 DEC 2015 11:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -712,7 +712,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 84--84
-[]|\OT1/cmr/m/n/12 30 no-vem-bre
+[]|\OT1/cmr/m/n/12 1 di-cem-bre
  []
 
 
@@ -833,7 +833,7 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  9521 strings out of 493304
  133850 string characters out of 6139872
- 258092 words of memory out of 5000000
+ 258080 words of memory out of 5000000
  12801 multiletter control sequences out of 15000+600000
  9016 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -844,7 +844,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on analisiDeiRequisiti_v1.0.0.pdf (9 pages, 136934 bytes).
+Output written on analisiDeiRequisiti_v1.0.0.pdf (9 pages, 136951 bytes).
 PDF statistics:
  190 PDF objects out of 1000 (max. 8388607)
  166 compressed objects within 2 object streams
