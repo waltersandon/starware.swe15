@@ -1,16 +1,25 @@
 \select@language {italian}
 \select@language {italian}
 \contentsline {section}{\numberline {1}Introduzione}{4}{section.1}
-\contentsline {subsection}{\numberline {1.1}Scopo del documento}{4}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Scopo del prodotto}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.1}Scopo}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Descrizione}{4}{subsection.1.2}
 \contentsline {subsection}{\numberline {1.3}Glossario}{4}{subsection.1.3}
 \contentsline {subsection}{\numberline {1.4}Riferimenti}{4}{subsection.1.4}
 \contentsline {subsubsection}{\numberline {1.4.1}Informativi}{4}{subsubsection.1.4.1}
-\contentsline {section}{\numberline {2}tabella}{5}{section.2}
-\contentsline {subsection}{\numberline {2.1}primo stile}{5}{subsection.2.1}
-\contentsline {section}{\numberline {3}testo con citazioni}{6}{section.3}
-\contentsline {section}{\numberline {4}codice}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}C++}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}Java}{7}{subsection.4.2}
-\contentsline {subsection}{\numberline {4.3}HTML}{7}{subsection.4.3}
-\contentsline {section}{\numberline {5}immagine}{8}{section.5}
+\contentsline {section}{\numberline {2}Processi di Sviluppo}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Scopo}{5}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Descrizione}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Analisi dei Requisiti}{5}{subsection.2.3}
+\contentsline {section}{\numberline {3}Processi di Supporto}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Scopo}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Descrizione}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Documentazione}{6}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Verifica}{6}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Validazione}{6}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Risoluzione dei Problemi}{6}{subsection.3.6}
+\contentsline {section}{\numberline {4}Processi di Organizzazione}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}Scopo}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Descrizione}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Pianificazione}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Esecuzione e controllo}{7}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Infrastruttura}{7}{subsection.4.5}

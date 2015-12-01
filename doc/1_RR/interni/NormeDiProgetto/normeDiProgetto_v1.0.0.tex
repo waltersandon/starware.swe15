@@ -97,9 +97,9 @@
 
 \section{Introduzione}
 
-\subsection{Scopo del documento}
+\subsection{Scopo}
 
-\subsection{Scopo del prodotto}
+\subsection{Descrizione}
 
 \subsection{Glossario}
 
@@ -109,109 +109,50 @@
 
 \newpage
 
-\section{tabella}
-\subsection{primo stile}
-Testo prima...
-\begin{table}[h]
-\begin{center}
-\rowcolors{2}{light}{}
-\begin{tabular}{lcr}
-\toprule
-titoloC1 - SX	&	titoloC2 - CX	&	titoloC3 - DX\\
-\midrule
-\midrule
-r11	& r12 & r13\\
-r21	& r22 & r23\\
-r31 & r32 & r33\\
-r41 & r42 & r43\\
-r51 & r52 & r53\\
-\midrule
-r61 & r62 & r63\\
-\bottomrule
-\end{tabular}
-\end{center}
+\section{Processi di Sviluppo} %ISO 12207 5
 
-\caption{stile colorato}
-\label{t1}
-\end{table}
+\subsection{Scopo}
 
-Testo dopo...
+\subsection{Descrizione}
+
+\subsection{Analisi dei Requisiti} %ISO 12207 5.3.2
+%da definire con il team
+
 \newpage
 
-\section{testo con citazioni}
-All'uomo solo,\\
-ancora pi\`{u} amica,\\
-la luna\\
----\\
-Yosa Buson
+\section{Processi di Supporto} %ISO 12207 6
+
+\subsection{Scopo}
+
+\subsection{Descrizione}
+
+\subsection{Documentazione} %ISO 12207 6.1
+
+\subsection{Verifica} %ISO 12207 6.4
+
+\subsection{Validazione} %ISO 12207 6.5
+
+\subsection{Risoluzione dei Problemi} %ISO 12207 6.8
+%da definire con il team: probabilmente usereme le issues di github
+
 \newpage
 
-\section{codice}
-\subsection{C++}
-\begin{lstlisting}[basicstyle=\ttfamily]
-/*
-*	esempio di codice C++
-*/
-include <iostream>
-using namespace std;
+\section{Processi di Organizzazione} %ISO 12207 7.1
 
-main(){
-	cout << "Ciao mondo!" <<endl;
-}
-\end{lstlisting}
+\subsection{Scopo} %ISO 12207 7.1.1 forse?
 
-\subsection{Java}
-\begin{lstlisting}[basicstyle=\ttfamily]
-/*
-*	esempio di Java
-*/
-public class Prova{
-	public static void main(String[] args){
-		System.out.println("Ciao raga ;)");	
-	}
-}
-\end{lstlisting}
+\subsection{Descrizione} %ISO 12207 7.1.1 forse?
 
-\subsection{HTML}
-\begin{lstlisting}[basicstyle=\ttfamily]
-<!--
-Esempio di HTML5
--->
-<!DOCTYPE HTML>
-<html>
-	<body>
-	<p>Ciao Web!</p>
-	</body>
-</html>
-\end{lstlisting}
+\subsection{Pianificazione} %ISO 12207 7.1.2
+%qui mettiamo projectlibre
+
+\subsection{Esecuzione e controllo} %ISO 12207 7.1.3
+%qui mettiamo asana e come si gestiscono i task
+
+\subsection{Infrastruttura} %ISO 12207 7.2
+%qui mettiamo github
+
 \newpage
 
-%per importare da file:
-%\lstinputlisting[language=C++]{main.cpp}
-
-\section{immagine}
-
-\begin{center}
-\begin{figure}[h]
-\centering
-\label{f1-inferno}
-\includegraphics[scale=0.75]{inferno.jpeg}
-\caption{Diagramma delle classi dettagliato che illustra i package
-\nolinkurl{mytalk.client.iPresenter.iUser.iLogicUser} e mytalk.client.presenter.user.logicUser.}
-\end{figure}
-\end{center}
-
-Il problema delle \index{immagini} immagini e' che sono difficili da impaginare quando \LaTeX \ f\`{a} i capricci :(
-\\
-testo a casaccio...\cite{webRTC}
-\\
-I have been wondering how to make a separate bibliography of my own publications as an appendix in my dissertation. Vincent pointed me to multibib and its siblings, and then I came across this FAQ about all the glories of multiple bibliographies. Doesn’t look like the easiest thing to get going, but I’ll dive into it and see if I manage to get out of it successfully.\cite{som}
-
-%per importare da file:
-%\input{sezione.tex}
-%\newpage
-
-%per ora non serve la biblio
-%\bibliography{../bibliografia}
 
 \end{document}
