@@ -3,6 +3,7 @@
 %\usepackage{../stile}
 \usepackage{../../../template/stile}
 
+
 %Titolo documento
 \newcommand{\titoloDocumento}{Norme di Progetto}
 
@@ -79,7 +80,7 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.0.0 & \NDC & 2015-11-15 & Template di base \\
+1.0.0 & \NDC & 2015-11-30 & Template di base \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -98,16 +99,24 @@
 % NOTA non so dove mettere l'uso di git
 
 \section{Introduzione}
+Questo documento definisce le norme che i membri del gruppo \nomeTeam{} adotteranno nello svolgimento del progetto \CapitolatoL. Tutti i membri sono tenuti a leggere il documento attentamente e a seguirene le norme.
 
 \subsection{Scopo}
+Il documento si propone come proposito di garantire l’uniformità di tutto il materiale prodotto, migliorarene l’efficienza e ridurrene gli errori.
 
 \subsection{Descrizione}
+Verranno definite norme riguardanti:
+
+\begin{itemize}
+  \item le interazioni tra membri del gruppo;
+  \item la stesura documenti, convenzioni stilistiche e tipografiche;
+  \item le modalità di lavoro durante tutte le varie fasi del progetto;
+  \item l'ambiente di lavoro.
+\end{itemize}
 
 \subsection{Glossario}
-
-\subsection{Riferimenti}
-
-\subsubsection{Informativi}
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei
+documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \emph{Glossario} è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).
 
 \newpage
 
@@ -124,10 +133,31 @@
 \section{Processi di Supporto} %ISO 12207 6
 
 \subsection{Scopo}
+Definisce norme per lo sviluppo e il mantenimento della documentazione prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità, di verifica e validazione di tali documenti.
+
 
 \subsection{Descrizione}
+Verranno definite norme riguardanti:
+
+\begin{itemize}
+  \item l'utilizzo e l'accesso ai documenti;
+  \item i templates da utilizzare, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
+  \item i metodi di verifica e approvazione dei documenti;
+\end{itemize}
 
 \subsection{Documentazione} %ISO 12207 6.1
+
+Per agevolare la redazione della documentazione è stato creato un template \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella repository\textsubscript{G} in \texttt{doc/template}.
+
+Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{http://www.ietf.org/rfc/rfc2119.txt}:
+
+\begin{itemize}
+  \item i termini \emph{deve}, \emph{è richiesto} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST};
+  \item i termini \emph{non deve}, \emph{è richiesto che non} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST NOT};
+  \item i  termini \emph{dovrebbe}, \emph{si raccomanda}, \emph{è preferibile} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{SHOULD}
+  \item i termini \emph{non dovrebbe}, \emph{si raccomanda di non}, \emph{è preferibile che non} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{SHOULD NOT};
+  \item i termini \emph{può}, \emph{opzionalmente} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MAY}.
+\end{itemize}
 
 \subsection{Configurazione} %ISO 12207 6.2
 
