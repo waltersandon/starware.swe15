@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.4)  2 DEC 2015 00:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.9.4)  2 DEC 2015 11:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,6 +571,20 @@ Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
 LaTeX Info: Redefining \em on input line 420.
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 79.
+
+(/usr/share/texlive/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
+\ttl@box=\box28
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen142
+\ttl@minus=\dimen143
+\ttl@toksa=\toks23
+\titlewidth=\dimen144
+\titlewidthlast=\dimen145
+\titlewidthfirst=\dimen146
+)
+\c@subsubsubsection=\count126
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -605,17 +619,17 @@ italian.ldf    on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count126
-\scratchdimen=\dimen142
-\scratchbox=\box28
-\nofMPsegments=\count127
-\nofMParguments=\count128
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count129
-\MPscratchDim=\dimen143
-\MPnumerator=\count130
-\makeMPintoPDFobject=\count131
-\everyMPtoPDFconversion=\toks24
+\scratchcounter=\count127
+\scratchdimen=\dimen147
+\scratchbox=\box29
+\nofMPsegments=\count128
+\nofMParguments=\count129
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count130
+\MPscratchDim=\dimen148
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
+\everyMPtoPDFconversion=\toks25
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -631,7 +645,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\AtBeginShipoutBox=\box29
+\AtBeginShipoutBox=\box30
 Package hyperref Info: Link coloring ON on input line 26.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -640,7 +654,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count132
+\c@section@level=\count133
 )
 LaTeX Info: Redefining \ref on input line 26.
 LaTeX Info: Redefining \pageref on input line 26.
@@ -692,45 +706,45 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@lstlisting=\count133
-<../../../template/imgs/logoGrande.png, id=92, 703.62875pt x 286.06876pt>
+\c@lstlisting=\count134
+<../../../template/imgs/logoGrande.png, id=132, 703.62875pt x 286.06876pt>
 File: ../../../template/imgs/logoGrande.png Graphic file (type png)
 
 <use ../../../template/imgs/logoGrande.png>
 Package pdftex.def Info: ../../../template/imgs/logoGrande.png used on input li
-ne 35.
+ne 36.
 (pdftex.def)             Requested size: 351.8135pt x 143.03403pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 47.
+(Font)              <12> on input line 48.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 47.
+(Font)              <8> on input line 48.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 47.
+(Font)              <6> on input line 48.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../../template/imgs/log
 oGrande.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 72--74
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
 
-Overfull \hbox (26.11656pt too wide) in paragraph at lines 78--86
+Overfull \hbox (26.11656pt too wide) in paragraph at lines 79--87
  [] 
  []
 
-<../../../template/imgs/logoLungo.png, id=103, 905.3825pt x 102.3825pt>
+<../../../template/imgs/logoLungo.png, id=143, 905.3825pt x 102.3825pt>
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 90.
+e 91.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.90 \newpage
+l.91 \newpage
               [1 <../../../template/imgs/logoLungo.png>]
 (./normeDiProgetto_v1.0.0.toc)
 \tf@toc=\write4
@@ -739,7 +753,7 @@ l.90 \newpage
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
  <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 93.
+e 94.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
 
 [2] (./normeDiProgetto_v1.0.0.lot)
@@ -754,68 +768,82 @@ File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 97.
+e 98.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
  [3]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 121.
+e 122.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
  [4]
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 131.
+e 132.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
  [5]
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 152.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 152.
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 170.
+e 173.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
  [6]
 File: ../../../template/imgs/logoLungo.png Graphic file (type png)
 
 <use ../../../template/imgs/logoLungo.png>
 Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
-e 187.
+e 214.
 (pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
  [7]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 219.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 219.
+File: ../../../template/imgs/logoLungo.png Graphic file (type png)
+
+<use ../../../template/imgs/logoLungo.png>
+Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
+e 237.
+(pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
+ [8]
+File: ../../../template/imgs/logoLungo.png Graphic file (type png)
+
+<use ../../../template/imgs/logoLungo.png>
+Package pdftex.def Info: ../../../template/imgs/logoLungo.png used on input lin
+e 254.
+(pdftex.def)             Requested size: 108.6412pt x 12.28535pt.
+ [9]
 
 AED: lastpage setting LastPage
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 257.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 257.
 (./normeDiProgetto_v1.0.0.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 257.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 257.
 Package rerunfilecheck Info: File `normeDiProgetto_v1.0.0.out' has not changed.
 
-(rerunfilecheck)             Checksum: 58581D4758172F73050EFCD5761A7564;1328.
+(rerunfilecheck)             Checksum: ED9FFDD865C09B888378A59EF5B268CD;2137.
  ) 
 Here is how much of TeX's memory you used:
- 9298 strings out of 493304
- 132449 string characters out of 6139872
- 251582 words of memory out of 5000000
- 12592 multiletter control sequences out of 15000+600000
+ 9604 strings out of 493304
+ 136730 string characters out of 6139872
+ 258928 words of memory out of 5000000
+ 12881 multiletter control sequences out of 15000+600000
  9016 words of font info for 32 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 48i,16n,45p,816b,399s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,16n,45p,816b,451s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
@@ -825,10 +853,10 @@ ts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmtt12.pfb>
-Output written on normeDiProgetto_v1.0.0.pdf (8 pages, 136239 bytes).
+Output written on normeDiProgetto_v1.0.0.pdf (10 pages, 142136 bytes).
 PDF statistics:
- 222 PDF objects out of 1000 (max. 8388607)
- 197 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 187 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 290 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 48 named destinations out of 1000 (max. 500000)
+ 267 words of extra memory for PDF output out of 10000 (max. 10000000)
 

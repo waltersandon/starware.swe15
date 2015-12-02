@@ -29,8 +29,9 @@
 \today \\
 \vspace{1cm}
 \begin{Huge}
-\textbf{\nomeTeam}
+\textbf{\nomeTeam} \\
 \end{Huge}
+\textbf{\CapitolatoL} \\
 \vspace{1cm}
 \includegraphics[scale=0.5]{\logoGrande}
 \vspace{1cm}
@@ -108,10 +109,10 @@ Il documento si propone come proposito di garantire l’uniformità di tutto il 
 Verranno definite norme riguardanti:
 
 \begin{itemize}
-  \item le interazioni tra membri del gruppo;
-  \item la stesura documenti, convenzioni stilistiche e tipografiche;
-  \item le modalità di lavoro durante tutte le varie fasi del progetto;
-  \item l'ambiente di lavoro.
+  \item interazioni tra membri del gruppo;
+  \item stesura documenti, convenzioni stilistiche e tipografiche;
+  \item modalità di lavoro durante tutte le fasi del progetto;
+  \item ambiente di lavoro.
 \end{itemize}
 
 \subsection{Glossario}
@@ -140,15 +141,81 @@ Definisce norme per lo sviluppo e il mantenimento della documentazione prodotta 
 Verranno definite norme riguardanti:
 
 \begin{itemize}
-  \item l'utilizzo e l'accesso ai documenti;
-  \item i templates da utilizzare, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
-  \item i metodi di verifica e approvazione dei documenti;
+  \item utilizzo e l'accesso ai documenti;
+  \item templates da utilizzare, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
+  \item metodi di verifica e approvazione dei documenti;
 \end{itemize}
 
 \subsection{Documentazione} %ISO 12207 6.1
 
+\subsubsection{Template}
 Per agevolare la redazione della documentazione è stato creato un template \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella repository\textsubscript{G} in \texttt{doc/template}.
 
+\subsubsection{Struttura dei documenti}
+
+\subsubsubsection{Prima pagina}
+Ogni documento deve avere una prima pagina che contiene le seguenti informazioni sul documento:
+
+\begin{itemize}
+  \item nome del gruppo;
+  \item nome del progetto;
+  \item logo del gruppo;
+  \item titolo del documento;
+  \item versione del documento;
+  \item stato del documento (informale\textsubscript{G} o formale\textsubscript{G})
+  \item uso del documento (interno\textsubscript{G} o esterno\textsubscript{G});
+  \item data di creazione del documento;
+  \item data di dultima modifica del documento;
+  \item nome e cognome dei redattori del documento;
+  \item nome e cognome dei verificatori del documento;
+  \item nome e cognome del responsabile che approva il documento;
+  \item lista di distribuzione del documento;     
+\end{itemize}
+
+\subsubsubsection{Diario delle modifiche}
+Il diario delle modifiche del documento segue la prima pagina. La tabella deve essere ordinata per data in ordine decrescente, in modo che la prima riga corrisponda alla versione attuale del documento. Ogni riga del diario delle modifiche deve contenere:
+
+\begin{itemize}
+  \item versione del documento dopo la modifica;
+  \item nome e cognome dell'autore della modifica;
+  \item data della modifica;
+  \item titolo del documento;
+  \item una breve descrizione delle modifiche svolte.
+\end{itemize}
+
+\subsubsubsection{Indice}
+Al diario delle modifiche deve sempre seguire un indice delle sezioni e sottosezioni.
+
+\subsubsubsection{Elenco tabelle e figure}
+All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e delle figure. Nel caso non siano presenti figure o tabelle i rispettivi indici devono essere
+omessi.
+
+\subsubsubsection{Introduzione}
+\paragraph{Scopo}
+\paragraph{Descrizione}
+
+\subsubsubsection{Sezioni}
+\paragraph{Scopo}
+\paragraph{Descrizione}
+
+\subsubsubsection{Formattazione delle pagine}
+L’intestazione di ogni pagina deve contenere:
+
+\begin{itemize}
+  \item logo del gruppo;
+  \item nome del documento.
+\end{itemize}
+
+Il piè di pagina deve contenere:
+\begin{itemize}
+  \item versione del documento;
+  \item nome dell'università e anno accademico corrente;
+  \item pagina corrente nel formato N di T dove N è il numero di pagina corrente e T è il numero di pagine totali;
+  \item email del gruppo;
+  \item licenza di distribuzione del documento.
+\end{itemize}
+
+\subsection{Linguaggio}
 Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{http://www.ietf.org/rfc/rfc2119.txt}:
 
 \begin{itemize}
