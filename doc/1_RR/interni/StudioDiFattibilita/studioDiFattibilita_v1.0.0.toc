@@ -1,0 +1,22 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}prova link}{4}{section.1}
+\contentsline {section}{\numberline {2}tabella}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}primo stile}{5}{subsection.2.1}
+\contentsline {section}{\numberline {3}testo con citazioni}{6}{section.3}
+\contentsline {section}{\numberline {4}codice}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}C++}{7}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Java}{7}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}HTML}{7}{subsection.4.3}
+\contentsline {section}{\numberline {5}immagine}{8}{section.5}
+\contentsline {section}{\numberline {6}Capitolato C3 UMAP}{9}{section.6}
+\contentsline {paragraph}{Descrizione}{9}{section*.1}
+\contentsline {paragraph}{Requisiti obbligatori}{9}{section*.2}
+\contentsline {subparagraph}{Sviluppo di :}{9}{section*.3}
+\contentsline {paragraph}{Aspetti Positivi:}{9}{section*.4}
+\contentsline {paragraph}{Fattori di Rischio:}{9}{section*.5}
+\contentsline {section}{\numberline {7}Capitolato C4 MaaS}{10}{section.7}
+\contentsline {paragraph}{Descrizione}{10}{section*.6}
+\contentsline {paragraph}{Requisiti obbligatori}{10}{section*.7}
+\contentsline {paragraph}{Aspetti Positivi:}{10}{section*.8}
+\contentsline {paragraph}{Fattori di Rischio:}{10}{section*.9}
