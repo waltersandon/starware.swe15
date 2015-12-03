@@ -142,7 +142,7 @@ Verranno definite norme riguardanti:
   \item metodi di verifica e approvazione dei documenti;
 \end{itemize}
 
-\subsection{Documentazione} %ISO 12207 6.1
+\subsection{Documentazione}\label{Documentazione} %ISO 12207 6.1
 La readazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \gloss{ruoli} definiti in \TODO{definire i ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su comferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Tutti documenti essi dovranno a essere denominati secondo il seguente formalismo:
@@ -263,8 +263,8 @@ Il piè di pagina deve contenere:
 
 \subsubsubsection{Composizione}
 \begin{itemize}
-  \item \textbf{Elenchi}: ogni punto dell’elenco deve terminare con un punto e virgola, tranne l’ultimo che deve terminare con un punto. Se l'elenco è un elenco di elementi seguiti da descrizione devono terminare senza punteggiatura
-  \item \textbf{Nomi di membri del gruppo}: si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
+  \item \textbf{Elenchi}: ogni punto dell’elenco deve terminare con un punto e virgola, tranne l’ultimo che deve terminare con un punto. Gli elenchi devono essere puntati se non è necessario che gli elementi siano in un ordine preciso. Se l'elenco è una lista di elementi seguiti da descrizione devono terminare senza punteggiatura
+  \item \textbf{Membri del gruppo}: i nomi dei membri del grupppo si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
   \begin{itemize}
     \item \textbf{Alessio Vitella}: \latex{\textbackslash AVI}
     \item \textbf{Andrea Venier}: \latex{\textbackslash AVE}
@@ -286,6 +286,22 @@ Il piè di pagina deve contenere:
   \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel \GlO. È stata fatta una definite macro in \LaTeX{} per facilitare la composizione dei documenti: \latex{\textbackslash gloss}
   \item \textbf{Note}: le note a piè di pagina possono contebnere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
   \item \textbf{\LaTeX}: i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
+  \item \textbf{Revisioni}: i riferimenti alle revisioni devono essere fatti utilizzato la rispettiva macro che garantisce la corretta scrittura con la prima lettera di ogni parola che non sia una preposizione maiuscola :
+  \begin{itemize}
+    \item \textbf{Revisione dei Requisiti}: \latex{\textbackslash RR}
+    \item \textbf{Revisione di Progettazione}: \latex{\textbackslash RP}
+    \item \textbf{Revisione di Qualifica}: \latex{\textbackslash RQ}
+    \item \textbf{Revisione di Accettazione}: \latex{\textbackslash RA}
+  \end{itemize}
+  \item \textbf{Documenti}: i riferimenti ai documenti devono essere fatti utilizzato la specifica come definita nella sezione \ref{Documentazione}. Sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti:
+  \begin{itemize}
+    \item \textbf{Norme di Progetto}: \latex{\textbackslash NdP}
+    \item \textbf{Studio di Fattibilità}: \latex{\textbackslash SdF}
+    \item \textbf{Analisi dei Requisiti}: \latex{\textbackslash AdR}
+    \item \textbf{Piano di Progetto}: \latex{\textbackslash PdP}
+    \item \textbf{Piano di Qualifica}: \latex{\textbackslash PdQ}
+    \item \textbf{Glossario}: \latex{\textbackslash GlO}
+  \end{itemize}
 \end{itemize}
 
 \subsubsubsection{Formati}
