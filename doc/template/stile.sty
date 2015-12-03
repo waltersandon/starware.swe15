@@ -23,6 +23,8 @@
 \usepackage{fixltx2e}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{color}
+\usepackage[T1]{fontenc}
 
 \bibliographystyle{alpha}
 
@@ -68,9 +70,10 @@
 \newcommand{\PdQ}{\gloss{\emph{Piano di Qualifica}}}
 \newcommand{\GlO}{\gloss{\emph{Glossario}}}
 
-\newcommand{\filename[1]}{\texttt{#1}}
-\newcommand{\filepath[1]}{\texttt{#1}}
-\newcommand{\todo[1]}{#1}
+\newcommand{\latex}[1]{\texttt{#1}}
+\newcommand{\fileName}[1]{\texttt{#1}}
+\newcommand{\filePath}[1]{\texttt{#1}}
+\newcommand{\TODO}[1]{\texttt{\large \color{red} \underline{TODO: #1}}}
 
 \newcommand{\licenza}{GNU GENERAL PUBLIC LICENSE V2}
 

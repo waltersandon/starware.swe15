@@ -108,7 +108,6 @@ Il documento si propone come proposito di garantire l’uniformità di tutto il 
 
 \subsection{Descrizione}
 Verranno definite norme riguardanti:
-
 \begin{itemize}
   \item interazioni tra membri del gruppo;
   \item stesura documenti, convenzioni stilistiche e tipografiche;
@@ -118,7 +117,7 @@ Verranno definite norme riguardanti:
 
 \subsection{Glossario}
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei
-documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \emph{Glossario} è marcata da una G maiuscola in pedice (e.g. \gloss{pedice}).
+documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \GlO è marcata da una G maiuscola in pedice (e.g. \gloss{pedice}).
 
 \newpage
 
@@ -139,7 +138,6 @@ Definisce norme per lo sviluppo e il mantenimento della documentazione prodotta 
 
 \subsection{Descrizione}
 Verranno definite norme riguardanti:
-
 \begin{itemize}
   \item utilizzo e l'accesso ai documenti;
   \item templates da utilizzare, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
@@ -147,8 +145,7 @@ Verranno definite norme riguardanti:
 \end{itemize}
 
 \subsection{Documentazione} %ISO 12207 6.1
-
-La readazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento. Successivamente se i redattori ritengono che il documento sia completo, su comferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
+La readazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \gloss{ruoli} definiti in \TODO{definire i ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su comferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Tutti documenti essi dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
@@ -164,20 +161,20 @@ Ogniqualvolta sia necessaria la citazione di una versione specifica di un docume
 \subsubsection{Versione} \label{Versione}
 La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \emph{vX.Y.Z} dove:
 \begin{itemize}
-  \item X indica il numero crescente di uscite formali del documento. All’inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L’indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
+  \item \textbf{X} indica il numero crescente di uscite formali del documento. All’inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L’indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
   \begin{enumerate}
     \item fase che si conclude con la \RR;
     \item fase che si conclude con la \RP;
     \item fase che si conclude con la \RQ;
     \item fase che si conclude con la \RA;
   \end{enumerate}
-  \item Y indica la fase in cui il documento si trova. Nel momento in cui inizia l’attività di stesura il redattore del documento deve controllare che tale indice sia correttamente impostato a 0. All’inizio della verifica il \VR{} deve variare l’indice impostandolo a 1, dopo aver ricevuto il consenso dal \PM. Conclusa la verifica, il \PM{} provvede all’approvazione del documento e deve impostare l’indice a 2. L’indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
+  \item \textbf{Y} indica la fase in cui il documento si trova. Nel momento in cui inizia l’attività di stesura il redattore del documento deve controllare che tale indice sia correttamente impostato a 0. All’inizio della verifica il \VR{} deve variare l’indice impostandolo a 1, dopo aver ricevuto il consenso dal \PM. Conclusa la verifica, il \PM{} provvede all’approvazione del documento e deve impostare l’indice a 2. L’indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
   \begin{enumerate}[start=0]
     \item stesura del documento;
     \item verifica del documento;
     \item approvazione del documento.
   \end{enumerate}
-  \item Z indica il numero crescente di modifiche minori. Ad ogni modifica effettuata deve corrispondere ad un’aggiunta di una voce nel diario delle modifiche, il redattore o il \VR devono aggiornare l’indice seguendo una numerazione progressiva. Non viene fissato un limite superiore per tale indice.
+  \item \textbf{Z} indica il numero crescente di modifiche minori. Ad ogni modifica effettuata deve corrispondere ad un’aggiunta di una voce nel diario delle modifiche, il redattore o il \VR devono aggiornare l’indice seguendo una numerazione progressiva. Non viene fissato un limite superiore per tale indice.
 \end{itemize}
 
 \subsubsection{Stato}
@@ -190,23 +187,27 @@ Tutti i documenti saranno da ritenersi informali fino all’approvazione del \PM
 I documenti approvati dal \PM{} si riterranno formali e pronti per essere distribuiti. Solo i documenti formali potranno essere distribuiti alla loro lista di distribuzione. Ogniqualvolta un documento formale venga modificato o rivisitato, la nuova versione è da considerarsi non formale fino ad approvazione del \PM e quindi sarà trattata come un documento informale.
 
 \subsubsection{Uso}
+I documenti possono avere diverse liste di distribuzione ma una devono essere classificati in due principali categorie: uso interno ed esterno.
 
-\subsubsection{Template}
-Per agevolare la redazione della documentazione è stato creato un template \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella repository\textsubscript{G} in \texttt{doc/template}.
+\subsubsubsection{Interno}
+I docuemnti definiti ad uso interno non devono essere distribuiti all'esterno del gruppo di lavoro.
+
+\subsubsubsection{Esterno}
+I docuemnti definiti ad uso esterno devono essere distribuiti secondo i criteri della lista di distribuzine solamente se sono stati approvati dal \PM{} e se sono in stato \gloss{formale}.
 
 \subsubsection{Struttura dei documenti}
+I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un template \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \gloss{repository} in \filePath{doc/template}.
 
 \subsubsubsection{Prima pagina}
 Ogni documento deve avere una prima pagina che contiene le seguenti informazioni sul documento:
-
 \begin{itemize}
   \item nome del gruppo;
   \item nome del progetto;
   \item logo del gruppo;
   \item titolo del documento;
   \item versione del documento;
-  \item stato del documento (informale\textsubscript{G} o formale\textsubscript{G})
-  \item uso del documento (interno\textsubscript{G} o esterno\textsubscript{G});
+  \item stato del documento (\gloss{informale} o \gloss{formale})
+  \item uso del documento (\gloss{interno} o \gloss{esterno});
   \item data di creazione del documento;
   \item data di dultima modifica del documento;
   \item nome e cognome dei redattori del documento;
@@ -217,7 +218,6 @@ Ogni documento deve avere una prima pagina che contiene le seguenti informazioni
 
 \subsubsubsection{Diario delle modifiche}
 Il diario delle modifiche del documento segue la prima pagina. La tabella deve essere ordinata per data in ordine decrescente, in modo che la prima riga corrisponda alla versione attuale del documento. Ogni riga del diario delle modifiche deve contenere:
-
 \begin{itemize}
   \item versione del documento dopo la modifica;
   \item nome e cognome dell'autore della modifica;
@@ -227,28 +227,23 @@ Il diario delle modifiche del documento segue la prima pagina. La tabella deve e
 \end{itemize}
 
 \subsubsubsection{Indice}
-Al diario delle modifiche deve sempre seguire un indice delle sezioni e sottosezioni.
+Al diario delle modifiche deve sempre seguire un indice delle sezioni e sottosezioni del documento.
 
 \subsubsubsection{Elenco tabelle e figure}
-All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e delle figure. Nel caso non siano presenti figure o tabelle i rispettivi indici devono essere
-omessi.
+All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e delle figure. Nel caso non siano presenti figure o tabelle i rispettivi indici devono essere omessi.
 
 \subsubsubsection{Introduzione}
-\paragraph{Scopo}
-\paragraph{Descrizione}
+Ogni documento deve essere provisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate \emph{Scopo} e \emph{Descrizione}. Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
 
 \subsubsubsection{Sezioni}
-\paragraph{Scopo}
-\paragraph{Descrizione}
+I documenti devono avere altre sezioni in modo da orgnanizzare meglio i contenuti. Ogni sezione deve avere tue sottosezioni denominate \emph{Scopo} e \emph{Descrizione}. Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sottosottosezioni,  paragrafi e sottoparagrafi. Questi non necessitano di \emph{Scopo} e \emph{Descrizione}.
 
 \subsubsubsection{Formattazione delle pagine}
-L’intestazione di ogni pagina deve contenere:
-
+L’intestazione di ogni pagina, apparte la prima, deve contenere:
 \begin{itemize}
   \item logo del gruppo;
   \item nome del documento.
 \end{itemize}
-
 Il piè di pagina deve contenere:
 \begin{itemize}
   \item versione del documento;
@@ -260,205 +255,58 @@ Il piè di pagina deve contenere:
 
 \subsubsection{Norme tipografiche}
 
+\subsubsubsection{Stile del testo}
+\begin{itemize}
+  \item \textbf{Corsivo}: deve essere usato solo per indicare termini in lingua inglese, standard, citazioni, \gloss{ruoli} e nomi di documenti
+  \item \textbf{Grassetto}: deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poichè può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione
+  \item \textbf{Monospace}: deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi
+  \item \textbf{Maiuscolo}: deve essere usato solo per gli acronimi
+\end{itemize}
 
+\subsubsubsection{Composizione}
+\begin{itemize}
+  \item \textbf{Elenchi}: ogni punto dell’elenco deve terminare con un punto e virgola, tranne l’ultimo che deve terminare con un punto. Se l'elenco è un elenco di elementi seguiti da descrizione devono terminare senza punteggiatura
+  \item \textbf{Nomi di membri del gruppo}: si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
+  \begin{itemize}
+    \item \textbf{Alessio Vitella}: \latex{\textbackslash AVI}
+    \item \textbf{Andrea Venier}: \latex{\textbackslash AVE}
+    \item \textbf{Nicola De Cao}: \latex{\textbackslash NDC}
+    \item \textbf{Igor Baylyak}: \latex{\textbackslash IB}
+    \item \textbf{Walter Sandon}: \latex{\textbackslash WS}
+    \item \textbf{Thomas Pigarelli}: \latex{\textbackslash TP}
+    \item \textbf{Anna Bonaldo}: \latex{\textbackslash AB}
+  \end{itemize}
+  \item \textbf{Ruoli}: i nomi dei ruoli devono essere riportati in corsivo e con la prima lettera maiuscola. Sono state definite macro in \LaTeX{} con tutti i ruoli definti per facilitare la composizione dei documenti:
+  \begin{itemize}
+    \item \textbf{Amministratore}: \latex{\textbackslash AM}
+    \item \textbf{Analista}: \latex{\textbackslash AN}
+    \item \textbf{Progettista}: \latex{\textbackslash PG}
+    \item \textbf{Programmatore}: \latex{\textbackslash PR}
+    \item \textbf{Verificatore}: \latex{\textbackslash VR}
+    \item \textbf{Project Manager}: \latex{\textbackslash PM}
+  \end{itemize}
+  \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel \GlO. È stata fatta una definite macro in \LaTeX{} per facilitare la composizione dei documenti: \latex{\textbackslash gloss}
+  \item \textbf{Note}: le note a piè di pagina possono contebnere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
+  \item \textbf{\LaTeX}: i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
+\end{itemize}
 
+\subsubsubsection{Formati}
+\begin{itemize}
+  \item \textbf{Nome files}: per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
+  \item  \textbf{Percorsi}: per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
+  \item \textbf{URLs e Links}:  per gli indirizzi web comleti deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
+  \item \textbf{Date e Orari}: le date e gli orari devono seguire la notazione definita dallo standard \emph{ISO 8601}\footnote{\url{http://www.iso.org/iso/iso8601}}: YYYY-MM-DD per le date e HH:MM pe gli orari
+  \item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard \emph{ISO 80000\footnote{\TODO{link a iso 80000}}}
+\end{itemize}
 
+\subsubsubsection{Tabelle}
+Ogni tabella presente all’interno dei documenti dev’essere accompagnata da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all’interno del documento.
 
-
-
-
-
-
-
-
-ssoNorme tipografiche . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.5.1
- Stile del testo . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.5.2
- Punteggiatura . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.5.3
- Composizione del testo .
- .
- .
- .
- .
- .
- .
-3.1.5.4
- Convenzioni tipografiche
- .
- .
- .
- .
- .
- .
-3.1.5.5
- Formati . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-Componenti grafiche . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.6.1
- Tabelle . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.6.2
- Immagini . . . . . . . . .
- .
- .
- .
- .
- .
- .
-Tipi di documenti . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.7.1
- Documenti informali . . .
- .
- .
- .
- .
- .
- .
-3.1.7.2
- Documenti formali . . . .
- .
- .
- .
- .
- .
- .
-3.1.7.3
- Glossario . . . . . . . . .
- .
- .
- .
- .
- .
- .
-Versionamento dei documenti . . .
- .
- .
- .
- .
- .
- .
-Intestazione file di documentazione
- .
- .
- .
- .
- .
- .
-Ciclo di vita del documento . . . .
- .
- .
- .
- .
- .
- .
-Strumenti per la documentazione .
- .
- .
- .
- .
- .
- .
-3.1.11.1
- L A TEX . . . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.11.2
- Editor . . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.11.3
- Script . . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.11.4
- Diagrammi UMLG . . . . .
- .
- .
- .
- .
- .
- .
-3.1.11.5
- Verifica . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-3.1.11.6 Foglio di calcolo . . . . . .
- .
- .
- .
- .
- .
- .
-di verifica . . . . . . . . . . . . .
- .
- .
- .
- .
- .
- .
-
+\subsubsubsection{Immagini e grafici}
+Le immagini e i grafici presenti all’interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all’interno del documento. Le immagini e i grafici devono essere nel formato Scalable Vector Graphics (\gloss{SVG}), così in questo modo si garantisce una maggior qualità dell’immagine in caso di ridimensionamento. Per consentire l’inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \gloss{PDF} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\gloss{PNG}).
 
 \subsection{Linguaggio}
-Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{http://www.ietf.org/rfc/rfc2119.txt}:
-
+Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{\url{http://www.ietf.org/rfc/rfc2119.txt}}:
 \begin{itemize}
   \item i termini \emph{deve}, \emph{è richiesto} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST};
   \item i termini \emph{non deve}, \emph{è richiesto che non} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST NOT};
