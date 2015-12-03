@@ -96,122 +96,50 @@ v0	&	Mr X	&	30 Febbraio 1959	&	Partenza\\
 \tableofcontents
 \newpage
 
-\listoftables
-\listoffigures
+\section{Introduzione}
+\subsection{Scopo del Documento}
+\subsection{Scopo del Prodotto}
+\subsection{Glossario}
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\subsubsection{Informativi}
+
 \newpage
+\section{Capitolato C5 - Quizzpedia}
+\subsection{Descrizione}
+\subsection{Studio del dominio}
+\subsubsection{Dominio applicativo}
+\subsubsection{Dominio tecnologico}
+\subsection{Valutazione del capitolato}
+\subsubsection{Potenziali criticità}
+\subsubsection{Analisi di mercato}
+\subsection{Valutazione finale}
 
-
-\section{prova link}
-\href{http://docs.oracle.com/javase/tutorial/}{Testo del link}
 \newpage
+\section{Altri Capitolati}
+\subsection{Capitolato C2 CLIPS}
+\subsubsection{Valutazione Generale}
 
-\section{tabella}
-\subsection{primo stile}
-Testo prima...
-\begin{table}[h]
-\begin{center}
-\rowcolors{2}{light}{}
-\begin{tabular}{lcr}
-\toprule
-titoloC1 - SX	&	titoloC2 - CX	&	titoloC3 - DX\\
-\midrule
-\midrule
-r11	& r12 & r13\\
-r21	& r22 & r23\\
-r31 & r32 & r33\\
-r41 & r42 & r43\\
-r51 & r52 & r53\\
-\midrule
-r61 & r62 & r63\\
-\bottomrule
-\end{tabular}
-\end{center}
+Per questo capitolato è richiesta l'implementazione di un'applicazione per Smartphone. L'applicazione deve permettere di gestire la microlocalizzazione di luoghi fisici, dove è presente la tecnologia BLE Beacon, e veicolare al utente finale informazioni contestuali a questi luoghi. 
+Il gruppo ha trovato questo capitolato indubbiamente interessante perchè  posto nell'ambito della ricerca,permettendo lo studio di tecnologie recenti, e anche perchè viene data la possibilità di proporre e sviluppare una propria idea originale. Tuttavia a causa una serie di limiti legati alla tecnologia Beacon BLE, il team ha deciso di propendere verso un altro capitolato.\\
 
-\caption{stile colorato}
-\label{t1}
-\end{table}
+Si è scelto di non accettare questo capitolato per i seguenti motivi:
+\begin{itemize}
+\item La teconologia dei Beacon BLE e le sue applicazioni sono ancora immature.
+\item Abbiamo ritenuto che un costo medio di 25 euro per Beacon fosse eccessivamente mettendolo in relazione con le funzionalità offerte.
+\item L'obbligo da parte del sistema operativo Android o IOS di tenere attivo il sistema di localizzazione dello Smartphone per poter localizzare i Beacon, risultando in un consumo notevole della batteria.
+\item L'impossibilità di interagire in alcun modo con i Beacon senza un applicazione dedicata.
+\end{itemize}
 
-Testo dopo...
+\subsubsection{Fattori di Rischio}
+
+\begin{itemize}
+\item Difficoltà nel proporre un idea non banale e funzionale considerando l'imprecisione e il tempo di latenza nel rilevamento dei Beacon da parte si uno smartphone.
+\end{itemize}
+
 \newpage
-
-\section{testo con citazioni}
-All'uomo solo,\\
-ancora pi\`{u} amica,\\
-la luna\\
----\\
-Yosa Buson
-\newpage
-
-\section{codice}
-\subsection{C++}
-\begin{lstlisting}[basicstyle=\ttfamily]
-/*
-*	esempio di codice C++
-*/
-include <iostream>
-using namespace std;
-
-main(){
-	cout << "Ciao mondo!" <<endl;
-}
-\end{lstlisting}
-
-\subsection{Java}
-\begin{lstlisting}[basicstyle=\ttfamily]
-/*
-*	esempio di Java
-*/
-public class Prova{
-	public static void main(String[] args){
-		System.out.println("Ciao raga ;)");	
-	}
-}
-\end{lstlisting}
-
-\subsection{HTML}
-\begin{lstlisting}[basicstyle=\ttfamily]
-<!--
-Esempio di HTML5
--->
-<!DOCTYPE HTML>
-<html>
-	<body>
-	<p>Ciao Web!</p>
-	</body>
-</html>
-\end{lstlisting}
-\newpage
-
-%per importare da file:
-%\lstinputlisting[language=C++]{main.cpp}
-
-\section{immagine}
-
-\begin{center}
-\begin{figure}[h]
-\centering
-\label{f1-inferno}
-\includegraphics[scale=0.75]{inferno.jpeg}
-\caption{Diagramma delle classi dettagliato che illustra i package
-\nolinkurl{mytalk.client.iPresenter.iUser.iLogicUser} e mytalk.client.presenter.user.logicUser.}
-\end{figure}
-\end{center}
-
-Il problema delle \index{immagini} immagini e' che sono difficili da impaginare quando \LaTeX \ f\`{a} i capricci :(
-\\
-testo a casaccio...\cite{webRTC}
-\\
-I have been wondering how to make a separate bibliography of my own publications as an appendix in my dissertation. Vincent pointed me to multibib and its siblings, and then I came across this FAQ about all the glories of multiple bibliographies. Doesn’t look like the easiest thing to get going, but I’ll dive into it and see if I manage to get out of it successfully.\cite{som}
-
-%per importare da file:
-%\input{sezione.tex}
-%\newpage
-
-%per ora non serve la biblio
-%\bibliography{../bibliografia}
-\newpage
-\section{Capitolato C3 UMAP}
-\paragraph{Descrizione}
+\subsection{Capitolato C3 UMAP}
+\subsubsection{Descrizione}
 
 Questo capitolato richiede l'implementazione di un sistema per la  raccolta e la elaborazione di dati eterogenei, dando inoltre la possibilità all'utente finale di leggere I dati e l'analisi fatta sugli stessi da un engine predittivo.
 \paragraph{Requisiti obbligatori}  
@@ -234,9 +162,10 @@ Questo capitolato richiede l'implementazione di un sistema per la  raccolta e la
 \item	Un altra difficolta risiede nella realizzazione del motore predittivo dato che al gruppo mancano totalmente le idee e le conoscenze per concepire l'elaborazione di dati eterogenei, considerando anche il fatto che durante la presentazione non sono	stati dati spunti a riguardo.
 \item	Il sistema da realizzare sarebbe incredibilmente amplio.
 \end{enumerate}
+
 \newpage
-\section{Capitolato C4 MaaS}
-\paragraph{Descrizione}
+\subsection{Capitolato C4 MaaS}
+\subsubsection{Descrizione}
 Maas è basato su un prodotto di nome Maap, che è un database noSql per il trattamento di dati Business attraverso un interfaccia grafica permettendone l'utilizzo a persone che non sono esperte di database.Il committente richiede che questo prodotto diventi un servizio gestito attraverso un account web che dia la possibilità di eliminare l'onere all'utente di eseguire la preparazione e l'installazione di Maap.
 
 \paragraph{Requisiti obbligatori}
@@ -277,5 +206,26 @@ Maas è basato su un prodotto di nome Maap, che è un database noSql per il trat
 
 \item	Essendo il committente una Startup con risorse di tempo, personale e	finanze limitate è possibile che sia difficile aiutare e seguire in	gruppo di lavoro in caso di problemi o dubbi inerenti al progetto.
 \end{enumerate}
+
+
+\newpage
+\subsection{Capitolato C6 MIVOQ}
+\subsubsection{Valutazione Generale}
+
+Il Capitolato richiede che il gruppo di lavoro proponga un idea e realizzi applicazione mobile che sfrutti le funzionalità di text to speech fornite attraverso delle API HTTP.
+Si è deciso di non accettare il capitolato per i seguenti motivi:
+\begin{itemize}
+\item Scarso interesse da parte dei membri del gruppo di lavoro nella teconologia TTS.
+\item Difficoltà nel trovare un idea per un applicazione che fosse innovativa e utile.
+\item Le Tecnologie necessarie alla realizzazione del capitolato dovrebbero essere tutte studiate da zero con il rischio di non riuscire ad avere una stima approssimativa della mole di lavoro da svolgere.
+\end{itemize}
+
+\subsubsection{Fattori di Rischio}
+
+\begin{itemize}
+\item Mancanza di conoscenze nell'implementazione di meccanismi atti a risolvere le problematiche legate all'utilizzo di un servizio remoto.
+\item L'obbiettivo di rendere disponibile la sintesi vocale a tutte le applicazioni e fornire un interfaccia di configurazione estesa comporta conoscenze specifiche e uno studio particolarmente approfondito per l'installazione e della interazione tra applicazioni e funzionalità del sistema operativo.
+\end{itemize}
+
 
 \end{document}
