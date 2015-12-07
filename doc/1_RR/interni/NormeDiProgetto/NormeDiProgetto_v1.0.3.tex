@@ -434,7 +434,7 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 Tali processi eseguono funzioni a livello organizzativo aziendale, per supportare altri processi primari, di supporto o organizzativi.
 I processi organizzativi aiutano nel definire, controllare e migliorare gli altri processi.
 
-\subsection{Processi di Gestione}
+\subsection{Processi di Management}
 
 \subsubsection{Scopo} %ISO 12207 7.1.1
 
@@ -451,19 +451,66 @@ Verranno definite norme riguardanti:
 \end{itemize}
 
 \subsubsection{Ruoli di progetto}
-\subsubsection*{Project Manager}
-\subsubsection*{Amministratore}
-\subsubsection*{Analista}
-\subsubsection*{Progettista}
-\subsubsection*{Programmatore}
-\subsubsection*{Verificatore}
-\subsubsection{Rotazione dei Ruoli}
+%non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione - 4. Don't Panic
+
+Durante lo sviluppo del progetto vi saranno diversi ruoli che i membri del gruppo andranno a ricoprire. Tali ruoli rappresentano figure aziendali specializzate, indispensabili per il buon esito del progetto. Ciascun componente del gruppo dovrà ricoprire almeno una volta ogni ruolo. Si deve inoltre certificare che non vi siano conflitti di interesse nello svolgimento delle attività di verifica e di approvazione.
+Per garantire che la rotazione dei ruoli non provochi conflitti è necessario che le attività di stesura e verifica vengano pianificate dettagliatamente e che i soggetti interessati rispettino i compiti a loro assegnati. Sarà poi compito del Verificatore controllare attentamente il diario delle modifiche di ogni documento per individuare eventuali incongruenze.
+Si descrivono ora i diversi ruoli di progetto, con le relative responsabilità e le modalità
+operative affinché essi possano svolgere i compiti assegnati con l’ausilio dei software
+scelti per il progetto.
+
+\subsubsubsection{Project Manager}
+Il \PM{} rappresenta il progetto, in quanto accentra su di sé le responsabilità di scelta ed approvazione, ed il gruppo, in quanto presenta al committente i risultati del lavoro svolto.
+Detiene il potere decisionale, quindi la responsabilità su:
+\begin{itemize}
+  \item Pianificazione, coordinamento e controllo delle attività;
+  \item Gestione e controllo delle risorse;
+  \item Analisi e gestione dei rischi;
+  \item Approvazione dei documenti;
+  \item Approvazione dell'offerta;
+\end{itemize}
+
+Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le Norme di Progetto, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \textit{\gloss{Redattori}} e
+\textit{\gloss{Verificatori}}. Egli è l’unico a poter decidere l’approvazione di un documento e a sancirne la distribuzione.
+Ha inoltre l’incarico di gestire la creazione e l’assegnazione dei \textit{\gloss{ticket}} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest’ultima.
+Redige il \PdP{} e collabora alla stesura del \PdQ{}, in particolare nella sezione relativa alla pianificazione.
+
+\subsubsubsection{Amministratore}
+L’\AM{} è responsabile del controllo, dell’efficienza e dell’operatività dell’ambiente di lavoro. Le mansioni di primaria importanza che gli competono sono:
+\begin{itemize}
+  \item Ricerca di strumenti che possano automatizzare qualsiasi compito che possa essere tolto all’umano;
+  \item Risoluzione dei problemi legati alle difficoltà di gestione e controllo dei processi e delle risorse. La risoluzione di tali problemi richiede l’adozione di strumenti adatti;
+  \item Controllo delle versioni e delle configurazioni del prodotto;
+  \item Gestione dell’archiviazione e del versionamento della documentazione di progetto;
+  \item Fornire procedure e strumenti per il monitoraggio e la segnalazione per il controllo qualità.
+\end{itemize}
+Redige le \NdP{}, dove spiega e norma l’utilizzo degli strumenti, redige la sezione del \PdQ{} dove vengono descritti strumenti e metodi di verifica.
+
+\subsubsubsection{Analista}
+L’\AN{} è responsabile delle attività di analisi. Le responsabilità di spicco per tale ruolo sono:
+
+\subsubsubsection{Progettista}
+\subsubsubsection{Programmatore}
+\subsubsubsection{Verificatore}
+\subsubsubsection{Rotazione dei Ruoli}
+
+
+\subsubsection{Comunicazione}
+%non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione
+\subsubsubsection{Interna}
+\subsubsubsection{Esterna}
+
+\subsubsection{Incontri}
+%non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione
+\subsubsubsection{Interni}
+\subsubsubsection{Esterni}
+
 
 \subsubsection{Pianificazione} %ISO 12207 7.1.2
-%task ruoli e responsabilità
+%task ruoli e responsabilità - Project Libre
 
 \subsubsection{Esecuzione e controllo} %ISO 12207 7.1.3
-%come viene monitorata l'esecuzione della pianificazione: DA DEFINIRE (per esempio chiedendo ogni tanto come sta andando il lavoro)
+%come viene monitorata l'esecuzione della pianificazione: DA DEFINIRE (per esempio chiedendo ogni tanto come sta andando il lavoro) - Asana , Git
 
 \subsection{Processi di gestione dell'infrastruttura} %ISO 12207 7.2
 %asana per i task, github per le issues e bug e risoluzione problemi, projectlibre per la pianificazione con gantt e costi
