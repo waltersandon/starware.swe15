@@ -8,7 +8,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.2}
+\newcommand{\versione}{1.0.3}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -78,6 +78,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.3 & \AVI & 2015-12-07 & Norme del Piano di Progetto e dell'Analisi dei requisiti \\
+\midrule
 1.0.2 & \AVI & 2015-12-03 & Descrizione processi di base \\
 \midrule 
 1.0.1 & \NDC & 2015-12-02 & Introduzione \\
@@ -130,7 +132,7 @@ I processi base sono formati dai seguenti sotto processi:
 \item Processo operativo
 \item Processo di manutenzione
 \end{enumerate}
-Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi di fornitura e sviluppo, poiché la prima fase riguarda l’acquirente e, per la natura "scolastica" del progetto, la fase operativa e di manutenzione non verranno trattate.
+Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi di fornitura e sviluppo, poiché la prima fase riguarda l’acquirente e i processi operativi e di manutenzione non verranno trattati.
 
 \subsection{Processi di fornitura}
 
@@ -141,11 +143,12 @@ Definisce le attività e i task attraverso i quali il fornitore comunica al comm
 Consiste nel redigere il \PdQ, che dovrà illustrare la strategia complessiva di verifica e validazione proposta dal fornitore per pervenire al collaudo del sistema con la massima efficienza ed efficacia, e il \PdP, che dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto. Le regole dettagliate per redigere il \PdP verranno analizzate nel prossimo paragrafo.
 
 \subsubsection{Piano di Progetto} %ISO 12207 5.2.4
+Il \PM, assieme all'\AM, deve presentare nel \PdP diagrammi di Gant e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse, cioè per esempio non è possibile ricoprire i ruoli di \PR e \VR nello stesso momento.
 
 \subsection{Processi di sviluppo}
 
 \subsubsection{Scopo}
-Il processo di sviluppo produce un prodotto software che soddisfi i requisiti architetturali. Inoltre definisce un insieme azioni che formalizzano comportamenti, interfacce e vincoli di implementazione atti a creare un prodotto software
+Il processo di sviluppo produce un prodotto software che soddisfi i requisiti architetturali. Inoltre definisce un insieme di azioni che formalizzano comportamenti, interfacce e vincoli di implementazione atti a creare un prodotto software
 
 \subsubsection{Descrizione}
 Il processo di sviluppo è un insieme di atività e task necessari per lo sviluppo di un prodotto software. Coloro che eseguono queste attivita’ sono gli sviluppatori. Le attività che compongono i processi di sviluppo sono:
@@ -158,14 +161,55 @@ Il processo di sviluppo è un insieme di atività e task necessari per lo svilup
 \subsubsection{Analisi dei requisiti} %ISO 12207 5.3.2
 
 \paragraph{Scopo}
-Gli Analisti dovranno produrre l’Analisi dei Requisiti basandosi sul capitolato e sugli incontri con il proponente per estrarre i requisiti del progetto. Tale processo ha l’obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d’uso individuati.
+Gli Analisti dovranno produrre l’Analisi dei Requisiti basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l’obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d’uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione.
 
 \paragraph{Descrizione}
 Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
 
-\paragraph{Requisiti}
+\paragraph{Classificazione dei Requisiti}
+È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
+riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
+importanza, utilizzando la seguente codifica:
+\begin{center}
+R[importanza/tipo/codice]
+\end{center}
+\begin{itemize}
+\item Importanza può assumere i seguenti valori:
+\begin{description}
+\item[0] Requisito obbligatorio
+\item[1] Requisito desiderabile
+\item[2] Requisito opzionale
+\end{description}
+\end{itemize}
+\begin{itemize}
+\item Tipo può assumere i seguenti valori:
+\begin{description}
+\item[F] Funzionale
+\item[Q] di Qualità
+\item[P] Prestazionale
+\item[V] Vincolo
+\end{description}
+\end{itemize}
+\begin{itemize}
+\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Codice può anche essere espresso in modo gerarchico per esprimere un sottorequisito tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+\end{itemize}
+Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
 
 \paragraph{Casi d'uso}
+I casi d'uso sono creati secondo lo standard UML 2.0 e sono i dentificati con la seguente notazione:
+\begin{center}
+UC[codice]
+\end{center}
+dove il codice è un nuero progressivo identificativo di ogni requitito, gerarchico nel  caso di sottocasi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni Caso d'uso deve inoltre essere indicato:
+\begin{itemize}
+\item \textbf{Titolo}
+\item \textbf{Attori} principali e secondari coinvolti
+\item \textbf{Descrizione} sintetica del Caso d'uso
+\item \textbf{Precondizione}
+\item \textbf{Postcondizione}
+\item \textbf{Requisiti} collegati al Caso d'uso
+\end{itemize}
+Per la creazione di diagrammi UML verrà usato il software ArgoUML (\textit{argouml.tigris.com})
 
 \subsubsection{Progettazione}
 Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
