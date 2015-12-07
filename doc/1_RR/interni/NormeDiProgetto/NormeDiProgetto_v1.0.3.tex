@@ -127,23 +127,23 @@ documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessita
 I processi base sono formati dai seguenti sotto processi:
 \begin{enumerate}
 \item Processo dell’acquirente
-\item Processo di fornitura
+\item Processo del fornitore
 \item Processo di sviluppo
 \item Processo operativo
 \item Processo di manutenzione
 \end{enumerate}
-Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi di fornitura e sviluppo, poiché la prima fase riguarda l’acquirente e i processi operativi e di manutenzione non verranno trattati.
+Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del fornitore e di sviluppo, poiché i processi  dell’acquirente non riguardano il team e le fasi operative e di manutenzione non verranno trattate.
 
-\subsection{Processi di fornitura}
+\subsection{Processi del fornitore}
 
 \subsubsection{Scopo}
 Definisce le attività e i task attraverso i quali il fornitore comunica al committente modo, tempi e costi previsti per il progetto.
 
 \subsubsection{Descrizione}
-Consiste nel redigere il \PdQ, che dovrà illustrare la strategia complessiva di verifica e validazione proposta dal fornitore per pervenire al collaudo del sistema con la massima efficienza ed efficacia, e il \PdP, che dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto. Le regole dettagliate per redigere il \PdP verranno analizzate nel prossimo paragrafo.
+Consiste nel redigere il \PdQ, che dovrà illustrare la strategia complessiva di verifica e validazione proposta dal fornitore per pervenire al collaudo del sistema con la massima efficienza ed efficacia, e il \PdP, che dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto. Le regole dettagliate per redigere il \PdP\ verranno analizzate nel prossimo paragrafo.
 
 \subsubsection{Piano di Progetto} %ISO 12207 5.2.4
-Il \PM, assieme all'\AM, deve presentare nel \PdP diagrammi di Gant e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse, cioè per esempio non è possibile ricoprire i ruoli di \PR e \VR nello stesso momento.
+Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di Gant e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiai altro ruolo.
 
 \subsection{Processi di sviluppo}
 
@@ -191,16 +191,16 @@ R[importanza/tipo/codice]
 \end{description}
 \end{itemize}
 \begin{itemize}
-\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Codice può anche essere espresso in modo gerarchico per esprimere un sottorequisito tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sottorequisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
 
 \paragraph{Casi d'uso}
-I casi d'uso sono creati secondo lo standard UML 2.0 e sono i dentificati con la seguente notazione:
+I casi d'uso sono creati secondo lo standard UML 2.0 e sono identificati dalla seguente notazione:
 \begin{center}
 UC[codice]
 \end{center}
-dove il codice è un nuero progressivo identificativo di ogni requitito, gerarchico nel  caso di sottocasi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni Caso d'uso deve inoltre essere indicato:
+dove il codice è un nuero progressivo identificativo di ogni requitito, gerarchico nel  caso di sottocasi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
 \begin{itemize}
 \item \textbf{Titolo}
 \item \textbf{Attori} principali e secondari coinvolti
