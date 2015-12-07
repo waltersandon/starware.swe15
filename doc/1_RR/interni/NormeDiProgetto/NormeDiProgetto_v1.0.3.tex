@@ -78,6 +78,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.4 & \AVE & 2015-12-08 & Ruoli di progetto e Riunioni \\
+\midrule
 1.0.3 & \AVI & 2015-12-07 & Norme del Piano di Progetto e dell'Analisi dei requisiti \\
 \midrule
 1.0.2 & \AVI & 2015-12-03 & Descrizione processi di base \\
@@ -191,7 +193,7 @@ R[importanza/tipo/codice]
 \end{description}
 \end{itemize}
 \begin{itemize}
-\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sottorequisito codice può anche essere espresso in modo gerarchico tramite la notazione\\ \textit{CodiceRequistoPadre.CodiceSottorequisito}
+\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sottorequisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
 
@@ -209,6 +211,7 @@ dove il codice è un nuero progressivo identificativo di ogni requitito, gerarch
 \item \textbf{Postcondizione}
 \item \textbf{Requisiti} collegati al Caso d'uso
 \end{itemize}
+Per la creazione di diagrammi UML verrà usato il software ArgoUML (\textit{argouml.tigris.com})
 
 \subsubsection{Progettazione}
 Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
@@ -525,29 +528,50 @@ e delle prove effettuate.
 \subsubsection{Comunicazione}
 %non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione
 \subsubsubsection{Esterna}
-
+Per le comunicazioni esterne è stata creata una casella di posta elettronica:
 \subsubsubsection{Interna}
 
-\subsubsection{Incontri}
+\subsubsection{Riunioni}
 %non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione
 \subsubsubsection{Frequenza}
-\subsubsubsection{Esterni}
-\subsubsubsection{Interni}
 
+\subsubsubsection{Convocazione riunione}
+Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
+Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri: ad esempio, nella fase di progettazione può essere utile la collaborazione tra Progettista e Analista, senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
+Il \PM{} deve convocare la riunione con attraverso la creazione di un \textit{\gloss{task}} su \textit{\gloss{Asana}}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
+\begin{itemize}
+  \item \textbf{Titolo : } Convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
+  \item \textbf{Data : } La data del task dovrà essere impostata alla data prevista per la riunione;
+  \item \textbf{Ordine del Giorno : } elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
+\end{itemize}
+Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
+In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l’annullamento e lo spostamento dell’assemblea devono essere effettuati attraverso modifiche o cancellazione del \textit{\gloss{task}} su \textit{\gloss{Asana}}.
+\subsubsubsection{Verbale}
+All’apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell’assemblea.
+Il segretario deve inoltre controllare che venga seguito l’ordine del giorno in modo da non tralasciare alcun punto.
+\paragraph{Riunione interna :}
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \textit{\gloss{task}} creato per la riunione su \textit{\gloss{Asana}}, in modo da rendere sempre disponibile il contenuto dello stesso.
 
-<<<<<<< HEAD
+\paragraph{Riunione esterna :}
+In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
+Per agevolare la scrittura di tale documento è stato preparato un template \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l’obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
 \subsubsection{Pianificazione} %ISO 12207 7.1.2
 %task ruoli e responsabilità - Project Libre
-=======
-\subsection{Pianificazione}\label{Pianificazione} %ISO 12207 7.1.2
-%task ruoli e responsabilità
->>>>>>> 4df35807f5ee91073379250f073fbf75c2125e00
 
 \subsubsection{Esecuzione e controllo} %ISO 12207 7.1.3
 %come viene monitorata l'esecuzione della pianificazione: DA DEFINIRE (per esempio chiedendo ogni tanto come sta andando il lavoro) - Asana , Git
 
+\newpage
+
 \subsection{Processi di gestione dell'infrastruttura} %ISO 12207 7.2
 %asana per i task, github per le issues e bug e risoluzione problemi, projectlibre per la pianificazione con gantt e costi
+\subsubsection{Scopo} 
+
+\subsubsection{Descrizione} 
+
+\subsubsection{Ticketing} 
+\subsubsection{Versioning} %Scelta di Git come sistema di Versioning
+\subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
 
 \newpage
 
