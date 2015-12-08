@@ -422,7 +422,7 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 Il \PM, come descritto in \ref{Pianificazione}, assegna ad ogni software utilizzato un referente che ne gestisce la configurazione, il mantenimento e la gestione dei problemi (spiegata in dettaglio nella sezione \ref{Risoluzione dei Problemi}).
 
 \subsubsection{Documentazione}
-I documenti verrano distribuiti in formato \gloss{PDF}. Per la stesura dei documenti verrà utilizzato \LaTeX{} come \emph{word processor} e come linguaggio di markup. Verranno utilizzati i seguenti software per la produzione di materiale per i documenti:
+I documenti verranno distribuiti in formato \gloss{PDF}. Per la stesura dei documenti verrà utilizzato \LaTeX{} come \emph{word processor} e come linguaggio di markup. Verranno utilizzati i seguenti software per la produzione di materiale per i documenti:
 \begin{itemize}
   \item \textbf{Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}}: (referente \NDC) verrà utilizzato come software da usare sia come editor che come processore \LaTeX;
   \item \textbf{Dia\footnote{\url{https://wiki.gnome.org/Apps/Dia/}}}: (referente \TODO{}) verrà utilizzato come software per creare diagrammi di flusso;
@@ -431,6 +431,61 @@ I documenti verrano distribuiti in formato \gloss{PDF}. Per la stesura dei docum
 Tutto il software utilizzato è gratuito e \emph{cross-platform}.
 
 \subsection{Verifica} %ISO 12207 6.4
+
+\subsubsection{Documentazione}
+Il processo di verifica viene istanziato nel momento in cui l’output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \emph{Verificatori} dell’inizio dell’attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l’attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall’ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un’accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
+
+\begin{itemize}
+	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio e GNU Aspell vengono evidenziati e corretti gli errori di grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell’intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori;
+	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento;
+	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l’apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l’opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l’output finale sia conforme a quanto precisato relativamente al \GlO;
+	\item \textbf{Miglioramento del processo di verifica:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l’apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l’opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l’output finale sia conforme a quanto precisato relativamente al \GlO; un miglioramento del processo di verifica, quando i Verificatori eseguono \emph{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \glossary{inspection} su tali errori nelle verifiche future;
+\end{itemize}
+
+
+
+
+3. Lista di controllo: Il Verificatore dovrà utilizzare la lista di controllo per i documenti, descritta nell’appendice A, e verificare che gli errori tipici non siano presenti;
+
+
+
+
+
+
+
+
+4. 
+
+6. 
+
+7. Segnalazione degli errori riscontrati: Attenendosi a quanto riportato nelle
+tabelle 3 e 2 il Verificatore deve generare ticket secondo quando descritto nella
+sezione 6.5.3.3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Validazione} %ISO 12207 6.5
 
@@ -482,7 +537,7 @@ Detiene il potere decisionale, quindi la responsabilità su:
 
 Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le Norme di Progetto, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \textit{\gloss{Redattori}} e
 \textit{\gloss{Verificatori}}. Egli è l’unico a poter decidere l’approvazione di un documento e a sancirne la distribuzione.
-Ha inoltre l’incarico di gestire la creazione e l’assegnazione dei \textit{\gloss{ticket}} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest’ultima.
+Ha inoltre l’incarico di gestire la creazione e l’assegnazione dei \textit{\gloss{ticket}} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest'ultima.
 Redige il \PdP{} e collabora alla stesura del \PdQ{}, in particolare nella sezione relativa alla pianificazione.
 
 \subsubsubsection{Amministratore}
@@ -559,19 +614,53 @@ Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in 
 Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri: ad esempio, nella fase di progettazione può essere utile la collaborazione tra Progettista e Analista, senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
 Il \PM{} deve convocare la riunione con attraverso la creazione di un \textit{\gloss{task}} su \textit{\gloss{Asana}}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
 \begin{itemize}
-  \item \textbf{Titolo : } Convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
-  \item \textbf{Data : } La data del task dovrà essere impostata alla data prevista per la riunione;
-  \item \textbf{Ordine del Giorno : } elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
+  \item \textbf{Titolo:} convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
+  \item \textbf{Data:} la data del task dovrà essere impostata alla data prevista per la riunione;
+  \item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
 \end{itemize}
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
 In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l’annullamento e lo spostamento dell’assemblea devono essere effettuati attraverso modifiche o cancellazione del \textit{\gloss{task}} su \textit{\gloss{Asana}}.
 \subsubsubsection{Verbale}
 All’apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell’assemblea.
 Il segretario deve inoltre controllare che venga seguito l’ordine del giorno in modo da non tralasciare alcun punto.
-\paragraph{Riunione interna :}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \textit{\gloss{task}} creato per la riunione su \textit{\gloss{Asana}}, in modo da rendere sempre disponibile il contenuto dello stesso.
+\paragraph{Riunione interna}
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \textit{\gloss{task}} creato per la riunione su \textit{\glossary{Asana}}, in modo da rendere sempre disponibile il contenuto dello stesso.
 
-\paragraph{Riunione esterna :}
+
+%Some glossary terms
+\newglossaryentry{glos:Asana}{
+	name=Active Directory,
+	description={Active Directory is the directory service for
+		Windows based networks, that allows central organization and 
+		administration of any network resource.
+		It allows a single-sign-on concept independent from network 
+		topologies or network protocols. As a prerequisite you need 
+		a Windows Server acting as Domain Controller. This computer 
+		stores all necessary data, e.\,g.~usernames and corresponding 
+		passwords.}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\paragraph{Riunione esterna}
 In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
 Per agevolare la scrittura di tale documento è stato preparato un \emph{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l’obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
 \subsubsection{Pianificazione} %ISO 12207 7.1.2
@@ -628,9 +717,19 @@ Verranno definite norme riguardanti:
 
 \subsubsection{Ticketing} 
 \subsubsection{Versioning} %Scelta di Git come sistema di Versioning
+
+
 \subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
 
 \newpage
+%Print the glossary
+\printglossary[style=altlist,title=Glossary]
 
+%Print list of acronyms
+%\deftranslation[to=German]{Acronyms}{Abkürzungsverzeichnis}
+\printglossary[type=\acronymtype,style=long]
+
+%Print list of symbols
+\printglossary[type=symbolslist,style=long]
 
 \end{document}
