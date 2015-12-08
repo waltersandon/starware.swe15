@@ -168,49 +168,47 @@ Gli Analisti dovranno produrre l’Analisi dei Requisiti basandosi sul capitolat
 \paragraph{Descrizione}
 Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
 
-\paragraph{Classificazione dei Requisiti}
-È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
-riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
-importanza, utilizzando la seguente codifica:
-\begin{center}
-R[importanza/tipo/codice]
-\end{center}
-\begin{itemize}
-\item Importanza può assumere i seguenti valori:
-\begin{description}
-\item[0] Requisito obbligatorio
-\item[1] Requisito desiderabile
-\item[2] Requisito opzionale
-\end{description}
-\end{itemize}
-\begin{itemize}
-\item Tipo può assumere i seguenti valori:
-\begin{description}
-\item[F] Funzionale
-\item[Q] di Qualità
-\item[P] Prestazionale
-\item[V] Vincolo
-\end{description}
-\end{itemize}
-\begin{itemize}
-\item Codice è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
-\end{itemize}
-Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
-
 \paragraph{Casi d'uso}
 I casi d'uso sono creati secondo lo standard UML 2.0 e sono identificati dalla seguente notazione:
 \begin{center}
-UC[codice]
+UC[codice] - [Titolo]
 \end{center}
-dove il codice è un numero progressivo identificativo di ogni requisito, gerarchico nel  caso di sotto-casi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
+dove il \textbf{codice} è un numero progressivo identificativo di ogni requisito, gerarchico nel  caso di sotto-casi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
 \begin{itemize}
-\item \textbf{Titolo}
+\item \textbf{Titolo} breve ma non ambiguo
 \item \textbf{Attori} principali e secondari coinvolti
 \item \textbf{Descrizione} sintetica del Caso d'uso
 \item \textbf{Precondizione}
 \item \textbf{Postcondizione}
 \item \textbf{Requisiti} collegati al Caso d'uso
 \end{itemize}
+
+\paragraph{Classificazione dei Requisiti}
+È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
+riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
+importanza, utilizzando la seguente codifica:
+\begin{center}
+R[importanza][tipo][codice]
+\end{center}
+\begin{itemize}
+\item \textbf{Importanza} può assumere i seguenti valori:
+\begin{description}
+\item[0:] Requisito obbligatorio
+\item[1:] Requisito desiderabile
+\item[2:] Requisito opzionale
+\end{description}
+\end{itemize}
+\begin{itemize}
+\item \textbf{Tipo} può assumere i seguenti valori:
+\begin{description}
+\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
+\item[N:] Non funzionale, descrivono i vincoli sui servizi offerti dal sistema
+\end{description}
+\end{itemize}
+\begin{itemize}
+\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+\end{itemize}
+Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
 
 \subsubsection{Progettazione}
 Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
