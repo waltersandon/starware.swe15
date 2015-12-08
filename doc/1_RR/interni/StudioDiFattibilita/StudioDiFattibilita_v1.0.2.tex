@@ -53,11 +53,12 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	&	Mr X	\\
-\ 	&	Mr Y	\\
-\ 	&	Mr Z	\\
-\textbf{Verifica}	&	Mr Q	\\
-\textbf{Approvazione}	&	Mr K	\\
+\textbf{Redazione}	&	\IB\\
+\ 	&	\TP\\
+\ 	&		\AVE\\
+\textbf{Verifica}	&		\NDC\\
+\ & \AVI \\
+\textbf{Approvazione}	&		\WS\\
 \textbf{Lista Distribuzione}	&	\nomeGruppo	\\
 \ 	&	\Vardanega	\\
 \ 	&	\Cardin	\\
@@ -87,6 +88,9 @@ v1.0.0	&	\NDC	&	30 Novembre 2015 	&	Prima revisione\\
 v1.0.1	&	\TP	&	6 Dicembre 2015	&	Aggiunto capitolato 1\\
 \midrule
 v1.0.2	&	\TP	&	7 Dicembre 2015	&	Aggiunto capitolato 5\\
+v1.0.2	&	\IB	&	8 Dicembre 2015	&	Aggiunto capitolato 3\\
+\midrule
+v1.0.2	&	\IB	&	8 Dicembre 2015	&	Aggiunto capitolato 4\\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -261,24 +265,24 @@ Si è scelto di non accettare questo capitolato per i seguenti motivi:
 \subsubsection{Descrizione}
 
 Questo capitolato richiede l'implementazione di un sistema per la  raccolta e la elaborazione di dati eterogenei, dando inoltre la possibilità all'utente finale di leggere I dati e l'analisi fatta sugli stessi da un engine predittivo.
-\paragraph{Requisiti obbligatori}  
-\subparagraph{Sviluppo di :}	
+\subsubsection{Requisiti obbligatori}  
+\paragraph{Sviluppo di :}	
 	\begin{enumerate}
-	\item Frontend
-	\item Business Logic API 
-	\item Engine predittivo
-	\item Broker MQTT 
+	\item Frontend;
+	\item Business Logic API; 
+	\item Engine predittivo;
+	\item Broker MQTT. 
 	\end{enumerate}
 
-\paragraph{Aspetti Positivi:}
+\subsubsection{Aspetti Positivi:}
 \begin{enumerate}
 \item	Le tecnologie necessarie per svolgere il capitolato sono svariate (java, mongoDB, AWS , html e molte altre ) il che permetterebbe al gruppo di venire in contatto con strumenti nuovi ed estremamente utili in ambito lavorativo.
 \end{enumerate}
-\paragraph{Fattori di Rischio:}
+\subsubsection{Fattori di Rischio:}
 	\begin{enumerate}
-\item	Lo studio e l'apprendimento delle tecnologie necessarie sicuramente risulterebbe in uno sforzo notevole da parte di ogni componente del gruppo.
+\item	Lo studio e l'apprendimento delle tecnologie necessarie sicuramente risulterebbe in uno sforzo notevole da parte di ogni componente del gruppo;
 
-\item	Un altra difficolta risiede nella realizzazione del motore predittivo dato che al gruppo mancano totalmente le idee e le conoscenze per concepire l'elaborazione di dati eterogenei, considerando anche il fatto che durante la presentazione non sono	stati dati spunti a riguardo.
+\item	Un altra difficolta risiede nella realizzazione del motore predittivo dato che al gruppo mancano totalmente le idee e le conoscenze per concepire l'elaborazione di dati eterogenei, considerando anche il fatto che durante la presentazione non sono	stati dati spunti a riguardo;
 \item	Il sistema da realizzare sarebbe incredibilmente amplio.
 \end{enumerate}
 
@@ -287,7 +291,7 @@ Questo capitolato richiede l'implementazione di un sistema per la  raccolta e la
 \subsubsection{Descrizione}
 Maas è basato su un prodotto di nome Maap, che è un database noSql per il trattamento di dati Business attraverso un interfaccia grafica permettendone l'utilizzo a persone che non sono esperte di database.Il committente richiede che questo prodotto diventi un servizio gestito attraverso un account web che dia la possibilità di eliminare l'onere all'utente di eseguire la preparazione e l'installazione di Maap.
 
-\paragraph{Requisiti obbligatori}
+\subsubsection{Requisiti obbligatori}
 \begin{enumerate}
 
 
@@ -305,23 +309,23 @@ Maas è basato su un prodotto di nome Maap, che è un database noSql per il trat
 
 \end{enumerate}
 
-\item Il Sistema deve essere costruito usando un framework di alto livello per Node.js. Noi fortemente consigliamo di usare IBM loopback.
+\item Il Sistema deve essere costruito usando un framework di alto livello per Node.js. Noi fortemente consigliamo di usare IBM loopback;
 
-\item Il sistema deve essere schierabile con Heroku.
+\item Il sistema deve essere schierabile con Heroku;
  
 \item	Il codice sorgente deve essere pubblicato e versionato   usando github oppure bitbucket. 
 \end{enumerate}
-\paragraph{Aspetti Positivi:}
+\subsubsection{Aspetti Positivi:}
 \begin{enumerate}
 
 
-\item	Potenzialmente la mole di lavoro e la complessità dello stesso potrebbero essere esigue dato che il capitolato si basa già su un prodotto esistente.
+\item	Potenzialmente la mole di lavoro e la complessità dello stesso potrebbero essere esigue dato che il capitolato si basa già su un prodotto esistente;
 
 \item	Alcune delle tecnologie a supporto del capitolato potrebbero essere , anche se in modo parziale, già note al gruppo ( html, css, un servizio di	database, java ).
 \end{enumerate}
-\paragraph{Fattori di Rischio:}
+\subsubsection{Fattori di Rischio:}
 	\begin{enumerate}
-\item	L'argomento risulta essere poco stimolante, dato che la parte più interessante sarebbe stata la creazione di Maap che è già stato implementato.
+\item	L'argomento risulta essere poco stimolante, dato che la parte più interessante sarebbe stata la creazione di Maap che è già stato implementato;
 
 \item	Essendo il committente una Startup con risorse di tempo, personale e	finanze limitate è possibile che sia difficile aiutare e seguire in	gruppo di lavoro in caso di problemi o dubbi inerenti al progetto.
 \end{enumerate}
