@@ -431,60 +431,40 @@ I documenti verranno distribuiti in formato \gloss{PDF}. Per la stesura dei docu
 Tutto il software utilizzato è gratuito e \emph{cross-platform}.
 
 \subsection{Verifica} %ISO 12207 6.4
-
-\subsubsection{Documentazione}
-Il processo di verifica viene istanziato nel momento in cui l’output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \emph{Verificatori} dell’inizio dell’attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l’attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall’ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un’accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
-
+Il processo di verifica produce i seguenti risultati:
 \begin{itemize}
-	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio e GNU Aspell vengono evidenziati e corretti gli errori di grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell’intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori;
-	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento;
-	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l’apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l’opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l’output finale sia conforme a quanto precisato relativamente al \GlO;
-	\item \textbf{Miglioramento del processo di verifica:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l’apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l’opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l’output finale sia conforme a quanto precisato relativamente al \GlO; un miglioramento del processo di verifica, quando i Verificatori eseguono \emph{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \glossary{inspection} su tali errori nelle verifiche future;
+  \item l’individuazione e l’applicazione di una strategia di verifica;
+  \item individuazione e catalogazione dei difetti;
+  \item identificazione di criteri per la verifica;
+  \item stesura di una sezione relativa ai risultati della verifica.
+\end{itemize}
+La verifica di processi, documenti e prodotti deve essere eseguita durante l’intero sviluppo del progetto diattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
+
+\subsubsection{Tecniche di analisi}
+\begin{itemize}
+  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell’individuazione di
+errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il
+Verificatore controllerà i documenti e il codice utilizzando le seguenti tecniche:
+    \begin{itemize}
+      \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l’insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \gloss{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una lista di controllo dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR rende più esaustiva la lista di controllo, si ricorre sempre meno all’utilizzo della tecnica di \gloss{walkthrough} a favore della tecnica di \gloss{inspection};
+      \item \textbf{Inspection:} l'\gloss{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella lista di controllo. Progressivamente, con l’acquisizione di esperienza e grazie al precedente uso della tecnica di \gloss{walkthrough}, la lista di controllo viene estesa e specializzata, rendendo l'\gloss{inspection} sempre più efficace;
+        \end{itemize}
 \end{itemize}
 
 
 
 
-3. Lista di controllo: Il Verificatore dovrà utilizzare la lista di controllo per i documenti, descritta nell’appendice A, e verificare che gli errori tipici non siano presenti;
 
+\subsubsection{Documentazione}
+Il processo di verifica viene istanziato nel momento in cui l’output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \emph{Verificatori} dell’inizio dell’attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l’attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall’ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un’accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
 
-
-
-
-
-
-
-4. 
-
-6. 
-
-7. Segnalazione degli errori riscontrati: Attenendosi a quanto riportato nelle
-tabelle 3 e 2 il Verificatore deve generare ticket secondo quando descritto nella
-sezione 6.5.3.3.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{itemize}
+	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio e GNU Aspell vengono evidenziati e corretti gli errori di grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell’intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
+	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
+	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l’apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l’opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l’output finale sia conforme a quanto precisato relativamente al \GlO
+	\item \textbf{Miglioramento del processo di verifica:} quando i Verificatori eseguono \emph{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{inspection} su tali errori nelle verifiche future
+	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nelle tabelle 3 e 2 il Verificatore deve generare ticket secondo quando descritto nella sezione \TODO{}
+\end{itemize}
 
 
 \subsection{Validazione} %ISO 12207 6.5
@@ -619,32 +599,12 @@ Il \PM{} deve convocare la riunione con attraverso la creazione di un \textit{\g
   \item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
 \end{itemize}
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
-In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l’annullamento e lo spostamento dell’assemblea devono essere effettuati attraverso modifiche o cancellazione del \textit{\gloss{task}} su \textit{\gloss{Asana}}.
+In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l’annullamento e lo spostamento dell’assemblea devono essere effettuati attraverso modifiche o cancellazione del \gloss{task} su \gloss{Asana}.
 \subsubsubsection{Verbale}
 All’apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell’assemblea.
 Il segretario deve inoltre controllare che venga seguito l’ordine del giorno in modo da non tralasciare alcun punto.
 \paragraph{Riunione interna}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \textit{\gloss{task}} creato per la riunione su \textit{\glossary{Asana}}, in modo da rendere sempre disponibile il contenuto dello stesso.
-
-
-%Some glossary terms
-\newglossaryentry{glos:Asana}{
-	name=Active Directory,
-	description={Active Directory is the directory service for
-		Windows based networks, that allows central organization and 
-		administration of any network resource.
-		It allows a single-sign-on concept independent from network 
-		topologies or network protocols. As a prerequisite you need 
-		a Windows Server acting as Domain Controller. This computer 
-		stores all necessary data, e.\,g.~usernames and corresponding 
-		passwords.}
-}
-
-
-
-
-
-
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \textit{\gloss{task}} creato per la riunione su \textit{\Gls{Asana}}, in modo da rendere sempre disponibile il contenuto dello stesso.
 
 
 
@@ -722,14 +682,5 @@ Verranno definite norme riguardanti:
 \subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
 
 \newpage
-%Print the glossary
-\printglossary[style=altlist,title=Glossary]
-
-%Print list of acronyms
-%\deftranslation[to=German]{Acronyms}{Abkürzungsverzeichnis}
-\printglossary[type=\acronymtype,style=long]
-
-%Print list of symbols
-\printglossary[type=symbolslist,style=long]
 
 \end{document}
