@@ -517,6 +517,7 @@ Il processo di verifica viene istanziato nel momento in cui l'output di un proce
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l'apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l'opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l'output finale sia conforme a quanto precisato relativamente al \GlO
 	\item \textbf{Miglioramento del processo di verifica:} quando i Verificatori eseguono \emph{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{inspection} su tali errori nelle verifiche future
+	\item NOrme stilistiche \TODO{}
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nelle tabelle 3 e 2 il Verificatore deve generare ticket secondo quando descritto nella sezione \TODO{}
 \end{itemize}
 
@@ -720,24 +721,24 @@ Verranno definite norme riguardanti:
 \subsubsubsection{Struttura Ticket}
 I \textit{\gloss{ticket}} creati devono avere le seguenti caratteristiche:
 \begin{itemize}
-  \item \textbf{Titolo : } Rappresenta in maniera sintetica e significativa il \textit{\gloss{task}};
-  \item \textbf{Assegnatari/o : } I \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} devono sempre essere assegnati ad uno o più membri del gruppo;
-  \item \textbf{Data : } Ogni \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\gloss{Gant}} e \textit{\gloss{Pert}}, entro il quale essere completato;
-  \item \textbf{Commento : } Nel caso fossero necessarie delucidazioni al \textit{\gloss{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
-  \item \textbf{Label : } Bisogna segnalare lo stato del \textit{\gloss{task}} attraverso una etichetta appropriata;
-  \item \textbf{Subtask : } In caso di necessità è possibile suddividere il \textit{\gloss{task}} in diversi \textit{\gloss{subtask}} imputabili ai membri del gruppo.
+  \item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \textit{\gloss{task}};
+  \item \textbf{Assegnatari/o:} I \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} devono sempre essere assegnati ad uno o più membri del gruppo;
+  \item \textbf{Data:} Ogni \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\gloss{Gant}} e \textit{\gloss{Pert}}, entro il quale essere completato;
+  \item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \textit{\gloss{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
+  \item \textbf{Label:} Bisogna segnalare lo stato del \textit{\gloss{task}} attraverso una etichetta appropriata;
+  \item \textbf{Subtask:} In caso di necessità è possibile suddividere il \textit{\gloss{task}} in diversi \textit{\gloss{subtask}} imputabili ai membri del gruppo.
 \end{itemize}
 
 
 \subsubsubsection{Etichette}
 Lo stato di ogni \textit{\gloss{ticket}} deve essere identificato da un appropriata etichetta:
 \begin{itemize}
-  \item \textbf{Aperto : } Etichetta riservata ai \textit{\gloss{ticket}} non ancora assegnati;
-  \item \textbf{Accettato : } Etichetta riservata ai \textit{\gloss{ticket}} una volta in cui il membro del gruppo a cui sono imputati ne ha preso visione;
-  \item \textbf{In Corso : } Etichetta riservata ai \textit{\gloss{ticket}} in fase di elaborazione;
-  \item \textbf{In Attesa : } Etichetta riservata ai \textit{\gloss{ticket}} che non possono entrare in fase di elaborazione a causa di dipendenze con altri ticket non ancora completati;
-  \item \textbf{Completato : } Etichetta riservata ai \textit{\gloss{ticket}} per cui la fase di elaborazione è stata completata con successo;
-  \item \textbf{Verificato : } Etichetta riservata ai \textit{\gloss{ticket}} di cui è stata verificato l'effettivo comletamento e l'assenza di errori;
+  \item \textbf{Aperto:} Etichetta riservata ai \textit{\gloss{ticket}} non ancora assegnati;
+  \item \textbf{Accettato:} Etichetta riservata ai \textit{\gloss{ticket}} una volta in cui il membro del gruppo a cui sono imputati ne ha preso visione;
+  \item \textbf{In Corso:} Etichetta riservata ai \textit{\gloss{ticket}} in fase di elaborazione;
+  \item \textbf{In Attesa:} Etichetta riservata ai \textit{\gloss{ticket}} che non possono entrare in fase di elaborazione a causa di dipendenze con altri ticket non ancora completati;
+  \item \textbf{Completato:} Etichetta riservata ai \textit{\gloss{ticket}} per cui la fase di elaborazione è stata completata con successo;
+  \item \textbf{Verificato:} Etichetta riservata ai \textit{\gloss{ticket}} di cui è stata verificato l'effettivo comletamento e l'assenza di errori;
 \end{itemize}
 
 \subsubsubsection{Ciclo di vita del Ticket}
@@ -773,7 +774,7 @@ Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve ess
 \begin{enumerate}
 	\item Al completamento di un \textit{\gloss{ticket}} il \PM{} deve creare un \textit{\gloss{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \gloss{Verificatore};
 	\item Il \gloss{Verificatore}, nel caso riscontri anomalie o errori deve creare i \textit{\gloss{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il verificatore chiude il \textit{\gloss{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
-	\item Il \PM{} assegna gli eventuali \textit{\gloss{task}} creati dal \gloss{Verificatore} ponendo particolare attenzione a non far sorgere conflitti di interesse.
+	\item Il \PM{} assegna gli eventuali \textit{\gloss{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse.
 \end{enumerate}
  
 
