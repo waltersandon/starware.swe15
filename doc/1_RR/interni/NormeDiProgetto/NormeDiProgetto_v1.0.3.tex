@@ -78,6 +78,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.5 & \AVE & 2015-12-10 & Ticketing \\
+\midrule
 1.0.4 & \AVE & 2015-12-08 & Ruoli di progetto e Riunioni \\
 \midrule
 1.0.3 & \AVI & 2015-12-07 & Norme del Piano di Progetto e dell'Analisi dei requisiti \\
@@ -685,7 +687,7 @@ Per assolvere a questo compito è stato scelto il software open source \textit{\
 
 Sarà compito del \PM{} monitorare l'avanzamento relativo ad ogni fase del processo,tenendo in considerazione e risolvendo le eventuali dipendenze tra attività da eseguire.
 
-\subsubsubsection{Assegnazione dei task} 
+\subsubsubsection{Assegnazione dei task} %da modificare in quanto già spiegato nella sezione di tiketing
 Il \PM{}, una volta individuati e stimati i task da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo.
 Per la suddivisione e l'assegnazione dei \textit{\gloss{task}} è stato scelto di utilizzare l'applicazione web \textit{\gloss{Asana}} per i seguenti motivi:
  \begin{itemize}
@@ -715,6 +717,76 @@ Verranno definite norme riguardanti:
 \end{itemize}
 
 \subsubsection{Ticketing} 
+\subsubsubsection{Struttura Ticket}
+I \textit{\gloss{ticket}} creati devono avere le seguenti caratteristiche:
+\begin{itemize}
+  \item \textbf{Titolo : } Rappresenta in maniera sintetica e significativa il \textit{\gloss{task}};
+  \item \textbf{Assegnatari/o : } I \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} devono sempre essere assegnati ad uno o più membri del gruppo;
+  \item \textbf{Data : } Ogni \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\gloss{Gant}} e \textit{\gloss{Pert}}, entro il quale essere completato;
+  \item \textbf{Commento : } Nel caso fossero necessarie delucidazioni al \textit{\gloss{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
+  \item \textbf{Label : } Bisogna segnalare lo stato del \textit{\gloss{task}} attraverso una etichetta appropriata;
+  \item \textbf{Subtask : } In caso di necessità è possibile suddividere il \textit{\gloss{task}} in diversi \textit{\gloss{subtask}} imputabili ai membri del gruppo.
+\end{itemize}
+
+
+\subsubsubsection{Etichette}
+Lo stato di ogni \textit{\gloss{ticket}} deve essere identificato da un appropriata etichetta:
+\begin{itemize}
+  \item \textbf{Aperto : } Etichetta riservata ai \textit{\gloss{ticket}} non ancora assegnati;
+  \item \textbf{Accettato : } Etichetta riservata ai \textit{\gloss{ticket}} una volta in cui il membro del gruppo a cui sono imputati ne ha preso visione;
+  \item \textbf{In Corso : } Etichetta riservata ai \textit{\gloss{ticket}} in fase di elaborazione;
+  \item \textbf{In Attesa : } Etichetta riservata ai \textit{\gloss{ticket}} che non possono entrare in fase di elaborazione a causa di dipendenze con altri ticket non ancora completati;
+  \item \textbf{Completato : } Etichetta riservata ai \textit{\gloss{ticket}} per cui la fase di elaborazione è stata completata con successo;
+  \item \textbf{Verificato : } Etichetta riservata ai \textit{\gloss{ticket}} di cui è stata verificato l'effettivo comletamento e l'assenza di errori;
+\end{itemize}
+
+\subsubsubsection{Ciclo di vita del Ticket}
+Ogni \textit{\gloss{ticket}} rappresenta un \gloss{attività} o un \textit{\gloss{task}} e deve rispettare il seguente iter:
+
+\begin{enumerate}
+  \item Creazione di un \textit{\gloss{task}};
+  \item Il \PM{} assegna il \textit{\gloss{task}} ad uno o più membri del gruppo, nel caso l'assegnatario non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \textit{\gloss{task}}, sarà necessario impostare come etichetta \textbf{Aperto};  
+    \item L'assegnatario può decidere se accettare o meno il \textit{\gloss{task}}:
+    	\begin{itemize}
+    	\item Accettazione: L'assegnatario dovrà modificare l'etichetta del \textit{\gloss{task}} in \textbf{Accettato}.
+    	\item Rifiuto: L'assegnatario dovrà motivare il rifiuto del \textit{\gloss{task}} e, nel caso le motivazione fossero reputate pertinenti dal \PM{}, verrà ripetuto il punto 2. 
+    	\end{itemize}
+	\item Se il \textit{\gloss{task}} fosse dipendente dal completamento di un altro \textit{\gloss{task}} in stato di esecuzione, sarà necessario modificarne l'etichetta in \textbf{In attesa};
+	\item Esecuzione del \textit{\gloss{task}};
+	\item Una volta completato il \textit{\gloss{task}} l'assegnatario dovrà modificarne l'etichetta in \textbf{Completato};
+	\item Ogni tag completato dovrà essere vagliato attraverso procedure di verifica. 
+\end{enumerate}
+
+
+\begin{center}
+\begin{figure}[h]
+\centering
+\label{f1-Ticket}
+\includegraphics[scale=0.4]{ticketing.png}
+\caption{Diagramma di gestione dei Ticket.}
+\end{figure}
+\end{center}
+
+\subsubsubsection{Ticket di Verifica}
+
+Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve esserne verificata la correttezza e l'effettivo completamento attraverso la seguente procedura:
+\begin{enumerate}
+	\item Al completamento di un \textit{\gloss{ticket}} il \PM{} deve creare un \textit{\gloss{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \gloss{Verificatore};
+	\item Il \gloss{Verificatore}, nel caso riscontri anomalie o errori deve creare i \textit{\gloss{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il verificatore chiude il \textit{\gloss{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
+	\item Il \PM{} assegna gli eventuali \textit{\gloss{task}} creati dal \gloss{Verificatore} ponendo particolare attenzione a non far sorgere conflitti di interesse.
+\end{enumerate}
+ 
+
+
+\begin{center}
+\begin{figure}[h]
+\centering
+\label{f2-Ticket Verifica}
+\includegraphics[scale=0.5]{ticketVerifica.png}
+\caption{Diagramma di gestione dei Ticket di Verifica.}
+\end{figure}
+\end{center}
+
 \subsubsection{Versioning} %Scelta di Git come sistema di Versioning
 
 
