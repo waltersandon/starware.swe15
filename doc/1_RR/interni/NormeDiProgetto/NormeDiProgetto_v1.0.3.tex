@@ -771,8 +771,8 @@ Ogni \textit{\gloss{ticket}} rappresenta un \gloss{attività} o un \textit{\glos
 \subsubsubsection{Ticket di Verifica}
 Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve esserne verificata la correttezza e l'effettivo completamento attraverso la seguente procedura:
 \begin{enumerate}
-	\item Al completamento di un \textit{\gloss{ticket}} il \PM{} deve creare un \textit{\gloss{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \gloss{Verificatore};
-	\item Il \gloss{Verificatore}, nel caso riscontri anomalie o errori deve creare i \textit{\gloss{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il verificatore chiude il \textit{\gloss{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
+	\item Al completamento di un \textit{\gloss{ticket}} il \PM{} deve creare un \textit{\gloss{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \VR{};
+	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \textit{\gloss{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \textit{\gloss{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
 	\item Il \PM{} assegna gli eventuali \textit{\gloss{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse.
 \end{enumerate}
  
@@ -791,7 +791,7 @@ Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve ess
 Come sistema di versionamento è stato scelto di usare \gloss{Git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
 \item è gratuito e non proprietario
-\item è un repository distribuito con la possibilità di commit e revert locali
+\item è un repository distribuito con la possibilità di commit e revert locali
 \item è cross-platform
 \item possiede un'abbondante ma semplice documentazione
 \item è già stato usato da alcuni elmenti del gruppo
