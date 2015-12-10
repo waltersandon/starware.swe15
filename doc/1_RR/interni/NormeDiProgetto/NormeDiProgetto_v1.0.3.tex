@@ -696,10 +696,28 @@ Verranno definite norme riguardanti:
 
 \subsubsection{Ticketing} 
 \subsubsection{Versioning} %Scelta di Git come sistema di Versioning
-
+Come sistema di versionamento è stato scelto di usare \gloss{Git}. I motivi principali che ne hanno determinato la scelta sono:
+\begin{itemize}
+\item è gratuito e non proprietario
+\item è un repository distribuito con la possibilità di commit e revert locali
+\item è cross-platform
+\item possiede un'abbondante ma semplice documentazione
+\item è già stato usato da alcuni elmenti del gruppo
+\end{itemize}
 
 \subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
-
+Viene creata una \gloss{repository} su github all'indirizzo \textit{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale da riga di comando tramite il comando \texttt{git clone}.
+\paragraph{Commit}
+Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente del documento modificato, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento che in cui si è concentrto il commit e quale delle seguenti sia stata fatta:
+\begin{itemize}
+\item Aggiunta di un nuovo elemento
+\item Correzzione o modifica
+\item Moglioramento o ampliamento
+\end{itemize}
+\paragraph{Pull}
+è preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+\paragraph{Push}
+Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare una push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
 \newpage
 
 \end{document}
