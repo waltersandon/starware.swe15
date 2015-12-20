@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{30 Novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.7}
+\newcommand{\versione}{1.1.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -118,13 +118,7 @@ v1.0.0 & \NDC & 30-11-2015  & Creazione documento\\
 In questo documento vengono analizzati i requisiti, aspetti positivi e fattori di rischio di ogni capitolato proposto per evidenziare i punti di forza e gli aspetti negativi che hanno portato a scegliere o scartare un capitolato.
 
 \subsection{Descrizione}
-V
-Ogni capitolato viene presentato con una breve descrizione. In seguito vengono elencati aspetti positivi tenuti in considerazione dal gruppo per quel capitolato. Successivamente vengono elencati i fattori di rischio che hanno spinto il gruppo a non accettare quel capitolato.
-
-
-Descrizione
-Aspetti positivi
- Fattori di rischio
+Per il capitolato scelto dal gruppo ovvero \gloss{Quizzpedia} viene presentata una descrizione e una valutazione approfondita sugli aspetti positivi, negativi e i fattori di rischio che si sono valutati i quali hanno determinato la scelta di questo capitolato. Gli altri capitolati vengono presentati con una breve descrizione. In seguito sono elencati aspetti positivi tenuti in considerazione dal gruppo per quel capitolato. Successivamente vengono elencati i fattori di rischio che hanno spinto il gruppo a non accettare quel capitolato.
 
 \subsection{Riferimenti}
 \subsubsection{Informativi}
@@ -143,23 +137,21 @@ Aspetti positivi
 \section{Capitolato C5 - Quizzpedia}
 \subsection{Descrizione}
 
-Il capitolato propone lo sviluppo di un sito web per la creazione e somministrazione di questionari scelti
-per argomento.
+Il capitolato propone lo sviluppo di un sito web per la creazione e somministrazione di questionari.
 
 \subsubsection{Dominio applicativo}
 
-Le domande verranno fornite attraverso uno specifico \textit{Quiz Markup Language} (QML), la cui creazione è oggetto principale del capitolato. L'interfaccia amministrativa dovrà supportare dispositivi desktop, mentre per i candidati viene richiesto il supporto di dispositivi desktop e mobili. Si dovranno considerare tre tipi di profili:
+Le domande verranno fornite attraverso uno specifico \textit{Quiz Markup Language} (QML), la cui creazione è oggetto principale del capitolato. L'interfaccia amministrativa dovrà supportare dispositivi \textit{desktop}, mentre per i candidati viene richiesto il supporto di dispositivi \textit{desktop} e \textit{mobile}. Si dovranno considerare tre tipi di profili:
 
 \begin{itemize}
-\item Amministratore (crea profili, gestisce questionari e domande);
-\item Insegnante (crea domande e questionari e analizza i risultati);
-\item Studente (completa i questionari).
+\item Amministratore (crea profili di tipo docente e ha il completo controllo e accesso alla piattaforma);
+\item Docente (crea questionari, classi di studenti e analizza i risultati delle risposte);
+\item Studente (si iscrive a classi e completa i questionari).
 \end{itemize}
-con i relativi permessi.
 
 \subsubsection{Dominio tecnologico}
 
-Per quanto riguarda il server è richiesto l'utilizzo di una delle seguenti opzioni:
+Per quanto riguarda il \textit{server} è richiesto l'utilizzo di una delle seguenti opzioni:
 
 \begin{itemize}
 \item Tomcat (Java);
@@ -170,9 +162,9 @@ Per l'archiviazione sono proposte le seguenti tecnologie:
 \item PostgreSQL;
 \item MongoDB.
 \end{itemize}
-Per il client viene richiesto l'utilizzo di HTML5, CSS3 e il supporto desktop per l'intera applicazione e mobile solo per la parte destinata allo studente.
+Per il \textit{client} viene richiesto l'utilizzo di HTML5, CSS3 e il supporto \textit{desktop} per l'intera applicazione e \textit{mobile} solo per la parte destinata allo studente.
 
-Per la creazione del linguaggio QML il gruppo ha considerato l'utilizzo di XML, di Markdown o altri linguaggi di markup estendibili.
+Per la creazione del linguaggio QML il gruppo ha considerato l'utilizzo di XML, di Markdown o di altri linguaggi di markup estendibili.
 
 \subsection{Valutazione}
 \subsubsection{Aspetti positivi}
