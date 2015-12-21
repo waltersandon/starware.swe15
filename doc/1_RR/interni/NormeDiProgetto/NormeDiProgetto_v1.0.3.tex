@@ -78,6 +78,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.6 & \AVI & 2015-12-21 & Versioning e Repository \\
+\midrule
 1.0.5 & \AVE & 2015-12-10 & Ticketing \\
 \midrule
 1.0.4 & \AVE & 2015-12-08 & Ruoli di progetto e Riunioni \\
@@ -130,11 +132,11 @@ documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessita
 \section{Processi base} %ISO 12207 5
 I processi base sono formati dai seguenti sotto processi:
 \begin{enumerate}
-\item Processo dell'acquirente
-\item Processo del fornitore
-\item Processo di sviluppo
-\item Processo operativo
-\item Processo di manutenzione
+\item Processi dell'acquirente
+\item Processi del fornitore
+\item Processi di sviluppo
+\item Processi operativi
+\item Processi di manutenzione
 \end{enumerate}
 Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del fornitore e di sviluppo, poiché i processi  dell'acquirente non riguardano il team e le fasi operative e di manutenzione non verranno trattate.
 
@@ -144,9 +146,13 @@ Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del
 Definisce le attività e i task attraverso i quali il fornitore comunica al committente modo, tempi e costi previsti per il progetto.
 
 \subsubsection{Descrizione}
-Consiste nel redigere il \PdQ, che dovrà illustrare la strategia complessiva di verifica e validazione proposta dal fornitore per pervenire al collaudo del sistema con la massima efficienza ed efficacia, e il \PdP, che dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto. Le regole dettagliate per redigere il \PdP\ verranno analizzate nel prossimo paragrafo.
+Consiste nel redigere il \PdQ,  e il \PdP.
+
+\subsubsection{Piano di Qualifica}
+Il \PdQ\ dovrà illustrare la strategia complessiva di verifica e validazione e gli strumenti utilizzati per attuarla. Lo scopo è quello di pervenire al collaudo del sistema con la massima efficienza ed efficacia.
 
 \subsubsection{Piano di Progetto} %ISO 12207 5.2.4
+Il \PdP\ dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto.\\
 Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di Gant e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 
 \subsection{Processi di sviluppo}
@@ -164,14 +170,14 @@ Il processo di sviluppo è un insieme di attività e task necessari per lo svilu
 
 \subsubsection{Analisi dei requisiti} %ISO 12207 5.3.2
 
-\paragraph{Scopo}
+\subsubsubsection{Scopo}
 Gli Analisti dovranno produrre l'Analisi dei Requisiti basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione.
 
-\paragraph{Descrizione}
+\subsubsubsection{Descrizione}
 Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
 
-\paragraph{Casi d'uso}
-I casi d'uso sono creati secondo lo standard UML 2.0 e sono identificati dalla seguente notazione:
+\subsubsubsection{Casi d'uso}
+I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
 \begin{center}
 UC[codice] - [Titolo]
 \end{center}
@@ -179,13 +185,13 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \begin{itemize}
 \item \textbf{Titolo} breve ma non ambiguo
 \item \textbf{Attori} principali e secondari coinvolti
-\item \textbf{Descrizione} sintetica del Caso d'uso
 \item \textbf{Precondizione}
+\item \textbf{Descrizione} sintetica del Caso d'uso
 \item \textbf{Postcondizione}
 \item \textbf{Requisiti} collegati al Caso d'uso
 \end{itemize}
 
-\paragraph{Classificazione dei Requisiti}
+\subsubsubsection{Classificazione dei Requisiti}
 È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
 riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
 importanza, utilizzando la seguente codifica:
@@ -210,13 +216,27 @@ R[importanza][tipo][codice]
 \begin{itemize}
 \item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
 \end{itemize}
-Ogni requisito deve essere correlato da una sintetica ma precisa descrizione
+Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
 
 \subsubsection{Progettazione}
-Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+
+\subsubsubsection{Scopo}
+La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione
+
+\subsubsubsection{Descrizione}
+L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requsiti individuati durante il processo di analisi e descrive a tutti gli stakeholder la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali
+
+\subsubsubsection{UML}
+La fase di progettazione deve essere supportata dai seguenti diagrammi realizzati in UML2.4:
+\begin{itemize}
+\item \textbf{Diagrammi delle classi} per descrivere la struttura e la gerarchia delle classi
+\item \textbf{Diagrammi di seqenza} per descrivere una determinata sequenza di azioni
+\item \textbf{Diagrammi di attività} per descrivere le attività necessarie per realizzare una data funzionalità
+\item \textbf{Diagrammi dei package} per descrivere l'architettura generale
+\end{itemize}
 
 \subsubsection{Codifica}
-Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo successivamente alla fase di progettazione.
 
 \newpage
 
@@ -647,7 +667,7 @@ Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
 \subsubsubsection{Convocazione riunione}
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
 Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri: ad esempio, nella fase di progettazione può essere utile la collaborazione tra Progettista e Analista, senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
-Il \PM{} deve convocare la riunione con attraverso la creazione di un \textit{\gloss{task}} su \textit{\gloss{Asana}}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
+Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\gloss{task}} su \textit{\gloss{Asana}}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
 \begin{itemize}
   \item \textbf{Titolo:} convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
   \item \textbf{Data:} la data del task dovrà essere impostata alla data prevista per la riunione;
@@ -798,18 +818,51 @@ Come sistema di versionamento è stato scelto di usare \gloss{Git}. I motivi pri
 \end{itemize}
 
 \subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
-Viene creata una \gloss{repository} su github all'indirizzo \textit{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale da riga di comando tramite il comando \texttt{git clone}.
+Viene creata una \gloss{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
+\subsubsubsection{Comandi}
 \paragraph{Commit}
-Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente del documento modificato, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento che in cui si è concentrto il commit e quale delle seguenti sia stata fatta:
+Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento in cui si è concentrato il commit e quale delle seguenti azioni sia stata fatta:
 \begin{itemize}
 \item Aggiunta di un nuovo elemento
 \item Correzzione o modifica
 \item Moglioramento o ampliamento
 \end{itemize}
 \paragraph{Pull}
-è preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
 \paragraph{Push}
 Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare una push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+\subsubsubsection{Struttura albero delle directory}
+La repository è organizzata secondo il seguente albero delle directory
+\begin{itemize}
+\item[--] doc
+\begin{itemize}
+\item[--] 1\_RR
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 2\_RP
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 3\_RQ
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 4\_RA
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] template
+\end{itemize}
+\item[--] quizzipedia
+\end{itemize}
+
+La cartella doc contiene tutti i documenti, la cartella quizzipedia contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \GlO, \PdP e \PdQ).
+
 \newpage
 
 \end{document}
