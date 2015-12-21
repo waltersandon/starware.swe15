@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage{../../../template/stile}
+\usepackage{float}% If comment this, figure moves to Page 2
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Norme di Progetto}
@@ -783,7 +784,7 @@ Ogni \textit{\gloss{ticket}} rappresenta un \gloss{attività} o un \textit{\glos
 
 \newpage
 \begin{center}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \label{f1-Ticket}
 \includegraphics[scale=0.5]{ticketing.png}
@@ -803,7 +804,7 @@ Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve ess
 
 
 \begin{center}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \label{f2-Ticket Verifica}
 \includegraphics[scale=0.5]{ticketVerifica.png}
