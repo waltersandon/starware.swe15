@@ -460,19 +460,19 @@ Il processo di verifica produce i seguenti risultati:
   \item identificazione di criteri per la verifica;
   \item stesura di una sezione relativa ai risultati della verifica.
 \end{itemize}
-La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
+La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto diattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
 \subsubsection{Tecniche di analisi}
 \begin{itemize}
   \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR controllerà i documenti e il codice utilizzando le seguenti tecniche:
     \begin{itemize}
       \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \gloss{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una lista di controllo dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR rende più esaustiva la lista di controllo, si ricorre sempre meno all'utilizzo della tecnica di \gloss{walkthrough} a favore della tecnica di \gloss{inspection};
-      \item \textbf{Inspection:} l'\gloss{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \gloss{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \gloss{walkthrough}, la lista di controllo viene estesa e specializzata, rendendo l'\gloss{inspection} sempre più efficace;
+      \item \textbf{Inspection:} l'\gloss{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella lista di controllo. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \gloss{walkthrough}, la lista di controllo viene estesa e specializzata, rendendo l'\gloss{inspection} sempre più efficace;
         \end{itemize}
 \end{itemize}
 
 \subsubsection{Classificazione dei problemi}
-A corredo della  \gloss{lista di controllo} \TODO{}, vengono classificate le categorie delle problematiche più comuni e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+A corredo della Lista di controllo \TODO{}, vengono classificate le categorie delle problematiche più comuni e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
   \item Processi;
   \item Documentazione;
@@ -480,14 +480,14 @@ A corredo della  \gloss{lista di controllo} \TODO{}, vengono classificate le cat
 \end{itemize}
 Urgenza:
 \begin{itemize}
-  \item \textbf{Alta:} l'errore deve essere risolto non appena possibile. In ambito di codifica, la gravità è tale da poter coinvolgere più unità e richiedere di ripetere numerosi test. Una mancata gestione del problema può determinare difetti nel prodotto così come un ritardo nella risoluzione può comportare considerevoli aumenti nei tempi e nei costi dei singoli processi.
-  \item \textbf{Media:} l'errore deve essere risolto entro una scadenza stabilita considerando la presenza di altri errori di pari urgenza. In media la risoluzione non dovrebbe richiedere più di 5 giorni lavorativi.
+  \item \textbf{Alta:} l'errore deve essere risolto non appena possibile. In ambito di codifica, la gravità è tale da poter coinvolgere più unità e richiedere di ripetere numerosi test. Una mancata gestione del problema può determinare difetti nel prodotto così come un ritardo nella risoluzione può comportare considerevoli aumenti nei tempi e nei costi dei singoli processi;
+  \item \textbf{Media:} l'errore deve essere risolto entro una scadenza stabilita considerando la presenza di altri errori di pari urgenza. In media la risoluzione non dovrebbe richiedere più di 5 giorni lavorativi;
   \item \textbf{Bassa:} l'errore è di bassa entità e la sua risoluzione non richiede intervento tempestivo. La scadenza per la sua risoluzione coincide con la \gloss{milestone} successiva.
 \end{itemize}
 Metodo di gestione del problema:
 \begin{itemize}
-  \item \textbf{Ticket:} il \VR apre un \gloss{ticket} su \gloss{Asana} per la risoluzione del problema riscontrato (dettagli nella sezione \TODO{});
-  \item \textbf{Aggiunta alla \gloss{checklist}:} il \VR{} scorre la \gloss{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori;
+  \item \textbf{Ticket:} il Verificatore apre un \gloss{ticket} su \gloss{Asana} per la risoluzione del problema riscontrato (dettagli nella sezione \TODO{});
+  \item \textbf{Aggiunta alla \gloss{checklist}:} il \VR{} scorre la Lista di controllo per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori;
   \item \textbf{Correzione immediata:} il \VR provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \gloss{versionamento}, indicando un messaggio di \gloss{commit} esaustivo (per approfondimenti si rimanda alla sezione sulle norme di \gloss{versionamento} \TODO{}).
 \end{itemize}
 
