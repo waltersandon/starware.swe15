@@ -1,0 +1,66 @@
+Verbale Riunione 22-12-2015
+
+1) Problema del versionamento nel nome dei file .tex e .pdf dei documenti :
+	Si è deciso che il nome dei file .tex devono essere senza il numero della versione.
+	I Documenti .pdf una volta verificati e approvati devono essere aggiunti alla repository 
+	e deve anche esserci il numero della versione secondo il formato "NomeDocumento_X.Y.Z.pdf".
+
+2) Asana vs Git ticketing:
+	Spostare tutto il sistema di assegnazione task e ticketing su git.
+	Per poter assegnare una data ad un task c'è la necessità di creare una milestone.
+	Verranno create 3 milestone per documento ( produzione contenuti, verifica, approvazione).
+	Le milestone dovranno seguire il sistema di versionamento dei documenti definito nelle norme di progetto ( escludendo l'asse Z ) NomeDocumento_X.Y
+	Per ogni milestone verranno assegnati i task ai membri del gruppo attraverso le issue.
+	Deve essere aggiunta cartella verbali interni ed esterni alle repository su git.
+
+	LABEL PER LE ISSUE:
+	discussion-> Una issue che rappresenta una discussione su sulla milestone o una sua parte
+	error-> segnalazione di un errore 
+	bug-> segnalazione di un bug nel codice 
+	revision-> nel caso in cui un verificatore reputi che una sezione del documento è sbagliata e debba essere rifatta/rivista
+	informal-> discussione informale 
+ 
+
+3) Commit :
+	I Commit devono essere limitati a modifiche sostanziali!
+
+	Per effettuare commit si dovranno utilizzare i seguenti comandi:
+		- git add nomefile
+		- git commit
+
+	I Commit devono essere composti da :titolo ( breve e conciso), riga vuota , nome milestone e una descrizione delle modifiche fatte 
+		+---------------------+
+		|Titolo               |
+		|                     |
+		|Descrizione Commit   |
+		|text text text text  |
+		+---------------------+
+		
+	Proposta di Thomas per ridefinirli a:
+		
+		+---------------------+
+		|Titolo   #issue      |
+		|                     |
+		|Descrizione Commit   |
+		|text text text text  |
+		+---------------------+
+
+4) Piano di Qualifica:
+	PM-> Igor
+
+	entro il 27/15/15 
+	-leggere i documenti -> alessio, igor, anna
+	-produzione scheletro contenuti 
+
+5) Piano di Progetto:
+	PM-> Nicola
+
+	entro il 27/15/15 
+		-leggere i documenti -> thomas, nicola , walter
+		-produzione scheletro contenuti 
+
+
+6) Norme di Progetto: 
+	- Aggiungere che l'orario di scadenza di un task è entro le 23:59 della data indicata.
+	- Aggiungere la gestione delle issue e milestone attraverso Git.
+	- Modificare l'albero delle directory nella parte di versioning aggiungendo la cartella per i verbali interni ed esterni.
