@@ -252,13 +252,13 @@ Verranno definite norme riguardanti:
   \item utilizzo e l'accesso ai documenti;
   \item templates da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
   \item metodi di verifica e approvazione del materiale prodotto;
-  \item metodi di \textit{quality assurance};
+  \item metodi di \gloss{\textit{quality assurance}};
   \item metodi di validazione;
   \item processi di configurazione.
 \end{itemize}
 
 \subsection{Documentazione}\label{Documentazione} %ISO 12207 6.1
-La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \gloss{ruoli} definiti nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
+La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \gloss{ruoli} definiti nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Tutti documenti essi dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
@@ -293,20 +293,18 @@ La documentazione prodotta deve essere corredata del numero di versione attuale 
 \subsubsection{Stato}
 I documenti sono provvisti di uno \gloss{stato}. Tale stato può essere \gloss{informale} o  \gloss{formale}.
 
-\subsubsubsection{Informale}
-Tutti i documenti saranno da ritenersi informali fino all'approvazione del \PM, il quale potrà richiederne una revisione ulteriore. L'utilizzo dei documenti informali è da considerarsi esclusivamente interno al gruppo e localizzato durante la fase di redazione e verifica di tali documenti.
-
-\subsubsubsection{Formale}
-I documenti approvati dal \PM{} si riterranno formali e pronti per essere distribuiti. Solo i documenti formali potranno essere distribuiti alla loro lista di distribuzione. Ogniqualvolta un documento formale venga modificato o rivisitato, la nuova versione è da considerarsi non formale fino ad approvazione del \PM e quindi sarà trattata come un documento informale.
+\begin{itemize}
+	\item \textbf{Informale:} tutti i documenti saranno da ritenersi informali fino all'approvazione del \PM, il quale potrà richiederne una revisione ulteriore. L'utilizzo dei documenti informali è da considerarsi esclusivamente interno al gruppo e localizzato durante la fase di redazione e verifica di tali documenti.
+	\item \textbf{Formale:} i documenti approvati dal \PM{} si riterranno formali e pronti per essere distribuiti. Solo i documenti formali potranno essere distribuiti alla loro lista di distribuzione. Ogniqualvolta un documento formale venga modificato o rivisitato, la nuova versione è da considerarsi non formale fino ad approvazione del \PM e quindi sarà trattata come un documento informale.
+\end{itemize}
 
 \subsubsection{Uso}
 I documenti possono avere diverse liste di distribuzione ma una devono essere classificati in due principali categorie: uso interno ed esterno.
 
-\subsubsubsection{Interno}
-I docuemnti definiti ad uso interno non devono essere distribuiti all'esterno del gruppo di lavoro.
-
-\subsubsubsection{Esterno}
-I docuemnti definiti ad uso esterno devono essere distribuiti secondo i criteri della lista di distribuzione solamente se sono stati approvati dal \PM{} e se sono in stato \gloss{formale}.
+\begin{itemize}
+	\item \textbf{Interno:} i docuemnti definiti ad uso interno non devono essere distribuiti all'esterno del gruppo di lavoro.
+	\item \textbf{Esterno:} i docuemnti definiti ad uso esterno devono essere distribuiti secondo i criteri della lista di distribuzione solamente se sono stati approvati dal \PM{} e se sono in stato \gloss{formale}.  
+\end{itemize}
 
 \subsubsection{Struttura dei documenti}
 I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un \emph{template} \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \gloss{repository} in \filePath{doc/template}.
