@@ -128,7 +128,7 @@ Verranno definite norme riguardanti:
 
 \subsection{Glossario}
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei
-documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \GlO{} è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).
+documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).
 
 \newpage
 
@@ -366,7 +366,7 @@ Il piè di pagina deve contenere:
   \item licenza di distribuzione del documento.
 \end{itemize}
 
-\subsubsection{Norme tipografiche}
+\subsubsection{Norme tipografiche}\label{norme tipografiche}
 
 \subsubsubsection{Stile del testo}
 \begin{itemize}
@@ -398,7 +398,13 @@ Il piè di pagina deve contenere:
     \item \textbf{Verificatore}: \latex{\textbackslash VR}
     \item \textbf{Project Manager}: \latex{\textbackslash PM}
   \end{itemize}
-  \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel \GlO. È stata fatta una definite macro in \LaTeX{} per facilitare la composizione dei documenti: \latex{\textbackslash gloss}
+  \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel glossario. Sono state definite delle macro in \LaTeX{} per facilitare la composizione dei documenti:
+  \begin{itemize}
+  	\item \latex{\textbackslash mgls} per parole del glossario normali;
+	\item \latex{\textbackslash mGls} per parole del glossario che devono iniziare con la maiuscola;
+	\item \latex{\textbackslash mglspl} per parole del glossario plurali;
+	\item \latex{\textbackslash mGlspl} per parole del glossario plurali che devono iniziare con la maiuscola.
+	\end{itemize}
   \item \textbf{Note}: le note a piè di pagina possono contenere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
   \item \textbf{\LaTeX}: i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
   \item \textbf{Revisioni}: i riferimenti alle revisioni devono essere fatti utilizzato la rispettiva macro che garantisce la corretta scrittura con la prima lettera di ogni parola che non sia una preposizione maiuscola :
@@ -415,7 +421,6 @@ Il piè di pagina deve contenere:
     \item \textbf{Analisi dei Requisiti}: \latex{\textbackslash AdR}
     \item \textbf{Piano di Progetto}: \latex{\textbackslash PdP}
     \item \textbf{Piano di Qualifica}: \latex{\textbackslash PdQ}
-    \item \textbf{Glossario}: \latex{\textbackslash GlO}
   \end{itemize}
 \end{itemize}
 
@@ -445,7 +450,7 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 \end{itemize}
 
 \subsection{Configurazione} %ISO 12207 6.2
-Il \PM, come descritto in \ref{Pianificazione}, assegna ad ogni software utilizzato un referente che ne gestisce la configurazione, il mantenimento e la gestione dei problemi (spiegata in dettaglio nella sezione \ref{Risoluzione dei Problemi}).
+Il \PM, come descritto nella sezione \ref{Pianificazione}, assegna ad ogni software utilizzato un referente che ne gestisce la configurazione, il mantenimento e la gestione dei problemi (spiegata in dettaglio nella sezione \ref{Risoluzione dei Problemi}).
 
 \subsubsection{Documentazione}
 I documenti verranno distribuiti in formato \mgls{pdf}. Per la stesura dei documenti verrà utilizzato \LaTeX{} come \emph{word processor} e come linguaggio di markup. Verranno utilizzati i seguenti software per la produzione di materiale per i documenti:
@@ -453,7 +458,7 @@ I documenti verranno distribuiti in formato \mgls{pdf}. Per la stesura dei docum
   \item \textbf{Texstudio\footnote{\url{http://www.texstudio.org/}}}: (referente \NDC) verrà utilizzato come software da usare sia come editor che come processore \LaTeX;
   \item \textbf{ArgoUML\footnote{\url{http://argouml.tigris.org/}}}: (referente \AVE) verrà utilizzato come software per creare tutti i diagrammi \mgls{uml}.
 \end{itemize}
-Tutto il software utilizzato è gratuito e \emph{cross-platform}.
+Tutto il software utilizzato è gratuito e \emph{\mgls{cross-platform}}.
 
 \subsubsection{Codifica}
 Poiché non sono ancora state scelte le tecnologie da utilizzare per il progetto non si definiscono per ora norme al riguardo. In successive versioni di questo documento questa sezione avrà un'esaustiva spiegazione a riguardo dei software utilizzati per la codifica e i loro referenti.
@@ -470,7 +475,7 @@ La verifica di processi, documenti e prodotti deve essere eseguita durante l'int
 
 \subsubsection{Tecniche di analisi}
 \begin{itemize}
-  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR controllerà i documenti e il codice utilizzando le seguenti tecniche:
+  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
     \begin{itemize}
       \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} (sezione \ref{lista-di-controllo}) dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
       \item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
@@ -484,7 +489,7 @@ di controllo risultante è la seguente:
 \begin{itemize}
 	\item \textbf{Norme stilistiche:}
 	\begin{itemize}
-		\item 
+		\item rispetto delle norme stilistiche e tipografiche descritte nella sezione \ref{norme tipografiche}
 	\end{itemize}
 	\item \textbf{Italiano:}
 	\begin{itemize}
@@ -498,7 +503,7 @@ di controllo risultante è la seguente:
 	\begin{itemize}
 		\item 
 	\end{itemize}
-	\item \textbf{\GlO:}
+	\item \textbf{Glossario:}
 	\begin{itemize}
 		\item 
 	\end{itemize}
@@ -562,7 +567,7 @@ Il processo di verifica viene istanziato nel momento in cui l'output di un proce
 \begin{itemize}
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \textit{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \textit{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
-	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l'apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l'opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l'output finale sia conforme a quanto precisato relativamente al \GlO
+	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del glossario è possibile automatizzare tale verifica. Utilizzando l'apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l'opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l'output finale sia conforme a quanto precisato relativamente al glossario
 	\item \textbf{Miglioramento del processo di verifica:} quando i Verificatori eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
 	\item Norme stilistiche \TODO{}
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare ticket secondo quando descritto nella sezione \TODO{}
@@ -732,7 +737,7 @@ Il \PM{} ha la responsabilità di preparare il piano per l'esecuzione del proces
 Per pianificare le attività il \PM{} deve realizzare un diagramma di \mGls{gantt} per ciascuna fase indicata nella sezione Pianificazione del \PdP{}.
 Per assolvere a questo compito è stato scelto il software open-source \mGls{projectlibre} per i seguenti motivi:
 \begin{itemize}
-  \item permette di creare diagrammi di \mGls{gantt} e di \mGls{pert} in maniera facile ed intuitiva;
+  \item permette di creare diagrammi di \mGls{gantt} e \mGls{PERT} in maniera facile ed intuitiva;
   \item essendo open-source e basato sulla piattaforma Java, è compatibile con i sistemi operativi Linux, Mac OS e Windows. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma;
 \end{itemize}
 
@@ -773,7 +778,7 @@ I \textit{\mgls{ticket}} creati devono avere le seguenti caratteristiche:
 \begin{itemize}
   \item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \textit{\mgls{task}};
   \item \textbf{Assegnatari/o:} I \textit{\mglspl{task}} o \textit{\mglspl{subtask}} devono sempre essere assegnati ad uno o più membri del gruppo;
-  \item \textbf{Data:} Ogni \textit{\mglspl{task}} o \textit{\mglspl{subtask}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\mgls{gantt}} e \textit{\mgls{pert}}, entro il quale essere completato;
+  \item \textbf{Data:} Ogni \textit{\mglspl{task}} o \textit{\mglspl{subtask}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\mgls{gantt}} e \textit{\mgls{PERT}}, entro il quale essere completato;
   \item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \textit{\mgls{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
   \item \textbf{Label:} Bisogna segnalare lo stato del \textit{\mgls{task}} attraverso una etichetta appropriata;
   \item \textbf{Subtask:} In caso di necessità è possibile suddividere il \textit{\mgls{task}} in diversi \textit{\mgls{subtask}} imputabili ai membri del gruppo.
@@ -893,7 +898,7 @@ La repository è organizzata secondo il seguente albero delle directory
 \item[--] quizzipedia
 \end{itemize}
 
-La cartella doc contiene tutti i documenti, la cartella quizzipedia contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \GlO, \PdP e \PdQ).
+La cartella doc contiene tutti i documenti, la cartella quizzipedia contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
 
 \newpage
 \printglossary[title={Glossario}]
