@@ -856,16 +856,11 @@ Come sistema di \mgls{versionamento} è stato scelto di usare \mGls{git}. I moti
 Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
 \subsubsubsection{Comandi}
 \paragraph{Commit}
-Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento in cui si è concentrato il commit e quale delle seguenti azioni sia stata fatta:
-\begin{itemize}
-\item Aggiunta di un nuovo elemento
-\item Correzzione o modifica
-\item Moglioramento o ampliamento
-\end{itemize}
+Il comando per fare un commit è \texttt{git commit}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta e il numero del issue espresso come collegamento ipertestuale (e.g. Aggiunta sezione Repository nelle Norme di progetto \#1234, Verifica e correzione delle Norme di progetto \#5678). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 \paragraph{Pull}
-È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
 \paragraph{Push}
-Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare una push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \texttt{git push} della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
 
 \newpage
 \subsubsubsection{Struttura albero delle directory}
@@ -894,11 +889,17 @@ La repository è organizzata secondo il seguente albero delle directory
 \item[--] esterni
 \end{itemize}
 \item[--] template
+\item[--] glossario
+\item[--] verbali
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
 \end{itemize}
-\item[--] quizzipedia
+\end{itemize}
+\item[--] src
 \end{itemize}
 
-La cartella doc contiene tutti i documenti, la cartella quizzipedia contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
+La cartella doc contiene tutti i documenti, la cartella src contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}; la cartella glossario contiene il file con le definizioni comuni a tutti i documenti; la cartella verbali contiene i verbali delle riunioni divisi tra quelli relativi a riunioni interne ed esterne. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP\ e \SdF) da quelli esterni (\AdR, \PdP\ e \PdQ).
 
 \newpage
 \printglossary[title={Glossario}]
