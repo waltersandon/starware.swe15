@@ -566,11 +566,10 @@ Il processo di verifica viene istanziato nel momento in cui l'output di un proce
 
 \begin{itemize}
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \textit{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \textit{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
-	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
-	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del glossario è possibile automatizzare tale verifica. Utilizzando l'apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l'opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l'output finale sia conforme a quanto precisato relativamente al glossario
-	\item \textbf{Miglioramento del processo di verifica:} quando i Verificatori eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
-	\item Norme stilistiche \TODO{}
-	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare ticket secondo quando descritto nella sezione \TODO{}
+	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
+	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice	
+	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
+	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \textit{\mglspl{ticket}} secondo quando descritto nella sezione \TODO{}
 \end{itemize}
 
 \subsubsection{Diagrammi UML}
@@ -582,11 +581,11 @@ Al \VR{} è richiesto il controllo dei diagrammi UML prodotti:
 \subsection{Validazione} %ISO 12207 6.5
 
 \subsection{Risoluzione dei Problemi}\label{Risoluzione dei Problemi} %ISO 12207 6.8
-Dal \PM{} viene aperto un task (per approfondire vedere sezione \TODO) con scadenza indefinita con titolo:
+Se un membro del gruppo riscontra un problema durante l'utilizzo del software dovrà aprire un \textit{\mgls{task}} con titolo:
 \begin{center}
-\emph{Nome del Software - Risoluzione Problemi}
+\emph{Nome del Software - Problema}
 \end{center}
-Questo task viene assegnato al referente di quel determinato software. Il task indica che tale membro del team deve provvedere a risolvere ogni problema riscontrato nell'utilizzo del software dagli altri membri del team.
+e lo assegna al referente di quel determinato software. Il task indica che tale membro del team deve provvedere a risolvere quel problema nel più breve tempo possibile.
 \newpage
 
 \section{Processi di Organizzazione} %ISO 12207 7.1
@@ -720,6 +719,7 @@ Il verbale di riunione interna è un documento interno informale che consente di
 \paragraph{Riunione esterna}
 In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
 Per agevolare la scrittura di tale documento è stato preparato un \emph{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
+
 \subsubsection{Pianificazione}\label{Pianificazione} %ISO 12207 7.1.2
 %task ruoli e responsabilità - Project Libre
 Il \PM{} ha la responsabilità di preparare il piano per l'esecuzione del processo, ponendo particolare attenzione a :
