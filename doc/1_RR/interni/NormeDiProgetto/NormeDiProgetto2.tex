@@ -482,8 +482,8 @@ e delle prove effettuate.
 
 \subsection{Condivisione materiale}
 
-\subsubsection{Repository}
-Come sistema di \mgls{versionamento} è stato scelto di usare \mGls{git}. I motivi principali che ne hanno determinato la scelta sono:
+\subsubsection{Repository e versionamento}
+Sono state presi in considerazione diversi software di versionamento (Git , SVN, MerGcurial) prima di decidere di usare Git . I motivi principali della scelta sono:
 \begin{itemize}
 	\item è gratuito e non proprietario
 	\item è un repository distribuito con la possibilità di commit e revert locali
@@ -497,8 +497,8 @@ La repository è organizzata secondo il seguente albero delle cartelle:
 \dirtree{%
 	.1 doc.
 	.2 1\_RR.
-	.3 esterni.
-	.3 interni.
+	.3 .
+	.3 .
 	.2 2\_RP.
 	.3 esterni.
 	.3 interni.
@@ -514,22 +514,17 @@ La repository è organizzata secondo il seguente albero delle cartelle:
 
 La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
 
+Si descrive ora la procedura di corretto utilizzo del repository;
 
-\subsubsubsection{Comandi}
-\paragraph{Commit}
-Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento in cui si è concentrato il commit e quale delle seguenti azioni sia stata fatta:
 \begin{itemize}
-	\item Aggiunta di un nuovo elemento
-	\item Correzzione o modifica
-	\item Moglioramento o ampliamento
+	\item Clonare il repositoryG : è possibile clonare il repositoryG remoto in locale attraverso il comando git clone sw-eng@dtp.myopenproject.it:nome-repository.git;	
+	\item Sincronizzare il repositoryG : per scaricare in locale le modifiche bisogna eseguire il comando git pull nella cartella che contiene il repositoryG locale;
+	\item Salvare una modifica in locale: con il comando git add NomeFile si aggiunge un file al commitG corrente e usando il comando git commit -m “Messaggio di	commit ” si salvano le modifiche effettuate ai file;
+	\item Inviare le modifiche al repositoryG remoto: tramite il comando git push si inviano le modifiche al repositoryG remoto;
+	\item Gestione dei conflitti: nel caso si verifichino conflitti sarà necessario usare il comando git mergetool e risolvere il conflitto tramite un tool di mergeG .
 \end{itemize}
 
-\paragraph{Pull}
-È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
-
-\paragraph{Push}
-Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare una push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
-
+Per approfondimenti e una guida a git si veda \TODO{}.
 
 \subsubsection{Materiale informale}
 Si è inoltre scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
@@ -563,7 +558,7 @@ ProjectLibre è un programma open source per il project management. É basato su
 	\item salvataggio su file XML: essendo un file testuale è possibile effettuare il merge	di più file in caso di conflitti sul repository.
 \end{itemize}
 
-\subsubsection{Modalità di utilizzo}
+\subsubsection{ProjectLibre}
 Il Responsabile di Progetto deve creare un progetto per ogni fase indicata nella sezione Pianificazione del Piano di Progetto v5.2.0 e procedere nel modo seguente:
 \begin{enumerate}
 	\item creare un calendario lavorativo per il progetto;
@@ -586,8 +581,42 @@ ProjectLibre viene anche utilizzato come strumento di controllo in quanto permet
 
 \subsection{Documenti}
 
-\subsubsection{\LaTeX}
+\subsubsection{\LaTeX e TeXstudio}
 Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file template condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
+
+
+\subsubsection{ArgoUML}
+\TODO{}.
+
+\subsubsection{LibreOffice Calc}
+Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOffice in quanto tale prodotto è open-source.
+Calc viene utilizzato per elaborare i dati prodotti con ProjectLibre e produrre:
+\begin{itemize}
+	\item grafici a torta per l’utilizzo delle risorse;
+	\item grafici a torta per il costo dedicato a ciascuna risorsa;
+	\item istogrammi per le ore assegnate ad ogni componente del gruppo;
+	\item calcolo della metrica SV come somma delle singole righe della colonna SV di ProjectLibre;
+	\item calcolo della metrica BVG come somma delle varie differenze tra la colonna BCWS e ACWP di ProjectLibre;
+	\item tabelle per il confronto tra preventivo e consuntivo;
+	\item istogrammi per il confronto tra ore preventivate e ore realmente impiegate da
+	ciascuna risorsa.
+\end{itemize}
+
+\subsection{Verifica}
+Per la verifica dei documenti si utilizzano:
+
+• TeXstudio: Per la scrittura di documenti è consigliato utilizzare l’ambiente gra-
+fico TeXstudio. Tale strumento integra i dizionari di OpenOffice.org e segnala i
+potenziali errori ortografici presenti nel testo durante la stesura del testo stesso.
+
+• Script: i componenti del gruppo hanno scritto vari script per il calcolo dell’indice
+Gulpease e la marcatura dei termini presenti nel glossario del documento.
+
+
+
+\subsection{Protocolli per lo sviluppo}
+
+\subsubsection{Ticketing} %6.5 delle NdPv5.2.0 dei don't panic
 
 
 \newpage
