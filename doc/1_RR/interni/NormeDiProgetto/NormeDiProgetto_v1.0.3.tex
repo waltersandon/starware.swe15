@@ -668,21 +668,23 @@ Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
 
 \subsubsubsection{Convocazione riunione}
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
-Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri: ad esempio, nella fase di progettazione può essere utile la collaborazione tra Progettista e Analista, senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
-Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\gloss{task}} su \textit{\gloss{Asana}}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
+Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} a cui spetta il compito di vagliarla.
+Nel caso in cui qualche membro del gruppo fosse impossibilitato a partecipare  alla riunione, sarà suo compito leggere il verbale della stessa e chiedere eventuali delucidazioni al \PM{}.
+Il \PM{} deve convocare la riunione attraverso l'invio di una \textit{\gloss{email}} a tutti i membri del gruppo, avente le seguenti caratteristiche:
 \begin{itemize}
-  \item \textbf{Titolo:} convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
-  \item \textbf{Data:} la data del task dovrà essere impostata alla data prevista per la riunione;
-  \item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
+  \item \textbf{Oggetto:} convocazione riunione n. X in data YYYY-MM-DD , dove X indica il numero crescente di riunioni effettuate e YYYY-MM-DD indica la data in cui verrà indetta la riunione;
+  \item \textbf{Testo della Mail:} elenco ordinato delle varie argomenti da esaminare durante la riunione.
 \end{itemize}
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
-In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere effettuati attraverso modifiche o cancellazione del \gloss{task} su \gloss{Asana}.
+In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere notificati ai membri del gruppo attraverso \textit{\gloss{email}}.
 \subsubsubsection{Verbale}
 All'apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell'assemblea.
 Il segretario deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
+Ogni verbale redatto dovrà essere inserito all'interno della apposita cartella \fileName{verbali} creata nel \textit{\gloss{repository}} su \textit{\gloss{GitHub}} e dovrà essere nominato \fileName{verbale\_data}, la data seve seguire il formato indicato nella sezione 3.3.5.3.
 
 \paragraph{Riunione interna}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \gloss{task} creato per la riunione su \gloss{Asana}, in modo da rendere sempre disponibile il contenuto dello stesso.
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti.
+
 
 \paragraph{Riunione esterna}
 In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
@@ -712,14 +714,13 @@ Sarà compito del \PM{} monitorare l'avanzamento relativo ad ogni fase del proce
 
 \subsubsubsection{Assegnazione dei task} %da modificare in quanto già spiegato nella sezione di tiketing
 Il \PM{}, una volta individuati e stimati i task da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo.
-Per la suddivisione e l'assegnazione dei \textit{\gloss{task}} è stato scelto di utilizzare l'applicazione web \textit{\gloss{Asana}} per i seguenti motivi:
+Per la suddivisione e l'assegnazione dei \textit{\gloss{task}} è stato scelto di utilizzare il sistema di \textit{\gloss{issue}} di \textit{\gloss{GitHub}} per i seguenti motivi:
  \begin{itemize}
   \item Permette di creare e assegnare \textit{\gloss{task}} in maniera facile ed intuitiva;
-  \item Permette di monitorare chiaramente le scadenze dei \textit{\gloss{task}};
-  \item Da la possibilità dividere i \textit{\gloss{task}} in \textit{\gloss{subtask}};
-  \item Esiste anche un applicazione per \textit{\gloss{smartphone}} rendendo molto più accessibile l'utilizzo di  \textit{\gloss{Asana}}.
+  \item Permette di monitorare chiaramente le scadenze dei \textit{\gloss{task}} attraverso la creazione di \textit{\gloss{milestone}};
+  \item Fornisce strumenti per mettere in relazione documenti e/o codice con i \textit{\gloss{tasks}}, dato che \textit{\gloss{GitHub}} è il sistema su cui si è scelto di mantenere i \textit{\gloss{repository}}.
 \end{itemize}
-Sarà inoltre compito del \PM{} assegnare una deadline per il completamento del \textit{\gloss{task}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+Sarà inoltre compito del \PM{} assegnare una deadline per il completamento dei \textit{\gloss{tasks}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
 
 \subsubsection{Esecuzione e controllo} %ISO 12207 7.1.3
 %come viene monitorata l'esecuzione della pianificazione: DA DEFINIRE (per esempio chiedendo ogni tanto come sta andando il lavoro)
