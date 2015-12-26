@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage{../../../template/stile}
-\usepackage{float}% If comment this, figure moves to Page 2
+\input{../../../template/stile.sty}
+\input{../../../glossario/glossario.tex}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Norme di Progetto}
@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.3}
+\newcommand{\versione}{1.0.7}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -79,6 +79,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.7 & \NDC & 2015-12-24 & Processi di supporto \\
+\midrule
 1.0.6 & \AVI & 2015-12-21 & Versioning e Repository \\
 \midrule
 1.0.5 & \AVE & 2015-12-10 & Ticketing \\
@@ -91,7 +93,7 @@
 \midrule 
 1.0.1 & \NDC & 2015-12-02 & Introduzione \\
 \midrule
-1.0.0 & \NDC & 2015-11-30 & Template di base \\
+1.0.0 & \NDC & 2015-11-30 & Creazione documento \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -126,7 +128,7 @@ Verranno definite norme riguardanti:
 
 \subsection{Glossario}
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei
-documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \GlO è marcata da una G maiuscola in pedice (e.g. \gloss{pedice}).
+documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).
 
 \newpage
 
@@ -154,7 +156,7 @@ Il \PdQ\ dovrà illustrare la strategia complessiva di verifica e validazione e 
 
 \subsubsection{Piano di Progetto} %ISO 12207 5.2.4
 Il \PdP\ dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto.\\
-Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di Gant e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
+Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di Gantt e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 
 \subsection{Processi di sviluppo}
 
@@ -244,7 +246,7 @@ Le norme di progetto saranno ampliate con questa sezione non appena verranno con
 \section{Processi di Supporto} %ISO 12207 6
 
 \subsection{Scopo}
-Definisce norme per lo sviluppo e il mantenimento della documentazione prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità, di verifica e validazione di tali documenti.
+Definisce norme per lo sviluppo e il mantenimento della documentazione, a supporto dei processi basi, prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità, di verifica e validazione di tali documenti.
 
 \subsection{Descrizione}
 Verranno definite norme riguardanti:
@@ -252,13 +254,13 @@ Verranno definite norme riguardanti:
   \item utilizzo e l'accesso ai documenti;
   \item templates da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
   \item metodi di verifica e approvazione del materiale prodotto;
-  \item metodi di \gloss{\textit{quality assurance}};
+  \item metodi di \textit{\mgls{quality assurance}};
   \item metodi di validazione;
   \item processi di configurazione.
 \end{itemize}
 
 \subsection{Documentazione}\label{Documentazione} %ISO 12207 6.1
-La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \gloss{ruoli} definiti nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
+La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \mgls{ruoli} definiti nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Tutti documenti essi dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
@@ -291,7 +293,7 @@ La documentazione prodotta deve essere corredata del numero di versione attuale 
 \end{itemize}
 
 \subsubsection{Stato}
-I documenti sono provvisti di uno \gloss{stato}. Tale stato può essere \gloss{informale} o  \gloss{formale}.
+I documenti sono provvisti di uno stato. Tale stato può essere informale o formale.
 
 \begin{itemize}
 	\item \textbf{Informale:} tutti i documenti saranno da ritenersi informali fino all'approvazione del \PM, il quale potrà richiederne una revisione ulteriore. L'utilizzo dei documenti informali è da considerarsi esclusivamente interno al gruppo e localizzato durante la fase di redazione e verifica di tali documenti.
@@ -302,12 +304,12 @@ I documenti sono provvisti di uno \gloss{stato}. Tale stato può essere \gloss{i
 I documenti possono avere diverse liste di distribuzione ma una devono essere classificati in due principali categorie: uso interno ed esterno.
 
 \begin{itemize}
-	\item \textbf{Interno:} i docuemnti definiti ad uso interno non devono essere distribuiti all'esterno del gruppo di lavoro.
-	\item \textbf{Esterno:} i docuemnti definiti ad uso esterno devono essere distribuiti secondo i criteri della lista di distribuzione solamente se sono stati approvati dal \PM{} e se sono in stato \gloss{formale}.  
+	\item \textbf{Interno:} i documenti definiti ad uso interno non devono essere distribuiti all'esterno del gruppo di lavoro.
+	\item \textbf{Esterno:} i documenti definiti ad uso esterno devono essere distribuiti secondo i criteri della lista di distribuzione solamente se sono stati approvati dal \PM{} e se sono in stato formale.  
 \end{itemize}
 
 \subsubsection{Struttura dei documenti}
-I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un \emph{template} \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \gloss{repository} in \filePath{doc/template}.
+I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un \emph{template} \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \mgls{repository} in \filePath{doc/template}.
 
 \subsubsubsection{Prima pagina}
 Ogni documento deve avere una prima pagina che contiene le seguenti informazioni sul documento:
@@ -317,8 +319,8 @@ Ogni documento deve avere una prima pagina che contiene le seguenti informazioni
   \item logo del gruppo;
   \item titolo del documento;
   \item versione del documento;
-  \item stato del documento (\gloss{informale} o \gloss{formale})
-  \item uso del documento (\gloss{interno} o \gloss{esterno});
+  \item stato del documento (informale o formale)
+  \item uso del documento (interno o esterno);
   \item data di creazione del documento;
   \item data di ultima modifica del documento;
   \item nome e cognome dei redattori del documento;
@@ -364,11 +366,11 @@ Il piè di pagina deve contenere:
   \item licenza di distribuzione del documento.
 \end{itemize}
 
-\subsubsection{Norme tipografiche}
+\subsubsection{Norme tipografiche}\label{norme tipografiche}
 
 \subsubsubsection{Stile del testo}
 \begin{itemize}
-  \item \textbf{Corsivo}: deve essere usato solo per indicare termini in lingua inglese, standard, citazioni, \gloss{ruoli} e nomi di documenti
+  \item \textbf{Corsivo}: deve essere usato solo per indicare termini in lingua inglese, standard, citazioni, \mgls{ruoli} e nomi di documenti
   \item \textbf{Grassetto}: deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poiché può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione
   \item \textbf{Monospace}: deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi
   \item \textbf{Maiuscolo}: deve essere usato solo per gli acronimi
@@ -396,7 +398,13 @@ Il piè di pagina deve contenere:
     \item \textbf{Verificatore}: \latex{\textbackslash VR}
     \item \textbf{Project Manager}: \latex{\textbackslash PM}
   \end{itemize}
-  \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel \GlO. È stata fatta una definite macro in \LaTeX{} per facilitare la composizione dei documenti: \latex{\textbackslash gloss}
+  \item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel glossario. Sono state definite delle macro in \LaTeX{} per facilitare la composizione dei documenti:
+  \begin{itemize}
+  	\item \latex{\textbackslash mgls} per parole del glossario normali;
+	\item \latex{\textbackslash mGls} per parole del glossario che devono iniziare con la maiuscola;
+	\item \latex{\textbackslash mglspl} per parole del glossario plurali;
+	\item \latex{\textbackslash mGlspl} per parole del glossario plurali che devono iniziare con la maiuscola.
+	\end{itemize}
   \item \textbf{Note}: le note a piè di pagina possono contenere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
   \item \textbf{\LaTeX}: i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
   \item \textbf{Revisioni}: i riferimenti alle revisioni devono essere fatti utilizzato la rispettiva macro che garantisce la corretta scrittura con la prima lettera di ogni parola che non sia una preposizione maiuscola :
@@ -413,7 +421,6 @@ Il piè di pagina deve contenere:
     \item \textbf{Analisi dei Requisiti}: \latex{\textbackslash AdR}
     \item \textbf{Piano di Progetto}: \latex{\textbackslash PdP}
     \item \textbf{Piano di Qualifica}: \latex{\textbackslash PdQ}
-    \item \textbf{Glossario}: \latex{\textbackslash GlO}
   \end{itemize}
 \end{itemize}
 
@@ -423,14 +430,14 @@ Il piè di pagina deve contenere:
   \item  \textbf{Percorsi}: per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
   \item \textbf{URLs e Links}:  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
   \item \textbf{Date e Orari}: le date e gli orari devono seguire la notazione definita dallo standard \emph{ISO 8601}\footnote{\url{http://www.iso.org/iso/iso8601}}: YYYY-MM-DD per le date e HH:MM pe gli orari
-  \item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard \emph{ISO 80000\footnote{\TODO{link a iso 80000}}}
+  \item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard \emph{ISO 80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}}
 \end{itemize}
 
 \subsubsubsection{Tabelle}
 Ogni tabella presente all'interno dei documenti dev'essere accompagnata da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento.
 
 \subsubsubsection{Immagini e grafici}
-Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato \emph{Scalable Vector Graphics} (\gloss{SVG}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \gloss{PDF} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\gloss{PNG}).
+Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato \emph{Scalable Vector Graphics} (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
 
 \subsection{Linguaggio}
 Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{\url{http://www.ietf.org/rfc/rfc2119.txt}}:
@@ -443,16 +450,18 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 \end{itemize}
 
 \subsection{Configurazione} %ISO 12207 6.2
-Il \PM, come descritto in \ref{Pianificazione}, assegna ad ogni software utilizzato un referente che ne gestisce la configurazione, il mantenimento e la gestione dei problemi (spiegata in dettaglio nella sezione \ref{Risoluzione dei Problemi}).
+Il \PM, come descritto nella sezione \ref{Pianificazione}, assegna ad ogni software utilizzato un referente che ne gestisce la configurazione, il mantenimento e la gestione dei problemi (spiegata in dettaglio nella sezione \ref{Risoluzione dei Problemi}).
 
 \subsubsection{Documentazione}
-I documenti verranno distribuiti in formato \gloss{PDF}. Per la stesura dei documenti verrà utilizzato \LaTeX{} come \emph{word processor} e come linguaggio di markup. Verranno utilizzati i seguenti software per la produzione di materiale per i documenti:
+I documenti verranno distribuiti in formato \mgls{pdf}. Per la stesura dei documenti verrà utilizzato \LaTeX{} come \emph{word processor} e come linguaggio di markup. Verranno utilizzati i seguenti software per la produzione di materiale per i documenti:
 \begin{itemize}
-  \item \textbf{Texmaker\footnote{\url{http://www.xm1math.net/texmaker/}}}: (referente \NDC) verrà utilizzato come software da usare sia come editor che come processore \LaTeX;
-  \item \textbf{Dia\footnote{\url{https://wiki.gnome.org/Apps/Dia/}}}: (referente \TODO{}) verrà utilizzato come software per creare diagrammi di flusso;
-  \item \textbf{ArgoUML\footnote{\url{http://argouml.tigris.org/}}}: (referente \TODO{}) verrà utilizzato come software per creare tutti i diagrammi \gloss{UML};
+  \item \textbf{Texstudio\footnote{\url{http://www.texstudio.org/}}}: (referente \NDC) verrà utilizzato come software da usare sia come editor che come processore \LaTeX;
+  \item \textbf{ArgoUML\footnote{\url{http://argouml.tigris.org/}}}: (referente \AVE) verrà utilizzato come software per creare tutti i diagrammi \mgls{uml}.
 \end{itemize}
-Tutto il software utilizzato è gratuito e \emph{cross-platform}.
+Tutto il software utilizzato è gratuito e \emph{\mgls{cross-platform}}.
+
+\subsubsection{Codifica}
+Poiché non sono ancora state scelte le tecnologie da utilizzare per il progetto non si definiscono per ora norme al riguardo. In successive versioni di questo documento questa sezione avrà un'esaustiva spiegazione a riguardo dei software utilizzati per la codifica e i loro referenti.
 
 \subsection{Verifica} %ISO 12207 6.4
 Il processo di verifica produce i seguenti risultati:
@@ -462,19 +471,46 @@ Il processo di verifica produce i seguenti risultati:
   \item identificazione di criteri per la verifica;
   \item stesura di una sezione relativa ai risultati della verifica.
 \end{itemize}
-La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto diattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
+La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
 \subsubsection{Tecniche di analisi}
 \begin{itemize}
-  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR controllerà i documenti e il codice utilizzando le seguenti tecniche:
+  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
     \begin{itemize}
-      \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \gloss{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una lista di controllo dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR rende più esaustiva la lista di controllo, si ricorre sempre meno all'utilizzo della tecnica di \gloss{walkthrough} a favore della tecnica di \gloss{inspection};
-      \item \textbf{Inspection:} l'\gloss{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella lista di controllo. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \gloss{walkthrough}, la lista di controllo viene estesa e specializzata, rendendo l'\gloss{inspection} sempre più efficace;
+      \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} (sezione \ref{lista-di-controllo}) dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
+      \item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
         \end{itemize}
 \end{itemize}
 
+\subsubsection{Lista di controllo}\label{lista-di-controllo}
+Durante l'applicazione del \textit{\mgls{walkthrough}} ai documenti, sono state riportate le tipologie di errori più frequenti. La lista
+di controllo risultante è la seguente:
+
+\begin{itemize}
+	\item \textbf{Norme stilistiche:}
+	\begin{itemize}
+		\item rispetto delle norme stilistiche e tipografiche descritte nella sezione \ref{norme tipografiche}
+	\end{itemize}
+	\item \textbf{Italiano:}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	\item \textbf{\LaTeX:}
+	\begin{itemize}
+		\item mancata spaziatura sopo le macro;
+	\end{itemize}
+	\item \textbf{\mgls{uml}:}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	\item \textbf{Glossario:}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+\end{itemize}
+
 \subsubsection{Classificazione dei problemi}
-A corredo della Lista di controllo \TODO{}, vengono classificate le categorie delle problematiche più comuni e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+A corredo della \mgls{lista di controllo} (sezione \ref{lista-di-controllo}), vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
   \item Processi;
   \item Documentazione;
@@ -484,16 +520,16 @@ Urgenza:
 \begin{itemize}
   \item \textbf{Alta:} l'errore deve essere risolto non appena possibile. In ambito di codifica, la gravità è tale da poter coinvolgere più unità e richiedere di ripetere numerosi test. Una mancata gestione del problema può determinare difetti nel prodotto così come un ritardo nella risoluzione può comportare considerevoli aumenti nei tempi e nei costi dei singoli processi;
   \item \textbf{Media:} l'errore deve essere risolto entro una scadenza stabilita considerando la presenza di altri errori di pari urgenza. In media la risoluzione non dovrebbe richiedere più di 5 giorni lavorativi;
-  \item \textbf{Bassa:} l'errore è di bassa entità e la sua risoluzione non richiede intervento tempestivo. La scadenza per la sua risoluzione coincide con la \gloss{milestone} successiva.
+  \item \textbf{Bassa:} l'errore è di bassa entità e la sua risoluzione non richiede intervento tempestivo. La scadenza per la sua risoluzione coincide con la \mgls{milestone} successiva.
 \end{itemize}
 Metodo di gestione del problema:
 \begin{itemize}
-  \item \textbf{Ticket:} il Verificatore apre un \gloss{ticket} su \gloss{Asana} per la risoluzione del problema riscontrato (dettagli nella sezione \TODO{});
-  \item \textbf{Aggiunta alla \gloss{checklist}:} il \VR{} scorre la Lista di controllo per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori;
-  \item \textbf{Correzione immediata:} il \VR provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \gloss{versionamento}, indicando un messaggio di \gloss{commit} esaustivo (per approfondimenti si rimanda alla sezione sulle norme di \gloss{versionamento} \TODO{}).
+  \item \textbf{Ticket:} il Verificatore apre un \mgls{ticket} su Asana per la risoluzione del problema riscontrato (dettagli nella sezione \TODO{});
+  \item \textbf{Aggiunta alla \mgls{lista di controllo}:} il \VR{} scorre la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori;
+  \item \textbf{Correzione immediata:} il \VR{} provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \mgls{versionamento}, indicando un messaggio di \mgls{commit} esaustivo (per approfondimenti si rimanda alla sezione sulle norme di \mgls{versionamento} \TODO{}).
 \end{itemize}
 
-\begin{table}[t]
+\begin{table}
 \begin{tabular}{p{0.2\textwidth} p{0.35\textwidth} p{0.15\textwidth} p{0.2\textwidth}}
 \toprule
 \textbf{Ambito}	&	\textbf{Problema}	&	\textbf{Urgenza}	&	\textbf{Azione}\\
@@ -524,34 +560,32 @@ Documentazione & Errore di compilazione & Alta & Ticket \\
 \caption{Classificazione dei problemi}
 \label{tabCalssificazioneProb}
 \end{table}
-
-\subsubsection{Diagrammi UML}
-Al \VR è richiesto il controllo dei diagrammi UML prodotti:
-\begin{itemize}
-  \item \textbf{Diagrammi di caso d'uso:} Il controllo dei diagrammi di caso d'uso deve avvenire manualmente, controllando il rispetto delle specifiche \gloss{UML} 2.4 e il corretto uso delle relazioni di inclusione ed estensione. Il diagramma di caso d'uso deve rappresentare fedelmente quanto descritto dal caso d'uso.
-\end{itemize}
   
 \subsubsection{Documentazione}
 Il processo di verifica viene istanziato nel momento in cui l'output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \emph{Verificatori} dell'inizio dell'attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l'attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall'ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un'accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
 
 \begin{itemize}
-	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio e GNU Aspell vengono evidenziati e corretti gli errori di grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
-	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
-	\item \textbf{Verifica delle proprietà di glossario:} Nella redazione del \GlO{} è possibile automatizzare tale verifica. Utilizzando l'apposito script, vengono individuate tutte le segnalazioni di una parola del glossario in un documento in maniera automatica, ed applicato l'opportuno stile. Tale script è descritto nella sezione \TODO{} Il Verificatore dovrà quindi controllare che l'output finale sia conforme a quanto precisato relativamente al \GlO
-	\item \textbf{Miglioramento del processo di verifica:} quando i Verificatori eseguono \emph{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{inspection} su tali errori nelle verifiche future
-	\item NOrme stilistiche \TODO{}
-	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nelle tabelle 3 e 2 il Verificatore deve generare ticket secondo quando descritto nella sezione \TODO{}
+	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \textit{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \textit{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
+	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
+	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice	
+	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
+	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \textit{\mglspl{ticket}} secondo quando descritto nella sezione \TODO{}
 \end{itemize}
 
+\subsubsection{Diagrammi UML}
+Al \VR{} è richiesto il controllo dei diagrammi UML prodotti:
+\begin{itemize}
+	\item \textbf{Diagrammi di caso d'uso:} Il controllo dei diagrammi di caso d'uso deve avvenire manualmente, controllando il rispetto delle specifiche \mgls{uml} 2.4 e il corretto uso delle relazioni di inclusione ed estensione. Il diagramma di caso d'uso deve rappresentare fedelmente quanto descritto dal caso d'uso.
+\end{itemize}
 
 \subsection{Validazione} %ISO 12207 6.5
 
 \subsection{Risoluzione dei Problemi}\label{Risoluzione dei Problemi} %ISO 12207 6.8
-Dal \PM{} viene aperto un task (per approfondire vedere sezione \TODO) con scadenza indefinita con titolo:
+Se un membro del gruppo riscontra un problema durante l'utilizzo del software dovrà aprire un \textit{\mgls{task}} con titolo:
 \begin{center}
-\emph{Nome del Software - Risoluzione Problemi}
+\emph{Nome del Software - Problema}
 \end{center}
-Questo task viene assegnato al referente di quel determinato software. Il task indica che tale membro del team deve provvedere a risolvere ogni problema riscontrato nell'utilizzo del software dagli altri membri del team.
+e lo assegna al referente di quel determinato software. Il task indica che tale membro del team deve provvedere a risolvere quel problema nel più breve tempo possibile.
 \newpage
 
 \section{Processi di Organizzazione} %ISO 12207 7.1
@@ -563,7 +597,7 @@ I processi organizzativi aiutano nel definire, controllare e migliorare gli altr
 
 \subsubsection{Scopo} %ISO 12207 7.1.1
 
-I processi di management contengono le attività generiche e i task, che possono essere impiegati da un qualsiasi gruppo che deve gestire i suoi rispettivi processi. Il \PM{} responsabile per la gestione del prodotto, la gestione del progetto, la gestione dei \textit{\gloss{tasks}} inerenti ai processi come quelli di acquisizione, fornitura, sviluppo, manutenzione o i processi di supporto.
+I processi di management contengono le attività generiche e i task, che possono essere impiegati da un qualsiasi gruppo che deve gestire i suoi rispettivi processi. Il \PM{} responsabile per la gestione del prodotto, la gestione del progetto, la gestione dei \textit{\mglspl{task}} inerenti ai processi come quelli di acquisizione, fornitura, sviluppo, manutenzione o i processi di supporto.
 
 \subsubsection{Descrizione} %ISO 12207 7.1.1
 
@@ -592,9 +626,8 @@ Detiene il potere decisionale, quindi la responsabilità su:
   \item Approvazione dell'offerta.
 \end{itemize}
 
-Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le Norme di Progetto, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \textit{\gloss{Redattori}} e
-\textit{\gloss{Verificatori}}. Egli è l'unico a poter decidere l'approvazione di un documento e a sancirne la distribuzione.
-Ha inoltre l'incarico di gestire la creazione e l'assegnazione dei \textit{\gloss{ticket}} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest'ultima.
+Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le Norme di Progetto, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \mglspl{redattore} e \mglspl{verificatore}. Egli è l'unico a poter decidere l'approvazione di un documento e a sancirne la distribuzione.
+Ha inoltre l'incarico di gestire la creazione e l'assegnazione dei \textit{\mgls{ticket}} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest'ultima.
 Redige il \PdP{} e collabora alla stesura del \PdQ{}, in particolare nella sezione relativa alla pianificazione.
 
 \subsubsubsection{Amministratore}
@@ -611,7 +644,7 @@ Redige le \NdP{}, dove spiega e norma l'utilizzo degli strumenti, redige la sezi
 \subsubsubsection{Analista}
 L'\AN{} è responsabile delle attività di analisi. Le responsabilità di spicco per tale ruolo sono:
 \begin{itemize}
-  \item Produrre una specifica di progetto comprensibile, sia per il \gloss{Proponente}, sia per il \textit{\gloss{Committente}} che per il \PG{}, e motivata in ogni suo punto;
+  \item Produrre una specifica di progetto comprensibile, sia per il \mgls{proponente}, sia per il \mgls{committente} che per il \PG{}, e motivata in ogni suo punto;
   \item Comprendere appieno la natura e la complessità del problema.
 \end{itemize}
 Redige lo \SdF{}, l'\AdR{} e parte del \PdQ{}.
@@ -658,8 +691,7 @@ Per le comunicazioni esterne è stata creata una casella di posta elettronica:
 Tale indirizzo deve essere l'unico canale di comunicazione esistente tra il gruppo di lavoro e l'esterno. Solo il \PM{} ha accesso all'indirizzo ed è quindi l'unico a poter comunicare con il committente del progetto. È compito del \PM{} informare i membri del gruppo delle discussioni avvenute.
 
 \subsubsubsection{Interna}
-Per le comunicazioni interne informali è stato scelto l'uso di \textit{\gloss{Telegram}}, per il suo utilizzo tramite \textit{\gloss{browser}} che permette, quindi, un accesso alle conversazioni sia da pc che da \textit{\gloss{smartphone}}.
-Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio cloud di \textit{\gloss{Google Drive}}. Inoltre è permesso l'uso di \textit{\gloss{Skype}} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
+Per le comunicazioni interne informali è stato scelto l'uso di \mgls{telegram}, per il suo utilizzo tramite \textit{\mgls{browser}} che permette, quindi, un accesso alle conversazioni sia da pc che da \textit{smartphone}. Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio \textit{cloud} di \mgls{Google Drive}. Inoltre è permesso l'uso di \mgls{skype} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
 
 \subsubsection{Riunioni}
 %non sono sicuro che se questa sezione sia in qualche modo separata o ricada dentro la pianificazione
@@ -670,57 +702,60 @@ Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
 Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} a cui spetta il compito di vagliarla.
 Nel caso in cui qualche membro del gruppo fosse impossibilitato a partecipare  alla riunione, sarà suo compito leggere il verbale della stessa e chiedere eventuali delucidazioni al \PM{}.
-Il \PM{} deve convocare la riunione attraverso l'invio di una \textit{\gloss{email}} a tutti i membri del gruppo, avente le seguenti caratteristiche:
+Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\mgls{task}} su \textit{Asana}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
+
 \begin{itemize}
   \item \textbf{Oggetto:} convocazione riunione n. X in data YYYY-MM-DD , dove X indica il numero crescente di riunioni effettuate e YYYY-MM-DD indica la data in cui verrà indetta la riunione;
   \item \textbf{Testo della Mail:} elenco ordinato delle varie argomenti da esaminare durante la riunione.
 \end{itemize}
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
-In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere notificati ai membri del gruppo attraverso \textit{\gloss{email}}.
+In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere effettuati attraverso modifiche o cancellazione del \mgls{task} su Asana.
 \subsubsubsection{Verbale}
 All'apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell'assemblea.
 Il segretario deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
-Ogni verbale redatto dovrà essere inserito all'interno della apposita cartella \fileName{verbali} creata nel \textit{\gloss{repository}} su \textit{\gloss{GitHub}} e dovrà essere nominato \fileName{verbale\_data}, la data seve seguire il formato indicato nella sezione 3.3.5.3.
+Ogni verbale redatto dovrà essere allegato al \mgls{task} della riunione creato su \textit{\glossary{Asana}} e dovrà essere nominato \fileName{verbale\_data}, la data seve seguire il formato indicato nella sezione 3.3.5.3.
 
 \paragraph{Riunione interna}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti.
-
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \mgls{task} creato per la riunione su Asana, in modo da rendere sempre disponibile il contenuto dello stesso.
 
 \paragraph{Riunione esterna}
 In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
 Per agevolare la scrittura di tale documento è stato preparato un \emph{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
+
 \subsubsection{Pianificazione}\label{Pianificazione} %ISO 12207 7.1.2
 %task ruoli e responsabilità - Project Libre
 Il \PM{} ha la responsabilità di preparare il piano per l'esecuzione del processo, ponendo particolare attenzione a :
 \begin{itemize}
-  \item Programmazione del lavoro per il completamento tempestivo dei \gloss{task};
+  \item Programmazione del lavoro per il completamento tempestivo dei \mgls{task};
   \item Stima dello sforzo necessario;
-  \item Assegnazione delle risorse necessarie al completamento del \gloss{task};
+  \item Assegnazione delle risorse necessarie al completamento del \mgls{task};
   \item Assegnazione delle responsabilità;
-  \item Quantificazione dei rischi associati ai \gloss{task};
+  \item Quantificazione dei rischi associati ai \mgls{task};
   \item Misure di controllo qualità che devono essere impiegate durante il processo;
   \item Costo associato all'esecuzione del processo.
 \end{itemize}
 
 \subsubsubsection{Pianificazione delle attività} 
-Per pianificare le attività il \PM{} deve realizzare un diagramma di \textit{\gloss{Gantt}} per ciascuna fase indicata nella sezione Pianificazione del \PdP{}.
-Per assolvere a questo compito è stato scelto il software open source \textit{\gloss{ProjectLibre}} per i seguenti motivi:
+Per pianificare le attività il \PM{} deve realizzare un diagramma di \mGls{gantt} per ciascuna fase indicata nella sezione Pianificazione del \PdP{}.
+Per assolvere a questo compito è stato scelto il software open-source \mGls{projectlibre} per i seguenti motivi:
 \begin{itemize}
-  \item Permette di creare diagrammi di \textit{\gloss{Gantt}} e di \textit{\gloss{Pert}} in maniera facile ed intuitiva;
-  \item Essendo opensource e basato sulla piattaforma Java, è compatibile con i sistemi operativi Linux, Mac OS e Windows. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma;
+  \item permette di creare diagrammi di \mGls{gantt} e \mGls{PERT} in maniera facile ed intuitiva;
+  \item essendo open-source e basato sulla piattaforma Java, è compatibile con i sistemi operativi Linux, Mac OS e Windows. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma;
 \end{itemize}
 
 Sarà compito del \PM{} monitorare l'avanzamento relativo ad ogni fase del processo,tenendo in considerazione e risolvendo le eventuali dipendenze tra attività da eseguire.
 
 \subsubsubsection{Assegnazione dei task} %da modificare in quanto già spiegato nella sezione di tiketing
 Il \PM{}, una volta individuati e stimati i task da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo.
-Per la suddivisione e l'assegnazione dei \textit{\gloss{task}} è stato scelto di utilizzare il sistema di \textit{\gloss{issue}} di \textit{\gloss{GitHub}} per i seguenti motivi:
+Per la suddivisione e l'assegnazione dei \textit{\mgls{task}} è stato scelto di utilizzare l'applicazione web \textit{Asana} per i seguenti motivi:
  \begin{itemize}
-  \item Permette di creare e assegnare \textit{\gloss{task}} in maniera facile ed intuitiva;
-  \item Permette di monitorare chiaramente le scadenze dei \textit{\gloss{task}} attraverso la creazione di \textit{\gloss{milestone}};
-  \item Fornisce strumenti per mettere in relazione documenti e/o codice con i \textit{\gloss{tasks}}, dato che \textit{\gloss{GitHub}} è il sistema su cui si è scelto di mantenere i \textit{\gloss{repository}}.
+  \item Permette di creare e assegnare \textit{\mgls{task}} in maniera facile ed intuitiva;
+  \item Permette di monitorare chiaramente le scadenze dei \textit{\mgls{task}};
+  \item Da la possibilità dividere i \textit{\mgls{task}} in \textit{\mgls{subtask}};
+  \item Esiste anche un applicazione per \textit{smartphone} rendendo molto più accessibile l'utilizzo di \textit{Asana}.
 \end{itemize}
-Sarà inoltre compito del \PM{} assegnare una deadline per il completamento dei \textit{\gloss{tasks}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+Sarà inoltre compito del \PM{} assegnare una deadline per il completamento del \textit{\mgls{task}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+
 
 \subsubsection{Esecuzione e controllo} %ISO 12207 7.1.3
 %come viene monitorata l'esecuzione della pianificazione: DA DEFINIRE (per esempio chiedendo ogni tanto come sta andando il lavoro)
@@ -735,49 +770,49 @@ Sono processi per stabilire e mantenere le infrastrutture necessarie a qualsiasi
 \subsubsection{Descrizione} 
 Verranno definite norme riguardanti:
 \begin{itemize}
-  \item Definizione e documentazione sulle modalità di \textit{\gloss{ticketing}} ;
-  \item Definizione e documentazione sulle modalità di \textit{\gloss{versioning}};
-  \item Definizione e documentazione sulla struttura del sistema di \textit{\gloss{repository}}.
+  \item Definizione e documentazione sulle modalità di \textit{\mgls{ticketing}} ;
+  \item Definizione e documentazione sulle modalità di \textit{\mgls{versionamento}};
+  \item Definizione e documentazione sulla struttura del sistema di \textit{\mgls{repository}}.
 \end{itemize}
 
 \subsubsection{Ticketing} 
 \subsubsubsection{Struttura Ticket}
-I \textit{\gloss{ticket}} creati devono avere le seguenti caratteristiche:
+I \textit{\mgls{ticket}} creati devono avere le seguenti caratteristiche:
 \begin{itemize}
-  \item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \textit{\gloss{task}};
-  \item \textbf{Assegnatari/o:} I \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} devono sempre essere assegnati ad uno o più membri del gruppo;
-  \item \textbf{Data:} Ogni \textit{\gloss{tasks}} o \textit{\gloss{subtasks}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\gloss{Gant}} e \textit{\gloss{Pert}}, entro il quale essere completato;
-  \item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \textit{\gloss{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
-  \item \textbf{Label:} Bisogna segnalare lo stato del \textit{\gloss{task}} attraverso una etichetta appropriata;
-  \item \textbf{Subtask:} In caso di necessità è possibile suddividere il \textit{\gloss{task}} in diversi \textit{\gloss{subtask}} imputabili ai membri del gruppo.
+  \item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \textit{\mgls{task}};
+  \item \textbf{Assegnatari/o:} I \textit{\mglspl{task}} o \textit{\mglspl{subtask}} devono sempre essere assegnati ad uno o più membri del gruppo;
+  \item \textbf{Data:} Ogni \textit{\mglspl{task}} o \textit{\mglspl{subtask}} deve sempre avere una data, decisa attraverso i diagrammi di \textit{\mgls{gantt}} e \textit{\mgls{PERT}}, entro il quale essere completato;
+  \item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \textit{\mgls{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
+  \item \textbf{Label:} Bisogna segnalare lo stato del \textit{\mgls{task}} attraverso una etichetta appropriata;
+  \item \textbf{Subtask:} In caso di necessità è possibile suddividere il \textit{\mgls{task}} in diversi \textit{\mgls{subtask}} imputabili ai membri del gruppo.
 \end{itemize}
 
 \newpage
 \subsubsubsection{Etichette}
-Lo stato di ogni \textit{\gloss{ticket}} deve essere identificato da un appropriata etichetta:
+Lo stato di ogni \textit{\mgls{ticket}} deve essere identificato da un appropriata etichetta:
 \begin{itemize}
-  \item \textbf{Aperto:} Etichetta riservata ai \textit{\gloss{ticket}} non ancora assegnati;
-  \item \textbf{Accettato:} Etichetta riservata ai \textit{\gloss{ticket}} una volta in cui il membro del gruppo a cui sono imputati ne ha preso visione;
-  \item \textbf{In Corso:} Etichetta riservata ai \textit{\gloss{ticket}} in fase di elaborazione;
-  \item \textbf{In Attesa:} Etichetta riservata ai \textit{\gloss{ticket}} che non possono entrare in fase di elaborazione a causa di dipendenze con altri ticket non ancora completati;
-  \item \textbf{Completato:} Etichetta riservata ai \textit{\gloss{ticket}} per cui la fase di elaborazione è stata completata con successo;
-  \item \textbf{Verificato:} Etichetta riservata ai \textit{\gloss{ticket}} di cui è stata verificato l'effettivo comletamento e l'assenza di errori;
+  \item \textbf{Aperto:} Etichetta riservata ai \textit{\mgls{ticket}} non ancora assegnati;
+  \item \textbf{Accettato:} Etichetta riservata ai \textit{\mgls{ticket}} una volta in cui il membro del gruppo a cui sono imputati ne ha preso visione;
+  \item \textbf{In Corso:} Etichetta riservata ai \textit{\mgls{ticket}} in fase di elaborazione;
+  \item \textbf{In Attesa:} Etichetta riservata ai \textit{\mgls{ticket}} che non possono entrare in fase di elaborazione a causa di dipendenze con altri ticket non ancora completati;
+  \item \textbf{Completato:} Etichetta riservata ai \textit{\mgls{ticket}} per cui la fase di elaborazione è stata completata con successo;
+  \item \textbf{Verificato:} Etichetta riservata ai \textit{\mgls{ticket}} di cui è stata verificato l'effettivo comletamento e l'assenza di errori;
 \end{itemize}
 
 \subsubsubsection{Ciclo di vita del Ticket}
-Ogni \textit{\gloss{ticket}} rappresenta un \gloss{attività} o un \textit{\gloss{task}} e deve rispettare il seguente iter:
+Ogni \textit{\mgls{ticket}} rappresenta un \mgls{attivita} o un \textit{\mgls{task}} e deve rispettare il seguente iter:
 
 \begin{enumerate}
-  \item Creazione di un \textit{\gloss{task}};
-  \item Il \PM{} assegna il \textit{\gloss{task}} ad uno o più membri del gruppo, nel caso l'assegnatario non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \textit{\gloss{task}}, sarà necessario impostare come etichetta \textbf{Aperto};  
-    \item L'assegnatario può decidere se accettare o meno il \textit{\gloss{task}}:
+  \item Creazione di un \textit{\mgls{task}};
+  \item Il \PM{} assegna il \textit{\mgls{task}} ad uno o più membri del gruppo, nel caso l'assegnatario non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \textit{\mgls{task}}, sarà necessario impostare come etichetta \textbf{Aperto};  
+    \item L'assegnatario può decidere se accettare o meno il \textit{\mgls{task}}:
     	\begin{itemize}
-    	\item Accettazione: L'assegnatario dovrà modificare l'etichetta del \textit{\gloss{task}} in \textbf{Accettato}.
-    	\item Rifiuto: L'assegnatario dovrà motivare il rifiuto del \textit{\gloss{task}} e, nel caso le motivazione fossero reputate pertinenti dal \PM{}, verrà ripetuto il punto 2. 
+    	\item Accettazione: L'assegnatario dovrà modificare l'etichetta del \textit{\mgls{task}} in \textbf{Accettato}.
+    	\item Rifiuto: L'assegnatario dovrà motivare il rifiuto del \textit{\mgls{task}} e, nel caso le motivazione fossero reputate pertinenti dal \PM{}, verrà ripetuto il punto 2. 
     	\end{itemize}
-	\item Se il \textit{\gloss{task}} fosse dipendente dal completamento di un altro \textit{\gloss{task}} in stato di esecuzione, sarà necessario modificarne l'etichetta in \textbf{In attesa};
-	\item Esecuzione del \textit{\gloss{task}};
-	\item Una volta completato il \textit{\gloss{task}} l'assegnatario dovrà modificarne l'etichetta in \textbf{Completato};
+	\item Se il \textit{\mgls{task}} fosse dipendente dal completamento di un altro \textit{\mgls{task}} in stato di esecuzione, sarà necessario modificarne l'etichetta in \textbf{In attesa};
+	\item Esecuzione del \textit{\mgls{task}};
+	\item Una volta completato il \textit{\mgls{task}} l'assegnatario dovrà modificarne l'etichetta in \textbf{Completato};
 	\item Ogni tag completato dovrà essere vagliato attraverso procedure di verifica. 
 \end{enumerate}
 
@@ -793,14 +828,12 @@ Ogni \textit{\gloss{ticket}} rappresenta un \gloss{attività} o un \textit{\glos
 
 \newpage
 \subsubsubsection{Ticket di Verifica}
-Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve esserne verificata la correttezza e l'effettivo completamento attraverso la seguente procedura:
+Per ogni \textit{\mgls{task}} marcato da etichetta \textbf{Completato} deve esserne verificata la correttezza e l'effettivo completamento attraverso la seguente procedura:
 \begin{enumerate}
-	\item Al completamento di un \textit{\gloss{ticket}} il \PM{} deve creare un \textit{\gloss{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \VR{};
-	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \textit{\gloss{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \textit{\gloss{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
-	\item Il \PM{} assegna gli eventuali \textit{\gloss{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse.
+	\item Al completamento di un \textit{\mgls{ticket}} il \PM{} deve creare un \textit{\mgls{task}} marcato dall'etichetta \textbf{Verificare} ed assegnarlo ad un \VR{};
+	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \textit{\mgls{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \textit{\mgls{task}} e ne modifica lo stato impostando l'etichetta \textbf{Verificato}.
+	\item Il \PM{} assegna gli eventuali \textit{\mgls{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse.
 \end{enumerate}
- 
-
 
 \begin{center}
 \begin{figure}[H]
@@ -813,7 +846,7 @@ Per ogni \textit{\gloss{task}} marcato da etichetta \textbf{Completato} deve ess
 
 \newpage
 \subsubsection{Versioning} %Scelta di Git come sistema di Versioning
-Come sistema di versionamento è stato scelto di usare \gloss{Git}. I motivi principali che ne hanno determinato la scelta sono:
+Come sistema di \mgls{versionamento} è stato scelto di usare \mGls{git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
 \item è gratuito e non proprietario
 \item è un repository distribuito con la possibilità di commit e revert locali
@@ -823,19 +856,14 @@ Come sistema di versionamento è stato scelto di usare \gloss{Git}. I motivi pri
 \end{itemize}
 
 \subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
-Viene creata una \gloss{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
+Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
 \subsubsubsection{Comandi}
 \paragraph{Commit}
-Il comando per fare un commit è \texttt{git commit -a -m "<messaggio>"}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che non vi siano porzioni di testo interrotte o codice non completo. Il messaggio da associare al commit è obbligatorio e deve esprimere in modo sintetico ma chiaro quale sia l'elemento in cui si è concentrato il commit e quale delle seguenti azioni sia stata fatta:
-\begin{itemize}
-\item Aggiunta di un nuovo elemento
-\item Correzzione o modifica
-\item Moglioramento o ampliamento
-\end{itemize}
+Il comando per fare un commit è \texttt{git commit}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta e il numero del issue espresso come collegamento ipertestuale (e.g. Aggiunta sezione Repository nelle Norme di progetto \#1234, Verifica e correzione delle Norme di progetto \#5678). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 \paragraph{Pull}
-È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
 \paragraph{Push}
-Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare una push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \texttt{git push} della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
 
 \newpage
 \subsubsubsection{Struttura albero delle directory}
@@ -864,12 +892,19 @@ La repository è organizzata secondo il seguente albero delle directory
 \item[--] esterni
 \end{itemize}
 \item[--] template
+\item[--] glossario
+\item[--] verbali
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
 \end{itemize}
-\item[--] quizzipedia
+\end{itemize}
+\item[--] src
 \end{itemize}
 
-La cartella doc contiene tutti i documenti, la cartella quizzipedia contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \GlO, \PdP e \PdQ).
+La cartella doc contiene tutti i documenti, la cartella src contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}; la cartella glossario contiene il file con le definizioni comuni a tutti i documenti; la cartella verbali contiene i verbali delle riunioni divisi tra quelli relativi a riunioni interne ed esterne. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP\ e \SdF) da quelli esterni (\AdR, \PdP\ e \PdQ).
 
 \newpage
+\printglossary[title={Glossario}]
 
 \end{document}

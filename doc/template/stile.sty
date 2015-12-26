@@ -25,6 +25,14 @@
 \usepackage{enumitem}
 \usepackage{color}
 \usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage[toc]{glossaries}
+\usepackage{dirtree}
+\usepackage{listings}
+
+\makeglossaries
 
 \bibliographystyle{alpha}
 
@@ -49,26 +57,35 @@
 \newcommand{\TP}{Thomas Pigarelli}
 \newcommand{\AB}{Anna Bonaldo}
 
-\newcommand{\gloss}[1]{#1\textsubscript{G}}
+\newcommand{\mgls}[1]{\gls{#1}\textsubscript{G}}
+\newcommand{\mglspl}[1]{\glspl{#1}\textsubscript{G}}
+\newcommand{\mGls}[1]{\Gls{#1}\textsubscript{G}}
+\newcommand{\mGlspl}[1]{\Glspl{#1}\textsubscript{G}}
 
-\newcommand{\AM}{\gloss{\emph{Amministratore}}}
-\newcommand{\AN}{\gloss{\emph{Analista}}}
-\newcommand{\PG}{\gloss{\emph{Progettista}}}
-\newcommand{\PR}{\gloss{\emph{Programmatore}}}
-\newcommand{\VR}{\gloss{\emph{Verificatore}}}
-\newcommand{\PM}{\gloss{\emph{Project Manager}}}
+\newcommand{\AM}{\emph{\mGls{amministratore}}}
+\newcommand{\AN}{\emph{\mGls{analista}}}
+\newcommand{\PG}{\emph{\mGls{progettista}}}
+\newcommand{\PR}{\emph{\mGls{programmatore}}}
+\newcommand{\VR}{\emph{\mGls{verificatore}}}
+\newcommand{\PM}{\emph{\mGls{project manager}}}
 
-\newcommand{\RR}{\gloss{\emph{Revisione dei Requisiti}}}
-\newcommand{\RA}{\gloss{\emph{Revisione di Accettazione}}}
-\newcommand{\RP}{\gloss{\emph{Revisione di Progettazione}}}
-\newcommand{\RQ}{\gloss{\emph{Revisione di Qualifica}}}
+\newcommand{\AMpl}{\emph{\mGlspl{amministratore}}}
+\newcommand{\ANpl}{\emph{\mGlspl{analista}}}
+\newcommand{\PGpl}{\emph{\mGlspl{progettista}}}
+\newcommand{\PRpl}{\emph{\mGlspl{programmatore}}}
+\newcommand{\VRpl}{\emph{\mGlspl{verificatore}}}
+\newcommand{\PMpl}{\emph{\mGlspl{project manager}}}
 
-\newcommand{\NdP}{\gloss{\emph{Norme di Progetto}}}
-\newcommand{\SdF}{\gloss{\emph{Studio di Fattibilità}}}
-\newcommand{\AdR}{\gloss{\emph{Analisi dei Requisiti}}}
-\newcommand{\PdP}{\gloss{\emph{Piano di Progetto}}}
-\newcommand{\PdQ}{\gloss{\emph{Piano di Qualifica}}}
-\newcommand{\GlO}{\gloss{\emph{Glossario}}}
+\newcommand{\RR}{\emph{\mGls{revisione dei requisiti}}}
+\newcommand{\RA}{\emph{\mGls{revisione di accettazione}}}
+\newcommand{\RP}{\emph{\mGls{revisione di progettazione}}}
+\newcommand{\RQ}{\emph{\mGls{revisione di qualifica}}}
+
+\newcommand{\NdP}{\emph{\mGls{norme di progetto}}}
+\newcommand{\SdF}{\emph{\mGls{stidio di fattibilita}}}
+\newcommand{\AdR}{\emph{\mGls{analisi dei requisiti}}}
+\newcommand{\PdP}{\emph{\mGls{piano di progetto}}}
+\newcommand{\PdQ}{\emph{\mGls{piano di qualifica}}}
 
 \newcommand{\latex}[1]{\texttt{#1}}
 \newcommand{\fileName}[1]{\texttt{#1}}

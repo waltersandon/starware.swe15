@@ -1,7 +1,6 @@
 \documentclass[12pt,a4paper]{article}
-%per compilare il template usare questo sotto e commentare l'altro:
-%\usepackage{../stile}
-\usepackage{../../../template/stile}
+\input{../../../template/stile.sty}
+\input{../../../glossario/glossario.tex}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Studio di Fattibilià}
@@ -122,10 +121,11 @@ v1.0.0 & \NDC & 2015-11-30  & Creazione documento\\
 In questo documento vengono analizzati i requisiti, aspetti positivi e fattori di rischio di ogni capitolato proposto per evidenziare i punti di forza e gli aspetti negativi che hanno portato a scegliere o scartare un capitolato.
 
 \subsection{Descrizione}
-Per il capitolato scelto dal gruppo ovvero \gloss{Quizzpedia} viene presentata una descrizione e una valutazione approfondita sugli aspetti positivi, negativi e i fattori di rischio che sono stati valutati e hanno determinato la scelta di questo capitolato. Gli altri capitolati vengono presentati con una breve descrizione. Per ognuno di essi vengono inoltre elencati aspetti positivi tenuti in considerazione e fattori di rischio che hanno spinto il gruppo ad escludere i capitolati in esame.
+Per il capitolato scelto dal gruppo ovvero \mgls{Quizzpedia} viene presentata una descrizione e una valutazione approfondita sugli aspetti positivi, negativi e i fattori di rischio che sono stati valutati e hanno determinato la scelta di questo capitolato. Gli altri capitolati vengono presentati con una breve descrizione. Per ognuno di essi vengono inoltre elencati aspetti positivi tenuti in considerazione e fattori di rischio che hanno spinto il gruppo ad escludere i capitolati in esame.
 
 \subsection{Glossario}
-Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \GlO è marcata da una G maiuscola in pedice (e.g. \gloss{pedice}).
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei
+documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento \emph{Glossario\_v1.2.0}. Ogni occorrenza di vocaboli presenti nel \GlO{} è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}).
 
 \subsection{Riferimenti}
 \subsubsection{Informativi}
@@ -310,7 +310,7 @@ Sono stati rilevati i seguenti requisiti:
 
 \item il Sistema deve essere costruito usando un \textit{framework} di alto livello per Node.js (noi fortemente consigliamo di usare IBM loopback);
 
-\item il sistema deve essere \gloss{schierabile} con Heroku;
+\item il sistema deve essere \mgls{schierabile} con Heroku;
  
 \item il codice sorgente deve essere pubblicato e versionato usando GitHub oppure Bitbucket. 
 
@@ -349,5 +349,8 @@ Il Capitolato richiede che il gruppo di lavoro proponga un idea e realizzi appli
 \item mancanza di conoscenze nell'implementazione di meccanismi atti a risolvere le problematiche legate all'utilizzo di un servizio remoto;
 \item l'obbiettivo di rendere disponibile la sintesi vocale a tutte le applicazioni e fornire un interfaccia di configurazione estesa comporta conoscenze specifiche e uno studio particolarmente approfondito sulle modalità di interazione tra applicazioni e funzionalità del sistema operativo.
 \end{itemize}
+
+\newpage
+\printglossary[title={Glossario}]
 
 \end{document}

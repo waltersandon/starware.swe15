@@ -18,7 +18,8 @@ Verbale Riunione 22-12-2015
 	error-> segnalazione di un errore 
 	bug-> segnalazione di un bug nel codice 
 	revision-> nel caso in cui un verificatore reputi che una sezione del documento è sbagliata e debba essere rifatta/rivista
-	informal-> discussione informale 
+	informal-> discussione informale
+	help wanted-> bisogno di una mano a risolvere il proprio task o problemi legati al software che si utilizza
  
 
 3) Commit :
