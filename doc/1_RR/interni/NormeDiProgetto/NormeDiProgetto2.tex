@@ -471,10 +471,108 @@ Le responsabilità di tale ruolo sono:
 Redige la sezione del \PdQ{} che illustra l'esito e la completezza delle verifiche
 e delle prove effettuate.
 
+\subsection{Procedure per la rotazione dei ruoli}
+\TODO{}.
 \newpage
 
 
 \section{Procedure a supporto dei processi}
+
+\subsection{Studio di fattiblità}
+\TODO{}
+Alla pubblicazione dei capitolati, è compito del Responsabile di Progetto convocare
+quante riunioni saranno ritenute necessarie per consentire il confronto tra i membri del
+gruppo su ogni capitolato. Queste riunioni forniranno agli Analisti una base riguardante
+le conoscenze e preferenze di ogni membro del gruppo. È compito degli Analisti, sulla
+base di quanto deciso, redigere uno Studio di Fattibilità dei capitolati basandosi su:
+• Dominio tecnologico e applicativo: conoscenza delle tecnologie richieste,
+esperienze precedenti con le problematiche poste dal capitolato, conoscenza del
+dominio applicativo;
+• Rapporto Costi/Benefici: competitori e prodotti simili già presenti sul mer-
+cato, quantità di requisiti obbligatori, costo della realizzazione rapportato al
+risultato previsto;
+• Individuazione dei rischi: Comprensione dei punti critici della realizzazione,
+individuazione di eventuali lacune tecniche o di conoscenza del dominio applicativo
+dei membri del gruppo, analisi delle difficoltà nell’individuazione dei requisiti e loro
+verificabilità.
+Un’ultima riunione, a Studio di Fattibilità concluso, presenterà la decisione finale sul
+capitolato scelto.
+
+
+\subsection{Analisi dei requisiti} %ISO 12207 5.3.2
+
+\subsubsection{Scopo}
+Gli Analisti dovranno produrre l'Analisi dei Requisiti basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione.
+
+\subsubsection{Descrizione}
+Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
+
+\subsubsection{Casi d'uso}
+I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
+\begin{center}
+	UC[codice] - [Titolo]
+\end{center}
+dove il \textbf{codice} è un numero progressivo identificativo di ogni requisito, gerarchico nel  caso di sotto-casi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
+\begin{itemize}
+	\item \textbf{Titolo} breve ma non ambiguo
+	\item \textbf{Attori} principali e secondari coinvolti
+	\item \textbf{Precondizione}
+	\item \textbf{Descrizione} sintetica del Caso d'uso
+	\item \textbf{Postcondizione}
+	\item \textbf{Requisiti} collegati al Caso d'uso
+\end{itemize}
+
+\subsubsection{Classificazione dei Requisiti}
+È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
+riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
+importanza, utilizzando la seguente codifica:
+\begin{center}
+	R[importanza][tipo][codice]
+\end{center}
+\begin{itemize}
+	\item \textbf{Importanza} può assumere i seguenti valori:
+	\begin{description}
+		\item[0:] Requisito obbligatorio
+		\item[1:] Requisito desiderabile
+		\item[2:] Requisito opzionale
+	\end{description}
+\end{itemize}
+\begin{itemize}
+	\item \textbf{Tipo} può assumere i seguenti valori:
+	\begin{description}
+		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
+		\item[N:] Non funzionale, descrivono i vincoli sui servizi offerti dal sistema
+	\end{description}
+\end{itemize}
+\begin{itemize}
+	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+\end{itemize}
+Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
+
+\subsection{Progettazione}
+
+\subsubsection{Scopo}
+La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione
+
+\subsubsection{Descrizione}
+L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requsiti individuati durante il processo di analisi e descrive a tutti gli stakeholder la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali
+
+\subsubsection{UML}
+La fase di progettazione deve essere supportata dai seguenti diagrammi realizzati in UML2.4:
+\begin{itemize}
+	\item \textbf{Diagrammi delle classi} per descrivere la struttura e la gerarchia delle classi
+	\item \textbf{Diagrammi di seqenza} per descrivere una determinata sequenza di azioni
+	\item \textbf{Diagrammi di attività} per descrivere le attività necessarie per realizzare una data funzionalità
+	\item \textbf{Diagrammi dei package} per descrivere l'architettura generale
+\end{itemize}
+
+
+
+
+
+
+
+
 
 \newpage
 \section{Ambiente di lavoro}
