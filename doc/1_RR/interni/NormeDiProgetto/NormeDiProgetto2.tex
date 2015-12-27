@@ -109,8 +109,6 @@
 \listoffigures
 \newpage
 
-% NOTA non so dove mettere l'uso di git
-
 \section{Introduzione}
 Questo documento definisce le norme che i membri del gruppo \nomeGruppo{} adotteranno nello svolgimento del progetto \prjL. Tutti i membri sono tenuti a leggere il documento attentamente e a seguirne le norme.
 
@@ -175,7 +173,7 @@ Viene creata una \mgls{repository} su \mGls{Github} all'indirizzo
 \begin{center}
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
-Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione \TODO{}.
+Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione 6.1.1.
 
 \subsubsection{Materiale informale}
 Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{Google Drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione 6.1.2 .
@@ -473,30 +471,20 @@ e delle prove effettuate.
 
 \subsection{Procedure per la rotazione dei ruoli}
 \TODO{}.
+
+%è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 \newpage
 
 
 \section{Procedure a supporto dei processi}
 
 \subsection{Studio di fattiblità}
-\TODO{}
-Alla pubblicazione dei capitolati, è compito del Responsabile di Progetto convocare
-quante riunioni saranno ritenute necessarie per consentire il confronto tra i membri del
-gruppo su ogni capitolato. Queste riunioni forniranno agli Analisti una base riguardante
-le conoscenze e preferenze di ogni membro del gruppo. È compito degli Analisti, sulla
-base di quanto deciso, redigere uno Studio di Fattibilità dei capitolati basandosi su:
-• Dominio tecnologico e applicativo: conoscenza delle tecnologie richieste,
-esperienze precedenti con le problematiche poste dal capitolato, conoscenza del
-dominio applicativo;
-• Rapporto Costi/Benefici: competitori e prodotti simili già presenti sul mer-
-cato, quantità di requisiti obbligatori, costo della realizzazione rapportato al
-risultato previsto;
-• Individuazione dei rischi: Comprensione dei punti critici della realizzazione,
-individuazione di eventuali lacune tecniche o di conoscenza del dominio applicativo
-dei membri del gruppo, analisi delle difficoltà nell’individuazione dei requisiti e loro
-verificabilità.
-Un’ultima riunione, a Studio di Fattibilità concluso, presenterà la decisione finale sul
-capitolato scelto.
+È compito degli Analisti redigere uno \SdF\ in cui per ogni capitolato bisogna individuare:
+\begin{itemize}
+\item Aspetti positivi
+\item Fattori di rischio
+\end{itemize}
+Per il capitolato scelto lo \SdF\ deve contenere anche una descrizione del dominio applicativo e del dominio tecnologico. Infine devono essere spiegati i motivi della scelta del gruppo.
 
 
 \subsection{Analisi dei requisiti} %ISO 12207 5.3.2
@@ -523,9 +511,7 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \end{itemize}
 
 \subsubsection{Classificazione dei Requisiti}
-È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali
-riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e
-importanza, utilizzando la seguente codifica:
+È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente codifica:
 \begin{center}
 	R[importanza][tipo][codice]
 \end{center}
@@ -541,7 +527,7 @@ importanza, utilizzando la seguente codifica:
 	\item \textbf{Tipo} può assumere i seguenti valori:
 	\begin{description}
 		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
-		\item[N:] Non funzionale, descrivono i vincoli sui servizi offerti dal sistema
+		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
 \end{itemize}
 \begin{itemize}
@@ -566,12 +552,11 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 	\item \textbf{Diagrammi dei package} per descrivere l'architettura generale
 \end{itemize}
 
+\subsection{Verifica}
+\TODO{} Contestualmente al PdQ
 
-
-
-
-
-
+\subsection{Codifica}
+Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo successivamente alla fase di progettazione.
 
 
 \newpage
@@ -580,49 +565,65 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 
 \subsection{Condivisione materiale}
 
-\subsubsection{Repository e versionamento}
-Sono state presi in considerazione diversi software di versionamento (Git , SVN, MerGcurial) prima di decidere di usare Git . I motivi principali della scelta sono:
+\subsubsection{Versionamento} %Scelta di Git come sistema di Versioning
+Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
-	\item è gratuito e non proprietario
-	\item è un repository distribuito con la possibilità di commit e revert locali
-	\item è cross-platform
-	\item possiede un'abbondante ma semplice documentazione
-	\item è già stato usato da alcuni elmenti del gruppo
+\item è gratuito e non proprietario
+\item è un \mgls{repository} distribuito con la possibilità di commit e revert locali
+\item è cross-platform
+\item possiede un'abbondante ma semplice documentazione
+\item è già stato usato da alcuni elmenti del gruppo
 \end{itemize}
 
-La repository è organizzata secondo il seguente albero delle cartelle:
-\\
-\dirtree{%
-	.1 doc.
-	.2 1\_RR.
-	.3 .
-	.3 .
-	.2 2\_RP.
-	.3 esterni.
-	.3 interni.
-	.2 3\_RQ.
-	.3 esterni.
-	.3 interni.
-	.2 4\_RA.
-	.3 esterni.
-	.3 interni.
-	.2 template.
-	.1 src.
-}
+\subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
+Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}.Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
 
-La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
+\paragraph{Commit}
+Il comando per fare un commit è \texttt{git commit}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta e il numero del issue espresso come collegamento ipertestuale (e.g. Aggiunta sezione Repository nelle Norme di progetto \#123, Verifica e correzione delle Norme di progetto \#567). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
+\paragraph{Pull}
+È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+\paragraph{Push}
+Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \texttt{git push} della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
 
-Si descrive ora la procedura di corretto utilizzo del repository;
+Per approfondimenti e una guida a git si veda \url{https://git-scm.com/docs/}
 
+\subsubsubsection{Struttura albero delle directory}
+La repository del gruppo è organizzata secondo il seguente albero delle directory
 \begin{itemize}
-	\item Clonare il repositoryG : è possibile clonare il repositoryG remoto in locale attraverso il comando git clone sw-eng@dtp.myopenproject.it:nome-repository.git;	
-	\item Sincronizzare il repositoryG : per scaricare in locale le modifiche bisogna eseguire il comando git pull nella cartella che contiene il repositoryG locale;
-	\item Salvare una modifica in locale: con il comando git add NomeFile si aggiunge un file al commitG corrente e usando il comando git commit -m “Messaggio di	commit ” si salvano le modifiche effettuate ai file;
-	\item Inviare le modifiche al repositoryG remoto: tramite il comando git push si inviano le modifiche al repositoryG remoto;
-	\item Gestione dei conflitti: nel caso si verifichino conflitti sarà necessario usare il comando git mergetool e risolvere il conflitto tramite un tool di mergeG .
+\item[--] doc
+\begin{itemize}
+\item[--] 1\_RR
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 2\_RP
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 3\_RQ
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] 4\_RA
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\item[--] template
+\item[--] glossario
+\item[--] verbali
+\begin{itemize}
+\item[--] interni
+\item[--] esterni
+\end{itemize}
+\end{itemize}
+\item[--] src
 \end{itemize}
 
-Per approfondimenti e una guida a git si veda \TODO{}.
+La cartella doc contiene tutti i documenti, la cartella src contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}; la cartella glossario contiene il file con le definizioni comuni a tutti i documenti; la cartella verbali contiene i verbali delle riunioni divisi tra quelli relativi a riunioni interne ed esterne. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP\ e \SdF) da quelli esterni (\AdR, \PdP\ e \PdQ).
 
 \subsubsection{Materiale informale}
 Si è inoltre scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
