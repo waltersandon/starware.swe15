@@ -145,22 +145,22 @@ Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
 
 \subsubsection{Convocazione riunione}
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
-Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri: ad esempio, nella fase di progettazione può essere utile la collaborazione tra Progettista e Analista, senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
+Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
 Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\mgls{task}} su \textit{Asana}, assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
 \begin{itemize}
 	\item \textbf{Titolo:} convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
 	\item \textbf{Data:} la data del task dovrà essere impostata alla data prevista per la riunione;
-	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al task.
+	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \textit{\mgls{task}}.
 \end{itemize}
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
 In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere effettuati attraverso modifiche o cancellazione del \mgls{task} su Asana.
 
 \subsubsection{Verbale}
 All'apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell'assemblea.
-Il segretario deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
+Il segretario, ruolo che deve essere scelto di volta in volta a rotazione tra i presenti, deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
 
 \paragraph{Riunione interna}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Verrà redatto dal segretario della riunione, ruolo scelto di volta in volta a rotazione tra i presenti. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \mgls{task} creato per la riunione su Asana, in modo da rendere sempre disponibile il contenuto dello stesso.
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \mgls{task} creato per la riunione su \mGls{Asana}, in modo da rendere sempre disponibile il contenuto dello stesso.
 
 \paragraph{Riunione esterna}
 In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
@@ -185,7 +185,7 @@ Definisce norme per lo sviluppo e il mantenimento della documentazione, prodotta
 
 Verranno definite norme riguardanti:
 \begin{itemize}
-	\item templates da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
+	\item \mglspl{template} da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
 	\item metodi di verifica e approvazione del materiale prodotto;
 	\item metodi di \textit{\mgls{quality assurance}}.
 \end{itemize}
@@ -623,7 +623,50 @@ La repository del gruppo è organizzata secondo il seguente albero delle directo
 \item[--] src
 \end{itemize}
 
-La cartella doc contiene tutti i documenti, la cartella src contiene il codice sorgente dell' applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di doc c'è la cartella template che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}; la cartella glossario contiene il file con le definizioni comuni a tutti i documenti; la cartella verbali contiene i verbali delle riunioni divisi tra quelli relativi a riunioni interne ed esterne. Le 4 cartelle 1\_RR, 2\_RP, 3\_RQ e 4\_RA rappresentano rispettivamente i documenti per la revisione dei requisiti, revisione di progettazione, revisione di qualifica e revisione di accettazione. All' interno di ognuna di queste 4 directory ci sono altre 2 cartelle per dividere i documenti interni (\NdP\ e \SdF) da quelli esterni (\AdR, \PdP\ e \PdQ).
+\subsubsection{Repository e versionamento}
+Sono state presi in considerazione diversi software di versionamento (Git , SVN, MerGcurial) prima di decidere di usare Git . I motivi principali della scelta sono:
+\begin{itemize}
+	\item è gratuito e non proprietario
+	\item è un \mgls{repository} distribuito con la possibilità di \mgls{commit} e \mgls{revert} locali;
+	\item è \mgls{cross-platform};
+	\item possiede un'abbondante ma semplice documentazione;
+	\item è già stato usato da alcuni elmenti del gruppo.
+\end{itemize}
+
+La repository è organizzata secondo il seguente albero delle cartelle:
+\\
+\dirtree{%
+	.1 doc.
+	.2 1\_RR.
+	.3 .
+	.3 .
+	.2 2\_RP.
+	.3 esterni.
+	.3 interni.
+	.2 3\_RQ.
+	.3 esterni.
+	.3 interni.
+	.2 4\_RA.
+	.3 esterni.
+	.3 interni.
+	.2 template.
+	.1 src.
+}
+
+La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
+
+Si descrive ora la procedura di corretto utilizzo del repository;
+
+\begin{itemize}
+	\item Clonare il repositoryG : è possibile clonare il repositoryG remoto in locale attraverso il comando git clone sw-eng@dtp.myopenproject.it:nome-repository.git;	
+	\item Sincronizzare il repositoryG : per scaricare in locale le modifiche bisogna eseguire il comando git pull nella cartella che contiene il repositoryG locale;
+	\item Salvare una modifica in locale: con il comando git add NomeFile si aggiunge un file al commitG corrente e usando il comando git commit -m “Messaggio di	commit ” si salvano le modifiche effettuate ai file;
+	\item Inviare le modifiche al repositoryG remoto: tramite il comando git push si inviano le modifiche al repositoryG remoto;
+	\item Gestione dei conflitti: nel caso si verifichino conflitti sarà necessario usare il comando git mergetool e risolvere il conflitto tramite un tool di mergeG .
+\end{itemize}
+
+Per approfondimenti e una guida a git si veda \TODO{}.
+
 
 \subsubsection{Materiale informale}
 Si è inoltre scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
