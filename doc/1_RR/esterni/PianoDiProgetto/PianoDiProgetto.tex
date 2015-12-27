@@ -102,15 +102,51 @@
 \subsection{Scopo}
 \subsection{Descrizione}
 
+Si divide lo sviluppo del progetto in 5 fasi:
+\begin{itemize}
+	\item \textbf{Analisi:} (quella corrente) [Per RRequisiti]: studio di fattibilità, norme di progetto, analisi dei requisiti, piano di progetto, piano di qualifica, glossario (eventuale?), lettera di presentazione.
+	\item \textbf{Analisi dettaglio:} integrazione e consolidazione dei requisiti. Progettazione architetturale [Per RProgettazione]: Viene redatta la specifica tecnica che descrive le scelte architetturali per lo sviluppo del prodotto (design pattern, diagrammi, etc...); tutti gli altri documenti sono eventualmente aggiornati.
+	\item \textbf{Progettazione di dettaglio e codifica}: [Per RQualità]: vengono redatti la definizione del prodotto (approfondimento della struttura e relazione tra le varie componenti del prodotto identificate dalla specifica tecnica), codifica (sviluppo del codice in base alla definizione del prodotto), manuali (manuale per l'utente del prodotto); anche qui altri documenti vengono aggiornati e il tutto verificato.
+	\item Verifica e validazione [Per RQualifica]: il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti;
+\end{itemize}
+
 \subsection{Ciclo di vita}
+Scelta del modello del ciclo di vita con motivazione. Probabilmente verrà scelto quello incrementale per cui si può prendere spunto da §2.4 di HotKeys
 
 \subsection{Scadenze}
-22 gennaio: consegna dell'offerta tecnico-economica predisposta da ciascun gruppo di progetto che si sarà nel frattempo formato
-11 aprile: consegna materiale in ingresso alla revisione di avanzamento di progetto
-16 maggio: consegna materiale in ingresso alla revisione di avanzamento di progetto
-10 giugno: consegna materiale in ingresso alla revisione di avanzamento di progetto
+Definizione delle scadenze delle 4 revisioni come specificate dal prof.
+
+\begin{itemize}
+	\item \textbf{22 gennaio 2016:} consegna materiale in ingresso alla \RR;
+	\item \textbf{11 aprile 2016:} consegna materiale in ingresso alla  \RP;
+	\item \textbf{16 maggio 2016:} consegna materiale in ingresso alla \RQ;
+	\item \textbf{10 giugno 2016:} consegna materiale in ingresso alla \RA.
+\end{itemize}
+
+\newpage
 
 \section{Analisi dei rischi}
+Sezione che identifica i rischi che possono rallentare o fermare l'avanzamento del progetto. Per ogni rischio viene presentata una breve analisi, la probabilità di occorrenza e il fattore di rischio (quanto è pericoloso tale rischio).
+
+Inoltre vengono identificati controlli (sistemi per l'analisi di questi rischi) e contromisure/prevenzioni per sistemare/prevenire tali rischi.
+
+\subsection{Rischi del gruppo}
+
+Rischi derivanti dai membri stessi del gruppo (mancanza di conoscenza, impegni personali, etc...).
+
+\subsection{Rischi tecnologici}
+
+Rischi derivati dall'utilizzo di specifiche tecnologie, librerie e strumenti. Ad esempio bug o malfunzionamenti nelle tecnologie utilizzate.
+
+\subsection{Rischi dei requisiti}
+
+Fraintendimenti con i requisiti o con la soluzione proposta per soddisfarli.
+
+\subsection{Rischi organizzativi}
+
+Rischi legati alla progettazione e organizzazione delle attività (previsioni sbagliate).
+
+\newpage
 
 \section{Analisi}
 \subsection{Pianificazione} %dal 18/12/15 al 22/01/16
@@ -173,9 +209,20 @@ AN5.2 & Verifica & Verificatore & 7 \\
 \end{center}
 \end{table}
 
+\begin{center}
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{provaAnalisi.png}
+\caption{Diagramma di Gantt della ripartizione delle risorse - Analisi}
+\end{figure}
+\end{center}
+
+
+\newpage
+
 \subsection{Rotazione dei Ruoli}
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
 \toprule
@@ -197,13 +244,23 @@ AN5.2 & Verifica & Verificatore & 7 \\
 \AVI &  & 6 & 9 &  &  & 5 & 20 \\
 \bottomrule
 \end{tabular}
-\caption{Rotazione dei Ruoli - Analisi}
+\caption{Rotazione dei ruoli - Analisi}
 \end{center}
 \end{table}
 
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
+\caption{Diagramma della rotazione dei ruoli - Analisi}
+\end{figure}
+\end{center}
+
+
+\newpage
 \subsection{Prospetto economico}
 
-\begin{table}
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth} }
 \toprule
@@ -225,12 +282,20 @@ Verificatore & 36 & 15 & 540\\
 \textbf{Totale} & \textbf{140} &  & \textbf{3.000}\\
 \bottomrule
 \end{tabular}
-\caption{Rotazione dei Ruoli - Analisi}
+\caption{Ripartizione oraria dei ruoli - Analisi}
 \end{center}
 \end{table}
 
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
+\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\end{figure}
+\end{center}
+
 \newpage
-\section{Analisi di dettaglio} %dal 16/02/16 al 02/03/16
+\section{Progettazione architetturale} %dal 16/02/16 al 11/04/16 => 40 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
@@ -239,7 +304,7 @@ Verificatore & 36 & 15 & 540\\
 \subsection{Prospetto economico}
 
 \newpage
-\section{Progettazione architetturale} % dal 02/03/16 al 11/04/16
+\section{Progettazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
@@ -248,16 +313,7 @@ Verificatore & 36 & 15 & 540\\
 \subsection{Prospetto economico}
 
 \newpage
-\section{Progettazione di dettaglio e codifica} % 12/04/16 al 16/05/16
-
-\subsection{Pianificazione}
-
-\subsection{Rotazione dei Ruoli}
-
-\subsection{Prospetto economico}
-
-\newpage
-\section{Validazione} % dal 16/05/16 al 10/06/16
+\section{Validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
@@ -268,6 +324,29 @@ Verificatore & 36 & 15 & 540\\
 
 \newpage
 \section{Riepilogo}
+
+
+\newpage
+\section{Consuntivo}
+
+\newpage
+\appendix
+\section{Organigramma}
+
+\subsection{Redazione}
+Sezione che definisce chi ha redatto il documento.
+
+\subsection{Approvazione}
+Lista di chi ha approvato il documento (Project manager) + Prof
+
+\subsection{Accettazione dei componenti}
+Lista dei componenti + firme per accettare il piano.
+
+\subsection{Componenti}
+Lista dei componenti con email
+
+\subsection{Ruoli e costi}
+
 
 
 \end{document}
