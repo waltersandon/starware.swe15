@@ -171,14 +171,14 @@ Per agevolare la scrittura di tale documento è stato preparato un \emph{templat
 \subsection{Condivisione materiale}
 
 \subsubsection{Repository}
-Viene creata una \mgls{repository} su \mgls{GitHub} all'indirizzo 
+Viene creata una \mgls{repository} su \mGls{Github} all'indirizzo 
 \begin{center}
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
 Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione \TODO{}.
 
 \subsubsection{Materiale informale}
-Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{Google Drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alle sezioni \TODO{}.
+Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{Google Drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione 6.1.2 .
 
 \newpage
 
@@ -635,45 +635,56 @@ In questa piattaforma di condivisione file verranno salvati i documenti che:
 	\item possono essere acceduti tramite l’uso di un semplice browser.
 \end{itemize}
 
-Questo strumento dovrebbe permettere a 2 o più componenti del gruppo di interagire lavorando sugli stessi documenti contemporaneamente. Google Drive viene utilizzato come strumento di supporto allo sviluppo della documentazione e del software presente su Git .
+Questo strumento dovrebbe permettere a 2 o più componenti del gruppo di interagire lavorando sugli stessi documenti contemporaneamente. Google Drive viene utilizzato come strumento di supporto allo sviluppo della documentazione e del software presente su Git.
+L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenza, anche in maniera informale, tutti i membri del gruppo del materiale aggiunto.
 
-\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
+%\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
 
 
 \subsection{Pianificazione}
-Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare ProjectLibre.
-ProjectLibre è un programma open source per il project management. É basato su Java ed è quindi eseguibile su ogni sistema operativo. É il successore ufficiale di OpenProj. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
+Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare \mgls{projectlibre}.
+\mgls{projectlibre} è un programma \textit{\mgls{open-source}} per il \textit{\mgls{project management}}. É basato su \mGls{Java} ed è quindi eseguibile su ogni sistema operativo. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
 \begin{itemize}
-	\item portabilità, essendo basto su Java;
-	\item open-source;
-	\item genera diagrammi Gantt;
-	\item genera automaticamente diagrammi Program Evaluation and Review Technique (PERT a partire dal Gantt);
-	\item genera automaticamente la Work Breakdown StructureG (WBS), a partire dal Gantt con allocazione di risorse;
-	\item calcola i parametri Schedule Variance (SV) e Budget Variance (BV);
-	\item compatibile con Microsoft Project 2010;
-	\item salvataggio su file XML: essendo un file testuale è possibile effettuare il merge	di più file in caso di conflitti sul repository.
+	\item  essendo basato su \mGls{Java}, è compatibile con i sistemi operativi \mGls{Linux},\mGls{Mac OS} e \mGls{Windows}. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
+	\item \mgls{open-source};
+	\item genera diagrammi \mgls{gantt};
+	\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
+	\item genera automaticamente la \textit{\mGls{Work Breakdown Structure}} (WBS), a partire dal \mGls{gantt}t con allocazione di risorse;
+	\item calcola i parametri \textit{\mGls{Schedule Variance}} (SV) e \textit{\mGls{Budget Variance}} (BV);
+	\item salvataggio su file \mGls{XML}: essendo un file testuale è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
 \end{itemize}
 
 \subsubsection{ProjectLibre}
-Il Responsabile di Progetto deve creare un progetto per ogni fase indicata nella sezione Pianificazione del Piano di Progetto v5.2.0 e procedere nel modo seguente:
+Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazione del \PdP{} e procedere nel modo seguente:
 \begin{enumerate}
 	\item creare un calendario lavorativo per il progetto;
 	\item inserire le attività da svolgere e le corrispondenti sotto-attività;
 	\item inserire le dipendenze temporali tra le attività;
-	\item inserire i periodi di slack dove previsto;
-	\item inserire la milestoneG per indicare il termine previsto delle attività;
+	\item inserire i periodi di \textit{\mgls{slack}} dove previsto;
+	\item inserire la \textit{\mgls{milestone}} per indicare il termine previsto delle attività;
 	\item creare le risorse;
 	\item assegnare ad ogni attività le risorse necessarie;
-	\item salvare la baseline.
+	\item salvare la \textit{\mgls{baseline}}.
 \end{enumerate}
 
-ProjectLibre viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di Budget Variance e di Schedule Variance. Per far ciò il Responsabile deve modificare i progetti creati nel modo seguente:
+\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \textit{\mGls{Schedule Variance}} e \textit{\mGls{Budget Variance}}. Per far ciò il Responsabile deve modificare i progetti creati nel modo seguente:
 \begin{enumerate}
 	\item inserire le colonne SV , BCWS, ACWP;
 	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
 	\item modificare le risorse assegnate alle sotto-attività in base a quanto è stato consuntivato;
 	\item aggiornare il progetto alla data corrente.
 \end{enumerate}
+
+\subsubsection{Assegnazione Task}
+% Sezione aggiunta DA DECIDERE
+Il \PM{}, una volta individuati e stimati i \textit{\mgls{task}} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \textit{\mgls{task}} è stato scelto di utilizzare l'applicazione web \mgls{Asana} per i seguenti motivi: 
+\begin{itemize}
+	\item  Permette di creare e assegnare \textit{\mgls{task}} in maniera facile ed intuitiva; 
+	\item Permette di monitorare e modificare semplicemente le scadenze dei \textit{\mgls{task}} creati;
+	\item Offre la possibilità di suddividere i \textit{\mgls{task}} fornendo un livello di \textit{\mgls{subtasking}}.
+\end{itemize}
+Sarà inoltre compito del \PM{} assegnare una \textit{\mgls{deadline}} per il completamento dei \textit{\mglspl{task}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+
 
 \subsection{Documenti}
 
