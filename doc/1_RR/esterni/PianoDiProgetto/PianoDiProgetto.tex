@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.1}
+\newcommand{\versione}{1.0.2}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -82,6 +82,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
+\midrule
 1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di Analisi \\
 \midrule
 1.0.0 & \NDC & 2015-12-24 &  Creazione documento \\
@@ -130,25 +132,210 @@ Definizione delle scadenze delle 4 revisioni come specificate dal prof.
 \newpage
 
 \section{Analisi dei rischi}
-Sezione che identifica i rischi che possono rallentare o fermare l'avanzamento del progetto. Per ogni rischio viene presentata una breve analisi, la probabilità di occorrenza e il fattore di rischio (quanto è pericoloso tale rischio).
 
-Inoltre vengono identificati controlli (sistemi per l'analisi di questi rischi) e contromisure/prevenzioni per sistemare/prevenire tali rischi.
+Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettuata un’approfondita analisi dei rischi che potrebbero verificarsi. L’Analisi si suddivide in 5 momenti:
+\begin{itemize}
+	\item \textbf{Identificazione:} individuare i potenziali rischi che possono presentarsi durante l’avanzamento del processo e capirne la natura. I rischi vengono divisi in 4 categorie:
+	\begin{itemize}
+		\item \textbf{Gruppo:} problemi di un singolo membro o di interazione tra i membri del gruppo
+		\item \textbf{Tecnologici:} problemi derivati dalle tecnologie utilizzate
+		\item \textbf{Organizzativi:} problemi di organizzazione del gruppo
+		\item \textbf{Requisiti:} problemi sui requisiti
+	\end{itemize}
+	\item \textbf{Analisi:} valutare la probabilità dell’occorrenza del rischio, valutarne le conseguenze sul progetto e quindi comprenderne la criticità
+	\item \textbf{Pianificazione:} per ogni rischio viene individuato un metodo per evitarlo
+	\item \textbf{Controllo:} si verifica il successo della pianificazione e in caso si modifica se si ritene insufficiente e si controlla se la probabilità di occorrenza del rischio sia variata
+	\item \textbf{Mitigazione:} istituire un piano per mitigare gli effetti di un rischio nel caso questo dovesse verificarsi
+\end{itemize}
 
-\subsection{Rischi del gruppo}
+Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati dei quali viene indicata la probabilità che accada e un livello di gravità se dovesse verificarsi.
 
-Rischi derivanti dai membri stessi del gruppo (mancanza di conoscenza, impegni personali, etc...).
+\subsection{Rischi di gruppo}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\
+\midrule
+\midrule
+\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\
+\midrule
+\textbf{Probabilità} & Media \\
+\midrule
+\textbf{Gravità} & Media \\
+\midrule
+\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\
+\midrule
+\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
+\bottomrule
+\end{tabular}
+\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\
+\midrule
+\midrule
+\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Diversi dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\
+\midrule
+\textbf{Probabilità} & Bassa \\
+\midrule
+\textbf{Gravità} & Alta \\
+\midrule
+\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante le varie fasi e capire dove stia nascendo un dissidio fra uno o più membri. \\
+\midrule
+\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
+\bottomrule
+\end{tabular}
+\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
+\end{center}
+\end{table}
 
 \subsection{Rischi tecnologici}
 
-Rischi derivati dall'utilizzo di specifiche tecnologie, librerie e strumenti. Ad esempio bug o malfunzionamenti nelle tecnologie utilizzate.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Guasti hardware} \\
+\midrule
+\midrule
+\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\
+\midrule
+\textbf{Probabilità} & Bassa \\
+\midrule
+\textbf{Gravità} & Bassa \\
+\midrule
+\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}. \\
+\midrule
+\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
+\bottomrule
+\end{tabular}
+\caption{Guasti hardware - Analisi dei rischi}
+\end{center}
+\end{table}
 
-\subsection{Rischi dei requisiti}
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\
+\midrule
+\midrule
+\textbf{Descrizione} &  Ogni componente software utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
+\midrule
+\textbf{Probabilità} & Bassa \\
+\midrule
+\textbf{Gravità} & Media \\
+\midrule
+\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti software correttamente e come specificato nelle \NdP. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}.\\
+\midrule
+\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti software. In caso di problemi col ripristino contattare il responsabile della componente software come specificato nelle \NdP. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
+\bottomrule
+\end{tabular}
+\caption{Malfunzionamenti software - Analisi dei rischi}
+\end{center}
+\end{table}
 
-Fraintendimenti con i requisiti o con la soluzione proposta per soddisfarli.
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\
+\midrule
+\midrule
+\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti software che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
+essere apprese. \\
+\midrule
+\textbf{Probabilità} & Alta \\
+\midrule
+\textbf{Gravità} & Alta \\
+\midrule
+\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\
+\midrule
+\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
+\bottomrule
+\end{tabular}
+\caption{Inesperienza tecnologica - Analisi dei rischi}
+\end{center}
+\end{table}
 
 \subsection{Rischi organizzativi}
 
-Rischi legati alla progettazione e organizzazione delle attività (previsioni sbagliate).
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\
+\midrule
+\midrule
+\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\
+\midrule
+\textbf{Probabilità} & Alta \\
+\midrule
+\textbf{Gravità} & Alta \\
+\midrule
+\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie fasi con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
+\midrule
+\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \textit{\mgls{task}} in modo che il ritardo sia minimo. \\
+\bottomrule
+\end{tabular}
+\caption{Valutazione tempi e costi - Analisi dei rischi}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\
+\midrule
+\midrule
+\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai componenti del gruppo a causa del cambio
+di competenze e di responsabilità associati al diverso ruolo da ricoprire. \\
+\midrule
+\textbf{Probabilità} & Bassa \\
+\midrule
+\textbf{Gravità} & Media \\
+\midrule
+\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\
+\midrule
+\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
+\bottomrule
+\end{tabular}
+\caption{Rotazione dei ruoli - Analisi dei rischi}
+\end{center}
+\end{table}
+
+\subsection{Rischi dei requisiti}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\toprule
+\textbf{Nome rischio} & \textbf{ Comprensione errata dei requisiti} \\
+\midrule
+\midrule
+\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’analisi dei requisiti, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
+\midrule
+\textbf{Probabilità} & Media \\
+\midrule
+\textbf{Gravità} & Alta \\
+\midrule
+\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza
+ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\
+\midrule
+\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
+\bottomrule
+\end{tabular}
+\caption{Comprensione errata dei requisiti - Analisi dei rischi}
+\end{center}
+\end{table}
 
 \newpage
 
@@ -259,7 +446,6 @@ AN5.2 & Verifica & Verificatore & 7 \\
 \caption{Diagramma della rotazione dei ruoli - Analisi}
 \end{figure}
 \end{center}
-
 
 \newpage
 \subsection{Prospetto economico}
