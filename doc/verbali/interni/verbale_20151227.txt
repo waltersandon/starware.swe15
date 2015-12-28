@@ -1,0 +1,53 @@
+Verbale Riunione 27-12-2015
+
+PROSSIMA RIUNIONE 
+
+	Si è deciso di riaggiornarsi in data 30 novembre , ad orario ancora da decidere, sempre attraverso chiamata skype.
+
+NORME DI PROGETTO
+
+	Suggerimento: Leggere la sezione 3.7 - Norme tipografiche , delle NormeDiProgetto2.pdf ( presente nella repository ) per imparare le macro di latex 
+	in caso di dubbi fare riferimento a Nicola.
+
+	1) Ticketing:
+		A causa di problemi nel riportare la struttura ( di milestone , attività e task ) prodotta attraverso il diagramma di Gant su Git
+		Si è proposto di tornare su Asana, mantenendo tuttavia le issue su git linkandole sul relativo task di Asana.
+		Sarà quindi necessario modificare la sezione relativa alle etichette sulle norme di progetto ed inoltre bisognerà aggiornare la sezione riguardante 
+		il ciclo di vita dei Ticket specificando gli "stati" ( aperto , accettato , etc ) del ticket.
+		Questo compito è responsabilità di Andrea , tuttavia sarà postposto dal 30 dicembre in poi nell'eventualità che si riesca a trovare un nuovo software 
+		che consenta di gestire il ticketing + disegnare gli UML + tracciare i requisiti.
+		
+	2) Scelta del software per i diagrammi UML:
+		Si è stabilito che, entro la riunione del 30 dicembre, Anna,Igor e Nicola dovranno proporre dei software per la produzione dei diagrammi UML in alternativa ad ArgoUml.
+		Dopo quella data Alessio sarà incaricato di finire la sezione relativa delle norme di progetto.
+		
+		Link Utili:
+		http://stackoverflow.com/questions/15376/whats-the-best-uml-diagramming-tool
+		
+	3) Tracciamento dei requisiti:
+		Si è stabilito che, entro la riunione del 30 dicembre, Andrea, Alessio e Thomas dovranno proporre dei software per il Tracciamento dei requisiti.
+		Dopo quella data Andrea sarà incaricato di finire la sezione relativa delle norme di progetto.
+		
+		Link Utili:
+		https://en.wikipedia.org/wiki/Requirements_traceability#Tracing_tools
+		https://www.reqview.com/
+		http://www.redmine.org/
+		https://www.hostedredmine.com/
+	
+
+PIANO DI QUALIIFICA
+
+	1) Si è detto che la prima decina di pagine del PdQ risultano essere poco utili e dispersive in quanto riprendono e spiegano le slide di tullio ( es. PDCA ).
+		Sarebbe bene ridurre quelle pagine, al limite linkando una guida/standard che spiegano l'argomento, concentrandosi sulle metriche e gli strumenti 
+		utilizzati dal gruppo per assicurare la qualità del lavoro.
+	2) Sarebbe desiderabile produrre una parte che riguarda le metriche: interne, esterne, in uso ( argomento non trattato nel PdQ degli Hotkeys/Don't Panic)
+	
+	3) Verranno aperti su asana dei task con la suddivisione del lavoro per la produzione del documento. Tale suddivisione è basata sullo scheletro di documento proposto d Igor e postato su Git.
+	
+PIANO DI PROGETTO
+
+	1) La struttura del documento è stata decisa e aggiunta al repository su Git. Per chiarezza lo scheletro è stato diviso in 5 fasi in più c'è una
+		sezione riguardante l'analisi dei rischi.
+	2) Una possibile divisione del lavoro è : a due membri vengono assegnate 2 fasi a testa , mentre al terzo una fase + l'analisi dei rischi.
+	3) Prestare attenzione a non stare sotto il budget minimo impostato da tullio facendo si che i conti di budget e ore tornino, se necessario aggiustando il monte ore.
+	
