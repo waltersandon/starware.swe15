@@ -581,9 +581,17 @@ Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.c
 \paragraph{Commit}
 Il comando per fare un commit è \texttt{git commit}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta e il numero del issue espresso come collegamento ipertestuale (e.g. Aggiunta sezione Repository nelle Norme di progetto \#123, Verifica e correzione delle Norme di progetto \#567). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 \paragraph{Pull}
-È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \textit{branch} a cui si sta lavorando
 \paragraph{Push}
 Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \texttt{git push} della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+
+
+\paragraph{Branch} vengono definiti 3 \textit{branches} all'interno della \textit{\mgls{repository}}:
+\begin{itemize}
+	\item \textbf{stable:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
+	\item \textbf{daily:} dove verranno tenuti sorgenti e documenti ancora incompleti. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \textit{branch} \textit{stable}. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \textit{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \textit{branch} \textit{stable}
+	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora in fase di sviluppo. Quando un documento ha uno scheletro o ne viene completata una sezione può essere messo anche nel \textit{branch} \textit{stable}
+\end{itemize}
 
 Per approfondimenti e una guida a git si veda \url{https://git-scm.com/docs/}
 
