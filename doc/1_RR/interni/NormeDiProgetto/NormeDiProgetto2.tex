@@ -173,10 +173,10 @@ Viene creata una \mgls{repository} su \mGls{Github} all'indirizzo
 \begin{center}
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
-Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione 6.1.1.
+Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione \ref{sec:rep} .
 
 \subsubsection{Materiale informale}
-Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{Google Drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione 6.1.2 .
+Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{Google Drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione \ref{sec:matinf} .
 
 \newpage
 
@@ -194,7 +194,7 @@ Per agevolare la redazione della documentazione è stato creato un \textit{\mgls
 
 \subsection{Ciclo di vita}
 
-La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \mgls{ruoli} definiti nella sezione \TODO{}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
+La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento secondo i \mgls{ruoli} definiti nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetta i requisiti imposti dal \PR{} e supera il controllo di qualità può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Un documento può trovarsi in tre stati diversi:
 \begin{itemize}
@@ -470,9 +470,7 @@ Redige la sezione del \PdQ{} che illustra l'esito e la completezza delle verific
 e delle prove effettuate.
 
 \subsection{Procedure per la rotazione dei ruoli}
-\TODO{}.
-
-%è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
+È necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 \newpage
 
 
@@ -575,71 +573,36 @@ Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I moti
 \item è già stato usato da alcuni elmenti del gruppo
 \end{itemize}
 
-\subsubsection{Repository} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
-Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}.Ogni membro deve clonare la repository in locale tramite il comando \texttt{git clone}.
+\subsubsection{Repository} \label{sec:rep} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory 
+Viene creata una \mgls{repository} su github all'indirizzo \url{https://github.com/lordnikolai/starware.swe15}. Ogni membro deve clonare la repository in locale.
 
 \paragraph{Commit}
-Il comando per fare un commit è \texttt{git commit}. Il commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta e il numero del issue espresso come collegamento ipertestuale (e.g. Aggiunta sezione Repository nelle Norme di progetto \#123, Verifica e correzione delle Norme di progetto \#567). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
+l commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta (e.g. Aggiunta sezione Repository nelle Norme di progetto, oppure Verifica e correzione delle Norme di progetto). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 \paragraph{Pull}
-È preferibile fare un \texttt{git pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
 \paragraph{Push}
-Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \texttt{git push} della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+\\
+
+
+\paragraph{Branch} vengono definiti 3 \textit{branches} all'interno della \textit{\mgls{repository}}:
+\begin{itemize}
+	\item \textbf{stable:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
+	\item \textbf{daily:} dove verranno tenuti sorgenti e documenti ancora incompleti. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \textit{branch} \textit{stable}. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \textit{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \textit{branch} \textit{stable}
+	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora in fase di sviluppo. Quando un documento ha uno scheletro o ne viene completata una sezione può essere messo anche nel \textit{branch} \textit{stable}
+\end{itemize}
 
 Per approfondimenti e una guida a git si veda \url{https://git-scm.com/docs/}
 
 \subsubsubsection{Struttura albero delle directory}
 La repository del gruppo è organizzata secondo il seguente albero delle directory
-\begin{itemize}
-\item[--] doc
-\begin{itemize}
-\item[--] 1\_RR
-\begin{itemize}
-\item[--] interni
-\item[--] esterni
-\end{itemize}
-\item[--] 2\_RP
-\begin{itemize}
-\item[--] interni
-\item[--] esterni
-\end{itemize}
-\item[--] 3\_RQ
-\begin{itemize}
-\item[--] interni
-\item[--] esterni
-\end{itemize}
-\item[--] 4\_RA
-\begin{itemize}
-\item[--] interni
-\item[--] esterni
-\end{itemize}
-\item[--] template
-\item[--] glossario
-\item[--] verbali
-\begin{itemize}
-\item[--] interni
-\item[--] esterni
-\end{itemize}
-\end{itemize}
-\item[--] src
-\end{itemize}
-
-\subsubsection{Repository e versionamento}
-Sono state presi in considerazione diversi software di versionamento (Git , SVN, MerGcurial) prima di decidere di usare Git . I motivi principali della scelta sono:
-\begin{itemize}
-	\item è gratuito e non proprietario
-	\item è un \mgls{repository} distribuito con la possibilità di \mgls{commit} e \mgls{revert} locali;
-	\item è \mgls{cross-platform};
-	\item possiede un'abbondante ma semplice documentazione;
-	\item è già stato usato da alcuni elmenti del gruppo.
-\end{itemize}
-
-La repository è organizzata secondo il seguente albero delle cartelle:
 \\
+
 \dirtree{%
 	.1 doc.
 	.2 1\_RR.
-	.3 .
-	.3 .
+	.3 interni.
+	.3 esterni.
 	.2 2\_RP.
 	.3 esterni.
 	.3 interni.
@@ -650,25 +613,16 @@ La repository è organizzata secondo il seguente albero delle cartelle:
 	.3 esterni.
 	.3 interni.
 	.2 template.
+	.2 glossario.
+	.2 verbali.
+	.3 interni.
+	.4 esterni.
 	.1 src.
 }
-
+ 
 La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
 
-Si descrive ora la procedura di corretto utilizzo del repository;
-
-\begin{itemize}
-	\item Clonare il repositoryG : è possibile clonare il repositoryG remoto in locale attraverso il comando git clone sw-eng@dtp.myopenproject.it:nome-repository.git;	
-	\item Sincronizzare il repositoryG : per scaricare in locale le modifiche bisogna eseguire il comando git pull nella cartella che contiene il repositoryG locale;
-	\item Salvare una modifica in locale: con il comando git add NomeFile si aggiunge un file al commitG corrente e usando il comando git commit -m “Messaggio di	commit ” si salvano le modifiche effettuate ai file;
-	\item Inviare le modifiche al repositoryG remoto: tramite il comando git push si inviano le modifiche al repositoryG remoto;
-	\item Gestione dei conflitti: nel caso si verifichino conflitti sarà necessario usare il comando git mergetool e risolvere il conflitto tramite un tool di mergeG .
-\end{itemize}
-
-Per approfondimenti e una guida a git si veda \TODO{}.
-
-
-\subsubsection{Materiale informale}
+\subsubsection{Materiale informale}\label{sec:matinf}
 Si è inoltre scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
 
 \paragraph{Google Drive}
