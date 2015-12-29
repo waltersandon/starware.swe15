@@ -137,13 +137,87 @@
 \subsubsection{ Analisi dinamica}
 //TO DO \AVI
 \subsection{Misure e metriche}
-//TO DO \AVI
+Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori.\\
+Per ogni metrica utilizzata vi possono essere due tipologie di range:
+\begin{itemize}
+\item \textbf{Accettazione}: valori minimi richiesti per superare la verifica di qualità
+\item \textbf{Ottimale}: valori entro cui dovrebbe collocarsi la misurazione. Tale range non è vincolante, ma fortemente consigliato. Scostamenti da tali valori necessitano una verifica approfondita.
+\end{itemize}
 \subsubsection{Metriche per i processi}
-//TO DO \AVI
+La qualità dei processi viene valutata usando le segiuenti metriche:
+\subsubsubsection{Schedule variance}
+Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività.
+\[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
+Dove EV (Earned value) è il valore in euro delle attività realizzate alla data corrente e PV (Planned value) è il costo delle attività che erano state pianificate alla data corrente.
+Se ScheduleVariance > 0 signifca che il progetto sta producendo con maggior velocità rispetto a quanto pianifcato, viceversa se negativo.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: $\geq$ -5\%
+\item \textbf{Range Ottimale}: $\geq$ 0\%
+\end{itemize}
+\subsubsubsection{Cost Variance}
+Indica se alla data corrente si è speso di più o di meno rispetto a quanto pianificato.
+\[CostVariance [\%] = \frac{EV - AC}{EV}\]
+Dove EV (Earned value) è il valore in euro delle attività realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente.
+Se CostVariance > 0 signifca che il progetto è sotto budget, se invece è negativo significa che si sta sforando il budget.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: $\geq$ -10\%
+\item \textbf{Range Ottimale}: $\geq$ 0\%
+\end{itemize}
 \subsubsection{Metriche per i documenti}
-//TO DO \AVI
+\subsubsubsection{Gulpease}
+È un indice di leggibilità di un testo tarato sulla lingua italiana.
+\[IndiceGulpease=89-\frac{300*(Numero\ di\ frasi)-10*(Numero\ di\ lettere)}{Numero\ di\ parole}\]
+Il range di valori è compreso tra 0 e 100, dove il valore 100 indica la leggibilità più alta e 0 la più bassa.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [40-100]
+\item \textbf{Range Ottimale}: [50-100]
+\end{itemize}
 \subsubsection{ Metriche per il software}
-//TO DO \AVI
+\subsubsubsection{Complessità ciclomatica}
+Misura la complessità del programma contando il numero di cammini linearmente indipendenti attraverso il grafo di controllo di fusso. Valori troppo implicano una ridotta manutenibilità del codice, valori troppo bassi potrebbero determinare scarsa effcienza dei metodi.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-15]
+\item \textbf{Range Ottimale}: [1-10]
+\end{itemize}
+\subsubsubsection{Numero di parametri per metodo}
+Un numero troppo elevato di parametri per metodo indica una scarsa leggibilità e mantenibilità del codice.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [0-8]
+\item \textbf{Range Ottimale}: [0-4]
+\end{itemize}
+\subsubsubsection{Numero di campi dati per classe}
+Una classe con un numero elevato di campi dati suggerisce che si potrebbe espandere la gerarchia di classi, migliornado l'incapsulamento.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [2-16]
+\item \textbf{Range Ottimale}: [3-8]
+\end{itemize}
+\subsubsubsection{Numero linee di codice per metodo}
+La complessità dei metodi molte volte è proporzionale alla loro lunghezza,
+quindi è bene spezzare elaborazioni complesse in più metodi, in modo da facilitarne anche la comprensione.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-70]
+\item \textbf{Range Ottimale}: [1-40]
+\end{itemize}
+\subsubsubsection{Numero di livelli di annidamento}
+Rappresenta il massimo numero di livelli di annidamento dei metodi. Un valore elevato di tale indice implica un’alta complessità ed un basso livello di astrazione del codice.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-5]
+\item \textbf{Range Ottimale}: [1-3]
+\end{itemize}
+\subsubsubsection{Instabilità}
+La stabilità di una componente indica la possibilità di effettuare modifche ad un componente senza infuenzarne altri all’interno dell'applicazione.
+\[Instabilita=\frac{A_e}{A_a+A_e}\]
+Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un package che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al package che dipendono da classi esterne ad esso.
+\begin{itemize}
+\item \textbf{Range di Accettazione}:[0-0.9]
+\item \textbf{Range Ottimale}: [0-0.5]
+\end{itemize}
+\subsubsubsection{Copertura del codice}
+Indica la percentuale di istruzioni che sono eseguite durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [50\%-100\%]
+\item \textbf{Range Ottimale}: [75\%-100\%]
+\end{itemize}
 \subsection{Metodi}
 //TO DO \AVI
 \subsubsection{Analisi dei processi}
