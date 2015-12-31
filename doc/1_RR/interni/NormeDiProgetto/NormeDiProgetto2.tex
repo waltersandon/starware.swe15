@@ -558,7 +558,80 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 \end{itemize}
 
 \subsection{Verifica}
-\TODO{} Contestualmente al PdQ
+La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
+
+\subsubsection{Tecniche di analisi}
+\begin{itemize}
+  \item \textbf{Analisi statica:} tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
+    \begin{itemize}
+      \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
+      \item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{Classificazione dei problemi}
+A corredo della \mgls{lista di controllo}, vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+\begin{itemize}
+  \item Processi;
+  \item Documentazione;
+  \item Codice.
+\end{itemize}
+Urgenza:
+\begin{itemize}
+  \item \textbf{Alta:} l'errore deve essere risolto non appena possibile. In ambito di codifica, la gravità è tale da poter coinvolgere più unità e richiedere di ripetere numerosi test. Una mancata gestione del problema può determinare difetti nel prodotto così come un ritardo nella risoluzione può comportare considerevoli aumenti nei tempi e nei costi dei singoli processi;
+  \item \textbf{Media:} l'errore deve essere risolto entro una scadenza stabilita considerando la presenza di altri errori di pari urgenza. In media la risoluzione non dovrebbe richiedere più di 5 giorni lavorativi;
+  \item \textbf{Bassa:} l'errore è di bassa entità e la sua risoluzione non richiede intervento tempestivo. La scadenza per la sua risoluzione coincide con la \mgls{milestone} successiva.
+\end{itemize}
+Metodo di gestione del problema:
+\begin{itemize}
+  \item \textbf{Ticket:} il Verificatore apre un \mgls{ticket} su Asana per la risoluzione del problema riscontrato (dettagli nella sezione \ref{ticket});
+  \item \textbf{Aggiunta alla \mgls{lista di controllo}:} il \VR{} scorre la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori;
+  \item \textbf{Correzione immediata:} il \VR{} provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \mgls{versionamento}, indicando un messaggio di \mgls{commit} esaustivo (per approfondimenti si rimanda alla sezione \ref{versionamento} sulle norme di \mgls{versionamento}).
+\end{itemize}
+
+\begin{table}
+\begin{tabular}{p{0.2\textwidth} p{0.35\textwidth} p{0.15\textwidth} p{0.2\textwidth}}
+\toprule
+\textbf{Ambito}	&	\textbf{Problema}	&	\textbf{Urgenza}	&	\textbf{Azione}\\
+\midrule
+\midrule
+Processi & Ritardo di 3 giorni & Alta & Ticket \\
+\midrule
+& Errore di progettazione & Alta & Ticket \\
+\midrule
+& Errore in requisiti e use case & Alta & Ticket \\
+\midrule
+\midrule
+Documentazione & Errore di compilazione & Alta & Ticket \\
+\midrule
+& Errore concettuale & Alta & Ticket \\
+\midrule
+& Errore in tabelle o immagini & Media & Ticket \\
+\midrule
+& Errore ortografico & Media & Correzione immediata \\
+\midrule
+& Termine non in glossario & Bassa & Ticket \\
+\midrule
+& Norma stilistica non rispettata & Bassa & Correzione immediata \\
+\midrule
+& Errore di formattazione & Bassa & Ticket \\
+\bottomrule
+\end{tabular}
+\caption{Classificazione dei problemi}
+\label{tabCalssificazioneProb}
+\end{table}
+  
+\subsubsection{Documentazione}
+Il processo di verifica viene istanziato nel momento in cui l'output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \emph{Verificatori} dell'inizio dell'attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l'attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall'ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un'accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
+
+\begin{itemize}
+	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \textit{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \textit{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
+	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
+	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice	
+	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
+	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \textit{\mglspl{ticket}} secondo quando descritto nella sezione \ref{ticket}
+\end{itemize}
+
 
 \subsection{Codifica}
 Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo successivamente alla fase di progettazione.
@@ -570,7 +643,7 @@ Le norme di progetto saranno ampliate con questa sezione non appena verranno con
 
 \subsection{Condivisione materiale}
 
-\subsubsection{Versionamento} %Scelta di Git come sistema di Versioning
+\subsubsection{Versionamento}\label{versionamento} %Scelta di Git come sistema di Versioning
 Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
 \item è gratuito e non proprietario
@@ -728,7 +801,7 @@ Gulpease e la marcatura dei termini presenti nel glossario del documento.
 
 \subsection{Protocolli per lo sviluppo}
 
-\subsubsection{Ticketing} %6.5 delle NdPv5.2.0 dei don't panic
+\subsubsection{Ticketing}\label{ticket} %6.5 delle NdPv5.2.0 dei don't panic
 
 
 \newpage

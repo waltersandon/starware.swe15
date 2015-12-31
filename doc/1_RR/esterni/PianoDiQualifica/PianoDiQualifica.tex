@@ -82,6 +82,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.1 & \AVI & 2015-12-29 &  Misure e Metriche \\
+\midrule
 1.0.0 & \IB & 2015-12-27 &  Creazione documento \\
 \midrule
 1.0.1 & \IB & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
@@ -132,13 +134,13 @@
 //TO DO \AB
 \subsection{Strumenti}
 //TO DO \AB
-\subsection{Tecniche di analisi}
+\subsection{Tecniche di analisi}\label{analisi}
 //TO DO \AB
 \subsubsection{Analisi statica}
 //TO DO \AVI
 \subsubsection{ Analisi dinamica}
 //TO DO \AVI
-\subsection{Misure e metriche}
+\subsection{Misure e metriche}\label{metriche}
 Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori.\\
 Per ogni metrica utilizzata vi possono essere due tipologie di range:
 \begin{itemize}
@@ -221,22 +223,24 @@ Indica la percentuale di istruzioni che sono eseguite durante i test. Maggiore �
 \item \textbf{Range Ottimale}: [75\%-100\%]
 \end{itemize}
 \subsection{Metodi}
-//TO DO \AVI
-\subsubsection{Analisi dei processi}
-//TO DO \AVI
-\subsubsection{Analisi dei documenti}
-//TO DO \AVI
+\TODO \AVI\ sezione spostata nelle \NdP
 \newpage
 \section{Gestione amministrativa della revisione}
-//TO DO \AVI
 \subsection{Comunicazione e risoluzione di anomalie}
-//TO DO \AVI 
+Una anomalia corrisponde a:
+\begin{itemize}
+\item Violazione delle norme tipografiche da parte di un documento;
+\item Uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
+\item Incongruenza del prodotto con funzionalità indicate nell’analisi dei requisiti;
+\item Incongruenza del codice con il design del prodotto.
+\end{itemize}
+Nel caso in cui un Verificatore individui un’anomalia, dovrà aprire un ticket nel sistema di ticketing secondo le modalità specificate nelle \NdP.
 \subsection{Procedure di controllo di qualità di processo}
 //TO DO \IB
 \subsection{Procedure di controllo di qualità di prodotto}
 Il controllo di qualità del prodotto verrà garantito da:
 \begin{itemize}
-\item Quality Assurance:Per garantire raggiungimento della qualità del prodotto  si  prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione 2.7;
+\item Quality Assurance: Per garantire raggiungimento della qualità del prodotto  si  prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi};
 \item Verifica: Si esegue la verifica sul prodotto costantemente durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione 4;
 \item Validazione: Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste .
 \end{itemize}
