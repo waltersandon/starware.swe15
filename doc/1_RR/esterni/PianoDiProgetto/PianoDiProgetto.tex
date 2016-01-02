@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.2}
+\newcommand{\versione}{1.0.1}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -55,6 +55,7 @@
 \textbf{Data Ultima Modifica}	&	\today	\\
 \textbf{Redazione}	& \NDC \\
 \ 	& \TP \\
+\ &  \WS\\
 \ 	& \IB \\
 \textbf{Verifica}	&	Mr Q	\\
 \textbf{Approvazione}	& \NDC \\
@@ -82,8 +83,6 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
-\midrule
 1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di Analisi \\
 \midrule
 1.0.0 & \NDC & 2015-12-24 &  Creazione documento \\
@@ -104,244 +103,143 @@
 
 \section{Introduzione}
 \subsection{Scopo}
+Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. 
+\\
+\\
+Nello specifico questo documento serve a:
+\begin{itemize}
+	\item Dimostrare in dettaglio la pianificazione delle risorse e delle attività
+	\item Dare un preventivo alle risorse usate
+	\item Riepilogare l'utilizzo delle risorse durante l'avanzamento del progetto
+	\item Analizzare i possibili fattori di rischio che potrebbero impedire un corretto svolgimento al progetto
+	
+\end{itemize}
+
+\subsection{Descrizione Prodotto}
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML) basato su uno stack tecnologico Node.js lato server e MongoDB lato database.
+\\L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+
 \subsection{Descrizione}
 
-Si divide lo sviluppo del progetto in 5 fasi:
+Si divide lo sviluppo del progetto in 4 fasi:
 \begin{itemize}
-	\item \textbf{Analisi:} (quella corrente) [Per RRequisiti]: studio di fattibilità, norme di progetto, analisi dei requisiti, piano di progetto, piano di qualifica, glossario (eventuale?), lettera di presentazione.
-	\item \textbf{Analisi dettaglio:} integrazione e consolidazione dei requisiti. Progettazione architetturale [Per RProgettazione]: Viene redatta la specifica tecnica che descrive le scelte architetturali per lo sviluppo del prodotto (design pattern, diagrammi, etc...); tutti gli altri documenti sono eventualmente aggiornati.
-	\item \textbf{Progettazione di dettaglio e codifica}: [Per RQualità]: vengono redatti la definizione del prodotto (approfondimento della struttura e relazione tra le varie componenti del prodotto identificate dalla specifica tecnica), codifica (sviluppo del codice in base alla definizione del prodotto), manuali (manuale per l'utente del prodotto); anche qui altri documenti vengono aggiornati e il tutto verificato.
-	\item Verifica e validazione [Per RQualifica]: il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti;
+	\item \textbf{Analisi:} è la prima fase, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta alla buona riuscita del progetto come:
+	\begin{itemize}
+		\item \textbf{Norme di Progetto};
+		\item \textbf{Glossario};
+		\item \textbf{Studio di Fattibilità};
+		\item \textbf{Analisi dei Requisiti};
+		\item \textbf{Piano di Progetto};
+		\item \textbf{Piano di Qualifica};
+		\item \textbf{Lettera di Presentazione}.
+	\end{itemize}
+	\item \textbf{Progettazione architetturale}: è la fase che segue la \textbf{Revisione dei Requisiti} dove viene redatto:
+		\begin{itemize}
+		 \item \textbf{Specifica Tecnica}. 
+	    \end{itemize} 
+	   In questa fase tutti i documenti redatti nella sezione precedente , tranne la lettera di presentazione al committente che resta unica, saranno eventualmente aggiornati.
+	\item \textbf{Progettazione di dettaglio e codifica}: è la fase che segue la \textbf{Revisione dei Requisiti} dove vengono redatti:
+	\begin{itemize}
+		\item \textbf{Definizione di Prodotto};
+		\item \textbf{Codifica};
+		\item \textbf{Manuali Utenti}.
+	\end{itemize}
+	Anche in questo caso i documenti vengono aggiornati e il tutto verificato.
+	\item \textbf{Verifica e validazione}: subito dopo la fase di \textbf{Revisione di Qualifica} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
+	\\In questa fase la documentazione verrà soltanto possibilmente aggiornata.
 \end{itemize}
 
 \subsection{Ciclo di vita}
-Scelta del modello del ciclo di vita con motivazione. Probabilmente verrà scelto quello incrementale per cui si può prendere spunto da §2.4 di HotKeys
-
-\subsection{Ruoli e costi}
-
-\subsection{Scadenze}
-Definizione delle scadenze delle 4 revisioni come specificate dal prof.
-
+Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \textbf{incrementale}, in quanto permette di scomporre il problema principale in più sottosistemi più semplici rendendo così la progettazione più gestibile.
+\\Tale modello offre quindi la possibilità di:
 \begin{itemize}
-	\item \textbf{22 gennaio 2016:} consegna materiale in ingresso alla \RR;
-	\item \textbf{11 aprile 2016:} consegna materiale in ingresso alla  \RP;
-	\item \textbf{16 maggio 2016:} consegna materiale in ingresso alla \RQ;
-	\item \textbf{10 giugno 2016:} consegna materiale in ingresso alla \RA.
+	\item Soddisfare da subito i requisiti minimi, e dedicarsi solo successivamente a quelli opzionali, in modo da poter rilasciare al committente un prototipo, permettendogli di valutare in corso d'opera il lavoro svolto;
+	\item Consolidare la sezione coinvolta, grazie alle sezioni precedentemente implementate, riducendo di fatto il rischio di fallimento totale del progetto;
+	\item Minimizzare il più possibile i rischi di ritardo sui tempi stabiliti in virtù del fatto che i cicli hanno una durata breve e sono stati precedentemente pianificati;
+	\item Facilitare la verifica.
 \end{itemize}
 
+
+\subsection{Ruoli e costi}
+Per un buon esito del progetto si è deciso che ogni componente del gruppo dovrà ricoprire almeno una volta le principali figure aziendali specializzate qui sotto riportate con il relativo costo orario.
+\\L'unico vincolo a questa regola è che si deve certificare che non vi siano periodi in cui una stessa risorsa sia verificatrice di se stessa.
+\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{p{0.4\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.2\textwidth} p{0.01\textwidth} p{0.01\textwidth}}
+\toprule
+\textbf{Ruolo}	& & & & &\textbf{Costo} & &\\
+\midrule
+\midrule
+\AM & & & & & 20 \euro & & \\
+\midrule
+\AN & & & & & 25  \euro & &\\
+\midrule
+\PG & & & & & 22  \euro & &\\
+\midrule
+\PR & & & & & 15  \euro & &\\
+\midrule
+\PM & & & & & 30  \euro & &\\
+\midrule
+\VR & & & & & 15  \euro & &\\
+\bottomrule
+\end{tabular}
+\caption{Costi per ruolo}
+\end{center}
+\end{table}
+\newpage
+
+
+\subsection{Scadenze}
+Di seguito le scadenze che il gruppo StarWare ha deciso di rispettare e sulle quali si baserà la pianificazione del progetto:
+\\
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{p{0.4\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.01\textwidth} p{0.3\textwidth} p{0.01\textwidth}}
+\toprule
+\textbf{Nome Revisione}	& & & & & &\textbf{Data di Consegna} &\\
+\midrule
+\midrule
+\RR & & & & &  &2016-01-22 & \\
+\midrule
+\RP & & & & & & 2016-04-11 &\\
+\midrule
+\RQ & & & & &  &2016-05-16 &\\
+\midrule
+\RA & & & & &  &2016-06-10 &\\
+\bottomrule
+\end{tabular}
+\caption{Scadenze}
+\end{center}
+\end{table}
 \newpage
 
 \section{Analisi dei rischi}
+Sezione che identifica i rischi che possono rallentare o fermare l'avanzamento del progetto. Per ogni rischio viene presentata una breve analisi, la probabilità di occorrenza e il fattore di rischio (quanto è pericoloso tale rischio).
 
-Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettuata un’approfondita analisi dei rischi che potrebbero verificarsi. L’Analisi si suddivide in 5 momenti:
-\begin{itemize}
-	\item \textbf{Identificazione:} individuare i potenziali rischi che possono presentarsi durante l’avanzamento del processo e capirne la natura. I rischi vengono divisi in 4 categorie:
-	\begin{itemize}
-		\item \textbf{Gruppo:} problemi di un singolo membro o di interazione tra i membri del gruppo
-		\item \textbf{Tecnologici:} problemi derivati dalle tecnologie utilizzate
-		\item \textbf{Organizzativi:} problemi di organizzazione del gruppo
-		\item \textbf{Requisiti:} problemi sui requisiti
-	\end{itemize}
-	\item \textbf{Analisi:} valutare la probabilità dell’occorrenza del rischio, valutarne le conseguenze sul progetto e quindi comprenderne la criticità
-	\item \textbf{Pianificazione:} per ogni rischio viene individuato un metodo per evitarlo
-	\item \textbf{Controllo:} si verifica il successo della pianificazione e in caso si modifica se si ritene insufficiente e si controlla se la probabilità di occorrenza del rischio sia variata
-	\item \textbf{Mitigazione:} istituire un piano per mitigare gli effetti di un rischio nel caso questo dovesse verificarsi
-\end{itemize}
+Inoltre vengono identificati controlli (sistemi per l'analisi di questi rischi) e contromisure/prevenzioni per sistemare/prevenire tali rischi.
 
-Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati dei quali viene indicata la probabilità che accada e un livello di gravità se dovesse verificarsi.
+\subsection{Rischi del gruppo}
 
-\subsection{Rischi di gruppo}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\
-\midrule
-\textbf{Probabilità} & Media \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\
-\midrule
-\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
-\bottomrule
-\end{tabular}
-\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
-\end{center}
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Diversi dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante le varie fasi e capire dove stia nascendo un dissidio fra uno o più membri. \\
-\midrule
-\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
-\bottomrule
-\end{tabular}
-\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
-\end{center}
-\end{table}
+Rischi derivanti dai membri stessi del gruppo (mancanza di conoscenza, impegni personali, etc...).
 
 \subsection{Rischi tecnologici}
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Guasti hardware} \\
-\midrule
-\midrule
-\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Bassa \\
-\midrule
-\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}. \\
-\midrule
-\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
-\bottomrule
-\end{tabular}
-\caption{Guasti hardware - Analisi dei rischi}
-\end{center}
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\
-\midrule
-\midrule
-\textbf{Descrizione} &  Ogni componente software utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti software correttamente e come specificato nelle \NdP. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}.\\
-\midrule
-\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti software. In caso di problemi col ripristino contattare il responsabile della componente software come specificato nelle \NdP. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
-\bottomrule
-\end{tabular}
-\caption{Malfunzionamenti software - Analisi dei rischi}
-\end{center}
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\
-\midrule
-\midrule
-\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti software che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
-essere apprese. \\
-\midrule
-\textbf{Probabilità} & Alta \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\
-\midrule
-\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
-\bottomrule
-\end{tabular}
-\caption{Inesperienza tecnologica - Analisi dei rischi}
-\end{center}
-\end{table}
-
-\subsection{Rischi organizzativi}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\
-\midrule
-\midrule
-\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\
-\midrule
-\textbf{Probabilità} & Alta \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie fasi con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
-\midrule
-\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \textit{\mgls{task}} in modo che il ritardo sia minimo. \\
-\bottomrule
-\end{tabular}
-\caption{Valutazione tempi e costi - Analisi dei rischi}
-\end{center}
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\
-\midrule
-\midrule
-\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai componenti del gruppo a causa del cambio
-di competenze e di responsabilità associati al diverso ruolo da ricoprire. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\
-\midrule
-\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
-\bottomrule
-\end{tabular}
-\caption{Rotazione dei ruoli - Analisi dei rischi}
-\end{center}
-\end{table}
+Rischi derivati dall'utilizzo di specifiche tecnologie, librerie e strumenti. Ad esempio bug o malfunzionamenti nelle tecnologie utilizzate.
 
 \subsection{Rischi dei requisiti}
 
-\begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{ Comprensione errata dei requisiti} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’analisi dei requisiti, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
-\midrule
-\textbf{Probabilità} & Media \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza
-ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\
-\midrule
-\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
-\bottomrule
-\end{tabular}
-\caption{Comprensione errata dei requisiti - Analisi dei rischi}
-\end{center}
-\end{table}
+Fraintendimenti con i requisiti o con la soluzione proposta per soddisfarli.
+
+\subsection{Rischi organizzativi}
+
+Rischi legati alla progettazione e organizzazione delle attività (previsioni sbagliate).
 
 \newpage
 
 \section{Analisi}
 \subsection{Pianificazione} %dal 18/12/15 al 22/01/16
-Questa attività ha inizio il 18/12/2015 e termina il 21/01/2016. I ruoli attivi in questa fase saranno:
+Questa attività ha inizio il 18/12/2015 e termina il 21/01/2016. I ruoli attivi in questa  saranno:
 \begin{itemize}
 	\item \PM;
 	\item \AM;
@@ -447,6 +345,7 @@ AN5.2 & Verifica & Verificatore & 7 \\
 \end{figure}
 \end{center}
 
+
 \newpage
 \subsection{Prospetto economico}
 
@@ -506,13 +405,154 @@ Verificatore & 36 & 15 & 540\\
 \section{Validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
-
+Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione.
+\\Le sotto attività svolte sono:
+\begin{itemize}
+	\item \textbf{Incremento:} tutti i documenti verranno aggiornati in base all'ultima revione fatta ovvero la \RQ.
+	\item \textbf{Collaudo:} per testare se il prodotto è conforme alle specifiche che il committente ha richiesto.
+\end{itemize}
+Le figure professionali attive in questa attività sono:
+\begin{itemize}
+	\item \PM;
+	\item \AM;
+	\item \PG;
+	\item \VR.
+\end{itemize}
+\newpage
+\begin{table}
+\begin{center}
+\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+\toprule
+\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+\midrule
+\midrule
+\textbf{VA1} & \textbf{Glossario} &  &  \\
+\midrule
+VA1.1 & Incremento & Amministratore &  \\
+\midrule
+VA1.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA2} & \textbf{Norme di Progetto} & & \\
+\midrule
+VA2.1 & Incremento & Amministratore & 7 \\
+\midrule
+VA2.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA3} & \textbf{Piano di Progetto} & &  \\
+\midrule
+VA3.1 & Incremento & Project Manager & 2 \\
+\midrule
+VA3.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA4} & \textbf{Piano di Qualifica} & &  \\
+\midrule
+VA4.1 & Incremento & Verificatore1 \newline Verificatore2 & 12 \newline 12 \\
+\midrule
+VA4.2 & Verifica & Project Manager \newline Verificatore1 & 5 \newline 3 \\
+\midrule
+\textbf{VA5} & \textbf{Definizione di Prodotto} & & \\
+\midrule
+VA5.1 & Incremento & Progettista & 7\\
+\midrule
+VA5.2 & Verifica & Verificatore & 6 \\
+\midrule
+\textbf{VA6} & \textbf{Specifica Tecnica} & & \\
+\midrule
+VA6.1 & Incremento & Progettista & 7\\
+\midrule
+VA6.2 & Verifica & Verificatore & 6 \\
+\midrule
+\textbf{VA7} & \textbf{Manuali} & & \\
+\midrule
+VA7.1 & Incremento & Project Manager \newline Amministratore & 8 \newline 6 \\
+\midrule
+VA7.2 & Verifica & Project Manager \newline Verificatore1 \newline Verificatore2 & 2 \newline 5 \newline 5\\
+\midrule
+\textbf{VA8} & \textbf{Collaudo} & & \\
+\midrule
+ & & Project Manager \newline Programmatore1 \newline  Programmatore2 \newline Verificatore \newline Amministratore & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
+\midrule
+\textbf{VA9} & \textbf{Consegna} & & \\
+\bottomrule
+\end{tabular}
+\caption{Ripartizione delle risorse - Validazione}
+\end{center}
+\end{table}
+\newpage
 \subsection{Rotazione dei Ruoli}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+\toprule
+\textbf{Membro}	&	\textbf{PM}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+\midrule
+\midrule
+\IB & 4 & 3 &  & 4 &  & 9 & 20 \\
+\midrule
+\AB &  & 4 &  & 6 &  & 10 & 20 \\
+\midrule
+\NDC & 2 & 7 &  & 4 & 5 & 9 & 20 \\
+\midrule
+\TP & 4 & 3 &  & & 5 & 8 & 20 \\
+\midrule
+\WS &  & 3 &  & & 3 & 9 & 20 \\
+\midrule
+\AVE & 5 & 3 &  &  & 3 & 9 & 20 \\
+\midrule
+\AVI & 5 & 4 &  & 8 &  & 3 & 20 \\
+\bottomrule
+\end{tabular}
+\caption{Rotazione dei ruoli - Validazione}
+\end{center}
+\end{table}
+
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{diagrammaBarreValidazioneRotazioniRuoli.png}
+\caption{Diagramma della rotazione dei ruoli - Validazione}
+\end{figure}
+\end{center}
 
 \subsection{Prospetto economico}
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth} }
+\toprule
+\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
+\midrule
+\midrule
+Project Manager & 18 & 30 & 300\\
+\midrule
+Amministratore & 22 & 20 & 760\\ 
+\midrule
+Analista & 0 & 25 & 1.400\\ 
+\midrule
+Progettista &22 & 22 & 0\\ 
+\midrule
+Programmatore & 18 & 15 & 0\\ 
+\midrule
+Verificatore & 60 & 15 & 540\\ 
+\midrule
+\textbf{Totale} & \textbf{140} &  & \textbf{2.634}\\
+\bottomrule
+\end{tabular}
+\caption{Ripartizione oraria dei ruoli - Analisi}
+\end{center}
+\end{table}
 
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1]{diagrammaTortaValidazioneTotaleOre.png}
+\caption{Diagramma della ripartizione oraria dei ruoli - Validazione}
+\end{figure}
+\end{center}
 \newpage
+
+
 \section{Riepilogo}
 
 
