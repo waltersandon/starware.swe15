@@ -40,6 +40,7 @@ Piano di Progetto:
 	- Trovarsi il 4 Thomas, Walter, Nicola per assegnare i ruoli. Produrre i diagrammi di Gantt per tale data in modo da poter vedere quali ruoli si sovrappongono e quali no.
 	- Meglio assegnare 1 massimo 2 persone per la stesura dei futuri documenti. 
 	- Diagrammi di Gantt con ProjectLibre
+    - Si è deciso di riorganizzare le ore a testa in 23, 29, 30, e 18 per le 4 rispettive fasi.
 
 Analisi dei requisiti:
 	- Cominciamo dopo il 10 e vediamo di avere tutti gli altri documenti chiusi entro tale data, in modo da concentrarsi solo sull’analisi.
