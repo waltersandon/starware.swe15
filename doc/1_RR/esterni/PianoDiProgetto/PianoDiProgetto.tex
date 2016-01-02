@@ -11,7 +11,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.2}
+\newcommand{\versione}{1.0.5}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -83,6 +83,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.4 & \WS & 2016-01-02 &  Introduzione \\
+\midrule
 1.0.4 & \TP & 2015-12-29 &  Progettazione di Dettaglio e Codifica \\
 \midrule
 1.0.3 & \TP & 2015-12-29 &  Progettazione Architetturale \\
@@ -107,31 +109,94 @@
 \listoffigures
 \newpage
 
-\section{Introduzione}
-\subsection{Scopo}
-\subsection{Descrizione}
+\section{Introduzione} 
+\TODO{negli elenchi puntati i due punti vanno dentro il tag del bold; per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle norme di progetto: bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
 
-Si divide lo sviluppo del progetto in 5 fasi:
+\subsection{Scopo}
+Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. Nello specifico questo documento serve a:
 \begin{itemize}
-	\item \textbf{Analisi:} (quella corrente) [Per RRequisiti]: studio di fattibilità, norme di progetto, analisi dei requisiti, piano di progetto, piano di qualifica, glossario (eventuale?), lettera di presentazione.
-	\item \textbf{Analisi dettaglio:} integrazione e consolidazione dei requisiti. Progettazione architetturale [Per RProgettazione]: Viene redatta la specifica tecnica che descrive le scelte architetturali per lo sviluppo del prodotto (design pattern, diagrammi, etc...); tutti gli altri documenti sono eventualmente aggiornati.
-	\item \textbf{Progettazione di dettaglio e codifica}: [Per RQualità]: vengono redatti la definizione del prodotto (approfondimento della struttura e relazione tra le varie componenti del prodotto identificate dalla specifica tecnica), codifica (sviluppo del codice in base alla definizione del prodotto), manuali (manuale per l'utente del prodotto); anche qui altri documenti vengono aggiornati e il tutto verificato.
-	\item Verifica e validazione [Per RQualifica]: il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti;
+	\item dimostrare in dettaglio la pianificazione delle risorse e delle attività;
+	\item dare un preventivo alle risorse usate;
+	\item riepilogare l'utilizzo delle risorse durante l'avanzamento del progetto;
+	\item analizzare i possibili fattori di rischio che potrebbero impedire un corretto svolgimento al progetto.
+	
 \end{itemize}
 
+\subsection{Descrizione}
+
+Si divide lo sviluppo del progetto in 4 attività:
+\begin{itemize}
+	\item \textbf{Analisi:} è la prima attività, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta alla buona riuscita del progetto come:
+	\begin{itemize}
+		\item \textbf{Norme di Progetto};
+		\item \textbf{Glossario};
+		\item \textbf{Studio di Fattibilità};
+		\item \textbf{Analisi dei Requisiti};
+		\item \textbf{Piano di Progetto};
+		\item \textbf{Piano di Qualifica};
+		\item \textbf{Lettera di Presentazione}.
+	\end{itemize}
+	\item \textbf{Progettazione architetturale}: è la attività che segue la \textbf{Revisione dei Requisiti} dove viene redatto:
+	\begin{itemize}
+		\item \textbf{Specifica Tecnica}. 
+	\end{itemize} 
+	In questa attività tutti i documenti redatti nella sezione precedente , tranne la lettera di presentazione al committente che resta unica, saranno eventualmente aggiornati.
+	\item \textbf{Progettazione di dettaglio e codifica}: è la attività che segue la \textbf{Revisione dei Requisiti} dove vengono redatti:
+	\begin{itemize}
+		\item \textbf{Definizione di Prodotto};
+		\item \textbf{Codifica};
+		\item \textbf{Manuali Utenti}.
+	\end{itemize}
+	Anche in questo caso i documenti vengono aggiornati e il tutto verificato.
+	\item \textbf{Verifica e validazione}: subito dopo la attività di \textbf{Revisione di Qualifica} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
+	\\In questa attività la documentazione verrà soltanto possibilmente aggiornata.
+\end{itemize}
+
+\subsection{Descrizione Prodotto}
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML) basato su uno stack tecnologico Node.js lato server e MongoDB lato database. L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+
 \subsection{Ciclo di vita}
-Scelta del modello del ciclo di vita con motivazione. Probabilmente verrà scelto quello incrementale per cui si può prendere spunto da §2.4 di HotKeys
+Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \textbf{incrementale}, in quanto permette di scomporre il problema principale in più sottosistemi più semplici rendendo così la progettazione più gestibile. Tale modello offre quindi la possibilità di:
+\begin{itemize}
+	\item soddisfare da subito i requisiti minimi, e dedicarsi solo successivamente a quelli opzionali, in modo da poter rilasciare al committente un prototipo, permettendogli di valutare in corso d'opera il lavoro svolto;
+	\item consolidare la sezione coinvolta, grazie alle sezioni precedentemente implementate, riducendo di fatto il rischio di fallimento totale del progetto;
+	\item minimizzare il più possibile i rischi di ritardo sui tempi stabiliti in virtù del fatto che i cicli hanno una durata breve e sono stati precedentemente pianificati;
+	\item facilitare la verifica.
+\end{itemize}
 
 \subsection{Ruoli e costi}
+Per un buon esito del progetto si è deciso che ogni componente del gruppo dovrà ricoprire almeno una volta le principali figure aziendali specializzate qui sotto riportate con il relativo costo orario. L'unico vincolo a questa regola è che si deve certificare che non vi siano periodi in cui una stessa risorsa sia verificatrice di se stessa. I costi orari sono così definiti:
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth}}
+			\toprule
+			\textbf{Ruolo} &  \textbf{Costo (\euro/ora)} \\
+			\midrule
+			\midrule
+			\RE &  30 \\
+			\midrule
+			\AM & 20 \\
+			\midrule
+			\AN & 25 \\
+			\midrule
+			\PG & 22 \\
+			\midrule
+			\PR & 15 \\
+			\midrule
+			\VR & 15  \\
+			\bottomrule
+		\end{tabular}
+		\caption{Costi per ruolo}
+	\end{center}
+\end{table}
 
 \subsection{Scadenze}
-Definizione delle scadenze delle 4 revisioni come specificate dal prof.
-
+Di seguito le scadenze che il gruppo \nomeGruppo{} ha deciso di rispettare e sulle quali si baserà la pianificazione del progetto:
 \begin{itemize}
-	\item \textbf{22 gennaio 2016:} consegna materiale in ingresso alla \RR;
-	\item \textbf{11 aprile 2016:} consegna materiale in ingresso alla  \RP;
-	\item \textbf{16 maggio 2016:} consegna materiale in ingresso alla \RQ;
-	\item \textbf{10 giugno 2016:} consegna materiale in ingresso alla \RA.
+	\item \textbf{2016-01-22:} consegna materiale in ingresso alla \RR;
+	\item \textbf{2016-04-11:} consegna materiale in ingresso alla  \RP;
+	\item \textbf{2016-05-16:} consegna materiale in ingresso alla \RQ;
+	\item \textbf{2016-06-10:} consegna materiale in ingresso alla \RA.
 \end{itemize}
 
 \newpage
@@ -192,7 +257,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 \midrule
 \textbf{Gravità} & Alta \\
 \midrule
-\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante le varie fasi e capire dove stia nascendo un dissidio fra uno o più membri. \\
+\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante tutta la durata del progetto per capire dove stia nascendo un dissidio fra uno o più membri. \\
 \midrule
 \textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
 \bottomrule
@@ -285,7 +350,7 @@ essere apprese. \\
 \midrule
 \textbf{Gravità} & Alta \\
 \midrule
-\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie fasi con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
+\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie attività con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
 \midrule
 \textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \textit{\mgls{task}} in modo che il ritardo sia minimo. \\
 \bottomrule
@@ -355,7 +420,7 @@ Questa attività ha inizio il 2015-12-18 e termina il 2016-01-22. I ruoli attivi
 \end{itemize}
 Le sotto attività svolte sono:
 \begin{itemize}
-	\item \textbf{Norme di Progetto:} attività svolta dall’\AM. Comprende la stesura di una serie di norme che dovranno essere rispettate dai componenti del gruppo per tutta la durata del progetto \prjL. Le norme sono interne al gruppo e non legate al capitolato scelto. La produzione di questo documento deve essere prioritaria per garantire uniformità e correttezza nelle successive fasi del progetto
+	\item \textbf{Norme di Progetto:} attività svolta dall’\AM. Comprende la stesura di una serie di norme che dovranno essere rispettate dai componenti del gruppo per tutta la durata del progetto \prjL. Le norme sono interne al gruppo e non legate al capitolato scelto. La produzione di questo documento deve essere prioritaria per garantire uniformità e correttezza nelle successive attività del progetto
 	\item \textbf{Studio di Fattibilità:} per ogni capitolato presentato si redige una studio di fattibilità. Da questo sarà possibile capire quale progetto il gruppo deciderà di sviluppare
 	\item \textbf{Analisi dei Requisiti:} gli analisti hanno il compito di ricavare tutti i requisiti necessari per la comprensione del problema e in seguito redigere il \AdR. Questo documento potrà essere aggiornato fino alla data di consegna stabilita
 	\item \textbf{Piano di Progetto:} attività svolta per la pianificazione delle attività, risorse e costi della gestione del gruppo. Il \PdP{} includerà tutte queste informazioni
@@ -494,7 +559,7 @@ Verificatore & 43 & 15 & 645\\
 
 \subsection{Pianificazione}
 
-Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi in questa fase saranno:
+Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi in questa attività saranno:
 \begin{itemize}
 	\item \PM;
 	\item \AM;
@@ -559,7 +624,7 @@ PA5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 12 \newline 12 \\
 
 \subsection{Pianificazione}
 
-Questa attività ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi in questa fase saranno:
+Questa attività ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi in questa attività saranno:
 \begin{itemize}
 	\item \PM;
 	\item \AM;
