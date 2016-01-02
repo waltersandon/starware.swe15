@@ -3,7 +3,6 @@
 \input{../../../template/stile.sty}
 \input{../../../glossario/glossario.tex}
 
-
 %Titolo documento
 \newcommand{\titoloDocumento}{Piano di Progetto}
 
@@ -428,7 +427,7 @@ Le sotto attività svolte sono:
 	\item \textbf{Glossario:} attività svolta dai redattori parallelamente alla stesura dei documenti. Esso verrà aggiornato in modo incrementale fino al completamento della documentazione.
 \end{itemize}
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
 \toprule
@@ -455,13 +454,13 @@ AN3.2 & Verifica & Verificatore & 16 \\
 \midrule
 \textbf{AN4} & \textbf{Piano di Progetto} & &  \\
 \midrule
-AN4.1 & Stesura & Project Manager \newline Amministratore & 6 \newline 12 \\
+AN4.1 & Stesura & Responsabile \newline Amministratore & 6 \newline 12 \\
 \midrule
 AN4.2 & Verifica & Verificatore & 6 \\
 \midrule
 \textbf{AN5} & \textbf{Piano di Qualifica} & & \\
 \midrule
-AN5.1 & Stesura & Project Manager \newline Amministratore \newline Analista & 6 \newline 8 \newline 10 \\
+AN5.1 & Stesura & Responsabile \newline Amministratore \newline Analista & 6 \newline 8 \newline 10 \\
 \midrule
 AN5.2 & Verifica & Verificatore & 10 \\
 \bottomrule
@@ -471,7 +470,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \end{table}
 
 \begin{center}
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaGanttAnalisi.png}
 \caption{Diagramma di Gantt della ripartizione delle risorse - Analisi}
@@ -510,7 +509,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \end{table}
 
 \begin{center}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
 \caption{Diagramma della rotazione dei ruoli - Analisi}
@@ -527,7 +526,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
 \midrule
 \midrule
-Project Manager & 12 & 30 & 360\\
+Responsabile & 12 & 30 & 360\\
 \midrule
 Amministratore & 40 & 20 & 800\\ 
 \midrule
@@ -547,7 +546,7 @@ Verificatore & 43 & 15 & 645\\
 \end{table}
 
 \begin{center}
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
 \caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
@@ -706,23 +705,167 @@ PDC8.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
 \subsection{Prospetto economico}
 
 \newpage
-\section{Validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
+\section{Verifica e validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
+Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione.
+\\Le sotto attività svolte sono:
+\begin{itemize}
+	\item \textbf{Incremento:} tutti i documenti verranno aggiornati in base all'ultima revisione fatta ovvero la \RQ.
+	\item \textbf{Collaudo:} per testare se il prodotto è conforme alle specifiche che il committente ha richiesto.
+\end{itemize}
+Le figure professionali attive in questa attività sono:
+\begin{itemize}
+	\item \PM;
+	\item \AM;
+	\item \PG;
+	\item \VR.
+\end{itemize}
+\newpage
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+\toprule
+\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+\midrule
+\midrule
+\textbf{VA1} & \textbf{Glossario} &  &  \\
+\midrule
+VA1.1 & Incremento & Amministratore &  \\
+\midrule
+VA1.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA2} & \textbf{Norme di Progetto} & & \\
+\midrule
+VA2.1 & Incremento & Amministratore & 7 \\
+\midrule
+VA2.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA3} & \textbf{Piano di Progetto} & &  \\
+\midrule
+VA3.1 & Incremento & Responsabile & 2 \\
+\midrule
+VA3.2 & Verifica & Verificatore & 3 \\
+\midrule
+\textbf{VA4} & \textbf{Piano di Qualifica} & &  \\
+\midrule
+VA4.1 & Incremento & Verificatore1 \newline Verificatore2 & 12 \newline 12 \\
+\midrule
+VA4.2 & Verifica & Responsabile \newline Verificatore1 & 5 \newline 3 \\
+\midrule
+\textbf{VA5} & \textbf{Definizione di Prodotto} & & \\
+\midrule
+VA5.1 & Incremento & Progettista & 7\\
+\midrule
+VA5.2 & Verifica & Verificatore & 6 \\
+\midrule
+\textbf{VA6} & \textbf{Specifica Tecnica} & & \\
+\midrule
+VA6.1 & Incremento & Progettista & 7\\
+\midrule
+VA6.2 & Verifica & Verificatore & 6 \\
+\midrule
+\textbf{VA7} & \textbf{Manuali} & & \\
+\midrule
+VA7.1 & Incremento & Responsabile \newline Amministratore & 8 \newline 6 \\
+\midrule
+VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 2 \newline 5 \newline 5\\
+\midrule
+\textbf{VA8} & \textbf{Collaudo} & & \\
+\midrule
+& & Responsabile \newline Programmatore1 \newline  Programmatore2 \newline Verificatore \newline Amministratore & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
+\midrule
+\textbf{VA9} & \textbf{Consegna} & & \\
+\bottomrule
+\end{tabular}
+\caption{Ripartizione delle risorse - Verifica e validazione}
+\end{center}
+\end{table}
+\newpage
 
 \subsection{Rotazione dei Ruoli}
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+\toprule
+\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+\midrule
+\midrule
+\IB & 4 & 3 &  & 4 &  & 9 & 20 \\
+\midrule
+\AB &  & 4 &  & 6 &  & 10 & 20 \\
+\midrule
+\NDC & 2 & 7 &  & 4 & 5 & 9 & 20 \\
+\midrule
+\TP & 4 & 3 &  & & 5 & 8 & 20 \\
+\midrule
+\WS &  & 3 &  & & 3 & 9 & 20 \\
+\midrule
+\AVE & 5 & 3 &  &  & 3 & 9 & 20 \\
+\midrule
+\AVI & 5 & 4 &  & 8 &  & 3 & 20 \\
+\bottomrule
+\end{tabular}
+\caption{Rotazione dei ruoli - Verifica e validazione}
+\end{center}
+\end{table}
+
+\begin{center}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
+\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\end{figure}
+\end{center}
+
 \subsection{Prospetto economico}
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth} }
+\toprule
+\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
+\midrule
+\midrule
+Responsabile & 18 & 30 & 300\\
+\midrule
+Amministratore & 22 & 20 & 760\\ 
+\midrule
+Analista & 0 & 25 & 1.400\\ 
+\midrule
+Progettista & 22 & 22 & 0\\ 
+\midrule
+Programmatore & 18 & 15 & 0\\ 
+\midrule
+Verificatore & 60 & 15 & 540\\ 
+\midrule
+\textbf{Totale} & \textbf{140} &  & \textbf{2.634}\\
+\bottomrule
+\end{tabular}
+\caption{Ripartizione oraria dei ruoli - Verifica e validazione}
+\end{center}
+\end{table}
+
+\begin{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{diagrammaTortaVerificaValidazioneTotaleOre.png}
+\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\end{figure}
+\end{center}
 
 \newpage
+
 \section{Riepilogo}
 
-
 \newpage
+
 \section{Consuntivo}
 
 \newpage
+
 \appendix
 \section{Organigramma}
 
