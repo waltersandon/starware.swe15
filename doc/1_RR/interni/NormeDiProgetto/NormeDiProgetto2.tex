@@ -137,7 +137,7 @@ Per le comunicazioni esterne è stata creata una casella di posta elettronica:
 Tale indirizzo deve essere l'unico canale di comunicazione esistente tra il gruppo di lavoro e l'esterno. Solo il \PM{} ha accesso all'indirizzo ed è quindi l'unico a poter comunicare con il committente del progetto. È compito del \PM{} informare i membri del gruppo delle discussioni avvenute.
 
 \subsubsection{Interna}
-Per le comunicazioni interne informali è stato scelto l'uso di \mgls{telegram}, per il suo utilizzo tramite \textit{\mgls{browser}} che permette, quindi, un accesso alle conversazioni sia da pc che da \textit{smartphone}. Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio \textit{cloud} \mgls{Google Drive}. Inoltre è permesso l'uso di \mgls{skype} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
+Per le comunicazioni interne informali è stato scelto l'uso di \textit{\mgls{telegram}}, per il suo utilizzo tramite \textit{\mgls{browser}} che permette, quindi, un accesso alle conversazioni sia da pc che da \textit{smartphone}. Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio \textit{cloud} \mgls{Google Drive}. Inoltre è permesso l'uso di \mgls{skype} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
 
 \subsection{Riunioni}
 \subsubsection{Frequenza}
@@ -146,19 +146,20 @@ Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
 \subsubsection{Convocazione riunione}
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
 Qualora ve ne sia la necessità, qualsiasi componente può richiedere la convocazione di una riunione, ma tale richiesta deve essere inoltrata al \PM{} che a cui spetta il compito di vagliarla. È inoltre possibile e auspicabile che possano essere necessarie riunioni tra specifici membri senza richiedere la presenza di persone non direttamente coinvolte, che verranno comunque informate delle decisioni prese tramite verbale.
-Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\mgls{ticket}} su \textit{\mgls{Teamwork}} avente le caratteristiche descritte nella sezione 6.5.1.5 di questo documento.
+Il \PM{} deve convocare la riunione attraverso la creazione di un \textit{\mgls{ticket}} su \textit{\mGls{Teamwork}} avente le caratteristiche descritte nella sezione \hyperref[ticketRiunione]{6.5.1.5}
+ di questo documento.
 Ogni componente del gruppo deve confermare la propria presenza al \PM{} il prima possibile. 
 In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di contattare anche telefonicamente colui che non ha fornito una risposta in tempo utile. Il \PM{}, una volta ricevute le risposte e verificata la presenza o assenza dei membri richiesti, può decidere se confermare, annullare o spostare la riunione, per permettere la partecipazione agli eventuali assenti. La conferma, l'annullamento e lo spostamento dell'assemblea devono essere effettuati attraverso modifiche o cancellazione del \mgls{ticket} su \textit{\mgls{Teamwork}}.
 
 \subsubsection{Verbale}
 All'apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell'assemblea.
 Il segretario, ruolo che deve essere scelto di volta in volta a rotazione tra i presenti, deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
-
+Ogni verbale redatto dovrà essere inserito nell'apposita cartella \filePath{verbali} nei \textit{\mgls{repository}} e dovrà essere nominato \fileName{verbale\_data}, dove la data seve seguire il formato indicato nella sezione \hyperref[formati]{3.7.3} di questo documento .
 \paragraph{Riunione interna}
-Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione. Si consiglia di redigere il verbale di una riunione interna in un documento di testo da allegare come commento al \mgls{task} creato per la riunione su \mGls{Asana}, in modo da rendere sempre disponibile il contenuto dello stesso.
+Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione.
 
 \paragraph{Riunione esterna}
-In caso di riunione con il committente od il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
+In caso di riunione con il committente o il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
 Per agevolare la scrittura di tale documento è stato preparato un \emph{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
 
 \subsection{Condivisione materiale}
@@ -371,7 +372,7 @@ Il piè di pagina deve contenere:
 	\end{itemize}
 \end{itemize}
 
-\subsubsection{Formati}
+\subsubsection{Formati}\label{formati}
 \begin{itemize}
 	\item \textbf{Nome files}: per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
 	\item  \textbf{Percorsi}: per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
@@ -698,7 +699,7 @@ La repository del gruppo è organizzata secondo il seguente albero delle directo
 La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP e \SdF) da quelli esterni (\AdR, \PdP e \PdQ).
 
 \subsubsection{Materiale informale}\label{sec:matinf}
-Si è inoltre scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
+Si è scelto di utilizzare degli strumenti online che permettono di condividere file in modo semplice e veloce e che consentono di organizzare gli appuntamenti personali dei singoli componenti del gruppo.
 
 \paragraph{Google Drive}
 In questa piattaforma di condivisione file verranno salvati i documenti che:
@@ -708,7 +709,7 @@ In questa piattaforma di condivisione file verranno salvati i documenti che:
 	\item possono essere acceduti tramite l’uso di un semplice browser.
 \end{itemize}
 
-Questo strumento dovrebbe permettere a 2 o più componenti del gruppo di interagire lavorando sugli stessi documenti contemporaneamente. Google Drive viene utilizzato come strumento di supporto allo sviluppo della documentazione e del software presente su Git.
+Questo strumento dovrebbe permettere a 2 o più componenti del gruppo di interagire lavorando sugli stessi documenti contemporaneamente.
 L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenza, anche in maniera informale, tutti i membri del gruppo del materiale aggiunto.
 
 %\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
@@ -716,7 +717,7 @@ L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenz
 
 \subsection{Pianificazione}
 Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare \mgls{projectlibre}.
-\mgls{projectlibre} è un programma \textit{\mgls{open-source}} per il \textit{\mgls{project management}}. É basato su \mGls{Java} ed è quindi eseguibile su ogni sistema operativo. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
+\mgls{projectlibre} è un programma \textit{\mgls{open-source}} per il \textit{\mgls{project management}}. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
 \begin{itemize}
 	\item  essendo basato su \mGls{Java}, è compatibile con i sistemi operativi \mGls{Linux},\mGls{Mac OS} e \mGls{Windows}. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
 	\item \mgls{open-source};
@@ -748,15 +749,17 @@ Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazio
 	\item aggiornare il progetto alla data corrente.
 \end{enumerate}
 
-\subsubsection{Assegnazione Task}
+\subsubsection{Software di gestione del progetto}\label{swGestioneProgetto}
 % Sezione aggiunta DA DECIDERE
-Il \PM{}, una volta individuati e stimati i \textit{\mgls{task}} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \textit{\mgls{task}} è stato scelto di utilizzare l'applicazione web \mgls{Asana} per i seguenti motivi: 
+Il \PM{}, una volta individuate e stimate le \mgls{attivita} e i \textit{\mgls{task}} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \textit{\mgls{task}} è stato scelto di utilizzare l'applicazione web \mGls{Teamwork} per i seguenti motivi: 
 \begin{itemize}
-	\item  Permette di creare e assegnare \textit{\mgls{task}} in maniera facile ed intuitiva; 
+	\item Fornisce un sistema flessibile per la gestione dei \textit{\mglspl{ticket}}
+	\item Permette di creare e assegnare \textit{\mgls{task}} in maniera facile ed intuitiva; 
 	\item Permette di monitorare e modificare semplicemente le scadenze dei \textit{\mgls{task}} creati;
-	\item Offre la possibilità di suddividere i \textit{\mgls{task}} fornendo un livello di \textit{\mgls{subtasking}}.
+	\item Offre la possibilità di impostare delle \textit{\mglspl{milestone}} per tenere facilente sotto controllo lo svoglimento delle \mgls{attivita}.
 \end{itemize}
 Sarà inoltre compito del \PM{} assegnare una \textit{\mgls{deadline}} per il completamento dei \textit{\mglspl{task}} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+Le modalità di utilizzo di \textit{\mgls{Teamwork}} vengono descritte nella sezione \hyperref[ticket]{6.5} di questo documento.
 
 
 \subsection{Documenti}
@@ -797,32 +800,72 @@ Gulpease e la marcatura dei termini presenti nel glossario del documento.
 \subsection{Protocolli per lo sviluppo}
 
 \subsubsection{Ticketing}\label{ticket} %6.5 delle NdPv5.2.0 dei don't panic
-\subsubsubsection{Struttura Ticket}
-\subsubsubsection{Etichette}
-\subsubsubsection{Ciclo di vita del Ticket}
+Per monitorare lo sviluppo dei documenti e del codice si è scelto di adottare il sistema di ticketing di \textit{\mGls{Teamwork}}. La scelta di tale software è descritta nella sezione \hyperref[swGestioneProgetto]{6.2.2} .
+
+\subsubsubsection{Struttura Ticket}\label{ticketStruttura}
+I \textit{\mgls{ticket}} creati devono avere le seguenti caratteristiche:
+\begin{itemize}
+	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \textit{\mgls{task}};
+	\item \textbf{Assegnatari/o:} I \textit{\mglspl{task}} devono sempre essere assegnati ad uno o più membri del gruppo;
+	\item \textbf{Data:} Ogni \textit{\mglspl{task}} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} e \mgls{PERT}, entro il quale essere completato;
+	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \textit{\mgls{task}} bisogna chiarirle in maniera concisa sotto forma di commento;
+	\item \textbf{Etichetta:} Deve essere fornito di un appropriata \mgls{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \textit{\mgls{ticket}} si tratta. 
+	Le \mGlspl{etichetta} utilizzate sono descritte nella sezione  \hyperref[ticketEtichette]{6.5.1.2}.
+\end{itemize}
+
+
+\subsubsubsection{Etichette}\label{ticketEtichette}
+\subsubsubsection{Ciclo di vita del Ticket}\label{ticketCicloVita}
+Ogni \textit{\mgls{ticket}} rappresenta un \mgls{attivita} o un \textit{\mgls{task}} e deve rispettare i seguenti passi:
+\begin{enumerate}
+	\item Creazione di un \textit{\mgls{task}};
+	\item Il \PM{} assegna il \textit{\mgls{task}} ad uno o più membri del gruppo, nel caso l'assegnatari/o non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \textit{\mgls{task}}, lo stato del \textit{\mgls{ticket}} sarà \textbf{"Aperto"};
+	\item L'assegnatario può decidere se accettare o meno il \textit{\mgls{task}}: 
+	\begin{itemize}
+		\item Accettazione: lo stato del \textit{\mgls{task}} sarà \textbf{"Accettato"};
+		\item Rifiuto: L'assegnatario dovrà motivare il rifiuto del \textit{\mgls{task}} e, nel caso le motivazione fossero ritenute pertinenti dal \PM{}, verrà ripetuto il punto 2.
+	\end{itemize}
+	\item Se il \textit{\mgls{task}} fosse dipendente dal completamento di un altro \textit{\mgls{task}} in stato di esecuzione, allora lo stato del \textit{\mgls{task}} sarà \textbf{"In Attesa"};
+	\item Si procede con l'esecuzione del \textit{\mgls{task}}, il cui stato passerà a \textbf{"In Esecuzione"};
+	\item Una volta termiata l'esecuzione del \textit{\mgls{task}}, lo stato sarà \textbf{"Comletato"};
+	\item Ogni \textit{\mgls{task}} completato dovrà essere vagliato attraverso le prodecure di verifica.
+\end{enumerate}
+
+
 \begin{center}
 	\begin{figure}[H]
 		\centering
 		\label{f1-TicketCicloVita}
-		\includegraphics[scale=0.5]{TicketCicloVita.png}
+		\includegraphics[scale=0.6]{TicketCicloVita.png}
 		\caption{Diagramma del ciclo di vita dei ticket.}
 	\end{figure}
 \end{center}
-\subsubsubsection{Ticket di Verifica}
+
+
+\subsubsubsection{Ticket di Verifica}\label{ticketVerifica}
+Ogni \textit{\mgls{task}} in stato \textbf{Completato} deve essere verificato per testarne la correttezza e l'effettivo completamento attraverso la seguente procedura:
+
+\begin{enumerate}
+	\item Al completamento di un \textit{\mgls{ticket}} il \PM{} deve creare un \textit{\mgls{task}} in stato Verifica ed assegnarlo ad un \VR{};
+	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \textit{\mgls{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \textit{\mgls{task}} che avrà raggiunto lo stato \textbf{"Verificato"};
+	\item Il \PM{} assegna gli eventuali \textit{\mgls{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse tra i vari ruoli.
+\end{enumerate}
+ 
 \begin{center}
 	\begin{figure}[H]
 		\centering
 		\label{f1-TicketVerifica}
-		\includegraphics[scale=0.5]{TicketVerifica.png}
+		\includegraphics[scale=0.6]{TicketVerifica.png}
 		\caption{Diagramma per i ticket di verifica.}
 	\end{figure}
 \end{center}
-\subsubsubsection{Ticket di Riunione}
-assegnato a tutti i membri del gruppo, avente le seguenti caratteristiche:
+\subsubsubsection{Ticket di Riunione}\label{ticketRiunione}
+Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{evento} su \textit{\mGls{Teamwork}} e deve avere le seguenti caratteristiche:
  \begin{itemize}
- 	\item \textbf{Titolo:} convocazione riunione n. X, dove X indica il numero crescente di riunioni effettuate;
- 	\item \textbf{Data:} la data del task dovrà essere impostata alla data prevista per la riunione;
- 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \textit{\mgls{task}}.
+ 	\item \textbf{Titolo:} Riunione n. X, dove X indica il numero crescente di riunioni effettuate;
+ 	\item \textbf{Data:} la data del \mgls{ticket} dovrà essere impostata alla data prevista per la riunione;
+ 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \textit{\mgls{ticket}};
+ 	\item Deve essere assegnato a tutti i membri del gruppo.
  \end{itemize}
 \newpage
 \printglossary[title={Glossario}]
