@@ -490,7 +490,7 @@ Verificatore & 43 & 15 & 645\\
 \end{center}
 
 \newpage
-\section{Progettazione Architetturale} %dal 16/02/16 al 11/04/16 => 29 ore di lavoro a testa
+\section{Progettazione Architetturale} %dal 16/02/16 al 11/04/16 => 40 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
@@ -500,12 +500,16 @@ Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi
 	\item \AM;
 	\item \AN;
     \item \PR;
+    \item \PG;
     \item \VR.
 \end{itemize}
 Le sotto attività svolte sono:
 \begin{itemize}
 	\item \textbf{Incremento:} Vengono incrementati e aggiornati tutti i documenti che erano stati prodotti dall'\AdR e le modifiche devono essere verificate dai verificatori.
-    \item \textbf{Specifica Tecnica:} I progettisti devono scrivere la Specifica Tecnica e i verificatori devono verificarla.
+    \item \textbf{Specifica Tecnica:} I progettisti devono scrivere la Specifica Tecnica che describe i package
+    e i loro contenuti.
+    \item \textbf{Definizione di prodotto:} Viene redatta la \textit{Definizione di prodotto} che descrive in dettaglio l'architettura definita dalla Specifica Tecnica.
+    \item \textbf{Codifica:} I programmatori cominciano a scrivere il codice sorgente per soddisfare i requisiti obbligatori del prodotto.
 \end{itemize}
 
 \begin{table}[H]
@@ -515,35 +519,59 @@ Le sotto attività svolte sono:
 \textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
 \midrule
 \midrule
-\textbf{PA1} & \textbf{Norme di Progetto} &  &  \\
+% Sono appena uscite dalla revisione quindi probabilmente necessiteranno
+% di pesanti modifiche.
+\textbf{PA1} & \textbf{Norme di Progetto} &  & \textbf{12} \\
 \midrule
 PA1.1 & Incremento & Amministratore & 8 \\
 \midrule
-PA1.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PA1.2 & Verifica & Verificatore & 4 \\
 \midrule
-\textbf{PA2} & \textbf{Analisi dei Requisiti} & &  \\
+% Analisi dei requisiti è un documento molto importante che può essere
+% modificato in maniera pesante nella revisione dei requisiti appena passata.
+\textbf{PA2} & \textbf{Analisi dei Requisiti} & & \textbf{20} \\
 \midrule
 PA2.1 & Incremento & Analista & 12 \\
 \midrule
-PA2.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
+PA2.2 & Verifica & Verificatore & 8 \\
 \midrule
-\textbf{PA3} & \textbf{Piano di Progetto} & &  \\
+% Sono appena uscite dalla revisione quindi probabilmente necessiteranno
+% di pesanti modifiche.
+\textbf{PA3} & \textbf{Piano di Progetto} & & \textbf{12}  \\
 \midrule
 PA3.1 & Incremento & Responsabile \newline Amministratore & 6 \newline 2 \\
 \midrule
-PA3.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PA3.2 & Verifica & Verificatore & 4 \\
 \midrule
-\textbf{PA4} & \textbf{Piano di Qualifica} & & \\
+% Sono appena uscite dalla revisione quindi probabilmente necessiteranno
+% di pesanti modifiche.
+\textbf{PA4} & \textbf{Piano di Qualifica} & & \textbf{14} \\
 \midrule
-PA4.1 & Incremento & Progettista \newline Verificatore & 7 \newline 4 \\
+PA4.1 & Incremento & Progettista \newline Verificatore & 6 \newline 4 \\
 \midrule
-PA4.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PA4.2 & Verifica & Verificatore & 4 \\
 \midrule
-\textbf{PA5} & \textbf{Specifica Tecnica} & & \\
+% Questo documento descrive l'organizzazione generale dei moduli
+% e i loro contenuti.
+\textbf{PA5} & \textbf{Specifica Tecnica} & & \textbf{32} \\
 \midrule
-PA5.1 & Stesura & Progettista 1 \newline Progettista 2 \newline Progettista 3 & 40 \newline 40 \newline 40 \\
+PA5.1 & Stesura & Progettista & 24 \\
 \midrule
-PA5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 12 \newline 12 \\
+PA5.2 & Verifica & Verificatore & 8 \\
+\midrule
+% La stesura di questo documento è una cosa molto lunga e strettamente
+% collegata alla codifica.
+\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \textbf{70} \\
+\midrule
+PDC6.1 & Stesura & Progettista & 60 \\
+\midrule
+PDC6.2 & Verifica & Verificatore & 10 \\
+\midrule
+% Rappresenta l'effettiva implementazione dei prodotto
+% in codice sorgente.
+\textbf{PDC7} & \textbf{Codifica} & & \textbf{120} \\
+\midrule
+PDC7.1 & Stesura & Programmatore & 120 \\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione delle risorse - Progettazione Architetturale}
@@ -555,7 +583,7 @@ PA5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 12 \newline 12 \\
 \subsection{Prospetto economico}
 
 \newpage
-\section{Progettazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 30 ore di lavoro a testa
+\section{Progettazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 19 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
@@ -571,8 +599,9 @@ Questa attività ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi
 Le sotto attività svolte sono:
 \begin{itemize}
 	\item \textbf{Incremento:} Vengono incrementati e aggiornati tutti i documenti
-    \item \textbf{Definizione di prodotto:} Viene redatta la \textit{Definizione di prodotto} che descrive in dettaglio l'architettura definita dalla Specifica Tecnica.
-    \item \textbf{Codifica:} I programmatori cominciano a scrivere il codice sorgente
+    \item \textbf{Definizione di prodotto:} Vengono aggiunti i dettagli dei requisiti opzionali.
+    \item \textbf{Codifica:} Vengono aggiunti i moduli relativi ai requisiti opzionali. I programmatori
+        e verificatori scrivono i test per verificare che il codice sorgente sia completo e corretto.
     \item \textbf{Manuale Utente:} Viene scritto il \textit{Manuale utente}
 \end{itemize}
 
@@ -583,53 +612,72 @@ Le sotto attività svolte sono:
 \textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\
 \midrule
 \midrule
-\textbf{PDC1} & \textbf{Norme di Progetto} &  &  \\
+% Le norme di progetto non dovrebbero cambiare di molto.
+\textbf{PDC1} & \textbf{Norme di Progetto} &  & \textbf{6} \\
 \midrule
-PDC1.1 & Incremento & Amministratore & 6 \\
+PDC1.1 & Incremento & Amministratore & 4 \\
 \midrule
-PDC1.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PDC1.2 & Verifica & Verificatore & 2 \\
 \midrule
-\textbf{PDC2} & \textbf{Analisi dei Requisiti} & &  \\
+% Anche l'analisi dei requisiti è stata approvata e incrementata nelle scorse due fasi
+% e revisioni. Dovrebbe essere abbastanza definitiva.
+\textbf{PDC2} & \textbf{Analisi dei Requisiti} & & \textbf{6} \\
 \midrule
-PDC2.1 & Incremento & Analista & 6 \\
+PDC2.1 & Incremento & Analista & 4 \\
 \midrule
-PDC2.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PDC2.2 & Verifica & Verificatore & 2 \\
 \midrule
-\textbf{PDC3} & \textbf{Piano di Progetto} & &  \\
+% Il piano di progetto (che è questo documento) dovrebbe ormai essere stato approvato
+% ed essere abbastanza definitivo. Il numero di ore e varie modifiche possono essere
+% effettuate senza troppo lavoro.
+\textbf{PDC3} & \textbf{Piano di Progetto} & & \textbf{6} \\
 \midrule
-PDC3.1 & Incremento & Responsabile \newline Amministratore & 6 \newline 2 \\
+PDC3.1 & Incremento & Responsabile \newline Amministratore & 2 \newline 2 \\
 \midrule
-PDC3.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PDC3.2 & Verifica & Verificatore & 2 \\
 \midrule
-\textbf{PDC4} & \textbf{Piano di Qualifica} & & \\
+% Rappresenta il documento che descrive principalmente questa fase.
+% Queste ore sono addirittura poche.
+\textbf{PDC4} & \textbf{Piano di Qualifica} & & \textbf{12} \\
 \midrule
-PDC4.1 & Incremento & Progettista \newline Verificatore & 4 \newline 2 \\
+PDC4.1 & Incremento & Progettista \newline Verificatore & 6 \newline 2 \\
 \midrule
-PDC4.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PDC4.2 & Verifica & Verificatore & 4 \\
 \midrule
-\textbf{PDC5} & \textbf{Specifica Tecnica} & & \\
+% La specifica tecnica deve essere mediamente incrementata poiché devono essere
+% aggiunti i moduli per i requisiti opzionali.
+\textbf{PDC5} & \textbf{Specifica Tecnica} & & \textbf{10} \\
 \midrule
-PDC5.1 & Incremento & Responsabile \newline Progettista & 2 \newline 8 \\
+PDC5.1 & Incremento & Progettista & 8 \\
 \midrule
-PDC5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
+PDC5.2 & Verifica & Verificatore & 2 \\
 \midrule
-\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \\
+% La definizione di prodotto deve accomodare tutte le nuove aggiunte
+% per i requisiti opzionali.
+\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \textbf{16} \\
 \midrule
-PDC6.1 & Stesura & Progettista & 60 \\
+PDC6.1 & Incremento & Progettista & 12 \\
 \midrule
-PDC6.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 10 \newline 10 \\
+PDC6.2 & Verifica & Verificatore & 4 \\
 \midrule
-\textbf{PDC7} & \textbf{Codifica} & & \\
+% Codifica dei requisiti opzionali + test di tutto il codice sorgente.
+% I test dovrebbero avere più ore.
+% Considerando un rapporto 1:2 tra numero di requisiti opzionali per
+% requisiti obbligatori, anche il numero di ore per i programmatori
+% dovrebbero essere aumentate.
+\textbf{PDC7} & \textbf{Codifica} & & \textbf{66} \\
 \midrule
-PDC7.1 & Stesura & Programmatore & 28 \\
+PDC7.1 & Incremento & Programmatore & 22 \\
 \midrule
-PDC7.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 8 \newline 8 \\
+PDC7.2 & Verifica & Verificatore & 44 \\
 \midrule
-\textbf{PDC8} & \textbf{Manuale Utente} & & \\
+% Rappresenta un documento abbastanza facile da leggere
+% e scrivere.
+\textbf{PDC8} & \textbf{Manuale Utente} & & \textbf{11} \\
 \midrule
-PDC8.1 & Stesura & Amministratore \newline Progettista & 8 \newline 14 \\
+PDC8.1 & Stesura & Amministratore \newline Progettista & 2 \newline 5 \\
 \midrule
-PDC8.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
+PDC8.2 & Verifica & Verificatore & 4 \\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione delle risorse - Progettazione di Dettaglio e Codifica}
