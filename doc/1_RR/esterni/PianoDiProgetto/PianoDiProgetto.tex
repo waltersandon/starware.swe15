@@ -89,6 +89,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.6 & \WS & 2016-02-02 &  \FVV \\
+\midrule
 1.0.5 & \WS & 2016-01-02 &  Introduzione \\
 \midrule
 1.0.4 & \TP & 2015-12-29 &  \FPDC \\
@@ -116,7 +118,7 @@
 \newpage
 
 \section{Introduzione} 
-\TODO{per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle \NdP: bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
+\TODO{per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle \NdP : bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
 
 \subsection{Scopo}
 Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. Nello specifico questo documento serve a:
@@ -159,7 +161,7 @@ Si divide lo sviluppo del progetto in 4 attività:
 \end{itemize}
 
 \subsection{Descrizione Prodotto}
-Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML) basato su uno stack tecnologico Node.js lato server e MongoDB lato database. L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML). L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
 
 \subsection{Ciclo di vita}
 Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \textbf{incrementale}, in quanto permette di scomporre il problema principale in più sottosistemi più semplici rendendo così la progettazione più gestibile. Tale modello offre quindi la possibilità di:
@@ -689,6 +691,8 @@ alle nuove richieste
 Viene aggiornata o corretta in base alla \RP
 \item \textbf{Definizione di prodotto:}
 Viene aggiornata o corretta in base alla \RP
+
+
 \end{itemize}
 
 \begin{table}[H]
@@ -757,19 +761,38 @@ PDC9.2 & Verifica & \VR & 1 \\ \midrule
 \section{Verifica e validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
-Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione.
-\\Le sotto attività svolte sono:
-\begin{itemize}
-	\item \textbf{Incremento:} tutti i documenti verranno aggiornati in base all'ultima revisione fatta ovvero la \RQ.
-	\item \textbf{Collaudo:} per testare se il prodotto è conforme alle specifiche che il committente ha richiesto.
-\end{itemize}
-Le figure professionali attive in questa attività sono:
+Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione. I ruoli attivi sono:
 \begin{itemize}
 	\item \PM;
 	\item \AM;
 	\item \PG;
 	\item \VR.
 \end{itemize}
+Le sotto attività sono:
+\begin{itemize}
+	\item \textbf{Glossario:} 
+	questo documento è soggetto alla verifica.
+	\item \textbf{\NdP:}
+Il documento potrebbe subire variazioni in base
+alle nuove necessità.
+\item \textbf{\PdP:}
+E' necessario aggiornare questo documento con lo stato di avanzamento
+dei lavori rispetto alla versione precedente.
+\item \textbf{\PdQ:}
+La strategia di verifica deve essere aggiornata in base 
+alle nuove richieste
+\item \textbf{Definizione di prodotto:}
+Viene aggiornata o corretta in base alla \RQ
+\item \textbf{Specifica Tecnica:}
+Viene aggiornata o corretta in base alla \RQ
+\item \textbf{Manuali Utente:}
+Vengono aggiornati rispetto le ultime modifiche adottate.
+\item \textbf{Collaudo:}
+Il software viene testato in tutte le sue specifiche per poter essere pronto all'immissione nel mercato
+\item \textbf{Consegna:}
+Viene consegnato il software al committente.
+\end{itemize}
+
 \newpage
 
 \begin{table}[H]
@@ -779,53 +802,53 @@ Le figure professionali attive in questa attività sono:
 \textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
 \midrule
 \midrule
-\textbf{VA1} & \textbf{Glossario} &  &  \\
+\textbf{VV1} & \textbf{Glossario} &  &  \\
 \midrule
-VA1.1 & Incremento & \AM &  \\
+VV1.1 & Incremento & \AM &  \\
 \midrule
-VA1.2 & Verifica & \VR & 3 \\
+VV1.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA2} & \textbf{\NdP} & & \\
+\textbf{VV2} & \textbf{\NdP} & & \\
 \midrule
-VA2.1 & Incremento & \AM & 7 \\
+VV2.1 & Incremento & \AM & 6 \\
 \midrule
-VA2.2 & Verifica & \VR & 3 \\
+VV2.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA3} & \textbf{\PdP} & &  \\
+\textbf{VV3} & \textbf{\PdP} & &  \\
 \midrule
-VA3.1 & Incremento & \RE & 2 \\
+VV3.1 & Incremento & \RE & 2 \\
 \midrule
-VA3.2 & Verifica & \VR & 3 \\
+VV3.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA4} & \textbf{\PdQ} & &  \\
+\textbf{VV4} & \textbf{\PdQ} & &  \\
 \midrule
-VA4.1 & Incremento & \VR1 \newline \VR2 & 12 \newline 12 \\
+VV4.1 & Incremento & \VR & 22 \\
 \midrule
-VA4.2 & Verifica & \RE \newline \VR1 & 5 \newline 3 \\
+VV4.2 & Verifica & \RE \newline \VR  & 4 \newline 3 \\
 \midrule
-\textbf{VA5} & \textbf{Definizione di Prodotto} & & \\
+\textbf{VV5} & \textbf{Definizione di Prodotto} & & \\
 \midrule
-VA5.1 & Incremento & \PG & 7\\
+VV5.1 & Incremento & \PG & 6\\
 \midrule
-VA5.2 & Verifica & \VR & 6 \\
+VV5.2 & Verifica & \VR & 5 \\
 \midrule
-\textbf{VA6} & \textbf{Specifica Tecnica} & & \\
+\textbf{VV6} & \textbf{Specifica Tecnica} & & \\
 \midrule
-VA6.1 & Incremento & \PG & 7\\
+VV6.1 & Incremento & \PG & 7\\
 \midrule
-VA6.2 & Verifica & \VR & 6 \\
+VV6.2 & Verifica & \VR & 4 \\
 \midrule
-\textbf{VA7} & \textbf{Manuali} & & \\
+\textbf{VV7} & \textbf{Manuali Utente} & & \\
 \midrule
-VA7.1 & Incremento & \RE \newline \AM & 8 \newline 6 \\
+VV7.1 & Incremento & \PG \newline \AM & 8 \newline 6 \\
 \midrule
-VA7.2 & Verifica & \RE \newline \VR1 \newline \VR2 & 2 \newline 5 \newline 5\\
+VV7.2 & Verifica & \RE \newline \VR & 2 \newline 6 \\
 \midrule
-\textbf{VA8} & \textbf{Collaudo} & & \\
+\textbf{VV8} & \textbf{Collaudo} & & \\
 \midrule
-& & \RE \newline \PR1 \newline  Programmatore2 \newline \VR \newline \AM & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
+& & \RE \newline \PR \newline \VR \newline \AM & 8  \newline 18 \newline 2 \newline 8\\
 \midrule
-\textbf{VA9} & \textbf{Consegna} & & \\
+\textbf{VV9} & \textbf{Consegna} & & \\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione delle risorse - \FVV}
@@ -842,19 +865,19 @@ VA7.2 & Verifica & \RE \newline \VR1 \newline \VR2 & 2 \newline 5 \newline 5\\
 \textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
 \midrule
 \midrule
-\IB & 4 & 3 &  & 4 &  & 9 & 20 \\
+\IB &  & 8 &  &  &  & 10 & 18 \\
 \midrule
-\AB &  & 4 &  & 6 &  & 10 & 20 \\
+\AB &  & 6 &  &  & 9 & 3 & 18 \\
 \midrule
-\NDC & 2 & 7 &  & 4 & 5 & 9 & 20 \\
+\NDC &  & 6 &  & 6 &  & 6 & 18 \\
 \midrule
-\TP & 4 & 3 &  & & 5 & 8 & 20 \\
+\TP & 4 & & & & &14 & 18 \\
 \midrule
-\WS &  & 3 &  & & 3 & 9 & 20 \\
+\WS & 2 &  &  & 7 &  & 9 & 18 \\
 \midrule
-\AVE & 5 & 3 &  &  & 3 & 9 & 20 \\
+\AVE & 2 &  &  & 8 &  & 8 & 18 \\
 \midrule
-\AVI & 5 & 4 &  & 8 &  & 3 & 20 \\
+\AVI & 8 &  &  &  & 9 & 1 & 18 \\
 \bottomrule
 \end{tabular}
 \caption{Rotazione dei ruoli - \FVV}
@@ -878,19 +901,19 @@ VA7.2 & Verifica & \RE \newline \VR1 \newline \VR2 & 2 \newline 5 \newline 5\\
 \textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
 \midrule
 \midrule
-\RE & 18 & 30 & 300\\
+\RE & 16 & 30 & 480\\
 \midrule
-\AM & 22 & 20 & 760\\ 
+\AM & 20 & 20 & 400\\ 
 \midrule
 \AN & 0 & 25 & 1.400\\ 
 \midrule
-\PG & 22 & 22 & 0\\ 
+\PG & 21 & 22 & 462\\ 
 \midrule
-\PR & 18 & 15 & 0\\ 
+\PR & 18 & 15 & 270\\ 
 \midrule
-\VR & 60 & 15 & 540\\ 
+\VR & 51 & 15 & 765\\ 
 \midrule
-\textbf{Totale} & \textbf{140} &  & \textbf{2.634}\\
+\textbf{Totale} & \textbf{126} &  & \textbf{2.377}\\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione oraria dei ruoli - \FVV}
