@@ -3,8 +3,15 @@
 \input{../../../template/stile.sty}
 \input{../../../glossario/glossario.tex}
 
+% Manca macro per:
+%   specifica tecnica
+%   glossario
+%   lettera di presentazione
+%   Definizione di Prodotto
+%   Manuale Utente
+
 %Titolo documento
-\newcommand{\titoloDocumento}{Piano di Progetto}
+\newcommand{\titoloDocumento}{\PdP}
 
 %Prima data di creazione del documento
 \newcommand{\dataCreazione}{24 dicembre 2015}
@@ -82,11 +89,11 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.0.4 & \WS & 2016-01-02 &  Introduzione \\
+1.0.5 & \WS & 2016-01-02 &  Introduzione \\
 \midrule
-1.0.4 & \TP & 2015-12-29 &  Progettazione di Dettaglio e Codifica \\
+1.0.4 & \TP & 2015-12-29 &  \FPDC \\
 \midrule
-1.0.3 & \TP & 2015-12-29 &  Progettazione Architetturale \\
+1.0.3 & \TP & 2015-12-29 &  \FPA \\
 \midrule
 1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
 \midrule
@@ -109,7 +116,7 @@
 \newpage
 
 \section{Introduzione} 
-\TODO{negli elenchi puntati i due punti vanno dentro il tag del bold; per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle norme di progetto: bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
+\TODO{per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle \NdP: bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
 
 \subsection{Scopo}
 Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. Nello specifico questo documento serve a:
@@ -125,29 +132,29 @@ Lo scopo di questo documento è quello di fornire le basi per poter stimare real
 
 Si divide lo sviluppo del progetto in 4 attività:
 \begin{itemize}
-	\item \textbf{Analisi:} è la prima attività, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta alla buona riuscita del progetto come:
+	\item \textbf{\FA:} è la prima attività, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta alla buona riuscita del progetto come:
 	\begin{itemize}
-		\item \textbf{Norme di Progetto};
+		\item \textbf{\NdP};
 		\item \textbf{Glossario};
-		\item \textbf{Studio di Fattibilità};
-		\item \textbf{Analisi dei Requisiti};
-		\item \textbf{Piano di Progetto};
-		\item \textbf{Piano di Qualifica};
+		\item \textbf{\SdF};
+		\item \textbf{\AdR};
+		\item \textbf{\PdP};
+		\item \textbf{\PdQ};
 		\item \textbf{Lettera di Presentazione}.
 	\end{itemize}
-	\item \textbf{Progettazione architetturale}: è la attività che segue la \textbf{Revisione dei Requisiti} dove viene redatto:
+	\item \textbf{\FPA}: è la attività che segue la \textbf{\RR} dove viene redatto:
 	\begin{itemize}
 		\item \textbf{Specifica Tecnica}. 
 	\end{itemize} 
 	In questa attività tutti i documenti redatti nella sezione precedente , tranne la lettera di presentazione al committente che resta unica, saranno eventualmente aggiornati.
-	\item \textbf{Progettazione di dettaglio e codifica}: è la attività che segue la \textbf{Revisione dei Requisiti} dove vengono redatti:
+	\item \textbf{\FPDC}: è la attività che segue la \textbf{\RR} dove vengono redatti:
 	\begin{itemize}
 		\item \textbf{Definizione di Prodotto};
 		\item \textbf{Codifica};
 		\item \textbf{Manuali Utenti}.
 	\end{itemize}
 	Anche in questo caso i documenti vengono aggiornati e il tutto verificato.
-	\item \textbf{Verifica e validazione}: subito dopo la attività di \textbf{Revisione di Qualifica} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
+	\item \textbf{\FVV}: subito dopo la attività di \textbf{\RQ} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
 	\\In questa attività la documentazione verrà soltanto possibilmente aggiornata.
 \end{itemize}
 
@@ -193,7 +200,7 @@ Per un buon esito del progetto si è deciso che ogni componente del gruppo dovr�
 Di seguito le scadenze che il gruppo \nomeGruppo{} ha deciso di rispettare e sulle quali si baserà la pianificazione del progetto:
 \begin{itemize}
 	\item \textbf{2016-01-22:} consegna materiale in ingresso alla \RR;
-	\item \textbf{2016-04-11:} consegna materiale in ingresso alla  \RP;
+	\item \textbf{2016-04-11:} consegna materiale in ingresso alla \RP;
 	\item \textbf{2016-05-16:} consegna materiale in ingresso alla \RQ;
 	\item \textbf{2016-06-10:} consegna materiale in ingresso alla \RA.
 \end{itemize}
@@ -390,7 +397,7 @@ di competenze e di responsabilità associati al diverso ruolo da ricoprire. \\
 \textbf{Nome rischio} & \textbf{ Comprensione errata dei requisiti} \\
 \midrule
 \midrule
-\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’analisi dei requisiti, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
+\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
 \midrule
 \textbf{Probabilità} & Media \\
 \midrule
@@ -419,11 +426,11 @@ Questa attività ha inizio il 2015-12-18 e termina il 2016-01-22. I ruoli attivi
 \end{itemize}
 Le sotto attività svolte sono:
 \begin{itemize}
-	\item \textbf{Norme di Progetto:} attività svolta dall’\AM. Comprende la stesura di una serie di norme che dovranno essere rispettate dai componenti del gruppo per tutta la durata del progetto \prjL. Le norme sono interne al gruppo e non legate al capitolato scelto. La produzione di questo documento deve essere prioritaria per garantire uniformità e correttezza nelle successive attività del progetto
-	\item \textbf{Studio di Fattibilità:} per ogni capitolato presentato si redige una studio di fattibilità. Da questo sarà possibile capire quale progetto il gruppo deciderà di sviluppare
-	\item \textbf{Analisi dei Requisiti:} gli analisti hanno il compito di ricavare tutti i requisiti necessari per la comprensione del problema e in seguito redigere il \AdR. Questo documento potrà essere aggiornato fino alla data di consegna stabilita
-	\item \textbf{Piano di Progetto:} attività svolta per la pianificazione delle attività, risorse e costi della gestione del gruppo. Il \PdP{} includerà tutte queste informazioni
-	\item \textbf{Piano di Qualifica:} questa attività comprende le strategie di verifica e validazione adottate. Inoltre richiede la stesura del \PdQ
+	\item \textbf{\NdP:} attività svolta dall’\AM. Comprende la stesura di una serie di norme che dovranno essere rispettate dai componenti del gruppo per tutta la durata del progetto \prjL. Le norme sono interne al gruppo e non legate al capitolato scelto. La produzione di questo documento deve essere prioritaria per garantire uniformità e correttezza nelle successive attività del progetto
+	\item \textbf{\SdF:} per ogni capitolato presentato si redige una \SdF. Da questo sarà possibile capire quale progetto il gruppo deciderà di sviluppare
+	\item \textbf{\AdR:} gli analisti hanno il compito di ricavare tutti i requisiti necessari per la comprensione del problema e in seguito redigere il \AdR. Questo documento potrà essere aggiornato fino alla data di consegna stabilita
+	\item \textbf{\PdP:} attività svolta per la pianificazione delle attività, risorse e costi della gestione del gruppo. Il \PdP{} includerà tutte queste informazioni
+	\item \textbf{\PdQ:} questa attività comprende le strategie di \FVV adottate. Inoltre richiede la stesura del \PdQ
 	\item \textbf{Glossario:} attività svolta dai redattori parallelamente alla stesura dei documenti. Esso verrà aggiornato in modo incrementale fino al completamento della documentazione.
 \end{itemize}
 
@@ -434,38 +441,38 @@ Le sotto attività svolte sono:
 \textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
 \midrule
 \midrule
-\textbf{AN1} & \textbf{Norme di Progetto} &  &  \\
+\textbf{AN1} & \textbf{\NdP} &  &  \\
 \midrule
-AN1.1 & Stesura & Amministratore & 20 \\
+AN1.1 & Stesura & \AM & 20 \\
 \midrule
-AN1.2 & Verifica & Verificatore & 8 \\
+AN1.2 & Verifica & \VR & 8 \\
 \midrule
-\textbf{AN2} & \textbf{Studio di Fattibilità} & & \\
+\textbf{AN2} & \textbf{\SdF} & & \\
 \midrule
-AN2.1 & Stesura & Analista & 8 \\
+AN2.1 & Stesura & \AN & 8 \\
 \midrule
-AN2.2 & Verifica & Verificatore & 3 \\
+AN2.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{AN3} & \textbf{Analisi dei Requisiti} & &  \\
+\textbf{AN3} & \textbf{\AdR} & &  \\
 \midrule
-AN3.1 & Stesura & Analista & 48 \\
+AN3.1 & Stesura & \AN & 48 \\
 \midrule
-AN3.2 & Verifica & Verificatore & 16 \\
+AN3.2 & Verifica & \VR & 16 \\
 \midrule
-\textbf{AN4} & \textbf{Piano di Progetto} & &  \\
+\textbf{AN4} & \textbf{\PdP} & &  \\
 \midrule
-AN4.1 & Stesura & Responsabile \newline Amministratore & 6 \newline 12 \\
+AN4.1 & Stesura & \RE \newline \AM & 6 \newline 12 \\
 \midrule
-AN4.2 & Verifica & Verificatore & 6 \\
+AN4.2 & Verifica & \VR & 6 \\
 \midrule
-\textbf{AN5} & \textbf{Piano di Qualifica} & & \\
+\textbf{AN5} & \textbf{\PdQ} & & \\
 \midrule
-AN5.1 & Stesura & Responsabile \newline Amministratore \newline Analista & 6 \newline 8 \newline 10 \\
+AN5.1 & Stesura & \RE \newline \AM \newline \AN & 6 \newline 8 \newline 10 \\
 \midrule
-AN5.2 & Verifica & Verificatore & 10 \\
+AN5.2 & Verifica & \VR & 10 \\
 \bottomrule
 \end{tabular}
-\caption{Ripartizione delle risorse - Analisi}
+\caption{Ripartizione delle risorse - \FA}
 \end{center}
 \end{table}
 
@@ -473,7 +480,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaGanttAnalisi.png}
-\caption{Diagramma di Gantt della ripartizione delle risorse - Analisi}
+\caption{Diagramma di Gantt della ripartizione delle risorse - \FA}
 \end{figure}
 \end{center}
 
@@ -504,7 +511,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \AVI &  & 6 & 9 &  &  & 8 & 23 \\
 \bottomrule
 \end{tabular}
-\caption{Rotazione dei ruoli - Analisi}
+\caption{Rotazione dei ruoli - \FA}
 \end{center}
 \end{table}
 
@@ -512,7 +519,7 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
-\caption{Diagramma della rotazione dei ruoli - Analisi}
+\caption{Diagramma della rotazione dei ruoli - \FA}
 \end{figure}
 \end{center}
 
@@ -526,22 +533,22 @@ AN5.2 & Verifica & Verificatore & 10 \\
 \textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
 \midrule
 \midrule
-Responsabile & 12 & 30 & 360\\
+\RE & 12 & 30 & 360\\
 \midrule
-Amministratore & 40 & 20 & 800\\ 
+\AM & 40 & 20 & 800\\ 
 \midrule
-Analista & 66 & 25 & 1.650\\ 
+\AN & 66 & 25 & 1.650\\ 
 \midrule
-Progettista & 0 & 22 & 0\\ 
+\PG & 0 & 22 & 0\\ 
 \midrule
-Programmatore & 0 & 15 & 0\\ 
+\PR & 0 & 15 & 0\\ 
 \midrule
-Verificatore & 43 & 15 & 645\\ 
+\VR & 43 & 15 & 645\\ 
 \midrule
 \textbf{Totale} & \textbf{140} &  & \textbf{3.455}\\
 \bottomrule
 \end{tabular}
-\caption{Ripartizione oraria dei ruoli - Analisi}
+\caption{Ripartizione oraria dei ruoli - \FA}
 \end{center}
 \end{table}
 
@@ -549,160 +556,202 @@ Verificatore & 43 & 15 & 645\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
 \end{figure}
 \end{center}
 
 \newpage
-\section{Progettazione Architetturale} %dal 16/02/16 al 11/04/16 => 40 ore di lavoro a testa
+
+\section{Pianificazione architetturale} %dal 16/02/16 al 11/04/16 => 35 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
-Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi in questa attività saranno:
+Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11.
+I ruoli attivi in questa fase saranno:
+
 \begin{itemize}
-	\item \PM;
-	\item \AM;
-	\item \AN;
-    \item \PR;
-    \item \VR.
+\item \PM;
+\item \AM;
+\item \AN;
+\item \PR;
+\item \VR.
 \end{itemize}
-Le sotto attività svolte sono:
+
+Le attività svolte sono:
+
 \begin{itemize}
-	\item \textbf{Incremento:} Vengono incrementati e aggiornati tutti i documenti che erano stati prodotti dall'\AdR e le modifiche devono essere verificate dai verificatori.
-    \item \textbf{Specifica Tecnica:} I progettisti devono scrivere la Specifica Tecnica e i verificatori devono verificarla.
+\item \textbf{\AdR:} 
+Il documento è appena stato corretto nella \RR
+e può richiedere correzioni;
+\item \textbf{\NdP:}
+Il documento potrebbe subire variazioni in base
+alle nuove necessità e strumenti;
+\item \textbf{\PdP:}
+E' necessario aggiornare questo documento con lo stato di avanzamento
+dei lavori dalla versione precedente;
+\item \textbf{\PdQ:}
+La strategia di verifica deve essere aggiornata in base 
+alle nuove richieste;
+\item \textbf{Specifica Tecnica:}
+Descrive la progettazione ad alto livello e i design pattern
+utilizzati;
+\item \textbf{Definizione di prodotto:}
+Redazione di questo documento che descrive in dettaglio l'architettura
+del sistema in modo che i programmatori ottengano specifiche dettagliate.
 \end{itemize}
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
 \toprule
-\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore}\\ \midrule
 \midrule
-\midrule
-\textbf{PA1} & \textbf{Norme di Progetto} &  &  \\
-\midrule
-PA1.1 & Incremento & Amministratore & 6 \\
-\midrule
-PA1.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PA2} & \textbf{Analisi dei Requisiti} & &  \\
-\midrule
-PA2.1 & Incremento & Analista & 12 \\
-\midrule
-PA2.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
-\midrule
-\textbf{PA3} & \textbf{Piano di Progetto} & &  \\
-\midrule
-PA3.1 & Incremento & Responsabile \newline Amministratore & 4 \newline 2 \\
-\midrule
-PA3.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PA4} & \textbf{Piano di Qualifica} & & \\
-\midrule
-PA4.1 & Incremento & Progettista \newline Verificatore & 4 \newline 4 \\
-\midrule
-PA4.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PA5} & \textbf{Specifica Tecnica} & & \\
-\midrule
-PA5.1 & Stesura & Progettista & x \\
-\midrule
-PA5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 12 \newline 12 \\
+\textbf{PA1} & \textbf{\AdR} & & \textbf{12} \\ \midrule
+PA1.1 & Incremento & \AN & 10 \\ \midrule
+PA1.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PA2} & \textbf{\NdP} &  & \textbf{10} \\ \midrule
+PA2.1 & Incremento & \AM & 8 \\ \midrule
+PA2.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PA3} & \textbf{\PdP} & & \textbf{6} \\ \midrule
+PA3.1 & Incremento & \RE & 4 \\ \midrule
+PA3.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PA4} & \textbf{\PdQ} & & \textbf{6} \\ \midrule
+PA4.1 & Incremento & \RE & 4 \\ \midrule
+PA4.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PA5} & \textbf{Specifica Tecnica} & & \textbf{79} \\ \midrule
+PA5.1 & Stesura & \PG & 59 \\ \midrule
+PA5.2 & Verifica & \VR & 20 \\ \midrule
+\textbf{PA6} & \textbf{Definizione di Prodotto} & & \textbf{130} \\ \midrule
+PA6.1 & Stesura & \PG & 100 \\ \midrule
+PA6.2 & Verifica & \VR & 30 \\ \midrule
+\textbf{PA7} & \textbf{Glossario} & & \textbf{2} \\ \midrule
+PA7.1 & Incremento & \VR & 1 \\ \midrule
+PA7.2 & Verifica & \VR & 1 \\ \midrule
 \bottomrule
 \end{tabular}
-\caption{Ripartizione delle risorse - Progettazione Architetturale}
+\caption{Ripartizione delle risorse - \FPA}
 \end{center}
 \end{table}
 
 \subsection{Rotazione dei Ruoli}
 
 \subsection{Prospetto economico}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+\midrule
+\RE & 8 & 30 & 240 \\ \midrule
+\AM & 8 & 20 & 160 \\ \midrule
+\AN & 10 & 25 & 250 \\ \midrule
+\PG & 159 & 22 & 3.498 \\ \midrule
+\PR & 0 & 15 & 0 \\ \midrule
+\VR & 60 & 15 & 900 \\ \midrule
+\textbf{Totale} & \textbf{245} &  & \textbf{5.058} \\
+\bottomrule
+\end{tabular}
+\caption{Prospetto economico - \FPA}
+\end{center}
+\end{table}
 
 \newpage
-\section{Progettazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 20 ore di lavoro a testa
+\section{Pianificazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 24 ore di lavoro a testa
 
 \subsection{Pianificazione}
 
-Questa attività ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi in questa attività saranno:
+Ha inizio il 2016-04-12 e termina il 2016-05-16. 
+I ruoli attivi in questa fase saranno:
 \begin{itemize}
-	\item \PM;
-	\item \AM;
-	\item \AN;
-    \item \PR;
-    \item \PG;
-    \item \VR.
+\item \PM;
+\item \AM;
+\item \AN;
+\item \PR;
+\item \PG;
+\item \VR.
 \end{itemize}
-Le sotto attività svolte sono:
+
+Le attività svolte sono:
 \begin{itemize}
-	\item \textbf{Incremento:} Vengono incrementati e aggiornati tutti i documenti
-    \item \textbf{Definizione di prodotto:} Viene redatta la \textit{Definizione di prodotto}
-    \item \textbf{Codifica:} I programmatori cominciano a scrivere il codice sorgente
-    \item \textbf{Manuale Utente:} Viene scritto il \textit{Manuale utente}
+\item \textbf{\AdR:} 
+Il documento è soggetto a revisioni e aggiornamenti.
+\item \textbf{\NdP:}
+Il documento potrebbe subire variazioni in base
+alle nuove necessità e strumenti
+\item \textbf{\PdP:}
+E' necessario aggiornare questo documento con lo stato di avanzamento
+dei lavori dalla versione precedente.
+\item \textbf{\PdQ:}
+La strategia di verifica deve essere aggiornata in base 
+alle nuove richieste
+\item \textbf{Specifica Tecnica:}
+Viene aggiornata o corretta in base alla \RP
+\item \textbf{Definizione di prodotto:}
+Viene aggiornata o corretta in base alla \RP
 \end{itemize}
 
 \begin{table}[H]
 \begin{center}
 \begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
 \toprule
-\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\
+\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\ \midrule
 \midrule
-\midrule
-\textbf{PDC1} & \textbf{Norme di Progetto} &  &  \\
-\midrule
-PDC1.1 & Incremento & Amministratore & 6 \\
-\midrule
-PDC1.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PDC2} & \textbf{Analisi dei Requisiti} & &  \\
-\midrule
-PDC2.1 & Incremento & Analista & 12 \\
-\midrule
-PDC2.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
-\midrule
-\textbf{PDC3} & \textbf{Piano di Progetto} & &  \\
-\midrule
-PDC3.1 & Incremento & Responsabile \newline Amministratore & 6 \newline 2 \\
-\midrule
-PDC3.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PDC4} & \textbf{Piano di Qualifica} & & \\
-\midrule
-PDC4.1 & Incremento & Progettista \newline Verificatore & 4 \newline 2 \\
-\midrule
-PDC4.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PDC5} & \textbf{Specifica Tecnica} & & \\
-\midrule
-PDC5.1 & Incremento & Responsabile \newline Progettista & 2 \newline 8 \\
-\midrule
-PDC5.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 2 \newline 2 \\
-\midrule
-\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \\
-\midrule
-PDC6.1 & Stesura & Progettista & 60 \\
-\midrule
-PDC6.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 10 \newline 10 \\
-\midrule
-\textbf{PDC7} & \textbf{Codifica} & & \\
-\midrule
-PDC7.1 & Stesura & Programmatore & x \\
-\midrule
-PDC7.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 30 \newline 30 \\
-\midrule
-\textbf{PDC8} & \textbf{Manuale Utente} & & \\
-\midrule
-PDC8.1 & Stesura & Amministratore \newline Progettista & 8 \newline 14 \\
-\midrule
-PDC8.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
+\textbf{PDC1} & \textbf{\AdR} & & \textbf{10} \\ \midrule
+PDC1.1 & Incremento & \AN & 8 \\ \midrule
+PDC1.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PDC2} & \textbf{\NdP} &  & \textbf{8} \\ \midrule
+PDC2.1 & Incremento & \AM & 6 \\ \midrule
+PDC2.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PDC3} & \textbf{\PdP} & & \textbf{6} \\ \midrule
+PDC3.1 & Incremento & \RE & 4 \\ \midrule
+PDC3.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PDC4} & \textbf{\PdQ} & & \textbf{10} \\ \midrule
+PDC4.1 & Incremento & \RE \newline \PG & 2 \newline 6 \\ \midrule
+PDC4.3 & Verifica & \VR & 2 \\ \midrule
+\textbf{PDC5} & \textbf{Specifica Tecnica} & & \textbf{10} \\ \midrule
+PDC5.1 & Incremento & \PG & 8 \\ \midrule
+PDC5.2 & Verifica & \VR & 2 \\ \midrule
+\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \textbf{14} \\ \midrule
+PDC6.1 & Incremento & \PG & 10 \\ \midrule
+PDC6.2 & Verifica & \VR & 4 \\ \midrule
+\textbf{PDC7} & \textbf{Codifica} & & \textbf{135} \\ \midrule
+PDC7.1 & Stesura & \PR & 95 \\ \midrule
+PDC7.2 & Verifica & \VR & 40 \\ \midrule
+\textbf{PDC8} & \textbf{Manuale Utente} & & \textbf{8} \\ \midrule
+PDC8.1 & Stesura & \AM \newline \PG & 1 \newline 5 \\ \midrule
+PDC8.2 & Verifica & \VR & 2 \\
+\textbf{PDC9} & \textbf{Glossario} & & \textbf{2} \\ \midrule
+PDC9.1 & Incremento & \VR & 1 \\ \midrule
+PDC9.2 & Verifica & \VR & 1 \\ \midrule
 \bottomrule
 \end{tabular}
-\caption{Ripartizione delle risorse - Progettazione di Dettaglio e Codifica}
+\caption{Ripartizione delle risorse - \FPDC}
 \end{center}
 \end{table}
 
 \subsection{Rotazione dei Ruoli}
 
 \subsection{Prospetto economico}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{l l l l}
+\toprule
+\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+\midrule
+\RE & 6 & 30 & 180 \\ \midrule
+\AM & 7 & 20 & 140 \\ \midrule
+\AN & 8 & 25 & 200 \\ \midrule
+\PG & 29 & 22 & 638 \\ \midrule
+\PR & 95 & 15 & 1.425 \\ \midrule
+\VR & 58 & 15 & 870 \\ \midrule
+\textbf{Totale} & \textbf{203} &  & \textbf{3.453} \\
+\bottomrule
+\end{tabular}
+\caption{Prospetto economico - \FPDC}
+\end{center}
+\end{table}
 
 \newpage
 \section{Verifica e validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
@@ -732,54 +781,54 @@ Le figure professionali attive in questa attività sono:
 \midrule
 \textbf{VA1} & \textbf{Glossario} &  &  \\
 \midrule
-VA1.1 & Incremento & Amministratore &  \\
+VA1.1 & Incremento & \AM &  \\
 \midrule
-VA1.2 & Verifica & Verificatore & 3 \\
+VA1.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA2} & \textbf{Norme di Progetto} & & \\
+\textbf{VA2} & \textbf{\NdP} & & \\
 \midrule
-VA2.1 & Incremento & Amministratore & 7 \\
+VA2.1 & Incremento & \AM & 7 \\
 \midrule
-VA2.2 & Verifica & Verificatore & 3 \\
+VA2.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA3} & \textbf{Piano di Progetto} & &  \\
+\textbf{VA3} & \textbf{\PdP} & &  \\
 \midrule
-VA3.1 & Incremento & Responsabile & 2 \\
+VA3.1 & Incremento & \RE & 2 \\
 \midrule
-VA3.2 & Verifica & Verificatore & 3 \\
+VA3.2 & Verifica & \VR & 3 \\
 \midrule
-\textbf{VA4} & \textbf{Piano di Qualifica} & &  \\
+\textbf{VA4} & \textbf{\PdQ} & &  \\
 \midrule
-VA4.1 & Incremento & Verificatore1 \newline Verificatore2 & 12 \newline 12 \\
+VA4.1 & Incremento & \VR1 \newline \VR2 & 12 \newline 12 \\
 \midrule
-VA4.2 & Verifica & Responsabile \newline Verificatore1 & 5 \newline 3 \\
+VA4.2 & Verifica & \RE \newline \VR1 & 5 \newline 3 \\
 \midrule
 \textbf{VA5} & \textbf{Definizione di Prodotto} & & \\
 \midrule
-VA5.1 & Incremento & Progettista & 7\\
+VA5.1 & Incremento & \PG & 7\\
 \midrule
-VA5.2 & Verifica & Verificatore & 6 \\
+VA5.2 & Verifica & \VR & 6 \\
 \midrule
 \textbf{VA6} & \textbf{Specifica Tecnica} & & \\
 \midrule
-VA6.1 & Incremento & Progettista & 7\\
+VA6.1 & Incremento & \PG & 7\\
 \midrule
-VA6.2 & Verifica & Verificatore & 6 \\
+VA6.2 & Verifica & \VR & 6 \\
 \midrule
 \textbf{VA7} & \textbf{Manuali} & & \\
 \midrule
-VA7.1 & Incremento & Responsabile \newline Amministratore & 8 \newline 6 \\
+VA7.1 & Incremento & \RE \newline \AM & 8 \newline 6 \\
 \midrule
-VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 2 \newline 5 \newline 5\\
+VA7.2 & Verifica & \RE \newline \VR1 \newline \VR2 & 2 \newline 5 \newline 5\\
 \midrule
 \textbf{VA8} & \textbf{Collaudo} & & \\
 \midrule
-& & Responsabile \newline Programmatore1 \newline  Programmatore2 \newline Verificatore \newline Amministratore & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
+& & \RE \newline \PR1 \newline  Programmatore2 \newline \VR \newline \AM & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
 \midrule
 \textbf{VA9} & \textbf{Consegna} & & \\
 \bottomrule
 \end{tabular}
-\caption{Ripartizione delle risorse - Verifica e validazione}
+\caption{Ripartizione delle risorse - \FVV}
 \end{center}
 \end{table}
 \newpage
@@ -808,7 +857,7 @@ VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 
 \AVI & 5 & 4 &  & 8 &  & 3 & 20 \\
 \bottomrule
 \end{tabular}
-\caption{Rotazione dei ruoli - Verifica e validazione}
+\caption{Rotazione dei ruoli - \FVV}
 \end{center}
 \end{table}
 
@@ -816,7 +865,7 @@ VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
 \end{figure}
 \end{center}
 
@@ -829,22 +878,22 @@ VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 
 \textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
 \midrule
 \midrule
-Responsabile & 18 & 30 & 300\\
+\RE & 18 & 30 & 300\\
 \midrule
-Amministratore & 22 & 20 & 760\\ 
+\AM & 22 & 20 & 760\\ 
 \midrule
-Analista & 0 & 25 & 1.400\\ 
+\AN & 0 & 25 & 1.400\\ 
 \midrule
-Progettista & 22 & 22 & 0\\ 
+\PG & 22 & 22 & 0\\ 
 \midrule
-Programmatore & 18 & 15 & 0\\ 
+\PR & 18 & 15 & 0\\ 
 \midrule
-Verificatore & 60 & 15 & 540\\ 
+\VR & 60 & 15 & 540\\ 
 \midrule
 \textbf{Totale} & \textbf{140} &  & \textbf{2.634}\\
 \bottomrule
 \end{tabular}
-\caption{Ripartizione oraria dei ruoli - Verifica e validazione}
+\caption{Ripartizione oraria dei ruoli - \FVV}
 \end{center}
 \end{table}
 
@@ -852,7 +901,7 @@ Verificatore & 60 & 15 & 540\\
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{diagrammaTortaVerificaValidazioneTotaleOre.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - Analisi}
+\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
 \end{figure}
 \end{center}
 
@@ -922,12 +971,12 @@ Verificatore & 60 & 15 & 540\\
 \begin{tabular}{| l | l |}
     \hline
     Ruolo & Costo \\ \hline
-    Responsabile & \euro{}30 \\ \hline
-    Amministratore & \euro{}20 \\ \hline
-    Analista & \euro{}25 \\ \hline
-    Progettista & \euro{}22 \\ \hline
-    Programmatore & \euro{}15 \\ \hline
-    Verificatore & \euro{}15 \\ \hline
+    \RE & \euro{}30 \\ \hline
+    \AM & \euro{}20 \\ \hline
+    \AN & \euro{}25 \\ \hline
+    \PG & \euro{}22 \\ \hline
+    \PR & \euro{}15 \\ \hline
+    \VR & \euro{}15 \\ \hline
 \end{tabular}
 
 \end{document}
