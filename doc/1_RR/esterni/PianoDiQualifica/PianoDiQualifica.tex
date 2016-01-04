@@ -231,12 +231,18 @@ La responsabilità di controllo su un processo spetta al rispettivo \PM{}.Nel ri
 Le risorse vengono distinte in Risorse Umane e materiali. E' essenziale, sia per la qualità di processo, che per la qualità di prodotto, che le risorse, di qualunque tipo, vengano preventivamente quantificate e, in seguito, gestite in modo corretto, con strumenti automatici adeguati.
 L'utlizzo degli strumenti descritti in \NdP{} per la gestione del personale e in \PdP{} per l'assegnazione e la quantificazione delle risorse hanno lo scopo di rendere trasparente e quantificabile l'utilizzo di ogni tipo di risorsa utilizzata.
 
-\section{Analisi della Qualità}
+\section{Analisi della Qualità}\label{analisi}
 In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risualtati quantitativi sulla qualità di prodotto e dei processi. 
 \subsubsection{Analisi statica}
-//TO DO \AVI
+Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
+    \begin{itemize}
+      \item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
+      \item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
+        \end{itemize}
+
 \subsubsection{ Analisi dinamica}
-//TO DO \AVI
+L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
+
 \subsection{Misure e metriche}\label{metriche}
 Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori.\\
 Per ogni metrica utilizzata vi possono essere due tipologie di range:
@@ -319,8 +325,7 @@ Indica la percentuale di istruzioni che sono eseguite durante i test. Maggiore �
 \item \textbf{Range di Accettazione}: [50\%-100\%]
 \item \textbf{Range Ottimale}: [75\%-100\%]
 \end{itemize}
-\subsection{Metodi}
-\TODO \AVI\ sezione spostata nelle \NdP
+
 \newpage
 \section{Gestione amministrativa della revisione}
 \subsection{Comunicazione e risoluzione di anomalie}
@@ -342,6 +347,7 @@ Il controllo di qualità del prodotto verrà garantito da:
 \item Validazione: Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste .
 \end{itemize}
 \newpage
+\appendix
 \section{ Resoconto delle attività di verifica}
 \subsection{Riassunto delle attività di verifica}
 //TO DO \IB mancano degli informazioni.
@@ -357,7 +363,7 @@ Allo stato attuale non è possibile ancora fare il tracciamento tra i componenti
 \subsection{Dettaglio dell'esito delle revisioni}
 Nello sviluppo del progetto ci saranno quattro revisioni del committente a cui si deve sottoporsi. Il committente segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 \newpage
-\section{Pianificazione ed esecuzione del collaudo}
+\subsection{Pianificazione ed esecuzione del collaudo}
 Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la
 progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
 \end{document}
