@@ -82,7 +82,13 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+<<<<<<< HEAD
 1.0.4 & \WS & 2016-01-02 &  Introduzione \\
+=======
+1.0.6 & \WS & 2016-02-02 &  \FVV \\
+\midrule
+1.0.5 & \WS & 2016-01-02 &  Introduzione \\
+>>>>>>> daily
 \midrule
 1.0.4 & \TP & 2015-12-29 &  Progettazione di Dettaglio e Codifica \\
 \midrule
@@ -109,7 +115,11 @@
 \newpage
 
 \section{Introduzione} 
+<<<<<<< HEAD
 \TODO{negli elenchi puntati i due punti vanno dentro il tag del bold; per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle norme di progetto: bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
+=======
+\TODO{per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle \NdP : bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
+>>>>>>> daily
 
 \subsection{Scopo}
 Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. Nello specifico questo documento serve a:
@@ -152,7 +162,7 @@ Si divide lo sviluppo del progetto in 4 attività:
 \end{itemize}
 
 \subsection{Descrizione Prodotto}
-Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML) basato su uno stack tecnologico Node.js lato server e MongoDB lato database. L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML). L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
 
 \subsection{Ciclo di vita}
 Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \textbf{incrementale}, in quanto permette di scomporre il problema principale in più sottosistemi più semplici rendendo così la progettazione più gestibile. Tale modello offre quindi la possibilità di:
@@ -634,10 +644,30 @@ Questa attività ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi
 \end{itemize}
 Le sotto attività svolte sono:
 \begin{itemize}
+<<<<<<< HEAD
 	\item \textbf{Incremento:} Vengono incrementati e aggiornati tutti i documenti
     \item \textbf{Definizione di prodotto:} Viene redatta la \textit{Definizione di prodotto}
     \item \textbf{Codifica:} I programmatori cominciano a scrivere il codice sorgente
     \item \textbf{Manuale Utente:} Viene scritto il \textit{Manuale utente}
+=======
+\item \textbf{\AdR:} 
+Il documento è soggetto a revisioni e aggiornamenti.
+\item \textbf{\NdP:}
+Il documento potrebbe subire variazioni in base
+alle nuove necessità e strumenti
+\item \textbf{\PdP:}
+E' necessario aggiornare questo documento con lo stato di avanzamento
+dei lavori dalla versione precedente.
+\item \textbf{\PdQ:}
+La strategia di verifica deve essere aggiornata in base 
+alle nuove richieste
+\item \textbf{Specifica Tecnica:}
+Viene aggiornata o corretta in base alla \RP
+\item \textbf{Definizione di prodotto:}
+Viene aggiornata o corretta in base alla \RP
+
+
+>>>>>>> daily
 \end{itemize}
 
 \begin{table}[H]
@@ -708,19 +738,38 @@ PDC8.2 & Verifica & Verificatore 1 \newline Verificatore 2 & 4 \newline 4 \\
 \section{Verifica e validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
 
 \subsection{Pianificazione}
-Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione.
-\\Le sotto attività svolte sono:
-\begin{itemize}
-	\item \textbf{Incremento:} tutti i documenti verranno aggiornati in base all'ultima revisione fatta ovvero la \RQ.
-	\item \textbf{Collaudo:} per testare se il prodotto è conforme alle specifiche che il committente ha richiesto.
-\end{itemize}
-Le figure professionali attive in questa attività sono:
+Quest'attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione. I ruoli attivi sono:
 \begin{itemize}
 	\item \PM;
 	\item \AM;
 	\item \PG;
 	\item \VR.
 \end{itemize}
+Le sotto attività sono:
+\begin{itemize}
+	\item \textbf{Glossario:} 
+	questo documento è soggetto alla verifica.
+	\item \textbf{\NdP:}
+Il documento potrebbe subire variazioni in base
+alle nuove necessità.
+\item \textbf{\PdP:}
+E' necessario aggiornare questo documento con lo stato di avanzamento
+dei lavori rispetto alla versione precedente.
+\item \textbf{\PdQ:}
+La strategia di verifica deve essere aggiornata in base 
+alle nuove richieste
+\item \textbf{Definizione di prodotto:}
+Viene aggiornata o corretta in base alla \RQ
+\item \textbf{Specifica Tecnica:}
+Viene aggiornata o corretta in base alla \RQ
+\item \textbf{Manuali Utente:}
+Vengono aggiornati rispetto le ultime modifiche adottate.
+\item \textbf{Collaudo:}
+Il software viene testato in tutte le sue specifiche per poter essere pronto all'immissione nel mercato
+\item \textbf{Consegna:}
+Viene consegnato il software al committente.
+\end{itemize}
+
 \newpage
 
 \begin{table}[H]
@@ -730,8 +779,9 @@ Le figure professionali attive in questa attività sono:
 \textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
 \midrule
 \midrule
-\textbf{VA1} & \textbf{Glossario} &  &  \\
+\textbf{VV1} & \textbf{Glossario} &  &  \\
 \midrule
+<<<<<<< HEAD
 VA1.1 & Incremento & Amministratore &  \\
 \midrule
 VA1.2 & Verifica & Verificatore & 3 \\
@@ -753,30 +803,75 @@ VA3.2 & Verifica & Verificatore & 3 \\
 VA4.1 & Incremento & Verificatore1 \newline Verificatore2 & 12 \newline 12 \\
 \midrule
 VA4.2 & Verifica & Responsabile \newline Verificatore1 & 5 \newline 3 \\
+=======
+VV1.1 & Incremento & \AM &  \\
 \midrule
-\textbf{VA5} & \textbf{Definizione di Prodotto} & & \\
+VV1.2 & Verifica & \VR & 3 \\
 \midrule
+\textbf{VV2} & \textbf{\NdP} & & \\
+\midrule
+VV2.1 & Incremento & \AM & 6 \\
+\midrule
+VV2.2 & Verifica & \VR & 3 \\
+\midrule
+\textbf{VV3} & \textbf{\PdP} & &  \\
+\midrule
+VV3.1 & Incremento & \RE & 2 \\
+\midrule
+VV3.2 & Verifica & \VR & 3 \\
+\midrule
+\textbf{VV4} & \textbf{\PdQ} & &  \\
+\midrule
+VV4.1 & Incremento & \VR & 22 \\
+\midrule
+VV4.2 & Verifica & \RE \newline \VR  & 4 \newline 3 \\
+>>>>>>> daily
+\midrule
+\textbf{VV5} & \textbf{Definizione di Prodotto} & & \\
+\midrule
+<<<<<<< HEAD
 VA5.1 & Incremento & Progettista & 7\\
 \midrule
 VA5.2 & Verifica & Verificatore & 6 \\
+=======
+VV5.1 & Incremento & \PG & 6\\
 \midrule
-\textbf{VA6} & \textbf{Specifica Tecnica} & & \\
+VV5.2 & Verifica & \VR & 5 \\
+>>>>>>> daily
 \midrule
+\textbf{VV6} & \textbf{Specifica Tecnica} & & \\
+\midrule
+<<<<<<< HEAD
 VA6.1 & Incremento & Progettista & 7\\
 \midrule
 VA6.2 & Verifica & Verificatore & 6 \\
+=======
+VV6.1 & Incremento & \PG & 7\\
 \midrule
-\textbf{VA7} & \textbf{Manuali} & & \\
+VV6.2 & Verifica & \VR & 4 \\
+>>>>>>> daily
 \midrule
+\textbf{VV7} & \textbf{Manuali Utente} & & \\
+\midrule
+<<<<<<< HEAD
 VA7.1 & Incremento & Responsabile \newline Amministratore & 8 \newline 6 \\
 \midrule
 VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 2 \newline 5 \newline 5\\
+=======
+VV7.1 & Incremento & \PG \newline \AM & 8 \newline 6 \\
 \midrule
-\textbf{VA8} & \textbf{Collaudo} & & \\
+VV7.2 & Verifica & \RE \newline \VR & 2 \newline 6 \\
+>>>>>>> daily
 \midrule
+\textbf{VV8} & \textbf{Collaudo} & & \\
+\midrule
+<<<<<<< HEAD
 & & Responsabile \newline Programmatore1 \newline  Programmatore2 \newline Verificatore \newline Amministratore & 9 \newline 9 \newline 9 \newline 2 \newline 9\\
+=======
+& & \RE \newline \PR \newline \VR \newline \AM & 8  \newline 18 \newline 2 \newline 8\\
+>>>>>>> daily
 \midrule
-\textbf{VA9} & \textbf{Consegna} & & \\
+\textbf{VV9} & \textbf{Consegna} & & \\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione delle risorse - Verifica e validazione}
@@ -793,19 +888,19 @@ VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 
 \textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
 \midrule
 \midrule
-\IB & 4 & 3 &  & 4 &  & 9 & 20 \\
+\IB &  & 8 &  &  &  & 10 & 18 \\
 \midrule
-\AB &  & 4 &  & 6 &  & 10 & 20 \\
+\AB &  & 6 &  &  & 9 & 3 & 18 \\
 \midrule
-\NDC & 2 & 7 &  & 4 & 5 & 9 & 20 \\
+\NDC &  & 6 &  & 6 &  & 6 & 18 \\
 \midrule
-\TP & 4 & 3 &  & & 5 & 8 & 20 \\
+\TP & 4 & & & & &14 & 18 \\
 \midrule
-\WS &  & 3 &  & & 3 & 9 & 20 \\
+\WS & 2 &  &  & 7 &  & 9 & 18 \\
 \midrule
-\AVE & 5 & 3 &  &  & 3 & 9 & 20 \\
+\AVE & 2 &  &  & 8 &  & 8 & 18 \\
 \midrule
-\AVI & 5 & 4 &  & 8 &  & 3 & 20 \\
+\AVI & 8 &  &  &  & 9 & 1 & 18 \\
 \bottomrule
 \end{tabular}
 \caption{Rotazione dei ruoli - Verifica e validazione}
@@ -829,19 +924,33 @@ VA7.2 & Verifica & Responsabile \newline Verificatore1 \newline Verificatore2 & 
 \textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
 \midrule
 \midrule
+<<<<<<< HEAD
 Responsabile & 18 & 30 & 300\\
 \midrule
 Amministratore & 22 & 20 & 760\\ 
+=======
+\RE & 16 & 30 & 480\\
+\midrule
+\AM & 20 & 20 & 400\\ 
+>>>>>>> daily
 \midrule
 Analista & 0 & 25 & 1.400\\ 
 \midrule
+<<<<<<< HEAD
 Progettista & 22 & 22 & 0\\ 
 \midrule
 Programmatore & 18 & 15 & 0\\ 
 \midrule
 Verificatore & 60 & 15 & 540\\ 
+=======
+\PG & 21 & 22 & 462\\ 
 \midrule
-\textbf{Totale} & \textbf{140} &  & \textbf{2.634}\\
+\PR & 18 & 15 & 270\\ 
+\midrule
+\VR & 51 & 15 & 765\\ 
+>>>>>>> daily
+\midrule
+\textbf{Totale} & \textbf{126} &  & \textbf{2.377}\\
 \bottomrule
 \end{tabular}
 \caption{Ripartizione oraria dei ruoli - Verifica e validazione}
