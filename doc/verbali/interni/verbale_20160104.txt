@@ -1,0 +1,51 @@
+VERBALE RIUNIONE N.4 2016/01/04
+
+PIANO DI PROGETTO
+	Da fare:
+	1.	finire i diagrammi di Gantt.
+	2.	sistemare le tabelle latex sulle ore ( Nicola - glossario ).
+	3.	fare le immagini dei grafici e mettere sul documento. 
+	4.	fare il riepilogo ( Nicola ).
+	5.	trovare come fare una stampa decente per project libre
+	6.	modificare il pdp con macro
+	
+PIANO DI QUALIFICA
+	Da fare:
+	1.	revisione per la formattazione del testo/ errori ( parte Anna )
+	2.	da rivedere i contenuti in base al doc completo e alle metriche stabilite ( parte Anna )
+	3.	trovare il sw per le metriche ( script gulpease )
+
+STUDIO DI FATTIBLITA'
+	Da fare:
+	1.	da aggiungere ai fattori di rischio la frase : "Questo capitolato non è stato scelto per i seguenti motivi:"
+	2.	sezione 3.2.3 capitolato c2 eliminare la frase che inizia con "tuttavia" 
+
+NORME DI PROGETTO:
+	1.	Scrivere la parte del sw per il tracciamento dei requisiti 
+	2.	Definire la parte del sw per la produzione uml in particolare per gli uml sulle classi (draw.io , visual paradigm, whitestaruml)
+	3.	Linkare guide ?
+	4.	Sistemare il glossario
+	5.	aggiungere macro documenti
+	6.	modificare lable check che identifichi un ticket di verifica
+	7.	da definire notazione per le migliaia e le virgole per i soldi
+
+SOFTWARE TRACCIAMENTO:
+	Da chiedere per i sorgenti 
+	
+ESPERTI DI SW:
+	Git -> Thomas
+	Draw.io -> Andrea
+	Project libre -> Igor
+	Latex -> Nicola
+	Powerpoint -> Anna
+	
+FIRME DIGITALI PER IL PIANO DI PROGETTO:
+	devono essere in formato .png
+	possibilmente con un layer trasparente e nn bianco
+	dimensione 350x150 px
+	
+FILIPPED CLASSROOM:
+
+	mini presentazioni con screenshot degli indici.
+
+ 
