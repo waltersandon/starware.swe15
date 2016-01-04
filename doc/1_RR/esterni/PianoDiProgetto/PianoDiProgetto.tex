@@ -11,7 +11,7 @@
 %   Manuale Utente
 
 %Titolo documento
-\newcommand{\titoloDocumento}{\PdP}
+\newcommand{\titoloDocumento}{Piano di Progetto}
 
 %Prima data di creazione del documento
 \newcommand{\dataCreazione}{24 dicembre 2015}
@@ -49,7 +49,7 @@
 \HRule \\[1cm]
 \vfill
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{r | l}
 \multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
@@ -81,28 +81,28 @@
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 
 \begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
-\toprule
-\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
-\midrule
-\midrule
-1.0.6 & \WS & 2016-02-02 &  \FVV \\
-\midrule
-1.0.5 & \WS & 2016-01-02 &  Introduzione \\
-\midrule
-1.0.4 & \TP & 2015-12-29 &  \FPDC \\
-\midrule
-1.0.3 & \TP & 2015-12-29 &  \FPA \\
-\midrule
-1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
-\midrule
-1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di Analisi \\
-\midrule
-1.0.0 & \NDC & 2015-12-24 &  Creazione documento \\
-\bottomrule
+	\toprule
+	\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
+	\midrule
+	\midrule
+	1.0.6 & \WS & 2016-02-02 &  \FVV \\
+	\midrule
+	1.0.5 & \WS & 2016-01-02 &  Introduzione \\
+	\midrule
+	1.0.4 & \TP & 2015-12-29 &  \FPDC \\
+	\midrule
+	1.0.3 & \TP & 2015-12-29 &  \FPA \\
+	\midrule
+	1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
+	\midrule
+	1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di Analisi \\
+	\midrule
+	1.0.0 & \NDC & 2015-12-24 &  Creazione documento \\
+	\bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
 \label{tabVers1}
@@ -121,13 +121,12 @@
 \TODO{per tutti i documenti, le fasi, il nome del gruppo, del capitolato e delle revisioni ci sono delle macro definite nelle \NdP : bisogna sostituire quelle ai nomi qui sotto; nella descrizione prodotto non vanno le tecnologie (non abbiamo ancora scelto)}
 
 \subsection{Scopo}
-Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto Quizzipedia: software per la gestione di questionari. Nello specifico questo documento serve a:
+Lo scopo di questo documento è quello di fornire le basi per poter stimare realisticamente le risorse, i costi e i tempi necessari alla realizzazione del progetto \prjL. Nello specifico questo documento serve a:
 \begin{itemize}
 	\item dimostrare in dettaglio la pianificazione delle risorse e delle attività;
 	\item dare un preventivo alle risorse usate;
 	\item riepilogare l'utilizzo delle risorse durante l'avanzamento del progetto;
 	\item analizzare i possibili fattori di rischio che potrebbero impedire un corretto svolgimento al progetto.
-	
 \end{itemize}
 
 \subsection{Descrizione}
@@ -146,14 +145,14 @@ Si divide lo sviluppo del progetto in 4 attività:
 	\end{itemize}
 	\item \textbf{\FPA}: è la attività che segue la \textbf{\RR} dove viene redatto:
 	\begin{itemize}
-		\item \textbf{Specifica Tecnica}. 
+		\item \textbf{\ST}. 
 	\end{itemize} 
 	In questa attività tutti i documenti redatti nella sezione precedente , tranne la lettera di presentazione al committente che resta unica, saranno eventualmente aggiornati.
 	\item \textbf{\FPDC}: è la attività che segue la \textbf{\RR} dove vengono redatti:
 	\begin{itemize}
-		\item \textbf{Definizione di Prodotto};
+		\item \textbf{\DP};
 		\item \textbf{Codifica};
-		\item \textbf{Manuali Utenti}.
+		\item \textbf{\MU}.
 	\end{itemize}
 	Anche in questo caso i documenti vengono aggiornati e il tutto verificato.
 	\item \textbf{\FVV}: subito dopo la attività di \textbf{\RQ} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
@@ -231,188 +230,188 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 \subsection{Rischi di gruppo}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\
-\midrule
-\textbf{Probabilità} & Media \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\
-\midrule
-\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
-\bottomrule
-\end{tabular}
-\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\
+			\midrule
+			\textbf{Probabilità} & Media \\
+			\midrule
+			\textbf{Gravità} & Media \\
+			\midrule
+			\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\
+			\midrule
+			\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Diversi dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante tutta la durata del progetto per capire dove stia nascendo un dissidio fra uno o più membri. \\
-\midrule
-\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
-\bottomrule
-\end{tabular}
-\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Diversi dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\
+			\midrule
+			\textbf{Probabilità} & Bassa \\
+			\midrule
+			\textbf{Gravità} & Alta \\
+			\midrule
+			\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante tutta la durata del progetto per capire dove stia nascendo un dissidio fra uno o più membri. \\
+			\midrule
+			\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \subsection{Rischi tecnologici}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Guasti hardware} \\
-\midrule
-\midrule
-\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Bassa \\
-\midrule
-\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}. \\
-\midrule
-\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
-\bottomrule
-\end{tabular}
-\caption{Guasti hardware - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Guasti hardware} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\
+			\midrule
+			\textbf{Probabilità} & Bassa \\
+			\midrule
+			\textbf{Gravità} & Bassa \\
+			\midrule
+			\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}. \\
+			\midrule
+			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Guasti hardware - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\
-\midrule
-\midrule
-\textbf{Descrizione} &  Ogni componente software utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti software correttamente e come specificato nelle \NdP. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}.\\
-\midrule
-\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti software. In caso di problemi col ripristino contattare il responsabile della componente software come specificato nelle \NdP. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
-\bottomrule
-\end{tabular}
-\caption{Malfunzionamenti software - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} &  Ogni componente software utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
+			\midrule
+			\textbf{Probabilità} & Bassa \\
+			\midrule
+			\textbf{Gravità} & Media \\
+			\midrule
+			\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti software correttamente e come specificato nelle \NdP. Effettuare \textit{\mgls{backup}} frequenti, ricordarsi di fare il \textit{\mgls{push}} sulla  \textit{\mgls{repository}}.\\
+			\midrule
+			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti software. In caso di problemi col ripristino contattare il responsabile della componente software come specificato nelle \NdP. In caso di perdita di dati effettuare il recupero tramite \textit{\mgls{backup}} e \textit{\mgls{repository}}. Utilizzo dei computer dei laboratori informatici. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Malfunzionamenti software - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\
-\midrule
-\midrule
-\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti software che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
-essere apprese. \\
-\midrule
-\textbf{Probabilità} & Alta \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\
-\midrule
-\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
-\bottomrule
-\end{tabular}
-\caption{Inesperienza tecnologica - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti software che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
+			essere apprese. \\
+			\midrule
+			\textbf{Probabilità} & Alta \\
+			\midrule
+			\textbf{Gravità} & Alta \\
+			\midrule
+			\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\
+			\midrule
+			\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Inesperienza tecnologica - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \subsection{Rischi organizzativi}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\
-\midrule
-\midrule
-\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\
-\midrule
-\textbf{Probabilità} & Alta \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie attività con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
-\midrule
-\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \textit{\mgls{task}} in modo che il ritardo sia minimo. \\
-\bottomrule
-\end{tabular}
-\caption{Valutazione tempi e costi - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\
+			\midrule
+			\textbf{Probabilità} & Alta \\
+			\midrule
+			\textbf{Gravità} & Alta \\
+			\midrule
+			\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie attività con un tempo di \textit{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
+			\midrule
+			\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \textit{\mgls{task}} in modo che il ritardo sia minimo. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Valutazione tempi e costi - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\
-\midrule
-\midrule
-\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai componenti del gruppo a causa del cambio
-di competenze e di responsabilità associati al diverso ruolo da ricoprire. \\
-\midrule
-\textbf{Probabilità} & Bassa \\
-\midrule
-\textbf{Gravità} & Media \\
-\midrule
-\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\
-\midrule
-\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
-\bottomrule
-\end{tabular}
-\caption{Rotazione dei ruoli - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai componenti del gruppo a causa del cambio
+			di competenze e di responsabilità associati al diverso ruolo da ricoprire. \\
+			\midrule
+			\textbf{Probabilità} & Bassa \\
+			\midrule
+			\textbf{Gravità} & Media \\
+			\midrule
+			\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\
+			\midrule
+			\textbf{Mitigazione} & Utilizzare il tempo di tempo di \textit{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \subsection{Rischi dei requisiti}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-\toprule
-\textbf{Nome rischio} & \textbf{ Comprensione errata dei requisiti} \\
-\midrule
-\midrule
-\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
-\midrule
-\textbf{Probabilità} & Media \\
-\midrule
-\textbf{Gravità} & Alta \\
-\midrule
-\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza
-ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\
-\midrule
-\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
-\bottomrule
-\end{tabular}
-\caption{Comprensione errata dei requisiti - Analisi dei rischi}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+			\toprule
+			\textbf{Nome rischio} & \textbf{ Comprensione errata dei requisiti} \\
+			\midrule
+			\midrule
+			\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
+			\midrule
+			\textbf{Probabilità} & Media \\
+			\midrule
+			\textbf{Gravità} & Alta \\
+			\midrule
+			\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza
+			ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\
+			\midrule
+			\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
+			\bottomrule
+		\end{tabular}
+		\caption{Comprensione errata dei requisiti - Analisi dei rischi}
+	\end{center}
 \end{table}
 
 \newpage
@@ -437,53 +436,53 @@ Le sotto attività svolte sono:
 \end{itemize}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
-\midrule
-\midrule
-\textbf{AN1} & \textbf{\NdP} &  &  \\
-\midrule
-AN1.1 & Stesura & \AM & 20 \\
-\midrule
-AN1.2 & Verifica & \VR & 8 \\
-\midrule
-\textbf{AN2} & \textbf{\SdF} & & \\
-\midrule
-AN2.1 & Stesura & \AN & 8 \\
-\midrule
-AN2.2 & Verifica & \VR & 3 \\
-\midrule
-\textbf{AN3} & \textbf{\AdR} & &  \\
-\midrule
-AN3.1 & Stesura & \AN & 48 \\
-\midrule
-AN3.2 & Verifica & \VR & 16 \\
-\midrule
-\textbf{AN4} & \textbf{\PdP} & &  \\
-\midrule
-AN4.1 & Stesura & \RE \newline \AM & 6 \newline 12 \\
-\midrule
-AN4.2 & Verifica & \VR & 6 \\
-\midrule
-\textbf{AN5} & \textbf{\PdQ} & & \\
-\midrule
-AN5.1 & Stesura & \RE \newline \AM \newline \AN & 6 \newline 8 \newline 10 \\
-\midrule
-AN5.2 & Verifica & \VR & 10 \\
-\bottomrule
-\end{tabular}
-\caption{Ripartizione delle risorse - \FA}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+			\midrule
+			\midrule
+			\textbf{AN1} & \textbf{\NdP} &  &  \\
+			\midrule
+			AN1.1 & Stesura & \AM & 20 \\
+			\midrule
+			AN1.2 & Verifica & \VR & 8 \\
+			\midrule
+			\textbf{AN2} & \textbf{\SdF} & & \\
+			\midrule
+			AN2.1 & Stesura & \AN & 8 \\
+			\midrule
+			AN2.2 & Verifica & \VR & 3 \\
+			\midrule
+			\textbf{AN3} & \textbf{\AdR} & &  \\
+			\midrule
+			AN3.1 & Stesura & \AN & 48 \\
+			\midrule
+			AN3.2 & Verifica & \VR & 16 \\
+			\midrule
+			\textbf{AN4} & \textbf{\PdP} & &  \\
+			\midrule
+			AN4.1 & Stesura & \RE \newline \AM & 6 \newline 12 \\
+			\midrule
+			AN4.2 & Verifica & \VR & 6 \\
+			\midrule
+			\textbf{AN5} & \textbf{\PdQ} & & \\
+			\midrule
+			AN5.1 & Stesura & \RE \newline \AM \newline \AN & 6 \newline 8 \newline 10 \\
+			\midrule
+			AN5.2 & Verifica & \VR & 10 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione delle risorse - \FA}
+	\end{center}
 \end{table}
 
 \begin{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{diagrammaGanttAnalisi.png}
-\caption{Diagramma di Gantt della ripartizione delle risorse - \FA}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaGanttAnalisi.png}
+		\caption{Diagramma di Gantt della ripartizione delle risorse - \FA}
+	\end{figure}
 \end{center}
 
 
@@ -491,75 +490,75 @@ AN5.2 & Verifica & \VR & 10 \\
 
 \subsection{Rotazione dei Ruoli}
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
-\midrule
-\midrule
-\IB & 6 & 2 & 8 &  &  & 7 & 23 \\
-\midrule
-\AB &  & 6 & 11 &  &  & 6 & 23 \\
-\midrule
-\NDC & 6 & 7 & 3 &  &  & 7 & 23 \\
-\midrule
-\TP &  & 6 & 12 & &  & 5 & 23 \\
-\midrule
-\WS &  & 6 & 12 & &  & 5 & 23 \\
-\midrule
-\AVE &  & 7 & 11 &  &  & 5 & 23 \\
-\midrule
-\AVI &  & 6 & 9 &  &  & 8 & 23 \\
-\bottomrule
-\end{tabular}
-\caption{Rotazione dei ruoli - \FA}
-\end{center}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB & 6 & 2 & 8 &  &  & 7 & 23 \\
+			\midrule
+			\AB &  & 6 & 11 &  &  & 6 & 23 \\
+			\midrule
+			\NDC & 6 & 7 & 3 &  &  & 7 & 23 \\
+			\midrule
+			\TP &  & 6 & 12 & &  & 5 & 23 \\
+			\midrule
+			\WS &  & 6 & 12 & &  & 5 & 23 \\
+			\midrule
+			\AVE &  & 7 & 11 &  &  & 5 & 23 \\
+			\midrule
+			\AVI &  & 6 & 9 &  &  & 8 & 23 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FA}
+	\end{center}
 \end{table}
 
 \begin{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
-\caption{Diagramma della rotazione dei ruoli - \FA}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
 \end{center}
 
 \newpage
 \subsection{Prospetto economico}
 
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
-\toprule
-\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
-\midrule
-\midrule
-\RE & 12 & 30 & 360\\
-\midrule
-\AM & 40 & 20 & 800\\ 
-\midrule
-\AN & 66 & 25 & 1.650\\ 
-\midrule
-\PG & 0 & 22 & 0\\ 
-\midrule
-\PR & 0 & 15 & 0\\ 
-\midrule
-\VR & 43 & 15 & 645\\ 
-\midrule
-\textbf{Totale} & \textbf{140} &  & \textbf{3.455}\\
-\bottomrule
-\end{tabular}
-\caption{Ripartizione oraria dei ruoli - \FA}
-\end{center}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
+			\midrule
+			\midrule
+			\RE & 12 & 30 & 360\\
+			\midrule
+			\AM & 40 & 20 & 800\\ 
+			\midrule
+			\AN & 66 & 25 & 1.650\\ 
+			\midrule
+			\PG & 0 & 22 & 0\\ 
+			\midrule
+			\PR & 0 & 15 & 0\\ 
+			\midrule
+			\VR & 43 & 15 & 645\\ 
+			\midrule
+			\textbf{Totale} & \textbf{140} &  & \textbf{3.455}\\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli - \FA}
+	\end{center}
 \end{table}
 
 \begin{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
+	\end{figure}
 \end{center}
 
 \newpage
@@ -572,91 +571,131 @@ Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11.
 I ruoli attivi in questa fase saranno:
 
 \begin{itemize}
-\item \PM;
-\item \AM;
-\item \AN;
-\item \PR;
-\item \VR.
+	\item \PM;
+	\item \AM;
+	\item \AN;
+	\item \PR;
+	\item \VR.
 \end{itemize}
 
 Le attività svolte sono:
 
 \begin{itemize}
-\item \textbf{\AdR:} 
-Il documento è appena stato corretto nella \RR
-e può richiedere correzioni;
-\item \textbf{\NdP:}
-Il documento potrebbe subire variazioni in base
-alle nuove necessità e strumenti;
-\item \textbf{\PdP:}
-E' necessario aggiornare questo documento con lo stato di avanzamento
-dei lavori dalla versione precedente;
-\item \textbf{\PdQ:}
-La strategia di verifica deve essere aggiornata in base 
-alle nuove richieste;
-\item \textbf{Specifica Tecnica:}
-Descrive la progettazione ad alto livello e i design pattern
-utilizzati;
-\item \textbf{Definizione di prodotto:}
-Redazione di questo documento che descrive in dettaglio l'architettura
-del sistema in modo che i programmatori ottengano specifiche dettagliate.
+	\item \textbf{\AdR:} 
+	Il documento è appena stato corretto nella \RR
+	e può richiedere correzioni;
+	\item \textbf{\NdP:}
+	Il documento potrebbe subire variazioni in base
+	alle nuove necessità e strumenti;
+	\item \textbf{\PdP:}
+	E' necessario aggiornare questo documento con lo stato di avanzamento
+	dei lavori dalla versione precedente;
+	\item \textbf{\PdQ:}
+	La strategia di verifica deve essere aggiornata in base 
+	alle nuove richieste;
+	\item \textbf{Specifica Tecnica:}
+	Descrive la progettazione ad alto livello e i design pattern
+	utilizzati;
+	\item \textbf{Definizione di prodotto:}
+	Redazione di questo documento che descrive in dettaglio l'architettura
+	del sistema in modo che i programmatori ottengano specifiche dettagliate.
 \end{itemize}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore}\\ \midrule
-\midrule
-\textbf{PA1} & \textbf{\AdR} & & \textbf{12} \\ \midrule
-PA1.1 & Incremento & \AN & 10 \\ \midrule
-PA1.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PA2} & \textbf{\NdP} &  & \textbf{10} \\ \midrule
-PA2.1 & Incremento & \AM & 8 \\ \midrule
-PA2.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PA3} & \textbf{\PdP} & & \textbf{6} \\ \midrule
-PA3.1 & Incremento & \RE & 4 \\ \midrule
-PA3.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PA4} & \textbf{\PdQ} & & \textbf{6} \\ \midrule
-PA4.1 & Incremento & \RE & 4 \\ \midrule
-PA4.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PA5} & \textbf{Specifica Tecnica} & & \textbf{79} \\ \midrule
-PA5.1 & Stesura & \PG & 59 \\ \midrule
-PA5.2 & Verifica & \VR & 20 \\ \midrule
-\textbf{PA6} & \textbf{Definizione di Prodotto} & & \textbf{130} \\ \midrule
-PA6.1 & Stesura & \PG & 100 \\ \midrule
-PA6.2 & Verifica & \VR & 30 \\ \midrule
-\textbf{PA7} & \textbf{Glossario} & & \textbf{2} \\ \midrule
-PA7.1 & Incremento & \VR & 1 \\ \midrule
-PA7.2 & Verifica & \VR & 1 \\ \midrule
-\bottomrule
-\end{tabular}
-\caption{Ripartizione delle risorse - \FPA}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore}\\ \midrule
+			\midrule
+			\textbf{PA1} & \textbf{\AdR} & &  \\ \midrule
+			PA1.1 & Incremento & \AN & 10 \\ \midrule
+			PA1.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PA2} & \textbf{\NdP} &  &  \\ \midrule
+			PA2.1 & Incremento & \AM & 8 \\ \midrule
+			PA2.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PA3} & \textbf{\PdP} & &  \\ \midrule
+			PA3.1 & Incremento & \RE & 4 \\ \midrule
+			PA3.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PA4} & \textbf{\PdQ} & &  \\ \midrule
+			PA4.1 & Incremento & \RE & 4 \\ \midrule
+			PA4.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PA5} & \textbf{Specifica Tecnica} & &  \\ \midrule
+			PA5.1 & Stesura & \PG & 59 \\ \midrule
+			PA5.2 & Verifica & \VR & 20 \\ \midrule
+			\textbf{PA6} & \textbf{Definizione di Prodotto} & &  \\ \midrule
+			PA6.1 & Stesura & \PG & 100 \\ \midrule
+			PA6.2 & Verifica & \VR & 30 \\ \midrule
+			\textbf{PA7} & \textbf{Glossario} & &  \\ \midrule
+			PA7.1 & Incremento & \VR & 1 \\ \midrule
+			PA7.2 & Verifica & \VR & 1 \\ \midrule
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione delle risorse - \FPA}
+	\end{center}
 \end{table}
 
 \subsection{Rotazione dei Ruoli}
 
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB &  &  &  &  &  &  &  \\
+			\midrule
+			\AB &  &  &  &  &  &  &  \\
+			\midrule
+			\NDC &  &  &  &  &  &  &  \\
+			\midrule
+			\TP &  &  &  &  &  &  &  \\
+			\midrule
+			\WS &  &  &  &  &  &  &  \\
+			\midrule
+			\AVE &  &  &  &  &  &  &  \\
+			\midrule
+			\AVI &  &  &  &  &  &  &  \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FA}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
+\end{center}
+
 \subsection{Prospetto economico}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{l l l l}
-\toprule
-\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
-\midrule
-\RE & 8 & 30 & 240 \\ \midrule
-\AM & 8 & 20 & 160 \\ \midrule
-\AN & 10 & 25 & 250 \\ \midrule
-\PG & 159 & 22 & 3.498 \\ \midrule
-\PR & 0 & 15 & 0 \\ \midrule
-\VR & 60 & 15 & 900 \\ \midrule
-\textbf{Totale} & \textbf{245} &  & \textbf{5.058} \\
-\bottomrule
-\end{tabular}
-\caption{Prospetto economico - \FPA}
-\end{center}
+	\begin{center}
+		\begin{tabular}{l l l l}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+			\RE & 8 & 30 & 240 \\ \midrule
+			\AM & 8 & 20 & 160 \\ \midrule
+			\AN & 10 & 25 & 250 \\ \midrule
+			\PG & 159 & 22 & 3.498 \\ \midrule
+			\PR & 0 & 15 & 0 \\ \midrule
+			\VR & 60 & 15 & 900 \\ \midrule
+			\textbf{Totale} & \textbf{245} &  & \textbf{5.058} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Prospetto economico - \FPA}
+	\end{center}
 \end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
+\end{center}
 
 \newpage
 \section{Pianificazione di dettaglio e codifica} % 12/04/16 al 16/05/16 => 24 ore di lavoro a testa
@@ -676,86 +715,125 @@ I ruoli attivi in questa fase saranno:
 
 Le attività svolte sono:
 \begin{itemize}
-\item \textbf{\AdR:} 
-Il documento è soggetto a revisioni e aggiornamenti.
-\item \textbf{\NdP:}
-Il documento potrebbe subire variazioni in base
-alle nuove necessità e strumenti
-\item \textbf{\PdP:}
-E' necessario aggiornare questo documento con lo stato di avanzamento
-dei lavori dalla versione precedente.
-\item \textbf{\PdQ:}
-La strategia di verifica deve essere aggiornata in base 
-alle nuove richieste
-\item \textbf{Specifica Tecnica:}
-Viene aggiornata o corretta in base alla \RP
-\item \textbf{Definizione di prodotto:}
-Viene aggiornata o corretta in base alla \RP
-
-
+	\item \textbf{\AdR:} 
+	Il documento è soggetto a revisioni e aggiornamenti.
+	\item \textbf{\NdP:}
+	Il documento potrebbe subire variazioni in base
+	alle nuove necessità e strumenti
+	\item \textbf{\PdP:}
+	E' necessario aggiornare questo documento con lo stato di avanzamento
+	dei lavori dalla versione precedente.
+	\item \textbf{\PdQ:}
+	La strategia di verifica deve essere aggiornata in base 
+	alle nuove richieste
+	\item \textbf{Specifica Tecnica:}
+	Viene aggiornata o corretta in base alla \RP
+	\item \textbf{Definizione di prodotto:} 
+	Viene aggiornata o corretta in base alla \RP
 \end{itemize}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\ \midrule
-\midrule
-\textbf{PDC1} & \textbf{\AdR} & & \textbf{10} \\ \midrule
-PDC1.1 & Incremento & \AN & 8 \\ \midrule
-PDC1.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PDC2} & \textbf{\NdP} &  & \textbf{8} \\ \midrule
-PDC2.1 & Incremento & \AM & 6 \\ \midrule
-PDC2.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PDC3} & \textbf{\PdP} & & \textbf{6} \\ \midrule
-PDC3.1 & Incremento & \RE & 4 \\ \midrule
-PDC3.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PDC4} & \textbf{\PdQ} & & \textbf{10} \\ \midrule
-PDC4.1 & Incremento & \RE \newline \PG & 2 \newline 6 \\ \midrule
-PDC4.3 & Verifica & \VR & 2 \\ \midrule
-\textbf{PDC5} & \textbf{Specifica Tecnica} & & \textbf{10} \\ \midrule
-PDC5.1 & Incremento & \PG & 8 \\ \midrule
-PDC5.2 & Verifica & \VR & 2 \\ \midrule
-\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \textbf{14} \\ \midrule
-PDC6.1 & Incremento & \PG & 10 \\ \midrule
-PDC6.2 & Verifica & \VR & 4 \\ \midrule
-\textbf{PDC7} & \textbf{Codifica} & & \textbf{135} \\ \midrule
-PDC7.1 & Stesura & \PR & 95 \\ \midrule
-PDC7.2 & Verifica & \VR & 40 \\ \midrule
-\textbf{PDC8} & \textbf{Manuale Utente} & & \textbf{8} \\ \midrule
-PDC8.1 & Stesura & \AM \newline \PG & 1 \newline 5 \\ \midrule
-PDC8.2 & Verifica & \VR & 2 \\
-\textbf{PDC9} & \textbf{Glossario} & & \textbf{2} \\ \midrule
-PDC9.1 & Incremento & \VR & 1 \\ \midrule
-PDC9.2 & Verifica & \VR & 1 \\ \midrule
-\bottomrule
-\end{tabular}
-\caption{Ripartizione delle risorse - \FPDC}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\ \midrule
+			\midrule
+			\textbf{PDC1} & \textbf{\AdR} & &  \\ \midrule
+			PDC1.1 & Incremento & \AN & 8 \\ \midrule
+			PDC1.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC2} & \textbf{\NdP} &  & \\ \midrule
+			PDC2.1 & Incremento & \AM & 6 \\ \midrule
+			PDC2.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC3} & \textbf{\PdP} & &  \\ \midrule
+			PDC3.1 & Incremento & \RE & 4 \\ \midrule
+			PDC3.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC4} & \textbf{\PdQ} & & \\ \midrule
+			PDC4.1 & Incremento & \RE \newline \PG & 2 \newline 6 \\ \midrule
+			PDC4.3 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC5} & \textbf{Specifica Tecnica} & & \\ \midrule
+			PDC5.1 & Incremento & \PG & 8 \\ \midrule
+			PDC5.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \\ \midrule
+			PDC6.1 & Incremento & \PG & 10 \\ \midrule
+			PDC6.2 & Verifica & \VR & 4 \\ \midrule
+			\textbf{PDC7} & \textbf{Codifica} & & \\ \midrule
+			PDC7.1 & Stesura & \PR & 95 \\ \midrule
+			PDC7.2 & Verifica & \VR & 40 \\ \midrule
+			\textbf{PDC8} & \textbf{Manuale Utente} & & \\ \midrule
+			PDC8.1 & Stesura & \AM \newline \PG & 1 \newline 5 \\ \midrule
+			PDC8.2 & Verifica & \VR & 2 \\ \midrule
+			\textbf{PDC9} & \textbf{Glossario} & & \\ \midrule
+			PDC9.1 & Incremento & \VR & 1 \\ \midrule
+			PDC9.2 & Verifica & \VR & 1 \\ \midrule
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione delle risorse - \FPDC}
+	\end{center}
 \end{table}
 
 \subsection{Rotazione dei Ruoli}
 
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB &  &  &  &  &  &  &  \\
+			\midrule
+			\AB &  &  &  &  &  &  &  \\
+			\midrule
+			\NDC &  &  &  &  &  &  &  \\
+			\midrule
+			\TP &  &  &  &  &  &  &  \\
+			\midrule
+			\WS &  &  &  &  &  &  &  \\
+			\midrule
+			\AVE &  &  &  &  &  &  &  \\
+			\midrule
+			\AVI &  &  &  &  &  &  &  \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FA}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
+\end{center}
+
 \subsection{Prospetto economico}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{l l l l}
-\toprule
-\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
-\midrule
-\RE & 6 & 30 & 180 \\ \midrule
-\AM & 7 & 20 & 140 \\ \midrule
-\AN & 8 & 25 & 200 \\ \midrule
-\PG & 29 & 22 & 638 \\ \midrule
-\PR & 95 & 15 & 1.425 \\ \midrule
-\VR & 58 & 15 & 870 \\ \midrule
-\textbf{Totale} & \textbf{203} &  & \textbf{3.453} \\
-\bottomrule
-\end{tabular}
-\caption{Prospetto economico - \FPDC}
-\end{center}
+	\begin{center}
+		\begin{tabular}{l l l l}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+			\RE & 6 & 30 & 180 \\ \midrule
+			\AM & 7 & 20 & 140 \\ \midrule
+			\AN & 8 & 25 & 200 \\ \midrule
+			\PG & 29 & 22 & 638 \\ \midrule
+			\PR & 95 & 15 & 1.425 \\ \midrule
+			\VR & 58 & 15 & 870 \\ \midrule
+			\textbf{Totale} & \textbf{203} &  & \textbf{3.453} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Prospetto economico - \FPDC}
+	\end{center}
 \end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneDettaglioCodificaTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
+	\end{figure}
+\end{center}
 
 \newpage
 \section{Verifica e validazione} % dal 16/05/16 al 10/06/16 => 20 ore di lavoro a testa
@@ -773,164 +851,226 @@ Le sotto attività sono:
 	\item \textbf{Glossario:} 
 	questo documento è soggetto alla verifica.
 	\item \textbf{\NdP:}
-Il documento potrebbe subire variazioni in base
-alle nuove necessità.
-\item \textbf{\PdP:}
-E' necessario aggiornare questo documento con lo stato di avanzamento
-dei lavori rispetto alla versione precedente.
-\item \textbf{\PdQ:}
-La strategia di verifica deve essere aggiornata in base 
-alle nuove richieste
-\item \textbf{Definizione di prodotto:}
-Viene aggiornata o corretta in base alla \RQ
-\item \textbf{Specifica Tecnica:}
-Viene aggiornata o corretta in base alla \RQ
-\item \textbf{Manuali Utente:}
-Vengono aggiornati rispetto le ultime modifiche adottate.
-\item \textbf{Collaudo:}
-Il software viene testato in tutte le sue specifiche per poter essere pronto all'immissione nel mercato
-\item \textbf{Consegna:}
-Viene consegnato il software al committente.
+	Il documento potrebbe subire variazioni in base
+	alle nuove necessità.
+	\item \textbf{\PdP:}
+	E' necessario aggiornare questo documento con lo stato di avanzamento
+	dei lavori rispetto alla versione precedente.
+	\item \textbf{\PdQ:}
+	La strategia di verifica deve essere aggiornata in base 
+	alle nuove richieste
+	\item \textbf{Definizione di prodotto:}
+	Viene aggiornata o corretta in base alla \RQ
+	\item \textbf{Specifica Tecnica:}
+	Viene aggiornata o corretta in base alla \RQ
+	\item \textbf{Manuali Utente:}
+	Vengono aggiornati rispetto le ultime modifiche adottate.
+	\item \textbf{Collaudo:}
+	Il software viene testato in tutte le sue specifiche per poter essere pronto all'immissione nel mercato
+	\item \textbf{Consegna:}
+	Viene consegnato il software al committente.
 \end{itemize}
 
 \newpage
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
-\midrule
-\midrule
-\textbf{VV1} & \textbf{Glossario} &  &  \\
-\midrule
-VV1.1 & Incremento & \AM &  \\
-\midrule
-VV1.2 & Verifica & \VR & 3 \\
-\midrule
-\textbf{VV2} & \textbf{\NdP} & & \\
-\midrule
-VV2.1 & Incremento & \AM & 6 \\
-\midrule
-VV2.2 & Verifica & \VR & 3 \\
-\midrule
-\textbf{VV3} & \textbf{\PdP} & &  \\
-\midrule
-VV3.1 & Incremento & \RE & 2 \\
-\midrule
-VV3.2 & Verifica & \VR & 3 \\
-\midrule
-\textbf{VV4} & \textbf{\PdQ} & &  \\
-\midrule
-VV4.1 & Incremento & \VR & 22 \\
-\midrule
-VV4.2 & Verifica & \RE \newline \VR  & 4 \newline 3 \\
-\midrule
-\textbf{VV5} & \textbf{Definizione di Prodotto} & & \\
-\midrule
-VV5.1 & Incremento & \PG & 6\\
-\midrule
-VV5.2 & Verifica & \VR & 5 \\
-\midrule
-\textbf{VV6} & \textbf{Specifica Tecnica} & & \\
-\midrule
-VV6.1 & Incremento & \PG & 7\\
-\midrule
-VV6.2 & Verifica & \VR & 4 \\
-\midrule
-\textbf{VV7} & \textbf{Manuali Utente} & & \\
-\midrule
-VV7.1 & Incremento & \PG \newline \AM & 8 \newline 6 \\
-\midrule
-VV7.2 & Verifica & \RE \newline \VR & 2 \newline 6 \\
-\midrule
-\textbf{VV8} & \textbf{Collaudo} & & \\
-\midrule
-& & \RE \newline \PR \newline \VR \newline \AM & 8  \newline 18 \newline 2 \newline 8\\
-\midrule
-\textbf{VV9} & \textbf{Consegna} & & \\
-\bottomrule
-\end{tabular}
-\caption{Ripartizione delle risorse - \FVV}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+			\midrule
+			\midrule
+			\textbf{VV1} & \textbf{Glossario} &  &  \\
+			\midrule
+			VV1.1 & Incremento & \AM &  \\
+			\midrule
+			VV1.2 & Verifica & \VR & 3 \\
+			\midrule
+			\textbf{VV2} & \textbf{\NdP} & & \\
+			\midrule
+			VV2.1 & Incremento & \AM & 6 \\
+			\midrule
+			VV2.2 & Verifica & \VR & 3 \\
+			\midrule
+			\textbf{VV3} & \textbf{\PdP} & &  \\
+			\midrule
+			VV3.1 & Incremento & \RE & 2 \\
+			\midrule
+			VV3.2 & Verifica & \VR & 3 \\
+			\midrule
+			\textbf{VV4} & \textbf{\PdQ} & &  \\
+			\midrule
+			VV4.1 & Incremento & \VR & 22 \\
+			\midrule
+			VV4.2 & Verifica & \RE \newline \VR  & 4 \newline 3 \\
+			\midrule
+			\textbf{VV5} & \textbf{Definizione di Prodotto} & & \\
+			\midrule
+			VV5.1 & Incremento & \PG & 6\\
+			\midrule
+			VV5.2 & Verifica & \VR & 5 \\
+			\midrule
+			\textbf{VV6} & \textbf{Specifica Tecnica} & & \\
+			\midrule
+			VV6.1 & Incremento & \PG & 7\\
+			\midrule
+			VV6.2 & Verifica & \VR & 4 \\
+			\midrule
+			\textbf{VV7} & \textbf{Manuali Utente} & & \\
+			\midrule
+			VV7.1 & Incremento & \PG \newline \AM & 8 \newline 6 \\
+			\midrule
+			VV7.2 & Verifica & \RE \newline \VR & 2 \newline 6 \\
+			\midrule
+			\textbf{VV8} & \textbf{Collaudo} & & \\
+			\midrule
+			& & \RE \newline \PR \newline \VR \newline \AM & 8  \newline 18 \newline 2 \newline 8\\
+			\midrule
+			\textbf{VV9} & \textbf{Consegna} & & \\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione delle risorse - \FVV}
+	\end{center}
 \end{table}
 \newpage
 
 \subsection{Rotazione dei Ruoli}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
-\toprule
-\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
-\midrule
-\midrule
-\IB &  & 8 &  &  &  & 10 & 18 \\
-\midrule
-\AB &  & 6 &  &  & 9 & 3 & 18 \\
-\midrule
-\NDC &  & 6 &  & 6 &  & 6 & 18 \\
-\midrule
-\TP & 4 & & & & &14 & 18 \\
-\midrule
-\WS & 2 &  &  & 7 &  & 9 & 18 \\
-\midrule
-\AVE & 2 &  &  & 8 &  & 8 & 18 \\
-\midrule
-\AVI & 8 &  &  &  & 9 & 1 & 18 \\
-\bottomrule
-\end{tabular}
-\caption{Rotazione dei ruoli - \FVV}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB &  & 8 &  &  &  & 10 & 18 \\
+			\midrule
+			\AB &  & 6 &  &  & 9 & 3 & 18 \\
+			\midrule
+			\NDC &  & 6 &  & 6 &  & 6 & 18 \\
+			\midrule
+			\TP & 4 & & & & &14 & 18 \\
+			\midrule
+			\WS & 2 &  &  & 7 &  & 9 & 18 \\
+			\midrule
+			\AVE & 2 &  &  & 8 &  & 8 & 18 \\
+			\midrule
+			\AVI & 8 &  &  &  & 9 & 1 & 18 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FVV}
+	\end{center}
 \end{table}
 
 \begin{center}
-\begin{figure}[h]
-\centering
-\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
+	\end{figure}
 \end{center}
 
 \subsection{Prospetto economico}
 
 \begin{table}[H]
-\begin{center}
-\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth} }
-\toprule
-\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
-\midrule
-\midrule
-\RE & 16 & 30 & 480\\
-\midrule
-\AM & 20 & 20 & 400\\ 
-\midrule
-\AN & 0 & 25 & 1.400\\ 
-\midrule
-\PG & 21 & 22 & 462\\ 
-\midrule
-\PR & 18 & 15 & 270\\ 
-\midrule
-\VR & 51 & 15 & 765\\ 
-\midrule
-\textbf{Totale} & \textbf{126} &  & \textbf{2.377}\\
-\bottomrule
-\end{tabular}
-\caption{Ripartizione oraria dei ruoli - \FVV}
-\end{center}
+	\begin{center}
+		\begin{tabular}{p{0.2\textwidth} p{0.05\textwidth} p{0.2\textwidth} p{0.3\textwidth} }
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
+			\midrule
+			\midrule
+			\RE & 16 & 30 & 480\\
+			\midrule
+			\AM & 20 & 20 & 400\\ 
+			\midrule
+			\AN & 0 & 25 & 1.400\\ 
+			\midrule
+			\PG & 21 & 22 & 462\\ 
+			\midrule
+			\PR & 18 & 15 & 270\\ 
+			\midrule
+			\VR & 51 & 15 & 765\\ 
+			\midrule
+			\textbf{Totale} & \textbf{126} &  & \textbf{2.377}\\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli - \FVV}
+	\end{center}
 \end{table}
 
 \begin{center}
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{diagrammaTortaVerificaValidazioneTotaleOre.png}
-\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
-\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaTortaVerificaValidazioneTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
+	\end{figure}
 \end{center}
 
 \newpage
 
 \section{Riepilogo}
+\subsection{Rotazione dei Ruoli}
+
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{p{0.3\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.05\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB & 6 & 10 & 13 & 28 & 14 & 34 & 105 \\
+			\midrule
+			\AB & 4 & 12 & 11 & 28 & 23 & 27 & 105 \\
+			\midrule
+			\NDC & 6 & 13 & 8 & 35 & 14 & 29 & 105 \\
+			\midrule
+			\TP & 8 & 14 & 19 & 23 & 14 & 27 & 105 \\
+			\midrule
+			\WS & 5 & 13 & 11 & 30 & 13 & 33 & 105 \\
+			\midrule
+			\AVE & 5 & 7 & 11 & 36 & 13 & 33 & 105 \\
+			\midrule
+			\AVI & 8 & 4 & 9 & 29 & 22 & 33 & 105 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FA}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaBarreRiepilogoRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
+\end{center}
+
+\subsection{Prospetto economico}
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l l l l}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+			\RE & 42 & 30 & 1260 \\ \midrule
+			\AM & 73 & 20 & 1460 \\ \midrule
+			\AN & 82 & 25 & 2050 \\ \midrule
+			\PG & 209 & 22 & 4598 \\ \midrule
+			\PR & 113 & 15 & 1695 \\ \midrule
+			\VR & 216 & 15 & 3240 \\ \midrule
+			\textbf{Totale} & \textbf{735} &  & \textbf{14303} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Prospetto economico - \FPA}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaTortaRiepilogoTotaleOre.png}
+		\caption{Diagramma della rotazione dei ruoli - \FA}
+	\end{figure}
+\end{center}
 
 \newpage
 
