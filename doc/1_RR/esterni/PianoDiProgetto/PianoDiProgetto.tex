@@ -17,7 +17,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.5}
+\newcommand{\versione}{1.0.7}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -89,7 +89,9 @@
 	\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 	\midrule
 	\midrule
-	1.0.6 & \WS & 2016-02-02 &  \FVV \\
+	1.0.7 & \NDC & 2016-01-04 &  Riepilogo e modifiche minori \\
+	\midrule
+	1.0.6 & \WS & 2016-01-02 &  \FVV \\
 	\midrule
 	1.0.5 & \WS & 2016-01-02 &  Introduzione \\
 	\midrule
@@ -99,7 +101,7 @@
 	\midrule
 	1.0.2 & \NDC & 2015-12-28 &  Analisi dei rischi \\
 	\midrule
-	1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di Analisi \\
+	1.0.1 & \NDC & 2015-12-27 &  Sistemato template e attività di \FA \\
 	\midrule
 	1.0.0 & \NDC & 2015-12-24 &  Creazione documento \\
 	\bottomrule
@@ -175,7 +177,7 @@ Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \
 Per un buon esito del progetto si è deciso che ogni componente del gruppo dovrà ricoprire almeno una volta le principali figure aziendali specializzate qui sotto riportate con il relativo costo orario. L'unico vincolo a questa regola è che si deve certificare che non vi siano periodi in cui una stessa risorsa sia verificatrice di se stessa. I costi orari sono così definiti:
 \begin{table}[H]
 	\begin{center}
-		\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth}}
+		\begin{tabular}{l r}
 			\toprule
 			\textbf{Ruolo} &  \textbf{Costo (\euro/ora)} \\
 			\midrule
@@ -593,10 +595,10 @@ Le attività svolte sono:
 	\item \textbf{\PdQ:}
 	La strategia di verifica deve essere aggiornata in base 
 	alle nuove richieste;
-	\item \textbf{Specifica Tecnica:}
+	\item \textbf{\ST:}
 	Descrive la progettazione ad alto livello e i design pattern
 	utilizzati;
-	\item \textbf{Definizione di prodotto:}
+	\item \textbf{\DP:}
 	Redazione di questo documento che descrive in dettaglio l'architettura
 	del sistema in modo che i programmatori ottengano specifiche dettagliate.
 \end{itemize}
@@ -619,10 +621,10 @@ Le attività svolte sono:
 			\textbf{PA4} & \textbf{\PdQ} & &  \\ \midrule
 			PA4.1 & Incremento & \RE & 4 \\ \midrule
 			PA4.2 & Verifica & \VR & 2 \\ \midrule
-			\textbf{PA5} & \textbf{Specifica Tecnica} & &  \\ \midrule
+			\textbf{PA5} & \textbf{\ST} & &  \\ \midrule
 			PA5.1 & Stesura & \PG & 59 \\ \midrule
 			PA5.2 & Verifica & \VR & 20 \\ \midrule
-			\textbf{PA6} & \textbf{Definizione di Prodotto} & &  \\ \midrule
+			\textbf{PA6} & \textbf{\DP} & &  \\ \midrule
 			PA6.1 & Stesura & \PG & 100 \\ \midrule
 			PA6.2 & Verifica & \VR & 30 \\ \midrule
 			\textbf{PA7} & \textbf{Glossario} & &  \\ \midrule
@@ -665,7 +667,7 @@ Le attività svolte sono:
 \begin{center}
 	\begin{figure}[H]
 		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
-		\caption{Diagramma della rotazione dei ruoli - \FA}
+		\caption{Diagramma della rotazione dei ruoli - \FPA}
 	\end{figure}
 \end{center}
 
@@ -693,7 +695,7 @@ Le attività svolte sono:
 \begin{center}
 	\begin{figure}[H]
 		\centering		\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
-		\caption{Diagramma della rotazione dei ruoli - \FA}
+		\caption{Diagramma della rotazione dei ruoli - \FPA}
 	\end{figure}
 \end{center}
 
@@ -726,9 +728,9 @@ Le attività svolte sono:
 	\item \textbf{\PdQ:}
 	La strategia di verifica deve essere aggiornata in base 
 	alle nuove richieste
-	\item \textbf{Specifica Tecnica:}
+	\item \textbf{\ST:}
 	Viene aggiornata o corretta in base alla \RP
-	\item \textbf{Definizione di prodotto:} 
+	\item \textbf{\DP:} 
 	Viene aggiornata o corretta in base alla \RP
 \end{itemize}
 
@@ -750,16 +752,16 @@ Le attività svolte sono:
 			\textbf{PDC4} & \textbf{\PdQ} & & \\ \midrule
 			PDC4.1 & Incremento & \RE \newline \PG & 2 \newline 6 \\ \midrule
 			PDC4.3 & Verifica & \VR & 2 \\ \midrule
-			\textbf{PDC5} & \textbf{Specifica Tecnica} & & \\ \midrule
+			\textbf{PDC5} & \textbf{\ST} & & \\ \midrule
 			PDC5.1 & Incremento & \PG & 8 \\ \midrule
 			PDC5.2 & Verifica & \VR & 2 \\ \midrule
-			\textbf{PDC6} & \textbf{Definizione di Prodotto} & & \\ \midrule
+			\textbf{PDC6} & \textbf{\DP} & & \\ \midrule
 			PDC6.1 & Incremento & \PG & 10 \\ \midrule
 			PDC6.2 & Verifica & \VR & 4 \\ \midrule
 			\textbf{PDC7} & \textbf{Codifica} & & \\ \midrule
 			PDC7.1 & Stesura & \PR & 95 \\ \midrule
 			PDC7.2 & Verifica & \VR & 40 \\ \midrule
-			\textbf{PDC8} & \textbf{Manuale Utente} & & \\ \midrule
+			\textbf{PDC8} & \textbf{\MU} & & \\ \midrule
 			PDC8.1 & Stesura & \AM \newline \PG & 1 \newline 5 \\ \midrule
 			PDC8.2 & Verifica & \VR & 2 \\ \midrule
 			\textbf{PDC9} & \textbf{Glossario} & & \\ \midrule
@@ -795,14 +797,14 @@ Le attività svolte sono:
 			\AVI &  &  &  &  &  &  &  \\
 			\bottomrule
 		\end{tabular}
-		\caption{Rotazione dei ruoli - \FA}
+		\caption{Rotazione dei ruoli - \FPDC}
 	\end{center}
 \end{table}
 
 \begin{center}
 	\begin{figure}[H]
 		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
-		\caption{Diagramma della rotazione dei ruoli - \FA}
+		\caption{Diagramma della rotazione dei ruoli - \FPDC}
 	\end{figure}
 \end{center}
 
@@ -831,7 +833,7 @@ Le attività svolte sono:
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneDettaglioCodificaTotaleOre.png}
-		\caption{Diagramma della ripartizione oraria dei ruoli - \FA}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FPDC}
 	\end{figure}
 \end{center}
 
