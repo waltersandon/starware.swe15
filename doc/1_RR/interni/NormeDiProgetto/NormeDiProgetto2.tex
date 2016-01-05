@@ -767,6 +767,12 @@ Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup 
 \subsubsection{Draw.io}
 Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \textit{\mGls{draw.io}}.		
 Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} sia come applicazione \mGls{desktop}.
+Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
+
+\subsubsection{Tracy}
+Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo Don’t Panic durante l’annoaccademico 2012/2013.
+Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
+
 
 \subsubsection{LibreOffice Calc}
 Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOffice in quanto tale prodotto è open-source.
@@ -819,7 +825,7 @@ Le \mglspl{etichetta} servono per identificare meglio il \textit{\mgls{ticket}} 
 	\item \textbf{Missing Feature:} riservata ai \textit{\mglspl{ticket}} per la segnalazione la mancanza di una funzionalità del software;
 	\item \textbf{Code:} riservata ai \textit{\mglspl{ticket}} per la produzione di codice;
 	\item \textbf{Document:} riservata ai \textit{\mglspl{ticket}} per la produzione di documentazione;
-	\item \textbf{Check:} riservata ai \textit{\mglspl{ticket}} in fase di verifica;
+	\item \textbf{Check:} riservata ai \textit{\mglspl{ticket}} di verifica.
 \end{itemize}
 
 \subsubsubsection{Ciclo di vita del Ticket}\label{ticketCicloVita}
@@ -853,7 +859,7 @@ Ogni \textit{\mgls{ticket}} rappresenta un \mgls{attivita} o un \textit{\mgls{ta
 Ogni \textit{\mgls{task}} in stato \textbf{Completato} deve essere verificato per testarne la correttezza e l'effettivo completamento attraverso la seguente procedura:
 
 \begin{enumerate}
-	\item Al completamento di un \textit{\mgls{ticket}} il \PM{} deve creare un \textit{\mgls{task}} in stato Verifica ed assegnarlo ad un \VR{};
+	\item Al completamento di un \textit{\mgls{ticket}} il \PM{} deve creare un \textit{\mgls{task}} in stato Verifica, marcato dall'\mgls{etichetta} \textbf{Check} ed assegnarlo ad un \VR{};
 	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \textit{\mgls{task}} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \textit{\mgls{task}} che avrà raggiunto lo stato \textbf{"Verificato"};
 	\item Il \PM{} assegna gli eventuali \textit{\mgls{task}} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse tra i vari ruoli.
 \end{enumerate}
@@ -874,6 +880,7 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
  	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \textit{\mgls{ticket}};
  	\item Deve essere assegnato a tutti i membri del gruppo.
  \end{itemize}
+
 \newpage
 \printglossary[title={Glossario}]
 
