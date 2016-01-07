@@ -17,7 +17,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.7}
+\newcommand{\versione}{1.0.8}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -89,7 +89,9 @@
 	\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 	\midrule
 	\midrule
-	1.0.7 & \NDC & 2016-01-04 &  Riepilogo e modifiche minori \\
+    1.0.8 & \TP & 2016-01-07 & Riorganizzazione struttura \\
+    \midrule
+	1.0.7 & \NDC & 2016-01-04 & Riepilogo e modifiche minori \\
 	\midrule
 	1.0.6 & \WS & 2016-01-02 &  \FVV \\
 	\midrule
@@ -163,7 +165,7 @@ Si divide lo sviluppo del progetto in 4 attività:
 \subsection{Descrizione Prodotto}
 Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (QML). L'obiettivo è quello di creare un software che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
 
-\subsection{Ciclo di vita}
+\subsection{Ciclo di sviluppo}
 Il modello di ciclo di sviluppo che si è scelto di adottare è quello di tipo \textbf{incrementale}, in quanto permette di scomporre il problema principale in più sottosistemi più semplici rendendo così la progettazione più gestibile. Tale modello offre quindi la possibilità di:
 \begin{itemize}
 	\item soddisfare da subito i requisiti minimi, e dedicarsi solo successivamente a quelli opzionali, in modo da poter rilasciare al committente un prototipo, permettendogli di valutare in corso d'opera il lavoro svolto;
@@ -413,6 +415,8 @@ Le sotto attività svolte sono:
 	\item \textbf{Glossario:} attività svolta dai redattori parallelamente alla stesura dei documenti. Esso verrà aggiornato in modo incrementale fino al completamento della documentazione.
 \end{itemize}
 
+\subsubsection{Ripartizione delle risorse}
+
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
@@ -461,11 +465,13 @@ Le sotto attività svolte sono:
 	\end{center}
 \end{table}
 
+\subsubsection{Diagramma di Gantt}
+
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaGanttAnalisi.png}
-		\caption{Diagramma di Gantt della ripartizione delle risorse - \FA}
+		\includegraphics[width=\textwidth]{GanttAnalisi.png}
+		\caption{Diagramma di Gantt - \FA}
 	\end{figure}
 \end{center}
 
@@ -585,6 +591,8 @@ Le attività svolte sono:
 	del sistema in modo che i programmatori ottengano specifiche dettagliate.
 \end{itemize}
 
+\subsubsection{Ripartizione delle risorse}
+
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
@@ -617,6 +625,16 @@ Le attività svolte sono:
 		\caption{Ripartizione delle risorse - \FPA}
 	\end{center}
 \end{table}
+
+\subsubsection{Diagramma di Gantt}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{GanttProgettazioneArchitetturale.png}
+		\caption{Diagramma di Gantt - \FPA}
+	\end{figure}
+\end{center}
 
 \subsection{Rotazione dei Ruoli}
 
@@ -716,6 +734,8 @@ Le attività svolte sono:
 	Viene aggiornata o corretta in base alla \RP
 \end{itemize}
 
+\subsubsection{Ripartizione delle risorse}
+
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
@@ -754,6 +774,16 @@ Le attività svolte sono:
 		\caption{Ripartizione delle risorse - \FPDC}
 	\end{center}
 \end{table}
+
+\subsubsection{Diagramma di Gantt}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{GanttProgettazioneDiDettaglioECodifica.png}
+		\caption{Diagramma di Gantt - \FPDC}
+	\end{figure}
+\end{center}
 
 \subsection{Rotazione dei Ruoli}
 
@@ -857,6 +887,8 @@ Le sotto attività sono:
 
 \newpage
 
+\subsubsection{Ripartizione delle risorse}
+
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
@@ -916,6 +948,17 @@ Le sotto attività sono:
 		\caption{Ripartizione delle risorse - \FVV}
 	\end{center}
 \end{table}
+
+\subsubsection{Diagramma di Gantt}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{GanttValidazione.png}
+		\caption{Diagramma di Gantt - \FVV}
+	\end{figure}
+\end{center}
+
 \newpage
 
 \subsection{Rotazione dei Ruoli}
