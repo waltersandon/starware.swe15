@@ -169,12 +169,14 @@ Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOf
 	\item grafici a torta per l’utilizzo delle risorse;
 	\item grafici a torta per il costo dedicato a ciascuna risorsa;
 	\item istogrammi per le ore assegnate ad ogni componente del gruppo;
-	\item calcolo della metrica SV come somma delle singole righe della colonna SV di ProjectLibre;
-	\item calcolo della metrica BVG come somma delle varie differenze tra la colonna BCWS e ACWP di ProjectLibre;
+	\item calcolo della metrica SV;
+	\item calcolo della metrica CV;
 	\item tabelle per il confronto tra preventivo e consuntivo;
 	\item istogrammi per il confronto tra ore preventivate e ore realmente impiegate da
 	ciascuna risorsa.
 \end{itemize}
+
+\TODO{label a projectliber e link e paragrafo}
 
 \subsection{Processi di sviluppo}
 
@@ -814,10 +816,9 @@ Per pianificare le attività legate allo sviluppo del progetto e la gestione del
 \begin{itemize}
 	\item  essendo basato su \mGls{Java}, è compatibile con i sistemi operativi \mGls{Linux},\mGls{Mac OS} e \mGls{Windows}. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
 	\item \mgls{open-source};
-	\item genera diagrammi \mgls{gantt};
-	\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
-	\item genera automaticamente la \textit{\mGls{Work Breakdown Structure}} (WBS), a partire dal \mGls{gantt}t con allocazione di risorse;
-	\item calcola i parametri \textit{\mGls{Schedule Variance}} (SV) e \textit{\mGls{Budget Variance}} (BV);
+	\item genera diagrammi \mGls{gantt};
+	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
+	\item calcola i parametri \textit{\mGls{Schedule Variance}} (SV) e \textit{\mGls{Cost Variance}} (CV);
 	\item salvataggio su file \mGls{XML}: essendo un file testuale è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
 \end{itemize}
 
@@ -834,7 +835,7 @@ Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazio
 	\item salvare la \textit{\mgls{baseline}}.
 \end{enumerate}
 
-\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \textit{\mGls{Schedule Variance}} e \textit{\mGls{Budget Variance}}. Per far ciò il Responsabile deve modificare i progetti creati nel modo seguente:
+\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \textit{\mGls{Schedule Variance}} e \textit{\mGls{Cost Variance}}. Per far ciò il Responsabile deve modificare i progetti creati nel modo seguente:
 \begin{enumerate}
 	\item inserire le colonne SV , BCWS, ACWP;
 	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
