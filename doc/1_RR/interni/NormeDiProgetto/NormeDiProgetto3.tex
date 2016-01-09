@@ -502,7 +502,11 @@ Ogni tabella presente all'interno dei documenti dev'essere accompagnata da una d
 Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato Scalable Vector Graphics (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
 
 \subsubsection{Glossario}
-Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione. La generazione del glossario è automatizzata.
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione. La generazione del glossario è automatizzata. E per facilitare la stesura dei termini viene fatta su un file a parte:
+\begin{center}
+	 \filePath{doc/glossario/glossario.tex}
+\end{center}
+
 
 \subsubsection{Linguaggio}
 Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{\url{http://www.ietf.org/rfc/rfc2119.txt}}:
@@ -517,28 +521,6 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 
 \subsubsection{Strumenti}
 Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file template condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \subsection{Configurazione} %git
 
@@ -629,7 +611,7 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 \begin{itemize}
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \mgls{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \mgls{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
-	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice	
+	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice \TODO{tool di controllo}
 	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{ticket}
 \end{itemize}
@@ -641,15 +623,20 @@ Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'i
 	\item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
 \end{itemize}
 
-\subsubsection{ Analisi dinamica}
+\subsubsection{Analisi dinamica}
 L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
 
-\subsubsection{Gestione dei problemi}
-A corredo della \mgls{lista di controllo}, vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+
+\subsection{Validazione}
+
+\subsection{Risoluzione dei problemi}
+
+\subsubsection{Classificazione dei problemi}
+Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
-	\item Processi;
-	\item Documentazione;
-	\item Codice.
+	\item processi;
+	\item documentazione;
+	\item codice.
 \end{itemize}
 Urgenza:
 \begin{itemize}
@@ -696,10 +683,9 @@ Metodo di gestione del problema:
 	\label{tabCalssificazioneProb}
 \end{table}
 
-\subsection{Validazione}
+\subsubsection{Gestione dei problemi}
 
-\subsection{Risoluzione dei problemi}
-\TODO{da vedere}
+
 
 \newpage
 
@@ -944,6 +930,11 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \mgls{ticket};
 	\item Deve essere assegnato a tutti i membri del gruppo.
 \end{itemize}
+
+\newpage
+
+\appendix
+\section{Lista di controllo}
 
 \newpage
 \printglossary[title={Glossario}]
