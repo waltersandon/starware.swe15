@@ -264,7 +264,7 @@ Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gr
 \subsubsubsection{Tracciamento dei requisiti}
 Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
-\TODO{uso di tracy}
+\TODO{uso di tracy AV}
 
 
 \subsubsubsection{UML}
@@ -289,7 +289,7 @@ Verranno definite norme riguardanti:
 	\item processi di configurazione.
 \end{itemize}
 
-\subsection{Documentazione}
+\subsection{Documentazione}\label{Documentazione}
 Definisce norme per lo sviluppo e il mantenimento della documentazione, prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità e verifica di tali documenti.
 
 Verranno definite norme riguardanti:
@@ -475,6 +475,7 @@ Il piè di pagina deve contenere:
 		\item \textbf{Analisi dei Requisiti}: \latex{\textbackslash AdR}
 		\item \textbf{Piano di Progetto}: \latex{\textbackslash PdP}
 		\item \textbf{Piano di Qualifica}: \latex{\textbackslash PdQ}
+		\item \TODO{macro NDC}
 	\end{itemize}
 	\item \textbf{Attività}: sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti per i riferimenti alle attività del \PdP:
 	\begin{itemize}
@@ -548,7 +549,7 @@ Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati
 \paragraph{Push}
 Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \mgls{push} della \mgls{repository} sulla directory online. Controllare che il \mgls{commit} rispetti le regole del paragrafo precedente.
 
-\TODO{da decidere}
+\TODO{da modificare con master e dev NDC}
 \paragraph{Branch} vengono definiti 3 \mglspl{branch} all'interno della \mgls{repository}:
 \begin{itemize}
 	\item \textbf{stable:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
@@ -602,7 +603,7 @@ L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenz
 %\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
 
 \subsection{Verifica}
-\TODO{controllare}
+\TODO{controllare AV}
 La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
 \subsubsection{Documentazione}
@@ -684,8 +685,16 @@ Metodo di gestione del problema:
 \end{table}
 
 \subsubsection{Gestione dei problemi}
+\TODO{rimandare a sotto per ticket e teamwork NDC}
 
+\subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
+Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
 
+\TODO{finire descrizione e integrare tabella con altri problemi NDC}
+
+\subsubsubsection{Ticket di risoluzione problema}
+
+\TODO{fare descrizione NDC}
 
 \newpage
 
@@ -808,11 +817,10 @@ e delle prove effettuate.
 È necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 
 \subsubsection{Pianificazione}
-\TODO{da controllare}
 Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare \mgls{projectlibre}.
 \mgls{projectlibre} è un programma \mgls{open-source} per il \mgls{project management}. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
 \begin{itemize}
-	\item  essendo basato su \mGls{Java}, è compatibile con i sistemi operativi \mGls{Linux},\mGls{Mac OS} e \mGls{Windows}. Permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
+	\item  essendo basato su \mGls{Java}, è compatibile con i sistemi operativi \mGls{Linux},\mGls{Mac OS} e \mGls{Windows} e permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
 	\item \mgls{open-source};
 	\item genera diagrammi \mGls{gantt};
 	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
@@ -833,9 +841,9 @@ Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazio
 	\item salvare la \mgls{baseline}.
 \end{enumerate}
 
-\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il Responsabile deve modificare i progetti creati nel modo seguente:
+\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il \RE deve modificare i progetti creati nel modo seguente:
 \begin{enumerate}
-	\item inserire le colonne SV , BCWS, ACWP;
+	\item inserire le colonne SV e CV;
 	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
 	\item modificare le risorse assegnate alle sotto-attività in base a quanto è stato consuntivato;
 	\item aggiornare il progetto alla data corrente.
@@ -845,38 +853,38 @@ Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazio
 % Sezione aggiunta DA DECIDERE
 Il \PM{}, una volta individuate e stimate le \mgls{attivita} e i \mgls{task} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \mgls{task} è stato scelto di utilizzare l'applicazione web \mGls{teamwork} per i seguenti motivi: 
 \begin{itemize}
-	\item Fornisce un sistema flessibile per la gestione dei \mglspl{ticket}
-	\item Permette di creare e assegnare \mgls{task} in maniera facile ed intuitiva; 
-	\item Permette di monitorare e modificare semplicemente le scadenze dei \mgls{task} creati;
-	\item Offre la possibilità di impostare delle \mglspl{milestone} per tenere facilmente sotto controllo lo svolgimento delle \mgls{attivita}.
+	\item fornisce un sistema flessibile per la gestione dei \mglspl{ticket}
+	\item permette di creare e assegnare \mgls{task} in maniera facile ed intuitiva; 
+	\item permette di monitorare e modificare semplicemente le scadenze dei \mgls{task} creati;
+	\item offre la possibilità di impostare delle \mglspl{milestone} per tenere facilmente sotto controllo lo svolgimento delle \mgls{attivita}.
 \end{itemize}
 Sarà inoltre compito del \PM{} assegnare una \mgls{deadline} per il completamento dei \mglspl{task} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
-Le modalità di utilizzo di \mgls{teamwork} vengono descritte nella sezione [ticket]{6.5} di questo documento.
+Le modalità di utilizzo di \mgls{teamwork} vengono descritte nella sezione \ref{ticket} di questo documento.
 
 \subsubsection{Ticketing}\label{ticket} %6.5 delle NdPv5.2.0 dei don't panic
-Per monitorare lo sviluppo dei documenti e del codice si è scelto di adottare il sistema di ticketing di \mGls{teamwork}. La scelta di tale software è descritta nella sezione [swGestioneProgetto]{6.2.2} .
+Per monitorare lo sviluppo dei documenti e del codice si è scelto di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
 
 \subsubsubsection{Struttura Ticket}\label{ticketStruttura}
 I \mgls{ticket} creati devono avere le seguenti caratteristiche:
 \begin{itemize}
-	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \mgls{task};
-	\item \textbf{Assegnatari/o:} I \mglspl{task} devono sempre essere assegnati ad uno o più membri del gruppo;
-	\item \textbf{Data:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} e \mgls{PERT}, entro il quale essere completato;
-	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento;
-	\item \textbf{Etichetta:} Deve essere fornito di un appropriata \mgls{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. 
-	Le \mGlspl{etichetta} utilizzate sono descritte nella sezione  [ticketEtichette]{6.5.1.2}.
+	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \mgls{task}
+	\item \textbf{Assegnatari/o:} I \mglspl{task} devono sempre essere assegnati ad uno o più membri del gruppo
+	\item \textbf{Data di inizio:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} entro il quale essere iniziato
+	\item \textbf{Data di completamento:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} entro il quale essere completato
+	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
+	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} in caso si trattasse di un problema facendo riferimento a \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} Deve essere fornito di una o più appropriate \mglspl{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta.	Le \mGlspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
-
 
 \subsubsubsection{Etichette}\label{ticketEtichette}
 Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato, quelle in uso dal gruppo sono:
 \begin{itemize}
-	\item \textbf{Error:} riservata ai \mglspl{ticket} per la segnalazione di  un errori nei documenti o un errore logico nell'implementazione del codice;
-	\item \textbf{Bug:} riservata ai \mglspl{ticket} per la segnalazione di \mgls{bug} nel codice;
-	\item \textbf{Missing Feature:} riservata ai \mglspl{ticket} per la segnalazione la mancanza di una funzionalità del software;
-	\item \textbf{Code:} riservata ai \mglspl{ticket} per la produzione di codice;
-	\item \textbf{Document:} riservata ai \mglspl{ticket} per la produzione di documentazione;
-	\item \textbf{Check:} riservata ai \mglspl{ticket} di verifica.
+	\item \textbf{Error:} riservata ai \mglspl{ticket} per la segnalazione di errori
+	\item \textbf{Missing Feature:} riservata ai \mglspl{ticket} per la segnalazione la mancanza di una funzionalità del software o della documentazione
+	\item \textbf{Code:} riservata ai \mglspl{ticket} per la produzione di codice
+	\item \textbf{Document:} riservata ai \mglspl{ticket} per la produzione di documentazione
+	\item \textbf{Production:} riservata ai \mglspl{ticket} di produzione materiale
+	\item \textbf{Check:} riservata ai \mglspl{ticket} di verifica
 \end{itemize}
 
 \subsubsubsection{Ciclo di vita del Ticket}\label{ticketCicloVita}
@@ -891,7 +899,7 @@ Ogni \mgls{ticket} rappresenta un \mgls{attivita} o un \mgls{task} e deve rispet
 	\end{itemize}
 	\item Se il \mgls{task} fosse dipendente dal completamento di un altro \mgls{task} in stato di esecuzione, allora lo stato del \mgls{task} sarà \textbf{"In Attesa"};
 	\item Si procede con l'esecuzione del \mgls{task}, il cui stato passerà a \textbf{"In Esecuzione"};
-	\item Una volta termiata l'esecuzione del \mgls{task}, lo stato sarà \textbf{"Comletato"};
+	\item Una volta termiata l'esecuzione del \mgls{task}, lo stato sarà \textbf{"Completato"};
 	\item Ogni \mgls{task} completato dovrà essere vagliato attraverso le prodecure di verifica.
 \end{enumerate}
 
@@ -904,24 +912,6 @@ Ogni \mgls{ticket} rappresenta un \mgls{attivita} o un \mgls{task} e deve rispet
 	\end{figure}
 \end{center}
 
-
-\subsubsubsection{Ticket di Verifica}\label{ticketVerifica}
-Ogni \mgls{task} in stato \textbf{Completato} deve essere verificato per testarne la correttezza e l'effettivo completamento attraverso la seguente procedura:
-
-\begin{enumerate}
-	\item Al completamento di un \mgls{ticket} il \PM{} deve creare un \mgls{task} in stato Verifica, marcato dall'\mgls{etichetta} \textbf{Check} ed assegnarlo ad un \VR{};
-	\item Il \VR{}, nel caso riscontri anomalie o errori deve creare i \mgls{task} necessari alla correzione degli stessi. Nel caso dell'assenza di errori il \VR{} chiude il \mgls{task} che avrà raggiunto lo stato \textbf{"Verificato"};
-	\item Il \PM{} assegna gli eventuali \mgls{task} creati dal \VR{} ponendo particolare attenzione a non far sorgere conflitti di interesse tra i vari ruoli.
-\end{enumerate}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering
-		\label{f1-TicketVerifica}
-		\includegraphics[scale=0.6]{TicketVerifica.png}
-		\caption{Diagramma per i ticket di verifica.}
-	\end{figure}
-\end{center}
 \subsubsubsection{Ticket di Riunione}\label{ticketRiunione}
 Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{evento} su \mGls{teamwork} e deve avere le seguenti caratteristiche:
 \begin{itemize}
@@ -935,6 +925,7 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 
 \appendix
 \section{Lista di controllo}
+\TODO{solo roba dei documenti senza cose banali AV}
 
 \newpage
 \printglossary[title={Glossario}]
