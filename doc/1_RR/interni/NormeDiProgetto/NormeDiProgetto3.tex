@@ -132,6 +132,9 @@ Verranno definite norme riguardanti:
 	\item ambiente di lavoro.
 \end{itemize}
 
+\subsection{Glossario}
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione.
+
 \newpage
 
 \section{Processi primari}
@@ -245,12 +248,13 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale
 \end{itemize}
 
+Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
 
 \subsubsection{Progettazione di dettaglio}
-\TODO{2 righe}
+\TODO{}
 
 \subsubsection{Codifica}
-Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo successivamente alla fase di progettazione.
+\TODO{}
 
 \subsubsection{Test}
 \TODO{PdQ}
@@ -258,15 +262,13 @@ Le norme di progetto saranno ampliate con questa sezione non appena verranno con
 \subsubsection{Strumenti}
 
 \subsubsubsection{Tracciamento dei requisiti}
-Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo Don’t Panic durante l’anno accademico 2012/2013.
-Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
+Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
 \TODO{uso di tracy}
 
 
 \subsubsubsection{UML}
-Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \textit{\mGls{draw.io}}.		
-Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
+Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
 %Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
 
 \newpage
@@ -282,7 +284,7 @@ Verranno definite norme riguardanti:
 	\item utilizzo e l'accesso ai documenti;
 	\item templates da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
 	\item metodi di verifica e approvazione del materiale prodotto;
-	\item metodi di \textit{\mgls{quality assurance}};
+	\item metodi di \mgls{quality assurance};
 	\item metodi di validazione;
 	\item processi di configurazione.
 \end{itemize}
@@ -294,10 +296,10 @@ Verranno definite norme riguardanti:
 \begin{itemize}
 	\item \mglspl{template} da utilizzare per i documenti, l'uniformità di linguaggio, le convenzioni stilistiche e tipografiche;
 	\item metodi di verifica e approvazione del materiale prodotto;
-	\item metodi di \textit{\mgls{quality assurance}}.
+	\item metodi di \mgls{quality assurance}.
 \end{itemize}
 
-Per agevolare la redazione della documentazione è stato creato un \textit{\mgls{template}} \LaTeX contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nel \mgls{repository} in \path{docs/template}.
+Per agevolare la redazione della documentazione è stato creato un \mgls{template} \LaTeX contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nel \mgls{repository} in \path{docs/template}.
 
 \subsubsection{Ciclo di vita}
 
@@ -500,7 +502,7 @@ Ogni tabella presente all'interno dei documenti dev'essere accompagnata da una d
 Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato Scalable Vector Graphics (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
 
 \subsubsection{Glossario}
-\TODO{}
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione. La generazione del glossario è automatizzata.
 
 \subsubsection{Linguaggio}
 Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{\url{http://www.ietf.org/rfc/rfc2119.txt}}:
@@ -632,6 +634,16 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{ticket}
 \end{itemize}
 
+\subsubsection{Analisi statica}
+Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
+\begin{itemize}
+	\item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
+	\item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
+\end{itemize}
+
+\subsubsection{ Analisi dinamica}
+L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
+
 \subsubsection{Gestione dei problemi}
 A corredo della \mgls{lista di controllo}, vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
@@ -727,7 +739,7 @@ In caso di mancata risposta o di immotivata assenza il \PM{} ha il dovere di con
 \paragraph{Verbale}
 All'apertura della riunione, verificata la presenza dei membri previsti, viene scelto un segretario che avrà il compito di annotare ogni argomento trattato e di redigere il verbale dell'assemblea.
 Il segretario, ruolo che deve essere scelto di volta in volta a rotazione tra i presenti, deve inoltre controllare che venga seguito l'ordine del giorno in modo da non tralasciare alcun punto.
-Ogni verbale redatto dovrà essere inserito nell'apposita cartella \filePath{verbali} nei \textit{\mgls{repository}} e dovrà essere nominato \fileName{verbale\_data}, dove la data seve seguire il formato indicato nella sezione \ref{formati} di questo documento.
+Ogni verbale redatto dovrà essere inserito nell'apposita cartella \filePath{verbali} nei \mgls{repository} e dovrà essere nominato \fileName{verbale\_data}, dove la data seve seguire il formato indicato nella sezione \ref{formati} di questo documento.
 
 \paragraph{Riunione interna}
 Il verbale di riunione interna è un documento interno informale che consente di tracciare gli argomenti discussi durante la riunione.
@@ -932,7 +944,6 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \mgls{ticket};
 	\item Deve essere assegnato a tutti i membri del gruppo.
 \end{itemize}
-
 
 \newpage
 \printglossary[title={Glossario}]
