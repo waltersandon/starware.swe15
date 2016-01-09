@@ -163,20 +163,19 @@ Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di Gantt e ripartiz
 \subsubsubsection{Strumenti}
 
 \paragraph{LibreOffice Calc}
-\TODO{controllare}
-Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOffice in quanto tale prodotto è open-source. Calc viene utilizzato per elaborare i dati prodotti con ProjectLibre e produrre:
+Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOffice in quanto tale prodotto è \mgls{open-source}. Calc viene utilizzato per elaborare i dati prodotti con \mGls{projectlibre} e produrre:
 \begin{itemize}
 	\item grafici a torta per l’utilizzo delle risorse;
 	\item grafici a torta per il costo dedicato a ciascuna risorsa;
 	\item istogrammi per le ore assegnate ad ogni componente del gruppo;
 	\item calcolo della metrica SV (\mGls{schedule variance});
-	\item calcolo della metrica CV;
+	\item calcolo della metrica CV (\mGls{cost variance});
 	\item tabelle per il confronto tra preventivo e consuntivo;
 	\item istogrammi per il confronto tra ore preventivate e ore realmente impiegate da
 	ciascuna risorsa.
 \end{itemize}
 
-\TODO{label a projectliber e link e paragrafo}
+Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
 
 \subsection{Processi di sviluppo}
 
@@ -317,17 +316,17 @@ Durante la sua vita, ogni documento può attraversare ogni fase più di una volt
 
 Tutti documenti essi dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
-	\emph{NomeDocumento\_vX.Y.Z.pdf}
+	\fileName{NomeDocumento\_vX.Y.Z.pdf}
 \end{center}
-dove \emph{NomeDocumento} rappresenta il nome del documento e \emph{vX.Y.Z} la versione come spiegata nella sezione \ref{Versione}. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola deve essere maiuscola e non devono esserci spazi, \emph{underscore} o trattini a separare le parole.
+dove \fileName{NomeDocumento} rappresenta il nome del documento e \fileName{vX.Y.Z} la versione come spiegata nella sezione \ref{Versione}. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola deve essere maiuscola e non devono esserci spazi, \mgls{underscore} o trattini a separare le parole.
 
 Ogniqualvolta sia necessaria la citazione di una versione specifica di un documento, essa deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
-	\emph{Nome Documento vX.Y.Z}
+	\fileName{Nome Documento vX.Y.Z}
 \end{center}
 
 \subsubsection{Versione} \label{Versione}
-La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \emph{vX.Y.Z} dove:
+La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \fileName{vX.Y.Z} dove:
 \begin{itemize}
 	\item \textbf{X} indica il numero crescente di uscite formali del documento. All'inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
 	\begin{enumerate}
@@ -362,7 +361,7 @@ I documenti possono avere diverse liste di distribuzione ma una devono essere cl
 \end{itemize}
 
 \subsubsection{Struttura dei documenti}
-I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un \emph{template} \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \mgls{repository} in \filePath{doc/template}.
+I documenti devono rispettare una struttura prefissata. Per agevolare la redazione della documentazione è stato creato un \mgls{template} \LaTeX{} contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nella \mgls{repository} in \filePath{doc/template}.
 
 \subsubsubsection{Prima pagina}
 Ogni documento deve avere una prima pagina che contiene le seguenti informazioni sul documento:
@@ -399,10 +398,10 @@ Al diario delle modifiche deve sempre seguire un indice delle sezioni e sottosez
 All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e delle figure. Nel caso non siano presenti figure o tabelle i rispettivi indici devono essere omessi.
 
 \subsubsubsection{Introduzione}
-Ogni documento deve essere provvisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate \emph{Scopo} e \emph{Descrizione}. Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
+Ogni documento deve essere provvisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate "Scopo" e "Descrizione". Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
 
 \subsubsubsection{Sezioni}
-I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione deve avere tue sottosezioni denominate \emph{Scopo} e \emph{Descrizione}. Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di \emph{Scopo} e \emph{Descrizione}.
+I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione deve avere tue sottosezioni denominate "Scopo" e "Descrizione". Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di "Scopo" e "Descrizione".
 
 \subsubsubsection{Formattazione delle pagine}
 L'intestazione di ogni pagina, apparte la prima, deve contenere:
@@ -489,8 +488,8 @@ Il piè di pagina deve contenere:
 	\item \textbf{Nome files}: per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
 	\item  \textbf{Percorsi}: per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
 	\item \textbf{URLs e Links}:  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
-	\item \textbf{Date e Orari}: le date e gli orari devono seguire la notazione definita dallo standard \emph{ISO 8601}\footnote{\url{http://www.iso.org/iso/iso8601}}: YYYY-MM-DD per le date e HH:MM pe gli orari
-	\item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard \emph{ISO 80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}}
+	\item \textbf{Date e Orari}: le date e gli orari devono seguire la notazione definita dallo standard ISO\_8601\footnote{\url{http://www.iso.org/iso/iso8601}}: YYYY-MM-DD per le date e HH:MM pe gli orari
+	\item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard ISO\_80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}
 	\item \textbf{Cifre:} le cifre devono seguire il seguente formato: "\num{10000.00}", dove il separatore delle migliaia è rappresentato attraverso uno spazio e il separatore per i decimali è rappresentato attraverso uno punto.
 \end{itemize}
 
@@ -498,7 +497,7 @@ Il piè di pagina deve contenere:
 Ogni tabella presente all'interno dei documenti dev'essere accompagnata da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento.
 
 \subsubsubsection{Immagini e grafici}
-Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato \emph{Scalable Vector Graphics} (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
+Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato Scalable Vector Graphics (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
 
 \subsubsection{Glossario}
 \TODO{}
@@ -548,7 +547,7 @@ Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I moti
 	\item è un \mgls{repository} distribuito con la possibilità di commit e revert locali
 	\item è cross-platform
 	\item possiede un'abbondante ma semplice documentazione
-	\item è già stato usato da alcuni elmenti del gruppo
+	\item è già stato usato da alcuni elementi del gruppo
 \end{itemize}
 
 \subsubsection{Repository} \label{sec:rep} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory
@@ -559,13 +558,14 @@ Viene creata una \mgls{repository} su \mGls{Github} all'indirizzo
 Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione \ref{sec:rep}.
 
 \paragraph{Commit}
-l commit va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni commit deve essere associato un breve titolo che indichi quale azione è stata svolta (e.g. Aggiunta sezione Repository nelle Norme di progetto, oppure Verifica e correzione delle Norme di progetto). Facoltativamente, ma è consigliato farlo, può essere inserito nel commit un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
+Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta (e.g. Aggiunta sezione \mgls{repository} nelle Norme di progetto, oppure Verifica e correzione delle Norme di progetto). Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 \paragraph{Pull}
-È preferibile fare un pull ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il branch a cui si sta lavorando
+È preferibile fare un \mgls{pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \mgls{branch} a cui si sta lavorando
 \paragraph{Push}
-Ogni volta che si ha un commit con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un push della repository sulla directory online. Controllare che il commit rispetti le regole del paragrafo precedente.
+Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \mgls{push} della \mgls{repository} sulla directory online. Controllare che il \mgls{commit} rispetti le regole del paragrafo precedente.
 
-\paragraph{Branch} vengono definiti 3 \textit{branches} all'interno della \textit{\mgls{repository}}:
+\TODO{da decidere}
+\paragraph{Branch} vengono definiti 3 \mglspl{branch} all'interno della \mgls{repository}:
 \begin{itemize}
 	\item \textbf{stable:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
 	\item \textbf{daily:} dove verranno tenuti sorgenti e documenti ancora incompleti. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \textit{branch} \textit{stable}. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \textit{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \textit{branch} \textit{stable}
@@ -628,7 +628,7 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \textit{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \textit{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice	
-	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \emph{\mgls{walkthrough}} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \emph{\mgls{inspection}} su tali errori nelle verifiche future
+	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \textit{\mglspl{ticket}} secondo quando descritto nella sezione \ref{ticket}
 \end{itemize}
 
@@ -734,7 +734,7 @@ Il verbale di riunione interna è un documento interno informale che consente di
 
 \paragraph{Riunione esterna}
 In caso di riunione con il committente o il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
-Per agevolare la scrittura di tale documento è stato preparato un \emph{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
+Per agevolare la scrittura di tale documento è stato preparato un \mgls{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
 
 \subsubsection{Ruoli}\label{Ruoli}
 Durante lo sviluppo del progetto vi saranno diversi ruoli che i membri del gruppo andranno a ricoprire. Tali ruoli rappresentano figure aziendali specializzate, indispensabili per il buon esito del progetto. Ciascun componente del gruppo dovrà ricoprire almeno una volta ogni ruolo. Si deve inoltre certificare che non vi siano conflitti di interesse nello svolgimento delle attività di verifica e di approvazione.
@@ -822,7 +822,7 @@ Per pianificare le attività legate allo sviluppo del progetto e la gestione del
 	\item salvataggio su file \mGls{XML}: essendo un file testuale è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
 \end{itemize}
 
-\subsubsubsection{ProjectLibre}
+\subsubsubsection{\mGls{projectlibre}}\label{projeclibre}
 Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazione del \PdP{} e procedere nel modo seguente:
 \begin{enumerate}
 	\item creare un calendario lavorativo per il progetto;
