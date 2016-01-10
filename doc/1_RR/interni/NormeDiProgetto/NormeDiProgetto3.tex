@@ -602,7 +602,8 @@ L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenz
 %\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
 
 \subsection{Verifica}
-\TODO{controllare AV}
+
+\TODO{aggiungere aderenza alle metriche pdq }
 La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
 \subsubsection{Documentazione}
@@ -612,8 +613,10 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \mgls{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \mgls{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice \TODO{tool di controllo}
+	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR{} deve calcolare l’indice di leggibilità utilizzando lo strumento automatico fornito nel \mgls{makefile}. Nel caso in cui l’indice risultasse troppo basso, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse;
 	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{ticket}
+	\TODO{chiedere a nicola per la sezione di ticketing}
 \end{itemize}
 
 \subsubsection{Analisi statica}
@@ -628,7 +631,7 @@ L’analisi dinamica si applica solamente al prodotto software e viene svolta du
 
 
 \subsection{Validazione}
-
+\TODO{}
 \subsection{Risoluzione dei problemi}
 
 \subsubsection{Classificazione dei problemi}
