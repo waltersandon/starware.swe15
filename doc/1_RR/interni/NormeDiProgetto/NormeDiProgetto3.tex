@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.7}
+\newcommand{\versione}{1.0.10}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{In lavorazione}
@@ -78,6 +78,10 @@
 \toprule
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
+\midrule
+1.0.11 & \NDC & 2016-01-10 & Finita parte Ticketing e modifiche minori \\
+\midrule
+1.0.10 & \NDC & 2016-01-07 & Sistemata organizzazione per processi \\
 \midrule
 1.0.9 & \AVE & 2016-01-03 & Descrizione Software UML \\
 \midrule
@@ -190,7 +194,7 @@ Il processo di sviluppo è un insieme di attività e task necessari per lo svilu
 \end{enumerate}
 
 \subsubsection{Analisi dei requisiti}
-Gli Analisti dovranno produrre l'Analisi dei Requisiti basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione. Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
+Gli Analisti dovranno produrre l'\AdR{} basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione. Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
 
 \subsubsubsection{Casi d'uso}
 I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
@@ -420,75 +424,77 @@ Il piè di pagina deve contenere:
 
 \subsubsubsection{Stile del testo}
 \begin{itemize}
-	\item \textbf{Corsivo}: deve essere usato solo per indicare termini in lingua inglese, standard, citazioni, \mgls{ruoli} e nomi di documenti
-	\item \textbf{Grassetto}: deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poiché può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione
-	\item \textbf{Monospace}: deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi
-	\item \textbf{Maiuscolo}: deve essere usato solo per gli acronimi
+	\item \textbf{Corsivo:} deve essere usato solo per indicare riferimenti agli standard, citazioni, \mgls{ruoli} e nomi di documenti
+	\item \textbf{Grassetto:} deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poiché può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione
+	\item \textbf{Monospace:} deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi
+	\item \textbf{Maiuscolo:} deve essere usato solo per gli acronimi
 \end{itemize}
 
 \subsubsubsection{Composizione}
 \begin{itemize}
-	\item \textbf{Elenchi}: ogni punto dell'elenco deve terminare con un punto e virgola, tranne l'ultimo che deve terminare con un punto. Gli elenchi devono essere puntati se non è necessario che gli elementi siano in un ordine preciso. Se l'elenco è una lista di elementi seguiti da descrizione devono terminare senza punteggiatura
-	\item \textbf{Membri del gruppo}: i nomi dei membri del gruppo si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
+	\item \textbf{Elenchi:} ogni punto dell'elenco deve terminare con un punto e virgola, tranne l'ultimo che deve terminare con un punto. Gli elenchi devono essere puntati se non è necessario che gli elementi siano in un ordine preciso. Se l'elenco è una lista di elementi seguiti da descrizione devono terminare senza punteggiatura e il nome dell'elemento deve essere in grassetto seguito da due punti
+	\item \textbf{Membri del gruppo:} i nomi dei membri del gruppo si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
 	\begin{itemize}
-		\item \textbf{Alessio Vitella}: \latex{\textbackslash AVI}
-		\item \textbf{Andrea Venier}: \latex{\textbackslash AVE}
-		\item \textbf{Nicola De Cao}: \latex{\textbackslash NDC}
-		\item \textbf{Igor Baylyak}: \latex{\textbackslash IB}
-		\item \textbf{Walter Sandon}: \latex{\textbackslash WS}
-		\item \textbf{Thomas Pigarelli}: \latex{\textbackslash TP}
-		\item \textbf{Anna Bonaldo}: \latex{\textbackslash AB}
+		\item \textbf{\AVI:} \latex{\textbackslash AVI}
+		\item \textbf{\AVE:} \latex{\textbackslash AVE}
+		\item \textbf{\NDC:} \latex{\textbackslash NDC}
+		\item \textbf{\IB:} \latex{\textbackslash IB}
+		\item \textbf{\WS:} \latex{\textbackslash WS}
+		\item \textbf{\TP:} \latex{\textbackslash TP}
+		\item \textbf{\AB:} \latex{\textbackslash AB}
 	\end{itemize}
-	\item \textbf{Ruoli}: i nomi dei ruoli devono essere riportati in corsivo e con la prima lettera maiuscola. Sono state definite macro in \LaTeX{} con tutti i ruoli definti per facilitare la composizione dei documenti:
+	\item \textbf{Ruoli:} i nomi dei ruoli devono essere riportati in corsivo e con la prima lettera maiuscola. Sono state definite macro in \LaTeX{} con tutti i ruoli definiti per facilitare la composizione dei documenti:
 	\begin{itemize}
-		\item \textbf{Amministratore}: \latex{\textbackslash AM}
-		\item \textbf{Analista}: \latex{\textbackslash AN}
-		\item \textbf{Progettista}: \latex{\textbackslash PG}
-		\item \textbf{Programmatore}: \latex{\textbackslash PR}
-		\item \textbf{Verificatore}: \latex{\textbackslash VR}
-		\item \textbf{Responsabile}: \latex{\textbackslash RE}
+		\item \textbf{\AM:} \latex{\textbackslash AM}
+		\item \textbf{\AN:} \latex{\textbackslash AN}
+		\item \textbf{\PG:} \latex{\textbackslash PG}
+		\item \textbf{\PR:} \latex{\textbackslash PR}
+		\item \textbf{\VR:} \latex{\textbackslash VR}
+		\item \textbf{\RE:} \latex{\textbackslash RE}
 	\end{itemize}
-	\item \textbf{Glossario}: ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel glossario. Sono state definite delle macro in \LaTeX{} per facilitare la composizione dei documenti:
+	\item \textbf{Glossario:} ogni termine che possa causare ambiguità deve essere marcato da una lettera G scritta a pedice e riportata nel glossario. Sono state definite delle macro in \LaTeX{} per facilitare la composizione dei documenti:
 	\begin{itemize}
 		\item \latex{\textbackslash mgls} per parole del glossario normali;
 		\item \latex{\textbackslash mGls} per parole del glossario che devono iniziare con la maiuscola;
 		\item \latex{\textbackslash mglspl} per parole del glossario plurali;
 		\item \latex{\textbackslash mGlspl} per parole del glossario plurali che devono iniziare con la maiuscola.
 	\end{itemize}
-	\item \textbf{Note}: le note a piè di pagina possono contenere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
-	\item \textbf{\LaTeX}: i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
-	\item \textbf{Revisioni}: i riferimenti alle revisioni devono essere fatti utilizzato la rispettiva macro che garantisce la corretta scrittura con la prima lettera di ogni parola che non sia una preposizione maiuscola :
+	\item \textbf{Note:} le note a piè di pagina possono contenere link o URL e devono essere indicate con il comando \LaTeX: \latex{\textbackslash footnote}
+	\item \textbf{\LaTeX:} i riferimenti a \LaTeX{} devono essere fatti utilizzato il comando \LaTeX: \latex{\textbackslash LaTeX}
+	\item \textbf{Revisioni:} i riferimenti alle revisioni devono essere fatti utilizzato la rispettiva macro che garantisce la corretta scrittura con la prima lettera di ogni parola che non sia una preposizione maiuscola :
 	\begin{itemize}
-		\item \textbf{Revisione dei Requisiti}: \latex{\textbackslash RR}
-		\item \textbf{Revisione di Progettazione}: \latex{\textbackslash RP}
-		\item \textbf{Revisione di Qualifica}: \latex{\textbackslash RQ}
-		\item \textbf{Revisione di Accettazione}: \latex{\textbackslash RA}
+		\item \textbf{\RR:} \latex{\textbackslash RR}
+		\item \textbf{\RP:} \latex{\textbackslash RP}
+		\item \textbf{\RQ:} \latex{\textbackslash RQ}
+		\item \textbf{\RA:} \latex{\textbackslash RA}
 	\end{itemize}
-	\item \textbf{Documenti}: i riferimenti ai documenti devono essere fatti utilizzato la specifica come definita nella sezione \ref{Documentazione}. Sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti:
+	\item \textbf{Documenti:} i riferimenti ai documenti devono essere fatti utilizzato la specifica come definita nella sezione \ref{Documentazione}. Sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti:
 	\begin{itemize}
-		\item \textbf{Norme di Progetto}: \latex{\textbackslash NdP}
-		\item \textbf{Studio di Fattibilità}: \latex{\textbackslash SdF}
-		\item \textbf{Analisi dei Requisiti}: \latex{\textbackslash AdR}
-		\item \textbf{Piano di Progetto}: \latex{\textbackslash PdP}
-		\item \textbf{Piano di Qualifica}: \latex{\textbackslash PdQ}
-		\item \TODO{macro NDC}
+		\item \textbf{\NdP:} \latex{\textbackslash NdP}
+		\item \textbf{\SdF:} \latex{\textbackslash SdF}
+		\item \textbf{\AdR:} \latex{\textbackslash AdR}
+		\item \textbf{\PdP:} \latex{\textbackslash PdP}
+		\item \textbf{\PdQ:} \latex{\textbackslash PdQ}
+		\item \textbf{\DP:} \latex{\textbackslash DP}
+		\item \textbf{\ST:} \latex{\textbackslash ST}
+		\item \textbf{\MU:} \latex{\textbackslash MU}
 	\end{itemize}
-	\item \textbf{Attività}: sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti per i riferimenti alle attività del \PdP:
+	\item \textbf{Attività:} sono stati definite macro  \LaTeX per i documenti in modo da facilitare la redazione dei documenti per i riferimenti alle attività del \PdP: \TODO{sistemare se cambiano i nomi}
 	\begin{itemize}
-		\item \textbf{Analisi}: \latex{\textbackslash FA}
-		\item \textbf{Progettazione architetturale}: \latex{\textbackslash FPA}
-		\item \textbf{Progettazione di dettaglio e codifica}: \latex{\textbackslash FPDC}
-		\item \textbf{Verifica e validazione}: \latex{\textbackslash FVV}
+		\item \textbf{Analisi:} \latex{\textbackslash FA}
+		\item \textbf{Progettazione architetturale:} \latex{\textbackslash FPA}
+		\item \textbf{Progettazione di dettaglio e codifica:} \latex{\textbackslash FPDC}
+		\item \textbf{Verifica e validazione:} \latex{\textbackslash FVV}
 	\end{itemize}
 \end{itemize}
 
 \subsubsubsection{Formati}\label{formati}
 \begin{itemize}
-	\item \textbf{Nome files}: per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
-	\item  \textbf{Percorsi}: per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
-	\item \textbf{URLs e Links}:  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
-	\item \textbf{Date e Orari}: le date e gli orari devono seguire la notazione definita dallo standard ISO\_8601\footnote{\url{http://www.iso.org/iso/iso8601}}: YYYY-MM-DD per le date e HH:MM pe gli orari
-	\item \textbf{Quantità e Unità di misura}: le quantità e le unità di misura dovranno aderire allo standard ISO\_80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}
+	\item \textbf{Nome files:} per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
+	\item  \textbf{Percorsi:} per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
+	\item \textbf{URLs e Links:}  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
+	\item \textbf{Date e Orari:} le date e gli orari devono seguire la notazione definita dallo standard ISO\_8601\footnote{\url{http://www.iso.org/iso/iso8601}:} YYYY-MM-DD per le date e HH:MM pe gli orari
+	\item \textbf{Quantità e Unità di misura:} le quantità e le unità di misura dovranno aderire allo standard ISO\_80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}
 	\item \textbf{Cifre:} le cifre devono seguire il seguente formato: "\num{10000.00}", dove il separatore delle migliaia è rappresentato attraverso uno spazio e il separatore per i decimali è rappresentato attraverso uno punto.
 \end{itemize}
 
@@ -517,18 +523,18 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 
 
 \subsubsection{Strumenti}
-Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file template condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
+Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file \mgls{template} condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
 
 \subsection{Configurazione} %git
 
 \subsubsection{Versionamento}\label{versionamento} %Scelta di Git come sistema di Versioning
 Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
-	\item è gratuito e non proprietario
-	\item è un \mgls{repository} distribuito con la possibilità di commit e revert locali
-	\item è cross-platform
-	\item possiede un'abbondante ma semplice documentazione
-	\item è già stato usato da alcuni elementi del gruppo
+	\item è gratuito e non proprietario;
+	\item è un \mgls{repository} distribuito con la possibilità di \mgls{commit} e \mgls{revert} locali;
+	\item è \mgls{cross-platform};
+	\item possiede un'abbondante ma semplice documentazione;
+	\item è già stato usato da alcuni elementi del gruppo.
 \end{itemize}
 
 \subsubsection{Repository} \label{sec:rep} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory
@@ -545,18 +551,15 @@ Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati
 \paragraph{Push}
 Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \mgls{push} della \mgls{repository} sulla directory online. Controllare che il \mgls{commit} rispetti le regole del paragrafo precedente.
 
-\TODO{da modificare con master e dev NDC}
-\paragraph{Branch} vengono definiti 3 \mglspl{branch} all'interno della \mgls{repository}:
+\paragraph{Branches} vengono definiti due \mglspl{branch} all'interno della \mgls{repository}:
 \begin{itemize}
-	\item \textbf{stable:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
-	\item \textbf{daily:} dove verranno tenuti sorgenti e documenti ancora incompleti. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \textit{branch} \textit{stable}. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \textit{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \textit{branch} \textit{stable}
-	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora in fase di sviluppo. Quando un documento ha uno scheletro o ne viene completata una sezione può essere messo anche nel \textit{branch} \textit{stable}
+	\item \textbf{master:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
+	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora incompleti che sono in fase di sviluppo. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \mgls{branch} master. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \mgls{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \mgls{branch} master
 \end{itemize}
-
-Per approfondimenti e una guida a git si veda \url{https://git-scm.com/docs/}
+Per approfondimenti e una guida all'uso di \mgls{git} si veda \url{https://git-scm.com/docs/}.
 
 \subsubsubsection{Struttura albero delle directory}
-La repository del gruppo è organizzata secondo il seguente albero delle directory
+La \mgls{repository} del gruppo è organizzata secondo il seguente albero delle directory
 
 \dirtree{%
 	.1 doc.
@@ -632,6 +635,7 @@ L’analisi dinamica si applica solamente al prodotto software e viene svolta du
 Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
 	\item processi;
+	\item software
 	\item documentazione;
 	\item codice.
 \end{itemize}
@@ -661,6 +665,9 @@ Metodo di gestione del problema:
 		& Errore in requisiti e use case & Alta & Ticket \\
 		\midrule
 		\midrule
+		Software & Malfunzionamento di uno strumento di lavoro & Alta & Ticket \\
+		\midrule
+		\midrule
 		Documentazione & Errore di compilazione & Alta & Ticket \\
 		\midrule
 		& Errore concettuale & Alta & Ticket \\
@@ -681,16 +688,33 @@ Metodo di gestione del problema:
 \end{table}
 
 \subsubsection{Gestione dei problemi}
-\TODO{rimandare a sotto per ticket e teamwork NDC}
+Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il gruppo ha deciso di utilizzare  di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
 
-\subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
 Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
 
-\TODO{finire descrizione e integrare tabella con altri problemi NDC}
+\subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
+Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
+
+\begin{itemize}
+	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa problema
+	\item \textbf{Assegnatari:} I \mgls{ticket} di segnalazione problema devono sempre essere assegnati al \RE
+	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
+	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento a alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} Deve essere impostata l'etichetta \textit{Problem} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+\end{itemize}
 
 \subsubsubsection{Ticket di risoluzione problema}
+Quando il \RE{} prende visone di un \mgls{ticket} di segnalazione problema provende all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
 
-\TODO{fare descrizione NDC}
+\begin{itemize}
+	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa problema
+	\item \textbf{Assegnatari:} I \mgls{ticket} di risoluzione problema devono essere assegnati al o ai responsabili per il problema riscontrato
+	\item \textbf{Data di inizio:} Impostata alla data corrente
+	\item \textbf{Data di completamento:} Impostata in base alla priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
+	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} Deve essere impostata l'etichetta \textit{Need Fix} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+\end{itemize}
 
 \newpage
 
@@ -755,7 +779,7 @@ Detiene il potere decisionale, quindi la responsabilità su:
 	\item Approvazione dell'offerta.
 \end{itemize}
 
-Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le Norme di Progetto, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \mglspl{redattore} e \mglspl{verificatore}. Egli è l'unico a poter decidere l'approvazione di un documento e a sancirne la distribuzione.
+Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengano svolte sistematicamente seguendo le \NdP, vengano rispettati i ruoli e le competenze assegnate nel \PdP{}, non vi siano conflitti di interesse tra \mglspl{redattore} e \mglspl{verificatore}. Egli è l'unico a poter decidere l'approvazione di un documento e a sancirne la distribuzione.
 Ha inoltre l'incarico di gestire la creazione e l'assegnazione dei \mgls{ticket} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest'ultima.
 Redige il \PdP{} e collabora alla stesura del \PdQ{}, in particolare nella sezione relativa alla pianificazione.
 
@@ -868,23 +892,25 @@ I \mgls{ticket} creati devono avere le seguenti caratteristiche:
 	\item \textbf{Data di inizio:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} entro il quale essere iniziato
 	\item \textbf{Data di completamento:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} entro il quale essere completato
 	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
-	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} in caso si trattasse di un problema facendo riferimento a \ref{tabCalssificazioneProb}
-	\item \textbf{Etichetta/e:} Deve essere fornito di una o più appropriate \mglspl{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta.	Le \mGlspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} in caso si trattasse di un problema facendo riferimento alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} Deve essere fornito di una o più appropriate \mglspl{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
 
 \subsubsubsection{Etichette}\label{ticketEtichette}
 Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato, quelle in uso dal gruppo sono:
 \begin{itemize}
-	\item \textbf{Error:} riservata ai \mglspl{ticket} per la segnalazione di errori
+	\item \textbf{Task:} riservata ai \mglspl{ticket} di \mgls{task}
+	\item \textbf{Code:} riservata ai \mglspl{ticket} riguardanti il codice
+	\item \textbf{Document:} riservata ai \mglspl{ticket} riguardanti la documentazione
+	\item \textbf{Check:} riservata ai \mglspl{ticket} di riguardanti la verifica
+	\item \textbf{Meeting:} riservata ai \mglspl{ticket} di riunione
+	\item \textbf{Problem:} riservata ai \mglspl{ticket} per la segnalazione problema
+	\item \textbf{Need Fix:} riservata ai \mglspl{ticket} per la risoluzione problema
 	\item \textbf{Missing Feature:} riservata ai \mglspl{ticket} per la segnalazione la mancanza di una funzionalità del software o della documentazione
-	\item \textbf{Code:} riservata ai \mglspl{ticket} per la produzione di codice
-	\item \textbf{Document:} riservata ai \mglspl{ticket} per la produzione di documentazione
-	\item \textbf{Production:} riservata ai \mglspl{ticket} di produzione materiale
-	\item \textbf{Check:} riservata ai \mglspl{ticket} di verifica
 \end{itemize}
 
-\subsubsubsection{Ciclo di vita del Ticket}\label{ticketCicloVita}
-Ogni \mgls{ticket} rappresenta un \mgls{attivita} o un \mgls{task} e deve rispettare i seguenti passi:
+\subsubsubsection{Ticket di Task}\label{ticketCicloVita}
+Ogni \mgls{ticket} rappresenta un \mgls{task} o un'insieme di \mglspl{task} ( \mgls{attivita}) e deve rispettare i seguenti passi:
 \begin{enumerate}
 	\item Creazione di un \mgls{task};
 	\item Il \PM{} assegna il \mgls{task} ad uno o più membri del gruppo, nel caso l'assegnatari/o non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \mgls{task}, lo stato del \mgls{ticket} sarà \textbf{"Aperto"};
@@ -895,8 +921,8 @@ Ogni \mgls{ticket} rappresenta un \mgls{attivita} o un \mgls{task} e deve rispet
 	\end{itemize}
 	\item Se il \mgls{task} fosse dipendente dal completamento di un altro \mgls{task} in stato di esecuzione, allora lo stato del \mgls{task} sarà \textbf{"In Attesa"};
 	\item Si procede con l'esecuzione del \mgls{task}, il cui stato passerà a \textbf{"In Esecuzione"};
-	\item Una volta termiata l'esecuzione del \mgls{task}, lo stato sarà \textbf{"Completato"};
-	\item Ogni \mgls{task} completato dovrà essere vagliato attraverso le prodecure di verifica.
+	\item Una volta terminata l'esecuzione del \mgls{task}, lo stato sarà \textbf{"Completato"};
+	\item Ogni \mgls{task} completato dovrà essere vagliato attraverso le procedure di verifica.
 \end{enumerate}
 
 \begin{center}
