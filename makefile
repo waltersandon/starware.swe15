@@ -27,7 +27,7 @@ rr: mkdir-rr compile-rr
 mkdir-rr:
 	mkdir -p $(RR_PDF)
 
-compile-rr: rr-ndp rr-sdf rr-adr rr-pdp rr-pdq
+compile-rr: rr-ndp rr-sdf rr-adr rr-pdp rr-pdq clean-rr
 	
 rr-ndp:
 	cd $(PATH_RR)$(NDP); $(P2L) -output-directory $(OUT_RR) $(NDP_FILE).tex; $(MKG) -d $(OUT_RR) $(NDP_FILE); $(P2L) -output-directory $(OUT_RR) $(NDP_FILE).tex;
@@ -43,6 +43,6 @@ rr-pdp:
 	
 rr-pdq:
 	cd $(PATH_RR)$(PDQ); $(P2L) -output-directory $(OUT_RR) $(PDQ_FILE).tex; $(MKG) -d $(OUT_RR) $(PDQ_FILE); $(P2L) -output-directory $(OUT_RR) $(PDQ_FILE).tex;
-	
+
 clean-rr:
 	find $(RR_PDF) ! -name "*.pdf" -type f -delete
