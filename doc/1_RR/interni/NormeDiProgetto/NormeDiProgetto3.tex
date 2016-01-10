@@ -903,7 +903,6 @@ Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato, q
 	\item \textbf{Code:} riservata ai \mglspl{ticket} riguardanti il codice
 	\item \textbf{Document:} riservata ai \mglspl{ticket} riguardanti la documentazione
 	\item \textbf{Check:} riservata ai \mglspl{ticket} di riguardanti la verifica
-	\item \textbf{Meeting:} riservata ai \mglspl{ticket} di riunione
 	\item \textbf{Problem:} riservata ai \mglspl{ticket} per la segnalazione problema
 	\item \textbf{Need Fix:} riservata ai \mglspl{ticket} per la risoluzione problema
 	\item \textbf{Missing Feature:} riservata ai \mglspl{ticket} per la segnalazione la mancanza di una funzionalità del software o della documentazione
@@ -947,7 +946,64 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 
 \appendix
 \section{Lista di controllo}
-\TODO{solo roba dei documenti senza cose banali AV}
+
+Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riportate le tipologie di errori più frequenti. La lista di controllo risultante è la seguente:
+\paragraph{Norme stilistiche}
+\begin{itemize}
+	\item Elenco puntato: non inizia con la lettera maiuscola;
+	\item Elenco puntato: non termina con il punto e virgola oppure con il punto se è l’ultimo elemento; 
+	\item Elenco numerato: non termina con il punto e virgola oppure con il punto se è l’ultimo elemento; 
+	\item Nome proprio di persona: non rispetta la norma Cognome Nome;
+	\item Nome ruolo di progetto: non viene utilizzata la macro predisposta;
+	\item Nome documento: non viene utilizzata la macro predisposta;
+	\item Parole Proponente e Committente: non vengono scritte con la maiuscola iniziale. 
+\end{itemize}
+
+\paragraph{Italiano}
+\begin{itemize}
+	\item Virgola tra soggetto e verbo: rende di difficile comprensione la frase;
+	\item Carattere È:non viene scritto correttamente utilizzando il comando apposito;
+	\item Periodi: frasi troppo lunghe rendono i concetti di difficile comprensione; 
+	\item Doppie negazioni: evitare l’utilizzo di doppie negazioni perché complicano la comprensione della frase; 
+	\item Punto e virgola: evitare l’uso del punto e virgola quando è necessario usare il punto; 
+	\item Proponente e Committente: non si deve confondere il loro significato. 
+\end{itemize}
+
+
+\paragraph{LaTeX}
+\begin{itemize}
+	\item Lettere accentate nelle variabili: non viene utilizzato il comando apposito; 
+	\item Carattere di spaziatura: non deve essere utilizzato all'interno dei tag; 
+	\item Macro \LaTeX{}: non viene scritta usando l’apposito comando \latex{\textbackslash LaTeX}. 
+\end{itemize}
+
+
+\paragraph{UML}
+\begin{itemize}
+	\item Il sistema non deve mai essere un attore; 
+	\item Controllo ortografico: deve essere effettuato in modo dettagliato a causa dell'impossibilità di automatizzare i controlli sui diagrammi; 
+	\item Direzione delle frecce non corrette; 
+	\item Consistenza della nomenclatura tra i diagrammi e le descrizioni testuali nei documenti. 
+\end{itemize}
+
+La seguente lista di controllo vuole riassumere invece gli  errori più frequenti rilevati durante il \mgls{walkthrough} del tracciamento requisiti effettuato mediante il software \mgls{tracy}:
+
+
+\paragraph{Tracciamento requisiti}
+La seguente lista vuole riassumere invece gli  errori più frequenti rilevati durante il \mgls{walkthrough} del tracciamento requisiti effettuato mediante il software \mgls{tracy}:
+\begin{itemize}
+	\item Ad ogni caso d’uso deve corrispondere almeno un requisito;
+	\item Ad ogni requisito deve corrispondere almeno una fonte; 
+	\item La fonte “Capitolato” non deve comparire nei requisiti interni; 
+	\item Deve esserci copertura totale del capitolato nei requisiti;
+	\item La \mgls{checkbox} \mgls{appointed} deve essere spuntata solo nei requisiti opzionali e desiderabili presi in carico;
+	\item Devono essere impostate le corrette relazioni di parentela tra requisiti in \mgls{tracy}; 
+	\item Devono essere impostate le corrette relazioni di parentela tra casi d’uso in \mgls{tracy}; 
+	\item In \mgls{tracy} deve essere indicato almeno un attore in ogni caso d’uso; 
+	\item Controllare in \mgls{tracy} che le fonti dei requisiti siano le fonti corrette; 
+	\item I codici dei casi d’uso nei diagrammi e in \mgls{tracy} devono corrispondere.
+\end{itemize}
+
 
 \newpage
 \printglossary[title={Glossario}]
