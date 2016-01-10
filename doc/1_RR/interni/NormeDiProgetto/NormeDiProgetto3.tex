@@ -264,8 +264,69 @@ Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gr
 \subsubsubsection{Tracciamento dei requisiti}
 Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
-\TODO{uso di tracy AV}
+\paragraph{Struttura di un caso d'uso}
+Ogni caso d'uso deve avere la seguente struttura:
+\begin{itemize}
+	\item \textbf{Identificativo:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma \textbf{"UC\#"} dove il carattere \textbf{"\#"} rappresenta un numero incrementale.
+	\item \textbf{Titolo:} Un titolo breve, sintetico e descrittivo
+	\item \textbf{Pre-condizione:} descrizione sintetica della condizione preliminare rispetto alla possibilità di realizione del caso d'uso
+	\item \textbf{Post-condizione:}	descrizione sintetica della condizione che deve essere vera al verificarsi del caso d'uso
+\end{itemize}
+	
+\paragraph{Struttura di una fonte}
+Ogni fonte deve avere la seguente struttura:
+\begin{itemize}
+	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma "\textbf{UC#}" dove il carattere "\textbf{#}" rappresenta un numero incrementale.
+	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso
+	\item \textbf{Descrizione} descrizione sintetica della fonte
+\end{itemize}
 
+\paragraph{Struttura di un requisito}
+Ogni requisito deve avere la seguente struttura:
+\begin{itemize}
+	\item \textbf{Identificativo:} ogni requisito deve essere identificato in modo univoco.
+	\item \textbf{Categoria:} identifica la categoria del requisito: "Funzionale" , "Qualità", "Prestazionale" o "Vincolo"
+	\item \textbf{Priorità:} identifica la priorità del requisito: "Obbligatorio", "Opzionale" o "Desiderabile"
+	\item \textbf{Descrizione:}	descrizione sintetica del requisito
+	\item \textbf{Validazione:}	\TODO{}
+	\item \textbf{Test:} \TODO{}
+	
+\end{itemize}
+
+
+\paragraph{Aggiunta di un nuovo caso d'uso}
+Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessario eseguire seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare "Use Cases" nella sezione "Analisi Requisiti"; 
+	\item selezionare "Create Use Case" dal menu "Operations";
+	\item nel caso il caso d'uso possedesse un padre impostare "Parent";
+	\item impostare la descrizione , la pre-condizione e la post-condizione del caso d'uso; 
+	\item premere il pulsante "Create" per confermare la creazione del caso d'uso.
+\end{enumerate}
+
+\paragraph{Aggiunta di un nuova fonte}
+Per aggiungere una nuova fonte, che servirà per identificare da dove si è identificato un requisito, è necessario eseguire i seguenti passi: 
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare "Sources" nella sezione "Analisi Requisiti";
+	\item selezionare "Create External Source" dal menu "Operations";
+	\item impostare "Description"; 
+	\item premere il pulsante "Create" per confermare la creazione della fonte.
+\end{enumerate}
+
+\paragraph{Aggiunta di un nuovo requisito}
+Per aggiungere un nuovo requisito al progetto è necessario eseguire i seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare "Requirements" nella sezione "Analisi Requisiti";
+	\item selezionare "Create Reqirement" dal menu "Operations";
+	\item impostare i valori per :"Category", "Priority" e "Apported";
+	\item nel caso il requisito possedesse un padre impostare "Parent";
+	\item nel caso il requisito possedesse un padre fonte "Sources";
+	\item impostare "Description"; 
+	\item premere il pulsante "Create" per confermare la creazione del requisito.
+\end{enumerate}
 
 \subsubsubsection{UML}
 Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
