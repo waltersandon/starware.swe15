@@ -603,8 +603,7 @@ L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenz
 
 \subsection{Verifica}
 
-\TODO{aggiungere aderenza alle metriche pdq }
-La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico, ed è a supporto degli altri processi e attività. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
+La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico rispettando le metriche definite nel \PdQ{}. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
 \subsubsection{Documentazione}
 Il processo di verifica viene instanziato nel momento in cui l'output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \VRpl{} dell'inizio dell'attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l'attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall'ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un'accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
@@ -615,8 +614,7 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice \TODO{tool di controllo}
 	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR{} deve calcolare l’indice di leggibilità utilizzando lo strumento automatico fornito nel \mgls{makefile}. Nel caso in cui l’indice risultasse troppo basso, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse;
 	\item \textbf{Miglioramento del processo di verifica:} quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
-	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{ticket}
-	\TODO{chiedere a nicola per la sezione di ticketing}
+	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
 
 \subsubsection{Analisi statica}
@@ -690,7 +688,7 @@ Metodo di gestione del problema:
 	\label{tabCalssificazioneProb}
 \end{table}
 
-\subsubsection{Gestione dei problemi}
+\subsubsection{Gestione dei problemi}\label{gestioneDeiProblemi}
 Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il gruppo ha deciso di utilizzare  di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
 
 Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
