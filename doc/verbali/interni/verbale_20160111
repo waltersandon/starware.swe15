@@ -1,0 +1,27 @@
+Verbale Riunione 11-01-2016
+
+1) Glossario:
+  Stesura: Walter e Thomas
+  Veifica: trovare/fare script che verificano che tutti i termini nel glossary.tex siano stati sempre riportati con macro per il glossario (nel futuro se abbiamo tempo)
+  
+2) Gulpease:
+  Problema col sito, provare lo script degli Steakholder (Alessio)
+
+3) Norme di Progetto:
+  Scrivere come va fatta la validazione
+  Scrivere come va fatta la verifica del sistema -> test a mano degli usercase
+  Spostare su NdP come si calcolano gli indici
+  Solo il responsabile potrà pushare su Master
+  
+4) Braches:
+  Dopo la consegna RR verrà sincronizzato tutto con Master e Naughty e solo il responsabile potrà pushare su Master
+  
+5) Mail Zucchetti:
+  Domanda Wikipedia/Applicazione (Nicola)
+  Incontro entro la data di consegna
+  
+6) Analisi dei Requisiti:
+  Tracy fa tutto quello che ci serve e anche tabelle/elechi ma necessita di replaces per lo stile
+  Trovarci tutti i giorni questa settimana per fare user case e requisiti
+  
+  
