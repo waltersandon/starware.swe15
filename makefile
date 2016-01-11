@@ -19,7 +19,7 @@ RR_PDF		= pdfs/1_RR
 OUT_RR		= ../../../../$(RR_PDF)
 OUT_RR_BACK	= ../../../$(RR_PDF)
 
-P2L		= pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -synctex=1
+P2L		= texfot pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -synctex=1
 MKG		= makeglossaries
 
 rr: mkdir-rr compile-rr
