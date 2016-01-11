@@ -1,300 +1,260 @@
 %pdflatex -synctex=1 -interaction=nonstopmode %.tex|makeglossaries %|pdflatex -synctex=1 -interaction=nonstopmode %.tex|pdflatex -synctex=1 -interaction=nonstopmode %.tex
 \makeglossary
 
-\newglossaryentry{project manager} {
-	name=project Manager,
-	description={il project manager \TODO{}}
-	plural=project managers
+\newglossaryentry{responsabile} {
+	name=Responsabile,
+	description={è il responsabile della gestione, pianificazione e realizzazione del progetto.},
+	plural=Responsabili
 }
 
 \newglossaryentry{verificatore} {
-	name=verificatore,
-	description={il verificatore \TODO{}}
-	plural=verificatori
+	name=Verificatore,
+	description={è il responsabile dell'attività di verifica.},
+	plural=Verificatori
 }
 
 \newglossaryentry{programmatore} {
-	name=programmatore,
-	description={il programmatore \TODO{}}
+	name=Programmatore,
+	description={è responsabile delle attività di codifica miranti alla realizzazione del prodotto e delle componenti di ausilio necessarie per l'esecuzione delle prove di verifica e validazione.},
 	plural=programmatori
 }
 
 \newglossaryentry{progettista} {
-	name=progettista,
-	description={il progettista \TODO{}}
-	plural=progettisti
+	name=Progettista,
+	description={è responsabile delle attività di progettazione.},
+	plural=Progettisti
 }
 
 \newglossaryentry{analista} {
-	name=analista,
-	description={l'analista \TODO{}}
-	plural=analisti
+	name=Analista,
+	description={è responsabile delle attività di analisi. },
+	plural=Analisti
 }
 
 \newglossaryentry{amministratore} {
-	name=amministratore,
-	description={l'amministratore \TODO{}}
-	plural=amministratori
-}
-
-\newglossaryentry{responsabile} {
-	name=responsabile,
-	description={l'amministratore \TODO{}}
-	plural=responsabili
+	name=Amministratore,
+	description={è responsabile dell'efficienza e dell'operatività dell'ambiente di sviluppo; si occupa della redazione e attuazione di piani e procedure di gestione della qualità; inoltre gestisce l'archivio della documentazione del progetto.},
+	plural=Amministratori
 }
 
 \newglossaryentry{revisione dei requisiti} {
-	name=revisione dei requisiti,
-	description={la revisione dei requisiti \TODO{}}
+	name=Revisione dei requisiti,
+	description={è una revisione formale che determina l'accesso del gruppo al progetto didattico e la concordanza con il cliente di una visione condivisa del prodotto atteso.}
 }
 
 \newglossaryentry{revisione di accettazione} {
-	name=revisione di accettazione,
-	description={la revisione di accettazione \TODO{}}
+	name=Revisione di accettazione,
+	description={è una revisione formale per l'accertamento del soddisfacimento di tutti i requisiti e il completamento del progetto.}
 }
 
 \newglossaryentry{revisione di progettazione} {
-	name=revisione di progettazione,
-	description={la revisione di progettazione \TODO{}}
+	name=Revisione di progettazione,
+	description={è una revisione di progresso che accerta la realizzabilità del prodotto e informa il cliente sulle caratteristiche del prodotto.}
 }
 
 \newglossaryentry{revisione di qualifica} {
-	name=revisione di qualifica,
-	description={la revisione di qualifica \TODO{}}
-}
-
-\newglossaryentry{glossario} {
-	name=glossario,
-	description={il glossario \TODO{}}
-}
-
-\newglossaryentry{piano di qualifica} {
-	name=piano di qualifica,
-	description={il piano di qualifica \TODO{}}
-}
-
-\newglossaryentry{piano di progetto} {
-	name=piano di progetto,
-	description={il piano di progetto \TODO{}}
-}
-
-\newglossaryentry{analisi dei requisiti} {
-	name=analisi dei requisiti,
-	description={l'analisi dei requisiti \TODO{}}
-}
-
-\newglossaryentry{studio di fattibilita} {
-	name=studio di fattibilità,
-	description={lo stidio di fattibilità \TODO{}}
-}
-
-\newglossaryentry{norme di progetto} {
-	name=norme di progetto,
-	description={le norme di progetto \TODO{}}
+	name=Revisione di qualifica,
+	description={è una revisione di progresso che approva l'esito finale delle verifiche e attiva la fase di validazione.}
 }
 
 \newglossaryentry{analisi} {
-	name=analisi,
-	description={\TODO{}}
+	name=Analisi,
+	description={è il periodo di preparazione e produzioni di documenti che precede la Revisione dei requisiti.}
 }
 
-\newglossaryentry{progettazione architetturale} {
-	name=progettazione architetturale,
-	description={\TODO{}}
+\newglossaryentry{progettazione architetturale e di dettaglio} {
+	name=Progettazione architetturale e di dettaglio,
+	description={è il periodo che intercorre tra la Revisione dei requisiti e la Revisione di progettazione.}
 }
 
-\newglossaryentry{progettazione di dettaglio e codifica} {
-	name=progettazione di dettaglio e codifica,
-	description={\TODO{}}
+\newglossaryentry{codifica} {
+	name=Codifica,
+	description={è il periodo che intercorre tra la Revisione di progettazione e la Revisione di qualifica.}
 }
 
 \newglossaryentry{verifica e validazione} {
-	name=verifica e validazione,
-	description={\TODO{}}
+	name=Verifica e validazione,
+	description={è il periodo che intercorre tra la Revisione di qualifica e la Revisione di accettazione.}
 }
 
 \newglossaryentry{repository} {
-	name=repository,
-	description={\TODO{}}
+	name=Repository,
+	description={è dove i file sono memorizzati, spesso su un server.}
 }
 
-\newglossaryentry{ruoli} {
-	name=ruoli,
-	description={i ruoli\TODO{}}
+\newglossaryentry{ruolo} {
+	name=Ruolo,
+	description={una delle  gure professionali che una persona  sica interpreta nel corso del progetto. I ruoli sono: responsabile, amministratore, analista, progettista, programmatore e veri catore.},
+    plural=ruoli
 }
 
-\newglossaryentry{svg} {
+\newglossaryentry{SVG} {
 	name=SVG,
-	description={\TODO{}}
+	description={è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.}
 }
 
-\newglossaryentry{png} {
+\newglossaryentry{PNG} {
 	name=PNG,
-	description={\TODO{}}
+	description={abbreviazione di Portable Network Graphics, è un formato di file per memorizzare immagini. Per ulteriori informazioni si veda http://it.wikipedia.org/wiki/Portable_Network_Graphics.}
 }
 
-\newglossaryentry{pdf} {
+\newglossaryentry{PDF} {
 	name=PDF,
-	description={\TODO{}}
+	description={è un formato di file basato su un linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare documenti in modo indipendente dall’hardware e dal software utilizzati per generarli o per visualizzarli. Per ulteriori informazioni si veda http: //it.wikipedia.org/wiki/Portable_Document_Format.}
 }
 
-\newglossaryentry{uml} {
+\newglossaryentry{UML} {
 	name=UML,
-	description={\TODO{}}
+	description={è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. Per ulteriori informazioni si veda http://it.wikipedia.org/wiki/Unified_Modeling_Language.}
 }
 
 \newglossaryentry{walkthrough} {
-	name=walkthrough,
-	description={\TODO{}}
+	name=Walkthrough,
+    description={consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.}
 }
 
 \newglossaryentry{lista di controllo} {
-	name=lista di controllo,
-	description={\TODO{}}
+	name=Lista di controllo,
+	description={è un elenco di cose da fare per eseguire una determinata attività.}
 }
 
 \newglossaryentry{inspection} {
-	name=inspection,
-	description={\TODO{}}
+	name=Inspection,
+	description={è la lettura mirata di un documento o codice cercando errori specifici.}
 }
 
 \newglossaryentry{milestone} {
-	name=milestone,
-	description={\TODO{}}
+	name=Milestone,
+	description={momento saliente nello sviluppo di un prodotto software per la quale devono essere pronti documenti e/o funzionalità.}
 }
 
 \newglossaryentry{ticket} {
-	name=ticket,
-	description={\TODO{}}
+	name=Ticket,
+	description={rappresenta un compito nell'organizzazione e distribuzione del lavoro all'interno del progetto.},
 	plural=tickets
 }
 
 \newglossaryentry{commit} {
-	name=commit,
-	description={\TODO{}}
+	name=Commit,
+	description={è la copia di modifiche fatte su file locali verso la repository remota. Esso rappresenta anche un particolare stato della repository nel tempo.}
 }
 
 \newglossaryentry{versionamento} {
-	name=versionamento,
-	description={\TODO{}}
+	name=Versionamento,
+	description={è la gestione di un versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.}
 }
 
 \newglossaryentry{task} {
-	name=task,
-	description={\TODO{}}
+	name=Task,
+	description={è un compito secondo la definizione dello standard IEEE 12207.},
 	plural=tasks
 }
 
+\newglossaryentry{attivita} {
+	name=attivita,
+	description={è un insieme di task.}
+}
+
 \newglossaryentry{redattore} {
-	name=redattore,
-	description={\TODO{}}
+	name=Redattore,
+	description={colui che redige un documento.},
 	plural=redattori
 }
 
 \newglossaryentry{proponente} {
-	name=proponente,
-	description={\TODO{}}
+	name=Proponente,
+	description={colui che ha proposto al committente un capitolato d'appalto.}
 }
 
 \newglossaryentry{committente} {
-	name=committente,
-	description={\TODO{}}
+	name=Committente,
+	description={colui che assegna un compito. In questo caso è il Professor Tullio Vardanega.}
 }
 
 \newglossaryentry{quality assurance} {
-	name=quality assurance,
-	description={\TODO{}}
+	name=Quality assurance,
+	description={è l'insieme delle attività volte a garantire il soddisfacimento degli obiettivi della qualità.}
 }
 
 \newglossaryentry{telegram} {
-	name=telegram,
-	description={\TODO{}}
+	name=Telegram,
+	description={è un servizio di messaggistica istantanea utilizzato dal gruppo per comunicazioni interne. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Telegram_(software)}{qui}.}
 }
 
 \newglossaryentry{browser} {
-	name=browser,
-	description={\TODO{}}
+	name=Browser,
+	description={è un'applicazione per il recupero, la presentazione e la navigazione di risorse web.}
 }
 
-\newglossaryentry{Google Drive} {
+\newglossaryentry{google drive} {
 	name=Google Drive,
-	description={\TODO{}}
+	description={è un servizio di memorizzazione e sincronizzazione online introdotto da Google il 24 aprile 2012. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Drive}{qui}.}
 }
 
 \newglossaryentry{skype} {
-	name=skype,
-	description={\TODO{}}
+	name=Skype,
+	description={è un software proprietario freeware di messaggistica istantanea e VoIP. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Skype}{qui}.}
 }
 
 \newglossaryentry{gantt} {
-	name=gantt,
-	description={\TODO{}}
+	name=Gantt,
+	description={è un diagramma di supporto alla gestione dei progetti.}
 }
 
 \newglossaryentry{projectlibre} {
 	name=ProjectLibre,
-	description={\TODO{}}
+	description={è un software di gestione progettuale.}
 }
 
 \newglossaryentry{PERT} {
 	name=PERT,
-	description={\TODO{}}
+	description={è uno strumento volto alla programmazione delle attività che compongono il progetto e, più in generale, alla gestione degli aspetti temporali di quest'ultimo.}
 }
 
 \newglossaryentry{subtask} {
-	name=subtask,
-	description={\TODO{}}
+	name=Subtask,
+	description={è un task compreso all'interno di un altro task. La totalità di tutti i subtasks costituisce un intero task.}
 	plural=subtasks
 }
 
-\newglossaryentry{subtasking} {
-	name=subtasking,
-	description={\TODO{}}
-}
-
 \newglossaryentry{ticketing} {
-	name=ticketing,
-	description={\TODO{}}
-}
-
-\newglossaryentry{attivita} {
-	name=attività,
-	description={\TODO{}}
+	name=Ticketing,
+	description={procedura con la quale il Responsabile assegna un task.}
 }
 
 \newglossaryentry{git} {
-	name=git,
-	description={\TODO{}}
+	name=Git,
+	description={è un sistema software di controllo di versione distribuito}
 }
 
 \newglossaryentry{Quizzpedia} {
 	name=Quizzpedia,
-	description={\TODO{}}
+	description={è il nome del prodotto software richiesto dal capitolato d'appalto scelto.}
 }
 
 \newglossaryentry{schierabile} {
-	name=schierabile,
-	description={\TODO{}}
+	name=Schierabile,
+	description={è la capacità di rilasciare al cliente, con relativa installazione e messa in funzione o esercizio, di una applicazione o di un sistema software tipicamente all'interno di un sistema informatico aziendale.}
 }
 
 \newglossaryentry{cross-platform} {
-	name=cross-platform,
-	description={\TODO{}}
+	name=Cross-platform,
+	description={può essere riferito ad un linguaggio di programmazione, ad un'applicazione software o ad un dispositivo hardware che funziona su più di un sistema.}
 }
 
 \newglossaryentry{QML} {
 	name=QML,
-	description={\TODO{}}
+	description={è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.}
 }
 
 \newglossaryentry{Tomcat} {
 	name=Tomcat,
-	description={\TODO{}}
+	description={è un application server nella forma di contenitore servlet open source sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.}
 }
 
 \newglossaryentry{Java} {
 	name=Java,
-	description={\TODO{}}
+	description={è un linguaggio di programmazione orientato agli oggetti, specificatamente progettato per essere il più possibile indipendente dalla piattaforma di esecuzione. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)}{qui}.}
 }
 
 \newglossaryentry{Node.js} {
