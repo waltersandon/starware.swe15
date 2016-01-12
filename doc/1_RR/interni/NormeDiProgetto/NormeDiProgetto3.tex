@@ -196,10 +196,10 @@ Il processo di sviluppo è un insieme di attività e task necessari per lo svilu
 \subsubsection{Analisi dei requisiti}
 Gli Analisti dovranno produrre l'\AdR{} basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione. Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
 
-\subsubsubsection{Casi d'uso}
+\subsubsubsection{Struttura di un caso d'uso}
 I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
 \begin{center}
-	UC[codice] - [Titolo]
+	UC[codice]: [Titolo]
 \end{center}
 dove il \textbf{codice} è un numero progressivo identificativo di ogni requisito, gerarchico nel  caso di sotto-casi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
 \begin{itemize}
@@ -211,8 +211,8 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 	\item \textbf{Requisiti} collegati al Caso d'uso
 \end{itemize}
 
-\subsubsubsection{Classificazione dei Requisiti}
-È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente codifica:
+\subsubsubsection{Struttura di un requisito}
+È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
 \begin{center}
 	R[importanza][tipo][codice]
 \end{center}
@@ -223,19 +223,24 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 		\item[1:] Requisito desiderabile
 		\item[2:] Requisito opzionale
 	\end{description}
-\end{itemize}
-\begin{itemize}
 	\item \textbf{Tipo} può assumere i seguenti valori:
 	\begin{description}
 		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
 		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
-\end{itemize}
-\begin{itemize}
 	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+	\item \textbf{Validazione:}	\TODO{}
+	\item \textbf{Test:} \TODO{}
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
 
+\subsubsubsection{Struttura di una fonte}
+Ogni fonte deve avere la seguente struttura:
+\begin{itemize}
+	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma "\textbf{UC#}" dove il carattere "\textbf{#}" rappresenta un numero incrementale.
+	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso
+	\item \textbf{Descrizione} descrizione sintetica della fonte
+\end{itemize}
 
 \subsubsection{Progettazione architetturale}
 La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione. L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requisti individuati durante il processo di analisi e descrive a tutti gli \mgls{stakeholder} la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali
@@ -264,36 +269,6 @@ Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gr
 \subsubsubsection{Tracciamento dei requisiti}
 Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
-\paragraph{Struttura di un caso d'uso}
-Ogni caso d'uso deve avere la seguente struttura:
-\begin{itemize}
-	\item \textbf{Identificativo:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma \textbf{"UC\#"} dove il carattere \textbf{"\#"} rappresenta un numero incrementale.
-	\item \textbf{Titolo:} Un titolo breve, sintetico e descrittivo
-	\item \textbf{Pre-condizione:} descrizione sintetica della condizione preliminare rispetto alla possibilità di realizione del caso d'uso
-	\item \textbf{Post-condizione:}	descrizione sintetica della condizione che deve essere vera al verificarsi del caso d'uso
-\end{itemize}
-	
-\paragraph{Struttura di una fonte}
-Ogni fonte deve avere la seguente struttura:
-\begin{itemize}
-	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma "\textbf{UC#}" dove il carattere "\textbf{#}" rappresenta un numero incrementale.
-	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso
-	\item \textbf{Descrizione} descrizione sintetica della fonte
-\end{itemize}
-
-\paragraph{Struttura di un requisito}
-Ogni requisito deve avere la seguente struttura:
-\begin{itemize}
-	\item \textbf{Identificativo:} ogni requisito deve essere identificato in modo univoco.
-	\item \textbf{Categoria:} identifica la categoria del requisito: "Funzionale" , "Qualità", "Prestazionale" o "Vincolo"
-	\item \textbf{Priorità:} identifica la priorità del requisito: "Obbligatorio", "Opzionale" o "Desiderabile"
-	\item \textbf{Descrizione:}	descrizione sintetica del requisito
-	\item \textbf{Validazione:}	\TODO{}
-	\item \textbf{Test:} \TODO{}
-	
-\end{itemize}
-
-
 \paragraph{Aggiunta di un nuovo caso d'uso}
 Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessario eseguire seguenti passi:
 \begin{enumerate}
@@ -303,16 +278,6 @@ Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessar
 	\item nel caso il caso d'uso possedesse un padre impostare "Parent";
 	\item impostare la descrizione , la pre-condizione e la post-condizione del caso d'uso; 
 	\item premere il pulsante "Create" per confermare la creazione del caso d'uso.
-\end{enumerate}
-
-\paragraph{Aggiunta di un nuova fonte}
-Per aggiungere una nuova fonte, che servirà per identificare da dove si è identificato un requisito, è necessario eseguire i seguenti passi: 
-\begin{enumerate}
-	\item eseguire l'accesso a \mgls{tracy};
-	\item selezionare "Sources" nella sezione "Analisi Requisiti";
-	\item selezionare "Create External Source" dal menu "Operations";
-	\item impostare "Description"; 
-	\item premere il pulsante "Create" per confermare la creazione della fonte.
 \end{enumerate}
 
 \paragraph{Aggiunta di un nuovo requisito}
@@ -326,6 +291,16 @@ Per aggiungere un nuovo requisito al progetto è necessario eseguire i seguenti 
 	\item nel caso il requisito possedesse un padre fonte "Sources";
 	\item impostare "Description"; 
 	\item premere il pulsante "Create" per confermare la creazione del requisito.
+\end{enumerate}
+
+\paragraph{Aggiunta di un nuova fonte}
+Per aggiungere una nuova fonte, che servirà per identificare da dove si è identificato un requisito, è necessario eseguire i seguenti passi: 
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare "Sources" nella sezione "Analisi Requisiti";
+	\item selezionare "Create External Source" dal menu "Operations";
+	\item impostare "Description"; 
+	\item premere il pulsante "Create" per confermare la creazione della fonte.
 \end{enumerate}
 
 \subsubsubsection{UML}
