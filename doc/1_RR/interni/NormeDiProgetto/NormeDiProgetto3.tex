@@ -138,6 +138,15 @@ Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione 
 \newpage
 
 \section{Processi primari}
+I processi base sono formati dai seguenti sotto processi:
+\begin{enumerate}
+\item Processi dell'acquirente
+\item Processi del fornitore
+\item Processi di sviluppo
+\item Processi operativi
+\item Processi di manutenzione
+\end{enumerate}
+Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del fornitore e di sviluppo, poiché i processi  dell'acquirente non riguardano il team e le fasi operative e di manutenzione non verranno trattate.
 
 \subsection{Processi del fornitore}
 
@@ -256,13 +265,10 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
 
 \subsubsection{Progettazione di dettaglio}
-\TODO{}
+Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo dirante la fase di progettazione.
 
 \subsubsection{Codifica}
-\TODO{}
-
-\subsubsection{Test}
-\TODO{PdQ}
+Le norme di progetto saranno ampliate con questa sezione non appena verranno concordate dal gruppo successivamente alla fase di progettazione.
 
 \subsubsection{Strumenti}
 
@@ -589,8 +595,8 @@ Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessar
 
 \paragraph{Branches} vengono definiti due \mglspl{branch} all'interno della \mgls{repository}:
 \begin{itemize}
-	\item \textbf{master:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica
-	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora incompleti che sono in fase di sviluppo. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \mgls{branch} master. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \mgls{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può essere messa anche nel \mgls{branch} master
+	\item \textbf{master:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica. Solo il \RE{} può fare il \mgls{push} su questo \mgls{branch}
+	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora incompleti che sono in fase di sviluppo. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \mgls{branch} master. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \mgls{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può esserne richiesto l'aggiornamento anche nel \mgls{branch} master
 \end{itemize}
 Per approfondimenti e una guida all'uso di \mgls{git} si veda \url{https://git-scm.com/docs/}.
 
@@ -648,8 +654,8 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \mgls{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \mgls{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice \TODO{tool di controllo}
-	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò segnala l'utilizzo del applicazione web \url{http://labs.translated.net/leggibilita-testo/}. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un walkthrough del documento alla ricerca delle frasi troppo lunghe o complesse
-	\item \textbf{Miglioramento del processo di verifica:} Quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
+	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò segnala l'utilizzo del applicazione web \url{http://labs.translated.net/leggibilita-testo/} \TODO{mettere script}. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse
+	\item \textbf{Miglioramento del processo di verifica:} Quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati nella \mgls{lista di controllo}. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
 
@@ -663,9 +669,18 @@ Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'i
 \subsubsection{Analisi dinamica}
 L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
 
+\subsubsection{Strumenti}
+\TODO{indici}
+
+\[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
+
+\[CostVariance [\%] = \frac{EV - AC}{EV}\]
 
 \subsection{Validazione}
-\TODO{}
+\TODO{user case a mano}
+
+\TODO{requisiti minimi verificati}
+
 \subsection{Risoluzione dei problemi}
 
 \subsubsection{Classificazione dei problemi}
@@ -1036,7 +1051,6 @@ La seguente lista vuole riassumere invece gli  errori più frequenti rilevati du
 	\item ad ogni requisito deve corrispondere almeno una fonte; 
 	\item la fonte “Capitolato” non deve comparire nei requisiti interni; 
 	\item deve esserci copertura totale del capitolato nei requisiti;
-	%\item la \mgls{checkbox} \mgls{appointed} deve essere spuntata solo nei requisiti opzionali e desiderabili presi in carico;
 	\item devono essere impostate le corrette relazioni di parentela tra requisiti in \mgls{tracy}; 
 	\item devono essere impostate le corrette relazioni di parentela tra casi d’uso in \mgls{tracy}; 
 	\item in \mgls{tracy} deve essere indicato almeno un attore in ogni caso d’uso;
