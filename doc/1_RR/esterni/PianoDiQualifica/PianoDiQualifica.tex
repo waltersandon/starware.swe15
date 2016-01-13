@@ -30,7 +30,7 @@
 \begin{Huge}
 \textbf{\nomeGruppo} \\
 \end{Huge}
-\textbf{\prjL} \\
+\textbf{\prjL{}} \\
 \vspace{1cm}
 \includegraphics[scale=0.5]{\logoGrande}
 \vspace{1cm}
@@ -53,15 +53,16 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	& \AB \\
-\ 	& \AVI \\
-\ 	& \IB \\
-\textbf{Verifica}	&	Mr Q	\\
-\textbf{Approvazione}	& \IB \\
-\textbf{Lista distribuzione}	&	\nomeGruppo	\\
-\ 	&	\Vardanega	\\
-\ 	&	\Cardin	\\
-\ 	&	Il proponente \Zucchetti	\\
+\textbf{Redazione}	& \AB{} \\
+\ 	& \AVI{} \\
+\ 	& \IB{} \\
+\textbf{Verifica}	&	\AVE{}	\\
+\ 	& \NDC{} \\
+\textbf{Approvazione}	& \IB{} \\
+\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
+\ 	&	\Vardanega{}	\\
+\ 	&	\Cardin{}	\\
+\ 	&	Il proponente \Zucchetti{}	\\
 
 \end{tabular}
 \end{center}
@@ -82,15 +83,15 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.1.0 & \NDC & 2016-01-02 & Prima verifica \\
+1.1.0 & \NDC{} & 2016-01-02 & Prima verifica \\
 \midrule
-1.0.3 & \AB & 2016-01-02 &  Stesura da Introduzione a Analisi di qualità\\
+1.0.3 & \AB{} & 2016-01-02 &  Stesura da Introduzione a Analisi di qualità\\
 \midrule
-1.0.2 & \IB & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
+1.0.2 & \IB{} & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
 \midrule
-1.0.1 & \AVI & 2015-12-29 &  Misure e Metriche \\
+1.0.1 & \AVI{} & 2015-12-29 &  Misure e Metriche \\
 \midrule
-1.0.0 & \IB & 2015-12-27 &  Creazione documento \\
+1.0.0 & \IB{} & 2015-12-27 &  Creazione documento \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -108,7 +109,7 @@
 
 \section{Introduzione}
 \subsection{Scopo del documento}
-Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra il perseguemento del modello PDCA e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard ISO/IEC 9003:2004 per la qualità di processo e allo standard ISO/IEC 9126 per la qualità di prodotto.
+Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra il perseguemento del modello \mgls{pdca} e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto.
 Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
 
 \subsection{Descrizione Prodotto}
@@ -118,7 +119,7 @@ Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somminist
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) e, se cliccata, porta direttamente alla definizione.
 
 \subsection{Riferimenti}
-//TO DO \AB
+\TODO{ \AB{}}
 \subsubsection{Normativi}
 \begin{itemize}
 	\item \NdP
@@ -132,37 +133,35 @@ Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione 
 Il sistema di supporto alla qualità è l'apparato che definisce l'organizzazione e la struttura delle procedure finalizzate alla qualità. Come suggerito dagli standard per la qualità di decide di adottare una suddivisone tra qualità di processo e qualità di prodotto. Secondo tale politica i successivi passi per il miglioramento dei processi sono i seguenti: 
 
 \begin{enumerate}
-	\item \textbf {Definizione degli obiettivi.} Gli obiettivi devono essere specificati in modo chiaro e conciso. Devono essere misurabili e quantificabili.
-	\item \textbf{Definizione dei metodi di adempimento degli obiettivi definiti.} Ad ogni obiettivo deve corrispondere in modo chiaro il relativo metodo di adempimento. Nel caso tale metodo preveda dei test quantitativi devono essere chiare le metriche da utilizzare ed i risultati da ottenere.
-	\item \textbf{Pianificazione preventiva dei processi.} La pianificazione deve avvenire in modo preventivo, con l'utilizzo di strumenti di collaborazione adeguati. A tale scopo è dedicata la sezione \NdP. Devono essere definite milestone e scadenze in modo opportuno.  
-	\item \textbf{Acquisizione di dati relativi alla qualità dei processi.} Nel caso di misure quantitative e test siano stati ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata la sezione di questo documento. vedi \PdQ.
-	
-	\item \textbf{Verifica dello stato di qualità dei processi e pianificazione di miglioramenti mirati.}
-	Sono definiti in prossimità delle date di \RR, \RA, \RP, \RQ dei momenti in cui il gruppo, raccogliendo i commenti del proponente \Zucchetti e del \Vardanega, rifletteranno sul miglioramento apportatile al prodotto e ai processi di supporto.
-	
+	\item \textbf {Definizione degli obiettivi:} Gli obiettivi devono essere specificati in modo chiaro e conciso. Devono essere misurabili e quantificabili
+	\item \textbf{Definizione dei metodi di adempimento degli obiettivi definiti:} Ad ogni obiettivo deve corrispondere, in modo chiaro, il relativo metodo di adempimento. Nel caso tale metodo preveda dei test quantitativi devono essere chiare le metriche da utilizzare ed i risultati da ottenere
+	\item \textbf{Pianificazione preventiva dei processi:} La pianificazione deve avvenire in modo preventivo, con l'utilizzo di strumenti di collaborazione adeguati, per descrizione dei quali fare riferimento alle \NdP{}. Devono essere definite \mgls{milestone} e scadenze in modo opportuno
+	\item \textbf{Acquisizione di dati relativi alla qualità dei processi:} Nel caso di misure quantitative e test ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata la sezione \TODO{manca il ref alla sezione adeguata} di questo documento
+	\item \textbf{Verifica dello stato di qualità dei processi e pianificazione di miglioramenti mirati:}
+	Sono definiti in prossimità delle date della \RR{}, \RA{}, \RP{}, \RQ{} dei momenti in cui il gruppo, raccogliendo i commenti del proponente \Zucchetti{} e del \Vardanega{}, rifletteranno sul miglioramento apportatile al prodotto e ai processi di supporto
 \end{enumerate}
 
 \newpage
 
 \section{Qualità di processo}
 \paragraph{Utilizzo degli standard}
-La qualità di processo viene trattata secondo le linee guida dello standard ISO/IEC 90003:2004. Sono stati estratti, tra punti trattati nel documento di tale standard, tutti quelli che si ritenevano adeguati al caso in esame.
+La qualità di processo viene trattata secondo le linee guida dello standard \textit{ISO/IEC 90003:2004}. Sono stati estratti, tra punti trattati nel sopracitato standard, tutti quelli che si ritenevano adeguati al caso in esame.
 \subsection{Obiettivi di qualità di processo}
-Sono stati fissati gli obiettivi di qualità di processo di seguito descritti.Nella descrizione allegata ad ogni obiettivo sono esposte le misure intraprese per il suo adempimento. Tali misure vengono spesso ripresi nel dettaglio in altri documenti prodotti. Si rimanda in tal caso la trattazione esauriente a tale documento. 
-Nella trattazione della qualità di processo sono state preferite spesso misure preventive e verifiche a posteriori per evitare che una cattiva qualità di processo influisca negativamente sul sistema nel suo complesso.
+Sono stati fissati gli obiettivi di qualità di processo ed in seguito descritti.Nella descrizione allegata ad ogni obiettivo sono esposte le misure intraprese per il suo adempimento, le quali vengono spesso riprese in dettaglio su altri documenti prodotti, in tal caso la trattazione esauriente delle stesse è rimandata allo specifico documento. 
+Nella trattazione della qualità di processo vengono preferite misure preventive e verifiche a posteriori per evitare che una cattiva qualità di processo influisca negativamente sul sistema nel suo complesso.
 
 \paragraph{Comunicazione interna e con il proponente efficaci}
 \subparagraph{Metodi preventivi:}
 \begin{itemize}
-	\item Strumenti di Condivisione e canali di comunicazione prestabiliti e normati in modo dettagliato. Vedi \NdP{}.
-	\item Incontri regolari tra membri del gruppo (eventualmente via Skype).Vedi \NdP{}.
-	\item Incontri con il proponente se possibile.
-	\item Verbali per ogni incontro (interno o con proponente). Vedi \NdP{}
-	\item Disponibilità online di tutti i verbali di riunione.Vedi \NdP{}
-	\item Disponibilità della documentazione online. Vedi \NdP
-	\item Indirizzo e-mail di gruppo, accessibile ad ogni componente. Vedi \NdP{}
+	\item Strumenti di Condivisione e canali di comunicazione prestabiliti;
+	\item Incontri regolari tra membri del gruppo;
+	\item Incontri con il proponente se possibile;
+	\item Verbali per ogni incontro (interno o con proponente);
+	\item Distribuzione online di tutti i verbali di riunione;
+	\item Disponibilità della documentazione online attraverso \mgls{repository};
+	\item Indirizzo e-mail di gruppo, accessibile ad ogni componente.
 \end{itemize}
-
+Ognuno dei sopracitati punti viene descritto in modo dettagliato nelle \NdP{}.
 \paragraph{Suddivisione delle attività in processi}
 \subparagraph{Metodi preventivi:}
 \begin{itemize}
