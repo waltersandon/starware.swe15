@@ -2,13 +2,6 @@
 \input{../../../template/stile.sty}
 \input{../../../glossario/glossario.tex}
 
-% Manca macro per:
-%   specifica tecnica
-%   glossario
-%   lettera di presentazione
-%   Definizione di Prodotto
-%   Manuale Utente
-
 %Titolo documento
 \newcommand{\titoloDocumento}{Piano di Progetto}
 
@@ -16,7 +9,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.8}
+\newcommand{\versione}{1.2.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -401,7 +394,7 @@ Qui viene proposto il sommario
 
 \begin{table}[H]
 	\begin{center}
-		\begin{tabular}{l r c r}
+		\begin{tabular}{l r r}
 			\toprule
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro)} \\ \midrule
 			\midrule
@@ -636,6 +629,73 @@ Le sotto attività svolte sono:
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FA{}}
 	\end{figure}
 \end{center}
+
+\subsection{Consuntivo}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} & 6 & 2 & 8 & & & 7 & 23 \\
+			\midrule
+			\AB{} & & 6 & 11 & & & 6 & 23 \\
+			\midrule
+			\NDC{} & 6 & 7 & 3 & & & 7 & 23 \\
+			\midrule
+			\TP{} & & 6 & 12 & & & 5 & 23 \\
+			\midrule
+			\WS{} & & 6 & 12 & & & 5 & 23 \\
+			\midrule
+			\AVE{} & & 7 & 11 & & & 5 & 23 \\
+			\midrule
+			\AVI{} & & 4 & 9 & & & 10 & 23 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FA{}}
+	\end{center}
+\end{table}
+
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\
+			\midrule
+			\midrule
+			\RE{} & 12 & 30 & 360.00\\
+			\midrule
+			\AM{} & 40 & 20 & 800.00\\ 
+			\midrule
+			\AN{} & 66 & 25 & 1 650.00\\ 
+			\midrule
+			\PG{} & & 22 & 0.00\\ 
+			\midrule
+			\PR{} & & 15 & 0.00\\ 
+			\midrule
+			\VR{} & 43 & 15 & 645.00\\ 
+			\midrule
+			\midrule
+			\textbf{Totale preventivo} & \textbf{140} &  & \textbf{3 455.00}\\
+			\midrule
+			\textbf{Totale preventivo} & \textbf{140} &  & \textbf{3 455.00}\\
+			\midrule
+			\textbf{Differenza} & \textbf{140} &  & \textbf{3 455.00}\\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FA{}}
+	\end{center}
+\end{table}
 
 \newpage
 
@@ -1000,19 +1060,19 @@ Le sotto attività sono:
 			\midrule
 			VV4.2 & Verifica & \RE{} \newline \VR{}  & 4 \newline 3 \\
 			\midrule
-			\textbf{VV5} & \textbf{Definizione di Prodotto} & & \\
+			\textbf{VV5} & \textbf{\DP} & & \\
 			\midrule
 			VV5.1 & Incremento & \PG{} & 6\\
 			\midrule
 			VV5.2 & Verifica & \VR{} & 5 \\
 			\midrule
-			\textbf{VV6} & \textbf{Specifica Tecnica} & & \\
+			\textbf{VV6} & \textbf{\ST} & & \\
 			\midrule
 			VV6.1 & Incremento & \PG{} & 7\\
 			\midrule
 			VV6.2 & Verifica & \VR{} & 4 \\
 			\midrule
-			\textbf{VV7} & \textbf{Manuali Utente} & & \\
+			\textbf{VV7} & \textbf{\MU} & & \\
 			\midrule
 			VV7.1 & Incremento & \PG{} \newline \AM{} & 8 \newline 6 \\
 			\midrule
@@ -1112,10 +1172,6 @@ Le sotto attività sono:
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FVV{}}
 	\end{figure}
 \end{center}
-
-\newpage
-
-\section{Consuntivo}
 
 \newpage
 
