@@ -6,29 +6,20 @@ CASI D'USO
 	3.1 Invita docente
 	3.2 Rimuovi docente
 	3.3 Rimuovi studente
-	3.4 Impostazioni profilo
-	3.5 Logout
-4-Azioni Docente
+4-Gestione domande
 	4.1 Inserire domanda
 	4.2 Modificare domanda
 	4.3 Eliminare domanda
-	4.4 Crea questionario
-	4.5 Modificare questionario
-	4.6 Eliminare questionario
-	4.7 Crea classe
-	4.8 Modificare classe
-	4.9 Eliminare classe
-	4.10 Impostazioni account
-		4.10.1 Aggiornare informazioni
-		4.10.2 Eliminare account
-	4.11 Logout
-5-Azioni Studente
-	5.1 Esegui questionario
-		5.1.1 Seleziona questionario pubblico
-		5.1.2 Seleziona questionario di una classe
-		5.1.3 Rispondi questionario(Post: Visualizza risultati)
-	5.2 Impostazioni account
-		5.2.1 Aggiornare informazioni
-		5.2.2 Eliminare account
-	5.3 Iscrizione ad una classe
-	5.4 LogOut
+5-Gestione questionari
+	5.1 Crea questionario
+	5.2 Modificare questionario
+	5.3 Eliminare questionario
+6-Gestione classi
+	6.1 Crea classe
+	6.2 Modificare classe
+	6.3 Eliminare classe
+7-Gestione account
+8-Esegui questionario
+	8.fatevoi
+9-Iscrizione ad una classe
+10-Logout
