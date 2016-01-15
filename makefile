@@ -14,7 +14,7 @@ ADR_FILE	= AnalisiDeiRequisiti
 LDP_FILE	= LetteraDiPresentazione
 PDP_FILE	= PianoDiProgetto
 PDQ_FILE	= PianoDiQualifica
-NDP_FILE	= NormeDiProgetto3
+NDP_FILE	= NormeDiProgetto
 SDF_FILE	= StudioDiFattibilita
 
 RR_PDF		= pdfs/1_RR
