@@ -187,8 +187,6 @@ Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOf
 	ciascuna risorsa.
 \end{itemize}
 
-Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
-
 \subsection{Processi di sviluppo}
 
 \subsubsection{Scopo}
@@ -238,17 +236,22 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
 	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
-	\item \textbf{Validazione:}	\TODO{}
-	\item \textbf{Test:} \TODO{}
+	\item \textbf{Validazione:}	verrà inserito un link al metodo deciso per validare il requisito
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
 
 \subsubsubsection{Struttura di una fonte}
 Ogni fonte deve avere la seguente struttura:
 \begin{itemize}
-	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma "\textbf{UC#}" dove il carattere "\textbf{#}" rappresenta un numero incrementale.
+	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma \textbf{UC#} dove il carattere \textbf{#} rappresenta un numero incrementale.
 	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso
-	\item \textbf{Descrizione} descrizione sintetica della fonte
+	\item \textbf{Descrizione:} descrizione sintetica della fonte
+\end{itemize}
+
+\subsubsubsection{Struttura di un metodo di validazione}
+Ogni metodo di validazione deve avere la seguente struttura:
+\begin{itemize}
+	\item \textbf{Descrizione:} descrizione sintetica della metodo di validazione
 \end{itemize}
 
 \subsubsection{Progettazione architetturale}
@@ -272,41 +275,52 @@ Le norme di progetto saranno ampliate con questa sezione non appena verranno con
 
 \subsubsection{Strumenti}
 
-\subsubsubsection{Tracciamento dei requisiti}
+\subsubsubsection{Tracciamento dei requisiti} \label{tracciamento-requisiti}
 Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
 \paragraph{Aggiunta di un nuovo caso d'uso}
 Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessario eseguire seguenti passi:
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
-	\item selezionare "Use Cases" nella sezione "Analisi Requisiti"; 
-	\item selezionare "Create Use Case" dal menu "Operations";
-	\item nel caso il caso d'uso possedesse un padre impostare "Parent";
+	\item selezionare Use Cases nella sezione Analisi Requisiti; 
+	\item selezionare Create Use Case dal menu Operations;
+	\item nel caso il caso d'uso possedesse un padre impostare Parent;
 	\item impostare la descrizione , la pre-condizione e la post-condizione del caso d'uso; 
-	\item premere il pulsante "Create" per confermare la creazione del caso d'uso.
+	\item premere il pulsante Create per confermare la creazione del caso d'uso.
 \end{enumerate}
 
 \paragraph{Aggiunta di un nuovo requisito}
 Per aggiungere un nuovo requisito al progetto è necessario eseguire i seguenti passi:
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
-	\item selezionare "Requirements" nella sezione "Analisi Requisiti";
-	\item selezionare "Create Reqirement" dal menu "Operations";
-	\item impostare i valori per :"Category", "Priority" e "Apported";
-	\item nel caso il requisito possedesse un padre impostare "Parent";
-	\item nel caso il requisito possedesse un padre fonte "Sources";
-	\item impostare "Description"; 
-	\item premere il pulsante "Create" per confermare la creazione del requisito.
+	\item selezionare Requirements nella sezione Analisi Requisiti;
+	\item selezionare Create Reqirement dal menu Operations;
+	\item impostare i valori per: Category, Priority e Apported;
+	\item nel caso il requisito possedesse un padre impostare Parent;
+	\item nel caso il requisito possedesse un padre fonte Sources;
+	\item impostare Description; 
+	\item impostare un metodo di validazione in Validation;
+	\item premere il pulsante Create per confermare la creazione del requisito.
 \end{enumerate}
 
 \paragraph{Aggiunta di un nuova fonte}
 Per aggiungere una nuova fonte, che servirà per identificare da dove si è identificato un requisito, è necessario eseguire i seguenti passi: 
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
-	\item selezionare "Sources" nella sezione "Analisi Requisiti";
-	\item selezionare "Create External Source" dal menu "Operations";
-	\item impostare "Description"; 
-	\item premere il pulsante "Create" per confermare la creazione della fonte.
+	\item selezionare Sources nella sezione Analisi Requisiti;
+	\item selezionare Create External Source dal menu Operations;
+	\item impostare Description; 
+	\item premere il pulsante Create per confermare la creazione della fonte.
+\end{enumerate}
+
+\paragraph{Aggiunta di una nuovo metodo di validazione}
+Per aggiungere un nuovo metodo di validazione, che servirà per identificare come validare un requisito, è necessario eseguire i seguenti passi: 
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Requirements nella sezione Analisi Requisiti;
+	\item selezionare Manage Validation Methods dal menu Operations;
+	\item impostare Description; 
+	\item premere il pulsante Create per confermare la creazione del nuovo metodo di validazione.
 \end{enumerate}
 
 \subsubsubsection{UML}
@@ -442,10 +456,10 @@ Al diario delle modifiche deve sempre seguire un indice delle sezioni e sottosez
 All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e delle figure. Nel caso non siano presenti figure o tabelle i rispettivi indici devono essere omessi.
 
 \subsubsubsection{Introduzione}
-Ogni documento deve essere provvisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate "Scopo" e "Descrizione". Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
+Ogni documento deve essere provvisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate Scopo e Descrizione. Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
 
 \subsubsubsection{Sezioni}
-I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione deve avere tue sottosezioni denominate "Scopo" e "Descrizione". Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di "Scopo" e "Descrizione".
+I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione deve avere tue sottosezioni denominate Scopo e Descrizione. Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di Scopo e Descrizione.
 
 \subsubsubsection{Formattazione delle pagine}
 L'intestazione di ogni pagina, apparte la prima, deve contenere:
@@ -537,7 +551,7 @@ Il piè di pagina deve contenere:
 	\item \textbf{URLs e Links:}  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
 	\item \textbf{Date e Orari:} le date e gli orari devono seguire la notazione definita dallo standard ISO\_8601\footnote{\url{http://www.iso.org/iso/iso8601}} YYYY-MM-DD per le date e HH:MM pe gli orari
 	\item \textbf{Quantità e Unità di misura:} le quantità e le unità di misura dovranno aderire allo standard ISO\_80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}
-	\item \textbf{Cifre:} le cifre devono seguire il seguente formato: "\num{10000.00}", dove il separatore delle migliaia è rappresentato attraverso uno spazio e il separatore per i decimali è rappresentato attraverso uno punto.
+	\item \textbf{Cifre:} le cifre devono seguire il seguente formato: \num{10000.00}, dove il separatore delle migliaia è rappresentato attraverso uno spazio e il separatore per i decimali è rappresentato attraverso uno punto.
 \end{itemize}
 
 \subsubsubsection{Tabelle}
@@ -662,24 +676,35 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 \subsubsection{Analisi statica}
 Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
 \begin{itemize}
-	\item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \textit{\mgls{walkthrough}} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \textit{\mgls{walkthrough}} a favore della tecnica di \textit{\mgls{inspection}};
-	\item \textbf{Inspection:} l'\textit{\mgls{inspection}} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \textit{\mgls{walkthrough}}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\textit{\mgls{inspection}} sempre più efficace;
+	\item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \mgls{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \mgls{walkthrough} a favore della tecnica di \mgls{inspection};
+	\item \textbf{Inspection:} l'\mgls{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \mgls{walkthrough}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\mgls{inspection} sempre più efficace;
 \end{itemize}
 
 \subsubsection{Analisi dinamica}
 L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
 
 \subsubsection{Strumenti}
-\TODO{indici}
-
-\[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
-
-\[CostVariance [\%] = \frac{EV - AC}{EV}\]
+\mGls{projectlibre} viene utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il \RE deve modificare i progetti creati nel modo seguente:
+\begin{enumerate}
+	\item inserire le colonne SV e CV;
+	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
+	\item modificare le risorse assegnate alle sotto-attività in base a quanto è stato consuntivato;
+	\item aggiornare il progetto alla data corrente.
+\end{enumerate}
 
 \subsection{Validazione}
-\TODO{user case a mano}
+\subsubsection{Documenti}
+La validazione dei documenti non è altro che l'approvazione a parte del \RE. Il responsabile legge il documento che è appena uscito da una fase di verifica, viene letto e se viene ritenuto completo per contenuti e maturità viene validato e quindi approvato. Un documento approvato non ha bisogno di segnalazione in nessuno strumento. Esso viene semplicemente messo nel \mgls{branch} master della \mgls{repository}.
 
-\TODO{requisiti minimi verificati}
+\subsubsection{Requisiti}
+La validazione dei requisiti va tracciata con \mgls{tracy}. Quando si crea un requisito, come spiegato nella sezione \ref{tracciamento-requisiti}, va inserita una descrizione che identifica il metodo di validazione. Durante la validazione i responsabili dovranno assicurarsi di applicare tale metodo per la validazione e se ritengono che il requisito è soddisfatto imposteranno il flag Apported a vero sul requisito tramite la seguente procedura:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Requirements nella sezione Analisi Requisiti;
+	\item selezionare Update del requisito;
+	\item selezionare la checkbox Apported;
+	\item \item premere il pulsante Save per confermare.
+\end{enumerate}
 
 \subsection{Risoluzione dei problemi}
 
@@ -903,6 +928,8 @@ Per pianificare le attività legate allo sviluppo del progetto e la gestione del
 	\item salvataggio su file \mGls{xml}: essendo un file testuale è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
 \end{itemize}
 
+Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
+
 \subsubsubsection{\mGls{projectlibre}}\label{projeclibre}
 Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazione del \PdP{} e procedere nel modo seguente:
 \begin{enumerate}
@@ -914,14 +941,6 @@ Il \PM deve creare un progetto per ogni fase indicata nella sezione Pianificazio
 	\item creare le risorse;
 	\item assegnare ad ogni attività le risorse necessarie;
 	\item salvare la \mgls{baseline}.
-\end{enumerate}
-
-\mgls{projectlibre} viene anche utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il \RE deve modificare i progetti creati nel modo seguente:
-\begin{enumerate}
-	\item inserire le colonne SV e CV;
-	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
-	\item modificare le risorse assegnate alle sotto-attività in base a quanto è stato consuntivato;
-	\item aggiornare il progetto alla data corrente.
 \end{enumerate}
 
 \subsubsubsection{Teamwork}\label{swGestioneProgetto}
@@ -967,15 +986,15 @@ Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato, q
 Ogni \mgls{ticket} rappresenta un \mgls{task} o un'insieme di \mglspl{task} ( \mgls{attivita}) e deve rispettare i seguenti passi:
 \begin{enumerate}
 	\item Creazione di un \mgls{task};
-	\item Il \PM{} assegna il \mgls{task} ad uno o più membri del gruppo, nel caso l'assegnatari/o non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \mgls{task}, lo stato del \mgls{ticket} sarà \textbf{"Aperto"};
+	\item Il \PM{} assegna il \mgls{task} ad uno o più membri del gruppo, nel caso l'assegnatari/o non ne abbia ancora preso visione o non abbia ancora deciso se accettare il \mgls{task}, lo stato del \mgls{ticket} sarà \textbf{Aperto};
 	\item L'assegnatario può decidere se accettare o meno il \mgls{task}:
 	\begin{itemize}
-		\item Accettazione: lo stato del \mgls{task} sarà \textbf{"Accettato"};
+		\item Accettazione: lo stato del \mgls{task} sarà \textbf{Accettato};
 		\item Rifiuto: L'assegnatario dovrà motivare il rifiuto del \mgls{task} e, nel caso le motivazione fossero ritenute pertinenti dal \PM{}, verrà ripetuto il punto 2.
 	\end{itemize}
-	\item Se il \mgls{task} fosse dipendente dal completamento di un altro \mgls{task} in stato di esecuzione, allora lo stato del \mgls{task} sarà \textbf{"In Attesa"};
-	\item Si procede con l'esecuzione del \mgls{task}, il cui stato passerà a \textbf{"In Esecuzione"};
-	\item Una volta terminata l'esecuzione del \mgls{task}, lo stato sarà \textbf{"Completato"};
+	\item Se il \mgls{task} fosse dipendente dal completamento di un altro \mgls{task} in stato di esecuzione, allora lo stato del \mgls{task} sarà \textbf{In Attesa};
+	\item Si procede con l'esecuzione del \mgls{task}, il cui stato passerà a \textbf{In Esecuzione};
+	\item Una volta terminata l'esecuzione del \mgls{task}, lo stato sarà \textbf{Completato};
 	\item Ogni \mgls{task} completato dovrà essere vagliato attraverso le procedure di verifica.
 \end{enumerate}
 
@@ -1027,6 +1046,7 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 
 \paragraph{LaTeX}
 \begin{itemize}
+	\item se esiste una macro per definire il termine usare sempre la macro;
 	\item lettere accentate nelle variabili: non viene utilizzato il comando apposito; 
 	\item carattere di spaziatura: non deve essere utilizzato all'interno dei tag; 
 	\item macro \LaTeX{}: non viene scritta usando l’apposito comando \latex{\textbackslash LaTeX}. 
