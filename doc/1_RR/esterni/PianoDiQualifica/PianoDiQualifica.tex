@@ -119,17 +119,14 @@ Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somminist
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) e, se cliccata, porta direttamente alla definizione.
 
 \subsection{Riferimenti}
+\TODO{ \AB{}}
 \subsubsection{Normativi}
 \begin{itemize}
 	\item \NdP
-     \item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}
 \end{itemize}
 \subsubsection{Informativi}
 \begin{itemize}
 	\item \PdP
-     \item Slide dell'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/}
-\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm}
-\item Standard \textit{ISO/IEC 9126} \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
 \end{itemize}
 \newpage
 \section{Sistema di supporto qualità}
@@ -139,7 +136,7 @@ Il sistema di supporto alla qualità è l'apparato che definisce l'organizzazion
 	\item \textbf {Definizione degli obiettivi:} Gli obiettivi devono essere specificati in modo chiaro e conciso. Devono essere misurabili e quantificabili
 	\item \textbf{Definizione dei metodi di adempimento degli obiettivi definiti:} Ad ogni obiettivo deve corrispondere, in modo chiaro, il relativo metodo di adempimento. Nel caso tale metodo preveda dei test quantitativi devono essere chiare le metriche da utilizzare ed i risultati da ottenere
 	\item \textbf{Pianificazione preventiva dei processi:} La pianificazione deve avvenire in modo preventivo, con l'utilizzo di strumenti di collaborazione adeguati, per descrizione dei quali fare riferimento alle \NdP{}. Devono essere definite \mgls{milestone} e scadenze in modo opportuno
-	\item \textbf{Acquisizione di dati relativi alla qualità dei processi:} Nel caso di misure quantitative e test ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata la sezione \ref{Resoconto delle attività di verifica}
+	\item \textbf{Acquisizione di dati relativi alla qualità dei processi:} Nel caso di misure quantitative e test ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata la sezione \TODO{manca il ref alla sezione adeguata} di questo documento
 	\item \textbf{Verifica dello stato di qualità dei processi e pianificazione di miglioramenti mirati:}
 	Sono definiti in prossimità delle date della \RR{}, \RA{}, \RP{}, \RQ{} dei momenti in cui il gruppo, raccogliendo i commenti del proponente \Zucchetti{} e del \Vardanega{}, rifletteranno sul miglioramento apportatile al prodotto e ai processi di supporto
 \end{enumerate}
@@ -180,7 +177,7 @@ Ognuno dei sopracitati punti viene descritto in modo dettagliato nelle \NdP{}.
 	\item Ogni processo e relative sotto-fasi devono avere scadenze corrispondenti;
 	\item Utilizzo di documenti descrittivi della pianificazione di gruppo.Vedi \PdP{}.
 \end{itemize}
-\subparagraph{Verifica a posteriori:} sono previste misure sulla qualità di processo. A tale scopo sono definite apposite metriche nella sezione \ref{metriche_processi}
+\subparagraph{Verifica a posteriori:}  \TODO{ viene linkato questo riferimento \ref{metriche_processi} ma non si capisce, probabilmente è meglio linkarlo in maniera più descrittiva }
 \begin{itemize}
 	\item Misurazione \mgls{schedule variance};
 	\item Misurazione \mgls{cost variance}.
@@ -240,8 +237,9 @@ Per i punti di qualità interna ed esterna vengono inoltre individuati i seguent
 Gli obiettivi che fanno capo alla documentazione sono riconducibili agli obiettivi di manutenibilità e di qualità di processo.
 Fanno riferimento, pertanto, allo standard \textit{ISO/IEC 9126} per la manutenibilità e allo standard \textit{ISO/IEC 90003:2004} contestualmente alla qualità di processo.
 Seguono gli obiettivi relativi alla documentazione e la descrizione  delle modalità per l'adempimento di questi ultimi.
-\subsubsection {Evitare la diffusione di documentazione obsoleta.} 
-\paragraph{Metodi preventivi:}
+
+\paragraph {Evitare la diffusione di documentazione obsoleta.} 
+\subparagraph{Metodi preventivi:}
 \begin{itemize}
 	\item Sistema di indicizzazione delle versioni  per ordinare la documentazione prodotta;
 	\item Diario delle modifiche previsto in ogni documento,e in tutte le sue versioni;
@@ -249,26 +247,28 @@ Seguono gli obiettivi relativi alla documentazione e la descrizione  delle modal
 \end{itemize}
 I sopracitati punti vengono tutti descritti nelle \NdP{}.
 
-\subsubsection{Evitare la diffusione di documentazione non verificata e apporovata.}
-\paragraph{Metodi preventivi:}
+\paragraph{Evitare la diffusione di documentazione non verificata e apporovata.}
+\subparagraph{Metodi preventivi:}
 \begin{itemize}
 	\item Il sistema di indicizzazione delle versioni di un documento è strutturato in modo da permettere di riconoscere dal codice della versione lo stato del documento. Vengono in questo modo identificati in modo chiaro i documenti approvati e verificati;
 	\item Evidenziare il ruolo di chi attua le modifiche nel diario delle modifiche.
 \end{itemize}
 
 
-\subsubsection{Usabilità della documentazione}
-\paragraph{Documentazione leggibile}
+\paragraph{Usabilità della documentazione}
+\subparagraph{Documentazione leggibile}
 \textbf{Verifica a posteriori:}  definizione di metriche apposite, descritta nella sezione \ref{metriche_doc}.
 
-\subsubsection{Testo grammaticalmente corretto:}
+\subparagraph{Testo grammaticalmente corretto:}
 \begin{itemize}
 	\item \textbf{Metodi preventivi:} prevista attività di verifica a fine stesura per ogni documento
 	\item \textbf{Verifica a posteriori:} correttori automatici e liste di controllo
 \end{itemize}
 
 
-\subsubsection{Documenti graficamente chiari}
+\subparagraph{Documenti graficamente chiari}
+
+\TODO{al titolo sottostante manca una section o una subsection, da sistemare}
 \textbf{Metodi preventivi:} 
 \begin{itemize}
 	\item Strumenti a supporto della stesura che prevedano la creazione automatica di indici di documento (es \latex);
@@ -282,8 +282,8 @@ I sopracitati punti vengono descritti nelle \NdP{}.
 \subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo di qualità del prodotto verrà garantito da:
 \begin{itemize}
-	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}.
-	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \ref{Resoconto delle attività di verifica}
+	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}
+	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \TODO{4 - da impostare il ref alla sezione giusta}
 	\item \textbf{Validazione:} Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste
 \end{itemize}
 
@@ -305,7 +305,7 @@ L'utilizzo degli strumenti per la gestione del personale secondo la pianificazio
 
 \newpage
 
-\section{Analisi della Qualità}\label{analisi}
+\section{Analisi della Qualità}
 In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
 
 \subsection{Misure e metriche}\label{metriche}
@@ -407,8 +407,8 @@ progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo 
 
 \newpage
 \appendix
-\section{ Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
-\subsection{Riassunto delle attività di verifica} 
+\section{ Resoconto delle attività di verifica}
+\subsection{Riassunto delle attività di verifica}
 //TO DO \IB mancano degli informazioni.
 \subsubsection{Revisione dei Requisiti}
 //TO DO \IB mancano degli informazioni.
