@@ -19,7 +19,11 @@ CASI D'USO
 	6.2 Modificare classe
 	6.3 Eliminare classe
 7-Gestione account
-8-Esegui questionario
-	8.fatevoi
-9-Iscrizione ad una classe
-10-Logout
+8-Apri Questionario
+	8.1 Ricerca questionario
+	8.2 Seleziona questionario da classe
+	8.3 Apri link
+9-Esegui questionario
+	9.fatevoi
+10-Iscrizione ad una classe
+11-Logout
