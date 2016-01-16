@@ -1,0 +1,115 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Introduzione}{4}{section.1}
+\contentsline {subsection}{\numberline {1.1}Scopo}{4}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Descrizione}{4}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Glossario}{4}{subsection.1.3}
+\contentsline {section}{\numberline {2}Processi primari}{5}{section.2}
+\contentsline {subsection}{\numberline {2.1}Processi del fornitore}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Scopo}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Descrizione}{5}{subsubsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.3}Studio di fattibilit\IeC {\`a}}{5}{subsubsection.2.1.3}
+\contentsline {subsubsection}{\numberline {2.1.4}Piano di Qualifica}{5}{subsubsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.5}Piano di Progetto}{6}{subsubsection.2.1.5}
+\contentsline {subsubsubsection}{\numberline {2.1.5.1}Strumenti}{6}{subsubsubsection.2.1.5.1}
+\contentsline {paragraph}{LibreOffice Calc}{6}{section*.3}
+\contentsline {subsection}{\numberline {2.2}Processi di sviluppo}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Scopo}{6}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Descrizione}{6}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Analisi dei requisiti}{7}{subsubsection.2.2.3}
+\contentsline {subsubsubsection}{\numberline {2.2.3.1}Struttura di un caso d'uso}{7}{subsubsubsection.2.2.3.1}
+\contentsline {subsubsubsection}{\numberline {2.2.3.2}Struttura di un requisito}{7}{subsubsubsection.2.2.3.2}
+\contentsline {subsubsubsection}{\numberline {2.2.3.3}Struttura di una fonte}{8}{subsubsubsection.2.2.3.3}
+\contentsline {subsubsubsection}{\numberline {2.2.3.4}Struttura di un metodo di validazione}{8}{subsubsubsection.2.2.3.4}
+\contentsline {subsubsection}{\numberline {2.2.4}Progettazione}{8}{subsubsection.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.5}Validazione}{9}{subsubsection.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.6}Codifica}{9}{subsubsection.2.2.6}
+\contentsline {subsubsection}{\numberline {2.2.7}Strumenti}{9}{subsubsection.2.2.7}
+\contentsline {subsubsubsection}{\numberline {2.2.7.1}Tracciamento dei requisiti}{9}{subsubsubsection.2.2.7.1}
+\contentsline {paragraph}{Aggiunta di un nuovo caso d'uso}{9}{section*.4}
+\contentsline {paragraph}{Aggiunta di un nuovo requisito}{9}{section*.5}
+\contentsline {paragraph}{Aggiunta di un nuova fonte}{10}{section*.6}
+\contentsline {paragraph}{Aggiunta di una nuovo metodo di validazione}{10}{section*.7}
+\contentsline {subsubsubsection}{\numberline {2.2.7.2}UML}{10}{subsubsubsection.2.2.7.2}
+\contentsline {section}{\numberline {3}Processi di supporto}{11}{section.3}
+\contentsline {subsection}{\numberline {3.1}Scopo}{11}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Descrizione}{11}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Documentazione}{11}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Ciclo di vita}{11}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Nome dei file}{12}{subsubsection.3.3.2}
+\contentsline {subsubsection}{\numberline {3.3.3}Versione}{12}{subsubsection.3.3.3}
+\contentsline {subsubsection}{\numberline {3.3.4}Stato}{13}{subsubsection.3.3.4}
+\contentsline {subsubsection}{\numberline {3.3.5}Uso}{13}{subsubsection.3.3.5}
+\contentsline {subsubsection}{\numberline {3.3.6}Struttura dei documenti}{13}{subsubsection.3.3.6}
+\contentsline {subsubsubsection}{\numberline {3.3.6.1}Prima pagina}{14}{subsubsubsection.3.3.6.1}
+\contentsline {subsubsubsection}{\numberline {3.3.6.2}Diario delle modifiche}{14}{subsubsubsection.3.3.6.2}
+\contentsline {subsubsubsection}{\numberline {3.3.6.3}Indice}{14}{subsubsubsection.3.3.6.3}
+\contentsline {subsubsubsection}{\numberline {3.3.6.4}Elenco tabelle e figure}{14}{subsubsubsection.3.3.6.4}
+\contentsline {subsubsubsection}{\numberline {3.3.6.5}Introduzione}{15}{subsubsubsection.3.3.6.5}
+\contentsline {subsubsubsection}{\numberline {3.3.6.6}Sezioni}{15}{subsubsubsection.3.3.6.6}
+\contentsline {subsubsubsection}{\numberline {3.3.6.7}Formattazione delle pagine}{15}{subsubsubsection.3.3.6.7}
+\contentsline {subsubsection}{\numberline {3.3.7}Norme tipografiche}{15}{subsubsection.3.3.7}
+\contentsline {subsubsubsection}{\numberline {3.3.7.1}Stile del testo}{15}{subsubsubsection.3.3.7.1}
+\contentsline {subsubsubsection}{\numberline {3.3.7.2}Composizione}{16}{subsubsubsection.3.3.7.2}
+\contentsline {subsubsubsection}{\numberline {3.3.7.3}Formati}{17}{subsubsubsection.3.3.7.3}
+\contentsline {subsubsubsection}{\numberline {3.3.7.4}Tabelle}{18}{subsubsubsection.3.3.7.4}
+\contentsline {subsubsubsection}{\numberline {3.3.7.5}Immagini e grafici}{18}{subsubsubsection.3.3.7.5}
+\contentsline {subsubsection}{\numberline {3.3.8}Glossario}{18}{subsubsection.3.3.8}
+\contentsline {subsubsection}{\numberline {3.3.9}Linguaggio}{18}{subsubsection.3.3.9}
+\contentsline {subsubsection}{\numberline {3.3.10}Strumenti}{19}{subsubsection.3.3.10}
+\contentsline {subsection}{\numberline {3.4}Configurazione}{19}{subsection.3.4}
+\contentsline {subsubsection}{\numberline {3.4.1}Versionamento}{19}{subsubsection.3.4.1}
+\contentsline {subsubsection}{\numberline {3.4.2}Repository}{19}{subsubsection.3.4.2}
+\contentsline {paragraph}{Commit}{19}{section*.8}
+\contentsline {paragraph}{Pull}{20}{section*.9}
+\contentsline {paragraph}{Push}{20}{section*.10}
+\contentsline {paragraph}{Branches}{20}{section*.11}
+\contentsline {subsubsubsection}{\numberline {3.4.2.1}Struttura albero delle directory}{20}{subsubsubsection.3.4.2.1}
+\contentsline {subsubsection}{\numberline {3.4.3}Materiale informale}{21}{subsubsection.3.4.3}
+\contentsline {paragraph}{Google Drive}{21}{section*.12}
+\contentsline {subsection}{\numberline {3.5}Verifica}{21}{subsection.3.5}
+\contentsline {subsubsection}{\numberline {3.5.1}Documentazione}{21}{subsubsection.3.5.1}
+\contentsline {subsubsection}{\numberline {3.5.2}Analisi statica}{22}{subsubsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.3}Analisi dinamica}{23}{subsubsection.3.5.3}
+\contentsline {subsubsection}{\numberline {3.5.4}Strumenti}{23}{subsubsection.3.5.4}
+\contentsline {subsection}{\numberline {3.6}Validazione}{23}{subsection.3.6}
+\contentsline {subsubsection}{\numberline {3.6.1}Documenti}{23}{subsubsection.3.6.1}
+\contentsline {subsubsection}{\numberline {3.6.2}Requisiti}{23}{subsubsection.3.6.2}
+\contentsline {subsection}{\numberline {3.7}Risoluzione dei problemi}{24}{subsection.3.7}
+\contentsline {subsubsection}{\numberline {3.7.1}Classificazione dei problemi}{24}{subsubsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.2}Gestione dei problemi}{25}{subsubsection.3.7.2}
+\contentsline {subsubsubsection}{\numberline {3.7.2.1}Ticket di segnalazione problema}{25}{subsubsubsection.3.7.2.1}
+\contentsline {subsubsubsection}{\numberline {3.7.2.2}Ticket di risoluzione problema}{26}{subsubsubsection.3.7.2.2}
+\contentsline {section}{\numberline {4}Processi di organizzazione}{27}{section.4}
+\contentsline {subsection}{\numberline {4.1}Processi di amministrazione}{27}{subsection.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Comunicazione}{27}{subsubsection.4.1.1}
+\contentsline {paragraph}{Esterna}{27}{section*.14}
+\contentsline {paragraph}{Interna}{27}{section*.15}
+\contentsline {subsubsection}{\numberline {4.1.2}Riunioni}{27}{subsubsection.4.1.2}
+\contentsline {paragraph}{Frequenza}{27}{section*.16}
+\contentsline {paragraph}{Convocazione riunione}{27}{section*.17}
+\contentsline {paragraph}{Verbale}{28}{section*.18}
+\contentsline {paragraph}{Riunione interna}{28}{section*.19}
+\contentsline {paragraph}{Riunione esterna}{28}{section*.20}
+\contentsline {subsubsection}{\numberline {4.1.3}Ruoli}{28}{subsubsection.4.1.3}
+\contentsline {subsubsubsection}{\numberline {4.1.3.1}Responsabile}{28}{subsubsubsection.4.1.3.1}
+\contentsline {subsubsubsection}{\numberline {4.1.3.2}Amministratore}{29}{subsubsubsection.4.1.3.2}
+\contentsline {subsubsubsection}{\numberline {4.1.3.3}Analista}{29}{subsubsubsection.4.1.3.3}
+\contentsline {subsubsubsection}{\numberline {4.1.3.4}Progettista}{30}{subsubsubsection.4.1.3.4}
+\contentsline {subsubsubsection}{\numberline {4.1.3.5}Programmatore}{30}{subsubsubsection.4.1.3.5}
+\contentsline {subsubsubsection}{\numberline {4.1.3.6}Verificatore}{30}{subsubsubsection.4.1.3.6}
+\contentsline {subsubsubsection}{\numberline {4.1.3.7}Procedure per la rotazione dei ruoli}{31}{subsubsubsection.4.1.3.7}
+\contentsline {subsubsection}{\numberline {4.1.4}Pianificazione}{31}{subsubsection.4.1.4}
+\contentsline {subsubsubsection}{\numberline {4.1.4.1}\Gls {projectlibre}\textsubscript {G}}{31}{subsubsubsection.4.1.4.1}
+\contentsline {subsubsubsection}{\numberline {4.1.4.2}Teamwork}{32}{subsubsubsection.4.1.4.2}
+\contentsline {subsubsection}{\numberline {4.1.5}Ticketing}{32}{subsubsection.4.1.5}
+\contentsline {subsubsubsection}{\numberline {4.1.5.1}Struttura Ticket}{32}{subsubsubsection.4.1.5.1}
+\contentsline {subsubsubsection}{\numberline {4.1.5.2}Etichette}{33}{subsubsubsection.4.1.5.2}
+\contentsline {subsubsubsection}{\numberline {4.1.5.3}Ticket di Task}{33}{subsubsubsection.4.1.5.3}
+\contentsline {subsubsubsection}{\numberline {4.1.5.4}Ticket di Riunione}{34}{subsubsubsection.4.1.5.4}
+\contentsline {section}{\numberline {A}Lista di controllo}{36}{appendix.Alph1}
+\contentsline {paragraph}{Norme stilistiche}{36}{section*.22}
+\contentsline {paragraph}{Italiano}{36}{section*.23}
+\contentsline {paragraph}{LaTeX}{36}{section*.24}
+\contentsline {paragraph}{UML}{37}{section*.25}
+\contentsline {paragraph}{Tracciamento requisiti}{37}{section*.26}
