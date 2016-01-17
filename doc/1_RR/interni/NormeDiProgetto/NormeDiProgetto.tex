@@ -226,17 +226,17 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \begin{itemize}
 	\item \textbf{Importanza} può assumere i seguenti valori:
 	\begin{description}
-		\item[0:] Requisito obbligatorio;
-		\item[1:] Requisito desiderabile;
-		\item[2:] Requisito opzionale.
+		\item[0:] Requisito obbligatorio
+		\item[1:] Requisito desiderabile
+		\item[2:] Requisito opzionale
 	\end{description}
 	\item \textbf{Tipo} può assumere i seguenti valori:
 	\begin{description}
-		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema;
-		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema.
+		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
+		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
-	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione; \textit{CodiceRequistoPadre.CodiceSottorequisito}
-	\item \textbf{Validazione:} verrà inserito un link al metodo deciso per validare il requisito.
+	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione \textit{CodiceRequistoPadre.CodiceSottorequisito}
+	\item \textbf{Validazione:}	verrà inserito un link al metodo deciso per validare il requisito
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
 
@@ -244,25 +244,25 @@ Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Pe
 Ogni fonte deve avere la seguente struttura:
 \begin{itemize}
 	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma \textbf{UC#} dove il carattere \textbf{#} rappresenta un numero incrementale.
-	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso;
-	\item \textbf{Descrizione:} descrizione sintetica della fonte.
+	\item \textbf{Tipologia:} serve ad identificare se si tratta di una fonte esterna oppure se la fonte è un caso d'uso
+	\item \textbf{Descrizione:} descrizione sintetica della fonte
 \end{itemize}
 
 \subsubsubsection{Struttura di un metodo di validazione}
 Ogni metodo di validazione deve avere la seguente struttura:
 \begin{itemize}
-	\item \textbf{Descrizione:} descrizione sintetica della metodo di validazione.
+	\item \textbf{Descrizione:} descrizione sintetica della metodo di validazione
 \end{itemize}
 
 \subsubsection{Progettazione}
-La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione. L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requisti individuati durante il processo di analisi e descrive a tutti gli \mgls{stakeholder} la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali.
+La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione. L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requisti individuati durante il processo di analisi e descrive a tutti gli \mgls{stakeholder} la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali
 
 La fase di progettazione deve essere supportata dai seguenti diagrammi realizzati in UML2.4:
 \begin{itemize}
-	\item \textbf{Diagrammi delle classi:} per descrivere la struttura e la gerarchia delle classi;
-	\item \textbf{Diagrammi di sequenza:} per descrivere una determinata sequenza di azioni;
-	\item \textbf{Diagrammi di attività:} per descrivere le attività necessarie per realizzare una data funzionalità;
-	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale.
+	\item \textbf{Diagrammi delle classi:} per descrivere la struttura e la gerarchia delle classi
+	\item \textbf{Diagrammi di sequenza:} per descrivere una determinata sequenza di azioni
+	\item \textbf{Diagrammi di attività:} per descrivere le attività necessarie per realizzare una data funzionalità
+	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale
 \end{itemize}
 
 Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
@@ -284,8 +284,8 @@ Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessar
 	\item eseguire l'accesso a \mgls{tracy};
 	\item selezionare Use Cases nella sezione Analisi Requisiti; 
 	\item selezionare Create Use Case dal menu Operations;
-	\item nel caso il caso d'uso possedesse un padre, impostare Parent;
-	\item impostare la descrizione, la pre-condizione e la post-condizione del caso d'uso; 
+	\item nel caso il caso d'uso possedesse un padre impostare Parent;
+	\item impostare la descrizione , la pre-condizione e la post-condizione del caso d'uso; 
 	\item premere il pulsante Create per confermare la creazione del caso d'uso.
 \end{enumerate}
 
@@ -429,7 +429,7 @@ Ogni documento deve avere una prima pagina che contiene le seguenti informazioni
 	\item logo del gruppo;
 	\item titolo del documento;
 	\item versione del documento;
-	\item stato del documento (informale o formale);
+	\item stato del documento (informale o formale)
 	\item uso del documento (interno o esterno);
 	\item data di creazione del documento;
 	\item data di ultima modifica del documento;
@@ -480,10 +480,10 @@ Il piè di pagina deve contenere:
 
 \subsubsubsection{Stile del testo}
 \begin{itemize}
-	\item \textbf{Corsivo:} deve essere usato solo per indicare riferimenti agli standard, citazioni, \mGls{ruolo} e nomi di documenti;
-	\item \textbf{Grassetto:} deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poiché può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione;
-	\item \textbf{Monospace:} deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi;
-	\item \textbf{Maiuscolo:} deve essere usato solo per gli acronimi.
+	\item \textbf{Corsivo:} deve essere usato solo per indicare riferimenti agli standard, citazioni, \mGls{ruolo} e nomi di documenti
+	\item \textbf{Grassetto:} deve essere usato solo per parole significative che devono essere messe in risalto. Il grassetto deve essere usato con estrema cautela poiché può appesantire la lettura. Va applicato ai titoli e agli elementi che costituiscono un elenco se sono seguiti da una descrizione
+	\item \textbf{Monospace:} deve essere usato solo per indicare i percorsi e i nomi dei file, codice e comandi
+	\item \textbf{Maiuscolo:} deve essere usato solo per gli acronimi
 \end{itemize}
 
 \subsubsubsection{Composizione}
