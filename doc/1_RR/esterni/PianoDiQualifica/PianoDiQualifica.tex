@@ -111,7 +111,7 @@
 
 \section{Introduzione}
 \subsection{Scopo del documento}
-Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra il perseguimento del modello \mgls{pdca} e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto.
+Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto.
 Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
 
 \subsection{Descrizione Prodotto}
@@ -285,80 +285,24 @@ I sopracitati punti vengono descritti nelle \NdP{}.
 
 
 \subsection{Obiettivi per software}
-Al fine di aumentare il valore commerciale di un prodotto software e di garantirne il corretto funzionamento è necessario fissare degli obiettivi qualitativi e di garantire che questi vengano effettivamente rispettati.
-Lo standard  \textit{ISO/IEC 9126} adottato suggerisce la divisione degli obiettivi  di qualità in:
-\begin{itemize}
-	\item\textbf{Qualità interna:}: è la qualità del prodotto software vista dall’interno, fa quindi riferimento alle caratteristiche implementative del \mgls{software}, quali l’architettura e il codice che ne deriva. Tali obiettivi verranno verificati in modo oggettivo con i test di unità proposti nella relativa sezione \TODO{manca il riferimento alla sezione}
-	\item\textbf{Qualità esterna:} è la qualità del prodotto software vista dall’esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova. Per il controllo della qualità esterna ci si avvale dei test di sistema, descritti nella sezione dedicata \TODO{manca il riferimento alla sezione}
-	\item\textbf{Qualità in uso:} è la qualità del prodotto \mgls{software} dal punto di vista dell’utilizzatore che ne fa uso all’interno di uno specifico sistema e contesto.
-\end{itemize}
-Non avendo la possibilità di testare la qualità in uso del prodotto software da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo standard  \textit{ISO/IEC 9126}  prevede 6 caratteristiche qualitative principali, suddivise in ulteriori sotto caratteristiche che possono essere misurate quantitativamente tramite metriche specifiche, suggerite in parte dallo standard stesso. Le metriche selezionate per il caso in esame sono specificate nella sezione \ref{metriche}. A fianco della descrizione di ognuna delle metriche da utilizzare, si specificano le finalità e gli ambiti della verifica di tale quantità.
-\begin{itemize}
-\item\textbf{Funzionalità:}
-\begin{itemize}
-\item\textbf{Interoperabilità:} capacità del prodotto \mgls{software} di interagire con uno o più sistemi specifici
-\item\textbf{Sicurezza:} capacità del prodotto \mgls{software} di proteggere dati e informazioni in modo da impedire l’accesso e la modifica a persone o sistemi non autorizzati e a consentire l’uso di tali dati ai soli autorizzati %Nell'ambito attuale riguardo a questo punto si richiedono requisiti minimi. 
-\item\textbf{Conformità funzionale:} capacità del prodotto \mgls{software} di aderire a standard,convenzioni o regolamentazioni e prescrizioni in materia di funzionalità.
-\end{itemize}
-\item\textbf{Affidabilità:}
-\begin{itemize}
-\item\textbf{Maturità:} capacità del prodotto \mgls{software} di evitare fallimenti a causa di errori nel \mgls{software}
-\item\textbf{Tolleranza agli errori:} capacità del prodotto \mgls{software} di mantenere un adeguato livello di prestazioni in caso di errori \mgls{software} o di violazioni alla propria interfaccia
-\item\textbf{Capacità di recupero:} capacità del prodotto \mgls{software} di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori
-\item\textbf{Conformità di affidabilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità
 
-\end{itemize}
-\item\textbf{Usabilità:} capacità del \mgls{software} di essere capito, imparato, usato e di essere allettante per l’utente. Nel caso in esame tale requisito, e tutti i sottorequisiti relativi, sono prioritari, dato il contesto applicativo
+Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard  \textit{ISO/IEC 9126}, si individuano degli aree in cui definire obiettivi specifici per l'analisi della qualità software per il caso in esame.
+\subsubsection{Test driven software}
+Il software deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con appoccio bottom-up. Si intende testare in modo approfondito ogni unità software in modo isolato per isolare e prevenire errori su grosse componenti di software. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard  \textit{ISO/IEC 9126}.
+\subsubsection{Architettura modulare}
+Il software deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per aepprofondimenti.
+\subsubsection{Tracciabilità e conformità dei requisiti}
+Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito software abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
+\subsubsection{Usabilità utente}
+Poichè il per software in esame si prevede interazione con l'utente, sono è necessario garantire l'usaibilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
+\subsubsection{Utilizzo e scelta delle risorse}
+Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Quseto punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
 
-\begin{itemize}
-\item\textbf{Intelligibilità:} capacità del prodotto \mgls{software} di consentire all’utente di capire se il \mgls{software} è adeguato e come può essere utilizzato per compiti particolari
-
-\item\textbf{Apprendibilità:} capacità del prodotto \mgls{software} di consentire all’utente di imparare le sue applicazioni
-
-\item\textbf{Operabilità:} capacità del prodotto \mgls{software} di consentire all’utente di usarlo e controllarlo
-
-\item\textbf{Attrattività:} capacità del prodotto \mgls{software} di creare interesse nell’utente
-
-\item\textbf{Conformità di usabilità: } capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di usabilità.
-
-\end{itemize}
-\item\textbf{Efficienza:} capacità del \mgls{software} di fornire prestazioni appropriate in relazione alla quantità di risorse usate
-\begin{itemize}
-\item\textbf{Comportamento temporale:} capacità del \mgls{software} di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni
-\item\textbf{Utilizzo di risorse:} capacità del prodotto \mgls{software} di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione
-
-\item\textbf{Conformità di efficienza:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di efficienza
-\end{itemize}
-\item\textbf{Manutenibilità:} capacità del prodotto \mgls{software} di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del \mgls{software} a cambiamenti ambientali, nelle specifiche o nelle funzionalità.
-\begin{itemize}
-\item\textbf{Analizzabilità:} capacità del prodotto \mgls{software} di poter essere studiato alla ricerca di carenze e difetti
-
-\item\textbf{Modificabilità:}capacità del prodotto \mgls{software} di consentire l’implementazione di una specifica modifica
-
-\item\textbf{Stabilità:} capacità del prodotto \mgls{software} di evitare effetti indesiderati causati da una o più modifiche
-
-\item\textbf{Testabilità:} capacità del prodotto \mgls{software} di consentire la validazione di una versione modificata del \mgls{software}
-
-\item\textbf{Conformità di manutenibilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità
-
-\end{itemize}
-\item\textbf{Portabilità:} capacità del prodotto \mgls{software} di poter essere trasferito da un ambiente di lavoro ad un altro
-
-\begin{itemize}
-\item\textbf{Adattabilità:} capacità del prodotto \mgls{software} di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite
-\item\textbf{Installabilità:} capacità del prodotto \mgls{software} di poter essere installato in specifici ambienti
-
-\item\textbf{Coesistenza:} capacità del prodotto \mgls{software} di coesistere in ambienti comuni con altri \mgls{software} indipendenti condividendo risorse comuni
-
-\item\textbf{Sostituibilità:} capacità del prodotto \mgls{software} di poter sostituire un \mgls{software} analogo con la stessa finalità e nello stesso ambiente
-\item\textbf{Conformità di portabilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di portabilità
-\end{itemize}
-\end{itemize}
 
 \subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo di qualità del prodotto verrà garantito da:
 \begin{itemize}
-	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}
+	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}. In particolare, anche i test devono rispecchirare l'approccio bottom-up di analisi.
 	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \ref{Resoconto delle attività di verifica}
 	\item \textbf{Validazione:} Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste
 \end{itemize}
@@ -384,15 +328,43 @@ L'utilizzo degli strumenti per la gestione del personale secondo la pianificazio
 \section{Analisi della qualità}\label{analisi}
 In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
 
-\subsection{Misure e metriche}\label{metriche}
+\subsection{Analisi statica}
+Tale tecnica è attuabile sia per verificare la documentazione che il software. Si tratta di un'attività meno dispendiosa e pertanto da preferirsi nel caso siano disponibili modalità di verifica efficienti di questo tipo. Per la descrizione dettagliata delle tecniche da utilizzare si veda le \NdP.
+
+\subsection{Analisi dinamica}
+Per analisi dinamica si intende l'esecuzione di test predisposti. La struttura gerarchica dell'analisi dinamica rispetta gli obiettivi di modularità e l'approccio di verifica bottom-up sopra definito. Tali test devono essere preventivamente definiti.\\
+Per la definizione di un test si devono quindi definire i seguenti punti:
+\begin{itemize}
+	\item \textbf{Ambiente}: consiste sia del sistema hardware che di quello software sui quali è stato pianificato l’utilizzo del prodotto;
+	\item \textbf{Specifica}: consiste nella definizione di input e output attesi;
+	\item \textbf{Procedure}: descrizione delle modalità e degli strumenti necessari all'esecuzione.
+\end{itemize}
+Sono definibili 5 tipi diversi di test: test di unità, test di integrazione, test di sistema, test di regressione e test di accettazione.
+
+\subsubsection{Test di unità}
+Consiste nella verifica di ogni singola unità del prodotto software tramite l’utilizzo di stub, driver e logger.\\
+Per unità si intende la più piccola quantità di software che è utile verificare singolarmente e che viene prodotta da un singolo programmatore.\\
+Ogni requisito includerà i relativi test di unità allegati nel rispettivo caso d'uso.
+
+\subsubsection{Test di integrazione}
+Rispecchia il primo livello della suddivisione modulare del software e si basa sulla correttezza dei test di unità per la diminuzione dei costi di verifica. Verranno pertanto verificati solamente le interazioni tra le varie unità software.
+
+\subsubsection{Test di sistema}
+Consiste nella validazione del prodotto giunto a versione definitiva. La correttezza del sistema e dei relativi test è garantita per costruzione dalla struttura gerarchica della suddivisione del software.
+\subsubsection{Test di regressione}
+Consiste nella trattazione di casi in cui alcune componenti abbiano subito modifiche. Il controllo deve assicurare che non ci siano cambiamenti esterni alle componenti modificate, per garantire l'integrità del prodotto finale modificato.
+\subsubsection{Test di accettazione}
+E' il collaudo del prodotto software che viene eseguito in presenza del proponente. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
+
+\section{Misure e metriche}\label{metriche}
 Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori. Per ogni metrica utilizzata vi possono essere due tipologie di range:
 \begin{itemize}
 \item \textbf{Accettazione}: valori minimi richiesti per superare la verifica di qualità. Scostamenti da tali valori necessitano una verifica approfondita
 \item \textbf{Ottimale}: valori entro cui dovrebbe collocarsi la misurazione. Tale range non è vincolante, ma fortemente consigliato
 \end{itemize}
-\subsubsection{Metriche per i processi}\label{metriche_processi}
+\subsection{Metriche per i processi}\label{metriche_processi}
 La qualità dei processi viene valutata usando le seguenti metriche.
-\subsubsubsection{Schedule Variance}
+\subsubsection{Schedule Variance}
 Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività.
 \[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
 Dove EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e PV (Planned value) è il costo delle attività che erano state pianificate alla data corrente.
@@ -401,7 +373,7 @@ Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior v
 \item \textbf{Range di Accettazione}: $\geq$ -5\%
 \item \textbf{Range Ottimale}: $\geq$ 0\%
 \end{itemize}
-\subsubsubsection{Cost Variance}
+\subsubsection{Cost Variance}
 Indica se alla data corrente si è speso di più o di meno rispetto a quanto pianificato.
 \[CostVariance [\%] = \frac{EV - AC}{EV}\]
 Dove EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente.
@@ -410,8 +382,8 @@ Se $CostVariance > 0$ significa che i costi sono entro il budget stabilito, se i
 \item \textbf{Range di Accettazione}: $\geq$ -10\%
 \item \textbf{Range Ottimale}: $\geq$ 0\%
 \end{itemize}
-\subsubsection{Metriche per i documenti}\label{metriche_doc}
-\subsubsubsection{Gulpease}
+\subsection{Metriche per i documenti}\label{metriche_doc}
+\subsubsection{Gulpease}
 È un indice di leggibilità di un testo tarato sulla lingua italiana.
 \[IndiceGulpease=89-\frac{300*(Numero\ di\ frasi)-10*(Numero\ di\ lettere)}{Numero\ di\ parole}\]
 Il range di valori è compreso tra 0 e 100, dove il valore 100 indica la leggibilità più alta e 0 la più bassa.
@@ -419,39 +391,39 @@ Il range di valori è compreso tra 0 e 100, dove il valore 100 indica la leggibi
 \item \textbf{Range di Accettazione}: [40-100]
 \item \textbf{Range Ottimale}: [50-100]
 \end{itemize}
-\subsubsection{ Metriche per il software}\label{metriche_sw}
-\subsubsubsection{Complessità ciclomatica}
+\subsection{ Metriche per il software}\label{metriche_sw}
+\subsubsection{Complessità ciclomatica}
 Misura la complessità del programma contando il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso. Valori troppo implicano una ridotta manutenibilità del codice, valori troppo bassi potrebbero determinare scarsa efficienza dei metodi.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [1-15]
 \item \textbf{Range Ottimale}: [1-10]
 \end{itemize}
-\subsubsubsection{Numero di parametri per metodo}
+\subsubsection{Numero di parametri per metodo}
 Un numero troppo elevato di parametri per metodo indica una scarsa leggibilità e mantenibilità del codice.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [0-8]
 \item \textbf{Range Ottimale}: [0-4]
 \end{itemize}
-\subsubsubsection{Numero di campi dati per classe}
+\subsubsection{Numero di campi dati per classe}
 Una classe con un numero elevato di campi dati suggerisce che si potrebbe espandere la gerarchia di classi, migliorando l'incapsulamento.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [2-16]
 \item \textbf{Range Ottimale}: [3-8]
 \end{itemize}
-\subsubsubsection{Numero linee di codice per metodo}
+\subsubsection{Numero linee di codice per metodo}
 La complessità dei metodi molte volte è proporzionale alla loro lunghezza,
 quindi è bene spezzare elaborazioni complesse in più metodi, in modo da facilitarne anche la comprensione.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [1-70]
 \item \textbf{Range Ottimale}: [1-40]
 \end{itemize}
-\subsubsubsection{Numero di livelli di annidamento}
+\subsubsection{Numero di livelli di annidamento}
 Rappresenta il massimo numero di livelli di annidamento dei metodi. Un valore elevato di tale indice implica un’alta complessità ed un basso livello di astrazione del codice.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [1-5]
 \item \textbf{Range Ottimale}: [1-3]
 \end{itemize}
-\subsubsubsection{Instabilità}
+\subsubsection{Instabilità}
 La stabilità di una componente indica la possibilità di effettuare modiche ad un componente senza influenzarne altri all’interno dell'applicazione.
 \[Instabilita=\frac{A_e}{A_a+A_e}\]
 Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un package che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al package che dipendono da classi esterne ad esso.
@@ -459,7 +431,7 @@ Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un packag
 \item \textbf{Range di Accettazione}:[0-0.9]
 \item \textbf{Range Ottimale}: [0-0.5]
 \end{itemize}
-\subsubsubsection{Copertura del codice da parte di test}
+\subsubsection{Copertura del codice da parte di test}
 Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [50\%-100\%]
@@ -484,14 +456,22 @@ Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto 
 \appendix
 \section{Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
 \subsection{Riassunto delle attività di verifica} 
-//TO DO \IB mancano degli informazioni.
 \subsubsection{Revisione dei Requisiti}
-//TO DO \IB mancano degli informazioni.
+Nel periodo antecedente la consegna di tale revisione sono stati verificati i documenti ed i processi.\\
+I documenti sono stati verificati manualmente, l’analisi statica è stata applicata secondo i criteri e le modalità indicate nelle \NdP\, ovvero una prima fase di \mgls{walkthrough} seguita da \mgls{inspection}.\\
+Si sono poi calcolate per i documenti le metriche descritte nella sezione \ref{metriche_doc}.\\
+I processi sono stati verificati applicando la procedura descritta nella sezione \ref{metriche_processi}.
+
 \subsection{Tracciamento componenti - requisiti}
-Allo stato attuale non è possibile ancora fare il tracciamento tra i componenti ed i requisiti trovati, quindi questa sezione sarà trattata nella prossima revisione.
+Il tracciamento (requisiti - fonti, use-case - requisiti) è stato effettuato tramite l’applicativo \mgls{tracy}.
+
 \subsection{Dettaglio delle verifiche tramite analisi}
 \subsubsection{Processi}
-//TO DO \IB mancano degli informazioni.
+Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di Analisi:
+\begin{itemize}
+	\item
+\end{itemize}
+
 \subsubsection{Documenti}
 Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
 \begin{itemize}
