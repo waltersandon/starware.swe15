@@ -272,7 +272,7 @@ I sopracitati punti vengono tutti descritti nelle \NdP{}.
 
 \subsubsection{Testo grammaticalmente corretto:}
 \begin{itemize}
-	\item \textbf{Verifica a posteriori:} correttori automatici e liste di controll, attività di verifica a largo spettro a fine stesura per ogni documento.
+	\item \textbf{Verifica a posteriori:} correttori automatici e liste di controllo, attività di verifica a largo spettro a fine stesura per ogni documento
 \end{itemize}
 
 \subsubsection{Documenti graficamente chiari}
@@ -285,6 +285,7 @@ I sopracitati punti vengono descritti nelle \NdP{}.
 
 
 \subsection{Obiettivi per software}
+
 Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard  \textit{ISO/IEC 9126}, si individuano degli aree in cui definire obiettivi specifici per l'analisi della qualità software per il caso in esame.
 \subsubsection{Test driven software}
 Il software deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con appoccio bottom-up. Si intende testare in modo approfondito ogni unità software in modo isolato per isolare e prevenire errori su grosse componenti di software. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard  \textit{ISO/IEC 9126}.
@@ -296,6 +297,7 @@ Per evitare di produrre un prodotto non conforme alle aspettative si prevede che
 Poichè il per software in esame si prevede interazione con l'utente, sono è necessario garantire l'usaibilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
 \subsubsection{Utilizzo e scelta delle risorse}
 Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Quseto punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
+
 
 \subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo di qualità del prodotto verrà garantito da:
@@ -318,12 +320,12 @@ La responsabilità di controllo su un processo spetta al \PM{}. Nel rispetto agl
 \end{itemize}
 
 \subsection{Risorse}
-Le risorse vengono distinte in umane e materiali. E' essenziale, sia la qualità di processo, che la qualità di prodotto, che le risorse, di qualunque tipo, vengano preventivamente quantificate e, in seguito, gestite in modo corretto, con strumenti automatici adeguati.
+Le risorse vengono distinte in umane e materiali. E' essenziale che, sia la qualità di processo, che la qualità di prodotto, che le risorse, di qualunque tipo, vengano preventivamente quantificate e, in seguito, gestite in modo corretto, con strumenti automatici adeguati.
 L'utilizzo degli strumenti per la gestione del personale secondo la pianificazione del \PdP{} sono descritti nel \NdP. L'assegnazione e la quantificazione delle risorse hanno lo scopo di rendere trasparente e quantificabile l'utilizzo di ogni tipo di risorsa utilizzata.
 
 \newpage
 
-\section{Analisi della Qualità}\label{analisi}
+\section{Analisi della qualità}\label{analisi}
 In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
 
 \subsection{Misure e metriche}\label{metriche}
@@ -333,7 +335,7 @@ Il processo di verifica, per essere informativo, deve esse quantificabile. Le mi
 \item \textbf{Ottimale}: valori entro cui dovrebbe collocarsi la misurazione. Tale range non è vincolante, ma fortemente consigliato
 \end{itemize}
 \subsubsection{Metriche per i processi}\label{metriche_processi}
-La qualità dei processi viene valutata usando le seguenti metriche:
+La qualità dei processi viene valutata usando le seguenti metriche.
 \subsubsubsection{Schedule Variance}
 Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività.
 \[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
@@ -401,8 +403,8 @@ Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un packag
 \item \textbf{Range di Accettazione}:[0-0.9]
 \item \textbf{Range Ottimale}: [0-0.5]
 \end{itemize}
-\subsubsubsection{Copertura del codice}
-Indica la percentuale di istruzioni che sono eseguite durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
+\subsubsubsection{Copertura del codice da parte di test}
+Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [50\%-100\%]
 \item \textbf{Range Ottimale}: [75\%-100\%]
@@ -413,19 +415,18 @@ Indica la percentuale di istruzioni che sono eseguite durante i test. Maggiore �
 \subsection{Comunicazione e risoluzione di anomalie}
 Una anomalia corrisponde a:
 \begin{itemize}
-\item Violazione delle norme tipografiche da parte di un documento;
-\item Uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
-\item Incongruenza del prodotto con funzionalità indicate nell’analisi dei requisiti;
-\item Incongruenza del codice con il design del prodotto.
+\item violazione delle norme tipografiche da parte di un documento;
+\item uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
+\item incongruenza del prodotto con funzionalità indicate nell’analisi dei requisiti;
+\item incongruenza del codice con il design del prodotto.
 \end{itemize}
-Nel caso in cui un Verificatore individui un’anomalia, dovrà aprire un ticket nel sistema di ticketing secondo le modalità specificate nelle \NdP.
+Nel caso in cui un \VR\ individui un’anomalia, dovrà aprire un ticket nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
 \subsection{Pianificazione ed esecuzione del collaudo}
-Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la
-progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
+Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
 
 \newpage
 \appendix
-\section{ Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
+\section{Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
 \subsection{Riassunto delle attività di verifica} 
 //TO DO \IB mancano degli informazioni.
 \subsubsection{Revisione dei Requisiti}
@@ -436,7 +437,15 @@ Allo stato attuale non è possibile ancora fare il tracciamento tra i componenti
 \subsubsection{Processi}
 //TO DO \IB mancano degli informazioni.
 \subsubsection{Documenti}
-//TO DO \IB mancano degli informazioni.
+Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
+\begin{itemize}
+	\item \textbf{\NdP{}:} 48 (indice entro il range di accettazione)
+	\item \textbf{\SdF{}:} 44 (indice entro il range di accettazione)
+	\item \textbf{\AdR{}:} \TODO{indice}
+	\item \textbf{\PdP{}:} 51 (indice entro il range di ottimale)
+	\item \textbf{\PdQ{}:} 50 (indice entro il range di ottimale)
+	\item \textbf{Lettera di Presentazione}:
+\end{itemize}
 \subsection{Dettaglio dell'esito delle revisioni}
 Nello sviluppo del progetto ci saranno quattro revisioni del committente a cui si deve sottoporsi. Il committente segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 
