@@ -1,9 +1,13 @@
 CASI D'USO
 
-1-Registrazione utente (richiesti (Nome Cognome) Mail Password)
+1-Registrazione utente (richiesti (Nome Cognome) Mail Password) (solo per studente)
+	1.1 Inserisci mail <-extend- 1.2 Errore
+	1.3 Inserisci psw <-extend- 1.4 Errore
 2-Autenticazione utente (richiesti mail e password)
+	2.1 Inserisci mail <-extend- 2.2 Errore
+	2.3 Inserisci psw <-extend- 2.4 Errore
 3-Azioni Amministratore
-	3.1 Invita docente
+	3.1 Invita docente <-extend- 3.4 Errore se esiste
 	3.2 Rimuovi docente
 	3.3 Rimuovi studente
 4-Gestione domande
@@ -12,18 +16,29 @@ CASI D'USO
 	4.3 Eliminare domanda
 5-Gestione questionari
 	5.1 Crea questionario
+		5.1.1 Aggiungi domanda
+		5.1.2 Eliminare domanda
 	5.2 Modificare questionario
+		5.2.1 Aggiungi domanda
+		5.2.2 Eliminare domanda
 	5.3 Eliminare questionario
 6-Gestione classi
 	6.1 Crea classe
 	6.2 Modificare classe
 	6.3 Eliminare classe
 7-Gestione account
-8-Apri Questionario
-	8.1 Ricerca questionario
-	8.2 Seleziona questionario da classe
-	8.3 Apri link
+	7.1 Modifica mail <-extend- 7.2 Errore
+	7.3 Modifica psw <-extend- 7.4 Errore
+8-Ricerca Questionario
+	8.1 Ricerca per titolo
+	8.2 Ricerca per classe
+	8.3 Ricerca per argomento
+	8.4 Ricerca per docente
 9-Esegui questionario
-	9.fatevoi
+	9.1 Compila 
 10-Iscrizione ad una classe
 11-Logout
+12-Azioni Proprietario
+	12.1 Invita amministratore <-extend- 12.2 Errore se esiste
+13-Statitiche (TODO)
+
