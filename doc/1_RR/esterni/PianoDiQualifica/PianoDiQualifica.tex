@@ -285,81 +285,22 @@ I sopracitati punti vengono descritti nelle \NdP{}.
 
 
 \subsection{Obiettivi per software}
-Al fine di aumentare il valore commerciale di un prodotto software e di garantirne il
-corretto funzionamento è necessario fissare degli obiettivi qualitativi e di garantire che
-questi vengano effettivamente rispettati.
-Lo standard  \textit{ISO/IEC 9126} adottato suggerisce la divisione degli obiettivi  di qualità in realtivi a:
-\begin{itemize}
-\item\textbf{Qualità interna:}: è la qualità del prodotto software vista dall’interno, fa quindi riferimento alle caratteristiche implementative del software quali l’architettura e il codice che ne deriva. Tali obiettivi verrano verificati in modo oggettivo con i test di unità proposti nella relativa sezione. \\TODO
-\item\textbf{Qualità esterna:} è la qualità del prodotto software vista dall’esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova. Per il controllo della qualità esterna ci si avvale dei test di sistema, descritti nella sezione dedicata.\\TODO
-\item\textbf{Qualità in uso:}è la qualità del prodotto software dal punto di vista dell’utilizzatore che ne fa uso all’interno di uno specifico sistema e contesto. 
-\end{itemize}
-Non avendo la possibilità di testare la qualità in uso del prodotto software da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo standard  \textit{ISO/IEC 9126}  prevede 6 caratteristiche qualitative principali, suddivise in ulteriori sotto caratteristiche che possono essere misurate quantitativamente tramite metriche specifiche, suggerite in parte dallo standard stesso. Le metriche selezionate per il caso in esame sono specificate nella sezione \ref{metriche}. A fianco della descrizione di ognuna delle metriche da utilizzre, si specificano le finalità e gli ambiti della verifica di tale quantità.
-\begin{itemize}
-\item\textbf{Funzionalità:}
-\begin{itemize}
-\item\textbf{Interoperabilità:}capacità del prodotto software di interagire con uno o più sistemi specifici;
-\item\textbf{Sicurezza:}capacità del prodotto software di proteggere dati e informazioni in modo da impedire l’accesso e la modifica a persone o sistemi non autorizzati e a consentire l’uso di tali dati ai soli autorizzati. Nell'ambito attuale riguardo a questo punto si richiedono requisiti minimi. 
-\item\textbf{Conformità funzionale:}capacità del prodotto software di aderire a standard,convenzioni o regolamentazioni e prescrizioni in materia di funzionalità. 
-\end{itemize}
-\item\textbf{Affidabilità:}
-\begin{itemize}
-\item\textbf{Maturità:}capacità del prodotto software di evitare fallimenti a causa di errori nel software;
-\item\textbf{Tolleranza agli errori:}capacità del prodotto software di mantenere un adeguato livello di prestazioni in caso di errori software o di violazioni alla propria interfaccia;
-\item\textbf{Capacità di recupero:}capacità del prodotto software di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori;
-\item\textbf{Conformità di affidabilità:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità.
-
-\end{itemize}
-\item\textbf{Usabilità:}capacità del software di essere capito, imparato, usato e di essere allettante per l’utente. Nel caso in esame tale requisito, e tutti i sottorequisiti relativi, sono prioritari, dato il contesto applicativo.
-
-\begin{itemize}
-\item\textbf{Intelligibilità:}capacità del prodotto software di consentire all’utente di capire se il software è adeguato e come può essere utilizzato per compiti particolari;
-
-\item\textbf{Apprendibilità:}capacità del prodotto software di consentire all’utente di imparare le sue applicazioni;
-
-\item\textbf{Operabilità:}capacità del prodotto software di consentire all’utente di usarlo e controllarlo;
-
-\item\textbf{Attrattività:}capacità del prodotto software di creare interesse nell’utente;
-
-\item\textbf{Conformità di usabilità: }capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di usabilità.
-
-\end{itemize}
-\item\textbf{Efficienza:}capacità del software di fornire prestazioni appropriate in relazione alla quantità di risorse usate.
-\begin{itemize}
-\item\textbf{Comportamento temporale: }capacità del software di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni;
-\item\textbf{Utilizzo di risorse:}capacità del prodotto software di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione;
-
-\item\textbf{Conformità di efficienza:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di efficienza.
-\end{itemize}
-\item\textbf{Manutenibilità:}capacità del prodotto software di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del software a cambiamenti ambientali, nelle specifiche o nelle funzionalità.
-\begin{itemize}
-\item\textbf{Analizzabilità:}capacità del prodotto software di poter essere studiato alla ricerca di carenze e difetti.
-
-\item\textbf{Modificabilità:}capacità del prodotto software di consentire l’implementazione di una specifica modifica;
-
-\item\textbf{Stabilità:}capacità del prodotto software di evitare effetti indesiderati causati da una o più modifiche;
-\item\textbf{Testabilità:}capacità del prodotto software di consentire la validazione di una versione modificata del software;
-
-\item\textbf{Conformità di manutenibilità:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità.
-
-\end{itemize}
-\item\textbf{Portabilità:}capacità del prodotto software di poter essere trasferito da un ambiente di lavoro ad un altro.
-
-\begin{itemize}
-\item\textbf{Adattabilità:}: capacità del prodotto software di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite;
-\item\textbf{Installabilità:}capacità del prodotto software di poter essere installato in specifici ambienti;
-
-\item\textbf{Coesistenza:}capacità del prodotto software di coesistere in ambienti comuni con altri software indipendenti condividendo risorse comuni;
-
-\item\textbf{Sostituibilità:}capacità del prodotto software di poter sostituire un software analogo con la stessa finalità e nello stesso ambiente;
-\item\textbf{Conformità di portabilità:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di portabilità.
-\end{itemize}
-\end{itemize}
+Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard  \textit{ISO/IEC 9126}, si individuano degli aree in cui definire obiettivi specifici per l'analisi della qualità software per il caso in esame.
+\subsubsection{Test driven software}
+Il software deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con appoccio bottom-up. Si intende testare in modo approfondito ogni unità software in modo isolato per isolare e prevenire errori su grosse componenti di software. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard  \textit{ISO/IEC 9126}.
+\subsubsection{Architettura modulare}
+Il software deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per aepprofondimenti.
+\subsubsection{Tracciabilità e conformità dei requisiti}
+Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito software abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
+\subsubsection{Usabilità utente}
+Poichè il per software in esame si prevede interazione con l'utente, sono è necessario garantire l'usaibilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
+\subsubsection{Utilizzo e scelta delle risorse}
+Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Quseto punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
 
 \subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo di qualità del prodotto verrà garantito da:
 \begin{itemize}
-	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}
+	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}. In particolare, anche i test devono rispecchirare l'approccio bottom-up di analisi.
 	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \ref{Resoconto delle attività di verifica}
 	\item \textbf{Validazione:} Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste
 \end{itemize}
