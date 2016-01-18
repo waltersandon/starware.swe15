@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \input{../../../template/stile.sty}
 \input{../../../glossario/glossario.tex}
-
+\usepackage{tikz}
 %Titolo documento
 \newcommand{\titoloDocumento}{Analisi dei requisiti}
 
@@ -95,7 +95,868 @@
 \listoftables
 \newpage
 
+\section{Requisiti}
+\begin{longtable}{|r l|p{2cm}|p{6cm}|p{2cm}|}
+	\hline
+	\multicolumn{2}{|c|}{Requisito} & Tipologia & Descrizione & Fonti\tabularnewline
+	\hline
+	& \hypertarget{R-3V1}{R-3V1} & Vincolo
+	
+	Obbligatorio & La parte destinata ai creatori di domande e di questionari dovrà essere fruibile attraverso un PC & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3V2}{R-3V2} & Vincolo
+	
+	Obbligatorio & La parte server deve essere realizzata in Java con server Tomcat o Javascaript con server Node.js
+	& Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3V3}{R-3V3} & Vincolo
+	
+	Obbligatorio & La parte client dovrà essere eseguibile in un browser HTML5 & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V3.1}{R-3V3.1} & Vincolo
+	
+	Obbligatorio & L'applicazione funziona corretamente su Chrome versione 47.0.2526 e successive & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V3.2}{R-3V3.2} & Vincolo
+	
+	Obbligatorio & L'applicazione funziona correttamente su Firefox versione 38.5.2esr e successive & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V3.3}{R-3V3.3} & Vincolo
+	
+	Obbligatorio & L'applicazione funziona correttamente su Microsoft Edge versione 25.10586 e successive & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V3.4}{R-3V3.4} & Vincolo
+	
+	Obbligatorio & L'applicazione funziona correttamente su Safari versione 9.0.2 e successive & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3V4}{R-3V4} & Vincolo
+	
+	Obbligatorio & L'applicazione deve utilizzare fogli stile CSS per l’ aspetto estetico & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3V5}{R-3V5} & Vincolo
+	
+	Obbligatorio & L'applicazione deve utilizzare Javascript per la parte attiva del client & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3V6}{R-3V6} & Vincolo
+	
+	Obbligatorio & La parte destinata agli esaminandi dovrà funzionare con qualunque dispositivo: dal Personal Computer, ai Tablet ed agli SmartPhone & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V6.1}{R-3V6.1} & Vincolo
+	
+	Obbligatorio & La parte destinata agli esaminandi dovrà funzionare si smartphone e tablet iOS dalla versione iOS6 & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3V6.2}{R-3V6.2} & Vincolo
+	
+	Obbligatorio & La parte destinata agli esaminandi dovrà funzionare su Android dalla versione 4.0 & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3F7}{R-3F7} & Funzionale
+	
+	Obbligatorio & Il sistema deve gestire questionari & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.1}{R-3F7.1} & Funzionale
+	
+	Obbligatorio & L'applicazione deve archiviare quiz in un server, suddivisi per argomento
+	& Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.2}{R-3F7.2} & Funzionale
+	
+	Obbligatorio & L'applicazione deve poter archiviare questionari contenenti domande & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.3}{R-3F7.3} & Funzionale
+	
+	Obbligatorio & L'applicazione deve tradurre da QML a HTML le domande archiviate & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.4}{R-3F7.4} & Funzionale
+	
+	Obbligatorio & L'applicazione deve proporre questionari preconfezionati & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.5}{R-3F7.5} & Funzionale
+	
+	Obbligatorio & L'applicazione deve valutare le risposte fornite dall’ utente & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.6}{R-3F7.6} & Funzionale
+	
+	Obbligatorio & Le domande dovranno essere raccolte attraverso uno specifico linguaggio, che chiameremo Quiz Markup Language (QML), studiato per descrivere quiz
+	& Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.6.1}{R-3F7.6.1} & Funzionale
+	
+	Obbligatorio & Il QML deve gestire risposte vero/falso, risposte a scelta multipla, testi e immagini & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.6.2}{R-3F7.6.2} & Funzionale
+	
+	Obbligatorio & Le domande scritte in QML devono essere editabili dall'utente & Proponente\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-2F7.6.3}{R-2F7.6.3} & Funzionale
+	
+	Opzionale & Le domande possono essere insrite e editabili attraverso interfaccia grafica & Proponente\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.7}{R-3F7.7} & Funzionale
+	
+	Obbligatorio & Il sistema deve gestire sia questionari pubblici (esercitazione) che privati (esami) & Proponente\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.8}{R-3F7.8} & Funzionale
+	
+	Obbligatorio & I docenti costruiranno questionari scegliendo tra le domande archiviate nel server & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-2F7.9}{R-2F7.9} & Funzionale
+	
+	Opzionale & il sistema deve offrire la possibilità di creare dinamicamente i questionari & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-2F7.10}{R-2F7.10} & Funzionale
+	
+	Opzionale & Il l'applicazione deve essere predisposta ad un sistema di feedback per le domande & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.11}{R-3F7.11} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la raccolta dei dati relativi a questionari svolti & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.11.1}{R-3F7.11.1} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la rivisitazione del test svolto e dei risultati ottenuti & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.11.2}{R-3F7.11.2} & Funzionale
+	
+	Obbligatorio & Il sistema deve offrire la possibilità di analizzare i dati raccolti dai test effettuati & Capitolato\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F7.11.3}{R-3F7.11.3} & Funzionale
+	
+	Obbligatorio & Il sistema deve offrire la possibilità di visualizzazione sotto forma di grafico delle statistiche i dati raccolti & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3F8}{R-3F8} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere l’autenticazione
+	di un utente & \hyperlink{UC2}{UC2}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F8.1}{R-3F8.1} & Funzionale
+	
+	Obbligatorio & L’autenticazione richiede l’inserimento dell’e-mail e della password & \hyperlink{UC2}{UC2}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F8.2}{R-3F8.2} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la visualizzazione di un messaggio di errore in caso di email o password non valida & \hyperlink{UC2}{UC2}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-2F8.3}{R-2F8.3} & Funzionale
+	
+	Opzionale & Il sistema deve permettere il recupero password & \hyperlink{UC2}{UC2}\tabularnewline
+	\hline
+	& \hypertarget{R-3F9}{R-3F9} & Funzionale
+	
+	Obbligatorio & Il candidato attraverso una specifica interfaccia potrà rispondere alle domande & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3F10}{R-3F10} & Funzionale
+	
+	Obbligatorio & Il sistema deve avere almeno 3 tipi di utenti: amministratore, docente e studente & Capitolato\tabularnewline
+	\hline
+	& \hypertarget{R-3F11}{R-3F11} & Funzionale
+	
+	Obbligatorio & Il sistema deve gestire la registrazione di un utente & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.1}{R-3F11.1} & Funzionale
+	
+	Obbligatorio & Il sistema deve contenere già un account amministratore & Interno\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.2}{R-3F11.2} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la registrazione
+	di uno studente & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.2.1}{R-3F11.2.1} & Funzionale
+	
+	Obbligatorio & La registrazione di uno studente richiede l’inserimento
+	della mail, password, e facoltativamente nome e cognome & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.2.2}{R-3F11.2.2} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la visualizzazione di un messaggio di errore se la mail dello studente è già presente nel sistema & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-2F11.2.3}{R-2F11.2.3} & Funzionale
+	
+	Opzionale & Il sistema deve permettere la visualizzazione di un messaggio di errore per password troppo corta & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.3}{R-3F11.3} & Funzionale
+	
+	Obbligatorio & L'amministratore deve poter inviare un invito di registrazione ad un docente di cui conosce l'indirizzo email & \hyperlink{UC3.1}{UC3.1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.4}{R-3F11.4} & Funzionale
+	
+	Obbligatorio & Il sistema deve poter registrate un docente che ha ricevuto un invito di registrazione & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.4.1}{R-3F11.4.1} & Funzionale
+	
+	Obbligatorio & La registrazione di un docente richiede l’inserimento della mail, password, e facoltativamente nome e cognome & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.4.2}{R-3F11.4.2} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la visualizzazione di un messaggio di errore se la mail del docente è già presente nel sistema & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.4.3}{R-3F11.4.3} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la visualizzazione di un messaggio di errore per password troppo corta & \hyperlink{UC1}{UC1}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hypertarget{R-3F11.5}{R-3F11.5} & Funzionale
+	
+	Obbligatorio & Il sistema deve permettere la creazione di un nuovo amministratore da parte di un altro amministratore & \hyperlink{UC3.4}{UC3.4}\tabularnewline
+	\hline
+	& \hypertarget{R-3V12}{R-3V12} & Vincolo
+	
+	Obbligatorio & Il database server side deve essere SQL (PostgreSQL) oppure noSQL (MongoDB) & Capitolato\tabularnewline
+	\hline
+	\caption{Tabella requisiti / fonti} \tabularnewline
+	\end{longtable}
+
+
 \newpage
-\printglossary[title={Glossario}]
+\section{Use Cases}
+\hypertarget{UC1}{}
+\subsection{Caso d'uso UC1: Registrazione}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC1: Registrazione}\label{fig:UC1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Utente non registrato; 
+\item \textbf{Precondizione}: L’utente non è ancora registrato presso il sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item l'utente clicca sul tasto registrazione;
+	\item inserisce un mail e password;
+	\item l'utente può facoltativamente inserire Nome e Cognome;
+	\item clicca sul tasto registrati;
+	
+\end{enumerate}
+\item \textbf{Estensioni}:
+\begin{enumerate}
+	\item nel caso in cui l’utente inserisca una mail già censita dal sistema l’utente non viene registrato presso il sistema e viene visualizzato un errore esplicativo;
+	\item nel caso in cui l’utente inserisca una password troppo corta l’utente non viene registrato presso il sistema e viene visualizzato un errore esplicativo;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: L’utente possiede un’account di tipo studente o docente presso il sistema, contraddistinto da una username e da una password.
+\end{itemize}
+\hypertarget{UC2}{}
+\subsection{Caso d'uso UC2: Autenticazione}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC2: Autenticazione}\label{fig:UC2} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Utente registrato; 
+\item \textbf{Precondizione}: L'utente è registrato presso il sitema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item l'utente inserisce mail e password corretti;
+	\item l'utente clicca su accedi;
+	
+\end{enumerate}
+\item \textbf{Estensioni}:
+\begin{enumerate}
+	\item nel caso in cui l'utente inserisca una coppia di mail e password non presente nel sistema viene visualizzato un errore esplicativo e viene fornita la possibilità di ritentare l'accesso;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: L'utente è autenticato presso il sistema.
+\end{itemize}
+\hypertarget{UC3}{}
+\subsection{Caso d'uso UC3: Azioni Amministratore}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC3: Azioni Amministratore}\label{fig:UC3} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Amministratore; 
+\item \textbf{Precondizione}: L'amministratore è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Amministratore può  invitare un docente (\hyperlink{UC3.1}{UC3.1});
+	\item Amministratore può rimuovere un docente (\hyperlink{UC3.2}{UC3.2});
+	\item Amministratore può rimuovere uno studente (\hyperlink{UC3.3}{UC3.3});
+	\item Amministratore può creare un nuovo utente amministratore;
+	\item Amministratore può gestire il proprio profilo (\hyperlink{UC9}{UC9});
+	\item L'amministratore può effettuare il logout (\hyperlink{UC4}{UC4});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema ha ottenuto le informazioni sulle operazioni che
+l’amministratore desidera eseguire.
+\end{itemize}
+\hypertarget{UC3.1}{}
+\subsection{Caso d'uso UC3.1: Invita docente}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC3.1: Invita docente}\label{fig:UC3.1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Amministratore; 
+\item \textbf{Precondizione}: Amministratore è a conoscenza dell’email del docente da invitare;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Amministratore inserisce l'email del docente da invitare nel campo opportuno ;
+	\item Amministratore invia al sistema l'email del docente da invitare;
+	
+\end{enumerate}
+\item \textbf{Estensioni}:
+\begin{enumerate}
+	\item In caso di email già presente nel sistema viene segnalato all'Amministratore;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Sistema invia token di registrazione del docente alla medesima email.
+\end{itemize}
+\hypertarget{UC3.2}{}
+\subsection{Caso d'uso UC3.2: Rimuovi  docente}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC3.2: Rimuovi  docente}\label{fig:UC3.2} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Amministratore; 
+\item \textbf{Precondizione}: Il docente da rimuovere deve essere presente nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Amministratore ricerca il docente da rimuovere;
+	\item Amministratore seleziona il docente da rimuovere;
+	\item Amministratore conferma la rimozione del docente selezionato;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il medesimo docente è stato rimosso dal sistema.
+\end{itemize}
+\hypertarget{UC3.3}{}
+\subsection{Caso d'uso UC3.3: Rimuovi  studente}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC3.3: Rimuovi  studente}\label{fig:UC3.3} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Amministratore; 
+\item \textbf{Precondizione}: Lo studente da rimuovere deve essere presente nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Amministratore ricerca lo studente da rimuovere;
+	\item Amministratore seleziona lo studente da rimuovere;
+	\item Amministratore conferma la rimozione dello studente selezionato;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il medesimo studente è stato rimosso dal sistema.
+\end{itemize}
+\hypertarget{UC3.4}{}
+\subsection{Caso d'uso UC3.4: Aggiunta amministratore}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC3.4: Aggiunta amministratore}\label{fig:UC3.4} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Amministratore; 
+\item \textbf{Precondizione}: L'amministratore è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L'amministratore inserisce mail e password del nuovo amministratore;
+	\item L'amministratore seleziona la funzionalità di aggiunta amministratore;
+	
+\end{enumerate}
+\item \textbf{Estensioni}:
+\begin{enumerate}
+	\item nel caso in cui l’amministratore inserisca una mail già censita dal sistema l’utente non viene registrato presso il sistema e viene visualizzato un errore esplicativo;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stato inserito un nuovo amministratore.
+\end{itemize}
+\hypertarget{UC4}{}
+\subsection{Caso d'uso UC4: Logout}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Utente Registrato; 
+	\item \textbf{Precondizione}: L'utente è autenticato nel sistema;
+	\item \textbf{Postcondizione}: L'utente non è più autenticato nel sistema.
+\end{itemize}
+\hypertarget{UC5}{}
+\subsection{Caso d'uso UC5: Gestione classi}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC5: Gestione classi}\label{fig:UC5} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Il docente può creare una nuova classe (\hyperlink{UC5.1}{UC5.1});
+	\item Il docente può modificare una classe (\hyperlink{UC5.2}{UC5.2});
+	\item Il docente può eliminare una classe (\hyperlink{UC5.3}{UC5.3});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire sulla classe.
+\end{itemize}
+\hypertarget{UC5.1}{}
+\subsection{Caso d'uso UC5.1: Inserisci classe}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC5.1: Inserisci classe}\label{fig:UC5.1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionata la funzionalità inserisci nuova classe;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stato creata una nuova classe.
+\end{itemize}
+\hypertarget{UC5.2}{}
+\subsection{Caso d'uso UC5.2: Modifica classe}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Docente; 
+	\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema la classe da modificare;
+	\item \textbf{Postcondizione}: È stata modificata la classe.
+\end{itemize}
+\hypertarget{UC5.3}{}
+\subsection{Caso d'uso UC5.3: Elimina classe}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC5.3: Elimina classe}\label{fig:UC5.3} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema la classe da eliminare;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene sezionata una classe;
+	\item Viene sezionata la funzionalità elimina;
+	\item Viene confermata l'eliminazione;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stata eliminata la classe.
+\end{itemize}
+\hypertarget{UC6}{}
+\subsection{Caso d'uso UC6: Gestione questionari}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC6: Gestione questionari}\label{fig:UC6} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Il docente può creare un nuovo questionario (\hyperlink{UC6.1}{UC6.1});
+	\item Il docente può modificare un questionario (\hyperlink{UC6.2}{UC6.2});
+	\item Il docente può eliminare un questionario (\hyperlink{UC6.3}{UC6.3});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema ha ottenuto le informazioni sulle operazioni che
+il docente desidera eseguire su un questionario.
+\end{itemize}
+\hypertarget{UC6.1}{}
+\subsection{Caso d'uso UC6.1: Inserisci questionario}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC6.1: Inserisci questionario}\label{fig:UC6.1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionata la funzionalità inserisci nuovo questionario;
+	\item Vengono ricercate e selezionate le domande da inserire;
+	\item Vengono inserite le domande nel questionario;
+	\item Viene inserito l'argomento o gli argomenti del questionario;
+	\item Viene confermato il questionario;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stato creato un nuovo questionario.
+\end{itemize}
+\hypertarget{UC6.2}{}
+\subsection{Caso d'uso UC6.2: Modifica questionario}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC6.2: Modifica questionario}\label{fig:UC6.2} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema il questionario da modificare;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionata la funzionalità modifica questionario;
+	\item Può venire cercata una domande da inserire filtrando per creatore, argomento, tipo domanda, testo domanda;
+	\item Possono venire inserite domande al questionario;
+	\item Possono essere eliminate dal questionario;
+	\item Viene confermato il questionario;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stato modificato il questionario.
+\end{itemize}
+\hypertarget{UC6.3}{}
+\subsection{Caso d'uso UC6.3: Elimina questionario}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC6.3: Elimina questionario}\label{fig:UC6.3} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema il questionario da eliminare;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionato un questionario;
+	\item Viene selezionata la funzionalità elimina;
+	\item Viene confermata l'eliminazione;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stato eliminato il questionario.
+\end{itemize}
+\hypertarget{UC7}{}
+\subsection{Caso d'uso UC7: Gestione domande}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC7: Gestione domande}\label{fig:UC7} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Il docente può creare una nuova domanda (\hyperlink{UC7.1}{UC7.1});
+	\item Il docente può modificare una domanda (\hyperlink{UC7.2}{UC7.2});
+	\item Il docente può eliminare una domanda (\hyperlink{UC7.3}{UC7.3});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire sulle domande.
+\end{itemize}
+\hypertarget{UC7.1}{}
+\subsection{Caso d'uso UC7.1: Inserisci domanda}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC7.1: Inserisci domanda}\label{fig:UC7.1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionata da funzionalità inserisci domanda;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: È stata creata una nuova domanda.
+\end{itemize}
+\hypertarget{UC7.2}{}
+\subsection{Caso d'uso UC7.2: Modifica domanda}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Docente; 
+	\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema la domanda da modificare;
+	\item \textbf{Postcondizione}: La domanda è stata modificata.
+\end{itemize}
+\hypertarget{UC7.3}{}
+\subsection{Caso d'uso UC7.3: Elimina domanda}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC7.3: Elimina domanda}\label{fig:UC7.3} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Docente; 
+\item \textbf{Precondizione}: Il docente è autenticato nel sistema, è presente nel sistema la domanda da eliminare;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item Viene selezionata una domanda;
+	\item Viene selezionata la funzionalità elimina;
+	\item Viene confermata l'eliminazione;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: La domanda è stata eliminata.
+\end{itemize}
+\hypertarget{UC8}{}
+\subsection{Caso d'uso UC8: Esecuzione questionario}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Studente, Docente; 
+	\item \textbf{Precondizione}: L'utente è autenticato nel sistema;
+	\item \textbf{Postcondizione}: Il questionario è stato compilato e vengono visualizzati i risultati.
+\end{itemize}
+\hypertarget{UC8.1}{}
+\subsection{Caso d'uso UC8.1: Ricerca questionario}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Studente, Docente; 
+	\item \textbf{Precondizione}: L'utente è autenticato nel sistema;
+	\item \textbf{Postcondizione}: Il sistema riceve in input i parametri di ricerca inseriti e mostra la lista dei questionari che li soddisfano.
+\end{itemize}
+\hypertarget{UC8.2}{}
+\subsection{Caso d'uso UC8.2: Compilazione questionario}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: Studente, Docente; 
+	\item \textbf{Precondizione}: L'utente è autenticato nel sistema; esiste il questionario da compilare;
+	\item \textbf{Postcondizione}: Il questionario è stato compilato e vengono mostrati i risultati.
+\end{itemize}
+\hypertarget{UC9}{}
+\subsection{Caso d'uso UC9: Gestione account}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC9: Gestione account}\label{fig:UC9} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: Utente Autenticato; 
+\item \textbf{Precondizione}: L’utente ha effettuato  il login con successo e decide di gestire il proprio account;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L’utente vede le proprie informazioni personali (\hyperlink{UC9.1}{UC9.1});
+	\item L’utente modifica le proprie informazioni personali (\hyperlink{UC9.2}{UC9.2});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}:  Il sistema fornisce l’interfaccia di interazione per la gestione dell’account.
+\end{itemize}
+\hypertarget{UC9.1}{}
+\subsection{Caso d'uso UC9.1: Visualizzazione informazioni account}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC9.1: Visualizzazione informazioni account}\label{fig:UC9.1} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: L’utente prende visione di tutte le sue informazioni personali inserite al momento della
+registrazione; 
+\item \textbf{Precondizione}: Il sistema è pronto a fornire le informazioni personali dell’utente che ha fatto la richiesta;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L’utente visualizza la propria e-mail (\hyperlink{UC9.1.1}{UC9.1.1});
+	\item L’utente visualizza il proprio nome (\hyperlink{UC9.1.2}{UC9.1.2});
+	\item L’utente visualizza il proprio cognome (\hyperlink{UC9.1.3}{UC9.1.3});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema fornisce all’utente la possibilità di vedere le informazioni personali.
+\end{itemize}
+\hypertarget{UC9.1.1}{}
+\subsection{Caso d'uso UC9.1.1:  Visualizzazione e-mail}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente visualizza il proprio indirizzo e-mail inserito al momento della registrazione; 
+	\item \textbf{Precondizione}: L’utente ha richiesto di vedere il proprio indirizzo e-mail;
+	\item \textbf{Postcondizione}: Il sistema ha fornito all’utente il dato richiesto.
+\end{itemize}
+\hypertarget{UC9.1.2}{}
+\subsection{Caso d'uso UC9.1.2: Visualizzazione nome}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente visualizza il proprio nome inserito al momento della registrazione; 
+	\item \textbf{Precondizione}: L’utente ha richiesto di vedere il proprio nome;
+	\item \textbf{Postcondizione}: Il sistema ha fornito all’utente il dato richiesto.
+\end{itemize}
+\hypertarget{UC9.1.3}{}
+\subsection{Caso d'uso UC9.1.3: Visualizzazione cognome}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente visualizza il proprio cognome inserito al momento della registrazione; 
+	\item \textbf{Precondizione}: L’utente ha richiesto di vedere il proprio cognome;
+	\item \textbf{Postcondizione}: Il sistema ha fornito all’utente il dato richiesto.
+\end{itemize}
+\hypertarget{UC9.2}{}
+\subsection{Caso d'uso UC9.2: Modifica informazioni account}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC9.2: Modifica informazioni account}\label{fig:UC9.2} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: L’utente vuole modificare le proprie generalità; 
+\item \textbf{Precondizione}:  L’utente ha già preso visione delle proprie generalità ed ha deciso di fare alcune modifiche;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L’utente modifica il proprio nome (\hyperlink{UC9.2.1}{UC9.2.1});
+	\item L’utente modifica il proprio cognome  (\hyperlink{UC9.2.2}{UC9.2.2});
+	\item L’utente modifica la propria password (\hyperlink{UC9.2.3}{UC9.2.3});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Il sistema, dopo l’interazione con l’utente, salva le eventuali modifiche svolte.
+\end{itemize}
+\hypertarget{UC9.2.1}{}
+\subsection{Caso d'uso UC9.2.1: Modifica nome}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente che ha visualizzato le proprie generalità, decide di voler cambiare il nome che
+	ha inserito al momento della registrazione; 
+	\item \textbf{Precondizione}: L’utente ha richiesto di modificare il proprio nome;
+	\item \textbf{Postcondizione}: il sistema salva nome modificato.
+\end{itemize}
+\hypertarget{UC9.2.2}{}
+\subsection{Caso d'uso UC9.2.2: Modifica cognome}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente che ha visualizzato le proprie generalità, decide di voler cambiare il cognome
+	che ha inserito al momento della registrazione; 
+	\item \textbf{Precondizione}: L’utente ha richiesto di modificare il proprio cognome;
+	\item \textbf{Postcondizione}: il sistema salva  il cognome modificato .
+\end{itemize}
+\hypertarget{UC9.2.3}{}
+\subsection{Caso d'uso UC9.2.3: Modifica password}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC9.2.3: Modifica password}\label{fig:UC9.2.3} 
+\end{figure}\begin{itemize}
+\item \textbf{Scopo e descrizione}: L’utente che ha visualizzato le proprie generalità, decide di cambiare la password
+inserendone una nuova; 
+\item \textbf{Precondizione}: L’utente ha richiesto di modificare la propria password;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L’utente inserisce l’attuale password in uso (\hyperlink{UC9.2.3.1}{UC9.2.3.1});
+	\item L’utente inserisce la nuova password (\hyperlink{UC9.2.3.2}{UC9.2.3.2});
+	\item L’utente inserisce la password nuova una seconda volta (\hyperlink{UC9.2.3.3}{UC9.2.3.3});
+	\item L’utente decide di confermare la modifica alla password di accesso (\hyperlink{UC9.2.3.4}{UC9.2.3.4});
+	
+\end{enumerate}
+\item \textbf{Estensioni}:
+\begin{enumerate}
+	\item Errore input password (\hyperlink{UC9.2.4}{UC9.2.4});
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: il sistema salva  la password modificata.
+\end{itemize}
+\hypertarget{UC9.2.3.1}{}
+\subsection{Caso d'uso UC9.2.3.1:  Inserimento vecchia password}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente ha deciso di modificare la password di accesso ed entra nella sezione per il cambio password; 
+	\item \textbf{Precondizione}: Il sistema ha visualizzato la sezione dove poter inserire l’attuale password che andrà cambiata;
+	\item \textbf{Postcondizione}: Il sistema convalida la password appena inserita.
+\end{itemize}
+\hypertarget{UC9.2.3.2}{}
+\subsection{Caso d'uso UC9.2.3.2:  Inserimento nuova password}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente ha deciso di modificare la password di accesso ed entra nella sezione per il cambio password; 
+	\item \textbf{Precondizione}: Il sistema ha visualizzato la sezione dove poter inserire la nuova password;
+	\item \textbf{Postcondizione}: Il sistema convalida la nuova password appena inserita.
+\end{itemize}
+\hypertarget{UC9.2.3.3}{}
+\subsection{Caso d'uso UC9.2.3.3: Conferma nuova password}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente ha deciso di modificare la password di accesso ed entra nella sezione per il cambio password; 
+	\item \textbf{Precondizione}: Il sistema ha visualizzato la sezione dove inserire la conferma della nuova password;
+	\item \textbf{Postcondizione}: Il sistema convalida la conferma della nuova password appena inserita.
+\end{itemize}
+\hypertarget{UC9.2.3.4}{}
+\subsection{Caso d'uso UC9.2.3.4: Conferma modifica}\begin{itemize}
+	\item \textbf{Attori}: Utente;
+	\item \textbf{Scopo e descrizione}: L’utente autenticato deve poter confermare la modifica della password del proprio account; 
+	\item \textbf{Precondizione}: Il sistema fornisce una schermata in cui è possibile confermare la modifica della password del proprio account;
+	\item \textbf{Postcondizione}: L’utente ha confermato di voler modificare la propria password all’interno del sistema.
+\end{itemize}
+\hypertarget{UC9.2.4}{}
+\subsection{Caso d'uso UC9.2.4: Visualizzazione messaggio errore password errata}
+\begin{figure}[H]
+	\centering
+
+	\caption{Caso d'uso UC9.2.4: Visualizzazione messaggio errore password errata}\label{fig:UC9.2.4} 
+\end{figure}\begin{itemize}
+\item \textbf{Attori}: Utente;
+\item \textbf{Scopo e descrizione}: L’utente che ha visualizzato le proprie informazioni personali, decide di voler cambiare la propria password, però non effettua la procedura di cambio password in modo corretto, quindi viene visualizzato il messaggio di errore; 
+\item \textbf{Precondizione}: L’utente ha richiesto di modificare la password attuale;
+
+\item \textbf{Flusso principale degli eventi}:
+\begin{enumerate}
+	\item L’utente vede il messaggio di errore per il cambiamento errato della nuova password;
+	
+\end{enumerate}
+\item \textbf{Postcondizione}: Dopo la modifica della password, il sistema non salva il nuovo valore perché errato e visualizza un messaggio di errore.
+\end{itemize}
+
 
 \end{document}
