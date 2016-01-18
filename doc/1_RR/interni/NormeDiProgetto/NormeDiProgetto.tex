@@ -673,14 +673,14 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
 
-\subsubsection{Analisi statica}
+\subsubsection{Tecniche di analisi statica}
 Tale tecnica è attuabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
 \begin{itemize}
 	\item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \mgls{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \mgls{walkthrough} a favore della tecnica di \mgls{inspection};
 	\item \textbf{Inspection:} l'\mgls{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \mgls{walkthrough}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\mgls{inspection} sempre più efficace;
 \end{itemize}
 
-\subsubsection{Analisi dinamica}
+\subsubsection{Tecniche di analisi dinamica}
 L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
 
 \subsubsection{Strumenti}
