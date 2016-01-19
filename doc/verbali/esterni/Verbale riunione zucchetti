@@ -1,0 +1,50 @@
+Riunione con la Zucchetti del 2016/01/18
+Presenti: tutti
+
+
+-Tenere i risultati?
+Sì, serve. Serve per avere una valutazione oggettiva e una sua prova duratura
+Valore aggiunto rispetto alla carta: selezionare la difficoltà in base alla statistica
+Equità basata sulla statistica
+
+-Questionari dinamici?
+Opzionale
+
+-Cosa si intende per questionari privati/pubblici?
+Possono coesistere le due cose: privati nel senso di classi o nel senso di esami
+Va bene il concetto di classe (-> per calcolarne le statistiche)
+problemi dell'esame: verificare l'identità dell'esaminando
+
+-Privilegi amministratore?
+Ok come abbiamo pensato!
+I sotto-amministratori possono avere dei gruppi (opzionale)
+
+-applicazione unica o varie istanze?
+Prevalentemente un unico sito, ma che volendo può essere installato ad hoc
+
+-come si svolge il collaudo?
+Solo una dimostrazione del sistema finale
+
+-autenticazione con Google/FB ...
+Si può fare
+
+-QML?
+Serve per descrivere una domanda (non un questionario)
+Meglio usare un linguaggio di markdown (sconsigliato XML) con un facile parser (vedi ANTLR)
+
+-domande aperte?
+Pensare ad un modo per correggerle
+
+-parte client Angular e Bootstrap vanno bene?
+Sì, ma occhio che bisogna anche impararle
+
+-Database?
+Quello che vogliamo, ma PostgreSQL è consigliato
+
+-interfaccia grafica:
+material design, aspetto moderno
+
+-è un docente che invita gli studenti a fare i questionari o sono gli studenti che se li scelgono?
+Entrambe
+
+-largo alla fantasia!
