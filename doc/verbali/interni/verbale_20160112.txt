@@ -14,21 +14,21 @@ CASI D'USO
 	3.1 Invita docente <-extend- 3.4 Errore se esiste già
 	3.2 Rimuovi docente
 	3.3 Rimuovi studente
-4-Gestione domande (docente)
+4-Gestione domande (docente) {AVE o Andrea}
 	4.1 Inserire domanda
 	4.2 Modificare domanda
 	4.3 Eliminare domanda
-5-Gestione questionari (docente)
+5-Gestione questionari (docente) {NDC}
 	5.1 Crea questionario
 	5.2 Modificare questionario
 	5.3 Eliminare questionario
 	5.5 Aggiungi domanda
 	5.6 Eliminare domanda
-6-Gestione classi (docente)
+6-Gestione classi (docente) {AVI}
 	6.1 Crea classe
 	6.2 Modificare classe
 	6.3 Eliminare classe
-7-Gestione account (utente autenticato)
+7-Gestione account (utente autenticato) {NDC}
 	7.1 Modifica mail	<-extend- 7.2 Errore mail già presente
 						<-extend- 7.3 Errore non è una mail
 	7.4 Modifica psw <-extend- 7.5 Errore psw non conforme alle regole
@@ -41,17 +41,17 @@ CASI D'USO
 	18 Ricerca per argomento
 	19 Ricerca per docente
 	20 Ricerca per difficoltà
-9-Esegui questionario (studente) <-extend- 9.2 Errore non hai risposto a tutte le domande
+9-Esegui questionario (studente) <-extend- 9.2 Errore non hai risposto a tutte le domande {AVE}
 	9.1 Rispondi domanda
 	9.2 Vai a domanda precendente
 	9.3 Vai a domanda successiva
-10-Iscrizione ad una classe (studente)
+10-Iscrizione ad una classe (studente) {AVI}
 	10.1 Iniserisci password  <-extend- 10.2 Errore psw errata
 11-Logout (utente autenticato)
-12-Azioni proprietario (proprietario)
+12-Azioni proprietario (proprietario) {AVI}
 	12.1 Invita amministratore <-extend- 12.2 Errore se esiste già
 	12.2 Elimina amministratore
-13-Storico (studente)
+13-Storico (studente) {NDC}
 	13.1 Domande (anche statistiche solo di quello)
 	13.2 Questionari (anche statistiche solo di quello)
 	13.3 Sommario
@@ -63,7 +63,7 @@ CASI D'USO
 	24 Ricerca per docente
 	25 Ricerca per difficoltà
 	26 Ricerca per keywords
-27-Visualizza statistiche (docente)
+27-Visualizza statistiche (docente) {AVI}
 	28 Statistiche domanda
 	29 Statistiche questionario
 	30 Statistiche classe
@@ -73,4 +73,9 @@ CASI D'USO
 		30.4 Studente
 			30.4.1 Domande
 			30.4.2 Questionari
-31-Recupero psw (utente non autenticato)
+31-Recupero psw (utente non autenticato) {AVI}
+32-Gestione argomenti {AVE}
+	32.1 Crea Argomento <-extend esiste già
+	32.2 Elimina argomento <-extend ha domande dentro
+	32.3 Modifica argomento
+	32.4 Esplora argomenti
