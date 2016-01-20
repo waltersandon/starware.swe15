@@ -488,7 +488,7 @@ Il piè di pagina deve contenere:
 
 \subsubsubsection{Composizione}
 \begin{itemize}
-	\item \textbf{Elenchi:} ogni punto dell'elenco deve terminare con un punto e virgola, tranne l'ultimo che deve terminare con un punto. Gli elenchi devono essere puntati se non è necessario che gli elementi siano in un ordine preciso. Se l'elenco è una lista di elementi seguiti da descrizione devono terminare senza punteggiatura e il nome dell'elemento deve essere in grassetto seguito da due punti
+	\item \textbf{Elenchi:} ogni punto dell'elenco deve terminare con un punto e virgola, tranne l'ultimo che deve terminare con un punto. Ogni elemento dell'elenco deve cominciare con la lettera minuscola almeno che non sia una lista di definizione di termini. Gli elenchi devono essere puntati se non è necessario che gli elementi siano in un ordine preciso. Se l'elenco è una lista di elementi seguiti da descrizione devono terminare senza punteggiatura e il nome dell'elemento deve essere in grassetto seguito da due punti
 	\item \textbf{Membri del gruppo:} i nomi dei membri del gruppo si devono indicare con nome e poi cognome. Sono state definite macro in \LaTeX{} con tutti i nomi del gruppo per facilitare la composizione dei documenti:
 	\begin{itemize}
 		\item \textbf{\AVI:} \latex{\textbackslash AVI}
@@ -775,24 +775,24 @@ Ogni volta che un membro del gruppo durante riscontra un problema che, come spec
 Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
 
 \begin{itemize}
-	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa problema
-	\item \textbf{Assegnatari:} I \mgls{ticket} di segnalazione problema devono sempre essere assegnati al \RE
-	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
-	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento a alla tabella \ref{tabCalssificazioneProb}
-	\item \textbf{Etichetta/e:} Deve essere impostata l'etichetta \textit{Problem} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+	\item \textbf{Titolo:} rappresenta in maniera sintetica e significativa problema
+	\item \textbf{Assegnatari:} i \mgls{ticket} di segnalazione problema devono sempre essere assegnati al \RE
+	\item \textbf{Commento:} nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
+	\item \textbf{Priorità:} deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento a alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Problem} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
 
-\subsubsubsection{Ticket di risoluzione problema}
-Quando il \RE{} prende visone di un \mgls{ticket} di segnalazione problema provende all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
+\subsubsubsection{tIcket di risoluzione problema}
+Quando il \RE{} prENde visone di un \mgls{ticket} di segnalazione problema provende all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
 
 \begin{itemize}
-	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa problema
-	\item \textbf{Assegnatari:} I \mgls{ticket} di risoluzione problema devono essere assegnati al o ai responsabili per il problema riscontrato
-	\item \textbf{Data di inizio:} Impostata alla data corrente
-	\item \textbf{Data di completamento:} Impostata in base alla priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
-	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
-	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
-	\item \textbf{Etichetta/e:} Deve essere impostata l'etichetta \textit{Need Fix} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+	\item \textbf{Titolo:} rappresenta in maniera sintetica e significativa problema
+	\item \textbf{Assegnatari:} i \mgls{ticket} di risoluzione problema devono essere assegnati al o ai responsabili per il problema riscontrato
+	\item \textbf{Data di inizio:} impostata alla data corrente
+	\item \textbf{Data di completamento:} impostata in base alla priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Commento:} nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
+	\item \textbf{Priorità:} deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
+	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Need Fix} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
 Il o i responsabili dovranno risolvere il problema secondo la data di completamento assegnata.
 
@@ -928,7 +928,8 @@ Per pianificare le attività legate allo sviluppo del progetto e la gestione del
 	\item genera i diagrammi \mGls{gantt};
 	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
 	\item calcola i parametri \mGls{schedule variance} (SV) e \mGls{cost variance} (CV);
-    \item Salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
+          \item salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
+
 \end{itemize}
 
 Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
@@ -963,6 +964,7 @@ Per monitorare lo sviluppo dei documenti e del codice si è scelto di adottare i
 \subsubsubsection{Struttura Ticket}\label{ticketStruttura}
 I \mgls{ticket} creati devono avere le seguenti caratteristiche:
 \begin{itemize}
+
 	\item \textbf{Titolo:} Rappresenta in maniera sintetica e significativa il \mgls{task}
 	\item \textbf{Assegnatari/o:} I \mglspl{task} devono sempre essere assegnati ad uno o più membri del gruppo;
 	\item \textbf{Data di inizio:} Ogni \mglspl{task} deve sempre avere una data, decisa attraverso i diagrammi di \mGls{gantt} entro il quale essere iniziato
@@ -970,11 +972,13 @@ I \mgls{ticket} creati devono avere le seguenti caratteristiche:
 	\item \textbf{Commento:} Nel caso fossero necessarie delucidazioni sul \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
 	\item \textbf{Priorità:} Deve essere indicata la priorità di esecuzione del \mgls{ticket} in caso si trattasse di un problema, facendo riferimento alla tabella \ref{tabCalssificazioneProb}
 	\item \textbf{Etichetta/e:} Deve essere fornito di una o più appropriate \mglspl{etichetta} per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+
 \end{itemize}
 
 \subsubsubsection{Etichette}\label{ticketEtichette}
 Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato; quelle in uso dal gruppo sono:
 \begin{itemize}
+
 	\item \textbf{Task:} riservata ai \mglspl{ticket} di \mgls{task}
 	\item \textbf{Code:} riservata ai \mglspl{ticket} riguardanti il codice
 	\item \textbf{Document:} riservata ai \mglspl{ticket} riguardanti la documentazione
@@ -982,6 +986,7 @@ Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato; q
 	\item \textbf{Problem:} riservata ai \mglspl{ticket} per la segnalazione problema
 	\item \textbf{Need Fix:} riservata ai \mglspl{ticket} per la risoluzione problema
 	\item \textbf{Missing Feature:} riservata ai \mglspl{ticket} per la segnalazione la mancanza di una funzionalità del software o della documentazione
+
 \end{itemize}
 
 \subsubsubsection{Ticket di Task}\label{ticketCicloVita}
@@ -989,11 +994,12 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 \begin{enumerate}
 	\item creazione di un \mgls{task};
 	\item il \PM{} assegna il \mgls{task} ad uno o più membri del gruppo e pone il task in stato \textbf{Aperto};
-          \item L'assegnatario può decidere se accettare o meno il \mgls{task}:
+
+    \item l'assegnatario può decidere se accettare o meno il \mgls{task}:
 	\begin{itemize}
 		\item accettazione: lo stato del \mgls{task} sarà \textbf{Accettato};
 		\item rifiuto: L'assegnatario dovrà motivare il rifiuto del \mgls{task} e, nel caso le motivazione fossero ritenute pertinenti dal \PM{}, verrà ripetuto il punto 2.
-	\end{itemize}
+	\end{itemize};
 	\item se il \mgls{task} fosse dipendente dal completamento di un altro \mgls{task} in stato di esecuzione, allora lo stato del \mgls{task} sarà \textbf{In Attesa};
 	\item si procede con l'esecuzione del \mgls{task}, il cui stato passerà a \textbf{In Esecuzione};
 	\item una volta terminata l'esecuzione del \mgls{task}, lo stato sarà \textbf{Completato};
@@ -1012,6 +1018,7 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 \subsubsubsection{Ticket di Riunione}\label{ticketRiunione}
 Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{evento} su \mGls{teamwork} e deve avere le seguenti caratteristiche:
 \begin{itemize}
+
 	\item \textbf{Titolo:} Riunione n. X, dove X indica il numero crescente di riunioni effettuate
 	\item \textbf{Data:} la data del \mgls{ticket} dovrà essere impostata alla data prevista per la riunione
 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \mgls{ticket}
@@ -1026,6 +1033,7 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riportate le tipologie di errori più frequenti. La lista di controllo risultante è la seguente:
 \paragraph{Norme stilistiche}
 \begin{itemize}
+
 	\item elenco puntato: non inizia con la lettera maiuscola;
 	\item elenco puntato: non termina con il punto e virgola oppure con il punto se è l’ultimo elemento;
 	\item elenco numerato: non termina con il punto e virgola oppure con il punto se è l’ultimo elemento; 
@@ -1038,11 +1046,12 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 \paragraph{Italiano}
 \begin{itemize}
 	\item virgola tra soggetto e verbo: rende di difficile comprensione la frase;
-	\item carattere È: non viene scritto correttamente utilizzando il comando apposito;
+	\item carattere "È": non viene scritto correttamente utilizzando il comando apposito;
 	\item periodi: frasi troppo lunghe rendono i concetti di difficile comprensione; 
 	\item doppie negazioni: evitare l’utilizzo di doppie negazioni perché complicano la comprensione della frase; 
 	\item punto e virgola: evitare l’uso del punto e virgola quando è necessario usare il punto; 
-	\item Proponente e Committente: non si deve confondere il loro significato. 
+	\item proponente e committente: non si deve confondere il loro significato. 
+
 \end{itemize}
 
 
