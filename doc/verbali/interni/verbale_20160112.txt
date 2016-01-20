@@ -1,29 +1,81 @@
 CASI D'USO
 
-1-Registrazione utente (richiesti (Nome Cognome) Mail Password)
-2-Autenticazione utente (richiesti mail e password)
-3-Azioni Amministratore
-	3.1 Invita docente
+1-Registrazione utente (utente non registrato)
+	1.1 Inserisci mail 	<-extend- 1.2 Errore mail già presente
+						<-extend- 1.3 Errore non è una mail
+	1.4 Inserisci psw <-extend- 1.5 Errore psw non conforme alle regole
+	1.6 Inserisci infomrazioni personali <-extend- 1.7 Errore mancato inserimento campi obbligatori
+		1.6.1 Inserisci nome
+		1.6.2 Inserisci congome
+2-Autenticazione utente (utente non autenticato)
+	2.1 Inserisci mail <-extend- 2.2 Errore mail non presente nel sistema
+	2.3 Inserisci psw <-extend- 2.4 Errore psw sbagliata
+3-Azioni Amministratore (amministratore)
+	3.1 Invita docente <-extend- 3.4 Errore se esiste già
 	3.2 Rimuovi docente
 	3.3 Rimuovi studente
-4-Gestione domande
+4-Gestione domande (docente) {AVE o Andrea}
 	4.1 Inserire domanda
 	4.2 Modificare domanda
 	4.3 Eliminare domanda
-5-Gestione questionari
+5-Gestione questionari (docente) {NDC}
 	5.1 Crea questionario
 	5.2 Modificare questionario
 	5.3 Eliminare questionario
-6-Gestione classi
+	5.5 Aggiungi domanda
+	5.6 Eliminare domanda
+6-Gestione classi (docente) {AVI}
 	6.1 Crea classe
 	6.2 Modificare classe
 	6.3 Eliminare classe
-7-Gestione account
-8-Apri Questionario
-	8.1 Ricerca questionario
-	8.2 Seleziona questionario da classe
-	8.3 Apri link
-9-Esegui questionario
-	9.fatevoi
-10-Iscrizione ad una classe
-11-Logout
+7-Gestione account (utente autenticato) {NDC}
+	7.1 Modifica mail	<-extend- 7.2 Errore mail già presente
+						<-extend- 7.3 Errore non è una mail
+	7.4 Modifica psw <-extend- 7.5 Errore psw non conforme alle regole
+	7.6 Modifica infomrazioni personali <-extend- 7.7 Errore mancato inserimento campi obbligatori
+		7.6.1 Modifica nome
+		7.6.2 Modifica congome
+8-Ricerca Questionario (studente, docente)
+	16 Ricerca per titolo
+	17 Ricerca per classe
+	18 Ricerca per argomento
+	19 Ricerca per docente
+	20 Ricerca per difficoltà
+9-Esegui questionario (studente) <-extend- 9.2 Errore non hai risposto a tutte le domande {AVE}
+	9.1 Rispondi domanda
+	9.2 Vai a domanda precendente
+	9.3 Vai a domanda successiva
+10-Iscrizione ad una classe (studente) {AVI}
+	10.1 Iniserisci password  <-extend- 10.2 Errore psw errata
+11-Logout (utente autenticato)
+12-Azioni proprietario (proprietario) {AVI}
+	12.1 Invita amministratore <-extend- 12.2 Errore se esiste già
+	12.2 Elimina amministratore
+13-Storico (studente) {NDC}
+	13.1 Domande (anche statistiche solo di quello)
+	13.2 Questionari (anche statistiche solo di quello)
+	13.3 Sommario
+14-Ricerca classe (studente)
+	21 Ricerca per argomento
+	22 Ricerca per docente
+15-Ricerca domanda (studente, docente)
+	23 Ricerca per argomento
+	24 Ricerca per docente
+	25 Ricerca per difficoltà
+	26 Ricerca per keywords
+27-Visualizza statistiche (docente) {AVI}
+	28 Statistiche domanda
+	29 Statistiche questionario
+	30 Statistiche classe
+		30.1 Domande
+		30.2 Questionari
+		30.3 Sommario
+		30.4 Studente
+			30.4.1 Domande
+			30.4.2 Questionari
+31-Recupero psw (utente non autenticato) {AVI}
+32-Gestione argomenti {AVE}
+	32.1 Crea Argomento <-extend esiste già
+	32.2 Elimina argomento <-extend ha domande dentro
+	32.3 Modifica argomento
+	32.4 Esplora argomenti
