@@ -234,7 +234,7 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \end{itemize}
 
 \subsubsubsection{Struttura di un requisito}
-È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
+È compito degli \ANpl\ stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
 \begin{center}
 	R[importanza][tipo][codice]
 \end{center}
@@ -248,7 +248,9 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 	\item \textbf{Tipo} può assumere i seguenti valori:
 	\begin{description}
 		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
-		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
+		\item[Q:] Di Qualità, descrive i requisiti sulla qualità offerte dal sistema
+		\item[P:] Prestazionale, descrive i requisiti sulle prestazioni offerte dal sistema
+		\item[V:] Vincolo, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
 	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione; \textit{CodiceRequistoPadre.CodiceSottorequisito}
 	\item \textbf{Validazione:} verrà inserito un link al metodo deciso per validare il requisito

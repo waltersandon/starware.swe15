@@ -118,7 +118,11 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 \subsection{Descrizione Prodotto}
 Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
 
-\subsection{Attori}
+\subsection{Glossario}
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) e, se cliccata, porta direttamente alla definizione.
+
+\newpage
+\section{Attori}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{diagramUCActors.png}
@@ -147,6 +151,22 @@ sezione.
 
 \newpage
 \section{Casi d'uso}
+
+\subsection{Struttura di un caso d'uso}
+I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
+\begin{center}
+	UC[codice]: [Titolo]
+\end{center}
+dove il \textbf{codice} è un numero progressivo identificativo di ogni requisito, gerarchico nel  caso di sotto-casi d'uso tramite la notazione \textit{CodiceUCPadre.CodiceSottoUC}. Per ogni caso d'uso deve inoltre essere indicato:
+\begin{itemize}
+	\item \textbf{Titolo:} breve ma non ambiguo
+	\item \textbf{Attori:} principali e secondari coinvolti
+	\item \textbf{Precondizione}
+	\item \textbf{Descrizione:} sintetica del Caso d'uso
+	\item \textbf{Postcondizione}
+	\item \textbf{Requisiti:} collegati al Caso d'uso
+\end{itemize}
+
 \hypertarget{UC1}{}
 \subsection{Caso d'uso UC1: Registrazione}
 \begin{figure}[H]
@@ -2095,5 +2115,39 @@ il docente desidera eseguire su un questionario.
 \end{enumerate}
 \item \textbf{Postcondizione}: Lo studente ha visualizzato i risultati e le statistiche relative alle domande desiderate.
 \end{itemize}
+
+\newpage
+\section{Requisiti}
+\subsection{Struttura di un requisito}
+È compito degli \ANpl\ stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
+\begin{center}
+	R[importanza][tipo][codice]
+\end{center}
+\begin{itemize}
+	\item \textbf{Importanza} può assumere i seguenti valori:
+	\begin{description}
+		\item[0:] requisito obbligatorio
+		\item[1:] requisito desiderabile
+		\item[2:] requisito opzionale
+	\end{description}
+	\item \textbf{Tipo} può assumere i seguenti valori:
+	\begin{description}
+		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
+		\item[Q:] Di Qualità, descrive i requisiti sulla qualità offerte dal sistema
+		\item[P:] Prestazionale, descrive i requisiti sulle prestazioni offerte dal sistema
+		\item[V:] Vincolo, descrive i vincoli sui servizi offerti dal sistema
+	\end{description}
+	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione:
+	\begin{center}
+		\textit{CodiceRequistoPadre.CodiceSottorequisito}
+	\end{center}
+	\item \textbf{Validazione:} verrà inserito un link al metodo deciso per validare il requisito
+\end{itemize}
+Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
+
+\subsection{Requisiti}
+
+\newpage
+\printglossary[title={Glossario}]
 
 \end{document}
