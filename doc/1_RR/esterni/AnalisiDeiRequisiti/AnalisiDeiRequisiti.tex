@@ -31,7 +31,7 @@
 \end{Huge}
 \textbf{\prjL} \\
 \vspace{1cm}
-
+\includegraphics[scale=0.5]{\logoGrande}
 \vspace{1cm}
 
 \HRule \\[0.4cm]
@@ -52,12 +52,13 @@
 \textbf{Uso} & \emph{\uso} \\
 \textbf{Data Creazione} & \dataCreazione \\
 \textbf{Data Ultima Modifica} & \today \\
-\textbf{Redazione} & \IB\\
+\textbf{Redazione} & \AB\\
 \  & \TP\\
+\  &  \WS\\
 \  &  \AVE\\
-\textbf{Verifica} &  \NDC\\
+\textbf{Verifica} &  \IB\\
 \ & \AVI \\
-\textbf{Approvazione} &  \WS\\
+\textbf{Approvazione} &  \NDC\\
 \textbf{Lista Distribuzione} & \nomeGruppo \\
 \  & \Vardanega \\
 \  & \Cardin \\
@@ -74,20 +75,31 @@
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
-\begin{table}[h]
-\begin{center}
-
-\begin{tabular}{p{0.12\textwidth} p{0.25\textwidth} p{0.18\textwidth} p{0.4\textwidth}}
-\toprule
-\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
-\midrule
-\midrule
-
-\bottomrule
-\end{tabular}
-%\caption{Versionamento del documento}
-\label{tabVers1}
-\end{center}
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
+			\midrule
+			\midrule
+			1.2.0 & \NDC{} & 2016-01-21 &  Approvazione \\
+			\midrule
+			1.1.1 & \IB{} & 2016-01-21 &  Seconda verifica \\
+			\midrule
+			1.1.1 & \AVI{} & 2015-01-20 &  Prima verifica \\
+			\midrule
+			1.0.3 & \AVE{} & 2015-01-19 &  Introduzione,  \\
+			\midrule
+			1.0.2 & \WS{} & 2015-01-19 &  Aggiunta tabella dei requisiti \\
+			\midrule
+			1.0.1 & \AB{} & 2015-01-19 &  Aggiunta tabella dei casi d'uso \\
+			\midrule
+			1.0.0 & \NDC{} & 2015-01-19 &  Creazione documento \\
+			\bottomrule
+		\end{tabular}
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{center}
 \end{table}
 \newpage
 
@@ -95,7 +107,18 @@
 \listoftables
 \newpage
 
-\section{Attori}
+\section{Introduzione}
+
+\subsection{Scopo}
+L’analisi del capitolato d’appalto e il successivo incontro con il proponente ha evidenziato un insieme di requisiti che il presente documento ha lo scopo di elencare e descrivere in modo dettagliato. Lo scopo di tale documento è quindi presentare le funzionalità che offrirà il prodotto.
+
+\subsection{Descrizione}
+Il documento presenterà una breve descrizione degli attori coinvolti nell'iterazione con il sistema proposto. Successivamente verranno elencati i casi d'uso individuati come essenziali per la creazione di un sistema che corrisponda alle esigenze del proponente.
+
+\subsection{Descrizione Prodotto}
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+
+\subsection{Attori}
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{diagramUCActors.png}
