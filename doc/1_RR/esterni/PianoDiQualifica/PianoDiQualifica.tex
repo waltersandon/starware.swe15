@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.1.0}
+\newcommand{\versione}{1.2.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -55,7 +55,7 @@
 \textbf{Data Ultima Modifica}	&	\today	\\
 \textbf{Redazione}	& \AB{} \\
 \ 	& \AVI{} \\
-\ 	& \IB{} \\
+\ 	& \WS{} \\
 \textbf{Verifica}	&	\AVE{}	\\
 \ 	& \NDC{} \\
 \textbf{Approvazione}	& \IB{} \\
@@ -83,13 +83,15 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+1.2.0 & \IB{} & 2016-01-16 & Approvazione \\
+\midrule
 1.1.1 & \AVE{} & 2016-01-16 & Seconda verifica \\
 \midrule
 1.1.0 & \NDC{} & 2016-01-02 & Prima verifica \\
 \midrule
 1.0.3 & \AB{} & 2016-01-02 &  Stesura da Introduzione a Analisi di qualità\\
 \midrule
-1.0.2 & \IB{} & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
+1.0.2 & \WS{} & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
 \midrule
 1.0.1 & \AVI{} & 2015-12-29 &  Misure e Metriche \\
 \midrule
@@ -110,9 +112,10 @@
 \newpage
 
 \section{Introduzione}
-\subsection{Scopo del documento}
-Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto.
-Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
+\subsection{Scopo}
+Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto. Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
+
+\subsection{Descrizione}
 
 \subsection{Descrizione Prodotto}
 Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
@@ -124,13 +127,13 @@ Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione 
 
 \subsubsection{Normativi}
 \begin{itemize}
-	\item \NdP;
+	\item \NdP\ \textit{v1.2.0};
     \item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
 \end{itemize}
 
 \subsubsection{Informativi}
 \begin{itemize}
-	\item \PdP;
+	\item \PdP\ \textit{v1.2.0};
     \item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
 	\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm};
 	\item Standard \textit{ISO/IEC 9126} \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}.
@@ -356,6 +359,7 @@ Consiste nella trattazione di casi in cui alcune componenti abbiano subito modif
 \subsubsection{Test di accettazione}
 E' il collaudo del prodotto software che viene eseguito in presenza del proponente. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
 
+\newpage
 \section{Misure e metriche}\label{metriche}
 Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori. Per ogni metrica utilizzata vi possono essere due tipologie di range:
 \begin{itemize}
