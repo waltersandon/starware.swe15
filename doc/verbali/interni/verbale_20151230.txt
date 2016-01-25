@@ -1,0 +1,46 @@
+Norme di progetto:
+	- Ricerca strumenti
+		- Tracciabilità dei requisiti
+			Proposte:
+				- http://www.visual-paradigm.com: Sembra gratuito, potrebbe essere.
+				- Rachel?: non si trova
+				- Tracy (Software dei Don’t Panic): Si può chiedere ai Don’t Panic per questo software che sembra completo. Walter si offre per chiedere, visto che conosce alcuni componenti.
+				- Chiedere ad altri gruppi per i loro software. Si offre 
+				- Tabelle per Latex con stili predefiniti.
+				- Fare il software per conto nostro con tecnologie conosciute come MySQL + PHP.
+		- UML
+			Proposte:
+				- http://staruml.io/: Sembra carino e completo. StarUML 1 è gratuita, mentre la 2 è a pagamento.
+				- http://www.smartdraw.com: Intuitivo, ma fornisce solo i diagrammi. Solo a pagamento.
+			
+				- https://www.jetbrains.com/idea/: fornisce dei Plugin, sembra che permetta solo diagrammi per le classi, non per gli use case.
+				- https://www.draw.io/: Piace
+				- http://argouml.tigris.org/: Dato per piano B.
+				- http://www.visual-paradigm.com: Come sopra.
+
+	- Norme di progetto 2:
+		- Dovrà cambiare in “NormeDiProgetto.pdf”
+		- Rimuove i 2
+
+	- E’ necessario aggiungere delle macro per le fasi “Analisi, Progettazione architetturale, etc…”.
+
+Teamwork vs Asana:
+	- Tutti favorevoli a muoverci su Teamwork invece che Asana.
+	- 
+
+Piano di Qualifica:
+	- Richiesta chiarimenti e controllo.
+	- Le metriche sul codice verranno controllate con strumenti decisi nel momento in cui decidiamo quali tecnologie utilizziamo.
+	- Le metriche sui documenti verranno verificate attraverso tool automatici. Sarà necessario cercare e valutare gli strumenti; ad esempio è possibile.
+
+Compilazione latex:
+	- Thomas si propone di controllare se sia possibile fare un makefile che compila tutti i documenti e li mette in una cartella.
+
+Piano di Progetto:
+	- Trovarsi il 4 Thomas, Walter, Nicola per assegnare i ruoli. Produrre i diagrammi di Gantt per tale data in modo da poter vedere quali ruoli si sovrappongono e quali no.
+	- Meglio assegnare 1 massimo 2 persone per la stesura dei futuri documenti. 
+	- Diagrammi di Gantt con ProjectLibre
+    - Si è deciso di riorganizzare le ore a testa in 23, 29, 30, e 18 per le 4 rispettive fasi.
+
+Analisi dei requisiti:
+	- Cominciamo dopo il 10 e vediamo di avere tutti gli altri documenti chiusi entro tale data, in modo da concentrarsi solo sull’analisi.

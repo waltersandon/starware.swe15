@@ -10,10 +10,10 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.0}
+\newcommand{\versione}{1.2.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Informale}
+\newcommand{\stato}{Formale}
 
 %Uso del documento
 \newcommand{\uso}{Esterno}
@@ -30,7 +30,7 @@
 \begin{Huge}
 \textbf{\nomeGruppo} \\
 \end{Huge}
-\textbf{\prjL} \\
+\textbf{\prjL{}} \\
 \vspace{1cm}
 \includegraphics[scale=0.5]{\logoGrande}
 \vspace{1cm}
@@ -53,15 +53,16 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	& \AB \\
-\ 	& \AVI \\
-\ 	& \IB \\
-\textbf{Verifica}	&	Mr Q	\\
-\textbf{Approvazione}	& \IB \\
-\textbf{Lista distribuzione}	&	\nomeGruppo	\\
-\ 	&	\Vardanega	\\
-\ 	&	\Cardin	\\
-\ 	&	Il proponente \Zucchetti	\\
+\textbf{Redazione}	& \AB{} \\
+\ 	& \AVI{} \\
+\ 	& \WS{} \\
+\textbf{Verifica}	&	\AVE{}	\\
+\ 	& \NDC{} \\
+\textbf{Approvazione}	& \IB{} \\
+\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
+\ 	&	\Vardanega{}	\\
+\ 	&	\Cardin{}	\\
+\ 	&	Il proponente \Zucchetti{}	\\
 
 \end{tabular}
 \end{center}
@@ -82,101 +83,416 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.0.0 & \IB & 2015-12-27 &  Creazione documento \\
+1.2.0 & \IB{} & 2016-01-16 & Approvazione \\
+\midrule
+1.1.1 & \AVE{} & 2016-01-16 & Seconda verifica \\
+\midrule
+1.1.0 & \NDC{} & 2016-01-02 & Prima verifica \\
+\midrule
+1.0.3 & \AB{} & 2016-01-02 &  Stesura da Introduzione a Analisi di qualità\\
+\midrule
+1.0.2 & \WS{} & 2015-12-29 &  Stesura Resoconto delle attività di verifica\\
+\midrule
+1.0.1 & \AVI{} & 2015-12-29 &  Misure e Metriche \\
+\midrule
+1.0.0 & \IB{} & 2015-12-27 &  Creazione documento \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
 \label{tabVers1}
 \end{center}
 \end{table}
-\newpage
 
+\newpage
 \tableofcontents
 \newpage
 
 \listoftables
 \listoffigures
 \newpage
+
 \section{Introduzione}
-//TO DO \AB
-\subsection{Scopo del documento}
-//TO DO \AB
-\subsection{Scopo del Prodotto}
-//TO DO \AB
+\subsection{Scopo}
+Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. 
+
+\subsection{Descrizione}
+Il documento presenterà  le strategie di verifica adottate da \nomeGruppo{} volte al
+perseguimento costante di  qualità per il progetto \prjL{}.
+In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto. Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
+
+\subsection{Descrizione Prodotto}
+Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+
 \subsection{Glossario}
-//TO DO \AB
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) e, se cliccata, porta direttamente alla definizione.
+
 \subsection{Riferimenti}
-//TO DO \AB
+
 \subsubsection{Normativi}
-//TO DO \AB
+\begin{itemize}
+	\item \NdP\ \textit{v1.2.0};
+    \item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
+\end{itemize}
+
 \subsubsection{Informativi}
-//TO DO \AB
+\begin{itemize}
+	\item \PdP\ \textit{v1.2.0};
+    \item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
+	\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm};
+	\item Standard \textit{ISO/IEC 9126} \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}.
+\end{itemize}
 \newpage
-\section{Visione generale della strategia di verifica}
-//TO DO \AB
-\subsection{Definizione obiettivi}
-//TO DO \AB
-\subsubsection{Qualità di processo}
-//TO DO \AB
-\subsubsection{Qualità di prodotto}
-//TO DO \AB
-\subsection{Organizzazione}
-//TO DO \AB
-\subsection{Pianificazione strategica e temporale}
-//TO DO \AB
-\subsection{Responsabilità}
-//TO DO \AB
+\section{Sistema di supporto qualità}
+Il sistema di supporto alla qualità è l'apparato che definisce l'organizzazione e la struttura delle procedure finalizzate alla qualità. Come suggerito dagli standard per la qualità si decide di adottare una suddivisone tra qualità di processo e qualità di prodotto. Secondo tale politica seguono i passi per il miglioramento dei processi: 
+
+\begin{enumerate}
+	\item \textbf {Definizione degli obiettivi:} Gli obiettivi devono essere specificati in modo chiaro e conciso. Devono essere misurabili e quantificabili
+	\item \textbf{Definizione dei metodi di adempimento degli obiettivi definiti:} Ad ogni obiettivo deve corrispondere, in modo chiaro, il relativo metodo di adempimento. Nel caso tale metodo preveda dei test quantitativi devono essere chiare le metriche da utilizzare ed i risultati da ottenere
+	\item \textbf{Pianificazione preventiva dei processi:} La pianificazione deve avvenire in modo preventivo, con l'utilizzo di strumenti di collaborazione adeguati, per descrizione dei quali fare riferimento alle \NdP{}. Devono essere definite \mgls{milestone} e scadenze in modo opportuno
+	\item \textbf{Acquisizione di dati relativi alla qualità dei processi:} Nel caso di misure quantitative e test ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata l'appendice \ref{Resoconto delle attività di verifica} di questo documento
+	\item \textbf{Verifica dello stato di qualità dei processi e pianificazione di miglioramenti mirati:}
+	Sono definiti in prossimità delle date della \RR{}, \RA{}, \RP{}, \RQ{} dei momenti in cui il gruppo, raccogliendo i commenti del proponente \Zucchetti{} e del \Vardanega{}, rifletteranno sul miglioramento apportabile al prodotto e ai processi di supporto
+\end{enumerate}
+
+\newpage
+
+\section{Qualità di processo}
+
+\paragraph{Utilizzo degli standard}
+La qualità di processo viene trattata secondo le linee guida dello standard \textit{ISO/IEC 90003:2004}. Sono stati estratti, tra punti trattati nel sopracitato standard, tutti quelli che si ritenevano adeguati al caso in esame.
+
+\subsection{Obiettivi di qualità di processo}
+Sono stati fissati gli obiettivi di qualità di processo, che verranno descritti in seguito.Nella descrizione allegata ad ogni obiettivo sono esposte le misure intraprese per il suo adempimento, le quali vengono spesso riprese in dettaglio su altri documenti prodotti, in tal caso la trattazione esauriente delle stesse è rimandata allo specifico documento. 
+Nella trattazione della qualità di processo vengono preferite misure preventive e verifiche a posteriori per evitare che una cattiva qualità di processo influisca negativamente sul sistema nel suo complesso.
+
+\subsubsection{Comunicazione interna e con il proponente efficaci}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Strumenti di condivisione e canali di comunicazione prestabiliti;
+	\item Incontri regolari tra membri del gruppo;
+	\item Incontri con il proponente se possibile;
+	\item Verbali per ogni incontro (interno o con proponente);
+	\item Distribuzione online di tutti i verbali di riunione;
+	\item Disponibilità della documentazione online attraverso \mgls{repository};
+	\item Indirizzo e-mail di gruppo, accessibile ad ogni componente.
+\end{itemize}
+Ognuno dei sopracitati punti viene descritto in modo dettagliato nelle \NdP{}.
+
+\subsubsection{Suddivisione delle attività in processi}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Utilizzo di strumenti per rendere chiara la suddivisione di attività, descritti in modo dettagliato nelle \NdP{};
+	\item Descrizione dettagliata dei processi pianificati.Vedi \PdP{}.
+\end{itemize}
+
+\subsubsection{Pianificazione dei processi e delle relative scadenze}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Pianificazione preventiva e dettagliata dei processi, descritta nel \PdP{};
+	\item Ogni processo e relative sotto-fasi devono avere scadenze corrispondenti;
+	\item Utilizzo di documenti descrittivi della pianificazione di gruppo.Vedi \PdP{}.
+\end{itemize}
+\paragraph{Verifica a posteriori:} Sono previste misure sulla qualità di processo. A tale scopo sono definite apposite metriche nella sezione \ref{metriche_processi} du questo documento.
+\begin{itemize}
+	\item Misurazione \mgls{schedule variance};
+	\item Misurazione \mgls{cost variance}.
+\end{itemize}
+
+\subsubsection{Utilizzo di strumenti di supporto}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item \textbf{Strumenti di condivisione:} finalizzati a rendere chiaro lo stato di avanzamento e tenere traccia di quest'ultimo in modo automatico
+	\item \textbf{Strumenti di pianificazione:} per la gestione controllata delle risorse umane e non
+\end{itemize}
+Entrambi i sopracitati strumenti vengono descritti nel dettaglio nelle \NdP{}.
+
+\subsubsection{Rispetto dei requisiti imposti dal proponente \Zucchetti{}}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Documento dedicato all'analisi approfondita dei requisiti;
+	\item Incontri con il proponente e comunicazione via mail in caso di dubbi.
+\end{itemize}
+
+\subsubsection{Rispetto dei ruoli e separazione delle resposbilità}
+\paragraph{Metodi preventivi:}
+I metodi organizzativi adottati ed esposti nelle \NdP{} impongono la suddivisione dei compiti in \mgls{task} e l'assegnazione da parte del \PM{} di questi ultimi alle risorse disponibili, in maniera preventiva e documentata. 
+La responsabilità di ogni processo viene attribuita ad un'unica persona: in questo modo la stessa si assume di garantire un controllo sul processo nel rispetto della suddivisione dei ruoli previsti al suo interno.
+
+\subsubsection{Utilizzo di personale qualificato e adeguatamente formato}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Pianificazione preventiva degli strumenti da utilizzare. Attività finalizzata per permettere ai componenti del gruppo di documentarsi preventivamente sugli strumenti da utilizzare;
+	\item Descrizione dettagliata sulle principali procedure degli strumenti utilizzati dal gruppo.
+\end{itemize}
+Entrambi i sopracitati strumenti vengono descritti nel dettaglio nelle \NdP{}.
+
+
+\subsection{Procedure di controllo delle qualità di processo}
+\begin{itemize}
+	\item Momenti di gruppo riservati all'analisi della qualità in corrispondenza delle revisioni previste;
+	\item Raccolta dei commenti del \Vardanega{} e del proponente \Zucchetti{}, nei momenti di revisione previsti, in qualità di parere esterno e competente;
+	\item Raccolta di dati relativi allo svolgimento dei processi con l'ausilio di strumenti adeguati (Strumenti di Condivisione, Strumenti di Gestione);
+	\item Misurazione di \mgls{cost variance} e \mgls{schedule variance} e analisi dei dati descritte nella sezione \ref{metriche_processi}.	
+\end{itemize}
+
+\newpage
+
+\section{Qualità di prodotto}
+Come traccia di riferimento della qualità di prodotto viene preso lo standard \textit{ISO/IEC 9126}. Tra i punti elencati in tale documento viene escluso solamente quello che non è ritenuto utilizzabile al caso in esame.
+\paragraph{Linee guida generali}
+Gli obiettivi riguardanti il prodotto vengono suddivisi in: \textbf{qualità interna}, \textbf{qualità esterna} e \textbf{qualità in uso}.
+Per i punti di qualità interna ed esterna vengono inoltre individuati i seguenti punti in comune:
+\begin{itemize}
+	\item Funzionalità;
+	\item Affidabilità;
+	\item Efficienza;
+	\item Usabilità;
+	\item Manutenibilità;
+	\item Portabilità.
+\end{itemize}
+
+\subsection{Obiettivi per la documentazione}
+Gli obiettivi che fanno capo alla documentazione sono riconducibili agli obiettivi di manutenibilità e di qualità di processo.
+Fanno riferimento, pertanto, allo standard \textit{ISO/IEC 9126} per la manutenibilità e allo standard \textit{ISO/IEC 90003:2004} contestualmente alla qualità di processo.
+Seguono gli obiettivi relativi alla documentazione e la descrizione  delle modalità per l'adempimento di questi ultimi.
+\subsubsection {Evitare la diffusione di documentazione obsoleta.} 
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Sistema di indicizzazione delle versioni  per ordinare la documentazione prodotta;
+	\item Diario delle modifiche previsto in ogni documento,e in tutte le sue versioni;
+	\item Utilizzo di strumenti di versionamento automatici.
+\end{itemize}
+I sopracitati punti vengono tutti descritti nelle \NdP{}.
+
+\subsubsection{Evitare la diffusione di documentazione non verificata e approvata.}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Il sistema di indicizzazione delle versioni di un documento è strutturato in modo da permettere di riconoscere dal codice della versione lo stato del documento. Vengono così identificati in modo chiaro i documenti approvati e verificati;
+	\item Evidenziare il ruolo di chi attua le modifiche nel diario delle modifiche.
+\end{itemize}
+
+
+\subsubsection{Usabilità della documentazione}
+\paragraph{Documentazione leggibile}
+\textbf{Verifica a posteriori:}  definizione di metriche apposite, descritta nella sezione \ref{metriche_doc}.
+
+\subsubsection{Testo grammaticalmente corretto:}
+\begin{itemize}
+	\item \textbf{Verifica a posteriori:} correttori automatici e liste di controllo, attività di verifica a largo spettro a fine stesura per ogni documento
+\end{itemize}
+
+\subsubsection{Documenti graficamente chiari}
+\paragraph{Metodi preventivi:}
+\begin{itemize}
+	\item Strumenti a supporto della stesura che prevedano la creazione automatica di indici di documento (es \latex);
+	\item Utilizzo di macro nei documenti per evitare errori.
+\end{itemize}
+I sopracitati punti vengono descritti nelle \NdP{}.
+
+
+\subsection{Obiettivi per software}
+
+Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard  \textit{ISO/IEC 9126}, si individuano delle aree in cui definire obiettivi specifici per l'analisi della qualità \mgls{software} per il caso in esame.
+\subsubsection{Test driven software}
+Il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}.
+\subsubsection{Architettura modulare}
+Il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per approfondimenti.
+\subsubsection{Tracciabilità e conformità dei requisiti}
+Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
+\subsubsection{Usabilità utente}
+Dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
+\subsubsection{Utilizzo e scelta delle risorse}
+Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
+
+
+\subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
+Il controllo di qualità del prodotto verrà garantito da:
+\begin{itemize}
+	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}. In particolare, anche i test devono rispecchiare l'approccio \mgls{bottom-up} di analisi
+	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \ref{Resoconto delle attività di verifica}
+	\item \textbf{Validazione:} Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste
+\end{itemize}
+
+\newpage
+
+\section{Gestione della qualità e delle risorse}
+\subsection{Ruoli}
+La responsabilità di controllo su un processo spetta al \PM{}. Nel rispetto agli obiettivi sopra elencati, è importante il controllo su:
+\begin{itemize}
+	\item stato di avanzamento e rispetto delle scadenze;
+	\item rispetto dei ruoli assegnati;
+	\item controllo della qualità del prodotto;
+	\item controllo della qualità del processo. 
+\end{itemize}
+
 \subsection{Risorse}
-//TO DO \AB
-\subsection{Strumenti}
-//TO DO \AB
-\subsection{Tecniche di analisi}
-//TO DO \AB
-\subsubsection{Analisi statica}
-//TO DO \AVI
-\subsubsection{ Analisi dinamica}
-//TO DO \AVI
-\subsection{Misure e metriche}
-//TO DO \AVI
-\subsubsection{Metriche per i processi}
-//TO DO \AVI
-\subsubsection{Metriche per i documenti}
-//TO DO \AVI
-\subsubsection{ Metriche per il software}
-//TO DO \AVI
-\subsection{Metodi}
-//TO DO \AVI
-\subsubsection{Analisi dei processi}
-//TO DO \AVI
-\subsubsection{Analisi dei documenti}
-//TO DO \AVI
+Le risorse vengono distinte in umane e materiali. E' essenziale che, sia la qualità di processo, che la qualità di prodotto, che le risorse, di qualunque tipo, vengano preventivamente quantificate e, in seguito, gestite in modo corretto, con strumenti automatici adeguati.
+L'utilizzo degli strumenti per la gestione del personale secondo la pianificazione del \PdP{} sono descritti nel \NdP. L'assegnazione e la quantificazione delle risorse hanno lo scopo di rendere trasparente e quantificabile l'utilizzo di ogni tipo di risorsa utilizzata.
+
+\newpage
+
+\section{Analisi della qualità}\label{analisi}
+In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
+
+\subsection{Analisi statica}
+Tale tecnica è attuabile sia per verificare la documentazione che il software. Si tratta di un'attività meno dispendiosa e pertanto da preferirsi nel caso siano disponibili modalità di verifica efficienti di questo tipo. Per la descrizione dettagliata delle tecniche da utilizzare si veda le \NdP.
+
+\subsection{Analisi dinamica}
+Per analisi dinamica si intende l'esecuzione di test predisposti. La struttura gerarchica dell'analisi dinamica rispetta gli obiettivi di modularità e l'approccio di verifica bottom-up sopra definito. Tali test devono essere preventivamente definiti.
+Per la definizione di un test si devono quindi definire i seguenti punti:
+\begin{itemize}
+	\item \textbf{Ambiente}: consiste sia del sistema hardware che di quello software sui quali è stato pianificato l’utilizzo del prodotto;
+	\item \textbf{Specifica}: consiste nella definizione di input e output attesi;
+	\item \textbf{Procedure}: descrizione delle modalità e degli strumenti necessari all'esecuzione.
+\end{itemize}
+Sono definibili 5 tipi diversi di test: test di unità, test di integrazione, test di sistema, test di regressione e test di accettazione.
+
+\subsubsection{Test di unità}
+Consiste nella verifica di ogni singola unità del prodotto software tramite l’utilizzo di \mgls{stub}, \mgls{driver} e \mgls{logger}.
+Per unità si intende la più piccola quantità di \mgls{software} che è utile verificare singolarmente e che viene prodotta da un singolo programmatore.
+Ogni requisito includerà i relativi test di unità allegati nel rispettivo caso d'uso.
+
+\subsubsection{Test di integrazione}
+Rispecchia il primo livello della suddivisione modulare del \mgls{software} e si basa sulla correttezza dei test di unità per la diminuzione dei costi di verifica. Verranno pertanto verificati solamente le interazioni tra le varie unità \mgls{software}.
+
+\subsubsection{Test di sistema}
+Consiste nella validazione del prodotto giunto a versione definitiva. La correttezza del sistema e dei relativi test è garantita per costruzione dalla struttura gerarchica della suddivisione del \mgls{software}.
+\subsubsection{Test di regressione}
+Consiste nella trattazione di casi in cui alcune componenti abbiano subito modifiche. Il controllo deve assicurare che non ci siano cambiamenti esterni alle componenti modificate, per garantire l'integrità del prodotto finale modificato.
+\subsubsection{Test di accettazione}
+E' il collaudo del prodotto \mgls{software} che viene eseguito in presenza del proponente. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
+
+\newpage
+\section{Misure e metriche}\label{metriche}
+Il processo di verifica, per essere informativo, deve esse quantificabile. Le misure rilevate dal processo di verifica devono quindi essere basate su metriche stabilite a priori. Per ogni metrica utilizzata vi possono essere due tipologie di range:
+\begin{itemize}
+\item \textbf{Accettazione}: valori minimi richiesti per superare la verifica di qualità. Scostamenti da tali valori necessitano una verifica approfondita
+\item \textbf{Ottimale}: valori entro cui dovrebbe collocarsi la misurazione. Tale range non è vincolante, ma fortemente consigliato
+\end{itemize}
+\subsection{Metriche per i processi}\label{metriche_processi}
+La qualità dei processi viene valutata usando le seguenti metriche.
+\subsubsection{Schedule Variance}
+Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività.
+\[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
+Dove EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e PV (Planned value) è il costo delle attività che erano state pianificate alla data corrente.
+Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: $\geq$ -5\%
+\item \textbf{Range Ottimale}: $\geq$ 0\%
+\end{itemize}
+\subsubsection{Cost Variance}
+Indica se alla data corrente si è speso di più o di meno rispetto a quanto pianificato.
+\[CostVariance [\%] = \frac{EV - AC}{EV}\]
+Dove EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente.
+Se $CostVariance > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: $\geq$ -10\%
+\item \textbf{Range Ottimale}: $\geq$ 0\%
+\end{itemize}
+\subsection{Metriche per i documenti}\label{metriche_doc}
+\subsubsection{Gulpease}
+È un indice di leggibilità di un testo tarato sulla lingua italiana.
+\[IndiceGulpease=89-\frac{300*(Numero\ di\ frasi)-10*(Numero\ di\ lettere)}{Numero\ di\ parole}\]
+Il range di valori è compreso tra 0 e 100, dove il valore 100 indica la leggibilità più alta e 0 la più bassa.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [40-100]
+\item \textbf{Range Ottimale}: [50-100]
+\end{itemize}
+\subsection{ Metriche per il software}\label{metriche_sw}
+\subsubsection{Complessità ciclomatica}
+Misura la complessità del programma contando il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso. Valori troppo implicano una ridotta manutenibilità del codice, valori troppo bassi potrebbero determinare scarsa efficienza dei metodi.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-15]
+\item \textbf{Range Ottimale}: [1-10]
+\end{itemize}
+\subsubsection{Numero di parametri per metodo}
+Un numero troppo elevato di parametri per metodo indica una scarsa leggibilità e mantenibilità del codice.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [0-8]
+\item \textbf{Range Ottimale}: [0-4]
+\end{itemize}
+\subsubsection{Numero di campi dati per classe}
+Una classe con un numero elevato di campi dati suggerisce che si potrebbe espandere la gerarchia di classi, migliorando l'incapsulamento.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [2-16]
+\item \textbf{Range Ottimale}: [3-8]
+\end{itemize}
+\subsubsection{Numero linee di codice per metodo}
+La complessità dei metodi molte volte è proporzionale alla loro lunghezza,
+quindi è bene spezzare elaborazioni complesse in più metodi, in modo da facilitarne anche la comprensione.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-70]
+\item \textbf{Range Ottimale}: [1-40]
+\end{itemize}
+\subsubsection{Numero di livelli di annidamento}
+Rappresenta il massimo numero di livelli di annidamento dei metodi. Un valore elevato di tale indice implica un’alta complessità ed un basso livello di astrazione del codice.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [1-5]
+\item \textbf{Range Ottimale}: [1-3]
+\end{itemize}
+\subsubsection{Instabilità}
+La stabilità di una componente indica la possibilità di effettuare modiche ad un componente senza influenzarne altri all’interno dell'applicazione.
+\[Instabilita=\frac{A_e}{A_a+A_e}\]
+Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un package che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al package che dipendono da classi esterne ad esso.
+\begin{itemize}
+\item \textbf{Range di Accettazione}:[0-0.9]
+\item \textbf{Range Ottimale}: [0-0.5]
+\end{itemize}
+\subsubsection{Copertura del codice da parte di test}
+Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
+\begin{itemize}
+\item \textbf{Range di Accettazione}: [50\%-100\%]
+\item \textbf{Range Ottimale}: [75\%-100\%]
+\end{itemize}
+
 \newpage
 \section{Gestione amministrativa della revisione}
-//TO DO \AVI
 \subsection{Comunicazione e risoluzione di anomalie}
-//TO DO \AVI 
-\subsection{Procedure di controllo di qualità di processo}
-//TO DO \IB
-\subsection{Procedure di controllo di qualità di prodotto}
-//TO DO \IB
+Una anomalia corrisponde a:
+\begin{itemize}
+\item violazione delle norme tipografiche da parte di un documento;
+\item uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
+\item incongruenza del prodotto con funzionalità indicate nell’analisi dei requisiti;
+\item incongruenza del codice con il design del prodotto.
+\end{itemize}
+Nel caso in cui un \VR\ individui un’anomalia, dovrà aprire un ticket nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
+\subsection{Pianificazione ed esecuzione del collaudo}
+Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
+
 \newpage
-\section{ Resoconto delle attività di verifica}
-//TO DO \IB
-\subsection{Riassunto delle attività di verifica}
-//TO DO \IB
+\appendix
+\section{Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
+\subsection{Riassunto delle attività di verifica} 
 \subsubsection{Revisione dei Requisiti}
-//TO DO \IB
+Nel periodo antecedente la consegna di tale revisione sono stati verificati i documenti ed i processi.
+I documenti sono stati verificati manualmente, l’analisi statica è stata applicata secondo i criteri e le modalità indicate nelle \NdP\, ovvero una prima fase di \mgls{walkthrough} seguita da \mgls{inspection}.
+Si sono poi calcolate per i documenti le metriche descritte nella sezione \ref{metriche_doc}.
+I processi sono stati verificati applicando la procedura descritta nella sezione \ref{metriche_processi}.
+
 \subsection{Tracciamento componenti - requisiti}
-//TO DO \IB
+Il tracciamento (requisiti - fonti, use-case - requisiti) è stato effettuato tramite l’applicativo \mgls{tracy}.
+
 \subsection{Dettaglio delle verifiche tramite analisi}
-//TO DO \IB
 \subsubsection{Processi}
-//TO DO \IB
+Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di \FA:
+\begin{itemize}
+	\item \textbf{\mgls{schedule variance}:} 0\% (indice entro il range di ottimale)
+	\item \textbf{\mgls{cost variance}:} 0,5\% (indice entro il range di ottimale)
+\end{itemize}
+
 \subsubsection{Documenti}
-//TO DO \IB
+Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
+\begin{itemize}
+	\item \textbf{\NdP{}:} 48 (indice entro il range di accettazione)
+	\item \textbf{\SdF{}:} 44 (indice entro il range di accettazione)
+	\item \textbf{\AdR{}:} 65 (indice entro il range di ottimale)
+	\item \textbf{\PdP{}:} 51 (indice entro il range di ottimale)
+	\item \textbf{\PdQ{}:} 50 (indice entro il range di ottimale)
+\end{itemize}
 \subsection{Dettaglio dell'esito delle revisioni}
-//TO DO \IB 
+Nello sviluppo del progetto ci saranno quattro revisioni del committente a cui si deve sottoporsi. Il committente segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
+
 \newpage
-\section{Pianificazione ed esecuzione del collaudo}
-//TO DO \IB 
+\printglossary[title={Glossario}]
+
 \end{document}
