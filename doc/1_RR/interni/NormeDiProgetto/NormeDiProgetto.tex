@@ -55,9 +55,9 @@
 \textbf{Redazione}	&	\NDC	\\
 \ &	\AVE	\\
 \ &	\AVI	\\
-\textbf{Verifica}	&	\IB	\\
+\textbf{Verifica}	&	\WS	\\
 \ & \TP \\
-\textbf{Approvazione}	&	\AB	\\
+\textbf{Approvazione}	&	\IB	\\
 \textbf{Lista Distribuzione}	&	\nomeGruppo	\\
 
 \end{tabular}
@@ -79,11 +79,11 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.2.0 & \AB & 2016-01-15 & Documento approvato \\
+1.2.0 & \IB & 2016-01-15 & Documento approvato \\
 \midrule
 1.1.1 & \TP & 2016-01-13 & Seconda verifica \\
 \midrule
-1.1.0 & \IB & 2016-01-13 & Prima verifica \\
+1.1.0 & \WS & 2016-01-13 & Prima verifica \\
 \midrule
 1.0.11 & \NDC & 2016-01-10 & Finita parte Ticketing e modifiche minori \\
 \midrule
@@ -140,6 +140,15 @@ Verranno definite norme riguardanti:
 
 \subsection{Glossario}
 Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione.
+
+\subsection{Riferimenti}
+
+\subsubsection{Informativi}
+\begin{itemize}
+	\item \textit{ISO\_8601}: \url{http://www.iso.org/iso/iso8601};
+	\item \textit{ISO\_80000}: \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202};
+	\item \textit{RFC 2119}: {\url{http://www.ietf.org/rfc/rfc2119.txt}}.
+\end{itemize}
 
 \newpage
 
@@ -225,21 +234,23 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \end{itemize}
 
 \subsubsubsection{Struttura di un requisito}
-È compito degli Analisti stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
+È compito degli \ANpl\ stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
 \begin{center}
 	R[importanza][tipo][codice]
 \end{center}
 \begin{itemize}
 	\item \textbf{Importanza} può assumere i seguenti valori:
 	\begin{description}
-		\item[0:] requisito obbligatorio
 		\item[1:] requisito desiderabile
 		\item[2:] requisito opzionale
+		\item[3:] requisito obbligatorio
 	\end{description}
 	\item \textbf{Tipo} può assumere i seguenti valori:
 	\begin{description}
 		\item[F:] Funzionale, descrive i servizi o le funzioni offerte dal sistema
-		\item[N:] Non funzionale, descrive i vincoli sui servizi offerti dal sistema
+		\item[Q:] Di Qualità, descrive i requisiti sulla qualità offerte dal sistema
+		\item[P:] Prestazionale, descrive i requisiti sulle prestazioni offerte dal sistema
+		\item[V:] Vincolo, descrive i vincoli sui servizi offerti dal sistema
 	\end{description}
 	\item \textbf{Codice} è un numero progressivo univoco per ogni requisito, indipendente da importanza e tipo. Nel caso si abbia un sotto-requisito codice può anche essere espresso in modo gerarchico tramite la notazione; \textit{CodiceRequistoPadre.CodiceSottorequisito}
 	\item \textbf{Validazione:} verrà inserito un link al metodo deciso per validare il requisito
@@ -378,7 +389,7 @@ Durante la sua vita, ogni documento può attraversare ogni fase più di una volt
 
 \subsubsection{Nome dei file}
 
-Tutti documentii dovranno a essere denominati secondo il seguente formalismo:
+Tutti documenti dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
 	\fileName{NomeDocumento\_vX.Y.Z.pdf}
 \end{center}
@@ -465,7 +476,7 @@ All'indice delle sezioni e sottosezioni può seguire un elenco delle tabelle e d
 Ogni documento deve essere provvisto di un'introduzione che ne spiega brevemente il contenuto. L'introduzione deve contenere tue sottosezioni denominate Scopo e Descrizione. Lo scopo definisce a che proposito viene scritto il documento mentre la descrizione ne descrive brevemente gli argomenti trattati.
 
 \subsubsubsection{Sezioni}
-I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione deve avere due sottosezioni denominate Scopo e Descrizione. Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di Scopo e Descrizione.
+I documenti devono avere altre sezioni in modo da organizzare meglio i contenuti. Ogni sezione può avere due sottosezioni denominate \textit{Scopo} e \textit{Descrizione}. Lo scopo definisce a che proposito viene scritta la sezione mentre la descrizione ne descrive brevemente gli argomenti trattati. Le sezioni possono inoltre avere altre sottosezioni. Queste sottosezioni possono avere al loro interno gerarchie annidate di sotto-sottosezioni,  paragrafi e sotto-paragrafi. Questi non necessitano di \textit{Scopo} e \textit{Descrizione}.
 
 \subsubsubsection{Formattazione delle pagine}
 L'intestazione di ogni pagina, apparte la prima, deve contenere:
@@ -555,8 +566,8 @@ Il piè di pagina deve contenere:
 	\item \textbf{Nome files:} per i nomi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash fileName}
 	\item  \textbf{Percorsi:} per i percorsi dei file deve essere utilizzato il comando \LaTeX: \latex{\textbackslash filePath}
 	\item \textbf{URLs e Links:}  per gli indirizzi web completi deve essere utilizzato il comando \LaTeX: \latex{\textbackslash url}, invece per i link deve essere utilizzato il comando \LaTeX: \latex{\textbackslash href}
-	\item \textbf{Date e Orari:} le date e gli orari devono seguire la notazione definita dallo standard ISO\_8601\footnote{\url{http://www.iso.org/iso/iso8601}} YYYY-MM-DD per le date e HH:MM per gli orari
-	\item \textbf{Quantità e Unità di misura:} le quantità e le unità di misura dovranno aderire allo standard ISO\_80000\footnote{\url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202}}
+	\item \textbf{Date e Orari:} le date e gli orari devono seguire la notazione definita dallo standard \textit{ISO\_8601} YYYY-MM-DD per le date e HH:MM per gli orari
+	\item \textbf{Quantità e Unità di misura:} le quantità e le unità di misura dovranno aderire allo standard \textit{ISO\_80000}
 	\item \textbf{Cifre:} le cifre devono seguire il seguente formato: \num{10000.00}, dove il separatore delle migliaia è rappresentato attraverso uno spazio e il separatore per i decimali è rappresentato attraverso uno punto
 \end{itemize}
 
@@ -574,7 +585,7 @@ Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione 
 
 
 \subsubsection{Linguaggio}
-Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in RFC 2119\footnote{\url{http://www.ietf.org/rfc/rfc2119.txt}}:
+Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in \textit{RFC 2119}:
 \begin{itemize}
 	\item i termini \emph{deve}, \emph{è richiesto} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST};
 	\item i termini \emph{non deve}, \emph{è richiesto che non} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MUST NOT};
