@@ -630,6 +630,23 @@ Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessar
 	\item \textbf{master:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica. Solo il \RE{} può fare il \mgls{push} su questo \mgls{branch}
 	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora incompleti che sono in fase di sviluppo. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \mgls{branch} master. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \mgls{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può esserne richiesto l'aggiornamento anche nel \mgls{branch} master
 \end{itemize}
+
+\paragraph{Tags} Vengono definiti dei \mglspl{tag} per marcare i quattro stati dei documenti alla consegna delle revisioni:
+
+\begin{itemize}
+    \item \textbf{v1-rr}: consegna revisione dei requisiti
+    \item \textbf{v2-rp}: consegna revisione di progettazione
+    \item \textbf{v3-ra}: consegna revisione di accettazione
+    \item \textbf{v4-rq}: consegna revisione di qualifica
+\end{itemize}
+
+In ogni momento è possibile ottenere la versione dei documenti per un qualsiasi \mgls{tag} eseguendo il comando:
+
+    \fileName{git checkout tags/\textit{NomeTag}}
+
+Su Github, per ogni tag verrà anche creata una \mgls{release} associata che conterrà tutti i documenti in un file .zip compresso
+per facilitare il download di essi.
+
 Per approfondimenti e una guida all'uso di \mgls{git} si veda \url{https://git-scm.com/docs/}.
 
 \subsubsubsection{Struttura albero delle directory}
@@ -637,27 +654,17 @@ La \mgls{repository} del gruppo è organizzata secondo il seguente albero delle 
 
 \dirtree{%
 	.1 doc.
-	.2 1\_RR.
-	.3 interni.
-	.3 esterni.
-	.2 2\_RP.
-	.3 esterni.
-	.3 interni.
-	.2 3\_RQ.
-	.3 esterni.
-	.3 interni.
-	.2 4\_RA.
-	.3 esterni.
-	.3 interni.
+	.2 interni.
+	.2 esterni.
 	.2 template.
 	.2 glossario.
 	.2 verbali.
 	.3 interni.
-	.4 esterni.
+	.3 esterni.
 	.1 src.
 }
 
-La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 4 cartelle \path{1\_RR}, \path{2\_RP}, \path{3\_RQ} e \path{4\_RA} rappresentano rispettivamente i documenti per la \RR, \RP, \RQ/ e \RA. All'interno di ognuna di queste 4 cartelle ci sono altre 2 cartelle per dividere i documenti interni (\NdP/  e \SdF) da quelli esterni (\AdR, \PdP/ e \PdQ).
+La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 2 cartelle \path{interni} e \path{esterni} per dividere i documenti interni (\NdP/  e \SdF) da quelli esterni (\AdR, \PdP/ e \PdQ). La cartella \path{glossario} contiene i file relativi al glossario incluso negli altri documenti. I verbali sono posti nella cartella \path{verbali} e divisi nelle sottocartelle \path{interni} e \path{esterni}.
 
 \subsubsection{Materiale informale}\label{sec:matinf}
 Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{google drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione \ref{sec:matinf}.
