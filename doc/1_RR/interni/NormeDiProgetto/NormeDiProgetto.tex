@@ -391,14 +391,16 @@ Durante la sua vita, ogni documento può attraversare ogni fase più di una volt
 
 Tutti documenti dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
-	\fileName{NomeDocumento\_vX.Y.Z.pdf}
+	\fileName{NomeDocumento.pdf}
 \end{center}
-dove \fileName{NomeDocumento} rappresenta il nome del documento e \fileName{vX.Y.Z} la versione come spiegata nella sezione \ref{Versione}. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola deve essere maiuscola e non devono esserci spazi, \mgls{underscore} o trattini a separare le parole.
+dove \fileName{NomeDocumento} rappresenta il nome del documento. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola deve essere maiuscola e non devono esserci spazi, \mgls{underscore} o trattini a separare le parole.
 
 Ogniqualvolta sia necessaria la citazione di una versione specifica di un documento, essa deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
 	\fileName{Nome Documento vX.Y.Z}
 \end{center}
+
+dove la versione è definita nella sezione \ref{Versione}.
 
 \subsubsection{Versione} \label{Versione}
 La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \fileName{vX.Y.Z} dove:
@@ -416,7 +418,7 @@ La documentazione prodotta deve essere corredata del numero di versione attuale 
 		\item Verifica del documento
 		\item Approvazione del documento
 	\end{enumerate}
-	\item \textbf{Z} indica il numero crescente di modifiche minori. Ad ogni modifica effettuata deve corrispondere ad un'aggiunta di una voce nel diario delle modifiche, il redattore o il \VR devono aggiornare l'indice seguendo una numerazione progressiva. Non viene fissato un limite superiore per tale indice.
+\item \textbf{Z} indica il numero crescente di modifiche minori. Ad ogni modifica effettuata deve corrispondere ad un'aggiunta di una voce nel diario delle modifiche, il redattore o il \VR{} devono aggiornare l'indice seguendo una numerazione progressiva. Non viene fissato un limite superiore per tale indice.
 \end{itemize}
 
 \subsubsection{Stato}
@@ -615,7 +617,6 @@ Viene creata una \mgls{repository} su \mGls{github} all'indirizzo
 \begin{center}
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
-Per una guida dettagliata all'uso della \mgls{repository} si veda la sezione \ref{sec:rep}.
 
 \paragraph{Commit}
 Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta (e.g. Aggiunta sezione \mgls{repository} nelle Norme di progetto, oppure Verifica e correzione delle Norme di progetto). Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
@@ -685,7 +686,7 @@ Il processo di verifica viene instanziato nel momento in cui l'output di un proc
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \mgls{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \mgls{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice
-	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò segnala l'utilizzo dell' applicazione web \url{http://sjln.altervista.org/parse.php} creata dal gruppo. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse
+	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò segnala l'utilizzo dell' applicazione web \url{http://sjln.altervista.org/parse.php}. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse
 	\item \textbf{Miglioramento del processo di verifica:} Quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati nella \mgls{lista di controllo}. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
@@ -799,8 +800,8 @@ Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
 	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Problem} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
 
-\subsubsubsection{tIcket di risoluzione problema}
-Quando il \RE{} prENde visone di un \mgls{ticket} di segnalazione problema provende all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
+\subsubsubsection{Ticket di risoluzione problema}
+A seguito della presa visione di un \mgls{ticket} di segnalazione problema, il \RE{} provede all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
 
 \begin{itemize}
 	\item \textbf{Titolo:} rappresenta in maniera sintetica e significativa problema
@@ -811,7 +812,7 @@ Quando il \RE{} prENde visone di un \mgls{ticket} di segnalazione problema prove
 	\item \textbf{Priorità:} deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
 	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Need Fix} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
-Il o i responsabili dovranno risolvere il problema secondo la data di completamento assegnata.
+I responsabili dovranno risolvere il problema secondo la data di completamento assegnata.
 
 \newpage
 
