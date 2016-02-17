@@ -17,7 +17,7 @@ NDP_FILE	= NormeDiProgetto
 SDF_FILE	= StudioDiFattibilita
 
 PDF		= pdfs/
-OUT		= ../../../../$(PDF)
+OUT		= ../../../$(PDF)
 
 P2L		= pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -synctex=1
 MKG		= makeglossaries
