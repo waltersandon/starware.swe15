@@ -747,9 +747,11 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \end{center}
 
 \newpage
-\section{Rotazione dei Ruoli}
+\section{Suddivisione e costo del lavoro}
 
 \subsection{Sommario}
+
+\subsubsection{Rotazione dei ruoli}
 Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo per tutta la durata del progetto.
 
 \begin{table}[H]
@@ -786,7 +788,58 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \end{center}
 
 \newpage
+\subsubsection{Prospetto economico}
+Qui viene proposto il sommario dei costi per fase durante tutta la fare del progetto didattico previsto.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+			\FA{} & 161 & 3 455.00 \\ \midrule
+			\FPA{} & 245 & 5 058.00 \\ \midrule
+			\FPDC{} & 203 & 3 453.00 \\ \midrule
+			\FVV{} & 126 & 2 377.00 \\ \midrule
+			\textbf{Totale} & \textbf{735} & \textbf{14 303.00} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Prospetto economico - Sommario}
+	\end{center}
+\end{table}
+
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante tutta la fare del progetto didattico previsto.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+			\RE{} & 42 & 30 & 1 260.00 \\ \midrule
+			\AM{} & 73 & 20 & 1 460.00 \\ \midrule
+			\AN{} & 82 & 25 & 2 050.00 \\ \midrule
+			\PG{} & 209 & 22 & 4 598.00 \\ \midrule
+			\PR{} & 113 & 15 & 1 695.00 \\ \midrule
+			\VR{} & 216 & 15 & 3 240.00 \\ \midrule
+			\textbf{Totale} & \textbf{735} &  & \textbf{14 303.00} \\
+			\bottomrule
+		\end{tabular}
+		\caption{Prospetto economico - Sommario}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[width=\textwidth]{diagrammaTortaRiepilogoTotaleOre.png}
+		\caption{Diagramma della rotazione dei ruoli - Riepilogo}
+	\end{figure}
+\end{center}
+
+\newpage
 \subsection{Analisi}
+
+\subsubsection{Rotazione dei ruoli}
 Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FA.
 
 \begin{table}[H]
@@ -824,172 +877,8 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \end{center}
 
 \newpage
-\subsection{Progettazione}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FP.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{l r r r r r r r}
-			\toprule
-			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
-			\midrule
-			\midrule
-			\IB{} & & & 5 & 23 & & 7 & 35 \\
-			\midrule
-			\AB{} & 4 & & & 23 & & 8 & 35 \\
-			\midrule
-			\NDC{} & & & 5 & 23 & & 7 & 35 \\
-			\midrule
-			\TP{} & 4 & 8 & & 23 & & & 35 \\
-			\midrule
-			\WS{} & & & & 23 & & 12 & 35 \\
-			\midrule
-			\AVE{} & & & & 23 & & 12 & 35 \\
-			\midrule
-			\AVI{} & & & & 21 & & 14 & 35 \\
-			\bottomrule
-		\end{tabular}
-		\caption{Rotazione dei ruoli - \FPA{}}
-	\end{center}
-\end{table}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering	\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
-		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
-	\end{figure}
-\end{center}
-
-\newpage
-\subsection{Codifica}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FC.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{l r r r r r r r}
-			\toprule
-			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
-			\midrule
-			\midrule
-			\IB{} & & & & 5 & 14 & 10 & 29 \\
-			\midrule
-			\AB{} & & & & 5 & 14 & 10 & 29 \\
-			\midrule
-			\NDC{} & & & & 6 & 14 & 9 & 29 \\
-			\midrule
-			\TP{} & & & 8 & & 14 & 7 & 29 \\
-			\midrule
-			\WS{} & 3 & 7 & & & 13 & 6 & 29 \\
-			\midrule
-			\AVE{} & 3 & & & 5 & 13 & 8 & 29 \\
-			\midrule
-			\AVI{} & & & & 8 & 13 & 8 & 29 \\
-			\bottomrule
-		\end{tabular}
-		\caption{Rotazione dei ruoli - \FPDC{}}
-	\end{center}
-\end{table}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
-		\caption{Diagramma della rotazione dei ruoli - \FPDC{}}
-	\end{figure}
-\end{center}
-
-\newpage
-\subsection{Validazione}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FV.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{l r r r r r r r}
-			\toprule
-			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
-			\midrule
-			\midrule
-			\IB{} & & 8 & & & & 10 & 18 \\
-			\midrule
-			\AB{} & & 6 & & & 9 & 3 & 18 \\
-			\midrule
-			\NDC{} & & 6 & & 6 & & 6 & 18 \\
-			\midrule
-			\TP{} & 4 & & & & &14 & 18 \\
-			\midrule
-			\WS{} & 2 & & & 7 & & 9 & 18 \\
-			\midrule
-			\AVE{} & 2 & & & 8 & & 8 & 18 \\
-			\midrule
-			\AVI{} & 8 & & & & 9 & 1 & 18 \\
-			\bottomrule
-		\end{tabular}
-		\caption{Rotazione dei ruoli - \FVV{}}
-	\end{center}
-\end{table}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
-		\caption{Diagramma della ripartizione oraria dei ruoli - \FVV{}}
-	\end{figure}
-\end{center}
-
-\newpage
-\section{Prospetto economico}
-
-\subsection{Per fase}
-Qui viene proposto il sommario dei costi per fase durante tutta la fare del progetto didattico previsto.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{l r r}
-			\toprule
-			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro)} \\ \midrule
-			\midrule
-			\FA{} & 161 & 3 455.00 \\ \midrule
-			\FPA{} & 245 & 5 058.00 \\ \midrule
-			\FPDC{} & 203 & 3 453.00 \\ \midrule
-			\FVV{} & 126 & 2 377.00 \\ \midrule
-			\textbf{Totale} & \textbf{735} & \textbf{14 303.00} \\
-			\bottomrule
-		\end{tabular}
-		\caption{Prospetto economico - Sommario}
-	\end{center}
-\end{table}
-
-\subsection{Per ruolo}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo durante tutta la fare del progetto didattico previsto.
-
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{l r c r}
-			\toprule
-			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
-			\midrule
-			\RE{} & 42 & 30 & 1 260.00 \\ \midrule
-			\AM{} & 73 & 20 & 1 460.00 \\ \midrule
-			\AN{} & 82 & 25 & 2 050.00 \\ \midrule
-			\PG{} & 209 & 22 & 4 598.00 \\ \midrule
-			\PR{} & 113 & 15 & 1 695.00 \\ \midrule
-			\VR{} & 216 & 15 & 3 240.00 \\ \midrule
-			\textbf{Totale} & \textbf{735} &  & \textbf{14 303.00} \\
-			\bottomrule
-		\end{tabular}
-		\caption{Prospetto economico - Sommario}
-	\end{center}
-\end{table}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[width=\textwidth]{diagrammaTortaRiepilogoTotaleOre.png}
-		\caption{Diagramma della rotazione dei ruoli - Riepilogo}
-	\end{figure}
-\end{center}
-
-\newpage
-\subsection{Analisi}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante la fase di \FA.
 
 \begin{table}[H]
 	\begin{center}
@@ -1027,7 +916,46 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
 
 \newpage
 \subsection{Progettazione}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
+
+\subsubsection{Rotazione dei rouli}
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FP.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} & & & 5 & 23 & & 7 & 35 \\
+			\midrule
+			\AB{} & 4 & & & 23 & & 8 & 35 \\
+			\midrule
+			\NDC{} & & & 5 & 23 & & 7 & 35 \\
+			\midrule
+			\TP{} & 4 & 8 & & 23 & & & 35 \\
+			\midrule
+			\WS{} & & & & 23 & & 12 & 35 \\
+			\midrule
+			\AVE{} & & & & 23 & & 12 & 35 \\
+			\midrule
+			\AVI{} & & & & 21 & & 14 & 35 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FPA{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering	\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FP.
 
 \begin{table}[H]
 	\begin{center}
@@ -1057,7 +985,46 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
 
 \newpage
 \subsection{Codifica}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FC.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} & & & & 5 & 14 & 10 & 29 \\
+			\midrule
+			\AB{} & & & & 5 & 14 & 10 & 29 \\
+			\midrule
+			\NDC{} & & & & 6 & 14 & 9 & 29 \\
+			\midrule
+			\TP{} & & & 8 & & 14 & 7 & 29 \\
+			\midrule
+			\WS{} & 3 & 7 & & & 13 & 6 & 29 \\
+			\midrule
+			\AVE{} & 3 & & & 5 & 13 & 8 & 29 \\
+			\midrule
+			\AVI{} & & & & 8 & 13 & 8 & 29 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FPDC{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
+		\caption{Diagramma della rotazione dei ruoli - \FPDC{}}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FC.
 
 \begin{table}[H]
 	\begin{center}
@@ -1088,7 +1055,47 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
 
 \newpage
 \subsection{Validazione}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni ruolo.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FV.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} & & 8 & & & & 10 & 18 \\
+			\midrule
+			\AB{} & & 6 & & & 9 & 3 & 18 \\
+			\midrule
+			\NDC{} & & 6 & & 6 & & 6 & 18 \\
+			\midrule
+			\TP{} & 4 & & & & &14 & 18 \\
+			\midrule
+			\WS{} & 2 & & & 7 & & 9 & 18 \\
+			\midrule
+			\AVE{} & 2 & & & 8 & & 8 & 18 \\
+			\midrule
+			\AVI{} & 8 & & & & 9 & 1 & 18 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli - \FVV{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FVV{}}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FV.
 
 \begin{table}[H]
 	\begin{center}
@@ -1160,7 +1167,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{table}
 
 \subsubsection{Prospetto economico}
-Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni ruolo con quelle realmente impiegate.
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolocon quelle realmente impiegate.
 
 \begin{table}[H]
 	\begin{center}
