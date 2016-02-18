@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.2.0}
+\newcommand{\versione}{2.0.1}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -80,6 +80,8 @@
 	\toprule
 	\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 	\midrule
+	\midrule
+	2.0.1 & \TP{} & 2016-02-18 & Aggiunta riscontro e previsione dei rischi \\
 	\midrule
 	1.2.0 & \NDC{} & 2016-01-14 & Approvazione \\
 	\midrule
@@ -202,6 +204,7 @@ Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettua
 	\item \textbf{Controllo:} si verifica il successo della pianificazione e in caso si modifica se si ritene insufficiente e si controlla se la probabilità di occorrenza del rischio sia variata
 	\item \textbf{Mitigazione:} istituire un piano per mitigare gli effetti di un rischio nel caso questo dovesse verificarsi
 	\item \textbf{Riscontro:} descrizione del riscontro ed effettiva attuazione del rischio specifico
+	\item \textbf{Previsione:} previsioni di riscontri del rischio nei periodi futuri di lavoro
 \end{itemize}
 
 Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati dei quali viene indicata la probabilità che accada e un livello di gravità se dovesse verificarsi.
@@ -226,6 +229,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
 			\midrule
 			\textbf{Riscontro} & \textbf{\FA{}}: Ci sono stati casi di assenze per impegni personali che sono state risolte come descritto qui sopra. Il totale delle ore perse a causa di questi avvenimenti non ha portato ritardi significativi. \\
+			\midrule
+			\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
@@ -250,6 +255,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
 			\midrule
 			\textbf{Riscontro} & \textbf{\FA{}}: Fino ad ora non ci sono stati affatto dissidi tra i membri del gruppo, che hanno invece mantenuto un rapporto rispettoso nei confronti del progetto e degli altri membri. \\
+            \midrule
+			\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
@@ -276,6 +283,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\
 			\midrule
 			\textbf{Riscontro} & \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \\
+            \midrule
+			\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Guasti hardware - Analisi dei rischi}
@@ -291,7 +300,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Descrizione} &  Ogni componente \mgls{software} utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
 			\midrule
-			\textbf{Probabilità} & Bassa \\
+			\textbf{Probabilità} & Media \\
 			\midrule
 			\textbf{Gravità} & Media \\
 			\midrule
@@ -300,6 +309,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti \mgls{software}. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\
 			\midrule
             \textbf{Riscontro} & \textbf{\FA{}}: E' stato rilevato un malfunzionamento software per quanto riguarda \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. In ogni caso erano stati previsti backup della base di dati che avrebbero permesso il ripristino del database con la perdita solo dei dati più recenti. \\
+    		\midrule
+            \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al software utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
 			\bottomrule
 		\end{tabular}
 		\caption{Malfunzionamenti software - Analisi dei rischi}
@@ -325,6 +336,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
 			\midrule
             \textbf{Riscontro} & \textbf{\FA{}}: Sono stati previsti periodi nei i quali i membri si impegnavano allo studio delle tecnologie che sarebbero poi state utilizzate, come Latex, Git, Github, Teamwork e Tracy. Di queste tecnologie solo l'inesperienza con Git ha portato a leggeri ritardi con la pianificazione che sono stati prontamente risolti condividendo le conoscenze apprese e colmando le lacune di alcuni membri. \\
+    		\midrule
+            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per il periodo di \FPA{} è prevista la necessità di ripassare i diagrammi UML e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è previsto la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Inesperienza tecnologica - Analisi dei rischi}
@@ -351,6 +364,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Utilizzare il tempo di tempo di \mgls{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \mgls{task} in modo che il ritardo sia minimo. \\
 			\midrule
 			\textbf{Riscontro} & \textbf{\FA{}}: Ci sono stati alcuni ritardi per quanto riguarda le attività di verifica, ma i periodi di \mgls{slack} previsti nella pianificazione hanno permesso di limitarne i danni. \\
+            \midrule
+            \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Valutazione tempi e costi - Analisi dei rischi}
@@ -376,6 +391,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Utilizzare il tempo di \mgls{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
             \midrule
             \textbf{Riscontro} & \textbf{\FA{}}: Non ci sono stati particolari ritardi poiché i membri si sono documentati e/o hanno chiesto consiglio ai membri che avevano già esperienza per il ruolo richiesto. \\
+            \midrule
+            \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli - Analisi dei rischi}
@@ -393,7 +410,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR{}, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
 			\midrule
-			\textbf{Probabilità} & Media \\
+			\textbf{Probabilità} & Bassa \\
 			\midrule
 			\textbf{Gravità} & Alta \\
 			\midrule
@@ -402,6 +419,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
             \midrule
             \textbf{Riscontro} & \textbf{\FA{}}: I requisiti sono stati discussi con il proponente che ne ha confermato la validità. \\
+            \midrule
+            \textbf{Previsione} & Non c'è motivo di credere che, specialmente dopo averne discusso con il proponente, i requisiti siano stati compresi in modo scorretto. Per questo motivo, a seguito della revisione dei requisiti, la probabilità di questo rischio viene abbassata. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Comprensione errata dei requisiti - Analisi dei rischi}
