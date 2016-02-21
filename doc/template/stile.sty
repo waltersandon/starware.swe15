@@ -118,6 +118,25 @@
 \newcommand{\logoLungo}{../../template/imgs/logoLungo.png}
 \newcommand{\logoGrande}{../../template/imgs/logoGrande.png}
 
+\newcommand{\intestazione}[1]{
+	\today \\
+	\vspace{1cm}
+	\begin{Huge}
+		\textbf{\nomeGruppo} \\
+	\end{Huge}
+	\textbf{\prjL} \\
+	\vspace{1cm}
+	\includegraphics[scale=0.5]{\logoGrande}
+	\vspace{1cm}
+	
+	\HRule \\[0.4cm]
+	\begin{Huge}
+		{\huge \bfseries #1}\\[0.4cm]
+	\end{Huge}
+	\HRule \\[1cm]
+	\vfill	
+}
+
 %
 %	Setup stili
 %
