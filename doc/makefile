@@ -1,15 +1,15 @@
 SRC 		= src/
-OUT			= pdf/
+PDF			= pdf/
 SRC_FILES 	:= $(wildcard src/*.tex)
 PDF_FILES 	:= $(addprefix pdf/,$(notdir $(SRC_FILES:.tex=.pdf)))
 
-P2L		= pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -synctex=1 -output-directory $(OUT)
-MKG		= makeglossaries
+P2L		= pdflatex -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -synctex=1 -output-directory ../$(PDF)
+MKG		= makeglossaries -d $(PDF)
 
-all: $(OUT) $(PDF_FILES)
+all: $(PDF) $(PDF_FILES)
 
 pdf/%.pdf: src/%.tex
-	$(P2L) $<; $(MKG) -d $(OUT) %; $(P2L) $<
+	cd $(SRC); $(P2L) $(notdir $<); $(MKG) $(notdir $<); $(P2L) $(notdir $<)
 
-$(OUT):
-	mkdir -p $(OUT)
+$(PDF):
+	mkdir -p $(PDF)
