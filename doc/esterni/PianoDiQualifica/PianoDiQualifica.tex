@@ -83,6 +83,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+2.0.0 & \AVI{} & 2016-01-16 & Aggiunte due metriche per i processi \\
+\midrule
 1.2.0 & \IB{} & 2016-01-16 & Approvazione \\
 \midrule
 1.1.1 & \AVE{} & 2016-01-16 & Seconda verifica \\
@@ -373,8 +375,8 @@ Il processo di verifica, per essere informativo, deve esse quantificabile. Le mi
 La qualità dei processi viene valutata usando le seguenti metriche.
 \subsubsection{Schedule Variance}
 Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività.
-\[ScheduleVariance [\%] = \frac{EV - PV}{PV}\]
-Dove EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e PV (Planned value) è il costo delle attività che erano state pianificate alla data corrente.
+\[ScheduleVariance [\%] = \frac{ST - PT}{PT}\]
+Dove ST (Spent time) è il valore in giorni delle attività realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le attività.
 Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: $\geq$ -5\%
@@ -388,6 +390,23 @@ Se $CostVariance > 0$ significa che i costi sono entro il budget stabilito, se i
 \begin{itemize}
 \item \textbf{Range di Accettazione}: $\geq$ -10\%
 \item \textbf{Range Ottimale}: $\geq$ 0\%
+\end{itemize}
+\subsubsection{Cost of poor quality}
+Indica l'inefficienza di processi non buoni valutando il costo delle attività di correzione che seguono la verifica.
+	\[Entita\ della\ verifica_{generale}[\%]= \frac{Lavoro\ rifatto}{Lavoro\ totale}\]
+	\[Entita\ della\ verifica_{documenti}[\%]= \frac{Sezioni\ che\ necessitano\ di\ modifiche}{Sezioni\ totali\ verificate}\]
+	\[Entita\ della\ verifica_{software}[\%]= \frac{bug\ trovati}{KLOC\ verificate}\]
+dove KLOC sono migliaia di linee di codice
+\begin{itemize}
+	\item \textbf{Range di Accettazione}: $\leq$ 50\%
+	\item \textbf{Range Ottimale}: $\leq$ 30\%
+\end{itemize}
+\subsubsection{Requirement stability index}
+Indica quanto variano i requisiti nel tempo.
+\[RSI[\%]= 1 - \frac{\#requisiti\ aggiunti+\#requisiti\ tolti+\#requisiti\ modificati}{\#requisiti\ totali\ inizialmente}\]
+\begin{itemize}
+	\item \textbf{Range di Accettazione}: $\geq$ 80\%
+	\item \textbf{Range Ottimale}: $\geq$ 90\%
 \end{itemize}
 \subsection{Metriche per i documenti}\label{metriche_doc}
 \subsubsection{Gulpease}
