@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
-\input{../../template/stile.sty}
-\input{../../glossario/glossario.tex}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Piano di Progetto}
@@ -24,22 +24,7 @@
 \begin{document}
 \begin{titlepage}
 \begin{center}
-\today \\
-\vspace{1cm}
-\begin{Huge}
-\textbf{\nomeGruppo{}} \\
-\end{Huge}
-\textbf{\prjL{}} \\
-\vspace{1cm}
-\includegraphics[scale=0.5]{\logoGrande}
-\vspace{1cm}
-
-\HRule \\[0.4cm]
-\begin{Huge}
-{\huge \bfseries \titoloDocumento}\\[0.4cm]
-\end{Huge}
-\HRule \\[1cm]
-\vfill
+\intestazione{\titoloDocumento}
 
 \begin{table}[H]
 \begin{center}
@@ -507,7 +492,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{GanttAnalisi.png}
+		\includegraphics[width=\textwidth]{../img/GanttAnalisi.png}
 		\caption{Diagramma di Gantt - \FA{}}
 	\end{figure}
 \end{center}
@@ -587,7 +572,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{GanttProgettazioneArchitetturale.png}
+		\includegraphics[width=\textwidth]{../img/GanttProgettazioneArchitetturale.png}
 		\caption{Diagramma di Gantt - \FPA{}}
 	\end{figure}
 \end{center}
@@ -670,7 +655,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{GanttProgettazioneDiDettaglioECodifica.png}
+		\includegraphics[width=\textwidth]{../img/GanttProgettazioneDiDettaglioECodifica.png}
 		\caption{Diagramma di Gantt - \FPDC{}}
 	\end{figure}
 \end{center}
@@ -777,7 +762,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{GanttValidazione.png}
+		\includegraphics[width=\textwidth]{../img/GanttValidazione.png}
 		\caption{Diagramma di Gantt - \FVV{}}
 	\end{figure}
 \end{center}
@@ -818,7 +803,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[width=\textwidth]{diagrammaBarreRiepilogoRotazioneRuoli.png}
+		\centering \includegraphics[width=\textwidth]{../img/diagrammaBarreRiepilogoRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - Riepilogo}
 	\end{figure}
 \end{center}
@@ -867,7 +852,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[width=\textwidth]{diagrammaTortaRiepilogoTotaleOre.png}
+		\centering \includegraphics[width=\textwidth]{../img/diagrammaTortaRiepilogoTotaleOre.png}
 		\caption{Diagramma della rotazione dei ruoli - Riepilogo}
 	\end{figure}
 \end{center}
@@ -909,7 +894,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaBarreAnalisiRotazioneRuoli.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FA{}}
 	\end{figure}
 \end{center}
@@ -947,7 +932,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaTortaAnalisiTotaleOre.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaTortaAnalisiTotaleOre.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FA{}}
 	\end{figure}
 \end{center}
@@ -986,7 +971,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering	\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
+		\centering	\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
 	\end{figure}
 \end{center}
@@ -1016,7 +1001,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 
 \begin{center}
 	\begin{figure}[H]
-		\centering	\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
+		\centering	\includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
 		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
 	\end{figure}
 \end{center}
@@ -1055,7 +1040,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering		\includegraphics[width=\textwidth]{diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
+		\centering		\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDettaglioCodificaRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FPDC{}}
 	\end{figure}
 \end{center}
@@ -1086,7 +1071,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaTortaProgettazioneDettaglioCodificaTotaleOre.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneDettaglioCodificaTotaleOre.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FPDC{}}
 	\end{figure}
 \end{center}
@@ -1126,7 +1111,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreVerificaValidazioneRotazioneRuoli.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FVV{}}
 	\end{figure}
 \end{center}
@@ -1164,7 +1149,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaTortaVerificaValidazioneTotaleOre.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaTortaVerificaValidazioneTotaleOre.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli - \FVV{}}
 	\end{figure}
 \end{center}
@@ -1242,7 +1227,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{diagrammaBarreAnalisiConsuntivo.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiConsuntivo.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FA{}}
 	\end{figure}
 \end{center}
@@ -1262,9 +1247,9 @@ Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e c
 			\toprule
             \textbf{Nominativo}	& \textbf{Data} & \textbf{Firma} \\ \midrule
 			\midrule
-			\TP{} & 2016-01-21 & \includegraphics[width=6cm]{firmaPigarelli.png} \\ \midrule
-			\NDC{} & 2016-01-21 & \includegraphics[width=6cm]{firmaDeCao.png} \\ \midrule
-			\WS{} & 2016-01-21 & \includegraphics[width=6cm]{firmaSandon.png} \\
+            \TP{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaPigarelli.png} \\ \midrule
+            \NDC{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaDeCao.png} \\ \midrule
+			\WS{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaSandon.png} \\
 			\bottomrule
 		\end{tabular}
 	\end{center}
@@ -1278,7 +1263,7 @@ Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e c
 			\toprule
             \textbf{Nominativo}	& \textbf{Data} & \textbf{Firma} \\ \midrule
 			\midrule
-			\RE{} & 2016-01-21 & \includegraphics[width=6cm]{firmaDeCao.png} \\ \midrule
+			\RE{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaDeCao.png} \\ \midrule
 			Docente &  & \\
 		\end{tabular}
 	\end{center}
@@ -1292,13 +1277,13 @@ Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e c
 			\toprule
             \textbf{Nominativo}	& \textbf{Data} & \textbf{Firma} \\ \midrule
 			\midrule
-			\AVI{} & 2016-01-21 & \includegraphics[width=6cm]{firmaVitella.png} \\ \midrule
-			\AVE{} & 2016-01-21 & \includegraphics[width=6cm]{firmaVenier.png} \\ \midrule
-			\AB{} & 2016-01-21 & \includegraphics[width=6cm]{firmaBonaldo.png} \\ \midrule
-			\IB{} & 2016-01-21 & \includegraphics[width=6cm]{firmaBaylyak.png} \\ \midrule
-			\NDC{} & 2016-01-21 & \includegraphics[width=6cm]{firmaDeCao.png} \\ \midrule
-			\TP{} & 2016-01-21 & \includegraphics[width=6cm]{firmaPigarelli.png} \\ \midrule
-			\WS{} & 2016-01-21 & \includegraphics[width=6cm]{firmaSandon.png} \\
+			\AVI{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaVitella.png} \\ \midrule
+			\AVE{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaVenier.png} \\ \midrule
+			\AB{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaBonaldo.png} \\ \midrule
+            \IB{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaBaylyak.png} \\ \midrule
+            \NDC{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaDeCao.png} \\ \midrule
+			\TP{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaPigarelli.png} \\ \midrule
+			\WS{} & 2016-01-21 & \includegraphics[width=6cm]{../img/firmaSandon.png} \\
 			\bottomrule
 		\end{tabular}
 	\end{center}

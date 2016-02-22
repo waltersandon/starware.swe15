@@ -1,11 +1,4 @@
-%
-%	STARWARE - Stile base per la scrittura di documenti interni in LaTex
-%
-
-%
-%	Pacchetti globali
-%	Fare qui eventuali aggiunte!
-%
+\documentclass[12pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage[babel]{csquotes}
@@ -33,7 +26,6 @@
 \usepackage{listings}
 \usepackage{siunitx}
 \usepackage[official]{eurosym}
-\usepackage{tikz}
 
 \makeglossaries
 
@@ -60,32 +52,6 @@
 \newcommand{\TP}{Thomas Pigarelli}
 \newcommand{\AB}{Anna Bonaldo}
 
-\newcommand{\mgls}[1]{\gls{#1}\textsubscript{G}}
-\newcommand{\mglspl}[1]{\glspl{#1}\textsubscript{G}}
-\newcommand{\mGls}[1]{\Gls{#1}\textsubscript{G}}
-\newcommand{\mGlspl}[1]{\Glspl{#1}\textsubscript{G}}
-
-\newcommand{\AM}{\emph{\mGls{amministratore}}}
-\newcommand{\AN}{\emph{\mGls{analista}}}
-\newcommand{\PG}{\emph{\mGls{progettista}}}
-\newcommand{\PR}{\emph{\mGls{programmatore}}}
-\newcommand{\VR}{\emph{\mGls{verificatore}}}
-\newcommand{\RE}{\emph{\mGls{responsabile}}}
-\newcommand{\PM}{\RE}
-
-\newcommand{\AMpl}{\emph{\mGlspl{amministratore}}}
-\newcommand{\ANpl}{\emph{\mGlspl{analista}}}
-\newcommand{\PGpl}{\emph{\mGlspl{progettista}}}
-\newcommand{\PRpl}{\emph{\mGlspl{programmatore}}}
-\newcommand{\VRpl}{\emph{\mGlspl{verificatore}}}
-\newcommand{\REpl}{\emph{\mGlspl{responsabile}}}
-\newcommand{\PMpl}{\REpl}
-
-\newcommand{\RR}{\emph{\mGls{revisione dei requisiti}}}
-\newcommand{\RA}{\emph{\mGls{revisione di accettazione}}}
-\newcommand{\RP}{\emph{\mGls{revisione di progettazione}}}
-\newcommand{\RQ}{\emph{\mGls{revisione di qualifica}}}
-
 \newcommand{\NdP}{\emph{Norme di progetto}}
 \newcommand{\SdF}{\emph{Studio di fattibilita}}
 \newcommand{\AdR}{\emph{Analisi dei requisiti}}
@@ -96,46 +62,13 @@
 \newcommand{\MU}{\emph{Manuale utente}}
 \newcommand{\GL}{\emph{Glossario}}
 
-\newcommand{\FPA}{\FP}
-\newcommand{\FPDC}{\FC}
-\newcommand{\FVV}{\FV}
-
-\newcommand{\FA}{\emph{\mGls{analisi}}}
-\newcommand{\FP}{\emph{\mGls{progettazione}}}
-\newcommand{\FC}{\emph{\mGls{codifica}}}
-\newcommand{\FV}{\emph{\mGls{validazione}}}
-
 \newcommand{\latex}[1]{\texttt{#1}}
 \newcommand{\fileName}[1]{\texttt{#1}}
 \newcommand{\filePath}[1]{\texttt{#1}}
 \newcommand{\TODO}[1]{\texttt{\large \color{red} \underline{TODO: #1}}}
 
-\newcommand{\licenza}{GNU GENERAL PUBLIC LICENSE V2}
-
 %per compilare il template usare questi sotto e commentare glia altri:
-%\newcommand{\logoLungo}{../imgs/logoLungo.png}
-%\newcommand{\logoGrande}{../imgs/logoGrande.png}
-\newcommand{\logoLungo}{../../template/imgs/logoLungo.png}
-\newcommand{\logoGrande}{../../template/imgs/logoGrande.png}
-
-\newcommand{\intestazione}[1]{
-	\today \\
-	\vspace{1cm}
-	\begin{Huge}
-		\textbf{\nomeGruppo} \\
-	\end{Huge}
-	\textbf{\prjL} \\
-	\vspace{1cm}
-	\includegraphics[scale=0.5]{\logoGrande}
-	\vspace{1cm}
-	
-	\HRule \\[0.4cm]
-	\begin{Huge}
-		{\huge \bfseries #1}\\[0.4cm]
-	\end{Huge}
-	\HRule \\[1cm]
-	\vfill	
-}
+\newcommand{\logoLungo}{../img/logoLungo.png}
 
 %
 %	Setup stili
@@ -177,13 +110,11 @@
 %	Logo intestazione
 \lhead{\includegraphics[scale=0.12]{\logoLungo}}
 
-
-%	footer
 \cfoot{
 	\uni \ - \uniAA \\
 	\href{mailto:\mailGruppo}{\mailGruppo}\\
-	{\tiny Questo documento è distribuito sotto licenza {\licenza}}
 }
+
 \rfoot{
 	\thepage\ di \pageref{LastPage}
 }
@@ -201,19 +132,19 @@
 \renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
 
 \titleformat{\subsubsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
 \titlespacing*{\subsubsubsection}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
-  {3.25ex \@plus1ex \@minus.2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries}}
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
 \renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
-  {3.25ex \@plus1ex \@minus .2ex}%
-  {-1em}%
-  {\normalfont\normalsize\bfseries}}
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
 \def\toclevel@subsubsubsection{4}
 \def\toclevel@paragraph{5}
 \def\toclevel@paragraph{6}
@@ -225,3 +156,53 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Lettera di Presentazione}
+
+\rhead{\titoloDocumento}
+\title{\titoloDocumento}
+
+\begin{document}
+
+\hspace{8cm}\begin{minipage}[t]{10cm}
+	Alla cortese attenzione del Committente: \\
+	\Vardanega \\
+	\Cardin \\
+	\uni \\
+	Dipartimento di Matematica\\
+	Via Trieste 63\\
+	35121, Padova\\
+	\today \\
+\end{minipage}
+\vspace{1cm}
+
+\textbf{Oggetto: } presentazione della proposta del capitolato d'appalto \prjL\\
+
+Egregio Professore Tullio Vardanega,\\
+Con la presente, il gruppo \nomeGruppo\ intende comunicarle ufficialmente l’impegno alla realizzazione del prodotto da lei commissionato, denominato:
+\begin{center}
+	\textbf{\prjL}
+\end{center}
+L’offerta è corredata dai seguenti documenti, allegati alla presente lettera:
+
+\begin{itemize}
+	\item \AdR\ (\filePath{esterni/AnalisiDeiRequisiti\_v1.2.0.pdf});
+	\item \PdP\ (\filePath{esterni/PianoDiPreogetto\_v1.2.0.pdf});
+	\item \PdQ\ (\filePath{esterni/PianoDiQualifica\_v1.2.0.pdf});
+	\item \NdP\ (\filePath{interni/NormeDiProgetto\_v1.2.0.pdf});
+	\item \SdF\ (\filePath{interni/StudioDiFattibilità\_v1.2.0.pdf});
+\end{itemize}
+
+Il gruppo \nomeGruppo\ ha stimato di consegnare il prodotto richiesto entro la fine del secondo semestre dell'anno accademico \uniAA\ con un preventivo di costo pari a 
+\begin{center}
+	\textbf{\euro 14 303.00}
+\end{center}
+
+I dettagli di analisi del prodotto, di pianificazione e di qualità sono trattati in maniera approfondita nei documenti allegati. Rimango a sua completa disposizione per ogni ulteriore chiarimento. La ringrazio anticipatamente della sua attenzione.\\
+
+Cordiali Saluti,\\
+\NDC \\
+\includegraphics[width=6cm]{../img/firmaDeCao.png}
+
+\end{document}

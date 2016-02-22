@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper]{article}
-\input{../../template/stile.sty}
-\input{../../glossario/glossario.tex}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Norme di Progetto}
@@ -641,18 +641,32 @@ La \mgls{repository} del gruppo è organizzata secondo il seguente albero delle 
 
 \dirtree{%
 	.1 doc.
-	.2 interni.
-	.2 esterni.
-	.2 template.
-	.2 glossario.
-	.2 verbali.
-	.3 interni.
-	.3 esterni.
-	.1 src.
+	.2 img.
+	.2 ods.
+	.2 oxt.
+	.2 pod.
+	.2 src.
+	.2 style.
+	.2 tex.
+	.2 xml.
+	.2 zargo.
 }
 
-La cartella \path{doc} contiene tutti i documenti, la cartella \path{src} contiene il codice sorgente dell'applicazione (la struttura interna sarà specificata in fase di progettazione). All' interno di \path{doc} c'è la cartella \path{template} che contiene tutti i file per definire lo stile o creare un nuovo documento \LaTeX{}. Le 2 cartelle \path{interni} e \path{esterni} per dividere i documenti interni (\NdP/  e \SdF) da quelli esterni (\AdR, \PdP/ e \PdQ). La cartella \path{glossario} contiene i file relativi al glossario incluso negli altri documenti. I verbali sono posti nella cartella \path{verbali} e divisi nelle sottocartelle \path{interni} e \path{esterni}.
+La cartella \path{doc} contiene tutti i file che generano i \mgls{pdf}, i diagrammi o le immagini per i documenti. \\
+Al suo interno le cartelle sono organizzate come segue:
 
+\begin{itemize}
+    \item \textbf{\path{img}}: contiene tutte le immagini utilizzate dai documenti
+    \item \textbf{\path{ods}}: contiene tutti i file \path{.ods} utilizzati da OpenOffice
+    \item \textbf{\path{oxt}}: contiene tutti i file \path{.oxt} utilizzati da LibreOffice
+    \item \textbf{\path{pod}}: contiene tutti i file \path{.pod} per la generazione dei diagrammi di Gantt
+    \item \textbf{\path{src}}: contiene tutti i file \latex{} che generano documenti
+    \item \textbf{\path{style}}: contiene tutti i file \path{.sty} per lo stile dei documenti
+    \item \textbf{\path{tex}}: contiene tutti i file \path{.tex} inclusi nei documenti \latex{}
+    \item \textbf{\path{xml}}: contiene tutti i file \path{.xml} per la generazione delle immagini prodotte da draw.io
+    \item \textbf{\path{zargo}}: contiene tutti i file \path{.zargo}
+\end{itemize} 
+        
 \subsubsection{Materiale informale}\label{sec:matinf}
 Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{google drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione \ref{sec:matinf}.
 
@@ -1022,7 +1036,7 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 	\begin{figure}[H]
 		\centering
 		\label{f1-TicketCicloVita}
-		\includegraphics[scale=0.6]{TicketCicloVita.png}
+		\includegraphics[scale=0.6]{../img/TicketCicloVita.png}
 		\caption{Diagramma del ciclo di vita dei ticket.}
 	\end{figure}
 \end{center}
