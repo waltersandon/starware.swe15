@@ -1,0 +1,38 @@
+Verbale Riunione 23-02-2016
+
+Partecipanti: tutti tranne Igor
+Stesura: Nicola
+
+1) Riunioni: tutti i lunedì dalle 11:00 alle 13:00 (NdP)
+
+2) Milestones:
+	2.1) finire incremento documenti vecchi
+		2.1.1) PdP	scrivere il preventivo a finire (24/02/2016 Thomas fase passata - 05/04/2016 Thomas fase corrente)
+					scrivere le milestone (revisioni interne nella RP sono 3) (24/02/2016 Nicola)
+					verifica (25/02/2016 Nicola e Thomas)
+		2.1.2) NdP	sezione sul cronometro di teamwork (24/02/2016 Nicola e Andrea cominciano a fare incremento poi il 25/02/2016 proseguono)
+					ripensare la versione dei documenti ([DA DEFINIRE])
+					sezione sul registro delle modifiche / commit
+					Thomas prova a fare uno script per automatizzare il registro delle modifiche / commit
+					verifica (26/02/2016 Alessio)
+		2.1.3) PdQ	rivedere la parte iniziale (23/02/2016 Anna)
+					inserire appendici (24/02/2016 Anna)
+					verifica (26/02/2016 Igor)
+		2.1.4) AdR	controllo commenti Tullio (24/02/2016 Thomas controllo diagrammi - 24/02/2016 Alessio controllo)
+					struttura dei casi d'uso non corrisposnde al reale
+		2.1.5) Glossario: creare il documento glossario ([DA DEFINIRE])
+	2.2) stesura Specifica Tecnica
+		2.2.1) chiamata skype per pianificare la stesura dellla ST (27/02/2016 [ORA DA DEFINIRE])
+	2.3) stesura Definizione di Prodotto
+		2.3.1) 
+
+3) Chiedere ai prof:
+	3.1) delucidazioni glossario: fare glossario unico
+	3.2) formato dei verbali: unico documento
+	3.3) ST su RP_max?
+	
+4) Voto sui requisiti:
+	Server: Tomcat Java
+	Client: jQuery / Angular.js (chiedere ai gruppi degli anni passati)
+	
+5) Teamwork: Nicola corregge i task per la prossima settimana
