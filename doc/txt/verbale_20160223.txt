@@ -35,4 +35,4 @@ Stesura: Nicola
 	Server: Tomcat Java
 	Client: jQuery / Angular.js (chiedere ai gruppi degli anni passati)
 	
-5) Teamwork: Nicola corregge i task per la prossima settimana
+5) Teamwork: Nicola corregge i task per la prossima settimana (24/02/2016 Nicola)
