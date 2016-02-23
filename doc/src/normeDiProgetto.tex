@@ -64,6 +64,12 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+2.0.5 & \AVE & 2016-02-23 & [ modifica sez. \ref{swGestioneProgetto} ] Aggiunta norme sull'utilizzo della funzione cronometro di teamwork \\
+\midrule
+2.0.4 & \AVE & 2016-02-23 & [ modifica sez. \ref{Commit} ] Aggiunta esempio struttura commit \\
+\midrule
+2.0.3 & \AVE & 2016-02-23 & [ modifica sez. \ref{Riunioni} ] Aggiunta giorno ed orario delle riunioni\\
+\midrule
 2.0.2 & \AVE & 2016-02-22 & Correzione uso improprio del plurale nei processi singoli \\
 \midrule
 2.0.1 & \TP & 2016-02-19 & Modifica struttura directory \\
@@ -607,8 +613,11 @@ Viene creata una \mgls{repository} su \mGls{github} all'indirizzo
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
 
-\paragraph{Commit}
-Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta (e.g. Aggiunta sezione \mgls{repository} nelle Norme di progetto, oppure Verifica e correzione delle Norme di progetto). Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
+\paragraph{Commit}\label{Commit}
+Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta. Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
+
+Per ogni modifica o aggiunta si deve scrivere nel \mgls{commit} le modifiche o aggiunte effettuate e le sezioni interessate dalle stesse (eg. sintassi \mgls{commit}, $[\;modifica|aggiunta\; sez.\; X,Y,...\;]\; commento\; facoltativo$ dove "X,Y,..." indicano che le sezioni di nome X,Y,... sono state aggiunte o modificate).
+
 \paragraph{Pull}
 È preferibile fare un \mgls{pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \mgls{branch} a cui si sta lavorando
 \paragraph{Push}
@@ -850,9 +859,10 @@ Tale indirizzo deve essere l'unico canale di comunicazione esistente tra il grup
 \paragraph{Interna}
 Per le comunicazioni interne informali è stato scelto l'uso di \mgls{telegram}, per il suo utilizzo tramite \mgls{browser} che permette, quindi, un accesso alle conversazioni sia da pc che da \mgls{smartphone}. Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio \mgls{cloud} \mgls{google drive}. Inoltre è permesso l'uso di \mgls{skype} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
 
-\subsubsection{Riunioni}
+\subsubsection{Riunioni}\label{Riunioni}
 \paragraph{Frequenza}
-Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale.
+Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale, scegliendo come giorno della settimana il lunedì dalle ore 11:00 alle 13:00.
+% Controllare il formato dell'ora in particolare se è stata scritta.
 
 \paragraph{Convocazione riunione}
 Il \PM{} ha il compito di convocare le riunioni generali, ovvero le riunioni in cui vengono convocati tutti i membri del gruppo.
@@ -984,6 +994,7 @@ Il \PM{}, una volta individuate e stimate le \mgls{attivita} e i \mgls{task} da 
 	\item offre la possibilità di impostare delle \mglspl{milestone} per tenere facilmente sotto controllo lo svolgimento delle \mgls{attivita}.
 \end{itemize}
 Sarà inoltre compito del \PM{} assegnare una \mgls{deadline} per il completamento dei \mglspl{task} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+Ogni membro del gruppo durante lo svolgimento di ogni \mgls{task} assegnatoli deve avviare la funzione cronometro di \mgls{teamwork} col fine di rendere misurabile il tempo effettivamente impiegato nello svolgimento del compito.
 Le modalità di utilizzo di \mgls{teamwork} vengono descritte nella sezione \ref{ticket} di questo documento.
 
 \subsubsection{Ticketing}\label{ticket} %6.5 delle NdPv5.2.0 dei don't panic
