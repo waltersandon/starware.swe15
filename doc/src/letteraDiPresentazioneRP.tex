@@ -1,0 +1,209 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[babel]{csquotes}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[top=1cm,bottom=4cm,left=80pt,right=80pt]{geometry} %disegna la linea
+\usepackage{listings} %per grandi porzioni di codice
+\usepackage{color}
+\usepackage[table]{xcolor}
+\usepackage{booktabs,tabularx}
+\usepackage{makeidx}
+\usepackage{fixltx2e}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{svg}
+\usepackage{amsmath}
+\usepackage[toc]{glossaries}
+\usepackage{dirtree}
+\usepackage{listings}
+\usepackage{siunitx}
+\usepackage[official]{eurosym}
+
+\makeglossaries
+
+\bibliographystyle{alpha}
+
+%
+%	VARIABILI GLOBALI
+%
+\newcommand{\nomeGruppo}{StarWare}
+\newcommand{\mailGruppo}{starware.swe@gmail.com}
+\newcommand{\uni}{Universit\`{a} degli Studi di Padova}
+\newcommand{\uniAA}{2015/2016}
+\newcommand{\Cardin}{Prof. Riccardo Cardin}
+\newcommand{\Vardanega}{Prof. Tullio Vardanega}
+\newcommand{\Zucchetti}{Zucchetti S.p.a.}
+\newcommand{\prj}{Quizzipedia}
+\newcommand{\prjL}{Quizzipedia: software per la gestione di questionari}
+
+\newcommand{\AVI}{Alessio Vitella}
+\newcommand{\AVE}{Andrea Venier}
+\newcommand{\NDC}{Nicola De Cao}
+\newcommand{\IB}{Igor Baylyak}
+\newcommand{\WS}{Walter Sandon}
+\newcommand{\TP}{Thomas Pigarelli}
+\newcommand{\AB}{Anna Bonaldo}
+
+\newcommand{\NdP}{\emph{Norme di progetto}}
+\newcommand{\SdF}{\emph{Studio di fattibilita}}
+\newcommand{\AdR}{\emph{Analisi dei requisiti}}
+\newcommand{\PdP}{\emph{Piano di progetto}}
+\newcommand{\PdQ}{\emph{Piano di qualifica}}
+\newcommand{\DP}{\emph{Definizione di prodotto}}
+\newcommand{\ST}{\emph{Specifica tecnica}}
+\newcommand{\MU}{\emph{Manuale utente}}
+\newcommand{\GL}{\emph{Glossario}}
+
+\newcommand{\latex}[1]{\texttt{#1}}
+\newcommand{\fileName}[1]{\texttt{#1}}
+\newcommand{\filePath}[1]{\texttt{#1}}
+\newcommand{\TODO}[1]{\texttt{\large \color{red} \underline{TODO: #1}}}
+
+%per compilare il template usare questi sotto e commentare glia altri:
+\newcommand{\logoLungo}{../img/logoLungo.png}
+
+%
+%	Setup stili
+%
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{light}{RGB}{255,255,190}
+
+%
+%	Setup di pagina
+%
+
+%colorazione link
+\hypersetup
+{
+	colorlinks=true,
+	linkcolor=black,
+	urlcolor=blue,
+	citecolor=blue
+}
+
+%	Setup Header + Footer
+
+\pagestyle{fancy}
+\setlength{\headheight}{2cm} %settato grandezza header
+
+\renewcommand{\footrulewidth}{0.5pt} %ridefinisco il valore della riga di intestazione
+\renewcommand{\headrulewidth}{0.5pt} %ridefinisco il valore della riga di pie' di pagina
+\addtolength{\headwidth}{\marginparsep}
+\addtolength{\headwidth}{\marginparwidth}
+
+\fancyhead{} %annulla head di default
+\fancyfoot{} %annulla foot di default
+
+%	Logo intestazione
+\lhead{\includegraphics[scale=0.12]{\logoLungo}}
+
+\cfoot{
+	\uni \ - \uniAA \\
+	\href{mailto:\mailGruppo}{\mailGruppo}\\
+}
+
+\rfoot{
+	\thepage\ di \pageref{LastPage}
+}
+
+
+% test subsubsubsection
+
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+{\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+	{3.25ex \@plus1ex \@minus.2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+	{3.25ex \@plus1ex \@minus .2ex}%
+	{-1em}%
+	{\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Lettera di Presentazione}
+
+\rhead{\titoloDocumento}
+\title{\titoloDocumento}
+
+\begin{document}
+
+\hspace{8cm}\begin{minipage}[t]{10cm}
+	Alla cortese attenzione del Committente: \\
+	\Vardanega \\
+	\Cardin \\
+	\uni \\
+	Dipartimento di Matematica\\
+	Via Trieste 63\\
+	35121, Padova\\
+	\today \\
+\end{minipage}
+\vspace{1cm}
+
+\textbf{Oggetto:} partecipazione alla Revisione di Progettazione\\
+
+Egregio Professore Tullio Vardanega,\\
+Con la presente, il gruppo \nomeGruppo\ intende comunicarle ufficialmente la partecipazione alla \textbf{Revisione di Progettazione} del prodotto da lei commissionato, denominato:
+\begin{center}
+	\textbf{\prjL}
+\end{center}
+L’offerta è corredata dai seguenti documenti, allegati alla presente lettera:
+
+\begin{itemize}
+	\item \AdR\ (\filePath{esterni/AnalisiDeiRequisiti\_v2.0.0.pdf});
+	\item \DP\ (\filePath{esterni/DefinizioneDiProdotto\_v1.0.0.pdf});
+	\item \GL\ (\filePath{esterni/Glossario\_v2.0.0.pdf});	
+	\item \PdP\ (\filePath{esterni/PianoDiPreogetto\_v2.0.0.pdf});
+	\item \PdQ\ (\filePath{esterni/PianoDiQualifica\_v2.0.0.pdf});
+	\item \ST\ (\filePath{esterni/SpecificaTecnica\_v1.0.0.pdf});
+	\item \NdP\ (\filePath{interni/NormeDiProgetto\_v2.0.0.pdf}).
+\end{itemize}
+
+Il gruppo \nomeGruppo\ conferma la previsione della data di consegna del prodotto richiesto entro la revisione che si terrà in data \textit{17 giugno 2016}.
+
+I dettagli di progettazione architetturale e dettaglio, di pianificazione e di qualità sono trattati in maniera approfondita nei documenti allegati.
+
+Rimango a sua completa disposizione per ogni ulteriore chiarimento. La ringrazio anticipatamente della sua attenzione.\\
+
+Cordiali Saluti,\\
+\AB \\
+\includegraphics[width=6cm]{../img/firmaBonaldo.png}
+
+\end{document}
