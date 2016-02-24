@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.1}
+\newcommand{\versione}{1.0.5}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -56,7 +56,7 @@
 \Large{\textbf{Registro delle modifiche}}
 \normalsize
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 
 \begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
@@ -64,45 +64,45 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-2.0.5 & \AVE & 2016-02-23 & [ modifica sez. \ref{swGestioneProgetto} ] Aggiunta norme sull'utilizzo della funzione cronometro di teamwork \\
+1.0.5 & \TP & 2016-02-23 & [ modifica sez. \ref{swGestioneProgetto} ] Aggiunta norme sull'utilizzo della funzione cronometro di teamwork \\
 \midrule
-2.0.4 & \AVE & 2016-02-23 & [ modifica sez. \ref{Commit} ] Aggiunta esempio struttura commit \\
+1.0.4 & \TP & 2016-02-23 & [ modifica sez. \ref{Commit} ] Aggiunta esempio struttura commit \\
 \midrule
-2.0.3 & \AVE & 2016-02-23 & [ modifica sez. \ref{Riunioni} ] Aggiunta giorno ed orario delle riunioni\\
+1.0.3 & \TP & 2016-02-23 & [ modifica sez. \ref{Riunioni} ] Aggiunta giorno ed orario delle riunioni\\
 \midrule
-2.0.2 & \AVE & 2016-02-22 & Correzione uso improprio del plurale nei processi singoli \\
+1.0.2 & \TP & 2016-02-22 & Correzione uso improprio del plurale nei processi singoli \\
 \midrule
-2.0.1 & \TP & 2016-02-19 & Modifica struttura directory \\
+1.0.1 & \TP & 2016-02-19 & Modifica struttura directory \\
 \midrule
-1.2.0 & \IB & 2016-01-15 & Documento approvato \\
+1.0.0 & \IB & 2016-01-15 & Documento approvato \\
 \midrule
-1.1.1 & \TP & 2016-01-13 & Seconda verifica \\
+0.1.1 & \TP & 2016-01-13 & Seconda verifica \\
 \midrule
-1.1.0 & \WS & 2016-01-13 & Prima verifica \\
+0.1.0 & \WS & 2016-01-13 & Prima verifica \\
 \midrule
-1.0.11 & \NDC & 2016-01-10 & Finita parte Ticketing e modifiche minori \\
+0.0.11 & \NDC & 2016-01-10 & Finita parte Ticketing e modifiche minori \\
 \midrule
-1.0.10 & \NDC & 2016-01-07 & Sistemata organizzazione per processi \\
+0.0.10 & \NDC & 2016-01-07 & Sistemata organizzazione per processi \\
 \midrule
-1.0.9 & \AVE & 2016-01-03 & Descrizione Software UML \\
+0.0.9 & \AVE & 2016-01-03 & Descrizione Software UML \\
 \midrule
-1.0.8 & \AVE & 2016-01-02 & Modifiche Ticketing \\
+0.0.8 & \AVE & 2016-01-02 & Modifiche Ticketing \\
 \midrule
-1.0.7 & \NDC & 2015-12-24 & Processi di supporto \\
+0.0.7 & \NDC & 2015-12-24 & Processi di supporto \\
 \midrule
-1.0.6 & \AVI & 2015-12-21 & Versioning e Repository \\
+0.0.6 & \AVI & 2015-12-21 & Versioning e Repository \\
 \midrule
-1.0.5 & \AVE & 2015-12-10 & Ticketing \\
+0.0.5 & \AVE & 2015-12-10 & Ticketing \\
 \midrule
-1.0.4 & \AVE & 2015-12-08 & Ruoli di progetto e Riunioni \\
+0.0.4 & \AVE & 2015-12-08 & Ruoli di progetto e Riunioni \\
 \midrule
-1.0.3 & \AVI & 2015-12-07 & Norme del Piano di Progetto e dell'Analisi dei requisiti \\
+0.0.3 & \AVI & 2015-12-07 & Norme del Piano di Progetto e dell'Analisi dei requisiti \\
 \midrule
-1.0.2 & \AVI & 2015-12-03 & Descrizione processi di base \\
+0.0.2 & \AVI & 2015-12-03 & Descrizione processi di base \\
 \midrule 
-1.0.1 & \NDC & 2015-12-02 & Introduzione \\
+0.0.1 & \NDC & 2015-12-02 & Introduzione \\
 \midrule
-1.0.0 & \NDC & 2015-11-30 & Creazione documento \\
+0.0.0 & \NDC & 2015-11-30 & Creazione documento \\
 \bottomrule
 \end{tabular}
 \caption{Versionamento del documento}
@@ -134,15 +134,22 @@ Verranno definite norme riguardanti:
 \end{itemize}
 
 \subsection{Glossario}
-Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione.
+\glossarioPrint
 
 \subsection{Riferimenti}
+
+\subsubsection{Normativi}
+\begin{itemize}
+	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
+	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html}.
+\end{itemize}
 
 \subsubsection{Informativi}
 \begin{itemize}
 	\item \textit{ISO\_8601}: \url{http://www.iso.org/iso/iso8601};
 	\item \textit{ISO\_80000}: \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202};
-	\item \textit{RFC 2119}: {\url{http://www.ietf.org/rfc/rfc2119.txt}}.
+	\item \textit{RFC 2119}: {\url{http://www.ietf.org/rfc/rfc2119.txt}};
+	\item guida a git: \url{https://git-scm.com/docs/}.
 \end{itemize}
 
 \newpage
@@ -156,10 +163,9 @@ I processi base sono formati dai seguenti sotto processi:
 \item processo operativo;
 \item processo di manutenzione.
 \end{enumerate}
-Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del fornitore e di sviluppo, poiché il processo dell'acquirente non riguardano il team e le fasi operative e di manutenzione non verranno trattate.
+Per lo scopo del corrente progetto saranno dettate solo le norme per le fasi del fornitore e di sviluppo, poiché il processo dell'acquirente non riguardano il gruppo e le fasi operative e di manutenzione non verranno trattate.
 
 \subsection{Processo di fornitura}
-
 
 \subsubsection{Scopo}
 Definisce le attività e i task attraverso i quali il fornitore comunica al committente modo, tempi e costi previsti per il progetto.
@@ -167,7 +173,10 @@ Definisce le attività e i task attraverso i quali il fornitore comunica al comm
 \subsubsection{Descrizione}
 Consiste nel redigere lo \SdF, \PdQ, e il \PdP.
 
-\subsubsection{Studio di fattibilità}
+\subsubsection{Iniziazione}
+L'attività consiste nel fare uno studio preliminare sulla fattibilità della o delle proposte del o dei committenti. Il prodotto di questa attività è lo \SdF.
+
+\paragraph{Studio di fattibilità}
 È compito degli \ANpl{} redigere uno \SdF\ in cui per ogni capitolato bisogna individuare:
 \begin{itemize}
 	\item aspetti positivi;
@@ -175,11 +184,16 @@ Consiste nel redigere lo \SdF, \PdQ, e il \PdP.
 \end{itemize}
 Per il capitolato scelto lo \SdF\ deve contenere anche una descrizione del dominio applicativo e del dominio tecnologico. Infine devono essere spiegati i motivi della scelta del gruppo.
 
-\subsubsection{Piano di Qualifica}
-Il \PdQ\ dovrà illustrare la strategia complessiva di verifica e validazione e gli strumenti utilizzati per attuarla. Lo scopo è quello di pervenire al collaudo del sistema con la massima efficienza ed efficacia.
+\subsubsection{Attività di pianificazione}
 
-\subsubsection{Piano di Progetto} %ISO 12207 5.2.4
-Il \PdP\ dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto.\\
+\subsubsubsection{Quality assurance}
+Questo task ha come scopo di definire gli obiettivi di qualità e produce un documento chiamato \PdQ. Il \PdQ\ dovrà illustrare la strategia complessiva di verifica e validazione e gli strumenti utilizzati per attuarla. Lo scopo è quello di pervenire al collaudo del sistema con la massima efficienza ed efficacia.
+
+\subsubsubsection{Piano di organizzazione del progetto} %ISO 12207 5.2.4
+Questo task ha come scopo di definire un piano di lavoro da perseguire fino alla data prevista per l'accettazione da parte del \mgls{committente}. Questo task produce un documento denominato \PdP.
+
+Il \PdP\ dovrà presentare l'organigramma dettagliato del fornitore, lo schema proposto per l'assegnazione e la rotazione dei ruoli di progetto, l'impegno complessivo previsto per ogni ruolo e per ogni individuo, e il conto economico preventivo di realizzazione del prodotto.
+
 Il \PM, assieme all'\AM, deve presentare nel \PdP\ diagrammi di \mgls{gantt} e ripartizione delle risorse relativi ad ogni fase del Progetto. In Particolare è necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 
 \subsubsubsection{Strumenti}
@@ -193,8 +207,7 @@ Per l’elaborazione dei dati si utilizza il software Calc del pacchetto LibreOf
 	\item calcolo della metrica SV (\mGls{schedule variance});
 	\item calcolo della metrica CV (\mGls{cost variance});
 	\item tabelle per il confronto tra preventivo e consuntivo;
-	\item istogrammi per il confronto tra ore preventivate e ore realmente impiegate da
-	ciascuna risorsa.
+	\item istogrammi per il confronto tra ore preventivate e ore realmente impiegate da ciascuna risorsa.
 \end{itemize}
 
 \subsection{Processo di sviluppo}
@@ -210,10 +223,12 @@ Il processo di sviluppo è un insieme di attività e task necessari per lo svilu
 	\item attività di \FPDC.
 \end{enumerate}
 
-\subsubsection{Analisi dei requisiti}
-Gli Analisti dovranno produrre l'\AdR{} basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione. Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
+\subsubsection{Attività di analisi dei requisiti}
+Questa attività ha come scopo di analizzare i requisiti del sistema e del \mgls{software} da realizzare. Il prodotto di questa attività è l'\AdR.
 
-\subsubsubsection{Struttura di un caso d'uso}
+Gli \ANpl\ dovranno produrre l'\AdR{} basandosi sul capitolato e sugli incontri con il proponente. Tale processo ha l'obiettivo di formalizzare e rendere tracciabile in un documento i requisiti e casi d'uso individuati, comprendendo a fondo eventuali problemi da risolvere in fase di progettazione. Con il completamento di questo processo si ottiene una documentazione affidabile e consistente che ben descrive le esigenze e le richieste del proponente.
+
+\paragraph{Struttura di un caso d'uso}
 I casi d'uso sono creati secondo lo standard UML 2.4 e sono identificati dalla seguente notazione:
 \begin{center}
 	UC[codice]: [Titolo]
@@ -228,7 +243,7 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 	\item \textbf{Requisiti:} collegati al Caso d'uso
 \end{itemize}
 
-\subsubsubsection{Struttura di un requisito}
+\paragraph{Struttura di un requisito}
 È compito degli \ANpl\ stilare una lista dei requisiti emersi dal capitolato e da eventuali riunioni con il proponente. Questi requisiti dovranno essere classificati per tipo e importanza, utilizzando la seguente struttura:
 \begin{center}
 	R[importanza][tipo][codice]
@@ -252,7 +267,7 @@ dove il \textbf{codice} è un numero progressivo identificativo di ogni requisit
 \end{itemize}
 Ogni requisito deve essere correlato da una sintetica ma precisa descrizione. Per ogni requisito bisogna indicarne le fonti, che posso essere il capitolato o uno o più casi d'uso.
 
-\subsubsubsection{Struttura di una fonte}
+\paragraph{Struttura di una fonte}
 Ogni fonte deve avere la seguente struttura:
 \begin{itemize}
 	%\item \textbf{Identificativo della:} ogni caso d'uso deve essere identificato in modo univoco. L'identificativo dovrà avere la seguente forma \textbf{UC#} dove il carattere \textbf{#} rappresenta un numero incrementale.
@@ -260,37 +275,17 @@ Ogni fonte deve avere la seguente struttura:
 	\item \textbf{Descrizione:} descrizione sintetica della fonte
 \end{itemize}
 
-\subsubsubsection{Struttura di un metodo di validazione}
+\paragraph{Struttura di un metodo di validazione}
 Ogni metodo di validazione deve avere la seguente struttura:
 \begin{itemize}
 	\item \textbf{Descrizione:} descrizione sintetica della metodo di validazione
 \end{itemize}
 
-\subsubsection{Progettazione}
-La progettazione è il processo che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione. L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requisti individuati durante il processo di analisi e esplicita, a tutti gli \mgls{stakeholder}, la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali.
-
-La fase di progettazione deve essere supportata dai seguenti diagrammi realizzati in UML2.4:
-\begin{itemize}
-	\item \textbf{Diagrammi delle classi:} per descrivere la struttura e la gerarchia delle classi
-	\item \textbf{Diagrammi di sequenza:} per descrivere una determinata sequenza di azioni
-	\item \textbf{Diagrammi di attività:} per descrivere le attività necessarie per realizzare una data funzionalità
-	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale
-\end{itemize}
-
-Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
-
-\subsubsection{Validazione}
-Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
-
-\subsubsection{Codifica}
-Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
-
-\subsubsection{Strumenti}
-
-\subsubsubsection{Tracciamento dei requisiti} \label{tracciamento-requisiti}
+\subsubsubsection{Strumenti} \label{tracciamento-requisiti}
+\paragraph{Tracy}
 Come \mgls{software} per il tracciamento dei requisiti si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
-\paragraph{Aggiunta di un nuovo caso d'uso}
+\subparagraph{Aggiunta di un nuovo caso d'uso}
 Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessario eseguire seguenti passi:
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
@@ -301,7 +296,7 @@ Per aggiungere un nuovo caso d’uso alla gerarchia dei casi d’uso è necessar
 	\item premere il pulsante Create per confermare la creazione del caso d'uso.
 \end{enumerate}
 
-\paragraph{Aggiunta di un nuovo requisito}
+\subparagraph{Aggiunta di un nuovo requisito}
 Per aggiungere un nuovo requisito al progetto è necessario eseguire i seguenti passi:
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
@@ -315,7 +310,7 @@ Per aggiungere un nuovo requisito al progetto è necessario eseguire i seguenti 
 	\item premere il pulsante Create per confermare la creazione del requisito.
 \end{enumerate}
 
-\paragraph{Aggiunta di un nuova fonte}
+\subparagraph{Aggiunta di un nuova fonte}
 Per aggiungere una nuova fonte, che servirà per identificare da dove si è identificato un requisito, è necessario eseguire i seguenti passi: 
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
@@ -325,7 +320,7 @@ Per aggiungere una nuova fonte, che servirà per identificare da dove si è iden
 	\item premere il pulsante Create per confermare la creazione della fonte.
 \end{enumerate}
 
-\paragraph{Aggiunta di una nuovo metodo di validazione}
+\subparagraph{Aggiunta di una nuovo metodo di validazione}
 Per aggiungere un nuovo metodo di validazione, che servirà per identificare come validare un requisito, è necessario eseguire i seguenti passi: 
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
@@ -335,9 +330,30 @@ Per aggiungere un nuovo metodo di validazione, che servirà per identificare com
 	\item premere il pulsante Create per confermare la creazione del nuovo metodo di validazione.
 \end{enumerate}
 
-\subsubsubsection{UML}
+\subsubsection{Attività di progettazione}
+La progettazione è l'attività che trasforma i requisiti in un architettura che descriva la struttura del software e ne individui le componenti, allo scopo di fornire la base alle successive attività di realizzazione. L'architettura software prodotta in fase di progettazione deve soddisfare tutti i requisti individuati durante il processo di analisi e esplicita, a tutti gli \mgls{stakeholder}, la decomposizione del sistema in componenti, l'organizzazione di tali componenti, le interfacce necessarie all'interazione con l'ambiente e i paradigmi di composizione delle componenti. Per fare questo è bene fare uso di pattern architetturali.
+
+La fase di progettazione deve essere supportata dai seguenti diagrammi realizzati in UML2.4:
+\begin{itemize}
+	\item \textbf{Diagrammi delle classi:} per descrivere la struttura e la gerarchia delle classi
+	\item \textbf{Diagrammi di sequenza:} per descrivere una determinata sequenza di azioni
+	\item \textbf{Diagrammi di attività:} per descrivere le attività necessarie per realizzare una data funzionalità
+	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale
+\end{itemize}
+
+Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
+
+\subsubsubsection{Strumenti}
+
+\paragraph{UML}
 Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
 %Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
+
+\subsubsection{Attività di validazione}
+Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+
+\subsubsection{Attività di codifica}
+Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
 
 \newpage
 
@@ -357,8 +373,8 @@ Verranno definite norme riguardanti:
 	\item processo di configurazione.
 \end{itemize}
 
-\subsection{Documentazione}\label{Documentazione}
-Definisce norme per lo sviluppo e il mantenimento della documentazione, prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità e verifica di tali documenti.
+\subsection{Processo di documentazione}\label{Documentazione}
+Questo processo serve per definire norme per lo sviluppo e il mantenimento della documentazione prodotta durante il ciclo di vita del software. Inoltre definisce metodi per il controllo della qualità, stesura e verifica di tali documenti.
 
 Verranno definite norme riguardanti:
 \begin{itemize}
@@ -394,7 +410,6 @@ Ogniqualvolta sia necessaria la citazione di una versione specifica di un docume
 \begin{center}
 	\fileName{Nome Documento vX.Y.Z}
 \end{center}
-
 dove la versione è definita nella sezione \ref{Versione}.
 
 \subsubsection{Versione} \label{Versione}
@@ -575,11 +590,7 @@ Ogni tabella presente all'interno dei documenti dev'essere accompagnata da una d
 Le immagini e i grafici presenti all'interno dei documenti devono essere accompagnate da una didascalia, in cui deve comparire un numero identificativo incrementale per la tracciabilità della stessa all'interno del documento. Le immagini e i grafici devono essere nel formato Scalable Vector Graphics (\mgls{svg}), così in questo modo si garantisce una maggior qualità dell'immagine in caso di ridimensionamento. Per consentire l'inclusione delle immagini e dei grafici nei documenti, essi dovranno essere convertiti nel formato \mgls{pdf} . Qualora non sia possibile salvare le immagine e i grafici in formato vettoriale è preferito il formato Portable Network Graphics (\mgls{png}).
 
 \subsubsection{Glossario}
-Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) ed se cliccata porta direttamente alla definizione. La generazione del glossario è automatizzata. Per facilitare la stesura dei termini viene fatta su un file a parte:
-\begin{center}
-	 \filePath{doc/tex/glossario.tex}
-\end{center}
-
+\glossarioPrint
 
 \subsubsection{Linguaggio}
 Nei documenti alcuni termini devono essere interpretati in modo analogo ai termini inglesi descritti in \textit{RFC 2119}:
@@ -591,8 +602,9 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 	\item i termini \emph{può}, \emph{opzionalmente} e sinonimi stretti sono da intendersi con lo stesso significato di \emph{MAY}.
 \end{itemize}
 
-
 \subsubsection{Strumenti}
+
+\paragraph{TeXstudio}
 Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file \mgls{template} condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
 
 \subsection{Configurazione} %git
@@ -616,7 +628,7 @@ Viene creata una \mgls{repository} su \mGls{github} all'indirizzo
 \paragraph{Commit}\label{Commit}
 Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta. Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 
-Per ogni modifica o aggiunta si deve scrivere nel \mgls{commit} le modifiche o aggiunte effettuate e le sezioni interessate dalle stesse (eg. sintassi \mgls{commit}, $[\;modifica|aggiunta\; sez.\; X,Y,...\;]\; commento\; facoltativo$ dove "X,Y,..." indicano che le sezioni di nome X,Y,... sono state aggiunte o modificate).
+Per ogni modifica o aggiunta si deve scrivere nel \mgls{commit} le modifiche o aggiunte effettuate e le sezioni interessate dalle stesse con questa sintassi \mgls{commit}: $$[\;modifica|aggiunta\; sez.\; X,Y,...\;]\; commento\; facoltativo$$ dove "X,Y,..." indicano che le sezioni di nome X,Y,... sono state aggiunte o modificate.
 
 \paragraph{Pull}
 È preferibile fare un \mgls{pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \mgls{branch} a cui si sta lavorando
@@ -966,7 +978,7 @@ Per pianificare le attività legate allo sviluppo del progetto e la gestione del
 	\item genera i diagrammi \mGls{gantt};
 	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
 	\item calcola i parametri \mGls{schedule variance} (SV) e \mGls{cost variance} (CV);
-          \item salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
+    \item salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
 
 \end{itemize}
 
@@ -1057,7 +1069,6 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 \subsubsubsection{Ticket di Riunione}\label{ticketRiunione}
 Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{evento} su \mGls{teamwork} e deve avere le seguenti caratteristiche:
 \begin{itemize}
-
 	\item \textbf{Titolo:} Riunione n. X, dove X indica il numero crescente di riunioni effettuate
 	\item \textbf{Data:} la data del \mgls{ticket} dovrà essere impostata alla data prevista per la riunione
 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \mgls{ticket}
@@ -1079,7 +1090,7 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 	\item nome proprio di persona: non rispetta la norma Cognome Nome;
 	\item nome ruolo di progetto: non viene utilizzata la macro predisposta;
 	\item nome documento: non viene utilizzata la macro predisposta;
-	\item "Proponente" e "Committente": non vengono scritte con la maiuscola iniziale. 
+	\item \textit{Proponente} e \textit{Committente}: non vengono scritte con la maiuscola iniziale. 
 \end{itemize}
 
 \paragraph{Italiano}
@@ -1098,7 +1109,7 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 \begin{itemize}
 	\item se esiste una macro per definire il termine usare sempre la macro;
 	\item lettere accentate nelle variabili: non viene utilizzato il comando apposito; 
-	\item carattere di spaziatura: non deve essere utilizzato all'interno dei tag; 
+	\item carattere di spaziatura: non deve essere utilizzato all'interno dei \mgls{tag}; 
 	\item macro \LaTeX{}: non viene scritta usando l’apposito comando \latex{\textbackslash LaTeX}. 
 \end{itemize}
 
@@ -1127,9 +1138,5 @@ La seguente lista vuole riassumere invece gli  errori più frequenti rilevati du
 	\item controllare in \mgls{tracy} che le fonti dei requisiti siano le fonti corrette; 
 	\item i codici dei casi d’uso nei diagrammi e in \mgls{tracy} devono corrispondere.
 \end{itemize}
-
-
-\newpage
-\printglossary[title={Glossario}]
 
 \end{document}
