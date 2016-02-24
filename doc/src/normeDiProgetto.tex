@@ -64,9 +64,11 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
-1.0.7 & \TP{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario} ] \\
+1.0.8 & \TP{} & 2016-02-24 & Modifica struttura gerarchica del documento seguendo più nel dettaglio l'\textit{ISO 12207} suddividendo i processi in attività e non in prodotti \\
 \midrule
-1.0.6 & \TP{} & 2016-02-24 & Aggiunta riferimenti normativi [modifica sez. \ref{riferimenti} ] \\
+1.0.7 & \TP{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario}] \\
+\midrule
+1.0.6 & \TP{} & 2016-02-24 & Aggiunta riferimenti normativi [modifica sez. \ref{riferimenti}] \\
 \midrule
 1.0.5 & \TP & 2016-02-23 & Aggiunta norme sull'utilizzo della funzione cronometro di teamwork sez. \ref{swGestioneProgetto}\\
 \midrule
@@ -153,7 +155,8 @@ Verranno definite norme riguardanti:
 	\item \textit{ISO\_8601}: \url{http://www.iso.org/iso/iso8601};
 	\item \textit{ISO\_80000}: \url{http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_tc_browse.htm?commid=46202};
 	\item \textit{RFC 2119}: {\url{http://www.ietf.org/rfc/rfc2119.txt}};
-	\item guida a git: \url{https://git-scm.com/docs/}.
+	\item guida a git: \url{https://git-scm.com/docs/};
+	\item \textit{ISO\_12207}: \url{http://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}.
 \end{itemize}
 
 \newpage
@@ -349,7 +352,7 @@ Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gr
 
 \subsubsubsection{Strumenti}
 
-\paragraph{UML}
+\paragraph{Draw.io}
 Per la modellazione dei diagrammi dei caso d’uso, diagrammi di sequenza e diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
 %Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
 
@@ -420,7 +423,7 @@ dove la versione è definita nella sezione \ref{Versione}.
 La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \fileName{vX.Y.Z} dove:
 \begin{itemize}
 	\item \textbf{X} indica il numero crescente di uscite formali del documento. All'inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
-	\begin{enumerate}
+	\begin{enumerate}[start = 0]
 		\item fase che si conclude con la \RR;
 		\item fase che si conclude con la \RP;
 		\item fase che si conclude con la \RQ;
@@ -611,9 +614,9 @@ Nei documenti alcuni termini devono essere interpretati in modo analogo ai termi
 \paragraph{TeXstudio}
 Per la stesura dei documenti si è scelto di utilizzare il linguaggio di markup \LaTeX. Il motivo principale che ha portato a questa scelta è la facilità di separazione tra contenuto e formattazione: con \LaTeX è possibile definire l’aspetto delle pagine in un file \mgls{template} condiviso da tutti i documenti. Altre soluzioni come Microsoft Office, LibreOffice o Google Docs non avrebbero consentito questa separazione, duplicando il lavoro di formattazione del testo e non garantendo un risultato uniforme. Il grande numero di pacchetti esistenti consente di implementare funzionalità comuni in maniera semplice. L’estensibilità di \LaTeX può essere sfruttata per creare funzioni e variabili globali che rendono la scrittura del contenuto più corretta da un punto di vista semantico. Un esempio è dato dal comando Ruolo che identifica ogni ruolo all’interno del progetto. Per la scrittura di documenti \LaTeX, l’editor consigliato è TeXstudio.
 
-\subsection{Configurazione} %git
+\subsection{Processo di configurazione} %git
 
-\subsubsection{Versionamento}\label{versionamento} %Scelta di Git come sistema di Versioning
+\subsubsection{Attività di controllo}\label{versionamento} %Scelta di Git come sistema di Versioning
 Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I motivi principali che ne hanno determinato la scelta sono:
 \begin{itemize}
 	\item è gratuito e non proprietario;
@@ -623,29 +626,32 @@ Come sistema di \mgls{versionamento} è stato scelto di usare \mgls{git}. I moti
 	\item è già stato usato da alcuni elementi del gruppo.
 \end{itemize}
 
-\subsubsection{Repository} \label{sec:rep} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory
+\subsubsubsection{Strumenti}
+
+\paragraph{GitHub} \label{sec:rep} %Scelta di Git come sistema di Repository, Spiegazione albero delle directory
 Viene creata una \mgls{repository} su \mGls{github} all'indirizzo 
 \begin{center}
 	\url{https://github.com/lordnikolai/starware.swe15}
 \end{center}
 
-\paragraph{Commit}\label{Commit}
+\subparagraph{Commit}\label{Commit}
 Il \mgls{commit} va fatto solo in uno stato consistente dei documenti modificati, dove per consistente si intende che le sezioni modificate siano complete, senza bisogno di altre modifiche note, o che un task sia stato completato. Ad ogni \mgls{commit} deve essere associato un breve titolo che indichi quale azione è stata svolta. Facoltativamente, ma è consigliato farlo, può essere inserito nel \mgls{commit} un messaggio che contenga una descrizione dettagliata del lavoro svolto, riportando i motivi di eventuali scelte attuate.
 
 Per ogni modifica o aggiunta si deve scrivere nel \mgls{commit} le modifiche o aggiunte effettuate e le sezioni interessate dalle stesse con questa sintassi \mgls{commit}: $$[\;modifica|aggiunta\; sez.\; X,Y,...\;]\; commento\; facoltativo$$ dove "X,Y,..." indicano che le sezioni di nome X,Y,... sono state aggiunte o modificate.
 
-\paragraph{Pull}
-È preferibile fare un \mgls{pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \mgls{branch} a cui si sta lavorando
-\paragraph{Push}
-Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \mgls{push} della \mgls{repository} sulla directory online. Controllare che il \mgls{commit} rispetti le regole del paragrafo precedente
+\subparagraph{Pull}
+È preferibile fare un \mgls{pull} ogni volta che si comincia a lavorare da locale. Si raccomanda di controllare sempre il \mgls{branch} a cui si sta lavorando.
 
-\paragraph{Branches} vengono definiti due \mglspl{branch} all'interno della \mgls{repository}:
+\subparagraph{Push}
+Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessare ad altri membri del gruppo bisogna fare un \mgls{push} della \mgls{repository} sulla directory online. Controllare che il \mgls{commit} rispetti le regole del paragrafo precedente.
+
+\subparagraph{Branches} vengono definiti due \mglspl{branch} all'interno della \mgls{repository}:
 \begin{itemize}
 	\item \textbf{master:} dove verrà tenuta la versione stabile del software e della documentazione ovvero solo i documenti verificati e  approvati e solo il software con funzionalità complete che abbiano passato i test di verifica. Solo il \RE{} può fare il \mgls{push} su questo \mgls{branch}
 	\item \textbf{naughty:} dove verranno tenuti sorgenti e documenti ancora incompleti che sono in fase di sviluppo. I documenti \LaTeX{} incompleti dovranno compilare correttamente ed avere già uno scheletro organizzativo con eventualmente sezioni vuote. Quando un documento viene verificato e poi approvato può essere messo anche nel \mgls{branch} master. Il software potrà avere funzionalità mancanti ma tutto ciò che è presente in questo \mgls{branch} deve compilare e potenzialmente non avere errori. Quando una funzionalità è completa e passa i test di verifica può esserne richiesto l'aggiornamento anche nel \mgls{branch} master
 \end{itemize}
 
-\paragraph{Tags} Vengono definiti dei \mglspl{tag} per marcare i quattro stati dei documenti alla consegna delle revisioni:
+\subparagraph{Tags} Vengono definiti dei \mglspl{tag} per marcare i quattro stati dei documenti alla consegna delle revisioni:
 
 \begin{itemize}
     \item \textbf{v1-rr}: consegna revisione dei requisiti
@@ -654,10 +660,10 @@ Ogni volta che si ha un \mgls{commit} con informazioni che potrebbero interessar
     \item \textbf{v4-rq}: consegna revisione di qualifica
 \end{itemize}
 
-In ogni momento è possibile ottenere la versione dei documenti per un qualsiasi \mgls{tag} eseguendo il comando:\\
-
-    \texttt{git checkout tags/\textit{NomeTag}}\\
-
+In ogni momento è possibile ottenere la versione dei documenti per un qualsiasi \mgls{tag} eseguendo il comando:
+\begin{center}
+	\texttt{git checkout tags/\textit{NomeTag}}
+\end{center}
 Su Github, per ogni tag verrà anche creata una \mgls{release} associata che conterrà tutti i documenti in un file .zip compresso
 per facilitarne il download.
 
@@ -693,12 +699,9 @@ Al suo interno le cartelle sono organizzate come segue:
     \item \textbf{\path{xml}}: contiene tutti i file \path{.xml} per la generazione delle immagini prodotte da draw.io
     \item \textbf{\path{zargo}}: contiene tutti i file \path{.zargo}
 \end{itemize} 
-        
-\subsubsection{Materiale informale}\label{sec:matinf}
-Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{google drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione \ref{sec:matinf}.
 
 \paragraph{Google Drive}
-In questa piattaforma di condivisione file verranno salvati i documenti che:
+Per la condivisione informale di file e per il lavoro collaborativo su documenti di supporto, si usa la piattaforma di condivisione file online \mgls{google drive}. Trattandosi di strumenti informali, non si definiscono procedure rigorose d’uso e se ne lascia la descrizione alla sezione \ref{sec:matinf}. In questa piattaforma di condivisione file verranno salvati i documenti che:
 \begin{itemize}
 	\item non necessitano di controllo di versione;
 	\item hanno bisogno di grande interattività tra i componenti del gruppo;
@@ -710,34 +713,44 @@ L'unico vincolo posto all'utilizzo di questo strumento è di mettere a conoscenz
 
 %\paragraph{Google Calendar}  viene utilizzato all’interno del gruppo per gestire le risorse umane. In particolare tale strumento viene utilizzato per notificare in quali giorni un determinato membro non può essere disponibile e per segnalare date rilevanti per il gruppo, come ad esempio le date delle riunioni.
 
-\subsection{Verifica}
+\subsection{Processo di verifica}
 
 La verifica di processi, documenti e prodotti deve essere eseguita durante l'intero sviluppo del progetto didattico rispettando le metriche definite nel \PdQ{}. Di conseguenza, servono modalità operative chiare e dettagliate per il \VR, che permettano di uniformare le attività di verifica svolte ed ottenere il miglior risultato possibile. Per applicare il processo di verifica il gruppo adottata diverse tecniche che verranno descritte di seguito.
 
-\subsubsection{Documentazione}
-Il processo di verifica viene instanziato nel momento in cui l'output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \VRpl{} dell'inizio dell'attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l'attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall'ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un'accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
+\subsubsection{Attività di verifica}
+
+\subsubsubsection{Verifica della documentazione}
+Il processo di verifica viene istanziato nel momento in cui l'output di un processo passa dalla versione X.0.Z alla versione X.1.0. È compito del responsabile del documento notificare i \VRpl{} dell'inizio dell'attività di verifica. Attraverso il diario delle modifiche è possibile focalizzare l'attenzione maggiormente sulle sezioni che hanno subito dei cambiamenti dall'ultima verifica, riducendo il tempo necessario al controllo. Per eseguire un'accurata verifica dei documenti redatti è necessario seguire il seguente protocollo:
 
 \begin{itemize}
 	\item \textbf{Controllo sintattico e del periodo:} Utilizzando TeXstudio il dizionario per lo \mgls{spelling} gratuito OpenOffice vengono evidenziati e corretti gli errori di \mgls{spelling} e grammatica più evidenti. Gli errori di sintassi, di sostituzione di lettere che provocano la creazione di parole grammaticalmente corrette ma sbagliate nel contesto ed i periodi di difficile comprensione necessitano dell'intervento di un verificatore umano. Per questa ragione ciascun documento dovrà essere sottoposto ad una attenta lettura da parte dei verificatori per individuare tali errori
 	\item \textbf{Rispetto delle norme di progetto:} Sono state definite norme tipografiche di carattere generale in \NdP{} sezione \ref{norme tipografiche}. Esse impongono una struttura dei documenti che non può essere verificata in maniera automatica. La verifica delle norme per cui non è stato definito uno strumento automatico richiede che i Verificatori eseguano un controllo sul rispetto di quelle norme in ciascun documento
 	\item \textbf{Verifica del glossario:} La redazione del glossario è automatizzata. Il \VR{} dovrà quindi solo controllare che tutte le voci del glossario abbiano una definizione e che tutte le parole che sono definite nel glossario siano marcate con una G a pedice
-	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò segnala l'utilizzo dell' applicazione web \url{http://sjln.altervista.org/parse.php}. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse
+	\item \textbf{Calcolo dell’indice \mgls{gulpease}:} Su ogni documento redatto il \VR\ deve calcolare l’indice di leggibilità. Per fare ciò si utilizza l'applicazione web creata dal gruppo \url{http://sjln.altervista.org/parse.php}. Nel caso in cui il testo risultasse difficile, sarà necessario eseguire un \mgls{walkthrough} del documento alla ricerca delle frasi troppo lunghe o complesse
 	\item \textbf{Miglioramento del processo di verifica:} Quando i \VRpl{} eseguono \mgls{walkthrough} di un documento, dovranno riportare gli errori più frequentemente trovati nella \mgls{lista di controllo}. Grazie a tale pratica sarà possibile eseguire \mgls{inspection} su tali errori nelle verifiche future
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
 
-\subsubsection{Tecniche di analisi statica}
+\subsubsubsection{Verifica della progettazione}
+\TODO{}
+
+\subsubsubsection{Verifica del codice}
+\TODO{}
+
+\subsubsubsection{Tecniche di analisi statica}
 Tale tecnica è applicabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
 \begin{itemize}
 	\item \textbf{Walkthrough:} consiste in una lettura a largo spettro del documento/codice in questione che permetta di individuare i possibili errori o anomalie presenti. Con questa tecnica non si conosce la tipologia o l'insieme di errori da ricercare, bensì ogni aspetto è attentamente analizzato al fine di ricavare, successivamente, delle categorie di errori tipici. Ogni difetto rilevato è discusso con gli autori allo scopo di evitare incomprensioni e concordare le modifiche necessarie. Il \mgls{walkthrough} è indispensabile nelle prime fasi di sviluppo quando non si possiede ancora una chiara visione dei possibili errori. Usando più volte questa tecnica è possibile stilare una \mgls{lista di controllo} dove vengono archiviati gli errori più spesso rilevati. Man mano che il \VR{} rende più esaustiva la \mgls{lista di controllo}, si ricorre sempre meno all'utilizzo della tecnica di \mgls{walkthrough} a favore della tecnica di \mgls{inspection}
 	\item \textbf{Inspection:} l'\mgls{inspection} si basa sulla lettura mirata dei documenti/codice. Durante tale lettura si cercano gli errori segnalati nella \mgls{lista di controllo}. Progressivamente, con l'acquisizione di esperienza e grazie al precedente uso della tecnica di \mgls{walkthrough}, la \mgls{lista di controllo} viene estesa e specializzata, rendendo l'\mgls{inspection} progressivamente più efficace
 \end{itemize}
 
-\subsubsection{Tecniche di analisi dinamica}
+\subsubsubsection{Tecniche di analisi dinamica}
 L’analisi dinamica si applica solamente al prodotto software e viene svolta durante l’esecuzione del codice mediante l’uso di test, per questo motivo sarà approfondita più avanti.
 
 \subsubsection{Strumenti}
-\mGls{projectlibre} viene utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il \RE deve modificare i progetti creati nel modo seguente:
+
+\paragraph{ProjectLibre}
+\mGls{projectlibre} viene utilizzato come strumento di controllo in quanto permette di calcolare automaticamente le metriche di \mGls{schedule variance} e \mGls{cost variance}. Per far ciò il \RE\ deve modificare i progetti creati nel modo seguente:
 \begin{enumerate}
 	\item inserire le colonne SV e CV;
 	\item modificare la durata delle sotto-attività in base a quanto è stato consuntivato;
@@ -745,11 +758,14 @@ L’analisi dinamica si applica solamente al prodotto software e viene svolta du
 	\item aggiornare il progetto alla data corrente.
 \end{enumerate}
 
-\subsection{Validazione}
-\subsubsection{Documenti}
+\subsection{Processo di validazione}
+
+\subsubsection{Attività di validazione}
+
+\subsubsubsection{Validazione dei documenti}
 La validazione dei documenti non è altro che l'approvazione a parte del \RE. Il responsabile legge il documento che è appena uscito da una fase di verifica, viene letto e se viene ritenuto completo per contenuti e maturità viene validato e quindi approvato. Un documento approvato non ha bisogno di segnalazione in nessuno strumento. Esso viene semplicemente messo nel \mgls{branch} master della \mgls{repository}.
 
-\subsubsection{Requisiti}
+\subsubsubsection{Validazione dei requisiti}
 La validazione dei requisiti va tracciata con \mgls{tracy}. Quando si crea un requisito, come spiegato nella sezione \ref{tracciamento-requisiti}, va inserita una descrizione che identifica il metodo di validazione. Durante la validazione i responsabili dovranno assicurarsi di applicare tale metodo per la validazione e se ritengono che il requisito è soddisfatto imposteranno il flag Apported a vero sul requisito tramite la seguente procedura:
 \begin{enumerate}
 	\item eseguire l'accesso a \mgls{tracy};
@@ -759,9 +775,14 @@ La validazione dei requisiti va tracciata con \mgls{tracy}. Quando si crea un re
 	\item premere il pulsante Save per confermare.
 \end{enumerate}
 
-\subsection{Risoluzione dei problemi}
+\subsection{Processo di risoluzione dei problemi}
 
-\subsubsection{Classificazione dei problemi}
+\subsubsection{Attività di risoluzione dei problemi} \label{gestioneDeiProblemi}
+Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il gruppo ha deciso di utilizzare  di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
+
+Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
+
+\subsubsubsection{Classificazione dei problemi}
 Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
 \begin{itemize}
 	\item processi;
@@ -819,11 +840,6 @@ Metodo di gestione del problema:
 	\label{tabCalssificazioneProb}
 \end{table}
 
-\subsubsection{Gestione dei problemi}\label{gestioneDeiProblemi}
-Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il gruppo ha deciso di utilizzare  di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
-
-Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
-
 \subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
 Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
 
@@ -864,7 +880,9 @@ Verranno definite norme riguardanti:
 	\item catalogazione dei ruoli e i loro compiti specifici.
 \end{itemize}
 
-\subsubsection{Comunicazione}
+\subsubsection{Attività di esecuzione e controllo}
+
+\subsubsubsection{Comunicazione}
 \paragraph{Esterna}
 Per le comunicazioni esterne è stata creata una casella di posta elettronica:
 \begin{center}
@@ -875,7 +893,7 @@ Tale indirizzo deve essere l'unico canale di comunicazione esistente tra il grup
 \paragraph{Interna}
 Per le comunicazioni interne informali è stato scelto l'uso di \mgls{telegram}, per il suo utilizzo tramite \mgls{browser} che permette, quindi, un accesso alle conversazioni sia da pc che da \mgls{smartphone}. Per lo scambio e la condivisione di file e appunti è invece utilizzato il servizio \mgls{cloud} \mgls{google drive}. Inoltre è permesso l'uso di \mgls{skype} per effettuare conferenze di gruppo o anche tra singoli membri di esso.
 
-\subsubsection{Riunioni}\label{Riunioni}
+\subsubsubsection{Riunioni}\label{Riunioni}
 \paragraph{Frequenza}
 Le riunioni del gruppo di lavoro avranno una frequenza almeno settimanale, scegliendo come giorno della settimana il lunedì dalle ore 11:00 alle 13:00.
 % Controllare il formato dell'ora in particolare se è stata scritta.
@@ -899,12 +917,27 @@ Il verbale di riunione interna è un documento interno informale che consente di
 In caso di riunione con il committente o il proponente, il verbale è un documento ufficiale che può avere valore normativo e quindi deve essere redatto seguendo criteri specifici.
 Per agevolare la scrittura di tale documento è stato preparato un \mgls{template} \LaTeX{} che ne definisce la struttura e ne organizza i contenuti. Vi è quindi l'obbligo di seguire il sopraccitato schema per creare e condividere il verbale.
 
-\subsubsection{Ruoli}\label{Ruoli}
+\subsubsection{Attività di pianificazione}
+Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare \mgls{projectlibre}.
+\mgls{projectlibre} è un programma \mgls{open-source} per il \mgls{project management}. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
+\begin{itemize}
+	\item essendo basato su \mgls{java}, è compatibile con i sistemi operativi \mgls{linux}, \mGls{mac os} e \mGls{windows} e permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
+	\item è \mgls{open-source};
+	\item genera i diagrammi \mGls{gantt};
+	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
+	\item calcola i parametri \mGls{schedule variance} (SV) e \mGls{cost variance} (CV);
+    \item salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
+\end{itemize}
+Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
+
+\subsubsubsection{Ruoli}\label{Ruoli}
 Durante lo sviluppo del progetto vi saranno diversi ruoli che i membri del gruppo andranno a ricoprire. Tali ruoli rappresentano figure aziendali specializzate, indispensabili per il buon esito del progetto. Ciascun componente del gruppo dovrà ricoprire almeno una volta ogni ruolo. Si deve inoltre certificare che non vi siano conflitti di interesse nello svolgimento delle attività di verifica e di approvazione.
+
 Per garantire che la rotazione dei ruoli non provochi conflitti è necessario che le attività di stesura e verifica vengano pianificate dettagliatamente e che i soggetti interessati rispettino i compiti a loro assegnati. Sarà poi compito del \VR{} controllare attentamente il diario delle modifiche di ogni documento per individuare eventuali incongruenze.
+
 Si descrivono ora i diversi ruoli di progetto, con le relative responsabilità e le modalità operative affinché essi possano svolgere i compiti assegnati con l'ausilio dei software scelti per il progetto.
 
-\subsubsubsection{Responsabile}
+\paragraph{Responsabile}
 Il \PM{} è responsabile per la gestione del prodotto, la gestione del progetto, la gestione dei \mglspl{task} inerenti ai processi come quelli di acquisizione, fornitura, sviluppo, manutenzione o il processo di supporto. 
 
 Il \PM{} rappresenta il progetto, in quanto accentra su di sé le responsabilità di scelta ed approvazione, ed il gruppo, in quanto presenta al committente i risultati del lavoro svolto.
@@ -921,7 +954,7 @@ Di conseguenza, ha il compito di assicurarsi che le attività di verifica vengan
 Ha inoltre l'incarico di gestire la creazione e l'assegnazione dei \mgls{ticket} delle macro-fasi e di assegnare ad un membro del gruppo il ruolo di responsabile di quest'ultima.
 Redige il \PdP{} e collabora alla stesura del \PdQ{}, in particolare nella sezione relativa alla pianificazione.
 
-\subsubsubsection{Amministratore}
+\paragraph{Amministratore}
 L'\AM{} è responsabile del controllo, dell'efficienza e dell'operatività dell'ambiente di lavoro. Le mansioni di primaria importanza che gli competono sono:
 \begin{itemize}
 	\item ricerca di strumenti che possano automatizzare compiti al momento manuali;
@@ -932,7 +965,7 @@ L'\AM{} è responsabile del controllo, dell'efficienza e dell'operatività dell'
 \end{itemize}
 Redige le \NdP{}, dove regola l'utilizzo degli strumenti; redige la sezione del \PdQ{} dove vengono descritti strumenti e metodi di verifica.
 
-\subsubsubsection{Analista}
+\paragraph{Analista}
 L'\AN{} è responsabile delle attività di analisi. Le responsabilità di spicco per tale ruolo sono:
 \begin{itemize}
 	\item produrre una specifica di progetto comprensibile, sia per il \mgls{proponente}, sia per il \mgls{committente} che per il \PG{}, e motivata in ogni suo punto;
@@ -941,7 +974,7 @@ L'\AN{} è responsabile delle attività di analisi. Le responsabilità di spicco
 Redige lo \SdF{}, l'\AdR{}.
 Partecipa anche alla redazione del \PdQ{} in quanto conosce l'ambito del progetto ed ha chiari i livelli di qualità richiesta e le procedure da applicare per ottenerla.
 
-\subsubsubsection{Progettista}
+\paragraph{Progettista}
 Il \PG{} è responsabile delle attività di progettazione. Le responsabilità di tale
 ruolo sono:
 \begin{itemize}
@@ -951,7 +984,7 @@ ruolo sono:
 \end{itemize}
 Redige la \ST{}, la \DP{} e le sezioni inerenti le metriche di verifica della programmazione del \PdQ{}.
 
-\subsubsubsection{Programmatore}
+\paragraph{Programmatore}
 Il \PR{} è responsabile delle attività di codifica e delle componenti di ausilio necessarie per l'esecuzione delle prove di verifica e validazione. Le responsabilità di tale ruolo sono:
 \begin{itemize}
 	\item implementare rigorosamente le soluzioni descritte dal \PG{};
@@ -960,7 +993,7 @@ Il \PR{} è responsabile delle attività di codifica e delle componenti di ausil
 \end{itemize}
 Redige il \MU{} e produce una abbondante documentazione del codice.
 
-\subsubsubsection{Verificatore}
+\paragraph{Verificatore}
 Il \VR{} è responsabile delle attività di verifica. Ha il compito di effettuare la verifica dei documenti utilizzando gli strumenti e i metodi proposti dal \PdQ{} e attenendosi a quanto descritto nelle \NdP{}. 
 Le responsabilità di tale ruolo sono:
 \begin{itemize}
@@ -970,48 +1003,9 @@ Le responsabilità di tale ruolo sono:
 Redige la sezione del \PdQ{} che illustra l'esito e la completezza delle verifiche
 e delle prove effettuate.
 
-\subsubsubsection{Procedure per la rotazione dei ruoli}
+\paragraph{Procedure per la rotazione dei ruoli}
 È necessario che ogni componente del gruppo ricopra tutti i ruoli nell'arco dello svolgimento del progetto. La rotazione dei ruoli deve garantire un'equa ripartizione del carico di lavoro individuale, ovvero il totale di ore produttive per ogni persona può differire al più di poche unità da quello degli altri. Inoltre è possibile che un componente rivesta più ruoli contemporaneamente, ma sempre evitando conflitti di interesse. In particolare i conflitti di interesse da evitare sono quelli tra \PM\ e qualsiasi altro ruolo o tra \VR\ e qualsiasi altro ruolo.
 
-\subsubsection{Pianificazione}
-Per pianificare le attività legate allo sviluppo del progetto e la gestione delle risorse si è scelto di utilizzare \mgls{projectlibre}.
-\mgls{projectlibre} è un programma \mgls{open-source} per il \mgls{project management}. Tale software è stato scelto in quanto possiede le seguenti caratteristiche:
-\begin{itemize}
-	\item essendo basato su \mgls{java}, è compatibile con i sistemi operativi \mgls{linux}, \mGls{mac os} e \mGls{windows} e permette quindi ad ogni componente di installarlo senza vincoli di piattaforma; 
-	\item è \mgls{open-source};
-	\item genera i diagrammi \mGls{gantt};
-	%\item genera automaticamente diagrammi \textit{\mGls{Program Evaluation and Review Techniques}} (\mGls{PERT} a partire dal \mgls{gantt});
-	\item calcola i parametri \mGls{schedule variance} (SV) e \mGls{cost variance} (CV);
-    \item salva su file \mGls{xml} su cui, essendo un file testuale, è possibile effettuare il \mgls{merge} di più file in caso di conflitti sul \mgls{repository}.
-
-\end{itemize}
-
-Per l'uso di \mGls{projectlibre} si veda la sezione \ref{projeclibre}.
-
-\subsubsubsection{\mGls{projectlibre}}\label{projeclibre}
-Il \PM{} deve creare un progetto per ogni fase indicata nella sezione Pianificazione del \PdP{} e procedere nel modo seguente:
-\begin{enumerate}
-	\item creare un calendario lavorativo per il progetto;
-	\item inserire le attività da svolgere e le corrispondenti sotto-attività;
-	\item inserire le dipendenze temporali tra le attività;
-	\item inserire la \mgls{milestone} per indicare il termine previsto delle attività;
-	\item creare le risorse;
-	\item assegnare ad ogni attività le risorse necessarie;
-	\item salvare la \mgls{baseline}.
-\end{enumerate}
-
-\subsubsubsection{Teamwork}\label{swGestioneProgetto}
-% Sezione aggiunta DA DECIDERE
-Il \PM{}, una volta individuate e stimate le \mgls{attivita} e i \mgls{task} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \mgls{task} è stato scelto di utilizzare l'applicazione web \mGls{teamwork} per i seguenti motivi: 
-\begin{itemize}
-	\item fornisce un sistema flessibile per la gestione dei \mglspl{ticket}
-	\item permette di creare e assegnare \mgls{task} in maniera facile ed intuitiva; 
-	\item permette di monitorare e modificare semplicemente le scadenze dei \mgls{task} creati;
-	\item offre la possibilità di impostare delle \mglspl{milestone} per tenere facilmente sotto controllo lo svolgimento delle \mgls{attivita}.
-\end{itemize}
-Sarà inoltre compito del \PM{} assegnare una \mgls{deadline} per il completamento dei \mglspl{task} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
-Ogni membro del gruppo durante lo svolgimento di ogni \mgls{task} assegnatoli deve avviare la funzione cronometro di \mgls{teamwork} col fine di rendere misurabile il tempo effettivamente impiegato nello svolgimento del compito.
-Le modalità di utilizzo di \mgls{teamwork} vengono descritte nella sezione \ref{ticket} di questo documento.
 
 \subsubsection{Ticketing}\label{ticket} %6.5 delle NdPv5.2.0 dei don't panic
 Per monitorare lo sviluppo dei documenti e del codice si è scelto di adottare il sistema di \mgls{ticketing} di \mGls{teamwork}. La scelta di tale software è descritta nella sezione \ref{swGestioneProgetto}.
@@ -1079,6 +1073,34 @@ Un \mgls{ticket} di riunione è creato attraverso l'impostazione di un \mgls{eve
 	\item \textbf{Ordine del Giorno:} elenco ordinato delle varie voci da esaminare sotto forma di commento al \mgls{ticket}
 	\item Deve essere assegnato a tutti i membri del gruppo che sono invitati a partecipare alla riunione
 \end{itemize}
+
+\subsubsection{Strumenti}
+
+\paragraph{ProjectLibre} \label{projeclibre}
+Il \PM{} deve creare un progetto per ogni fase indicata nella sezione Pianificazione del \PdP{} e procedere nel modo seguente:
+\begin{enumerate}
+	\item creare un calendario lavorativo per il progetto;
+	\item inserire le attività da svolgere e le corrispondenti sotto-attività;
+	\item inserire le dipendenze temporali tra le attività;
+	\item inserire la \mgls{milestone} per indicare il termine previsto delle attività;
+	\item creare le risorse;
+	\item assegnare ad ogni attività le risorse necessarie;
+	\item salvare la \mgls{baseline}.
+\end{enumerate}
+
+\paragraph{Teamwork}\label{swGestioneProgetto}
+% Sezione aggiunta DA DECIDERE
+Il \PM{}, una volta individuate e stimate le \mgls{attivita} e i \mgls{task} da svolgere, ha la responsabilità di assegnarne l'esecuzione ai vari membri del gruppo. Per la suddivisione e l'assegnazione dei \mgls{task} è stato scelto di utilizzare l'applicazione web \mGls{teamwork} per i seguenti motivi: 
+\begin{itemize}
+	\item fornisce un sistema flessibile per la gestione dei \mglspl{ticket}
+	\item permette di creare e assegnare \mgls{task} in maniera facile ed intuitiva; 
+	\item permette di monitorare e modificare semplicemente le scadenze dei \mgls{task} creati;
+	\item offre la possibilità di impostare delle \mglspl{milestone} per tenere facilmente sotto controllo lo svolgimento delle \mgls{attivita}.
+\end{itemize}
+Sarà inoltre compito del \PM{} assegnare una \mgls{deadline} per il completamento dei \mglspl{task} e risolvere eventuali problemi legati a ritardi nel completamento degli stessi.
+Ogni membro del gruppo durante lo svolgimento di ogni \mgls{task} assegnatoli deve avviare la funzione cronometro di \mgls{teamwork} col fine di rendere misurabile il tempo effettivamente impiegato nello svolgimento del compito.
+Le modalità di utilizzo di \mgls{teamwork} vengono descritte nella sezione \ref{ticket} di questo documento.
+
 
 \newpage
 
