@@ -1,5 +1,5 @@
 SRC 		= src/
-PDF			= pdf/
+PDF		= pdf/
 SRC_FILES 	:= $(wildcard src/*.tex)
 PDF_FILES 	:= $(addprefix pdf/,$(notdir $(SRC_FILES:.tex=.pdf)))
 
