@@ -1,0 +1,279 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Glossario}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{30 Novembre 2015}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{1.2.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Interno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\today \\
+\vspace{1cm}
+\begin{Huge}
+\textbf{\nomeGruppo} \\
+\end{Huge}
+\textbf{\prjL} \\
+\vspace{1cm}
+\includegraphics[scale=0.5]{\logoGrande}
+\vspace{1cm}
+
+\HRule \\[0.4cm]
+\begin{Huge}
+{\huge \bfseries \titoloDocumento}\\[0.4cm]
+\end{Huge}
+\HRule \\[1cm]
+\vfill
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \IB\\
+\  & \TP\\
+\  &  \AVE\\
+\textbf{Verifica} &  \NDC\\
+\ & \AVI \\
+\textbf{Approvazione} &  \IB\\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{table}[h]
+\begin{center}
+
+\begin{tabular}{p{0.12\textwidth} p{0.25\textwidth} p{0.18\textwidth} p{0.4\textwidth}}
+\toprule
+\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
+\midrule
+\midrule
+1.2.0  & \IB & 2015-12-21 & Correzioni minori ed approvazione\\
+\midrule
+1.1.1  & \AVI & 2015-12-21 & Revisione: correzioni sintattiche\\
+\midrule
+1.1.0  & \NDC & 2015-12-20 & Prima revisione: correzioni lessicali, grammaticali e di stile\\
+\midrule
+1.0.7  & \TP & 2015-12-18 & Aggiunta introduzione\\
+\midrule
+1.0.6  & \TP & 2015-12-18 & Normalizzate sezioni capitolati\\
+\midrule
+1.0.5 & \AVE & 2015-12-08 & Aggiunto capitolato 2 e 6\\
+\midrule
+1.0.4 & \IB & 2015-12-08 & Aggiunto capitolato 4\\
+\midrule
+1.0.3 & \IB & 2015-12-08 & Aggiunto capitolato 3\\
+\midrule
+1.0.2 & \TP & 2015-12-07 & Aggiunto capitolato 5\\
+\midrule
+1.0.1 & \TP & 2015-12-06 & Aggiunto capitolato 1\\
+\midrule
+1.0.0 & \WS & 2015-11-30  & Creazione documento\\
+\bottomrule
+\end{tabular}
+\caption{Versionamento del documento}
+\label{tabVers1}
+\end{center}
+\end{table}
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo}
+In questo documento sono raccolti tutti i termini che possono risultare sconosciuti ad un lettore esterno o che possono generare ambiguit\'a. Per ognuno di essi si riporta una breve definizione che aiuti a chiarirne il significato.
+
+\subsection{Riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+	\item {Norme di Progetto: DA METTERE IL NUMERO DELLE NORME DI RIFERIMENTO}
+\end{itemize}
+\subsubsection{Informativi}
+TODO
+\subsection{Lista dei termini del glossario}
+
+\begin{description}
+
+\item[Amministratore] 
+\hfill\\ è responsabile dell'efficienza e dell'operatività dell'ambiente di sviluppo; si occupa della redazione e attuazione di piani e procedure di gestione della qualità; inoltre gestisce l'archivio della documentazione del progetto.
+
+\item[Analisi]
+\hfill\\ è il periodo di preparazione e produzioni di documenti che precede la \RR.
+
+\item[Analista]
+\hfill\\ è responsabile delle attività di analisi.
+
+\item[Attività]
+\hfill\\ è un insieme di \mgls{task}.
+
+\item[Browser]
+\hfill\\ è un'applicazione per il recupero, la presentazione e la navigazione di risorse web.
+
+\item[Codifica] 
+\hfill\\ è il periodo che intercorre tra \RP\ e la \RQ.
+
+\item[Commit] 
+\hfill\\ è la copia di modifiche fatte su file locali verso la \mgls{repository} remota. Esso rappresenta anche un particolare stato della \mgls{repository} nel tempo.
+
+\item[Committente] 
+\hfill\\ colui che assegna un compito. In questo caso è il Professor Tullio Vardanega.
+
+\item[Cross-platform] 
+\hfill\\ può essere riferito ad un linguaggio di programmazione, ad un'applicazione software o ad un dispositivo hardware che funziona su più di un sistema.
+
+\item[Gantt] 
+\hfill\\ è un diagramma di supporto alla gestione dei progetti.
+
+\item[Git] 
+\hfill\\ è un sistema software di controllo di versione distribuito.
+
+\item[Google Drive] 
+\hfill\\ è un servizio di memorizzazione e sincronizzazione online introdotto da Google il 24 aprile 2012. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Drive}{qui}.
+
+\item[Inspection] 
+\hfill\\ è la lettura mirata di un documento o codice cercando errori specifici.
+
+\item[Lista di controllo] 
+\hfill\\ è un elenco di cose da fare per eseguire una determinata attività.
+
+\item[Milestone] 
+\hfill\\ momento saliente nello sviluppo di un prodotto software per la quale devono essere pronti documenti e/o funzionalità.
+
+\item[PERT] 
+\hfill\\ è uno strumento volto alla programmazione delle attività che compongono il progetto e, più in generale, alla gestione degli aspetti temporali di quest'ultimo.
+
+\item[PDF] 
+\hfill\\ è un formato di file basato su un linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare documenti in modo indipendente dall’hardware e dal software utilizzati per generarli o per visualizzarli. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Document_Format}{qui}.
+
+\item[PNG] 
+\hfill\\ abbreviazione di Portable Network Graphics, è un formato di file per memorizzare immagini. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Network_Graphics}{qui}.
+
+\item[Progettazione] 
+\hfill\\ è il periodo che intercorre tra la \RR\ e la \RP.
+
+\item[Progettista] 
+\hfill\\ è responsabile delle attività di progettazione.
+
+\item[Programmatore] 
+\hfill\\ è responsabile delle attività di codifica miranti alla realizzazione del prodotto e delle componenti di ausilio necessarie per l'esecuzione delle prove di verifica e validazione.
+
+\item[ProjectLibre] 
+\hfill\\ è un software di gestione progettuale.
+
+\item[Proponente] 
+\hfill\\ colui che ha proposto al \mgls{committente} un capitolato d'appalto.
+
+\item[QML] 
+\hfill\\ è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.
+
+\item[Quality assurance] 
+\hfill\\ è l'insieme delle \mgls{attivita} volte a garantire il soddisfacimento degli obiettivi della qualità.
+
+\item[Quizzipedia] 
+\hfill\\ è il nome del prodotto software richiesto dal capitolato d'appalto scelto.
+
+\item[Redattore] 
+\hfill\\colui che redige un documento.
+
+\item[Repository] 
+\hfill\\è dove i file sono memorizzati, spesso su un server.
+
+\item[Responsabile] 
+\hfill\\è il responsabile della gestione, pianificazione e realizzazione del progetto.
+
+\item[Revisione dei requisiti] 
+\hfill\\è una revisione formale che determina l'accesso del gruppo al progetto didattico e la concordanza con il cliente di una visione condivisa del prodotto atteso.
+
+\item[Revisione di accettazione] 
+\hfill\\è una revisione formale per l'accertamento del soddisfacimento di tutti i requisiti e il completamento del progetto.
+
+\item[Revisione di progettazione] 
+\hfill\\è una revisione di progresso che accerta la realizzabilità del prodotto e informa il cliente sulle caratteristiche del prodotto.
+
+\item[Revisione di qualifica] 
+\hfill\\è una revisione di progresso che approva l'esito finale delle verifiche e attiva la fase di \mgls{validazione}.
+
+\item[Ruolo] 
+\hfill\\una delle figure professionali che una persona fisica interpreta nel corso del progetto. I ruoli sono: \mgls{responsabile}, \mgls{amministratore}, \mgls{analista}, \mgls{progettista}, \mgls{programmatore} e \mgls{verificatore}
+
+\item[Schierabile] 
+\hfill\\è la capacità di rilasciare al cliente, con relativa installazione e messa in funzione o esercizio, di una applicazione o di un sistema software tipicamente all'interno di un sistema informatico aziendale.
+
+\item[Skype] 
+\hfill\\è un software proprietario freeware di messaggistica istantanea e VoIP. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Skype}{qui}.
+
+\item[SVG] 
+\hfill\\è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.
+
+\item[Subtask] 
+\hfill\\è un \mgls{task} compreso all'interno di un altro \mgls{task}. La totalità di tutti i subtasks costituisce un intero \mgls{task}.
+
+\item[Task] 
+\hfill\\è un compito secondo la definizione dello standard ISO/IEC 12207.
+
+\item[Telegram] 
+\hfill\\è un servizio di messaggistica istantanea utilizzato dal gruppo per comunicazioni interne. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Telegram_(software)}{qui}.
+
+\item[Ticket] 
+\hfill\\rappresenta un compito nell'organizzazione e distribuzione del lavoro all'interno del progetto.
+
+\item[Ticketing] 
+\hfill\\procedura con la quale il \RE assegna un \mgls{task}.
+
+\item[Tomcat] 
+\hfill\\è un application server nella forma di contenitore servlet \mgls{open-source} sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.
+
+\item[UML] 
+\hfill\\è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Unified_Modeling_Language}{qui}.
+
+\item[Validazione] 
+\hfill\\è il periodo che intercorre tra la \RQ\ e la \RA.
+
+\item[Verificatore] 
+\hfill\\è il responsabile dell'attività di verifica.
+
+\item[Versionamento] 
+\hfill\\è la gestione delle versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.
+
+\item[Walkthrough] 
+\hfill\\consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.
+
+\end{description}
+\end{document}
