@@ -180,7 +180,7 @@ Definisce le attività e i task attraverso i quali il fornitore comunica al comm
 \subsubsection{Descrizione}
 Consiste nel redigere lo \SdF, \PdQ, e il \PdP.
 
-\subsubsection{Iniziazione}
+\subsubsection{Attività di iniziazione}
 L'attività consiste nel fare uno studio preliminare sulla fattibilità della o delle proposte del o dei committenti. Il prodotto di questa attività è lo \SdF.
 
 \paragraph{Studio di fattibilità}
@@ -393,7 +393,6 @@ Verranno definite norme riguardanti:
 Per agevolare la redazione della documentazione è stato creato un \mgls{template} \LaTeX contenente tutte le impostazioni stilistiche e grafiche citate in questo documento. Tale modello si può trovare nel \mgls{repository} in \path{docs/template}.
 
 \subsubsection{Ciclo di vita}
-
 La redazione di tutti i documenti viene assegnata dal \PM{} ai responsabili della stesura di tale documento rispettando ogni \mGls{ruolo} definito nella sezione \ref{Ruoli}. Successivamente se i redattori ritengono che il documento sia completo, su conferma da parte del \PM, il documento deve essere preso in visione da un \VR. Se il \VR{} ritiene che documento rispetti i requisiti imposti dal \PR{} e superi il controllo di qualità, può proporre al \PM{} l'approvazione di tale documento. Se il documento viene approvato è giunto alla fase finale.
 
 Un documento può trovarsi in tre stati diversi:
@@ -406,12 +405,11 @@ Un documento può trovarsi in tre stati diversi:
 Durante la sua vita, ogni documento può attraversare ogni fase più di una volta: nel momento in cui un documento approvato necessiti di una revisione formale, esso inizia nuovamente il ciclo che, al suo termine, porterà ad una nuova versione dello stesso.
 
 \subsubsection{Nome dei file}
-
 Tutti documenti dovranno a essere denominati secondo il seguente formalismo:
 \begin{center}
-    \fileName{\textit{nomeDocumento}.pdf}
+	\fileName{NomeDocumento\_vX.Y.Z.pdf}
 \end{center}
-dove \fileName{nomeDocumento} rappresenta il nome del documento. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola, tranne la prima, deve essere maiuscola e non devono esserci spazi, \mgls{underscore} o trattini a separare le parole.
+dove \fileName{NomeDocumento} rappresenta il nome del documento e  la versione è definita nella sezione \ref{Versione}. Il documento non può contenere lettere accentate. Nel caso il nome fosse composto da più parole, la prima lettera di ogni parola deve essere maiuscola e non devono esserci spazi, \mgls{underscore} o trattini a separare le parole.
 
 Ogniqualvolta sia necessaria la citazione di una versione specifica di un documento, essa deve comprendere sia il nome che il numero di versione aderente al formato:
 \begin{center}
@@ -420,6 +418,7 @@ Ogniqualvolta sia necessaria la citazione di una versione specifica di un docume
 dove la versione è definita nella sezione \ref{Versione}.
 
 \subsubsection{Versione} \label{Versione}
+\TODO{cambiare la versione dei documenti}
 La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \fileName{vX.Y.Z} dove:
 \begin{itemize}
 	\item \textbf{X} indica il numero crescente di uscite formali del documento. All'inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
