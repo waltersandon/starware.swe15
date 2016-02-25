@@ -6,10 +6,10 @@
 \newcommand{\titoloDocumento}{Glossario}
 
 %Prima data di creazione del documento
-\newcommand{\dataCreazione}{30 Novembre 2015}
+\newcommand{\dataCreazione}{23 Febbraio 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.2.0}
+\newcommand{\versione}{0.0.1}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -24,22 +24,7 @@
 \begin{document}
 \begin{titlepage}
 \begin{center}
-\today \\
-\vspace{1cm}
-\begin{Huge}
-\textbf{\nomeGruppo} \\
-\end{Huge}
-\textbf{\prjL} \\
-\vspace{1cm}
-\includegraphics[scale=0.5]{\logoGrande}
-\vspace{1cm}
-
-\HRule \\[0.4cm]
-\begin{Huge}
-{\huge \bfseries \titoloDocumento}\\[0.4cm]
-\end{Huge}
-\HRule \\[1cm]
-\vfill
+\intestazione{\titoloDocumento}
 
 \begin{table}[h]
 \begin{center}
@@ -52,12 +37,9 @@
 \textbf{Uso} & \emph{\uso} \\
 \textbf{Data Creazione} & \dataCreazione \\
 \textbf{Data Ultima Modifica} & \today \\
-\textbf{Redazione} & \IB\\
-\  & \TP\\
-\  &  \AVE\\
+\textbf{Redazione} & \WS\\
 \textbf{Verifica} &  \NDC\\
-\ & \AVI \\
-\textbf{Approvazione} &  \IB\\
+\textbf{Approvazione} &  \TP\\
 \textbf{Lista Distribuzione} & \nomeGruppo \\
 \  & \Vardanega \\
 \  & \Cardin \\
@@ -90,12 +72,12 @@
 \end{center}
 \end{table}
 
-
 \newpage
-\hfill\\
+
 \begin{center}
-{\LARGE \textbf{A}}
+	\LARGE \textbf{A}
 \end{center}
+
 \begin{description}
 
 \item[A]
