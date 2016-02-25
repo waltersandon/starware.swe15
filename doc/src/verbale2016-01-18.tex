@@ -1,0 +1,179 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Verbale 2016-01-18}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{18 Gennaio 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{1.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\intestazione{\titoloDocumento}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \TP{} \\
+\  &  \AVI{} \\
+\textbf{Presenti interni} & Tutti il gruppo \nomeGruppo \\
+\textbf{Presenti esterni} & Gregorio Piccoli \\
+\  & Serena Lago \\
+\textbf{Verifica} & \NDC \\
+\textbf{Approvazione} & \IB \\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
+			\midrule
+	        \midrule
+	        1.0.0 & \IB{} \& \AVI{} & 2016-02-25 & Approvazione \\
+	        \midrule
+	        0.1.0 & \NDC{} \& \AVI{} & 2016-02-25 & Verifica \\
+	        \midrule
+	        0.0.2 & \TP{} \& \AVI{} & 2016-02-24 & Modifica stile e struttura \\
+            \midrule
+			0.0.1 & \AVI{} \& \AVI{} & 2016-01-18 & Creazione e stesura documento \\
+			\bottomrule
+		\end{tabular}
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{center}
+\end{table}
+\newpage
+
+\tableofcontents
+\listoftables
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo}
+Lo scopo del documento è di tracciare il lavoro svolto con le domande poste e le decisioni prese durante o a seguito della riunione del \dataCreazione.
+
+\subsection{Descrizione}
+Il documento presenterà la lista delle domande poste e delle risposte ricevute. Seguirà successivamente la lista delle decisioni prese a seguito di tali risposte.
+
+\subsection{Descrizione Prodotto}
+\descrizioneProdotto
+
+\subsection{Glossario}
+\glossarioPrint
+
+\newpage
+
+\section{Domande \& risposte}
+
+    \begin{description}[style=nextline]
+        \item[È necessario salvare e mostrare le statistiche sui risultati di un questionario?]
+	        Si, perché è utile al docente per avere una valutazione oggettiva della difficoltà
+            del questionario. Come valore aggiunto, le statistiche potrebbero anche determinare
+            la difficoltà della domanda in modo automatico.
+        \item[I questionari dinamici sono un requisito opzionale o obbligatorio?]
+            Opzionale.
+        \item[Cosa si intende per questionari privati e pubblici?]
+            Per \textit{privati} si intende nel senso di questionari ristretti agli
+            studenti di una specifica classe o gruppo oppure esami. 
+            Per \textit{pubblici} si intende questionari di esercitazione che non hanno 
+            restrizioni di accesso. 
+            Per quanto riguarda gli esami però risulta difficile determinare l'identità
+            dell'esaminando.
+        \item[Va bene aggiungere un ruolo di amministratore che gestisce ed inviti i docenti?]
+            Si, va bene. È possibile aggiungere qualsiasi gerarchia necessaria per il sistema;
+            ad esempio avendo diversi livelli di permessi; tale requisito però è opzionale.
+        \item[Il software dovrebbe essere ideato come un unico software installabile su un server centralizzato nella quale viene fornita la creazione di più istanze isolate del programma principale oppure come programma che verrà distribuito ed installato ad hoc per singola entità?]
+            Il software richiesto dovrà essere installato per l'uso di una singola entità.
+            Non è quindi richiesta la gestione di diverse istanze all'interno dello stesso programma.
+        \item[Come si svolgerà il collaudo?]
+            Alla fine di tutto ci sarà solo una dimostrazione finale del software prodotto e di
+            come funziona.
+        \item[È possibile fornire anche solo l'autenticazione con Google, Facebook e simili attraverso
+            protocolli come OAuth/OAuth2 o OpenID?]
+            Si.
+        \item[Il QML dovrà descrivere solo una domanda o anche la struttura del questionario?]
+            Il QML servirà solo per descrivere la domanda. È consigliato l'utilizzo di
+            un linguaggio tipo markdown con un facile parser che sia semplice da scrivere
+            e memorizzare per l'utente; per questo motivo è sconsigliato ad esempio linguaggi
+            esistenti ma verbosi come XML.
+        \item[Uno dei requisiti opzionali è il poter gestire le domande aperte; si dovrà
+            permettere la correzione automatica di tali domande?]
+            Non è richiesto, ma se abbiamo in mente qualche particolare algoritmo è
+            possibile fornirlo.
+        \item[È possibile utilizzare Angular e Bootstrap?]
+            Si, ovviamente è meglio scegliere librerie con le quali abbiamo più esperienza
+            come gruppo.
+        \item[Ci sono particolari requisiti per quanto riguarda il design?]
+            È consigliato l'utilizzo del \textit{material design}.
+        \item[Quale database utilizzare?]
+            Consigliato PostgresSQL, ma siamo liberi di scegliere quello che preferiamo.
+        \item[È un docente che invita gli studenti a fare i questionari o sono gli studenti che se li
+            scelgono?]
+            Entrambe.
+    \end{description}
+
+\section{Decisioni}
+
+Sono state quindi presi i seguenti provvedimenti in questa riunione:
+
+\begin{itemize}
+    \item i risultati dei questionari e quindi anche le risposte dell'utente verranno memorizzate nel
+        database;
+    \item i questionari dinamici non verranno implementati per il momento;
+    \item verranno create due figure: l'amministratore, che gestisce i docenti, e il proprietario
+        che non è altro che l'utente iniziale che è in grado di creare gli amministratori;
+    \item l'applicazione verrà creata ed installata ad hoc per istanza;
+    \item per il momento l'autenticazione attraverso protocolli OAuth e simili viene lasciata
+        come requisito opzionale e verrà implementata un autenticazione di tipo username/password
+        classica;
+    \item il QML prenderà spunto da altri linguaggi di markup come markdown e ne estenderà
+        eventualmente le funzionalità;
+    \item le domande aperte non forniranno una funzionalità di correzione automatica perché
+        risulta impossibile definire con certezza se la risposta è semanticamente corretta;
+        anche il filtraggio delle risposte in base a keyword risulta troppo oneroso per
+        il docente che dovrebbe elencare anche sinonimi generali e sinonimi specifici per la
+        domanda in question;
+    \item come database verrà utilizzato PostgreSQL;
+    \item verranno definite "classi" (raggruppamenti di studenti) create dal docente         accessibili tramite password fornita dal docente.
+\end{itemize}
+
+\end{document}
