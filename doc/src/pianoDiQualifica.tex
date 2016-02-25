@@ -67,6 +67,8 @@
 \textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 \midrule
 \midrule
+	2.0.1 & \AB{} & 2016-02-25 & Modifica da \ref{intro} a \ref{gest_qual} \\
+\midrule
 1.0.3 & \AB{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario} ] \\
 \midrule
 1.0.2 & \AB{} & 2016-02-24 & Modifica riferimenti normativi [modifica sez. \ref{riferimenti} ] \\
@@ -101,7 +103,8 @@
 \listoffigures
 \newpage
 
-\section{Introduzione}
+
+\section{Introduzione}	\label{intro}
 \subsection{Scopo}
 Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. 
 
@@ -113,214 +116,177 @@ In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per
 \subsection{Descrizione Prodotto}
 Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
 
-\subsection{Glossario}\label{glossario}
-\glossarioPrint
+\subsection{Glossario}
+Al fine di evitare ogni ambiguità di linguaggio e massimizzare la comprensione dei documenti, i termini tecnici, di dominio, gli acronimi e le parole che necessitano chiarimenti sono riportate nel documento glossario alla fine di questo documento. Ogni occorrenza di vocaboli presenti nel glossario è marcata da una G maiuscola in pedice (e.g. pedice\textsubscript{G}) e, se cliccata, porta direttamente alla definizione.
 
-\subsection{Riferimenti}\label{riferimenti}
+\subsection{Riferimenti}
 
 \subsubsection{Normativi}
 \begin{itemize}
-	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
-	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
-	\item \NdP: \textit{NormeDiProgetto_v2.0.0}. 
+	\item \NdP\ \textit{v1.2.0};
+	\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
 \end{itemize}
 
 \subsubsection{Informativi}
 \begin{itemize}
 	\item \PdP\ \textit{v1.2.0};
-    \item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
+	\item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
 	\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm};
+	\item Standard \textit{ISO/IEC 15507} 
+	\item Modello Pdca \url{https://it.wikipedia.org/wiki/PDCA}
 	\item Standard \textit{ISO/IEC 9126} \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}.
 \end{itemize}
-
-
 \newpage
-\section{Sistema di supporto qualità}
-Il sistema di supporto alla qualità è l'apparato che definisce l'organizzazione e la struttura delle procedure finalizzate alla qualità. Come suggerito dagli standard per la qualità si decide di adottare una suddivisone tra qualità di processo e qualità di prodotto. Secondo tale politica seguono i passi per il miglioramento dei processi: 
+\section{Politica generale di qualità}
+\subsection{Scopo}
+La corrente sezione introduce i modelli di qualità scelti come guida per la gestione della qualità nel suo complesso. La descrizione di ogni modello è stata inclusa con lo scopo di rendere chiare le scelte successive.
+\subsection{Descrizione}
+La necessità delle definizione di una politica per la qualità è atta a fornire un supporto alla qualità di prodotto. Ciò attraverso l'adesione a modelli e standard universalmente riconosciuti e adatti al caso in questione. La qualità di prodotto viene, inoltre, perseguita utilizzando una particolare attenzione alla qualità dei processi che producono il software come oggetto finale.
+\subsection{Modelli e standard di qualità}
+L'utilizzo di modelli riconosciuti come validi per la qualità assicura la scelta di obiettivi per processo e prodotto che siano funzionali ed efficaci. Vengono scelti modelli appositi per la qualità di processo e la qualità di prodotto.
+\subsubsection{Modelli per la qualità di processo}
+Per garantire un'efficacia trasversale della qualità di processo, con evidenti conseguenze sulla qualità di prodotto, si utilizzano al meglio i modelli disponibili. Essi non devono e non sono  in contrasto tra di loro, ma sono tra loro di supporto nella definizione di aree e organizzazione della qualità.
+\paragraph{Standard ISO/IEC 90003:2004}
+Lo standard ISO/IEC \textit{90003:2004} indica quali sono gli obiettivi operativamente utili da adottare per ogni categoria di processo. La scelta degli obiettivi da raggiungere rappresenta il primo punto cruciale per la definizione di un percorso valido di perseguimento della qualità. In tale ottica, l'utilizzo di uno standard valido e riconosciuto rappresenta un ottima risorsa per un sistema di qualità efficace.
 
-\begin{enumerate}
-	\item \textbf {Definizione degli obiettivi:} Gli obiettivi devono essere specificati in modo chiaro e conciso. Devono essere misurabili e quantificabili
-	\item \textbf{Definizione dei metodi di adempimento degli obiettivi definiti:} Ad ogni obiettivo deve corrispondere, in modo chiaro, il relativo metodo di adempimento. Nel caso tale metodo preveda dei test quantitativi devono essere chiare le metriche da utilizzare ed i risultati da ottenere
-	\item \textbf{Pianificazione preventiva dei processi:} La pianificazione deve avvenire in modo preventivo, con l'utilizzo di strumenti di collaborazione adeguati, per descrizione dei quali fare riferimento alle \NdP{}. Devono essere definite \mgls{milestone} e scadenze in modo opportuno
-	\item \textbf{Acquisizione di dati relativi alla qualità dei processi:} Nel caso di misure quantitative e test ritenuti necessari, i risultati devono essere raccolti e esposti in modo tabellare. A tale scopo è dedicata l'appendice \ref{Resoconto delle attività di verifica} di questo documento
-	\item \textbf{Verifica dello stato di qualità dei processi e pianificazione di miglioramenti mirati:}
-	Sono definiti in prossimità delle date della \RR{}, \RA{}, \RP{}, \RQ{} dei momenti in cui il gruppo, raccogliendo i commenti del proponente \Zucchetti{} e del \Vardanega{}, rifletteranno sul miglioramento apportabile al prodotto e ai processi di supporto
-\end{enumerate}
+\paragraph{Standard ISO/IEC 15504}
+Lo standard ISO/IEC \textit{15504} fornisce gli strumenti necessari a valutare l'idoneità di un insieme di processi. Un approccio quantitativo alla qualità garantisce di poter assicurare risultati obiettivi nonostante la complessità del sistema da valutare.
 
-\newpage
+\paragraph{Ciclo di Deming o PDCA}
+Tale modello si appoggia in parte alle raccomandazioni dello standard ISO/IEC \textit{15504} ma pone enfasi sulla sequenza corretta di azioni su cui si basa un solido sistema orientato alla qualità. 
+Il valore di tale modello consiste in particolare nel rendere chiaro che per raggiungere obiettivi risultati di qualità è necessario predisporre metriche adeguate che li rendano quantificabili sul piano operativo. Pertanto è essenziale rendere i propri processi misurabili, in quanto oggetto centrale in un sistema di produzione del software.
+\paragraph{Miglioramento continuo}
+L'adozione del miglioramento continuo ha lo scopo di far crescere e maturare il sisetema di produzione e i suoi processi. Per fare ciò, pone come successiva alla misurazione e valutazione di processo, una nuova fase per la definizione di obiettivi. 
+Il modello adottato integra i precedenti adottati, senza porsi in contrasto con essi, aggiungendo efficacia al sistema qualità nel suo complesso.
+\subsubsection{Modelli per la qualità di prodotto}
+\paragraph{Standard ISO/IEC 9126}
+
+Lo ISO/IEC \textit{9126} rappresenta una linea guida universalmente riconosciuta come valida come supporto alla qualità del prodotto software. Le linee guida e gli obiettivi, che elenca come importanti, sono volti ad assicurare una buona qualità del prodotto finito. Pongono, tuttavia, attenzione ad aspetti riguardanti la struttura interna del sistema software, non immediatamente evidenti durante l'uso del prodotto, ma essenziali per ottenere una buona qualità del prodotto finito.
+\subparagraph{Qualita in uso}
+La qualità in uso rappresenta il punto di vista dell'utente sul software e poggia sulla qualità interna ed esterna. Le norme ISO/IEC \textit{9126-4} forniscono esempi di metriche da utilizzare per la misurazione della qualità in uso.
+\subparagraph{Qualità esterna}
+Le metriche esterne, specificate nella norma ISO/IEC 9126-2, misurano i comportamenti del software sulla base dei test, dall'operatività e dall'osservazione durante la sua esecuzione, in funzione degli obiettivi stabiliti in un contesto tecnico rilevante.
+\subparagraph{Qualità interna}
+La qualità interna è specificata nella norma ISO/IEC \textit{9126-3} e si applicano al software non eseguibile. Le misure effettuate permettono di prevedere e controllare il livello di qualità esterna ed in uso del prodotto finale.
+
+
 
 \section{Qualità di processo}
+\subsection{Scopo}
+Per di aumentare il valore commerciale del prodotto e garantirne il corretto funzionamento, oltre che nell'ottica di  utilizzare le linee guida sopra citateo  si reputa necessario stabilire degli obiettivi quantitativi. E' inoltre essenzaile verificare, in un secondo momento, che questi siano effettivamente stati raggiunti.
+\subsection{Descrizione}
+La qualità di processo pone le basi per avere una discreta predicibilità sugli obiettivi e il rispetto delle scadenze delle varie attività pianificate.
 
-\paragraph{Utilizzo degli standard}
-La qualità di processo viene trattata secondo le linee guida dello standard \textit{ISO/IEC 90003:2004}. Sono stati estratti, tra punti trattati nel sopracitato standard, tutti quelli che si ritenevano adeguati al caso in esame.
 
 \subsection{Obiettivi di qualità di processo}
-Sono stati fissati gli obiettivi di qualità di processo, che verranno descritti in seguito.Nella descrizione allegata ad ogni obiettivo sono esposte le misure intraprese per il suo adempimento, le quali vengono spesso riprese in dettaglio su altri documenti prodotti, in tal caso la trattazione esauriente delle stesse è rimandata allo specifico documento. 
-Nella trattazione della qualità di processo vengono preferite misure preventive e verifiche a posteriori per evitare che una cattiva qualità di processo influisca negativamente sul sistema nel suo complesso.
-
-\subsubsection{Comunicazione interna e con il proponente efficaci}
-\paragraph{Metodi preventivi:}
+La lista dei gli obiettivi quantificabili per la qualità di prodotto viene tratta dai modelli sopra citati, in quanto utili e adatti in particolare al caso in esame.
 \begin{itemize}
-	\item Strumenti di condivisione e canali di comunicazione prestabiliti;
-	\item Incontri regolari tra membri del gruppo;
-	\item Incontri con il proponente se possibile;
-	\item Verbali per ogni incontro (interno o con proponente);
-	\item Distribuzione online di tutti i verbali di riunione;
-	\item Disponibilità della documentazione online attraverso \mgls{repository};
-	\item Indirizzo e-mail di gruppo, accessibile ad ogni componente.
+	\item Organizzazione e suddivisione dei processi secondo ISO/IEC \textit{15504};
+	\item Calcolo preventivo dei costi.
+	\item Calcolo preventivo delle risorse.
+	\item Chiarezza degli obiettivi specifici di processo.
+	\item Misurabilità dei prodotti di processo.
+	\item Efficacia di processo misurabile.
+	\item Definizione preventiva di metodologie di analisi e verifica della qualità.
+	\item{Ottimizzazione delle risorse}.
+	\item{Controllo e riduzione dei costi}.
 \end{itemize}
-Ognuno dei sopracitati punti viene descritto in modo dettagliato nelle \NdP{}.
-
-\subsubsection{Suddivisione delle attività in processi}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Utilizzo di strumenti per rendere chiara la suddivisione di attività, descritti in modo dettagliato nelle \NdP{};
-	\item Descrizione dettagliata dei processi pianificati.Vedi \PdP{}.
-\end{itemize}
-
-\subsubsection{Pianificazione dei processi e delle relative scadenze}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Pianificazione preventiva e dettagliata dei processi, descritta nel \PdP{};
-	\item Ogni processo e relative sotto-fasi devono avere scadenze corrispondenti;
-	\item Utilizzo di documenti descrittivi della pianificazione di gruppo.Vedi \PdP{}.
-\end{itemize}
-\paragraph{Verifica a posteriori:} Sono previste misure sulla qualità di processo. A tale scopo sono definite apposite metriche nella sezione \ref{metriche_processi} du questo documento.
-\begin{itemize}
-	\item Misurazione \mgls{schedule variance};
-	\item Misurazione \mgls{cost variance}.
-\end{itemize}
-
-\subsubsection{Utilizzo di strumenti di supporto}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item \textbf{Strumenti di condivisione:} finalizzati a rendere chiaro lo stato di avanzamento e tenere traccia di quest'ultimo in modo automatico
-	\item \textbf{Strumenti di pianificazione:} per la gestione controllata delle risorse umane e non
-\end{itemize}
-Entrambi i sopracitati strumenti vengono descritti nel dettaglio nelle \NdP{}.
-
-\subsubsection{Rispetto dei requisiti imposti dal proponente \Zucchetti{}}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Documento dedicato all'analisi approfondita dei requisiti;
-	\item Incontri con il proponente e comunicazione via mail in caso di dubbi.
-\end{itemize}
-
-\subsubsection{Rispetto dei ruoli e separazione delle resposbilità}
-\paragraph{Metodi preventivi:}
-I metodi organizzativi adottati ed esposti nelle \NdP{} impongono la suddivisione dei compiti in \mgls{task} e l'assegnazione da parte del \PM{} di questi ultimi alle risorse disponibili, in maniera preventiva e documentata. 
-La responsabilità di ogni processo viene attribuita ad un'unica persona: in questo modo la stessa si assume di garantire un controllo sul processo nel rispetto della suddivisione dei ruoli previsti al suo interno.
-
-\subsubsection{Utilizzo di personale qualificato e adeguatamente formato}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Pianificazione preventiva degli strumenti da utilizzare. Attività finalizzata per permettere ai componenti del gruppo di documentarsi preventivamente sugli strumenti da utilizzare;
-	\item Descrizione dettagliata sulle principali procedure degli strumenti utilizzati dal gruppo.
-\end{itemize}
-Entrambi i sopracitati strumenti vengono descritti nel dettaglio nelle \NdP{}.
+Per una definizione concreta dei metodi utilizzati per raggiungere gli obiettivi in sopra prefissati si rimanda alle \NdP{}.
 
 
-\subsection{Procedure di controllo delle qualità di processo}
-\begin{itemize}
-	\item Momenti di gruppo riservati all'analisi della qualità in corrispondenza delle revisioni previste;
-	\item Raccolta dei commenti del \Vardanega{} e del proponente \Zucchetti{}, nei momenti di revisione previsti, in qualità di parere esterno e competente;
-	\item Raccolta di dati relativi allo svolgimento dei processi con l'ausilio di strumenti adeguati (Strumenti di Condivisione, Strumenti di Gestione);
-	\item Misurazione di \mgls{cost variance} e \mgls{schedule variance} e analisi dei dati descritte nella sezione \ref{metriche_processi}.	
-\end{itemize}
+\subsection{Procedure di controllo della qualità di processo}
+La raccolta e l'analisi dei dati di qualità deve essere ripetuta periodicamente, in un'ottica di miglioramento continuo. 
 
-\newpage
+La valutazione della qualità di processo sfrutta metriche prevenivamente definite per avere un risultato oggettivo del grado di qualità raggiunto.
+
+Periodicamente devono essere svolte:
+\begin{enumerate}
+	\item Pianificazione preventiva degli obiettivi di qualità;
+	\item Misurazione della qualità di processo;
+	\item Valutazione della qualità di processo rispetto agli obiettivi preposti;
+	\item Correzione e miglioramento.
+\end{enumerate}
+La scadenza imposta per tali revisioni periodiche viene valutata, tenendo  conto dell'analisi dei rischi, nel documento \PdP{}.
+
+\subsection{Strumenti di supporto}
+La collezione e l'interpretazione dei dati necessari a tale valutazione deve essere il più possibile automatizzata. In tal modo si contribuisce all'efficienza complessiva del sitema di gestione e controllo della qualità, in un ottica di controllo dei costi e delle risorse.
+La definizione degli strumenti necessari deve essere altresì preventiva all'effettuazione delle misure o alla raccolta dei dati.
+
 
 \section{Qualità di prodotto}
-Come traccia di riferimento della qualità di prodotto viene preso lo standard \textit{ISO/IEC 9126}. Tra i punti elencati in tale documento viene escluso solamente quello che non è ritenuto utilizzabile al caso in esame.
-\paragraph{Linee guida generali}
-Gli obiettivi riguardanti il prodotto vengono suddivisi in: \textbf{qualità interna}, \textbf{qualità esterna} e \textbf{qualità in uso}.
-Per i punti di qualità interna ed esterna vengono inoltre individuati i seguenti punti in comune:
-\begin{itemize}
-	\item Funzionalità;
-	\item Affidabilità;
-	\item Efficienza;
-	\item Usabilità;
-	\item Manutenibilità;
-	\item Portabilità.
-\end{itemize}
+\subsection{Scopo}
+Al fine di aumentare il valore commerciale del prodotto software e di garantirne il corretto funzionamento è necessario fissare degli obiettivi quantitativi specifici per il prodotto.Importante è, inoltre, verificare in modo oggettivo se tali obiettivi vengano raggiunti. Data la difficolta di valutare un prodotto in modo appropriato ed efficace, l'adozione modelli riconosciuti e validi, su cui basare il sistema di gestione e controllo di qualità di prodotto, rappresenta un valido supporto.
 
-\subsection{Obiettivi per la documentazione}
-Gli obiettivi che fanno capo alla documentazione sono riconducibili agli obiettivi di manutenibilità e di qualità di processo.
-Fanno riferimento, pertanto, allo standard \textit{ISO/IEC 9126} per la manutenibilità e allo standard \textit{ISO/IEC 90003:2004} contestualmente alla qualità di processo.
-Seguono gli obiettivi relativi alla documentazione e la descrizione  delle modalità per l'adempimento di questi ultimi.
-\subsubsection {Evitare la diffusione di documentazione obsoleta.} 
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Sistema di indicizzazione delle versioni  per ordinare la documentazione prodotta;
-	\item Diario delle modifiche previsto in ogni documento,e in tutte le sue versioni;
-	\item Utilizzo di strumenti di versionamento automatici.
-\end{itemize}
-I sopracitati punti vengono tutti descritti nelle \NdP{}.
+\subsection{Descrizione}
+La corrente sezione tratta la definizione di obiettivi quanitiativi per la qualità di prodotto. 
+Per facilità di trattazione e coerenza con i modelli di qualità adottati e sopra specificati, documentazione e prodotto software vengono trattati separamente, con obiettivi e metriche dedicate.
 
-\subsubsection{Evitare la diffusione di documentazione non verificata e approvata.}
-\paragraph{Metodi preventivi:}
+
+\subsection{Obiettivi qualità di prodotto}
+\subsubsection{Obiettivi per la documentazione}
+La documentazione ha la funzione di rendere maggiormente comprensibile molti aspetti del prodotto, con lo scopo di migliorarnte il grado di manutenibilità. 
+Gli obiettivi sono pertanto:
 \begin{itemize}
-	\item Il sistema di indicizzazione delle versioni di un documento è strutturato in modo da permettere di riconoscere dal codice della versione lo stato del documento. Vengono così identificati in modo chiaro i documenti approvati e verificati;
-	\item Evidenziare il ruolo di chi attua le modifiche nel diario delle modifiche.
+	\item\textbf{Usabilità della documentazione}:la documentazione deve essere corretta, leggibile e chiara nei contenuti e nella forma.
+	\item\textbf{Documetazione non obsoleta}La versione del documnento deve essere sempre specificata.
+	\item\textbf{Correttezza}:la correttezza deve coinvolgere i contenuti oltre che la forma.
+	\item\textbf{Documentazione approvata}:la documentazione diffusa deve sempre essere preventivamente verificata ed approvata.
 \end{itemize}
 
 
-\subsubsection{Usabilità della documentazione}
-\paragraph{Documentazione leggibile}
-\textbf{Verifica a posteriori:}  definizione di metriche apposite, descritta nella sezione \ref{metriche_doc}.
-
-\subsubsection{Testo grammaticalmente corretto:}
-\begin{itemize}
-	\item \textbf{Verifica a posteriori:} correttori automatici e liste di controllo, attività di verifica a largo spettro a fine stesura per ogni documento
-\end{itemize}
-
-\subsubsection{Documenti graficamente chiari}
-\paragraph{Metodi preventivi:}
-\begin{itemize}
-	\item Strumenti a supporto della stesura che prevedano la creazione automatica di indici di documento (es \latex);
-	\item Utilizzo di macro nei documenti per evitare errori.
-\end{itemize}
-I sopracitati punti vengono descritti nelle \NdP{}.
-
-
-\subsection{Obiettivi per software}
-
+\subsubsection{Obiettivi per software}
 Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard  \textit{ISO/IEC 9126}, si individuano delle aree in cui definire obiettivi specifici per l'analisi della qualità \mgls{software} per il caso in esame.
-\subsubsection{Test driven software}
-Il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}.
-\subsubsection{Architettura modulare}
-Il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per approfondimenti.
-\subsubsection{Tracciabilità e conformità dei requisiti}
-Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
-\subsubsection{Usabilità utente}
-Dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
-\subsubsection{Utilizzo e scelta delle risorse}
-Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
-
-
+\begin{itemize}
+	\item{\textbf{Test driven software}}
+	Il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}.
+	\item{\textbf{Architettura modulare}}
+	Il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per approfondimenti.
+	\item{Tracciabilità e conformità dei requisiti}
+	Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
+	\item{\textbf{Usabilità utente}}
+	Dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
+	\item{\textbf{Utilizzo e scelta delle risorse}}
+	Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
+\end{itemize}
 \subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
-Il controllo di qualità del prodotto verrà garantito da:
+Il controllo quantitativo della qualità verrà garantito attraverso:
 \begin{itemize}
-	\item \textbf{\mgls{quality assurance}:} Per garantire il raggiungimento della qualità del prodotto si prevede l'utilizzo delle tecniche di analisi statica e dinamica, descritte nella sezione \ref{analisi}. In particolare, anche i test devono rispecchiare l'approccio \mgls{bottom-up} di analisi
-	\item \textbf{Verifica:} Si esegue la verifica sul prodotto durante l'intera durata del processo di produzione. I risultati delle attività di verifica eseguiti sui vari documenti del progetto sono riportati nella sezione \ref{Resoconto delle attività di verifica}
-	\item \textbf{Validazione:} Si conferma in modo oggettivo che il prodotto risponda ai requisiti e passa completamente tutte le verifiche previste
+	\item{\textbf{Quality assurance}}: insieme di attività atte a garantire il raggiungimento degli obiettivi di qualità postulati. 
+	Le tecniche specifiche utilizzate in questo contesto sono suddivise in analisi statica e dinamica. Per ulteriore dettaglio si veda la sezione \ref{analisi}
+	\item{\textbf{Verifica}}: tale processo determina se l'output di una particolare attività è consistente. La verifica verrà sistematicamente eseguita alla fine di ogni attività, per tutta la durata del progetto. I risultati ottenuti verranno riportat nell'appendice preposta.
+	\item{\textbf{Validazione}}: tale attività ha lo scopo di confermare in modo oggettivo e conclusivo che il sistema risponda ai requisiti. L'efficienza nello svolgimento della validazione poggia sulla garanzia che una continua e ripetuta attività di verifica garantisca una buona qualità interna.
 \end{itemize}
+\subsection{Strumenti di supporto}
+La valutazione del grado di qualità del prodotto deve essere effettuata in modo prevalentemente automatico. Laddove non sia possibile è necessario satabilire preventivamente strumenti di supporto alla verifica e alla validazione. Tali strumenti devono ridurre l'impatto sui costi, e ridurre il tempo necessario per la verifica o validazione. 
 
-\newpage
 
-\section{Gestione della qualità e delle risorse}
-\subsection{Ruoli}
-La responsabilità di controllo su un processo spetta al \PM{}. Nel rispetto agli obiettivi sopra elencati, è importante il controllo su:
+\section{Gestione della qualità}\label{gest_qual}
+\subsection{Scopo}
+La gestione della qualità è rappresentata le principali metodologie e strumenti utilizzabili per attuare un piano di persecuzione della qualità. 
+
+\subsection{Descrizione}
+Nella pratica non viene trattata in questo documento, ma in \PdP e \NdP.
+La corrente sezione analizza le linee guida nella scelta delle metodologie e strumenti di concretizzazione del sistema qualità sopra descritto. Tali scelte vengono descritte dei documenti sopracitati.
+
+\subsection{Pianificazione preventiva}
+La pianificazione deve essere preventiva e basarsi su un'attenta analisi dei rischi. Deve coprire ogni insieme di processi e valutare il dispiego di risorse e i costi annessi. 
+Altrettanto preventivamente vanno pianificati i controlli di qualità e momenti riservati alla valutazione dei risultati ottenuti e all'attuazione di correzioni o miglioramenti adeguati.
+
+\subsection{Responsabilità}
+L'utilizzo di una separazione netta dei ruoli, e una specifica chiara delle rispettive responsabilità è determinante per il raggiungimento efficace e gararantibile degli obiettivi fissari.
+Tale ripartizione è finalizzata non solo a facilitare i compiti organizzativi, ma anche a garantire che vi sia un controllo sui processi e sui relativi prodotti.
+In particolare le figure di
 \begin{itemize}
-	\item stato di avanzamento e rispetto delle scadenze;
-	\item rispetto dei ruoli assegnati;
-	\item controllo della qualità del prodotto;
-	\item controllo della qualità del processo. 
+	\item Verificatore
+	\item Responsabile
 \end{itemize}
+hanno un forte impatto sulla garanzia di raggiungimento degli obiettivi e della correttezza dei risultati l'uno, e della gestione efficace l'altro.
+La distizione di ruoli e l'attenzione al conflitto di interessi tra le varie figure, durante la fase di pianificazione, garantisce maggiore coerenza ed efficacia alle attività svolte, con una conseguente influenza sulla qualità dei  processi e del prodotto.
 
-\subsection{Risorse}
-Le risorse vengono distinte in umane e materiali. E' essenziale che, sia la qualità di processo, che la qualità di prodotto, che le risorse, di qualunque tipo, vengano preventivamente quantificate e, in seguito, gestite in modo corretto, con strumenti automatici adeguati.
-L'utilizzo degli strumenti per la gestione del personale secondo la pianificazione del \PdP{} sono descritti nel \NdP. L'assegnazione e la quantificazione delle risorse hanno lo scopo di rendere trasparente e quantificabile l'utilizzo di ogni tipo di risorsa utilizzata.
+
+\subsection{Risorse}\label{risorse}
+Con il termine risorse si identificano risorse umane e tecnologiche. La pianificazione del loro utilizzo e l'analisi dei costi e di rischi connessi deve essere preventiva ed efficace.
+Qualora fosse possibile ridurre l'utilizzo di una risorsa, a scopo di controllo o diminuzione dei costi, è necessario valutare, prima, l'impatto che tale modifica apporta alla gestione della qualità nel suo complesso.
 
 \newpage
 
