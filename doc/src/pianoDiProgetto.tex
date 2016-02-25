@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.6}
+\newcommand{\versione}{1.1.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -65,6 +65,10 @@
 	\toprule
 	\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\
 	\midrule
+	\midrule
+	1.1.0 & \AVE{} & 2016-02-25 & Corretto il termine attività o fase in periodo \\
+	\midrule
+	1.0.7 & \AB{} & 2016-02-25 & Aggiunte revisioni interne del periodo \FP\  \\
 	\midrule
 	1.0.6 & \AB{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario} ] \\
 	\midrule
@@ -127,9 +131,9 @@ Lo scopo di questo documento è quello di fornire le basi per poter stimare real
 
 \subsection{Descrizione}
 
-Si divide lo sviluppo del progetto in 4 attività:
+Si divide lo sviluppo del progetto in 4 periodi:
 \begin{itemize}
-	\item \textbf{\FA{}:} è la prima attività, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta per la buona riuscita del progetto come:
+	\item \textbf{\FA{}:} è il prima periodo, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta per la buona riuscita del progetto come:
 	\begin{itemize}
 		\item \NdP{};
 		\item \SdF{};
@@ -138,24 +142,23 @@ Si divide lo sviluppo del progetto in 4 attività:
 		\item \PdQ{};
 		\item Lettera di Presentazione.
 	\end{itemize}
-	\item \textbf{\FPA{}:} è la attività che segue la \RR{} dove vengono redatti i seguenti documenti:
+	\item \textbf{\FPA{}:} è il periodo che segue la \RR{} dove vengono redatti i seguenti documenti:
 	\begin{itemize}
 		\item \ST{};
         \item \DP{}.
 	\end{itemize} 
 	In questa attività tutti i documenti redatti nella sezione precedente saranno eventualmente aggiornati
-	\item \textbf{\FPDC{}:} è la attività che segue la \RP{} dove vengono redatti:
+	\item \textbf{\FPDC{}:} è il periodo che segue la \RP{} dove vengono redatti:
 	\begin{itemize}
 		\item Codifica;
 		\item \MU{}.
 	\end{itemize}
 	Anche in questo caso i documenti vengono aggiornati e il tutto verificato.
-	\item \textbf{\FVV{}:} subito dopo la attività di \RQ{} il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti.
-	\\In questa attività la documentazione verrà soltanto possibilmente aggiornata
+	\item \textbf{\FVV{}:} è il periodo che segue la \RQ{} dove il prodotto viene collaudato per dimostrare che soddisfa i requisiti richiesti. In questo periodo la documentazione verrà soltanto possibilmente aggiornata
 \end{itemize}
 
 \subsection{Descrizione Prodotto}
-Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+\descrizioneProdotto
 
 \subsection{Glossario}\label{glossario}
 \glossarioPrint
@@ -185,19 +188,19 @@ Per un buon esito del progetto si è deciso che ogni componente del gruppo dovr�
 Di seguito le scadenze che il gruppo \nomeGruppo{} ha deciso di rispettare e sulle quali si baserà la pianificazione del progetto:
 \begin{itemize}
 	\item \textbf{2016-01-22:} consegna materiale in ingresso alla \RR{}
-	\item \textbf{2016-04-11:} consegna materiale in ingresso alla \RP{}
+	\item \textbf{2016-04-11:} consegna materiale in ingresso alla \RP{} MAX
 	\item \textbf{2016-05-16:} consegna materiale in ingresso alla \RQ{}
 	\item \textbf{2016-06-10:} consegna materiale in ingresso alla \RA{}
 \end{itemize}
 
-\subsubsection{Scelta \RP}
+\subsubsection{Scelta \RP\ MAX}
 \label{sec:scelta-rp}
-Data la scelta tra \RP{} "max" e \RP{} "min" è stato deciso di pianificare per la consegna della \RP{} "max".
-Si è notato infatti che il periodo di tempo offerto per la consegna da dopo la \RR{} alla \RP{} è di circa due mesi, rispetto al periodo di tempo tra \RP{} e \RQ{} che è di un solo mese. È stato anche previsto che il tempo richiesto per la progettazione è di granlunga maggiore rispetto al tempo richiesto per l'effettiva codifica.
+Data la scelta tra \RP{} MAX e \RP{} MIN è stato deciso di pianificare per la consegna della \RP{} MAX.
+Si è notato infatti che il periodo di tempo offerto per la consegna da dopo la \RR{} alla \RP{} è di circa due mesi, rispetto al periodo di tempo tra \RP{} e \RQ{} che è di un solo mese. È stato anche previsto che il tempo richiesto per la progettazione è di gran lunga maggiore rispetto al tempo richiesto per l'effettiva codifica.
 
-Date le sopracitate osservazioni si è deciso di pianificare per la consegna della \RP{} "max" per le seguenti motivazioni:
+Date le sopracitate osservazioni si è deciso di pianificare per la consegna della \RP{} MAX per le seguenti motivazioni:
 \begin{itemize}
-    \item è possibile distribuire meglio il lavoro anticipando la maggiorparte della pianificazione nel periodo più lungo;
+    \item è possibile distribuire meglio il lavoro anticipando la maggior parte della pianificazione nel periodo più lungo;
     \item fornendo una la progettazione in ingresso alla \RP{} è possibile codificare con la certezza che la progettazione sia solida.
 \end{itemize}
 
@@ -221,7 +224,6 @@ Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettua
 	\item \textbf{Riscontro:} descrizione del riscontro ed effettiva attuazione del rischio specifico
 	\item \textbf{Previsione:} previsioni di riscontri del rischio nei periodi futuri di lavoro
 \end{itemize}
-
 Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati dei quali viene indicata la probabilità che accada e un livello di gravità se dovesse verificarsi.
 
 \subsection{Rischi di gruppo}
@@ -446,7 +448,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 \section{Pianificazione}
 
 \subsection{Analisi} %dal 18/12/15 al 22/01/16
-Questa attività ha inizio il 2015-12-18 e termina il 2016-01-22. I ruoli attivi in questa attività saranno:
+Questo periodo ha inizio il 2015-12-18 e termina il 2016-01-22. I ruoli attivi in questo periodo saranno:
 \begin{itemize}
 	\item \PM{};
 	\item \AM{};
@@ -529,9 +531,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 
 \newpage
 \subsection{Progettazione}
-
-Questa attività ha inizio il 2015-02-16 e termina il 2016-04-11.
-I ruoli attivi in questa fase saranno:
+Questo periodo ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
 	\item \PM{};
@@ -609,7 +609,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 
 \newpage
 \subsection{Codifica}
-Ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi in questa fase saranno:
+Questo periodo ha inizio il 2016-04-12 e termina il 2016-05-16. I ruoli attivi in questo periodo saranno:
 \begin{itemize}
 	\item \PM{};
 	\item \AM{};
@@ -692,7 +692,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 
 \newpage
 \subsection{Validazione}
-Questa attività che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione. I ruoli attivi sono:
+Questo periodo che ha inizio il 2016-05-16 e termina il 2016-06-10, è l'atto conclusivo di tutte le attività di verifica incontrate durante i vari cicli di progettazione. I ruoli attivi sono:
 \begin{itemize}
 	\item \PM{};
 	\item \AM{};
@@ -840,7 +840,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsection{Prospetto economico}
-Qui viene proposto il sommario dei costi per fase durante tutta la fare del progetto didattico previsto.
+Qui viene proposto il sommario dei costi per periodo durante tutta la fare del progetto didattico previsto.
 
 \begin{table}[H]
 	\begin{center}
@@ -893,7 +893,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \subsubsection{Analisi}
 
 \subsubsubsection{Rotazione dei ruoli}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FA.
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante il periodo di \FA.
 
 \begin{table}[H]
 	\begin{center}
@@ -931,7 +931,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsubsection{Prospetto economico}
-Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante la fase di \FA.
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante il periodo di \FA.
 
 \begin{table}[H]
 	\begin{center}
@@ -971,7 +971,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \subsubsection{Progettazione}
 
 \subsubsubsection{Rotazione dei rouli}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FP.
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante il periodo di \FP.
 
 \begin{table}[H]
 	\begin{center}
@@ -1008,7 +1008,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsubsection{Prospetto economico}
-Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FP.
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante il periodo di \FP.
 
 \begin{table}[H]
 	\begin{center}
@@ -1040,7 +1040,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \subsubsection{Codifica}
 
 \subsubsubsection{Rotazione dei Ruoli}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FC.
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante il periodo di \FC.
 
 \begin{table}[H]
 	\begin{center}
@@ -1077,7 +1077,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsubsection{Prospetto economico}
-Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FC.
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante il periodo di \FC.
 
 \begin{table}[H]
 	\begin{center}
@@ -1110,7 +1110,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \subsubsection{Validazione}
 
 \subsubsubsection{Rotazione dei Ruoli}
-Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante la fase di \FV.
+Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro del gruppo durante il periodo di \FV.
 
 \begin{table}[H]
 	\begin{center}
@@ -1148,7 +1148,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsubsection{Prospetto economico}
-Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolodurante la fase di \FV.
+Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo per ogni ruolo durante il periodo di \FV.
 
 \begin{table}[H]
 	\begin{center}
