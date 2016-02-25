@@ -26,7 +26,7 @@
 \begin{center}
 \intestazione{\titoloDocumento}
 
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{r | l}
 \multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
@@ -39,17 +39,11 @@
 \textbf{Data Ultima Modifica} & \today \\
 \textbf{Redazione} & \TP{} \\
 \  &  \AVI{} \\
-\textbf{Presenti interni} & \AVE{} \\
-\  &  \IB{} \\
-\  &  \NDC{} \\
-\  &  \TP{} \\
-\  &  \AVI{} \\
-\  &  \AB{} \\
-\  &  \WS{} \\
+\textbf{Presenti interni} & Tutti il gruppo \nomeGruppo \\
 \textbf{Presenti esterni} & Gregorio Piccoli \\
 \  & Serena Lago \\
-\textbf{Verifica} & ... \\
-\textbf{Approvazione} & \NDC \\
+\textbf{Verifica} & \NDC \\
+\textbf{Approvazione} & \IB \\
 \textbf{Lista Distribuzione} & \nomeGruppo \\
 \  & \Vardanega \\
 \  & \Cardin \\
@@ -72,8 +66,14 @@
 			\toprule
 			\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
 			\midrule
+	        \midrule
+	        1.0.0 & \IB{} \& \AVI{} & 2016-02-25 & Approvazione \\
+	        \midrule
+	        0.1.0 & \NDC{} \& \AVI{} & 2016-02-25 & Verifica \\
+	        \midrule
+	        0.0.2 & \TP{} \& \AVI{} & 2016-02-24 & Modifica stile e struttura \\
             \midrule
-			1.0.0 & \TP{} \& \AVI{} & 2016-02-24 & Creazione documento \\
+			0.0.1 & \AVI{} \& \AVI{} & 2016-01-18 & Creazione e stesura documento \\
 			\bottomrule
 		\end{tabular}
 		\caption{Versionamento del documento}
@@ -89,26 +89,24 @@
 \section{Introduzione}
 
 \subsection{Scopo}
-Lo scopo del documento è di mantenere la tracciabilità con le
-domande poste e le decisioni prese durante o a seguito della riunione del \dataCreazione.
+Lo scopo del documento è di tracciare il lavoro svolto con le domande poste e le decisioni prese durante o a seguito della riunione del \dataCreazione.
 
 \subsection{Descrizione}
-Il documento presenterà la lista delle domande poste e delle risposte ricevute.
-Seguirà successivamente la lista delle decisioni prese a seguito di tali risposte.
+Il documento presenterà la lista delle domande poste e delle risposte ricevute. Seguirà successivamente la lista delle decisioni prese a seguito di tali risposte.
 
 \subsection{Descrizione Prodotto}
-Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che in una prima istanza assegni e poi valuti questionari, specifici ad un determinato utente, costruiti da insegnanti che reperiscono le domande dei test da un archivio suddiviso per argomento.
+\descrizioneProdotto
 
 \subsection{Glossario}
-...
+\glossarioPrint
 
 \newpage
 
 \section{Domande \& risposte}
 
     \begin{description}[style=nextline]
-        \item[È necessario salvare e mostrare le statistiche sui risultati di un questionario?] 
-            Si, perché è utile al docente per avere una valutazione oggettiva della difficoltà
+        \item[È necessario salvare e mostrare le statistiche sui risultati di un questionario?]
+	        Si, perché è utile al docente per avere una valutazione oggettiva della difficoltà
             del questionario. Come valore aggiunto, le statistiche potrebbero anche determinare
             la difficoltà della domanda in modo automatico.
         \item[I questionari dinamici sono un requisito opzionale o obbligatorio?]
@@ -123,10 +121,7 @@ Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somminist
         \item[Va bene aggiungere un ruolo di amministratore che gestisce ed inviti i docenti?]
             Si, va bene. È possibile aggiungere qualsiasi gerarchia necessaria per il sistema;
             ad esempio avendo diversi livelli di permessi; tale requisito però è opzionale.
-        \item[Il software dovrebbe essere ideato come un unico software installabile su
-            un server centralizzato nella quale viene fornita la creazione di più istanze 
-            isolate del programma principale oppure come programma che verrà distribuito 
-            ed installato ad hoc per singola entità?]
+        \item[Il software dovrebbe essere ideato come un unico software installabile su un server centralizzato nella quale viene fornita la creazione di più istanze isolate del programma principale oppure come programma che verrà distribuito ed installato ad hoc per singola entità?]
             Il software richiesto dovrà essere installato per l'uso di una singola entità.
             Non è quindi richiesta la gestione di diverse istanze all'interno dello stesso programma.
         \item[Come si svolgerà il collaudo?]
@@ -178,8 +173,7 @@ Sono state quindi presi i seguenti provvedimenti in questa riunione:
         il docente che dovrebbe elencare anche sinonimi generali e sinonimi specifici per la
         domanda in question;
     \item come database verrà utilizzato PostgreSQL;
-    \item verranno definite "classi" (raggruppamenti di studenti) create dal docente
-        accedibili tramite password fornita dal docente.
+    \item verranno definite "classi" (raggruppamenti di studenti) create dal docente         accessibili tramite password fornita dal docente.
 \end{itemize}
 
 \end{document}
