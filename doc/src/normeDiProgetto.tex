@@ -775,7 +775,9 @@ Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il
 Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
 
 \subsubsubsection{Classificazione dei problemi}
-Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Il \VR{} individuato il problema deve scorrere la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte il problema rilevato; in caso negativo aggiunge la nuova famiglia di errori.
+Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione.
+Ambiti:
 \begin{itemize}
 	\item processi;
 	\item software;
@@ -790,8 +792,7 @@ Urgenza:
 \end{itemize}
 Metodo di gestione del problema:
 \begin{itemize}
-	\item \textbf{Ticket:} il Verificatore apre un \mgls{ticket} su \mGls{teamwork} per la risoluzione del problema riscontrato (dettagli nella sezione \ref{ticket})
-	\item \textbf{Aggiunta alla \mgls{lista di controllo}:} il \VR{} scorre la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori
+	\item \textbf{Ticket:} il \VR{} apre un \mgls{ticket} su \mGls{teamwork} per la risoluzione del problema riscontrato (dettagli nella sezione \ref{ticket})
 	\item \textbf{Correzione immediata:} il \VR{} provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \mgls{versionamento}, indicando un messaggio di \mgls{commit} esaustivo (per approfondimenti si rimanda alla sezione \ref{versionamento} sulle norme di \mgls{versionamento})
 \end{itemize}
 
@@ -832,6 +833,15 @@ Metodo di gestione del problema:
 	\label{tabCalssificazioneProb}
 \end{table}
 
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\label{f1-ClassificazioneProblemi}
+		\includegraphics[scale=0.6]{../img/classificazioneProblemi.png}
+		\caption{Diagramma per la classificazione dei problemi.}
+	\end{figure}
+\end{center}
+
 \subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
 Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
 
@@ -842,11 +852,10 @@ Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
 	\item \textbf{Priorità:} deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento a alla tabella \ref{tabCalssificazioneProb}
 	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Problem} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
-\TODO{Fare diagramma}
+
 
 \subsubsubsection{Ticket di risoluzione problema}
 A seguito della presa visione di un \mgls{ticket} di segnalazione problema, il \RE{} provede all'immediata assegnazione di un \mgls{ticket} di risoluzione problema che ha la seguente struttura:
-\TODO{Fare diagramma}
 \begin{itemize}
 	\item \textbf{Titolo:} rappresenta in maniera sintetica e significativa problema
 	\item \textbf{Assegnatari:} i \mgls{ticket} di risoluzione problema devono essere assegnati al o ai responsabili per il problema riscontrato
@@ -854,7 +863,7 @@ A seguito della presa visione di un \mgls{ticket} di segnalazione problema, il \
 	\item \textbf{Data di completamento:} impostata in base alla priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
 	\item \textbf{Commento:} nel caso fossero necessarie delucidazioni al \mgls{task} bisogna chiarirle in maniera concisa sotto forma di commento
 	\item \textbf{Priorità:} deve essere indicata la priorità di esecuzione del \mgls{ticket} facendo riferimento alla tabella \ref{tabCalssificazioneProb}
-	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Need Fix} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
+	\item \textbf{Etichetta/e:} deve essere impostata l'etichetta \textit{Act} ed eventualmente altre \mglspl{etichetta} più appropriate  per aiutare visivamente i membri del gruppo a distinguere di che tipologia di \mgls{ticket} si tratta. Le \mglspl{etichetta} utilizzate sono descritte nella sezione \ref{ticketEtichette}
 \end{itemize}
 I responsabili dovranno risolvere il problema secondo la data di completamento assegnata.
 
@@ -1028,7 +1037,8 @@ Le \mglspl{etichetta} servono per identificare meglio il \mgls{ticket} creato; q
 	\item \textbf{Do:} riservata ai \mglspl{ticket} riguardanti la stesura di codice o documenti
 	\item \textbf{Check:} riservata ai \mglspl{ticket} riguardanti la verifica
 	\item \textbf{Act:} riservata ai \mglspl{ticket} riguardanti le azioni da intraprendere per risolvere una problema trovato in verifica
-
+	\item \textbf{Problem:} riservata ai \mglspl{ticket} riguardanti la segnalazione di problemi
+	
 \end{itemize}
 
 \subsubsubsection{Ticket di Task}\label{ticketCicloVita}
@@ -1051,7 +1061,7 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\label{f1-TicketCicloVita}
+		\label{f2-TicketCicloVita}
 		\includegraphics[scale=0.6]{../img/ticketCicloVita.png}
 		\caption{Diagramma del ciclo di vita dei ticket.}
 	\end{figure}
