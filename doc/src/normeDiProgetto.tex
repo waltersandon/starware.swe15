@@ -419,21 +419,13 @@ Ogniqualvolta sia necessaria la citazione di una versione specifica di un docume
 dove la versione è definita nella sezione \ref{Versione}.
 
 \subsubsection{Versione} \label{Versione}
-\TODO{cambiare la versione dei documenti}
 La documentazione prodotta deve essere corredata del numero di versione attuale tramite la seguente codifica \fileName{vX.Y.Z} dove:
 \begin{itemize}
-	\item \textbf{X} indica il numero crescente di uscite formali del documento. All'inizio di ogni fase il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
-	\begin{enumerate}[start = 0]
-		\item fase che si conclude con la \RR;
-		\item fase che si conclude con la \RP;
-		\item fase che si conclude con la \RQ;
-		\item fase che si conclude con la \RA.
-	\end{enumerate}
-	\item \textbf{Y} indica la fase in cui il documento si trova. Nel momento in cui inizia l'attività di stesura il redattore del documento deve controllare che tale indice sia correttamente impostato a 0. All'inizio della verifica il \VR{} deve variare l'indice impostandolo a 1, dopo aver ricevuto il consenso dal \PM. Conclusa la verifica, il \PM{} provvede all'approvazione del documento e deve impostare l'indice a 2. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
+	\item \textbf{X} indica il numero crescente di uscite formali del documento. Ad ogni approvazione finale dei documenti il \PM deve cambiare tale indice seguendo la numerazione progressiva indicata e impostare a 0 gli indici Y e Z. L'indice deve seguire la numerazione progressiva.
+	\item \textbf{Y} indica la fase in cui il documento si trova. Nel momento in cui inizia l'attività di stesura il redattore del documento deve controllare che tale indice sia correttamente impostato a 0. All'inizio della verifica il \VR{} deve variare l'indice impostandolo a 1, dopo aver ricevuto il consenso dal \PM. Conclusa la verifica, il \PM{} provvede all'approvazione del documento ed ad incrementarne la versione. L'indice deve seguire la numerazione progressiva indicata e non sono ammessi indici diversi da quelli elencati:
 	\begin{enumerate}[start=0]
 		\item Stesura del documento
 		\item Verifica del documento
-		\item Approvazione del documento
 	\end{enumerate}
 \item \textbf{Z} indica il numero crescente di modifiche minori. Ad ogni modifica effettuata deve corrispondere ad un'aggiunta di una voce nel diario delle modifiche, il redattore o il \VR{} devono aggiornare l'indice seguendo una numerazione progressiva. Non viene fissato un limite superiore per tale indice.
 \end{itemize}
