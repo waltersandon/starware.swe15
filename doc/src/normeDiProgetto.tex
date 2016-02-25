@@ -775,8 +775,9 @@ Nel caso sorgesse un problema esso deve essere gestito tramite \mgls{ticket}. Il
 Ogni volta che un membro del gruppo durante riscontra un problema che, come specificato nella tabella \ref{tabCalssificazioneProb}, deve essere risolto tramite \mgls{ticket} apre un \mgls{ticket} di segnalazione problema.
 
 \subsubsubsection{Classificazione dei problemi}
-\TODO{Fare diagramma}
-Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione. Ambiti:
+Vengono classificate le categorie delle problematiche più comuni (si veda tabella \ref{tabCalssificazioneProb}) e le giuste tecniche di risoluzione, adattate alla gravità dei relativi errori. Il \VR{} individuato il problema deve scorrere la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte il problema rilevato; in caso negativo aggiunge la nuova famiglia di errori.
+Essi si dividono per ambito e si ordinano secondo una priorità dettata dall'urgenza di risoluzione.
+Ambiti:
 \begin{itemize}
 	\item processi;
 	\item software;
@@ -791,8 +792,7 @@ Urgenza:
 \end{itemize}
 Metodo di gestione del problema:
 \begin{itemize}
-	\item \textbf{Ticket:} il Verificatore apre un \mgls{ticket} su \mGls{teamwork} per la risoluzione del problema riscontrato (dettagli nella sezione \ref{ticket})
-	\item \textbf{Aggiunta alla \mgls{lista di controllo}:} il \VR{} scorre la \mgls{lista di controllo} per verificare che sia presente un riferimento alla famiglia di errori di cui fa parte l'errore rilevato; in caso negativo aggiunge la nuova famiglia di errori
+	\item \textbf{Ticket:} il \VR{} apre un \mgls{ticket} su \mGls{teamwork} per la risoluzione del problema riscontrato (dettagli nella sezione \ref{ticket})
 	\item \textbf{Correzione immediata:} il \VR{} provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \mgls{versionamento}, indicando un messaggio di \mgls{commit} esaustivo (per approfondimenti si rimanda alla sezione \ref{versionamento} sulle norme di \mgls{versionamento})
 \end{itemize}
 
@@ -832,6 +832,15 @@ Metodo di gestione del problema:
 	\caption{Classificazione dei problemi}
 	\label{tabCalssificazioneProb}
 \end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\label{f1-ClassificazioneProblemi}
+		\includegraphics[scale=0.6]{../img/classificazioneProblemi.png}
+		\caption{Diagramma per la classificazione dei problemi.}
+	\end{figure}
+\end{center}
 
 \subsubsubsection{Ticket di segnalazione problema}\label{ticketProblema}
 Il un \mgls{ticket} di segnalazione problema deve avere la seguente struttura:
@@ -1052,7 +1061,7 @@ Ogni \mgls{ticket} rappresenta uno o più \mgls{task} e deve rispettare i seguen
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\label{f1-TicketCicloVita}
+		\label{f2-TicketCicloVita}
 		\includegraphics[scale=0.6]{../img/ticketCicloVita.png}
 		\caption{Diagramma del ciclo di vita dei ticket.}
 	\end{figure}
