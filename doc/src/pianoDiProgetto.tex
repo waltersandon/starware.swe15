@@ -64,17 +64,19 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		1.1.2 & \AVE{} & 2016-02-25 & Aggiunta del \textit{PianoDiQualifica\_v2.0.0} ai riferimenti normativi [modifica sez. \ref{riferimenti}] \\*		
+		\midrule
+		1.1.1 & \AVE{} & 2016-02-25 & Aggiunta "G" a pedice per termini presenti nel glossario [modifica sez. \ref{Analisi dei rischi}] \\*
+		\midrule
 		1.1.0 & \AVE{} & 2016-02-25 & Corretto il termine attività o fase in periodo \\*
 		\midrule
-		1.0.8 & \AB{} & 2016-02-25 & Modifica diagramma di Gantt della pianificazione del periodo \FP\ [modifica sezione \ref{gantt progettazione}] \\*
+		1.0.7 & \AB{} & 2016-02-25 & Modifica diagramma di Gantt della pianificazione del periodo \FP\ [modifica sezione \ref{gantt progettazione}] \\*
 		\midrule
-		1.0.7 & \AB{} & 2016-02-25 & Aggiunte revisioni interne del periodo \FP\ [aggiunta sezione \ref{revisoni interne progettazione}] \\*
+		1.0.6 & \AB{} & 2016-02-25 & Aggiunte revisioni interne del periodo \FP\ [aggiunta sezione \ref{revisoni interne progettazione}] \\*
 		\midrule
-		1.0.6 & \AB{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario}] \\*
+		1.0.5 & \AB{} & 2016-02-24 & Modifica glossario [modifica sez. \ref{glossario}] \\*
 		\midrule
-		1.0.5 & \AB{} & 2016-02-24 & Aggiunta riferimenti [aggiunta sez. \ref{riferimenti}] \\*
-		\midrule
-		1.0.4 & \TP{} & 2016-02-24 & Aggiunta sezione \ref{sec:scelta-rp} \\*
+		1.0.4 & \AB{} & 2016-02-24 & Aggiunta riferimenti [aggiunta sez. \ref{riferimenti}] \\*
 		\midrule
 		1.0.3 & \TP{} & 2016-02-24 & Aggiunta sezione \ref{sec:scelta-rp} \\*
 		\midrule
@@ -168,6 +170,7 @@ Si divide lo sviluppo del progetto in 4 periodi:
 	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
 	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
 	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
+	\item \PdQ: \textit{PianoDiQualifica\_v2.0.0}
 \end{itemize}
 
 \subsection{Ciclo di sviluppo}
@@ -196,7 +199,7 @@ Di seguito le scadenze che il gruppo \nomeGruppo{} ha deciso di rispettare e sul
 Data la scelta tra \RP{} MAX e \RP{} MIN è stato deciso di pianificare per la consegna della \RP{} MAX.
 Si è notato infatti che il periodo di tempo offerto per la consegna da dopo la \RR{} alla \RP{} è di circa due mesi, rispetto al periodo di tempo tra \RP{} e \RQ{} che è di un solo mese. È stato anche previsto che il tempo richiesto per la progettazione è di gran lunga maggiore rispetto al tempo richiesto per l'effettiva codifica.
 
-Date le sopracitate osservazioni si è deciso di pianificare per la consegna della \RP{} MAX per le seguenti motivazioni:
+Si è deciso di pianificare per la consegna della \RP{} MAX per le sopracitate e le seguenti motivazioni:
 \begin{itemize}
     \item è possibile distribuire meglio il lavoro anticipando la maggior parte della pianificazione nel periodo più lungo;
     \item fornendo una la progettazione in ingresso alla \RP{} è possibile codificare con la certezza che la progettazione sia solida.
@@ -204,7 +207,7 @@ Date le sopracitate osservazioni si è deciso di pianificare per la consegna del
 
 \newpage
 
-\section{Analisi dei rischi}
+\section{Analisi dei rischi}\label{Analisi dei rischi}
 
 Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettuata un’approfondita analisi dei rischi che potrebbero verificarsi. L’Analisi si suddivide in 5 momenti:
 \begin{itemize}
@@ -323,12 +326,12 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti \mgls{software}. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\
 			\midrule
-            \textbf{Riscontro} & \textbf{\FA{}}: E' stato rilevato un malfunzionamento software per quanto riguarda \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. In ogni caso erano stati previsti backup della base di dati che avrebbero permesso il ripristino del database con la perdita solo dei dati più recenti. \\
+            \textbf{Riscontro} & \textbf{\FA{}}: E' stato rilevato un malfunzionamento \mgls{software} per quanto riguarda \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. In ogni caso erano stati previsti mgls{backup} della base di dati che avrebbero permesso il ripristino del database con la perdita solo dei dati più recenti. \\
     		\midrule
-            \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al software utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
+            \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
 			\bottomrule
 		\end{tabular}
-		\caption{Malfunzionamenti software - Analisi dei rischi}
+		\caption{Malfunzionamenti \mgls{software} - Analisi dei rischi}
 	\end{center}
 \end{table}
 
@@ -350,9 +353,9 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
 			\midrule
-            \textbf{Riscontro} & \textbf{\FA{}}: Sono stati previsti periodi nei quali i membri si sono impegnati allo studio delle tecnologie che sarebbero poi state utilizzate, come \mgls{latex}, \mgls{git}, \mgls{github}, \mgls{teamwork} e \mgls{tracy}. Di queste tecnologie solo l'inesperienza con Git ha portato a leggeri ritardi con la pianificazione che sono stati prontamente risolti condividendo le conoscenze apprese e colmando le lacune di alcuni membri. \\
+            \textbf{Riscontro} & \textbf{\FA{}}: Sono stati previsti periodi nei quali i membri si sono impegnati allo studio delle tecnologie che sarebbero poi state utilizzate, come \mgls{latex}, \mgls{git}, \mgls{github}, \mgls{teamwork} e \mgls{tracy}. Di queste tecnologie solo l'inesperienza con \mgls{git} ha portato a leggeri ritardi con la pianificazione che sono stati prontamente risolti condividendo le conoscenze apprese e colmando le lacune di alcuni membri. \\
     		\midrule
-            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per il periodo di \FPA{} è prevista la necessità di ripassare i diagrammi UML e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è previsto la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
+            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per il periodo di \FPA{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Inesperienza tecnologica - Analisi dei rischi}
@@ -374,7 +377,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Gravità} & Alta \\
 			\midrule
-			\textbf{Pianificazione} & Si deve controllare lo stato dei ticket periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicare alle varie attività con un tempo di \mgls{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
+			\textbf{Pianificazione} & Si deve controllare lo stato dei \mgls{ticket} periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicarvi con un tempo di \mgls{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
 			\midrule
 			\textbf{Mitigazione} & Utilizzare il tempo di tempo di \mgls{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \mgls{task} in modo che il ritardo sia minimo. \\
 			\midrule
@@ -595,7 +598,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 
 \newpage
 \subsubsection{Revisioni interne}\label{revisoni interne progettazione}
-Data la lunghezza del periodo di \FP\ si è deciso per motivi di efficienza e per evitare di incorrere in errori di valutazione sulla pianificazione troppo a lungo termine di spezzare il periodo con delle revisioni interne ovvero delle \mglspl{milestone} che hanno come obbiettivo creare una \mgls{baseline} e compiere delle misurazioni sui processi per verificarne l'efficienza, l'efficacia e la qualità. Per le metriche e la loro misurazione di veda il \PdQ\ \textit{v2.0.0}.
+Data la lunghezza del periodo di \FP\ si è deciso per motivi di efficienza e per evitare di incorrere in errori di valutazione sulla pianificazione troppo a lungo termine di spezzare il periodo con delle revisioni interne ovvero delle \mglspl{milestone} che hanno come obbiettivo creare una \mgls{baseline} e compiere delle misurazioni sui processi per verificarne l'efficienza, l'efficacia e la qualità. Per le metriche e la loro misurazione di veda il \textit{PianoDiQualifica\_v2.0.0}.
 
 Le revisioni interne previste sono state pianificate per le seguenti date con gli obbiettivi specificati:
 \begin{itemize}
@@ -723,9 +726,9 @@ Le sotto attività sono:
 	\item \textbf{\MU:}
 	Vengono aggiornati rispetto le ultime modifiche adottate
 	\item \textbf{Collaudo:}
-	Il software viene testato in tutte le sue specifiche per poter essere pronto all'immissione sul mercato
+	Il \mgls{software} viene testato in tutte le sue specifiche per poter essere pronto all'immissione sul mercato
 	\item \textbf{Consegna:}
-	Viene consegnato il software al committente
+	Viene consegnato il \mgls{software} al committente
 \end{itemize}
 
 \newpage
