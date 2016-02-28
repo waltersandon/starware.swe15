@@ -128,8 +128,24 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 \section{Attori}
 
 \begin{figure}[H]
-    \includegraphics[width=\textwidth]{../img/diagramUCActors.png}
-    \caption{Diagramma attori}
+    \centering
+    \begin{tikzpicture}
+        \umlactor[x=0, y=4]{Utente}
+        \umlactor[x=0, y=2]{Ospite}
+
+        \umlactor[x=4, y=6]{Studente}
+        \umlactor[x=4, y=4]{Docente}
+        \umlactor[x=4, y=2]{Amministratore}
+
+        \umlactor[x=8, y=2]{Proprietario}
+
+        \umlinherit{Studente}{Utente}
+        \umlinherit{Docente}{Utente}
+        \umlinherit{Amministratore}{Utente}
+        \umlinherit{Proprietario}{Amministratore}
+    \end{tikzpicture}
+    \caption{Attori}
+    \label{fig:actors} 
 \end{figure}
 
 Di seguito viene fornita una breve descrizione degli attori utilizzati nei casi d'uso:
