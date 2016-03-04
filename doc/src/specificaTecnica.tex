@@ -1,0 +1,248 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Spefica tecnica}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{01 Marzo 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{0.0.1}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Informale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+	\begin{center}
+		\intestazione{\titoloDocumento}
+		
+		\begin{table}[h]
+			\begin{center}
+				\begin{tabular}{r | l}
+					\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+					\midrule
+					\textbf{Nome Documento} & \titoloDocumento \\
+					\textbf{Versione} & \versione \\
+					\textbf{Stato} & \emph{\stato} \\
+					\textbf{Uso} & \emph{\uso} \\
+					\textbf{Data Creazione} & \dataCreazione \\
+					\textbf{Data Ultima Modifica} & \today \\
+					\textbf{Redazione} & \AB\\
+					\  & \TP\\
+					\  &  \WS\\
+					\  &  \AVE\\
+					\textbf{Verifica} &  \IB\\
+					\ & \AVI \\
+					\textbf{Approvazione} &  \NDC\\
+					\textbf{Lista Distribuzione} & \nomeGruppo \\
+					\  & \Vardanega \\
+					\  & \Cardin \\
+					\  & Il proponente \Zucchetti \\
+					
+				\end{tabular}
+			\end{center}
+		\end{table}
+		
+	\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{center}
+	\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+		\toprule
+		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+		\midrule
+		\midrule
+		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella \ref{tab:intrest} \\*
+		\midrule
+		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
+		\bottomrule
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{longtable}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\listoftables
+\listoffigures
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo}
+
+
+\subsection{Descrizione}
+
+
+\subsection{Descrizione Prodotto}
+\descrizioneProdotto
+
+\subsection{Glossario}\label{glossario}
+\glossarioPrint
+
+\subsection{Riferimenti}\label{riferimenti}
+\subsubsection{Normativi}
+\begin{itemize}
+	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
+	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
+	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
+\end{itemize}
+
+\newpage
+
+\section{Tecnologie}
+\TODO{}
+
+\subsection{Linguaggi}
+\subsubsection{HTML5}
+\TODO{}
+
+\subsubsection{CSS3}
+\TODO{\NDC}
+
+\subsubsection{Java}
+\TODO{}
+
+\subsubsection{JavaScript}
+\TODO{}
+
+\subsubsection{SQL}
+\TODO{}
+
+\subsection{Frameworks}
+\subsubsection{AngularJS}
+\TODO{}
+\subsubsection{Bootstrap}
+\TODO{\NDC}
+
+\subsection{Database}
+\subsubsection{PostreSQL}
+\TODO{\TP}
+
+\newpage
+\section{Back-end}
+
+\subsection{Interfaccia REST}
+
+\begin{center}
+	\begin{longtable}[H]{p{0.3\textwidth} p{0.12\textwidth} p{0.18\textwidth} p{0.29\textwidth}}
+		\toprule
+		\textbf{URI} & \textbf{Metodo} & \textbf{Attore} & \textbf{Descrizione}\\*
+		\midrule
+		\texttt{/profile} & \textbf{GET} & Utente &  \\*
+		\midrule
+		\texttt{/profile} & \textbf{POST} & Ospite &  \\*
+		\midrule
+		\texttt{/profile} & \textbf{PUT} & Utente &  \\*
+		\midrule
+		\texttt{/profile} & \textbf{DELETE} & Utente &  \\*
+		\midrule
+		\texttt{/profile/invite} & \textbf{POST} & Amministratore &  \\*
+		\midrule
+		\texttt{/profile/invite} & \textbf{POST} & Proprietario &  \\*
+		\midrule
+		\texttt{/profile/forgotten} & \textbf{POST} & Ospite &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/questionnaire} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/questionnaire} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/questionnaire} & \textbf{POST} & Studente &  \\*
+		\midrule
+		\texttt{/questionnaire} & \textbf{POST} & Docente &  \\*
+		\midrule
+		\texttt{/questionnaire} & \textbf{PUT} & Docente &  \\*
+		\midrule
+		\texttt{/questionnaire} & \textbf{DELETE} & Docente &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/question} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/question} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/question} & \textbf{POST} & Studente &  \\*
+		\midrule
+		\texttt{/question} & \textbf{POST} & Docente &  \\*
+		\midrule
+		\texttt{/question} & \textbf{PUT} & Docente &  \\*
+		\midrule
+		\texttt{/question} & \textbf{DELETE} & Docente &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/subject} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/subject} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/subject} & \textbf{POST} & Docente &  \\*
+		\midrule
+		\texttt{/subject} & \textbf{PUT} & Docente &  \\*
+		\midrule
+		\texttt{/subject} & \textbf{DELETE} & Docente &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/class} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{POST} & Studente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{POST} & Docente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{PUT} & Docente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{DELETE} & Studente &  \\*
+		\midrule
+		\texttt{/class} & \textbf{DELETE} & Docente &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/answer/question} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/answer/question} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/answer/questionnaire} & \textbf{GET} & Studente &  \\*
+		\midrule
+		\texttt{/answer/questionnaire} & \textbf{GET} & Docente &  \\*
+		\midrule
+		\texttt{/answer/class} & \textbf{GET} & Docente &  \\*
+		
+		\midrule
+		\midrule
+		\texttt{/user} & \textbf{GET} & Amministratore &  \\*
+		\midrule
+		\texttt{/user} & \textbf{GET} & Proprietario &  \\*
+		\midrule
+		\texttt{/user} & \textbf{DELETE} & Amministratore &  \\*
+		\midrule
+		\texttt{/user} & \textbf{DELETE} & Proprietario &  \\*
+		
+		\bottomrule
+		\caption{Interfaccia REST}
+		\label{tab:intrest}
+	\end{longtable}
+\end{center}
+
+
+
+\end{document} 

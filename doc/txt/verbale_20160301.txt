@@ -1,0 +1,10 @@
+
+1) DB: Thomas e 
+
+2) Client: Igor, Walter e
+
+3) Server: Alessio e Nicola
+
+4) Prendere i casi d'uso e dividere il lavoro per i protocolli
+
+5) 
