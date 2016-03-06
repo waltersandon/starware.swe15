@@ -66,6 +66,8 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
+		\midrule
 		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella \ref{tab:intrest} \\*
 		\midrule
 		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
@@ -145,97 +147,97 @@
 		\toprule
 		\textbf{URI} & \textbf{Metodo} & \textbf{Attore} & \textbf{Descrizione}\\*
 		\midrule
-		\texttt{/profile} & \textbf{GET} & Utente &  \\*
+		\texttt{/profile} & \textbf{GET} & Utente & Restituisce i dati relativi all'utente \\*
 		\midrule
-		\texttt{/profile} & \textbf{POST} & Ospite &  \\*
+		\texttt{/profile} & \textbf{POST} & Ospite & Login, crea una nuova sessione associata all'utente \\*
 		\midrule
-		\texttt{/profile} & \textbf{PUT} & Utente &  \\*
+		\texttt{/profile} & \textbf{PUT} & Utente & Modifica i dati dell'utente \\*
 		\midrule
-		\texttt{/profile} & \textbf{DELETE} & Utente &  \\*
+		\texttt{/profile} & \textbf{DELETE} & Utente & Logout, elimina la sessione dell'utente \\*
 		\midrule
-		\texttt{/profile/invite} & \textbf{POST} & Amministratore &  \\*
+		\texttt{/profile/invite} & \textbf{POST} & Amministratore & Invia una mail di invito a registrazione ad un docente \\*
 		\midrule
-		\texttt{/profile/invite} & \textbf{POST} & Proprietario &  \\*
+		\texttt{/profile/invite} & \textbf{POST} & Proprietario & Invia una mail di invito a registrazione ad un amministratore \\*
 		\midrule
-		\texttt{/profile/forgotten} & \textbf{POST} & Ospite &  \\*
+		\texttt{/profile/forgotten} & \textbf{POST} & Ospite & Crea una richiesta di recupero password \\*
 		
 		\midrule
 		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Studente &  \\*
+		\texttt{/questionnaire} & \textbf{GET} & Studente & Restituisce uno specifico questionario da eseguire \\*
 		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Docente &  \\*
+		\texttt{/questionnaire} & \textbf{GET} & Docente & Restituisce uno specifico questionario completo\\*
 		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Studente &  \\*
+		\texttt{/questionnaire} & \textbf{POST} & Studente & Salva le risposte sul server e restituisce i risultati \\*
 		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Docente &  \\*
+		\texttt{/questionnaire} & \textbf{POST} & Docente & Crea un nuovo questionario \\*
 		\midrule
-		\texttt{/questionnaire} & \textbf{PUT} & Docente &  \\*
+		\texttt{/questionnaire} & \textbf{PUT} & Docente & Modifica un questionario \\*
 		\midrule
-		\texttt{/questionnaire} & \textbf{DELETE} & Docente &  \\*
+		\texttt{/questionnaire} & \textbf{DELETE} & Docente & Elimina un questionario \\*
 		
 		\midrule
 		\midrule
-		\texttt{/question} & \textbf{GET} & Studente &  \\*
+		\texttt{/question} & \textbf{GET} & Studente & Restituisce una domanda da eseguire \\*
 		\midrule
-		\texttt{/question} & \textbf{GET} & Docente &  \\*
+		\texttt{/question} & \textbf{GET} & Docente & Restituisce una domanda completa \\*
 		\midrule
-		\texttt{/question} & \textbf{POST} & Studente &  \\*
+		\texttt{/question} & \textbf{POST} & Studente & Salva la risposta sul server e restituisce il risultato \\*
 		\midrule
-		\texttt{/question} & \textbf{POST} & Docente &  \\*
+		\texttt{/question} & \textbf{POST} & Docente & Crea una nuova domanda \\*
 		\midrule
-		\texttt{/question} & \textbf{PUT} & Docente &  \\*
+		\texttt{/question} & \textbf{PUT} & Docente & Modifica una domanda \\*
 		\midrule
-		\texttt{/question} & \textbf{DELETE} & Docente &  \\*
+		\texttt{/question} & \textbf{DELETE} & Docente & Elimina una domanda \\*
 		
 		\midrule
 		\midrule
-		\texttt{/subject} & \textbf{GET} & Studente &  \\*
+		\texttt{/subject} & \textbf{GET} & Studente & Restituisce la lista degli argomenti \\*
 		\midrule
-		\texttt{/subject} & \textbf{GET} & Docente &  \\*
+		\texttt{/subject} & \textbf{GET} & Docente & Restituisce la lista degli argomenti \\*
 		\midrule
-		\texttt{/subject} & \textbf{POST} & Docente &  \\*
+		\texttt{/subject} & \textbf{POST} & Docente & Crea un nuovo argomento \\*
 		\midrule
-		\texttt{/subject} & \textbf{PUT} & Docente &  \\*
+		\texttt{/subject} & \textbf{PUT} & Docente & Modifica un argomento \\*
 		\midrule
-		\texttt{/subject} & \textbf{DELETE} & Docente &  \\*
+		\texttt{/subject} & \textbf{DELETE} & Docente & Elimina un argomento \\*
 		
 		\midrule
 		\midrule
-		\texttt{/class} & \textbf{GET} & Studente &  \\*
+		\texttt{/class} & \textbf{GET} & Studente & Restituisce le informazioni di una classe \\*
 		\midrule
-		\texttt{/class} & \textbf{GET} & Docente &  \\*
+		\texttt{/class} & \textbf{GET} & Docente & Restituisce le informazioni di una classe \\*
 		\midrule
-		\texttt{/class} & \textbf{POST} & Studente &  \\*
+		\texttt{/class} & \textbf{POST} & Studente & Iscrive lo studente alla classe \\*
 		\midrule
-		\texttt{/class} & \textbf{POST} & Docente &  \\*
+		\texttt{/class} & \textbf{POST} & Docente & Crea una nuova classe \\*
 		\midrule
-		\texttt{/class} & \textbf{PUT} & Docente &  \\*
+		\texttt{/class} & \textbf{PUT} & Docente & Modifica una classe \\*
 		\midrule
-		\texttt{/class} & \textbf{DELETE} & Studente &  \\*
+		\texttt{/class} & \textbf{DELETE} & Studente & Cancella l'iscrizione dello studente alla classe \\*
 		\midrule
-		\texttt{/class} & \textbf{DELETE} & Docente &  \\*
+		\texttt{/class} & \textbf{DELETE} & Docente & Elimina una classe \\*
 		
 		\midrule
 		\midrule
-		\texttt{/answer/question} & \textbf{GET} & Studente &  \\*
+		\texttt{/answer/question} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di una domanda \\*
 		\midrule
-		\texttt{/answer/question} & \textbf{GET} & Docente &  \\*
+		\texttt{/answer/question} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di una domanda \\*
 		\midrule
-		\texttt{/answer/questionnaire} & \textbf{GET} & Studente &  \\*
+		\texttt{/answer/questionnaire} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di un questionario \\*
 		\midrule
-		\texttt{/answer/questionnaire} & \textbf{GET} & Docente &  \\*
+		\texttt{/answer/questionnaire} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di un questionario \\*
 		\midrule
-		\texttt{/answer/class} & \textbf{GET} & Docente &  \\*
+		\texttt{/answer/class} & \textbf{GET} & Docente & restituisce le risposte e le statistiche di una classe \\*
 		
 		\midrule
 		\midrule
-		\texttt{/user} & \textbf{GET} & Amministratore &  \\*
+		\texttt{/user} & \textbf{GET} & Amministratore & Restituisce la lista di Docenti e Studenti \\*
 		\midrule
-		\texttt{/user} & \textbf{GET} & Proprietario &  \\*
+		\texttt{/user} & \textbf{GET} & Proprietario & Restituisce la lista di amministratori\\*
 		\midrule
-		\texttt{/user} & \textbf{DELETE} & Amministratore &  \\*
+		\texttt{/user} & \textbf{DELETE} & Amministratore & Elimina un utente di tipo Studente o Docente \\*
 		\midrule
-		\texttt{/user} & \textbf{DELETE} & Proprietario &  \\*
+		\texttt{/user} & \textbf{DELETE} & Proprietario & Elimina un amministratore \\*
 		
 		\bottomrule
 		\caption{Interfaccia REST}
