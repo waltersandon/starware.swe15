@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.2}
+\newcommand{\versione}{0.0.3}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -66,6 +66,8 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		0.0.3 & \AVE{} & 2016-03-09 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{node.js},\ref{nosql},\ref{mongoose},\ref{mongodb}]  \\*
+		\midrule
 		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
 		\midrule
 		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella \ref{tab:intrest} \\*
@@ -108,8 +110,9 @@
 
 \newpage
 
-\section{Tecnologie}
-\TODO{}
+\section{Tecnologie}\label{tecnologie}
+In questa sezione verranno descritte le tecnologie che il gruppo ha deciso di utilizzare per lo sviluppo dell'applicazione \prjL{}, alcune delle quali sono state consigliate dal \mgls{proponente}.
+
 
 \subsection{Linguaggi}
 \subsubsection{HTML5}
@@ -118,24 +121,60 @@
 \subsubsection{CSS3}
 \TODO{\NDC}
 
-\subsubsection{Java}
-\TODO{}
+\subsubsection{Node.js}\label{node.js}
+%copiata dagli steakholders
+\mgls{Node.js} è una \mgls{piattaforma} \mgls{software} sviluppata in \mgls{C}, \mgls{C++} e \mgls{Javascript}, costruita sul motore  \mgls{V8 JavaScript Engine} di \mgls{Google Chrome} che permette di realizzare facilmente applicazioni di rete scalabili e veloci. \mgls{Node.js} utilizza \mgls{Javascript} come linguaggio di programmazione, il quale, grazie al suo modello \mgls{event-driver} con chiamate di \mgls{I/O} non bloccanti, risulta essere leggero e efficiente.
+I principali vantaggi derivanti dall’utilizzo di \mgls{Node.js} sono:
+\begin{itemize}
+	\item \textbf{Approccio asincrono:} \mgls{Node.js} permette di accedere alle risorse del sistema operativo in modalità \mgls{event-driven} e non sfruttando il classico modello basato su processi o \mgls{thread} concorrenti utilizzato dai classici web server. Ciò garantisce una maggiore efficienza in termini di prestazioni, poiché durante le attese il runtime può gestire qualcos’altro in maniera asincrona
+	\item \textbf{Architettura modulare:} lavorando con \mgls{Node.js} è molto facile organizzare il lavoro in librerie, importare i \mgls{moduli} e combinarli fra loro. Questo è reso molto comodo attraverso il \mgls{node package manager} (npm) attraverso il quale lo sviluppatore può contribuire e
+	accedere ai \mgls{package} messi a disposizione dalla community.
+	Le applicazioni \mgls{Node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{Node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete.
+\end{itemize}
+
+
 
 \subsubsection{JavaScript}
 \TODO{}
 
-\subsubsection{SQL}
-\TODO{}
+\subsubsection{NoSql}\label{nosql}
+I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente.
+Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{API} semplici e la possibilità di avere una quantità di dati enormi al loro interno.
+Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database.
+
 
 \subsection{Frameworks}
 \subsubsection{AngularJS}
 \TODO{}
 \subsubsection{Bootstrap}
 \TODO{\NDC}
+\subsubsection{Express}
+\TODO{\NDC}
+
+\subsection{Librerie}\label{librery}
+\subsubsection{Mongoose}\label{mongoose}
+%copiata dagli stakeholders
+\mgls{Mongoose} è una libreria per interfacciarsi a \mgls{MongoDB} che permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
+La documentazione di \mgls{Mongoose} è ben fornita e descrive le \mgls{API} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente.
+Per interfacciare l’application server con \mgls{MongoDB} sono disponibili diversi progetti \mgls{open-source}.
+Per questo progetto è stato scelto di utilizzare \mgls{Mongoose}, attualmente il più diffuso \mgls{ODM}.
 
 \subsection{Database}
-\subsubsection{PostreSQL}
-\TODO{\TP}
+\subsubsection{MongoDB}\label{mongodb}
+%copiata dagli stakeholders
+\mgls{MongoDB} è un database \mgls{nosql} \mgls{open-source} scalabile e altamente performante di tipo \mgls{document-oriented}, in cui i dati sono archiviati sotto forma di documenti in stile \mgls{JSON} con
+schemi dinamici che \mgls{MongoDB} chiama \mgls{BSON}, secondo una struttura semplice e potente.
+I principali vantaggi derivati dal suo utilizzo sono:
+\begin{itemize}
+	\item \textbf{Alte performance:} non ci sono \mgls{join} che possono rallentare le operazioni di lettura o scrittura. L’indicizzazione include gli indici di chiave anche sui documenti innestati e sugli array, permettendo una rapida interrogazione al database
+	\item \textbf{Affidabilità:} alto meccanismo di replicazione su server
+	\item \textbf{Schemaless:} non esiste nessuno \mgls{schema}, è più flessibile e può essere facilmente trasposto in un modello ad oggetti
+	\item Permette di processare parallelamente i dati (\mgls{Map-Reduce})
+	\item Tipi di dato più flessibili
+\end{itemize}
+Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo.
+Inoltre, \mgls{MongoDB} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
+
 
 \newpage
 \section{Back-end}
