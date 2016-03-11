@@ -63,6 +63,8 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+        \midrule
+        1.1.3 & \AB{} & 2016-02-30 & Aggiunta revisione interna [aggiunta sez. \ref{sec:analisidettaglio}] \\*
 		\midrule
 		1.1.2 & \AVE{} & 2016-02-25 & Aggiunta del \textit{PianoDiQualifica\_v2.0.0} ai riferimenti normativi [modifica sez. \ref{riferimenti}] \\*		
 		\midrule
@@ -531,14 +533,14 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \end{center}
 
 \newpage
-\subsection{Progettazione}
-Questo periodo ha inizio il 2015-02-16 e termina il 2016-04-11. I ruoli attivi in questo periodo saranno:
+
+\subsection{Analisi di Dettaglio}
+Questo periodo ha inizio il 2016-02-16 e termina il 2016-03-01. I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
 	\item \PM{};
 	\item \AM{};
 	\item \AN{};
-	\item \PR{};
 	\item \VR{}.
 \end{itemize}
 
@@ -549,14 +551,8 @@ Le attività svolte sono:
 	Il documento è appena stato corretto nella \RR{} e può richiedere correzioni e incrementi
 	\item \textbf{\NdP{}:}
 	Il documento potrebbe subire variazioni in base alle nuove necessità e strumenti
-	\item \textbf{\PdP{}:}
-	E' necessario aggiornare questo documento con lo stato di avanzamento dei lavori dalla versione precedente
 	\item \textbf{\PdQ{}:}
 	La strategia di verifica deve essere aggiornata in base alle nuove richieste
-	\item \textbf{\ST{}:}
-	Descrive la progettazione ad alto livello e i design pattern utilizzati
-	\item \textbf{\DP{}:}
-	Redazione di questo documento che descrive in dettaglio l'architettura del sistema in modo che i programmatori ottengano specifiche dettagliate
 \end{itemize}
 
 \newpage
@@ -569,27 +565,79 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\toprule
 			\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore}\\ \midrule
 			\midrule
-			\textbf{PA1} & \textbf{\AdR{}} & &  \\ \midrule
-			PA1.1 & Incremento & \AN{} & 10 \\ \midrule
-			PA1.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PA2} & \textbf{\NdP{}} &  &  \\ \midrule
-			PA2.1 & Incremento & \AM{} & 8 \\ \midrule
-			PA2.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{AD1} & \textbf{\AdR{}} & &  \\ \midrule
+			AD1.1 & Incremento & \AN{} & 10 \\ \midrule
+			AD1.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{AD2} & \textbf{\NdP{}} &  &  \\ \midrule
+			AD2.1 & Incremento & \AM{} & 8 \\ \midrule
+			AD2.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{AD4} & \textbf{\PdQ{}} & &  \\ \midrule
+			AD4.1 & Incremento & \RE{} & 4 \\ \midrule
+			AD4.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{AD5} & \textbf{Glossario} & &  \\ \midrule
+			AD5.1 & Incremento & \VR{} & 1 \\ \midrule
+			AD5.2 & Verifica & \VR{} & 1 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione delle risorse - \FAD{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Diagramma di Gantt}
+\label{gantt analisi di dettaglio}
+Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/ganttAnalisiDiDettaglio.png}
+		\caption{Diagramma di Gantt - \FAD{}}
+	\end{figure}
+\end{center}
+
+\newpage
+
+\subsection{Progettazione}
+\label{sec:progettazione}
+Questo periodo ha inizio il 2016-03-02 e termina il 2016-04-11. I ruoli attivi in questo periodo saranno:
+
+\begin{itemize}
+	\item \PR{};
+	\item \VR{}.
+\end{itemize}
+
+Le attività svolte sono:
+
+\begin{itemize}
+	\item \textbf{\ST{}:}
+	Descrive la progettazione ad alto livello e i design pattern utilizzati
+	\item \textbf{\DP{}:}
+	Redazione di questo documento che descrive in dettaglio l'architettura del 
+    sistema in modo che i programmatori ottengano specifiche dettagliate
+	\item \textbf{\PdP{}:}
+	E' necessario aggiornare questo documento con lo stato di avanzamento dei lavori 
+    dalla versione precedente
+\end{itemize}
+
+\newpage
+\subsubsection{Ripartizione delle risorse}
+Nella tabella seguente è riportata la ripartizione delle ore tra le varie attività previste.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
+			\toprule
+			\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore}\\ \midrule
+			\midrule
+			\textbf{PA1} & \textbf{\ST{}} & &  \\ \midrule
+			PA1.1 & Stesura & \PG{} & 59 \\ \midrule
+			PA1.2 & Verifica & \VR{} & 20 \\ \midrule
+			\textbf{PA2} & \textbf{\DP{}} & &  \\ \midrule
+			PA2.1 & Stesura & \PG{} & 100 \\ \midrule
+			PA2.2 & Verifica & \VR{} & 30 \\ \midrule
 			\textbf{PA3} & \textbf{\PdP{}} & &  \\ \midrule
 			PA3.1 & Incremento & \RE{} & 4 \\ \midrule
 			PA3.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PA4} & \textbf{\PdQ{}} & &  \\ \midrule
-			PA4.1 & Incremento & \RE{} & 4 \\ \midrule
-			PA4.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PA5} & \textbf{\ST{}} & &  \\ \midrule
-			PA5.1 & Stesura & \PG{} & 59 \\ \midrule
-			PA5.2 & Verifica & \VR{} & 20 \\ \midrule
-			\textbf{PA6} & \textbf{\DP{}} & &  \\ \midrule
-			PA6.1 & Stesura & \PG{} & 100 \\ \midrule
-			PA6.2 & Verifica & \VR{} & 30 \\ \midrule
-			\textbf{PA7} & \textbf{Glossario} & &  \\ \midrule
-			PA7.1 & Incremento & \VR{} & 1 \\ \midrule
-			PA7.2 & Verifica & \VR{} & 1 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -597,14 +645,6 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 \end{table}
 
 \newpage
-\subsubsection{Revisioni interne}\label{revisoni interne progettazione}
-Data la lunghezza del periodo di \FP\ si è deciso per motivi di efficienza e per evitare di incorrere in errori di valutazione sulla pianificazione troppo a lungo termine di spezzare il periodo con delle revisioni interne ovvero delle \mglspl{milestone} che hanno come obbiettivo creare una \mgls{baseline} e compiere delle misurazioni sui processi per verificarne l'efficienza, l'efficacia e la qualità. Per le metriche e la loro misurazione di veda il \PdQ\ \textit{v2.0.0}.
-
-Le revisioni interne previste sono state pianificate per le seguenti date con gli obbiettivi specificati:
-\begin{itemize}
-	\item \textbf{2016-03-01:} incremento dei documenti ove possibile e revisione in base a quanto segnalato dai docenti dopo la \RR
-	\item \textbf{2016-03-14:} finita la progettazione architetturale ovvero con la stesura della \ST\ e ora si può procedere con la progettazione di dettaglio ovvero con la stesura della \DP
-\end{itemize}
 
 \subsubsection{Diagramma di Gantt}\label{gantt progettazione}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
