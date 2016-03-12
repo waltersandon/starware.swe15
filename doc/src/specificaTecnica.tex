@@ -75,7 +75,7 @@
 		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
 		\bottomrule
 		\caption{Versionamento del documento}
-		\label{tabVers1}
+		\label{tabVers1} 
 	\end{longtable}
 \end{center}
 
@@ -116,29 +116,30 @@ In questa sezione verranno descritte le tecnologie che il gruppo ha deciso di ut
 
 \subsection{Linguaggi}
 \subsubsection{HTML5}
-\TODO{}
-
-\subsubsection{CSS3}
-\TODO{\NDC}
-
-\subsubsection{Node.js}\label{node.js}
-%copiata dagli steakholders
-%Node.js is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework,[3] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Google's V8 JavaScript engine.Node.js has an event-driven architecture capable of asynchronous I/O. These design choices are meant to optimize throughput and scalability in Web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).[4]Node.js is a distributed development project governed by the Node.js Foundation,[5] and facilitated by the Linux Foundation's Collaborative Projects program.[6]
-
-
-\mgls{Node.js} è una \mgls{piattaforma} \mgls{software} sviluppata in \mgls{C}, \mgls{C++} e \mgls{Javascript}, costruita sul motore  \mgls{V8 JavaScript Engine} di \mgls{Google} che permette di realizzare facilmente applicazioni di rete scalabili e veloci. \mgls{Node.js} utilizza \mgls{Javascript} come linguaggio di programmazione, il quale, grazie al suo modello \mgls{event-driver} con chiamate di \mgls{I/O} non bloccanti, risulta essere leggero e efficiente.
-I principali vantaggi derivanti dall’utilizzo di \mgls{Node.js} sono:
+L’\mgls{html5} è un linguaggio di \mgls{markup} per strutturare pagine web. Verrà utilizzato per la realizzazione dell’interfaccia grafica Web dell’applicativo. \mgls{html5} è diventato standard \mgls{w3c} nell’ottobre 2014 ed è ben supportato dai \mgls{browser} moderni.
+I vantaggi principali del linguaggio sono:
 \begin{itemize}
-	\item \textbf{Approccio asincrono:} \mgls{Node.js} permette di accedere alle risorse del sistema operativo in modalità \mgls{event-driven} e non sfruttando il classico modello basato su processi o \mgls{thread} concorrenti utilizzato dai classici web server. Ciò garantisce una maggiore efficienza in termini di prestazioni, poiché durante le attese il runtime può gestire qualcos’altro in maniera asincrona
-	\item \textbf{Architettura modulare:} lavorando con \mgls{Node.js} è molto facile organizzare il lavoro in librerie, importare i \mgls{moduli} e combinarli fra loro. Questo è reso molto comodo attraverso il \mgls{node package manager} (npm) attraverso il quale lo sviluppatore può contribuire e
-	accedere ai \mgls{package} messi a disposizione dalla community.
-	Le applicazioni \mgls{Node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{Node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete.
+	\item permette di definire in maniera semplice la struttura delle pagine web;
+	\item permette una maggiore semantica della pagina web, garantendo così una migliore indicizzazione da parte dei motori di ricerca.
 \end{itemize}
 
-
+\subsubsection{CSS3}
+CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’aspetto grafico delle pagine web per l'applicazione qualora non bastassero i costrutti forniti dal
+\mgls{framework} Bootstrap \ref{bootsrap}.
 
 \subsubsection{JavaScript}
-\TODO{}
+\mgls{javascript} è un linguaggio di \mgls{scripting} interpretato che consente ai \mgls{browser} di eseguire codice rendendo le pagine web dinamiche. Consente di realizzare prodotti \mgls{software} che eseguono sfruttandoo le capacità di calcolo fornite dai \mgls{browser} degli utenti e quindi, che non necessitano dell’intervento di elaborazione del \mgls{server}. \mgls{javascript} tuttavia introduce anche degli aspetti critici a cui il gruppo dovrà prestare particolare attenzione: come la mancanza di tipizzazione del linguaggio, che potrebbe indurre a commettere errori nel codice e rendere più difficile, oppure gli eventuali problemi di sicurezza per l'utente nel caso venisse eseguito del codice malevolo.
+la progettazione dei test.
+I principali motivi della scelta di questo linguaggio sono:
+\begin{itemize}
+	\item Velocità di risposta dell’applicazione complessivamente migliore, a causa dell’esecuzione locale;
+	\item Possibilità di rendere dinamiche le pagine web e di estenderne le funzionalità;
+	\item Permette di reagire ad eventi generati dall’interazione tra l’utente e la pagina.
+\end{itemize}
+\mgls{javascript} verrà impiegato per tutte le funzionalità legate allo standard \mgls{html5} che non sono direttamente accessibili dal \mgls{framework} \mgls{angularjs}.
+
+\TODO{da definire se bisogna aggiungere altri ambiti}
+
 
 \subsubsection{NoSql}\label{nosql}
 I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente.
@@ -147,20 +148,46 @@ Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologi
 
 
 \subsection{Frameworks}
+\subsubsection{Node.js}\label{node.js}
+
+\mgls{Node.js} è un \mgls{framework} \mgls{open-source} per lo sviluppo di applicazioni Web server-side.
+Anche se \mgls{Node.js} non è un \mgls{framework} \mgls{Javascript} molti dei suoi moduli base  sono scritti in \mgls{Javascript}, e gli sviluppatori possono facilmente scriverne di nuovi.
+\mgls{Node.js} ha un architettura di tipo \mgls{event-driven} capace di chiamate \mgls{I/O} asincrone, il che lo rende particolarmente adatto per lo sviluppo di server Web.
+Queste scelte di design nel linguaggio di ottimizzare la capacità e la scalabilità delle applicazioni Web con molte operazioni di \mgls{I/O}.
+Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{Node.js} sono quindi:
+\begin{itemize}
+	\item \textbf{Approccio asincrono:} in quanto permette di accedere alle risorse del sistema operativo in modalità \mgls{event-driven} e non sfruttando il classico modello basato su processi o \mgls{thread} concorrenti utilizzato dai classici web server. Ciò garantisce una maggiore efficienza in termini di prestazioni, poiché durante le attese il runtime può gestire qualcos’altro in maniera asincrona
+	
+	\item \textbf{Architettura modulare:} lavorando con \mgls{Node.js} è molto facile organizzare il lavoro in librerie, importare i \mgls{moduli} e combinarli fra loro. Questo è reso molto comodo attraverso il \mgls{node package manager} (npm) attraverso il quale lo sviluppatore può contribuire e
+	accedere ai \mgls{package} messi a disposizione dalla community.
+	Le applicazioni \mgls{Node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{Node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete
+\end{itemize}
+
 \subsubsection{AngularJS}
 \TODO{}
-\subsubsection{Bootstrap}
-\TODO{\NDC}
+\subsubsection{Bootstrap}\label{bootsrap}
+Bootstrap è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}.
+Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
+\begin{itemize}
+	\item Permette all’applicativo di essere responsive G applicando facilmente delle regole già pronte;
+	\item Le diverse componenti vengono già incorporate direttamente nel \mgls{framework} \mgls{angularjs};
+	\item Presenza di una vasta comunità a supporto;
+	\item Permette di gestire in modo automatico il \mgls{rendering} delle pagine dell'applicazione per svariati dispositivi (smartphone, tablet, Pc).
+\end{itemize}
+
+
 \subsubsection{Express}
-\TODO{\NDC}
+application framework to help organize your web application into an MVC architecture on the server side
+
+Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{Node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{Node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mgls{viste}.
+Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
+
 
 \subsection{Librerie}\label{librery}
 \subsubsection{Mongoose}\label{mongoose}
-%copiata dagli stakeholders
-\mgls{Mongoose} è una libreria per interfacciarsi a \mgls{MongoDB} che permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
+Per questo progetto è stato scelto di utilizzare \mgls{Mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
 La documentazione di \mgls{Mongoose} è ben fornita e descrive le \mgls{API} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente.
-Per interfacciare l’application server con \mgls{MongoDB} sono disponibili diversi progetti \mgls{open-source}.
-Per questo progetto è stato scelto di utilizzare \mgls{Mongoose}, attualmente il più diffuso \mgls{ODM}.
+
 
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
