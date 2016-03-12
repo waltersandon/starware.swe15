@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.3}
+\newcommand{\versione}{0.0.4}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -66,6 +66,8 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{html},\ref{css},\ref{javascript},\ref{express},\ref{bootstrap},\ref{angularjs}]  \\*
+		\midrule
 		0.0.3 & \AVE{} & 2016-03-09 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{node.js},\ref{nosql},\ref{mongoose},\ref{mongodb}]  \\*
 		\midrule
 		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
@@ -115,7 +117,7 @@ In questa sezione verranno descritte le tecnologie che il gruppo ha deciso di ut
 
 
 \subsection{Linguaggi}
-\subsubsection{HTML5}
+\subsubsection{HTML5}\label{html}
 L’\mgls{html5} è un linguaggio di \mgls{markup} per strutturare pagine web. Verrà utilizzato per la realizzazione dell’interfaccia grafica Web dell’applicativo. \mgls{html5} è diventato standard \mgls{w3c} nell’ottobre 2014 ed è ben supportato dai \mgls{browser} moderni.
 I vantaggi principali del linguaggio sono:
 \begin{itemize}
@@ -123,11 +125,11 @@ I vantaggi principali del linguaggio sono:
 	\item permette una maggiore semantica della pagina web, garantendo così una migliore indicizzazione da parte dei motori di ricerca.
 \end{itemize}
 
-\subsubsection{CSS3}
+\subsubsection{CSS3}\label{css}
 CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’aspetto grafico delle pagine web per l'applicazione qualora non bastassero i costrutti forniti dal
 \mgls{framework} Bootstrap \ref{bootsrap}.
 
-\subsubsection{JavaScript}
+\subsubsection{JavaScript}\label{javascript}
 \mgls{javascript} è un linguaggio di \mgls{scripting} interpretato che consente ai \mgls{browser} di eseguire codice rendendo le pagine web dinamiche. Consente di realizzare prodotti \mgls{software} che eseguono sfruttandoo le capacità di calcolo fornite dai \mgls{browser} degli utenti e quindi, che non necessitano dell’intervento di elaborazione del \mgls{server}. \mgls{javascript} tuttavia introduce anche degli aspetti critici a cui il gruppo dovrà prestare particolare attenzione: come la mancanza di tipizzazione del linguaggio, che potrebbe indurre a commettere errori nel codice e rendere più difficile, oppure gli eventuali problemi di sicurezza per l'utente nel caso venisse eseguito del codice malevolo.
 la progettazione dei test.
 I principali motivi della scelta di questo linguaggio sono:
@@ -163,9 +165,21 @@ Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{Nod
 	Le applicazioni \mgls{Node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{Node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete
 \end{itemize}
 
-\subsubsection{AngularJS}
-\TODO{}
-\subsubsection{Bootstrap}\label{bootsrap}
+\subsubsection{AngularJS}\label{angularjs}
+\mgls{angularjs} è un \mgls{framework} \mgls{javascript} \mgls{open-source}  inspirato al pattern \mgls{mvc} patrocinato da \mgls{Google}.
+Uno dei vantaggi più grandi che caratterizzano questo \mgls{framework} è la possibilità di integrare e
+utilizzare molte funzioni utilizzando quasi esclusivamente l’\mgls{html} grazie all’approccio dichiarativo, permettendo di estenderne la sintassi per esprimere le componenti dell’applicazione in maniera chiara e succinta.
+Le caratteristiche principali che caratterizzano questo \mgls{framework} sono:
+\begin{itemize}
+	\item \textbf{Data Binding:} è un’ approccio automatico per aggiornare la \mgls{vista} ogni qualvolta il \mgls{model} cambia e viceversa. Aiuta lo sviluppo eliminando la manipolazione del \mgls{dom} allo sviluppatore
+	\item \textbf{Dependency injection:} permette di descrivere in maniera dichiarativa quali sono le
+	dipendenze che l’applicazione possiede, isolando i comportamenti e le responsabilità dei componenti garantendo un facile rimpiazzo di quest’ultimi. Questo meccanismo favorisce inoltre la testabilità del codice dell’applicazione	
+\end{itemize}
+\mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la parte algoritmica del \mgls{front-end}.
+
+
+
+\subsubsection{Bootstrap}\label{bootstrap}
 Bootstrap è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}.
 Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
 \begin{itemize}
@@ -176,10 +190,10 @@ Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
 \end{itemize}
 
 
-\subsubsection{Express}
+\subsubsection{Express}\label{express}
 application framework to help organize your web application into an MVC architecture on the server side
 
-Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{Node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{Node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mgls{viste}.
+Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{Node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{Node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}.
 Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
 
 
