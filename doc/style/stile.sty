@@ -106,6 +106,7 @@
 \newcommand{\FA}{\emph{\mGls{analisi}}}
 \newcommand{\FAD}{\emph{\mGls{analisi di dettaglio}}}
 \newcommand{\FP}{\emph{\mGls{progettazione}}}
+\newcommand{\FPD}{\emph{\mGls{progettazione di dettaglio}}}
 \newcommand{\FC}{\emph{\mGls{codifica}}}
 \newcommand{\FV}{\emph{\mGls{validazione}}}
 
@@ -231,3 +232,22 @@ Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somminist
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+% A tizk picture that is resized as needed.
+% It's usually instanciated with:
+%       \begin{resizedtikzpicture}{\textwidth}
+%           ...
+%       \end{resizedtikzpicture}
+\newsavebox\mybox
+\newenvironment{resizedtikzpicture}[1]{%
+    \def\mywidth{#1}%
+    \begin{lrbox}{\mybox}%
+    \begin{tikzpicture}
+}{%
+    \end{tikzpicture}%
+    \end{lrbox}%
+    \ifdim\wd\mybox>\mywidth
+        \resizebox{\mywidth}{!}{\usebox\mybox}%
+    \else
+        \usebox\mybox %
+    \fi
+}
