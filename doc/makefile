@@ -13,3 +13,6 @@ pdf/%.pdf: src/%.tex
 
 $(PDF):
 	mkdir -p $(PDF)
+
+setup:
+	sudo tlmgr update pgf

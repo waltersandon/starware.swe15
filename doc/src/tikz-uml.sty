@@ -626,7 +626,10 @@
   \setcounter{posT}{100*\real{\positionT}}%
   \setcounter{posStereo}{100*\real{\positionStereotype}}%
   %
-  \pgfmathsetmacro{\weightT}{1-\real{\weight}}%
+  \tikzmath{%
+      real \weightT;%
+      \weightT = 1 - real \weight;%               
+  }%
   %
   \def\tikzumlControlNodesNum{0}%
   %
