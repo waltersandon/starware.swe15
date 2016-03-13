@@ -825,50 +825,95 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\toprule
 			\textbf{ID}	& \textbf{Attività}	& \textbf{Ruolo} & \textbf{Ore} \\ \midrule
 			\midrule
-			\textbf{PDC1} & \textbf{\AdR{}} & &  \\ \midrule
-			PDC1.1 & Incremento & \AN{} & 8 \\ \midrule
-			PDC1.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC2} & \textbf{\NdP{}} &  & \\ \midrule
-			PDC2.1 & Incremento & \AM{} & 6 \\ \midrule
-			PDC2.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC3} & \textbf{\PdP{}} & &  \\ \midrule
-			PDC3.1 & Incremento & \RE{} & 4 \\ \midrule
-			PDC3.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC4} & \textbf{\PdQ{}} & & \\ \midrule
-			PDC4.1 & Incremento & \RE{} \newline \PG & 2 \newline 6 \\ \midrule
-			PDC4.3 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC5} & \textbf{\ST{}} & & \\ \midrule
-			PDC5.1 & Incremento & \PG{} & 8 \\ \midrule
-			PDC5.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC6} & \textbf{\DP{}} & & \\ \midrule
-			PDC6.1 & Incremento & \PG{} & 10 \\ \midrule
-			PDC6.2 & Verifica & \VR{} & 4 \\ \midrule
-			\textbf{PDC7} & \textbf{Codifica} & & \\ \midrule
-			PDC7.1 & Stesura & \PR{} & 95 \\ \midrule
-			PDC7.2 & Verifica & \VR{} & 40 \\ \midrule
-			\textbf{PDC8} & \textbf{\MU{}} & & \\ \midrule
-			PDC8.1 & Stesura & \AM{} \newline \PG{} & 1 \newline 5 \\ \midrule
-			PDC8.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{PDC9} & \textbf{Glossario} & & \\ \midrule
-			PDC9.1 & Incremento & \VR{} & 1 \\ \midrule
-			PDC9.2 & Verifica & \VR{} & 1 \\
+			\textbf{C1} & \textbf{\AdR{}} & &  \\ \midrule
+			C1.1 & Incremento & \AN{} & 8 \\ \midrule
+			C1.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C2} & \textbf{\NdP{}} &  & \\ \midrule
+			C2.1 & Incremento & \AM{} & 6 \\ \midrule
+			C2.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C3} & \textbf{\PdP{}} & &  \\ \midrule
+			C3.1 & Incremento & \RE{} & 4 \\ \midrule
+			C3.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C4} & \textbf{\PdQ{}} & & \\ \midrule
+			C4.1 & Incremento & \RE{} \newline \PG & 2 \newline 6 \\ \midrule
+			C4.3 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C5} & \textbf{\ST{}} & & \\ \midrule
+			C5.1 & Incremento & \PG{} & 8 \\ \midrule
+			C5.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C6} & \textbf{\DP{}} & & \\ \midrule
+			C6.1 & Incremento & \PG{} & 10 \\ \midrule
+			C6.2 & Verifica & \VR{} & 4 \\ \midrule
+			\textbf{C7} & \textbf{Codifica} & & \\ \midrule
+			C7.1 & Stesura & \PR{} & 95 \\ \midrule
+			C7.2 & Verifica & \VR{} & 40 \\ \midrule
+			\textbf{C8} & \textbf{\MU{}} & & \\ \midrule
+			C8.1 & Stesura & \AM{} \newline \PG{} & 1 \newline 5 \\ \midrule
+			C8.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{C9} & \textbf{Glossario} & & \\ \midrule
+			C9.1 & Incremento & \VR{} & 1 \\ \midrule
+			C9.2 & Verifica & \VR{} & 1 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPDC{}}
 	\end{center}
 \end{table}
 
-\newpage
 \subsubsection{Diagramma di Gantt}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
 
-\begin{center}
-	\begin{figure}[H]
-		\centering
-		% \includegraphics[width=\textwidth]{../img/ganttCodifica.png}
-		\caption{Diagramma di Gantt - \FPDC{}}
-	\end{figure}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \begin{resizedtikzpicture}{\textwidth}
+        \begin{ganttchart}[
+                hgrid,
+                vgrid,
+                time slot format=isodate,
+                bar/.append style={fill=blue!50}
+            ]{2016-04-11}{2016-05-17}
+            \setganttlinklabel{f-s}{$\hspace{1cm}$}
+            \gantttitlecalendar{year, month=name, day} \\
+            \ganttgroup{C1: \AdR{}}{2016-04-12}{2016-04-15} \\
+            \ganttbar{C1.1: Incremento}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C1.2: Verifica}{2016-04-15}{2016-04-15} \\
+            \ganttlink[link type=f-s]{elem1}{elem2}
+            \ganttgroup{C2: \NdP{}}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C2.1: Incremento}{2016-04-12}{2016-04-13} \\
+            \ganttbar{C2.2: Verifica}{2016-04-14}{2016-04-14} \\
+            \ganttlink[link type=f-s]{elem4}{elem5}
+            \ganttgroup{C3: \PdP{}}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C3.1: Incremento}{2016-04-12}{2016-04-13} \\
+            \ganttbar{C3.2: Verifica}{2016-04-14}{2016-04-14} \\
+            \ganttlink[link type=f-s]{elem7}{elem8}
+            \ganttgroup{C4: \AdR{}}{2016-04-12}{2016-04-15} \\
+            \ganttbar{C4.1: Incremento}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C4.2: Verifica}{2016-04-15}{2016-04-15} \\
+            \ganttlink[link type=f-s]{elem10}{elem11}
+            \ganttgroup{C5: \ST{}}{2016-04-12}{2016-04-15} \\
+            \ganttbar{C5.1: Incremento}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C5.2: Verifica}{2016-04-15}{2016-04-15} \\
+            \ganttlink[link type=f-s]{elem13}{elem14}
+            \ganttgroup{C6: \DP{}}{2016-04-16}{2016-04-21} \\
+            \ganttbar{C6.1: Incremento}{2016-04-16}{2016-04-19} \\
+            \ganttbar{C6.2: Verifica}{2016-04-20}{2016-04-21} \\
+            \ganttlink[link type=f-s]{elem16}{elem17}
+            \ganttlink[link mid=.90]{elem12}{elem15}
+            \ganttgroup{C7: Codifica}{2016-04-22}{2016-05-16} \\
+            \ganttbar{C7.1: Stesura}{2016-04-22}{2016-05-10} \\
+            \ganttbar{C7.2: Verifica}{2016-05-11}{2016-05-16} \\
+            \ganttlink[link type=f-s]{elem19}{elem20}
+            \ganttlink[link mid=.90]{elem15}{elem18}
+            \ganttgroup{C8: \PdP{}}{2016-04-12}{2016-04-14} \\
+            \ganttbar{C8.1: Stesura}{2016-04-12}{2016-04-13} \\
+            \ganttbar{C8.2: Verifica}{2016-04-14}{2016-04-14} \\
+            \ganttlink[link type=f-s]{elem22}{elem23}
+            \ganttgroup{C9: Glossario}{2016-04-12}{2016-04-13} \\
+            \ganttbar{C9.1: Incremento}{2016-04-12}{2016-04-12} \\
+            \ganttbar{C9.2: Verifica}{2016-04-13}{2016-04-13}
+            \ganttlink[link type=f-s]{elem25}{elem26}
+        \end{ganttchart}
+    \end{resizedtikzpicture}
+    \caption{Diagramma di Gantt - \FPDC{}}
+\end{figure}
 
 \newpage
 \subsection{Validazione}
@@ -912,47 +957,47 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
 			\midrule
 			\midrule
-			\textbf{VV1} & \textbf{Glossario} &  &  \\
+			\textbf{VV1} & \textbf{\NdP{}} & & \\
 			\midrule
-			VV1.1 & Incremento & \AM{} &  \\
+			VV1.1 & Incremento & \AM{} & 6 \\
 			\midrule
 			VV1.2 & Verifica & \VR{} & 3 \\
 			\midrule
-			\textbf{VV2} & \textbf{\NdP{}} & & \\
+			\textbf{VV2} & \textbf{\PdP{}} & &  \\
 			\midrule
-			VV2.1 & Incremento & \AM{} & 6 \\
+			VV2.1 & Incremento & \RE{} & 2 \\
 			\midrule
 			VV2.2 & Verifica & \VR{} & 3 \\
 			\midrule
-			\textbf{VV3} & \textbf{\PdP{}} & &  \\
+			\textbf{VV3} & \textbf{\PdQ{}} & &  \\
 			\midrule
-			VV3.1 & Incremento & \RE{} & 2 \\
+			VV3.1 & Incremento & \VR{} & 22 \\
 			\midrule
-			VV3.2 & Verifica & \VR{} & 3 \\
+			VV3.2 & Verifica & \RE{} \newline \VR{}  & 4 \newline 3 \\
 			\midrule
-			\textbf{VV4} & \textbf{\PdQ{}} & &  \\
+			\textbf{VV4} & \textbf{\DP} & & \\
 			\midrule
-			VV4.1 & Incremento & \VR{} & 22 \\
+			VV4.1 & Incremento & \PG{} & 6\\
 			\midrule
-			VV4.2 & Verifica & \RE{} \newline \VR{}  & 4 \newline 3 \\
+			VV4.2 & Verifica & \VR{} & 5 \\
 			\midrule
-			\textbf{VV5} & \textbf{\DP} & & \\
+			\textbf{VV5} & \textbf{\ST} & & \\
 			\midrule
-			VV5.1 & Incremento & \PG{} & 6\\
+			VV5.1 & Incremento & \PG{} & 7\\
 			\midrule
-			VV5.2 & Verifica & \VR{} & 5 \\
+			VV5.2 & Verifica & \VR{} & 4 \\
 			\midrule
-			\textbf{VV6} & \textbf{\ST} & & \\
+			\textbf{VV6} & \textbf{\MU} & & \\
 			\midrule
-			VV6.1 & Incremento & \PG{} & 7\\
+			VV6.1 & Incremento & \PG{} \newline \AM{} & 8 \newline 6 \\
 			\midrule
-			VV6.2 & Verifica & \VR{} & 4 \\
+			VV6.2 & Verifica & \RE{} \newline \VR{} & 2 \newline 6 \\
 			\midrule
-			\textbf{VV7} & \textbf{\MU} & & \\
+			\textbf{VV7} & \textbf{Glossario} &  &  \\
 			\midrule
-			VV7.1 & Incremento & \PG{} \newline \AM{} & 8 \newline 6 \\
+			VV7.1 & Incremento & \AM{} &  \\
 			\midrule
-			VV7.2 & Verifica & \RE{} \newline \VR{} & 2 \newline 6 \\
+			VV7.2 & Verifica & \VR{} & 3 \\
 			\midrule
 			\textbf{VV8} & \textbf{Collaudo} & & \\
 			\midrule
@@ -965,17 +1010,62 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\end{center}
 \end{table}
 
-\newpage
 \subsubsection{Diagramma di Gantt}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
 
-\begin{center}
-	\begin{figure}[H]
-		\centering
-		% \includegraphics[width=\textwidth]{../img/ganttValidazione.png}
-		\caption{Diagramma di Gantt - \FVV{}}
-	\end{figure}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \begin{resizedtikzpicture}{\textwidth}
+        \begin{ganttchart}[
+                hgrid,
+                vgrid,
+                time slot format=isodate,
+                bar/.append style={fill=blue!50}
+            ]{2016-05-15}{2016-06-11}
+            \setganttlinklabel{f-s}{$\hspace{1cm}$}
+            \gantttitlecalendar{year, month=name, day} \\
+            \ganttgroup{VV1: \NdP{}}{2016-05-16}{2016-05-22} \\
+            \ganttbar{VV1.1: Incremento}{2016-05-16}{2016-05-21} \\
+            \ganttbar{VV1.2: Verifica}{2016-05-22}{2016-05-22} \\
+            \ganttlink[link type=f-s]{elem1}{elem2}
+            \ganttgroup{VV2: \PdP{}}{2016-05-16}{2016-05-26} \\
+            \ganttbar{VV2.1: Incremento}{2016-05-16}{2016-05-24} \\
+            \ganttbar{VV2.2: Verifica}{2016-05-25}{2016-05-26} \\
+            \ganttlink[link type=f-s]{elem4}{elem5}
+            \ganttgroup{VV3: \PdQ{}}{2016-05-16}{2016-05-23} \\
+            \ganttbar{VV3.1: Incremento}{2016-05-16}{2016-05-21} \\
+            \ganttbar{VV3.2: Verifica}{2016-05-22}{2016-05-23} \\
+            \ganttlink[link type=f-s]{elem7}{elem8}
+            \ganttgroup{VV4: \DP{}}{2016-05-20}{2016-05-25} \\
+            \ganttbar{VV4.1: Incremento}{2016-05-20}{2016-05-24} \\
+            \ganttbar{VV4.2: Verifica}{2016-05-25}{2016-05-25} \\
+            \ganttlink[link type=f-s]{elem10}{elem11}
+            \ganttgroup{VV5: \ST{}}{2016-05-20}{2016-05-27} \\
+            \ganttbar{VV5.1: Incremento}{2016-05-20}{2016-05-24} \\
+            \ganttbar{VV5.2: Verifica}{2016-05-25}{2016-05-27} \\
+            \ganttlink[link type=f-s]{elem13}{elem14}
+            \ganttgroup{VV6: \MU{}}{2016-05-20}{2016-05-28} \\
+            \ganttbar{VV6.1: Incremento}{2016-05-20}{2016-05-25} \\
+            \ganttbar{VV6.2: Verifica}{2016-05-26}{2016-05-28} \\
+            \ganttlink[link type=f-s]{elem16}{elem17}
+            \ganttgroup{VV7: Glossario}{2016-05-29}{2016-05-31} \\
+            \ganttbar{VV7.1: Incremento}{2016-05-29}{2016-05-30} \\
+            \ganttbar{VV7.2: Verifica}{2016-05-31}{2016-05-31} \\
+            \ganttlink[link type=f-s]{elem19}{elem20}
+            \ganttbar{VV8: Collaudo}{2016-06-01}{2016-06-09} \\
+            \ganttlink[link mid=1]{elem0}{elem21}
+            \ganttlink[link mid=1]{elem3}{elem21}
+            \ganttlink[link mid=1]{elem6}{elem21}
+            \ganttlink[link mid=1]{elem9}{elem21}
+            \ganttlink[link mid=1]{elem12}{elem21}
+            \ganttlink[link mid=1]{elem15}{elem21}
+            \ganttlink[link mid=.85]{elem18}{elem21}
+            \ganttbar{VV9: Consegna}{2016-06-10}{2016-06-10}
+            \ganttlink[link type=f-s]{elem21}{elem22}
+        \end{ganttchart}
+    \end{resizedtikzpicture}
+    \caption{Diagramma di Gantt - \FVV{}}
+\end{figure}
 
 \newpage
 \section{Suddivisione e costo del lavoro}
