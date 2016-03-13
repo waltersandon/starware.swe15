@@ -525,13 +525,49 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 \subsubsection{Diagramma di Gantt}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
 
-\begin{center}
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=\textwidth]{../img/ganttAnalisi.png}
-		\caption{Diagramma di Gantt - \FA{}}
-	\end{figure}
-\end{center}
+\begin{figure}[H]
+    \centering
+    \begin{resizedtikzpicture}{\textwidth}
+        \begin{ganttchart}[
+                hgrid,
+                vgrid,
+                time slot format=isodate,
+                bar/.append style={fill=blue!50}
+            ]{2015-12-17}{2016-01-23}
+            \setganttlinklabel{f-s}{$\hspace{1cm}$}
+            \gantttitlecalendar{year, month=name, day} \\
+            \ganttgroup{AN1: \NdP{}}{2015-12-18}{2015-12-31} \\
+            \ganttbar{AN1.1: Stesura}{2015-12-18}{2015-12-28} \\
+            \ganttbar{AN1.2: Verifica}{2015-12-29}{2015-12-31} \\
+            \ganttlink[link type=f-s]{elem1}{elem2}
+            \ganttgroup{AN2: \SdF{}}{2016-01-03}{2016-01-05} \\
+            \ganttbar{AN2.1: Stesura}{2016-01-03}{2016-01-04} \\
+            \ganttbar{AN2.2: Verifica}{2016-01-05}{2016-01-05} \\
+            \ganttlink[link type=f-s]{elem4}{elem5}
+            \ganttlink{elem0}{elem3}
+            \ganttgroup{AN3: \AdR{}}{2016-01-06}{2016-01-22} \\
+            \ganttbar{AN3.1: Stesura}{2016-01-06}{2016-01-19} \\
+            \ganttbar{AN3.2: Verifica}{2016-01-20}{2016-01-22} \\
+            \ganttlink[link type=f-s]{elem7}{elem8}
+            \ganttlink[link mid=.9]{elem3}{elem6}
+            \ganttgroup{AN4: \PdP{}}{2016-01-06}{2016-01-18} \\
+            \ganttbar{AN4.1: Stesura}{2016-01-06}{2016-01-15} \\
+            \ganttbar{AN4.2: Verifica}{2016-01-16}{2016-01-18} \\
+            \ganttlink[link type=f-s]{elem10}{elem11}
+            \ganttlink[link mid=.45]{elem3}{elem9}
+            \ganttgroup{AN5: \PdQ{}}{2016-01-06}{2016-01-18} \\
+            \ganttbar{AN5.1: Stesura}{2016-01-06}{2016-01-15} \\
+            \ganttbar{AN5.2: Verifica}{2016-01-16}{2016-01-18} \\
+            \ganttlink[link type=f-s]{elem13}{elem14}
+            \ganttlink[link mid=.30]{elem3}{elem12}
+            \ganttgroup{AN6: Glossario}{2016-01-18}{2016-01-22} \\
+            \ganttbar{AN6.1: Stesura}{2016-01-18}{2016-01-21} \\
+            \ganttbar{AN6.2: Verifica}{2016-01-22}{2016-01-22}
+            \ganttlink[link type=f-s]{elem16}{elem17}
+        \end{ganttchart}
+    \end{resizedtikzpicture}
+    \caption{Diagramma di Gantt - \FA{}}
+\end{figure}
 
 \newpage
 
@@ -829,7 +865,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{../img/ganttCodifica.png}
+		% \includegraphics[width=\textwidth]{../img/ganttCodifica.png}
 		\caption{Diagramma di Gantt - \FPDC{}}
 	\end{figure}
 \end{center}
@@ -936,7 +972,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{../img/ganttValidazione.png}
+		% \includegraphics[width=\textwidth]{../img/ganttValidazione.png}
 		\caption{Diagramma di Gantt - \FVV{}}
 	\end{figure}
 \end{center}
