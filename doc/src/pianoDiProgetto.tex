@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.1.5}
+\newcommand{\versione}{1.1.6}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -65,7 +65,9 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
         \midrule
-        1.1.5 & \AB{} & 2016-03-16 & Aggiunti riscontri rischi \FPA{} \\*
+        1.1.6 & \AB{} & 2016-03-16 & Aggiunti riscontri rischi \FPA{} \\*
+        \midrule
+        1.1.5 & \AB{} & 2016-03-04 & Aggiunto consuntivo \FAD{} \\*
         \midrule
         1.1.4 & \AB{} & 2016-03-02 & Aggiunti riscontri rischi \FAD{} \\*
         \midrule
@@ -1754,8 +1756,83 @@ Dato che il consuntivo soprastante evidenzia un bilancio in deficit, è possibil
 nella periodo temporale successivo. In particolare i \euro{}20.00 risparmiati possono essere impiegati per aumentare
 le ore di verifica dei documenti corretti in seguito alla \RR{}.
 
+\newpage
+
+\subsection{Analisi di Dettaglio}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+            \IB{} & & & 7(+2) & & & & 7(+2) \\
+			\midrule
+            \AB{} & 10(+6) & & & & & & 10(+6) \\
+			\midrule
+            \NDC{} & & & 8(+3) & & & & 8(+3) \\
+			\midrule
+            \TP{} & & 6(-2) & 4(+4) & & & & 8(+2) \\
+			\midrule
+            \WS{} & & & 4(+4) & & & 6(+4) & 10(+8) \\
+			\midrule
+            \AVE{} & & & 4(+4) & & & 5(+3)& 9(+7) \\
+			\midrule
+            \AVI{} & & & 3(+3) & & & 7(+3) & 10(+6) \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FAD{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+            \RE{} & 10(+6) & 30 & 300.00(+180.00) \\ \midrule
+            \AM{} & 6(-2) & 20 & 120.00(-40.00) \\ \midrule
+            \AN{} & 30(+20) & 25 & 750.00(+500.00) \\ \midrule
+			\PG{} & & 22 & 0.00 \\ \midrule
+			\PR{} & & 15 & 0.00 \\ \midrule
+            \VR{} & 18(+10) & 15 & 270.00(+150.00) \\ \midrule
+            \textbf{Totale effettivo} & \textbf{62} &  & \textbf{1 440.00} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{30} &  & \textbf{650.00} \\ \midrule
+			\textbf{Differenza} & \textbf{+32} &  & \textbf{+790.00} \\ \midrule
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FAD{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FA{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate.
+Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato.
+Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+790.00.
+
+\subsubsection{Preventivo a finire}
+I requisiti dovranno essere rinegoziati per poter semplificare la stesura della \ST{} e della \DP{}, sperando
+che questo comporti una notevole riduzione dei costi nei prossimi due periodi. 
 
 \newpage
+
 \appendix
 \section{Organigramma}
 
