@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.1.6}
+\newcommand{\versione}{1.1.7}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -64,8 +64,10 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+	    1.1.7 & \AB{} & 2016-03-14 & Aggiunti diagrammi della rotazione dei ruoli e della ripartizione oraria di \FAD, \FPA e \FPD{} \\*
         \midrule
-        1.1.6 & \AB{} & 2016-03-16 & Aggiunti riscontri rischi \FPA{} \\*
+        1.1.6 & \AB{} & 2016-03-13 & Aggiunti riscontri rischi \FPA{} \\*
         \midrule
         1.1.5 & \AB{} & 2016-03-04 & Aggiunto consuntivo \FAD{} \\*
         \midrule
@@ -1182,7 +1184,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \newpage
 \subsubsection{Prospetto economico}
-Qui viene proposto il sommario dei costi per periodo durante tutta la fare del progetto didattico previsto.
+Qui viene proposto il sommario dei costi per periodo durante tutta la durata del progetto didattico previsto.
 
 \begin{table}[H]
 	\begin{center}
@@ -1191,7 +1193,9 @@ Qui viene proposto il sommario dei costi per periodo durante tutta la fare del p
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro)} \\ \midrule
 			\midrule
 			\FA{} & 161 & 3 455.00 \\ \midrule
-			\FPA{} & 245 & 5 058.00 \\ \midrule
+			\FAD{} & 30 & 650.00 \\ \midrule
+			\FPA{} & 79 & 1 598.00 \\ \midrule
+			\FPD{} & 136 & 2 800.00 \\ \midrule
 			\FPDC{} & 203 & 3 453.00 \\ \midrule
 			\FVV{} & 126 & 2 377.00 \\ \midrule
 			\textbf{Totale} & \textbf{735} & \textbf{14 303.00} \\
@@ -1344,7 +1348,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \begin{center}
 	\begin{figure}[H]
 		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiDiDettaglioRotazioneRuoli.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiDiDettaglioRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FAD{}}
 	\end{figure}
 \end{center}
@@ -1374,9 +1378,8 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 
 \begin{center}
 	\begin{figure}[H]
-		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaTortaAnalisiDiDettaglioTotaleOre.png}
-		\caption{Diagramma della rotazione dei ruoli - \FAD{}}
+		\centering \includegraphics[width=\textwidth]{../img/diagrammaTortaAnalisiDiDettaglioTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FAD{}}
 	\end{figure}
 \end{center}
 
@@ -1405,7 +1408,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\AVE{} & & & & 9 & & 4 & 13 \\
 			\midrule
-			\AVI{} & & & & 9 & & 3 & 12 \\
+			\AVI{} & & & & 9 & & 4 & 13 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli - \FPA{}}
@@ -1414,8 +1417,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
+		\centering \includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneArchitetturaleRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
 	\end{figure}
 \end{center}
@@ -1436,7 +1438,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 			\PG{} & 59 & 22 & 1 298.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
 			\VR{} & 20 & 15 & 300.00 \\ \midrule
-			\textbf{Totale} & \textbf{245} &  & \textbf{1 598.00} \\
+			\textbf{Totale} & \textbf{79} &  & \textbf{1 598.00} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Prospetto economico - \FPA{}}
@@ -1446,8 +1448,8 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \begin{center}
 	\begin{figure}[H]
 		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
-		\caption{Diagramma della rotazione dei ruoli - \FPA{}}
+	    \includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneArchitetturaleTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FPA{}}
 	\end{figure}
 \end{center}
 
@@ -1476,7 +1478,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\AVE{} & & & & 14 & & 6 & 20 \\
 			\midrule
-			\AVI{} & & & & 11 & & 7 & 18 \\
+			\AVI{} & & & & 12 & & 6 & 18 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli - \FPD{}}
@@ -1486,7 +1488,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 \begin{center}
 	\begin{figure}[H]
 		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioRotazioneRuoli.png}
+        \includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioRotazioneRuoli.png}
 		\caption{Diagramma della rotazione dei ruoli - \FPD{}}
 	\end{figure}
 \end{center}
@@ -1501,13 +1503,13 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 			\toprule
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
 			\midrule
-			\RE{} & & 30 & 0.00 \\ \midrule
+			\RE{} & 4 & 30 & 120.00 \\ \midrule
 			\AM{} & & 20 & 0.00 \\ \midrule
 			\AN{} & & 25 & 0.00 \\ \midrule
 			\PG{} & 100 & 22 & 2 200.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
 			\VR{} & 32 & 15 & 480.00 \\ \midrule
-			\textbf{Totale} & \textbf{245} &  & \textbf{2 680.00} \\
+			\textbf{Totale} & \textbf{136} &  & \textbf{2 800.00} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Prospetto economico - \FPD{}}
@@ -1517,8 +1519,8 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 \begin{center}
 	\begin{figure}[H]
 		\centering	
-        % \includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneDiDettaglioTotaleOre.png}
-		\caption{Diagramma della rotazione dei ruoli - \FPD{}}
+        \includegraphics[width=\textwidth]{../img/diagrammaTortaProgettazioneDiDettaglioTotaleOre.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli - \FPD{}}
 	\end{figure}
 \end{center}
 
