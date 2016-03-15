@@ -3,13 +3,13 @@
 \input{../tex/glossario.tex}
 
 %Titolo documento
-\newcommand{\titoloDocumento}{Spefica tecnica}
+\newcommand{\titoloDocumento}{Definizione di prodotto}
 
 %Prima data di creazione del documento
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.4}
+\newcommand{\versione}{0.0.5}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -43,7 +43,7 @@
 					\  &  \AVE\\
 					\textbf{Verifica} &  \IB\\
 					\ & \AVI \\
-					\textbf{Approvazione} &  \NDC\\
+                    \textbf{Approvazione} &  \TP{}\\
 					\textbf{Lista Distribuzione} & \nomeGruppo \\
 					\  & \Vardanega \\
 					\  & \Cardin \\
@@ -65,14 +65,18 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+        \midrule
+        0.0.5 & \TP{} & 2016-03-15 & Definizione struttura del documento e aggiunta
+            degli standard di progetto \\*
 		\midrule
-		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{html},\ref{css},\ref{javascript},\ref{express},\ref{bootstrap},\ref{angularjs}]  \\*
+		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
+            Express, Bootstrap e Angular \\*
 		\midrule
-		0.0.3 & \AVE{} & 2016-03-09 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{node.js},\ref{nosql},\ref{mongoose},\ref{mongodb}]  \\*
+		0.0.3 & \AVE{} & 2016-03-09 & Aggiunte descrizioni tecnoglogie Node.js, NoSQL, Mongoose, MongoDB \\*
 		\midrule
-		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
+		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella REST API \\*
 		\midrule
-		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella \ref{tab:intrest} \\*
+		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella REST API \\*
 		\midrule
 		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
 		\bottomrule
@@ -88,26 +92,40 @@
 \listoffigures
 \newpage
 
-\section{Introduzione}
-
+\section{Introduzione}	\label{intro}
 \subsection{Scopo}
-
+Lo scopo di questo documento è di definire nel dettaglio l'architettura del sistema sviluppato, fornendo
+una struttura completa ai programmatori per l'attività di codifica.
 
 \subsection{Descrizione}
-
+Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del software. Verranno inoltre specificati
+nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verrano specificati i diagrammi
+di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
 
 \subsection{Descrizione Prodotto}
 \descrizioneProdotto
 
-\subsection{Glossario}\label{glossario}
+\subsection{Glossario}
 \glossarioPrint
 
-\subsection{Riferimenti}\label{riferimenti}
+\subsection{Riferimenti}
+
 \subsubsection{Normativi}
 \begin{itemize}
-	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
-	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
-	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
+    \item \NdP{}: \textit{NormeDiProgetto\_v2.0.0};
+    \item \AdR{}: \textit{AnalisiDeiRequisiti\_v2.0.0};
+\end{itemize}
+
+\subsubsection{Informativi}
+\begin{itemize}
+    \item \textbf{Specifica HTML5} \url{https://www.w3.org/TR/html5/};
+    \item \textbf{Specifica CSS3} \url{https://www.w3.org/TR/css3-roadmap/};
+    \item \textbf{Documentazione Node.js} \url{https://nodejs.org/en/docs/};
+    \item \textbf{Documentazione Express} \url{http://expressjs.com/en/guide/routing.html};
+    \item \textbf{Documentazione MongoDB} \url{https://docs.mongodb.org/manual/?_ga=1.2705776.192504053.1456951655};
+    \item \textbf{Documentazione Mongoose} \url{http://mongoosejs.com/docs/guide.html};
+    \item \textbf{Documentazione Angularjs} \url{https://docs.angularjs.org/api};
+    \item \textbf{Documentazione Bootstrap} \url{http://getbootstrap.com/css/}.
 \end{itemize}
 
 \newpage
@@ -219,11 +237,34 @@ I principali vantaggi derivati dal suo utilizzo sono:
 Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo.
 Inoltre, \mgls{MongoDB} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
 
+\newpage
+\section{Standard di progetto}
+
+% Ciò che segue è da aggiungere nel periodo di codifica
+% \subsection{Documentazione del codice}
+% Gli standard relativi alla documentazione del codice sono specificati 
+% nelle \textit{\NdP\_v3.0.0}.
+
+% Ciò che segue è da aggiungere nel periodo di codifica
+% \subsection{Documentazione del codice}
+% Gli standard relativi alla documentazione del codice sono specificati 
+% nelle \textit{\NdP\_v3.0.0}.
+
+\subsection{Denominazione di entità e relazioni}
+Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi
+per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano
+le \textit{\NdP\_v2.0.0}.
+
+\subsection{Strumenti di lavoro}
+Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione 
+del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
-\section{Back-end}
+\section{Specifica componenti}
 
-\subsection{Interfaccia REST}
+\subsection{Back-end}
+
+\subsubsection{Interfaccia REST}
 
 \begin{center}
 	\begin{longtable}[H]{p{0.3\textwidth} p{0.12\textwidth} p{0.18\textwidth} p{0.29\textwidth}}
@@ -328,6 +369,7 @@ Inoltre, \mgls{MongoDB} supporta la definizione di collection con una dimensione
 	\end{longtable}
 \end{center}
 
-
+\newpage
+\section{Diagrammi di sequenza}
 
 \end{document} 
