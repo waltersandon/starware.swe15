@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.4}
+\newcommand{\versione}{0.0.5}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -65,15 +65,18 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+        \midrule
+        0.0.5 & \TP{} & 2016-03-15 & Definizione struttura del documento e aggiunta
+            degli standard di progetto \\*
 		\midrule
 		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
-            Express, Bootstrap e Angular\\*
+            Express, Bootstrap e Angular \\*
 		\midrule
 		0.0.3 & \AVE{} & 2016-03-09 & Aggiunte descrizioni tecnoglogie Node.js, NoSQL, Mongoose, MongoDB \\*
 		\midrule
-		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
+		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella REST API \\*
 		\midrule
-		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella \ref{tab:intrest} \\*
+		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella REST API \\*
 		\midrule
 		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
 		\bottomrule
@@ -234,11 +237,34 @@ I principali vantaggi derivati dal suo utilizzo sono:
 Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo.
 Inoltre, \mgls{MongoDB} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
 
+\newpage
+\section{Standard di progetto}
+
+% Ciò che segue è da aggiungere nel periodo di codifica
+% \subsection{Documentazione del codice}
+% Gli standard relativi alla documentazione del codice sono specificati 
+% nelle \textit{\NdP\_v3.0.0}.
+
+% Ciò che segue è da aggiungere nel periodo di codifica
+% \subsection{Documentazione del codice}
+% Gli standard relativi alla documentazione del codice sono specificati 
+% nelle \textit{\NdP\_v3.0.0}.
+
+\subsection{Denominazione di entità e relazioni}
+Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi
+per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano
+le \textit{\NdP\_v2.0.0}.
+
+\subsection{Strumenti di lavoro}
+Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione 
+del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
-\section{Back-end}
+\section{Specifica componenti}
 
-\subsection{Interfaccia REST}
+\subsection{Back-end}
+
+\subsubsection{Interfaccia REST}
 
 \begin{center}
 	\begin{longtable}[H]{p{0.3\textwidth} p{0.12\textwidth} p{0.18\textwidth} p{0.29\textwidth}}
@@ -343,6 +369,7 @@ Inoltre, \mgls{MongoDB} supporta la definizione di collection con una dimensione
 	\end{longtable}
 \end{center}
 
-
+\newpage
+\section{Diagrammi di sequenza}
 
 \end{document} 
