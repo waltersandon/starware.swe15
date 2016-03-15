@@ -43,7 +43,7 @@
 					\  &  \AVE\\
 					\textbf{Verifica} &  \IB\\
 					\ & \AVI \\
-					\textbf{Approvazione} &  \NDC\\
+                    \textbf{Approvazione} &  \TP{}\\
 					\textbf{Lista Distribuzione} & \nomeGruppo \\
 					\  & \Vardanega \\
 					\  & \Cardin \\
@@ -66,9 +66,10 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{html},\ref{css},\ref{javascript},\ref{express},\ref{bootstrap},\ref{angularjs}]  \\*
+		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
+            Express, Bootstrap e Angular\\*
 		\midrule
-		0.0.3 & \AVE{} & 2016-03-09 & Aggiunta sottosezioni di \ref{tecnologie} [aggiunta sez. \ref{node.js},\ref{nosql},\ref{mongoose},\ref{mongodb}]  \\*
+		0.0.3 & \AVE{} & 2016-03-09 & Aggiunte descrizioni tecnoglogie Node.js, NoSQL, Mongoose, MongoDB \\*
 		\midrule
 		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella \ref{tab:intrest} \\*
 		\midrule
@@ -88,26 +89,40 @@
 \listoffigures
 \newpage
 
-\section{Introduzione}
-
+\section{Introduzione}	\label{intro}
 \subsection{Scopo}
-
+Lo scopo di questo documento è di definire nel dettaglio l'architettura del sistema sviluppato, fornendo
+una struttura completa ai programmatori per l'attività di codifica.
 
 \subsection{Descrizione}
-
+Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del software. Verranno inoltre specificati
+nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verrano specificati i diagrammi
+di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
 
 \subsection{Descrizione Prodotto}
 \descrizioneProdotto
 
-\subsection{Glossario}\label{glossario}
+\subsection{Glossario}
 \glossarioPrint
 
-\subsection{Riferimenti}\label{riferimenti}
+\subsection{Riferimenti}
+
 \subsubsection{Normativi}
 \begin{itemize}
-	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
-	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
-	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
+    \item \NdP{}: \textit{NormeDiProgetto\_v2.0.0};
+    \item \AdR{}: \textit{AnalisiDeiRequisiti\_v2.0.0};
+\end{itemize}
+
+\subsubsection{Informativi}
+\begin{itemize}
+    \item \textbf{Specifica HTML5} \url{https://www.w3.org/TR/html5/};
+    \item \textbf{Specifica CSS3} \url{https://www.w3.org/TR/css3-roadmap/};
+    \item \textbf{Documentazione Node.js} \url{https://nodejs.org/en/docs/};
+    \item \textbf{Documentazione Express} \url{http://expressjs.com/en/guide/routing.html};
+    \item \textbf{Documentazione MongoDB} \url{https://docs.mongodb.org/manual/?_ga=1.2705776.192504053.1456951655};
+    \item \textbf{Documentazione Mongoose} \url{http://mongoosejs.com/docs/guide.html};
+    \item \textbf{Documentazione Angularjs} \url{https://docs.angularjs.org/api};
+    \item \textbf{Documentazione Bootstrap} \url{http://getbootstrap.com/css/}.
 \end{itemize}
 
 \newpage
