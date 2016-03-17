@@ -64,9 +64,7 @@
 		\midrule
 		1.1.0 & \AVI{} & 2016-02-26 & Verifica e piccole correzioni stilistiche \\*
 		\midrule
-		1.0.12 & \TP{} & 2016-02-25 & Aggiunta sezioni su gli strumenti per la produzione di diagrammi UML TikZ-UML e Visual Paradigm [aggiunta sez. \ref{visualParadigm},\ref{TikZ-UML}]\\*
-		\midrule
-		1.0.11 & \TP{} & 2016-02-25 & Rimozione sezione strumenti per la produzione di diagrammi UML Drwa.io\\*
+		1.0.11 & \TP{} & 2016-02-25 & Aggiunta sezioni su gli strumenti per la produzione di diagrammi UML TikZ-UML e Visual Paradigm [aggiunta sez. \ref{visualParadigm},\ref{TikZ-UML}]\\*
 		\midrule
 		1.0.10 & \TP{} & 2016-02-25 & Aggiunta diagramma sulla gestione dei problemi [aggiunta diagramma in sez. \ref{gestioneDeiProblemi}] \\*
 		\midrule
@@ -359,6 +357,10 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
 
 \subsubsubsection{Strumenti}
+
+\paragraph{Draw.io}		 
+Per la modellazione di alcuni diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
+%Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
 
 \paragraph{TikZ-UML}\label{TikZ-UML}
 Per la modellazione dei diagrammi dei casi d'uso si è scelto di usare un \mgls{TikZ-UML} che è un estensione della libreria grafica  \mgls{TikZ} per \LaTeX{} utilizzata per la produzione di grafica vettoriale.
@@ -705,7 +707,7 @@ Al suo interno le cartelle sono organizzate come segue:
     \item \textbf{\path{src}}: contiene tutti i file \latex{} che generano documenti
     \item \textbf{\path{style}}: contiene tutti i file \path{.sty} per lo stile dei documenti
     \item \textbf{\path{tex}}: contiene tutti i file \path{.tex} inclusi nei documenti \latex{}
-    %\item \textbf{\path{xml}}: contiene tutti i file \path{.xml} per la generazione delle immagini prodotte da draw.io
+    \item \textbf{\path{xml}}: contiene tutti i file \path{.xml} per la generazione delle immagini prodotte da draw.io
     \item \textbf{\path{zargo}}: contiene tutti i file \path{.zargo}
 \end{itemize} 
 
