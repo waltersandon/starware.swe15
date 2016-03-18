@@ -656,6 +656,7 @@ Questo periodo ha inizio il 2016-02-18 e termina il 2016-03-01. I ruoli attivi i
 	\item \PM{};
 	\item \AM{};
 	\item \AN{};
+	\item \RE{};
 	\item \VR{}.
 \end{itemize}
 
@@ -666,6 +667,7 @@ Le attività svolte sono:
 	Il documento è appena stato corretto nella \RR{} e può richiedere correzioni e incrementi
 	\item \textbf{\NdP{}:}
 	Il documento potrebbe subire variazioni in base alle nuove necessità e strumenti
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
 	\item \textbf{\PdQ{}:}
 	La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
@@ -685,12 +687,14 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\textbf{AD2} & \textbf{\NdP{}} &  &  \\ \midrule
 			AD2.1 & Incremento & \AM{} & 8 \\ \midrule
 			AD2.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{AD4} & \textbf{\PdQ{}} & &  \\ \midrule
+			\textbf{AD3} & \textbf{\PdQ{}} & &  \\ \midrule
 			AD3.1 & Incremento & \RE{} & 4 \\ \midrule
 			AD3.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{AD5} & \textbf{Glossario} & &  \\ \midrule
+			\textbf{AD4} & \textbf{Glossario} & &  \\ \midrule
 			AD4.1 & Incremento & \VR{} & 1 \\ \midrule
-			AD4.2 & Verifica & \VR{} & 1 \\
+			AD4.2 & Verifica & \VR{} & 1 \\ \midrule
+			\textbf{AD5} & \textbf{\PdP{}} & &  \\ \midrule
+			AD5.1 & Incremento & \RE{} & 1 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FAD{}}
@@ -728,6 +732,8 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{AD4.1: Incremento}{2016-02-27}{2016-02-29} \\
             \ganttbar{AD4.2: Verifica}{2016-03-01}{2016-03-01} \\
             \ganttlink[link type=f-s]{elem10}{elem11}
+            \ganttgroup{AD5: \PdQ{}}{2016-03-01}{2016-03-01} \\
+            \ganttbar{AD5.1: Incremento}{2016-03-01}{2016-03-01} \\
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FAD{}}
@@ -742,14 +748,15 @@ I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
 	\item \PR{};
+    \item \RE{};
 	\item \VR{}.
 \end{itemize}
 
 Le attività svolte sono:
 
 \begin{itemize}
-	\item \textbf{\ST{}:}
-	Descrive la progettazione ad alto livello e i design pattern utilizzati
+	\item \textbf{\ST{}:} Descrive la progettazione ad alto livello e i design pattern utilizzati
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -764,6 +771,8 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\textbf{PA1} & \textbf{\ST{}} & &  \\ \midrule
 			PA1.1 & Stesura & \PG{} & 59 \\ \midrule
 			PA1.2 & Verifica & \VR{} & 20 \\ \midrule
+            \textbf{PA2} & \textbf{\PdP{}} & &  \\ \midrule
+			PA2.1 & Incremento & \RE{} & 1 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -788,6 +797,8 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{PA1.1: Stesura}{2016-03-02}{2016-03-11} \\
             \ganttbar{PA1.2: Verifica}{2016-03-12}{2016-03-14} \\
             \ganttlink[link type=f-s]{elem1}{elem2}
+            \ganttgroup{PA2: \ST{}}{2016-03-14}{2016-03-14} \\
+            \ganttbar{PA2.1: Stesura}{2016-03-14}{2016-03-14} \\
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FPA{}}
@@ -809,11 +820,10 @@ Le attività svolte sono:
 
 \begin{itemize}
 	\item \textbf{\DP{}:}
-	Redazione di questo documento che descrive in dettaglio l'architettura del 
-    sistema in modo che i programmatori ottengano specifiche dettagliate
-	\item \textbf{\PdP{}:}
-	E' necessario aggiornare questo documento con lo stato di avanzamento dei lavori 
-    dalla versione precedente
+        Redazione di questo documento che descrive in dettaglio l'architettura del 
+        sistema in modo che i programmatori ottengano specifiche dettagliate
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il 
+        periodo appena trascorso
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -829,7 +839,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			PD1.1 & Stesura & \PG{} & 100 \\ \midrule
 			PD1.2 & Verifica & \VR{} & 30 \\ \midrule
 			\textbf{PA2} & \textbf{\PdP{}} & &  \\ \midrule
-			PD2.1 & Incremento & \RE{} & 4 \\ \midrule
+			PD2.1 & Incremento & \RE{} & 2 \\ \midrule
 			PD2.2 & Verifica & \VR{} & 2 \\ \midrule
 			\bottomrule
 		\end{tabular}
@@ -852,13 +862,13 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             ]{2016-03-14}{2016-04-09}
             \setganttlinklabel{f-s}{$\hspace{1cm}$}
             \gantttitlecalendar{year, month=name, day} \\
-            \ganttgroup{PD1: \DP{}}{2016-03-15}{2016-04-05} \\
-            \ganttbar{PD1.1: Stesura}{2016-03-15}{2016-04-01} \\
-            \ganttbar{PD1.2: Verifica}{2016-04-02}{2016-04-05} \\
+            \ganttgroup{PD1: \DP{}}{2016-03-15}{2016-04-08} \\
+            \ganttbar{PD1.1: Stesura}{2016-03-15}{2016-04-05} \\
+            \ganttbar{PD1.2: Verifica}{2016-04-06}{2016-04-08} \\
             \ganttlink[link type=f-s]{elem1}{elem2}
             \ganttgroup{PD2: \PdP{}}{2016-04-06}{2016-04-08} \\
-            \ganttbar{PD2.1: Incremento}{2016-04-06}{2016-04-07} \\
-            \ganttbar{PD2.2: Verifica}{2016-04-08}{2016-04-08}
+            \ganttbar{PD2.1: Incremento}{2016-04-06}{2016-04-06} \\
+            \ganttbar{PD2.2: Verifica}{2016-04-07}{2016-04-08}
             \ganttlink[link type=f-s]{elem4}{elem5}
         \end{ganttchart}
     \end{resizedtikzpicture}
