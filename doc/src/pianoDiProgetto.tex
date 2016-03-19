@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.17}
+\newcommand{\versione}{1.0.17}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -64,6 +64,8 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		1.0.17 & \AB{} & 2016-03-16 & Aggiunto diagramma consuntivo \FPA \\*
 		\midrule
 		1.0.16 & \AB{} & 2016-03-14 & Aggiunto diagramma consuntivo \FAD \\*
 		\midrule
@@ -654,6 +656,7 @@ Questo periodo ha inizio il 2016-02-18 e termina il 2016-03-01. I ruoli attivi i
 	\item \PM{};
 	\item \AM{};
 	\item \AN{};
+	\item \RE{};
 	\item \VR{}.
 \end{itemize}
 
@@ -664,6 +667,7 @@ Le attività svolte sono:
 	Il documento è appena stato corretto nella \RR{} e può richiedere correzioni e incrementi
 	\item \textbf{\NdP{}:}
 	Il documento potrebbe subire variazioni in base alle nuove necessità e strumenti
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
 	\item \textbf{\PdQ{}:}
 	La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
@@ -683,12 +687,13 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\textbf{AD2} & \textbf{\NdP{}} &  &  \\ \midrule
 			AD2.1 & Incremento & \AM{} & 8 \\ \midrule
 			AD2.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{AD4} & \textbf{\PdQ{}} & &  \\ \midrule
-			AD3.1 & Incremento & \RE{} & 4 \\ \midrule
-			AD3.2 & Verifica & \VR{} & 2 \\ \midrule
-			\textbf{AD5} & \textbf{Glossario} & &  \\ \midrule
+			\textbf{AD3} & \textbf{\PdQ{}} & &  \\ \midrule
+			AD3.1 & Incremento & \RE{} & 1 \\ \midrule
+			\textbf{AD4} & \textbf{Glossario} & &  \\ \midrule
 			AD4.1 & Incremento & \VR{} & 1 \\ \midrule
-			AD4.2 & Verifica & \VR{} & 1 \\
+			AD4.2 & Verifica & \VR{} & 1 \\ \midrule
+			\textbf{AD5} & \textbf{\PdP{}} & &  \\ \midrule
+			AD5.1 & Incremento & \RE{} & 1 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FAD{}}
@@ -718,14 +723,15 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{AD2.1: Incremento}{2016-02-18}{2016-02-24} \\
             \ganttbar{AD2.2: Verifica}{2016-02-25}{2016-02-26} \\
             \ganttlink[link type=f-s]{elem4}{elem5}
-            \ganttgroup{AD3: \PdQ{}}{2016-02-18}{2016-02-22} \\
-            \ganttbar{AD3.1: Incremento}{2016-02-18}{2016-02-20} \\
-            \ganttbar{AD3.2: Verifica}{2016-02-21}{2016-02-22} \\
-            \ganttlink[link type=f-s]{elem7}{elem8}
+            \ganttgroup{AD3: \PdQ{}}{2016-02-18}{2016-03-02} \\
+            \ganttbar{AD3.1: Incremento}{2016-02-18}{2016-02-18} \\
+            \ganttbar{AD3.1: Incremento}{2016-03-01}{2016-03-01} \\
             \ganttgroup{AD4: Glossario}{2016-02-27}{2016-03-01} \\
             \ganttbar{AD4.1: Incremento}{2016-02-27}{2016-02-29} \\
             \ganttbar{AD4.2: Verifica}{2016-03-01}{2016-03-01} \\
-            \ganttlink[link type=f-s]{elem10}{elem11}
+			\ganttlink[link type=f-s]{elem10}{elem11}
+            \ganttgroup{AD5: \PdQ{}}{2016-03-01}{2016-03-01} \\
+            \ganttbar{AD5.1: Incremento}{2016-03-01}{2016-03-01} \\
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FAD{}}
@@ -740,14 +746,15 @@ I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
 	\item \PR{};
+    \item \RE{};
 	\item \VR{}.
 \end{itemize}
 
 Le attività svolte sono:
 
 \begin{itemize}
-	\item \textbf{\ST{}:}
-	Descrive la progettazione ad alto livello e i design pattern utilizzati
+	\item \textbf{\ST{}:} Descrive la progettazione ad alto livello e i design pattern utilizzati
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -762,6 +769,10 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			\textbf{PA1} & \textbf{\ST{}} & &  \\ \midrule
 			PA1.1 & Stesura & \PG{} & 59 \\ \midrule
 			PA1.2 & Verifica & \VR{} & 20 \\ \midrule
+            \textbf{PA2} & \textbf{\PdP{}} & &  \\ \midrule
+			PA2.1 & Incremento & \RE{} & 1 \\ \midrule
+	        \textbf{PA3} & \textbf{\PdQ{}} & &  \\ \midrule
+	        PA3.1 & Incremento & \RE{} & 1 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -786,6 +797,12 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{PA1.1: Stesura}{2016-03-02}{2016-03-11} \\
             \ganttbar{PA1.2: Verifica}{2016-03-12}{2016-03-14} \\
             \ganttlink[link type=f-s]{elem1}{elem2}
+            \ganttgroup{PA2: \PdP{}}{2016-03-14}{2016-03-14} \\
+            \ganttbar{PA2.1: Incremento}{2016-03-14}{2016-03-14} \\
+            \ganttgroup{PA3: \PdQ{}}{2016-03-02}{2016-03-14} \\
+            \ganttbar{PA3.1: Incremento}{2016-03-02}{2016-03-02} \\
+            \ganttbar{PA3.1: Incremento}{2016-03-14}{2016-03-14} \\
+            \ganttlink[link type=f-s]{elem6}{elem7}
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FPA{}}
@@ -807,11 +824,10 @@ Le attività svolte sono:
 
 \begin{itemize}
 	\item \textbf{\DP{}:}
-	Redazione di questo documento che descrive in dettaglio l'architettura del 
-    sistema in modo che i programmatori ottengano specifiche dettagliate
-	\item \textbf{\PdP{}:}
-	E' necessario aggiornare questo documento con lo stato di avanzamento dei lavori 
-    dalla versione precedente
+        Redazione di questo documento che descrive in dettaglio l'architettura del 
+        sistema in modo che i programmatori ottengano specifiche dettagliate
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il 
+        periodo appena trascorso
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -827,8 +843,11 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			PD1.1 & Stesura & \PG{} & 100 \\ \midrule
 			PD1.2 & Verifica & \VR{} & 30 \\ \midrule
 			\textbf{PA2} & \textbf{\PdP{}} & &  \\ \midrule
-			PD2.1 & Incremento & \RE{} & 4 \\ \midrule
+			PD2.1 & Incremento & \RE{} & 2 \\ \midrule
 			PD2.2 & Verifica & \VR{} & 2 \\ \midrule
+			\textbf{PA3} & \textbf{\PdQ{}} & &  \\ \midrule
+			PD3.1 & Incremento & \RE{} & 2 \\ \midrule
+			PD3.2 & Verifica & \VR{} & 2 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -850,14 +869,21 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             ]{2016-03-14}{2016-04-09}
             \setganttlinklabel{f-s}{$\hspace{1cm}$}
             \gantttitlecalendar{year, month=name, day} \\
-            \ganttgroup{PD1: \DP{}}{2016-03-15}{2016-04-05} \\
-            \ganttbar{PD1.1: Stesura}{2016-03-15}{2016-04-01} \\
-            \ganttbar{PD1.2: Verifica}{2016-04-02}{2016-04-05} \\
+            \ganttgroup{PD1: \DP{}}{2016-03-15}{2016-04-08} \\
+            \ganttbar{PD1.1: Stesura}{2016-03-15}{2016-04-05} \\
+            \ganttbar{PD1.2: Verifica}{2016-04-06}{2016-04-08} \\
             \ganttlink[link type=f-s]{elem1}{elem2}
             \ganttgroup{PD2: \PdP{}}{2016-04-06}{2016-04-08} \\
-            \ganttbar{PD2.1: Incremento}{2016-04-06}{2016-04-07} \\
-            \ganttbar{PD2.2: Verifica}{2016-04-08}{2016-04-08}
+            \ganttbar{PD2.1: Incremento}{2016-04-07}{2016-04-07} \\
+            \ganttbar{PD2.2: Verifica}{2016-04-08}{2016-04-08} \\
             \ganttlink[link type=f-s]{elem4}{elem5}
+            
+            \ganttgroup{PD3: \PdQ{}}{2016-03-14}{2016-04-08} \\
+            \ganttbar{PD3.1: Incremento}{2016-03-15}{2016-03-15} \\
+            \ganttbar{PD3.1: Incremento}{2016-04-07}{2016-04-07} \\
+            \ganttbar{PD3.2: Verifica}{2016-04-08}{2016-04-08}  \\
+            \ganttlink[link type=f-s]{elem7}{elem8}
+            \ganttlink[link type=f-s]{elem8}{elem9}
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FPD{}}
@@ -1330,7 +1356,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\IB{} & & & 5 & & & & 5 \\
 			\midrule
-			\AB{} & 4 & & & & & & 4 \\
+			\AB{} & 2 & & & & & & 2 \\
 			\midrule
 			\NDC{} & & & 5 & & & & 5 \\
 			\midrule
@@ -1340,7 +1366,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\AVE{} & & & & & & 2 & 2 \\
 			\midrule
-			\AVI{} & & & & & & 4 & 4 \\
+			\AVI{} & & & & & & 2 & 2 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli - \FAD{}}
@@ -1365,13 +1391,13 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 			\toprule
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
 			\midrule
-			\RE{} & 4 & 30 & 120.00 \\ \midrule
+			\RE{} & 2 & 30 & 60.00 \\ \midrule
 			\AM{} & 8 & 20 & 160.00 \\ \midrule
 			\AN{} & 10 & 25 & 250.00 \\ \midrule
 			\PG{} & & 22 & 0.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
-			\VR{} & 8 & 15 & 120.00 \\ \midrule
-			\textbf{Totale} & \textbf{30} &  & \textbf{650.00} \\
+			\VR{} & 6 & 15 & 90.00 \\ \midrule
+			\textbf{Totale} & \textbf{26} &  & \textbf{560.00} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Prospetto economico - \FAD{}}
@@ -1400,7 +1426,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\IB{} & & & & 8 & & 3 & 11 \\
 			\midrule
-			\AB{} & & & & 8 & & 3 & 11 \\
+			\AB{} & 2 & & & 8 & & 3 & 13 \\
 			\midrule
 			\NDC{} & & & & 8 & & 3 & 11 \\
 			\midrule
@@ -1434,13 +1460,13 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 			\toprule
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
 			\midrule
-			\RE{} & & 30 & 0.00 \\ \midrule
+			\RE{} & 2 & 30 & 60.00 \\ \midrule
 			\AM{} & & 20 & 0.00 \\ \midrule
 			\AN{} & & 25 & 0.00 \\ \midrule
 			\PG{} & 59 & 22 & 1 298.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
 			\VR{} & 20 & 15 & 300.00 \\ \midrule
-			\textbf{Totale} & \textbf{79} &  & \textbf{1 598.00} \\
+			\textbf{Totale} & \textbf{81} &  & \textbf{1 658.00} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Prospetto economico - \FPA{}}
@@ -1480,7 +1506,7 @@ Nella tabella seguente sono riportate le ore di lavoro previste per ogni membro 
 			\midrule
 			\AVE{} & & & & 14 & & 6 & 20 \\
 			\midrule
-			\AVI{} & & & & 12 & & 6 & 18 \\
+			\AVI{} & & & & 12 & & 8 & 20 \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli - \FPD{}}
@@ -1510,8 +1536,8 @@ Nella tabella seguente sono riportate le ore di lavoro previste ed il loro costo
 			\AN{} & & 25 & 0.00 \\ \midrule
 			\PG{} & 100 & 22 & 2 200.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
-			\VR{} & 32 & 15 & 480.00 \\ \midrule
-			\textbf{Totale} & \textbf{136} &  & \textbf{2 800.00} \\
+			\VR{} & 34 & 15 & 510.00 \\ \midrule
+			\textbf{Totale} & \textbf{138} &  & \textbf{2 830.00} \\
 			\bottomrule
 		\end{tabular}
 		\caption{Prospetto economico - \FPD{}}
@@ -1756,9 +1782,7 @@ Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e c
 
 \subsubsection{Preventivo a finire}
 \label{sec:paf-analisi}
-Dato che il consuntivo soprastante evidenzia un bilancio in deficit, è possibile impiegare il budget risparmiato
-nella periodo temporale successivo. In particolare i \euro{}20.00 risparmiati possono essere impiegati per aumentare
-le ore di verifica dei documenti corretti in seguito alla \RR{}.
+Dato che il consuntivo soprastante evidenzia un bilancio in deficit, è possibile impiegare il budget risparmiato nella periodo temporale successivo. In particolare i \euro{}20.00 risparmiati possono essere impiegati per aumentare le ore di verifica dei documenti corretti in seguito alla \RR{}.
 
 \newpage
 
@@ -1777,17 +1801,17 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 			\midrule
             \IB{} & & & 7(+2) & & & & 7(+2) \\
 			\midrule
-            \AB{} & 10(+6) & & & & & & 10(+6) \\
+            \AB{} & 10(+8) & & & & & & 10(+8 ) \\
 			\midrule
             \NDC{} & & & 8(+3) & & & & 8(+3) \\
 			\midrule
-            \TP{} & & 6(-2) & 4(+4) & & & & 10(+4) \\
+            \TP{} & & 6(-2) & 4(+4) & & & & 10(+2) \\
 			\midrule
             \WS{} & & & 4(+4) & & & 6(+4) & 10(+8) \\
 			\midrule
             \AVE{} & & & 4(+4) & & & 5(+3)& 9(+7) \\
 			\midrule
-            \AVI{} & & & 3(+3) & & & 7(+3) & 10(+6) \\
+            \AVI{} & & & 3(+3) & & & 7(+5) & 10(+8) \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli effettive - \FAD{}}
@@ -1803,18 +1827,90 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 			\toprule
 			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
 			\midrule
-            \RE{} & 10(+6) & 30 & 300.00(+180.00) \\ \midrule
+            \RE{} & 10(+6) & 30 & 300.00(+240.00) \\ \midrule
             \AM{} & 6(-2) & 20 & 120.00(-40.00) \\ \midrule
             \AN{} & 30(+20) & 25 & 750.00(+500.00) \\ \midrule
 			\PG{} & & 22 & 0.00 \\ \midrule
 			\PR{} & & 15 & 0.00 \\ \midrule
-            \VR{} & 18(+10) & 15 & 270.00(+150.00) \\ \midrule
-            \textbf{Totale effettivo} & \textbf{62} &  & \textbf{1 440.00} \\ \midrule
-			\textbf{Totale preventivo} & \textbf{30} &  & \textbf{650.00} \\ \midrule
-			\textbf{Differenza} & \textbf{+32} &  & \textbf{+790.00} \\ \midrule
+            \VR{} & 18(+12) & 15 & 270.00(+180.00) \\ \midrule
+            \textbf{Totale effettivo} & \textbf{64} &  & \textbf{1 440.00} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{26} &  & \textbf{680.00} \\ \midrule
+			\textbf{Differenza} & \textbf{+38} &  & \textbf{+880.00} \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione oraria dei ruoli effettivi - \FAD{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreAnalisiDiDettaglioConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FAD{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate. Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato. Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+880.00.
+
+\subsubsection{Preventivo a finire}
+I requisiti dovranno essere rinegoziati per poter semplificare la stesura della \ST{} e della \DP{}, sperando che questo comporti una notevole riduzione dei costi nei prossimi due periodi. 
+
+\newpage
+
+\subsection{Progettazione architetturale}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+            \IB{} & & & & 8(0) & & 3(0) & 11(0) \\
+			\midrule
+            \AB{} & 2(0) & & & 6(-2) & & 3(0) & 11(-2) \\
+			\midrule
+            \NDC{} & & & & 8(0) & & 3(-1) & 11(-1) \\
+			\midrule
+            \TP{} & & & & 8(0) & & & 7(-1) \\
+			\midrule
+            \WS{} & & & & 6(-3) & & 3 & 9(-3) \\
+			\midrule
+            \AVE{} & & & & 7(-2) & & 3(-1) & 10(-3) \\
+			\midrule
+            \AVI{} & & & & 8(-1) & & 4(0) & 12(-1) \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FPA{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule
+            \RE{} & 2 & 30 & 60.00(+0.00) \\ \midrule
+			\AM{} & & 20 & 0.00 \\ \midrule
+			\AN{} & & 25 & 0.00 \\ \midrule
+            \PG{} & 50(-9) & 22 & 1 100.00(-198.00) \\ \midrule
+			\PR{} & & 15 & 0.00 \\ \midrule
+            \VR{} & 19(-1) & 15 & 285.00(-15.00) \\ \midrule
+            \textbf{Totale effettivo} & \textbf{71} &  & \textbf{1 445.00} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{81} &  & \textbf{1 658.00} \\ \midrule
+			\textbf{Differenza} & \textbf{-10} &  & \textbf{-213.00} \\ \midrule
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FPA{}}
 	\end{center}
 \end{table}
 
@@ -1827,13 +1923,10 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{center}
 
 \subsubsection{Conclusioni}
-La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate.
-Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato.
-Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+790.00.
+La rinegoziazione dei requisiti ha permesso una notevole semplificazione della progettazione ad alto livello portando ad una più semplice identificazione e successiva stesura dell'architettura. In totale, per questo periodo, si è riusciti a risparmiare un totale di \euro{}-213.00 che ci lasciano comunque in passivo di \euro{}+647.00 a causa del consuntivo precedente.
 
 \subsubsection{Preventivo a finire}
-I requisiti dovranno essere rinegoziati per poter semplificare la stesura della \ST{} e della \DP{}, sperando
-che questo comporti una notevole riduzione dei costi nei prossimi due periodi. 
+Ci si aspetta che la semplificazione dei requisiti continui, a cascata, a portare notevoli vantaggi nella stesura della \DP{} e della codifica stessa.
 
 \newpage
 
