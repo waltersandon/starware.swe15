@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 Novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.3}
+\newcommand{\versione}{1.0.6}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -66,11 +66,15 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+        1.0.6 & \TP{} \& \AVE{} & 2016-03-05 & Ridefiniti casi d'uso autenticazione e gestione profilo \\*
+		\midrule
+		1.0.5 & \TP{} & 2016-03-03 & Aggiunti attori Google, Facebook e Microsoft \\*
+		\midrule
 		1.0.4 & \AVI{} & 2016-02-24 &  Correzioni segnalazioni RR \\*
 		\midrule
-		1.0.3 & \IB{} & 2016-02-24 &  Modifica glossario [modifica sez. \ref{glossario} ] \\*
+		1.0.3 & \IB{} & 2016-02-24 &  Modifica glossario \\*
 		\midrule
-		1.0.2 & \IB{} & 2016-02-24 &  Aggiunta riferimenti normativi e informativi [aggiunta sez. \ref{riferimenti} ] \\*
+		1.0.2 & \IB{} & 2016-02-24 &  Aggiunta riferimenti normativi e informativi \\*
 		\midrule
 		1.0.1 & \NDC{} & 2016-02-24 &  Corretti diagrammi use case \\*
 		\midrule
@@ -130,14 +134,17 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \umlactor[x=0, y=4]{Utente}
-        \umlactor[x=0, y=2]{Ospite}
+        \umlactor[x=0, y=12]{Microsoft}
+        \umlactor[x=0, y=9]{Facebook}
+        \umlactor[x=0, y=6]{Google}
+        \umlactor[x=0, y=3]{Utente}
+        \umlactor[x=0, y=0]{Ospite}
 
         \umlactor[x=4, y=6]{Studente}
-        \umlactor[x=4, y=4]{Docente}
-        \umlactor[x=4, y=2]{Amministratore}
+        \umlactor[x=4, y=3]{Docente}
+        \umlactor[x=4, y=0]{Amministratore}
 
-        \umlactor[x=8, y=2]{Proprietario}
+        \umlactor[x=8, y=0]{Proprietario}
 
         \umlinherit{Studente}{Utente}
         \umlinherit{Docente}{Utente}
@@ -162,6 +169,12 @@ Di seguito viene fornita una breve descrizione degli attori utilizzati nei casi 
     \item \textbf{Amministratore:} utente che gestisce i docenti
     \item \textbf{Proprietario:} amministratore iniziale che è in grado di creare nuovi amministratori
         e cancellarne di esistenti
+    \item \textbf{Google:} attore che rappresenta il servizio OAuth2 per l'autenticazione attraverso account
+        Google
+    \item \textbf{Facebook:} attore che rappresenta il servizio di autenticazione attraverso account
+        Facebook
+    \item \textbf{Microsoft:} attore che rappresenta il servizio di autenticazione attraverso account 
+        Window Live
 \end{itemize}
 
 Nei diagrammi seguenti, le generalizzazioni tra attori non vengono specificate perché
