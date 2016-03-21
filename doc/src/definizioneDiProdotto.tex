@@ -264,153 +264,280 @@ del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \subsection{Back-end}
 
-\subsubsection{Autenticazione}
+\section{API REST}
 
-Per autenticarsi attraverso il servizio è necessario visitare uno dei seguenti \mgls{uri}:
+	\subsection{Introduzione}
 
-\begin{itemize}
-    \item \texttt{/auth/google}
-    \item \texttt{/auth/facebook}
-    \item \texttt{/auth/windows}
-\end{itemize}
+		L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
+		attraverso la procedura descritta sopra.
 
-Per scollegarsi è necessario visitare l'\mgls{uri} \texttt{auth/logout}.
+		\subsubsection{Autenticazione}
 
-La procedura completa per l'autenticazione è la seguente:
+			Per autenticarsi attraverso il servizio è necessario visitare uno dei seguenti \mgls{uri}:
 
-\begin{enumerate}
-    \item L'ospite visita uno degli \mgls{uri} forniti per autenticarsi
-    \item Il server reindirizza l'utente alla pagina del provider dove potersi autenticare
-    \item L'ospite segue i passi dettati dal provider per autenticarsi
-    \item Il provider reindirizza l'ospite al server
-    \item Il server verifica che l'ospite si sia effettivamente autenticato con il servizio
-    \item Se l'ospite si è autenticato correttamente viene reindirizzato alla pagina principale
-        altrimenti viene reindirizzato alla pagina di login per cominciare un'altra procedura di
-        autenticazione
-\end{enumerate}
+			\begin{itemize}
+			    \item \texttt{/auth/google}
+			    \item \texttt{/auth/facebook}
+			    \item \texttt{/auth/windows}
+			\end{itemize}
 
-E' possibile connettere più account diversi all'utente connesso eseguendo la procedura
-di autenticazione appena descritta mentre si è autenticati nell'applicazione.
+			Per scollegarsi è necessario visitare l'\mgls{uri} \texttt{auth/logout}.
 
-\subsubsection{Interfaccia REST}
+			La procedura completa per l'autenticazione è la seguente:
 
-L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
-attraverso la procedura descritta sopra.
+			\begin{enumerate}
+			    \item L'ospite visita uno degli \mgls{uri} forniti per autenticarsi
+			    \item Il server reindirizza l'utente alla pagina del provider dove potersi autenticare
+			    \item L'ospite segue i passi dettati dal provider per autenticarsi
+			    \item Il provider reindirizza l'ospite al server
+			    \item Il server verifica che l'ospite si sia effettivamente autenticato con il servizio
+			    \item Se l'ospite si è autenticato correttamente viene reindirizzato alla pagina principale
+			        altrimenti viene reindirizzato alla pagina di login per cominciare un'altra procedura di
+			        autenticazione
+			\end{enumerate}
 
-Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
-con un errore nel formato \mgls{json} seguente:
+			E' possibile connettere più account diversi all'utente connesso eseguendo la procedura
+			di autenticazione appena descritta mentre si è autenticati nell'applicazione.
 
-\begin{lstlisting}
+		\subsubsection{Errori}
+
+			Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
+			con un errore nel formato \mgls{json} seguente:
+
+			\begin{lstlisting}
+			{
+			    "code": <codice numerico dell'errore>,
+			    "message": <descrizione testuale dell'errore>,
+			    "data": <eventuali dati aggiuntivi sull'errore>
+			}
+			\end{lstlisting}
+
+		\subsubsection{Struttura}
+
+			Di seguito vengono specificati i seguenti attributi:
+
+			\begin{description}[style=multiline,leftmargin=3cm]
+			    \item[Ruolo minimo:] Il ruolo minimo necessario dell'utente per poter accedere
+			        alla risorsa
+			    \item[Descrizione:] Una breve descrizione dei valori ritornati e/o delle
+			        operazioni compiute
+			    \item[Precondizioni:] Eventuali precondizioni per l'eseguzione della richiesta
+			    \item[Argomenti:] Se presente, specifica il formato del corpo
+			        della richiesta JSON
+			    \item[Attributi:] Se presente, specifica il formato del corpo
+			        della risposta JSON dal server
+			\end{description}
+
+	\subsection{Utenti}
+
+		Un utente rappresenta una qualsiasi persona autenticata con il sistema.
+
+        \begin{center}
+            \begin{tabular}{ | l | l | l | } 
+            \hline
+                Attributo & Tipo & Descrizione \\
+            \hline
+                \texttt{fullName} & \texttt{string} & 
+                    Il nome completo non necessariamente univoco dell'utente \\
+                \texttt{role} & \texttt{string} & 
+                    La stringa identificativa del ruolo dell'utente \\
+            \hline
+            \end{tabular}
+        \end{center}
+
+        \subsubsection{GET /users}
+
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/users} \\ \hline
+                \textbf{Metodo} & \texttt{GET} \\ \hline
+                \textbf{Descrizione} & 
+                    Ritorna la lista degli utenti all'interno del sistema \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "fullName": string,
+        "role": string
+    }
+]
+                    \end{lstlisting} \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
+
+        \subsubsection{GET /users/me}
+
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/users/me} \\ \hline
+                \textbf{Metodo} & \texttt{GET} \\ \hline
+                \textbf{Descrizione} & 
+                    Ritorna i dati dell'utente autenticato \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "code": <codice numerico dell'errore>,
-    "message": <descrizione testuale dell'errore>,
-    "data": <eventuali dati aggiuntivi sull'errore>
+    "fullName": string,
+    "role": string
 }
-\end{lstlisting}
+                    \end{lstlisting} \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
 
-Nella tabella seguente vengono specificate le seguenti colonne:
+        \subsubsection{POST /users/me}
 
-\begin{description}
-    \item[URI:] L'\mgls{uri} utilizzabile per accedere alla risorsa
-    \item[Metodo:] Il metodo \mgls{http} utilizzato per la richiesta
-    \item[Ruolo:] Il ruolo minimo necessario dell'utente per poter accedere
-        alla risorsa
-    \item[Descrizione:] Una breve descrizione dei valori ritornati e/o delle
-        operazioni compiute
-\end{description}
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/users/me} \\ \hline
+                \textbf{Metodo} & \texttt{POST} \\ \hline
+                \textbf{Descrizione} & 
+                    Modifica dei dati personali da parte dell'utente
+                    autenticato nel sistema \\ \hline
+                \textbf{Dati} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "fullName": string
+}
+                    \end{lstlisting} \\ \hline
+                \textbf{Risposta} & \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
 
-In alcuni casi una stessa richiesta (identificabile univocamente da \mgls{uri} e metodo) può comportarsi
-in modo diverso in base al ruolo dell'utente che la accede. In questo caso è necessario leggere la tabella
-seguente selezionando la richiesta con ruolo minimo più stretto tra quelle possibili.
+        \subsubsection{DELETE /users/:id}
 
-\begin{center}
-	\begin{longtable}[H]{p{0.3\textwidth} p{0.12\textwidth} p{0.18\textwidth} p{0.29\textwidth}}
-		\toprule
-		\textbf{URI} & \textbf{Metodo} & \textbf{Ruolo} & \textbf{Descrizione}\\*
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/users/:id} \\ \hline
+                \textbf{Metodo} & \texttt{DELETE} \\ \hline
+                \textbf{Descrizione} & 
+                    Disattiva un utente imponento che esso possa
+                    accedere o compiere alcun tipo di azione \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
 
-        % Profilo
-		\midrule
-		\midrule
-		\texttt{/profile} & \textbf{GET} & Utente & Restituisce i dati relativi all'utente autenticato \\*
-		\midrule
-		\texttt{/profile} & \textbf{PUT} & Utente & Sostituisce i dati dell'utente autenticato \\*
+	\subsection{Account}
 
-        % Account
-		\midrule
-		\midrule
-		\texttt{/account} & \textbf{GET} & Utente & Restituisce la lista degli account dell'utente autenticato \\*
-		\midrule
-        \texttt{/account/\{account id\}} & \textbf{DELETE} & Utente & Sostituisce i dati dell'utente autenticato \\*
+		\par Un account rappresenta una particolare connessione con un account di un 
+        provider esterno. Esso rappresenta semplicementa una corrispondenza tra
+        un particolare esterno e un utente all'interno dell'applicazione.
 
-        % Utenti
-		\midrule
-		\midrule
-		\texttt{/user} & \textbf{GET} & Amministratore & Restituisce la lista di docenti e studenti \\*
-		\midrule
-		\texttt{/user} & \textbf{GET} & Proprietario & Restituisce la lista di tutti gli utenti \\*
-		\midrule
-        \texttt{/user/\{user id\}} & \textbf{DELETE} & Amministratore & Elimina uno tudente o docente \\*
-		\midrule
-        \texttt{/user/\{user id\}} & \textbf{DELETE} & Proprietario & Elimina un amministratore \\*
+        \par Un utente può avere più account collegati e ne può quindi eliminare
+        a propria discrezione fintanto che ne abbia almeno uno con cui accedere.
 
-        % Questionari (TOCHECK)
-		\midrule
-		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Studente & Restituisce uno specifico questionario da eseguire \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Docente & Restituisce uno specifico questionario completo \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Studente & Salva le risposte sul server e restituisce i risultati \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Docente & Crea un nuovo questionario \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{PUT} & Docente & Modifica un questionario \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{DELETE} & Docente & Elimina un questionario \\*
-		
-        % Domande (TOCHECK)
-		\midrule
-		\midrule
-		\texttt{/question} & \textbf{GET} & Studente & Restituisce una domanda da eseguire \\*
-		\midrule
-		\texttt{/question} & \textbf{GET} & Docente & Restituisce una domanda completa \\*
-		\midrule
-		\texttt{/question} & \textbf{POST} & Studente & Salva la risposta sul server e restituisce il risultato \\*
-		\midrule
-		\texttt{/question} & \textbf{POST} & Docente & Crea una nuova domanda \\*
-		\midrule
-		\texttt{/question} & \textbf{PUT} & Docente & Modifica una domanda \\*
-		\midrule
-		\texttt{/question} & \textbf{DELETE} & Docente & Elimina una domanda \\*
-		
-        % Tag
-		\midrule
-		\midrule
-		\texttt{/tag} & \textbf{GET} & Studente & Restituisce la lista degli argomenti \\*
-		\midrule
-		\texttt{/tage} & \textbf{GET} & Docente & Restituisce la lista degli argomenti \\*
-		\midrule
-		\texttt{/tag} & \textbf{POST} & Docente & Crea un nuovo argomento \\*
-		\midrule
-        \texttt{/tag/\{tag id\}} & \textbf{PUT} & Docente & Modifica un argomento \\*
-		\midrule
-		\texttt{/tag/\{tag id\}} & \textbf{DELETE} & Docente & Elimina un argomento \\*
-		
-        % Risultati?? (TOCHECK)
-		\midrule
-		\midrule
-		\texttt{/result/question} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di una domanda \\*
-		\midrule
-		\texttt{/result/question} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di una domanda \\*
-		\midrule
-		\texttt{/result/questionnaire} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di un questionario \\*
-		\midrule
-		\texttt{/result/questionnaire} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di un questionario \\*
-		\bottomrule
-		\caption{Interfaccia REST}
-		\label{tab:intrest}
-	\end{longtable}
-\end{center}
+        \begin{center}
+            \begin{tabular}{ | l | l | l | } 
+            \hline
+                Attributo & Tipo & Descrizione \\
+            \hline
+                \texttt{provider} & \texttt{string} & 
+                    Il nome identificativo del provider dell'account \\
+                \texttt{email} & \texttt{string} & 
+                    Email, eventualmente non verificata, utilizzata esclusivamente
+                    per l'indentificazione da parte dell'utente dell'account \\
+            \hline
+            \end{tabular}
+        \end{center}
+
+        \subsubsection{GET /accounts}
+
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/accounts} \\ \hline
+                \textbf{Metodo} & \texttt{GET} \\ \hline
+                \textbf{Descrizione} & 
+                    Ritorna la lista degli account dell'utente connesso \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "provider": string,
+        "email": string
+    }
+]
+                    \end{lstlisting} \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
+
+        \subsubsection{DELETE /accounts/:id}
+
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/accounts/:id} \\ \hline
+                \textbf{Metodo} & \texttt{DELETE} \\ \hline
+                \textbf{Descrizione} & 
+                    Disassocia un account con un particolare utente \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
+
+	\subsection{Domande}
+
+		\par Una domanda non è altro che  
+
+        \begin{center}
+            \begin{tabular}{ | l | l | l | } 
+            \hline
+                Attributo & Tipo & Descrizione \\
+            \hline
+                \texttt{provider} & \texttt{string} & 
+                    Il nome identificativo del provider dell'account \\
+                \texttt{email} & \texttt{string} & 
+                    Email, eventualmente non verificata, utilizzata esclusivamente
+                    per l'indentificazione da parte dell'utente dell'account \\
+            \hline
+            \end{tabular}
+        \end{center}
+
+        \subsubsection{GET /questions}
+
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/accounts} \\ \hline
+                \textbf{Metodo} & \texttt{GET} \\ \hline
+                \textbf{Descrizione} & 
+                    Ritorna la lista degli account dell'utente connesso \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "provider": string,
+        "email": string
+    }
+]
+                    \end{lstlisting} \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
+
+    % Questionari
+
+        % GET /questionnaires
+        % POST /questionnaires
+        % GET /questionnaires/:id
+        % PUT /questionnaires/:id
+        % DELETE /questionnaires/:id (?)
+
+    % Domande
+
+        % GET /questions
+        % POST /questions
+        % GET /questions/:id
+        % PUT /questions/:id
+        % DELETE /questions/:id (?)
+
+    % Argomenti
+
+        % GET /tags
+
+    % Risposte
+
+        % POST /answers
+        % POST /answers
 
 \newpage
 \section{Diagrammi di sequenza}
