@@ -1,0 +1,23 @@
+Verbale 2016-03-18
+
+1) client:
+	Nicola: service, superuser
+	Walter: admin
+	Igor: student
+	Anna: public, teacher
+	
+2) server: 
+	Thomas: service
+	Andrea: middleware, app
+	Alessio: middleware, app
+
+3) mail Zucchetti: Nicola
+
+4) AdR: cambio casi d'uso, requisiti: Thomas e Andrea
+
+5) Glossario: Walter
+
+6) DF: descrizione patterns
+
+7) PdP: aggiugnere diagrammi PA: Nicola
+
