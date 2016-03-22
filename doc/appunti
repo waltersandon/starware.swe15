@@ -14,7 +14,9 @@ Home:
 		Questionari:
 			[per titolo] {q}
 			[per docente] {q}
+			[per argomento] {q}
 			[per difficoltà] {combobox 5}
+			<cerca>
 			--> lista:
 					[titolo] <esegui>
 		
@@ -22,23 +24,29 @@ Home:
 		Crea domanda:
 			{argomento}	<aggiungi>
 			{testo}
-			<Crea>	<Annulla>
+			<crea>
 			
 		Crea questionario:
+			{argomento}	<aggiungi> <elimina>
 			{titolo}
-			[visualizza lista domande]	<elimina>
-			<aggiungi>
+			[visualizza lista domande] <aggiungi> <elimina>
+			<crea>
+			
+		Crea argomenti:
+			[nome] {q}
+			[parent] {lista}
+			<crea>
 			
 		Gestione domande:
 			[visualizza lista domande]	<modifica> <elimina>
-			<aggiugni>
+			<aggiungi>
 			
 		Gestione questionari:
 			[visualizza lista questionari]	<modifica> <elimina>
-			<aggiugni>
+			<aggiungi>
 		
 		Gestione argomenti:
-			[visualizza lista domande]	<modifica> <elimina>
+			[visualizza lista argomenti]	<modifica> <elimina>
 			<aggingi>
 	
 	Gestione utenti:
