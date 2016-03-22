@@ -1,0 +1,63 @@
+Home:
+	barra: Home | Studente | Docente | Gestione utenti | Profilo | Logout
+	
+	Home:
+		Sommario
+		Storico
+		Domande
+		Questionari
+		
+	Studente:
+		Argomenti:
+			#gerarchia
+		
+		Questionari:
+			[per titolo] {q}
+			[per docente] {q}
+			[per difficoltà] {combobox 5}
+			--> lista:
+					[titolo] <esegui>
+		
+	Docente:
+		Crea domanda:
+			{argomento}	<aggiungi>
+			{testo}
+			<Crea>	<Annulla>
+			
+		Crea questionario:
+			{titolo}
+			[visualizza lista domande]	<elimina>
+			<aggiungi>
+			
+		Gestione domande:
+			[visualizza lista domande]	<modifica> <elimina>
+			<aggiugni>
+			
+		Gestione questionari:
+			[visualizza lista questionari]	<modifica> <elimina>
+			<aggiugni>
+		
+		Gestione argomenti:
+			[visualizza lista domande]	<modifica> <elimina>
+			<aggingi>
+	
+	Gestione utenti:
+		Lista studenti:
+			per ogni record: <promuovi a docente> <promuovi ad amministratore> <elimina>
+			
+		Lista docenti:
+			per ogni record: <degrada a studente> <promuovi ad amministratore> <elimina>
+			
+		Lista amministratori:
+			per ogni record: <degrada a studente> <degrada a docente> <elimina>
+		
+	Esegui questionario:
+		(pagina senza barra in alto e a lato)
+		[Titolo questionario - Argomento]
+		<Avanti>	<Indietro>
+		<Submit>	<Abbandona>
+		[label numero domanda sul totale]
+		
+		
+	Profilo:
+		
