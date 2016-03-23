@@ -264,112 +264,11 @@ del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \subsection{Back-end}
 
-\subsubsection{Interfaccia REST}
-
-\begin{center}
-	\begin{longtable}[H]{p{0.3\textwidth} p{0.12\textwidth} p{0.18\textwidth} p{0.29\textwidth}}
-		\toprule
-		\textbf{URI} & \textbf{Metodo} & \textbf{Attore} & \textbf{Descrizione}\\*
-		\midrule
-		\texttt{/profile} & \textbf{GET} & Utente & Restituisce i dati relativi all'utente \\*
-		\midrule
-		\texttt{/profile} & \textbf{POST} & Ospite & Login, crea una nuova sessione associata all'utente \\*
-		\midrule
-		\texttt{/profile} & \textbf{PUT} & Utente & Modifica i dati dell'utente \\*
-		\midrule
-		\texttt{/profile} & \textbf{DELETE} & Utente & Logout, elimina la sessione dell'utente \\*
-		\midrule
-		\texttt{/profile/invite} & \textbf{POST} & Amministratore & Invia una mail di invito a registrazione ad un docente \\*
-		\midrule
-		\texttt{/profile/invite} & \textbf{POST} & Proprietario & Invia una mail di invito a registrazione ad un amministratore \\*
-		\midrule
-		\texttt{/profile/forgotten} & \textbf{POST} & Ospite & Crea una richiesta di recupero password \\*
-		
-		\midrule
-		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Studente & Restituisce uno specifico questionario da eseguire \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{GET} & Docente & Restituisce uno specifico questionario completo\\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Studente & Salva le risposte sul server e restituisce i risultati \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{POST} & Docente & Crea un nuovo questionario \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{PUT} & Docente & Modifica un questionario \\*
-		\midrule
-		\texttt{/questionnaire} & \textbf{DELETE} & Docente & Elimina un questionario \\*
-		
-		\midrule
-		\midrule
-		\texttt{/question} & \textbf{GET} & Studente & Restituisce una domanda da eseguire \\*
-		\midrule
-		\texttt{/question} & \textbf{GET} & Docente & Restituisce una domanda completa \\*
-		\midrule
-		\texttt{/question} & \textbf{POST} & Studente & Salva la risposta sul server e restituisce il risultato \\*
-		\midrule
-		\texttt{/question} & \textbf{POST} & Docente & Crea una nuova domanda \\*
-		\midrule
-		\texttt{/question} & \textbf{PUT} & Docente & Modifica una domanda \\*
-		\midrule
-		\texttt{/question} & \textbf{DELETE} & Docente & Elimina una domanda \\*
-		
-		\midrule
-		\midrule
-		\texttt{/subject} & \textbf{GET} & Studente & Restituisce la lista degli argomenti \\*
-		\midrule
-		\texttt{/subject} & \textbf{GET} & Docente & Restituisce la lista degli argomenti \\*
-		\midrule
-		\texttt{/subject} & \textbf{POST} & Docente & Crea un nuovo argomento \\*
-		\midrule
-		\texttt{/subject} & \textbf{PUT} & Docente & Modifica un argomento \\*
-		\midrule
-		\texttt{/subject} & \textbf{DELETE} & Docente & Elimina un argomento \\*
-		
-		%\midrule
-		%\midrule
-		%\texttt{/class} & \textbf{GET} & Studente & Restituisce le informazioni di una classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{GET} & Docente & Restituisce le informazioni di una classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{POST} & Studente & Iscrive lo studente alla classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{POST} & Docente & Crea una nuova classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{PUT} & Docente & Modifica una classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{DELETE} & Studente & Cancella l'iscrizione dello studente alla classe \\*
-		%\midrule
-		%\texttt{/class} & \textbf{DELETE} & Docente & Elimina una classe \\*
-		
-		\midrule
-		\midrule
-		\texttt{/result/question} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di una domanda \\*
-		\midrule
-		\texttt{/result/question} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di una domanda \\*
-		\midrule
-		\texttt{/result/questionnaire} & \textbf{GET} & Studente & Restituisce le vecchie risposte e le statistiche di un questionario \\*
-		\midrule
-		\texttt{/result/questionnaire} & \textbf{GET} & Docente & Restituisce tutte le risposte e le statistiche di un questionario \\*
-		%\midrule
-		%\texttt{/result/class} & \textbf{GET} & Docente & restituisce le risposte e le statistiche di una classe \\*
-		
-		\midrule
-		\midrule
-		\texttt{/user} & \textbf{GET} & Amministratore & Restituisce la lista di Docenti e Studenti \\*
-		\midrule
-		\texttt{/user} & \textbf{GET} & Proprietario & Restituisce la lista di amministratori\\*
-		\midrule
-		\texttt{/user} & \textbf{DELETE} & Amministratore & Elimina un utente di tipo Studente o Docente \\*
-		\midrule
-		\texttt{/user} & \textbf{DELETE} & Proprietario & Elimina un amministratore \\*
-		
-		\bottomrule
-		\caption{Interfaccia REST}
-		\label{tab:intrest}
-	\end{longtable}
-\end{center}
-
+% Definizione api REST
+\section{API REST}
+\input{../tex/definizioneDiProdotto/apiRest.tex}
 \newpage
+
 \section{Diagrammi di sequenza}
 
 \end{document} 

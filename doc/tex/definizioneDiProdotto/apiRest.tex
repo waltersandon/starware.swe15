@@ -1,0 +1,659 @@
+\subsection{Introduzione}
+
+    L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
+    attraverso la procedura descritta sopra.
+    
+    \subsubsection{Riferimenti ad oggetti}
+    \par I riferimenti ad altri oggetti sono rappresentati da un oggetto \mgls{json} contenente solo un attributo \texttt{href} che identifica l'\mgls{uri} della risorsa (eg. \texttt{"author": \{ "href": string \}}.
+    
+    \par Il \mgls{client} potrà effettuare una richiesta attraverso il metodo \texttt{GET} all'\mgls{uri} per ottenere la risorsa.
+    
+
+    \subsubsection{Errori}
+
+        Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
+        con un errore nel formato \mgls{json} seguente:
+
+        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "code": <codice HTTP>,
+    "error": <descrizione testuale dell'errore>,
+    "data": <eventuali dati aggiuntivi sull'errore>
+}
+        \end{lstlisting}
+
+    \subsubsection{Struttura}
+
+        Di seguito vengono specificati i seguenti attributi:
+
+        \begin{itemize}
+            \item \textbf{URI:} L'\mgls{uri} della risorsa specificando il prefisso
+                ":" davanti ai parametri
+            \item \textbf{Metodo:} Il metodo \mgls{http} utilizzato
+            \item \textbf{Parametri:} Eventuali parametri specificati nella \mgls{query string}
+                dell'\mgls{url}
+            \item \textbf{Descrizione:} Una breve descrizione dei valori ritornati e/o delle
+                operazioni compiute
+            \item \textbf{Permessi:} Descrizione testuale dei permessi necessari
+                per accedere alla risorsa
+            \item \textbf{Richiesta JSON:} Formato della richiesta \mgls{json}
+            \item \textbf{Risposta JSON:} Formato della risposta \mgls{json}
+            \item \textbf{Note:} Note aggiuntive
+        \end{itemize}
+
+\subsection{Utenti}
+
+    Un utente rappresenta una qualsiasi persona autenticata con il sistema.
+
+    \subsubsection{Visualizzazione elenco utenti}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \texttt{username}: filtra i risultati in base all'username
+                            \item \texttt{full\_name}: filtra i risultati in base al nome completo
+                        \end{itemize} 
+                        \\ \midrule
+                    \textbf{Descrizione} & Restituisce l'elenco degli utenti \\ \midrule
+                    \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "id": string,
+        "fullName": string,
+        "userName": string,
+        "role": string
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /users}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione dati utente}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Restituisce i dati di un singolo utente \\ \midrule
+                    \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "fullName": string,
+    "userName": string,
+    "role": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /users/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione profilo personale}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/me} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Restituisce i dati dell'utente autenticato \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "fullName": string,
+    "userName": string,
+    "role": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /users/me}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Registrazione utente}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Registrazione utente \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "fullName": string,
+    "userName": string,
+    "password": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /users}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Modifica profilo personale}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/me} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Modifica dati profilo dell'utente autenticato \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "fullName": string,
+    "userName": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /users/me}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Cambio password}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/me} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Modifica password dell'utente autenticato \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "oldPassword": string,
+    "newPassword": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /users/me}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Cambio ruolo utente}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Cambio del ruolo dell'utente \\ \midrule
+                    \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "role": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & Il chiamante può modificare solo il ruolo di un utente di ruolo
+                        inferiore al proprio \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /users/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Rimozione utente}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/users/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{DELETE} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Rimozione utente \\ \midrule
+                    \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & Il chiamante può rimuovere solo un utente di ruolo
+                        inferiore al proprio \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{DELETE /users/:id}}
+            \end{center}
+        \end{table}
+
+\subsection{Domande}
+
+    \subsubsection{Visualizzazione elenco domande}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questions} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \textbf{keywords}: filtro per parole chiave
+                            \item \textbf{tags}: filtro per argomenti separati "|" 
+                            \item \textbf{author}: filtro per autore
+                        \end{itemize}
+                        \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione dell'elenco delle domande \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "id": string,
+        "body": string,
+        "author": { "href": string }
+        "tags": [{ "href": string }]
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /questions}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione domanda}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questions/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione domanda specifica \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "body": string,
+    "author": { "href": string }
+    "tags": [{ "href": string }]
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /questions/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Creazione domanda}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questions} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Creazione nuova domanda \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "body": string,
+    "tags": [{ "id": string }]
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /questions}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Modifica domanda}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questions/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{PUT} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Modifica domanda \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "body": string,
+    "tags": [{ "id": string }]
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & La domanda può essere modificata solo dal proprio autore \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{PUT /questions/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Rimozione domanda}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questions/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{DELETE} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Rimozione domanda \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & La domanda può essere eliminata solo dal proprio autore
+                        o da un utente con ruolo superiore \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{DELETE /questions/:id}}
+            \end{center}
+        \end{table}
+
+\subsection{Questionari}
+
+    \subsubsection{Visualizzazione elenco questionari}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questionnaires} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \textbf{title}: filtro per titolo
+                            \item \textbf{tags}: filtro per argomenti separati "|" 
+                            \item \textbf{author}: filtro per autore del questionario
+                        \end{itemize}
+                        \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione elenco questionari \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "id": string,
+        "title": string,
+        "author": { "href": string },
+        "tags": [{ "href": string }],
+        "questions": [{ "href": string }] 
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /questionnaires}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione questionario}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questionnaires/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione questionario specifico \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "title": string,
+    "author": { "href": string },
+    "tags": [{ "href": string }],
+    "questions": [{ "href": string }] 
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /questionnaires/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Creazione questionario}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questionnaires} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Creazione nuovo questionario \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "title": string,
+    "tags": [{ "id": string }],
+    "questions": [{ "id": string }] 
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /questionnaires/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Modifica questionario}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questionnaires/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{PUT} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Modifica questionario \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "title": string,
+    "tags": [{ "id": string }],
+    "questions": [{ "id": string }] 
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & Il questionario può essere modificato solo dal proprio autore \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{PUT /questionnaires/:id}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Rimozione questionario}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/questionnaires/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{DELETE} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Rimozione questionario \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & Il questionario può essere eliminato solo dal proprio autore
+                        o da un utente con ruolo superiore \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{DELETE /questionnaires/:id}}
+            \end{center}
+        \end{table}
+
+\subsection{Argomenti}
+
+    \subsubsection{Visualizzazione elenco argomenti}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/tags} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \textbf{keywords}: filtro per parole chiave
+                        \end{itemize}
+                        \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione elenco argomenti \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "id": string,
+        "name": string
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /tags}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione argomento}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/tags/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione argomento specifico \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "name": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /tags/:id}}
+            \end{center}
+        \end{table}
+
+    % ...
+
+\subsection{Ruoli}
+
+    \subsubsection{Visualizzazione elenco ruoli}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/roles} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \textbf{keywords}: filtro per parole chiave
+                        \end{itemize}
+                        \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione elenco argomenti \\ \midrule
+                    \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "id": string,
+        "name": string
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /roles}}
+            \end{center}
+        \end{table}
