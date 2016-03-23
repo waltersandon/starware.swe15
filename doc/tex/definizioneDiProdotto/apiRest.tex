@@ -2,6 +2,12 @@
 
     L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
     attraverso la procedura descritta sopra.
+    
+    \subsubsection{Riferimenti ad oggetti}
+    \par I riferimenti ad altri oggetti sono rappresentati da un oggetto \mgls{json} contenente solo un attributo \texttt{href} che identifica l'\mgls{uri} della risorsa (eg. \texttt{"author": \{ "href": string \}}.
+    
+    \par Il \mgls{client} potrà effettuare una richiesta attraverso il metodo \texttt{GET} all'\mgls{uri} per ottenere la risorsa.
+    
 
     \subsubsection{Errori}
 
