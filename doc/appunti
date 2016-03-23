@@ -3,9 +3,40 @@ Home:
 	
 	Home:
 		Sommario
+			[totale answer rate]
+			[rank sul answer rate]
+			[totale punteggio] #memorizzare punteggo nel DB e punteggio massimo
+			[rank sul punteggio totale]
+			
+			[scala temporale] {settimana | mese | anno}
+			
+			[tabella: asissa=tempo, ordinata=answer rate]
+			[tabella: asissa=tempo, ordinata=punteggio medio]
+
 		Storico
+			[per titolo] {q}
+			[per docente] {q}
+			[per argomento] {q}
+			[per difficoltà] {combobox 5}
+			[visualizza lista questionari] <onclick VISUALIZZA>
+			
 		Domande
+			[per argomento] {q}
+				[answer rate]
+				[rank sul answer rate]
+				[totale punteggio] #memorizzare punteggo nel DB e punteggio massimo
+				[rank sul punteggio totale]
+			
+			[tabella: ascissa=argomenti, ordinata=punteggio totale]
+			
 		Questionari
+			[per argomento] {q}
+				[answer rate]
+				[rank sul answer rate]
+				[totale punteggio] #memorizzare punteggo nel DB e punteggio massimo
+				[rank sul punteggio totale]
+			
+			[tabella: ascissa=argomenti, ordinata=punteggio totale]
 		
 	Studente:
 		Argomenti:
@@ -68,4 +99,5 @@ Home:
 		
 		
 	Profilo:
+		
 		
