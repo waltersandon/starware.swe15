@@ -1,0 +1,44 @@
+Verbale Riunione 22-03-2016
+
+Presenti:
+	Nicola De Cao, Walter Sandon, Anna Bonaldo,
+	Alessio Vitella, Igor Baylyak.
+
+Client: $Scope defnito all'interno delle classi del 
+	Client::Controller come attributo privato.
+
+Organizzazione:
+	suddivisione delle responsabilità all'interno del gruppo.
+	Le responsabilità si intendono come relative al coordinamento e al controllo 
+	in una particolare area. Tali responsabilità non implicano l'obbligo di produrre
+	il materiale necessario personalmente. 
+	Anna Bonaldo
+		Manutenzione e redazione piano di qualifica
+		Manuale Utente
+		Test
+		TW
+		
+	Nicola De Cao
+		Schemi visual paradigm
+		Coordinazione lato client
+	
+	Andrea Venier
+		Manutenzione e redazione verbali	
+		Manutenzione e redazione Norme di Progetto
+		Respondabile Git
+		
+	Igor Baylyak
+		Responsabile programmazione AngularJS
+
+	Alessio Vitella
+		Responsabile Analisi dei Requisiti
+		Responsabile Tracy
+		
+	Walter Sandon
+		Manutenzione e redazione glossario
+		Responsabile programmazione Bootstrap
+
+	Thomas Pigarelli	
+		Coordinazione lato server
+		Responsabile prgrammazione NodeJS
+		Responsabile programmazione Mongoose+MongoDB
