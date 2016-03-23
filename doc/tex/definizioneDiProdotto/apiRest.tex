@@ -1,0 +1,324 @@
+\subsection{Introduzione}
+
+    L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
+    attraverso la procedura descritta sopra.
+
+    \subsubsection{Autenticazione}
+
+        Per autenticarsi attraverso il servizio è necessario visitare uno dei seguenti \mgls{uri}:
+
+        \begin{itemize}
+            \item \texttt{/auth/google}
+            \item \texttt{/auth/facebook}
+            \item \texttt{/auth/windows}
+        \end{itemize}
+
+        Per scollegarsi è necessario visitare l'\mgls{uri} \texttt{auth/logout}.
+
+        La procedura completa per l'autenticazione è la seguente:
+
+        \begin{enumerate}
+            \item L'ospite visita uno degli \mgls{uri} forniti per autenticarsi
+            \item Il server reindirizza l'utente alla pagina del provider dove potersi autenticare
+            \item L'ospite segue i passi dettati dal provider per autenticarsi
+            \item Il provider reindirizza l'ospite al server
+            \item Il server verifica che l'ospite si sia effettivamente autenticato con il servizio
+            \item Se l'ospite si è autenticato correttamente viene reindirizzato alla pagina principale
+                altrimenti viene reindirizzato alla pagina di login per cominciare un'altra procedura di
+                autenticazione
+        \end{enumerate}
+
+        E' possibile connettere più account diversi all'utente connesso eseguendo la procedura
+        di autenticazione appena descritta mentre si è autenticati nell'applicazione.
+
+    \subsubsection{Errori}
+
+        Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
+        con un errore nel formato \mgls{json} seguente:
+
+        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "error": <descrizione testuale dell'errore>,
+    "data": <eventuali dati aggiuntivi sull'errore>
+}
+        \end{lstlisting}
+
+    \subsubsection{Struttura}
+
+        Di seguito vengono specificati i seguenti attributi:
+
+        \begin{description}[style=multiline,leftmargin=3cm]
+            \item[Ruolo minimo:] Il ruolo minimo necessario dell'utente per poter accedere
+                alla risorsa
+            \item[Descrizione:] Una breve descrizione dei valori ritornati e/o delle
+                operazioni compiute
+            \item[Precondizioni:] Eventuali precondizioni per l'eseguzione della richiesta
+            \item[Argomenti:] Se presente, specifica il formato del corpo
+                della richiesta JSON
+            \item[Attributi:] Se presente, specifica il formato del corpo
+                della risposta JSON dal server
+        \end{description}
+
+\subsection{Utenti}
+
+    Un utente rappresenta una qualsiasi persona autenticata con il sistema.
+
+    \begin{center}
+        \begin{tabular}{ | l | l | l | } 
+        \hline
+            Attributo & Tipo & Descrizione \\
+        \hline
+            \texttt{fullName} & \texttt{string} & 
+                Il nome completo non necessariamente univoco dell'utente \\
+            \texttt{role} & \texttt{string} & 
+                La stringa identificativa del ruolo dell'utente \\
+        \hline
+        \end{tabular}
+    \end{center}
+
+    \subsubsection{Visualizzazione elenco utenti}
+
+        \begin{tabular}{|l|l|} 
+            \hline
+            \textbf{URL} & \texttt{/users} \\ \hline
+            \textbf{Metodo} & \texttt{GET} \\ \hline
+            \textbf{Descrizione} & 
+                Ritorna la lista degli utenti all'interno del sistema \\ \hline
+            \textbf{Dati} & \\ \hline
+            \textbf{Risposta} & \
+                \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "fullName": string,
+        "role": string
+    }
+]
+                \end{lstlisting} \\ \hline
+            \textbf{Note} & \\ \hline
+        \end{tabular}
+
+    \subsubsection{Visualizzazione dati personali}
+
+        \begin{tabular}{|l|l|} 
+            \hline
+            \textbf{URL} & \texttt{/users/me} \\ \hline
+            \textbf{Metodo} & \texttt{GET} \\ \hline
+            \textbf{Descrizione} & 
+                Ritorna i dati dell'utente autenticato \\ \hline
+            \textbf{Dati} & \\ \hline
+            \textbf{Risposta} & \
+                \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+"fullName": string,
+"role": string
+}
+                \end{lstlisting} \\ \hline
+            \textbf{Note} & \\ \hline
+        \end{tabular}
+
+    \subsubsection{Modifica dati personali}
+
+        \begin{tabular}{|l|l|} 
+            \hline
+            \textbf{URL} & \texttt{/users/me} \\ \hline
+            \textbf{Metodo} & \texttt{POST} \\ \hline
+            \textbf{Descrizione} & 
+                Modifica dei dati personali da parte dell'utente
+                autenticato nel sistema \\ \hline
+            \textbf{Dati} & \
+                \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+"fullName": string
+}
+                \end{lstlisting} \\ \hline
+            \textbf{Risposta} & \\ \hline
+            \textbf{Note} & \\ \hline
+        \end{tabular}
+
+    \subsubsection{Disattivazione utente}
+
+        \begin{figure}
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/users/:id} \\ \hline
+                \textbf{Metodo} & \texttt{DELETE} \\ \hline
+                \textbf{Ruolo} & Amministratore \\ \hline
+                \textbf{Descrizione} & 
+                    Disattiva un utente imponento che esso possa
+                    accedere o compiere alcun tipo di azione \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \\ \hline
+                \textbf{Note} 
+                    L'utente che si intende disattivare deve essere sempre
+                    di un ruolo gerarchicamente più basso rispetto al proprio.
+                    Ad esempio un amministratore potrà solo disattivare studenti
+                    e docenti, mentre un proprietario potrà disattivare anche 
+                    altri amministratori. & \\ \hline
+            \end{tabular}
+        \end{figure}
+
+\subsection{Account}
+
+    \par Un account rappresenta una particolare connessione con un account di un 
+    provider esterno. Esso rappresenta semplicementa una corrispondenza tra
+    un particolare esterno e un utente all'interno dell'applicazione.
+
+    \par Un utente può avere più account collegati e ne può quindi eliminare
+    a propria discrezione fintanto che ne abbia almeno uno con cui accedere.
+
+    \begin{center}
+        \begin{tabular}{ | l | l | l | } 
+        \hline
+            Attributo & Tipo & Descrizione \\
+        \hline
+            \texttt{provider} & \texttt{string} & 
+                Il nome identificativo del provider dell'account \\
+            \texttt{email} & \texttt{string} & 
+                Email, eventualmente non verificata, utilizzata esclusivamente
+                per l'indentificazione da parte dell'utente dell'account \\
+        \hline
+        \end{tabular}
+    \end{center}
+
+    \subsubsection{Lettura elenco account}
+
+        \begin{tabular}{|l|l|} 
+            \hline
+            \textbf{URL} & \texttt{/accounts} \\ \hline
+            \textbf{Metodo} & \texttt{GET} \\ \hline
+            \textbf{Descrizione} & 
+                Ritorna la lista degli account dell'utente connesso \\ \hline
+            \textbf{Dati} & \\ \hline
+            \textbf{Risposta} & \
+                \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+{
+    "provider": string,
+    "email": string
+}
+]
+                \end{lstlisting} \\ \hline
+            \textbf{Note} & \\ \hline
+        \end{tabular}
+
+    \subsubsection{Disconnessione account}
+
+        \begin{figure}
+            \begin{tabular}{|l|l|} 
+                \hline
+                \textbf{URL} & \texttt{/accounts/:id} \\ \hline
+                \textbf{Metodo} & \texttt{DELETE} \\ \hline
+                \textbf{Descrizione} & 
+                    Disassocia un account con un particolare utente \\ \hline
+                \textbf{Dati} & \\ \hline
+                \textbf{Risposta} & \\ \hline
+                \textbf{Note} & \\ \hline
+            \end{tabular}
+        \end{figure}
+
+\subsection{Domande}
+
+    \par Una domanda può essere di vari tipi:
+    \begin{itemize}
+        \item A risposta multiple
+        \item Vero o falso
+    \end{itemize}
+
+    \par Gli attributi ad essa associati possono essere diversi in base
+    alla tipologia.
+
+    \begin{figure}[H]
+        \begin{tabular}{ | l | l | l | } 
+        \hline
+            Attributo & Tipo & Descrizione \\
+        \hline
+            \texttt{body} & \texttt{string} & 
+                Il testo della domanda in formato QML \\
+            \texttt{author} & \texttt{string} & 
+                Riferimento all'autore della domanda \\
+            \texttt{isCorrect} & \texttt{string} & 
+                Riferimento all'autore della domanda \\
+        \hline
+        \end{tabular}
+        \caption {Attributi domanda vero o falso}
+    \end{figure}
+
+    \begin{figure}[H]
+        \begin{tabular}{ | l | l | l | } 
+        \hline
+            Attributo & Tipo & Descrizione \\
+        \hline
+            \texttt{body} & \texttt{string} & 
+                Il testo della domanda in formato QML \\
+            \texttt{author} & \texttt{object} & 
+                Utente autore della domanda \\
+            \texttt{options} & \texttt{object} & 
+                Lista delle opzioni \\
+        \hline
+        \end{tabular}
+        \caption {Attributi domanda a risposta multipla}
+    \end{figure}
+
+    \begin{figure}[H]
+        \begin{tabular}{ | l | l | l | } 
+        \hline
+            Attributo & Tipo & Descrizione \\
+        \hline
+            \texttt{statement} & \texttt{string} & 
+                Testo dell'opzione \\
+            \texttt{body} & \texttt{string} & 
+                Il testo della domanda in formato QML \\
+        \hline
+        \end{tabular}
+        \caption {Attributi opzione per domanda a risposta multipla}
+    \end{figure}
+
+    \subsubsection{GET /questions}
+
+        \begin{tabular}{|l|l|} 
+            \hline
+            \textbf{URL} & \texttt{/accounts} \\ \hline
+            \textbf{Metodo} & \texttt{GET} \\ \hline
+            \textbf{Descrizione} & 
+                Ritorna la lista degli account dell'utente connesso \\ \hline
+            \textbf{Dati} & \\ \hline
+            \textbf{Risposta} & \
+                \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+{
+    "provider": string,
+    "email": string
+}
+]
+                \end{lstlisting} \\ \hline
+            \textbf{Note} & \\ \hline
+        \end{tabular}
+
+% Questionari
+
+    % GET /questionnaires
+    % POST /questionnaires
+    % GET /questionnaires/:id
+    % PUT /questionnaires/:id
+    % DELETE /questionnaires/:id (?)
+
+% Domande
+
+    % GET /questions
+    % POST /questions
+    % GET /questions/:id
+    % PUT /questions/:id
+    % DELETE /questions/:id (?)
+
+% Argomenti
+
+    % GET /tags
+
+% Risposte
+
+    % POST /answers
+    % POST /answers
+
+% Risposte a questionari
+    
+    % POST /submissions
