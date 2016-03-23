@@ -1,7 +1,7 @@
 Home:
-	barra: Home | Studente | Docente | Gestione utenti | Profilo | Logout
+	barra: /*Home*/ | Studente | Docente | Gestione utenti | Profilo | Logout
 	
-	Home:
+	/*Home:
 		Sommario
 			[totale answer rate]
 			[rank sul answer rate]
@@ -37,7 +37,8 @@ Home:
 				[rank sul punteggio totale]
 			
 			[tabella: ascissa=argomenti, ordinata=punteggio totale]
-		
+	*/
+	
 	Studente:
 		Argomenti:
 			
@@ -46,7 +47,7 @@ Home:
 			[per titolo] {q}
 			[per docente] {q}
 			[per argomento] {q}
-			[per difficoltà] {combobox 5}
+			/*[per difficoltà] {combobox 5}*/
 			<cerca>
 			--> lista:
 					[titolo] <esegui>
@@ -65,6 +66,7 @@ Home:
 			
 		Crea argomenti:
 			[nome] {q}
+			[descrizione] {q}
 			[parent] {lista}
 			<crea>
 			
@@ -97,7 +99,23 @@ Home:
 		<Submit>	<Abbandona>
 		[label numero domanda sul totale]
 		
-		
 	Profilo:
+		[nickName] {q}
+		[fullName] {q}
+		{veccia password}
+		{password}
+		{repeat password}
+		<modifica>
 		
+	Login:
+		{nickName}
+		{password}
+		<accedi>
+		
+	SignIn:
+		{nickName}
+		{fullName}
+		{password}
+		{repeat password}
+		<registrati>
 		
