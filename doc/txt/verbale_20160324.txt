@@ -1,0 +1,25 @@
+Verbale riunione  24-03-16
+Inizio Ore: 14:40
+Fine Ore: 15:16
+Segretario: Venier Andrea
+Tutti i membri del gruppo sono presenti.
+
+(1) Conferma requisiti obbligatori-opzionali
+La conferma da parte della zucchetti dei requisiti obbligatori hanno portato il gruppo a rivedere i requisiti che erano stati definiti eliminando dala progettazione 
+la parte di archiviazione delle domande e della produzione delle statistiche 
+
+(2) Gerarchia Argomenti 
+E' stata effettuata una votazione per decidere se addottare una gerarchia per gli argomenti ( stile cartelle di un file system ).
+Votazione per la gerarchia degli argomenti: 4-3 pro gerarchia
+
+(3) Analisi dei requisiti 
+Ricontrollare l'analisi dei requisiti per modificare i requisiti e sistemare i casi d'uso
+
+(4) Tempistiche di fine progettazione
+Aggiornamento tempistiche per la fine della progettazione client-server, entro mercoledi 30-03-16 dovrebbe essere finita 
+
+(5) Modifiche Model - Analisi dei requisiti - Diagrammi
+In base alle modifiche che verranno effettuate oggi sul model e sulla analisi dei requisiti dovranno essere rivisti di diagrammi UML prodotti
+
+(6) Produzione verbale incontro con la Zucchetti.
+Deve essere prodotto il verbale in latex con l'incontro della Zucchetti del 23-03-16

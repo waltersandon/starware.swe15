@@ -55,11 +55,13 @@ Home:
 	Docente:
 		Crea domanda:
 			{argomento}	<aggiungi>
+			[lista argomenti] <elimina>
 			{testo}
 			<crea>
 			
 		Crea questionario:
-			{argomento}	<aggiungi> <elimina>
+			{argomento}	<aggiungi>
+			[lista argomenti] <elimina>
 			{titolo}
 			[visualizza lista domande] <aggiungi> <elimina>
 			<crea>

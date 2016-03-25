@@ -41,6 +41,55 @@
             \item \textbf{Note:} Note aggiuntive
         \end{itemize}
 
+\subsection{Autenticazione}
+
+    \subsubsection{Login}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/session} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Autenticazione dell'utente \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "userName": string,
+    "password": string,
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /session}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Logout}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/session} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Disconnessione dell'utente \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{DELETE /session}}
+            \end{center}
+        \end{table}
+
 \subsection{Utenti}
 
     Un utente rappresenta una qualsiasi persona autenticata con il sistema.
@@ -69,7 +118,7 @@
         "id": string,
         "fullName": string,
         "userName": string,
-        "role": string
+        "role": { "href": string }
     }
 ]
                         \end{lstlisting}
@@ -99,7 +148,7 @@
     "id": string,
     "fullName": string,
     "userName": string,
-    "role": string
+    "role": { "href": string }
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -638,7 +687,7 @@
                             \item \textbf{keywords}: filtro per parole chiave
                         \end{itemize}
                         \\ \midrule
-                    \textbf{Descrizione} & Visualizzazione elenco argomenti \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione elenco ruoli \\ \midrule
                     \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
                     \textbf{Richiesta JSON} & \\ \midrule
                     \textbf{Risposta JSON} & \
@@ -655,5 +704,32 @@
                     \bottomrule
                 \end{tabular}
                 \caption{API REST: \texttt{GET /roles}}
+            \end{center}
+        \end{table}
+
+    \subsubsection{Visualizzazione ruolo}
+
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/roles/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione ruolo singolo \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "id": string,
+    "name": string
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /roles/:id}}
             \end{center}
         \end{table}
