@@ -77,7 +77,7 @@
                 \begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
                     \toprule
                     \textbf{URI} & \texttt{/session} \\ \midrule
-                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Metodo} & \texttt{DELETE} \\ \midrule
                     \textbf{Parametri} & \\ \midrule
                     \textbf{Descrizione} & Disconnessione dell'utente \\ \midrule
                     \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
@@ -454,7 +454,7 @@
                     \textbf{Richiesta JSON} & \\ \midrule
                     \textbf{Risposta JSON} & \\ \midrule
                     \textbf{Note} & La domanda può essere eliminata solo dal proprio autore
-                        o da un utente con ruolo superiore \\
+                        o da un utente con ruolo superiore; Il chiamante può eliminare la domanda solo se non è associata ad alcun questionario  \\
                     \bottomrule
                 \end{tabular}
                 \caption{API REST: \texttt{DELETE /questions/:id}}
@@ -631,7 +631,9 @@
 [
     {
         "id": string,
-        "name": string
+        "name": string,
+       	"description": string,
+    	"parent": {"href": string | null}
     }
 ]
                         \end{lstlisting}
@@ -659,7 +661,9 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "id": string,
-    "name": string
+    "name": string,
+    "description": string,
+    "parent": {"href": string | null}
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -670,7 +674,83 @@
             \end{center}
         \end{table}
 
-    % ...
+    \subsubsection{Creazione argomento}
+    
+    \begin{table}[H]
+    	\begin{center}
+    		\begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+    			\toprule
+    			\textbf{URI} & \texttt{/tags} \\ \midrule
+    			\textbf{Metodo} & \texttt{POST} \\ \midrule
+    			\textbf{Parametri} & \\ \midrule
+    			\textbf{Descrizione} & Creazione nuovo argomento \\ \midrule
+    			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+    			\textbf{Richiesta JSON} & \
+	    			\begin{lstlisting}[basicstyle={\ttfamily}]	
+{
+	"name": string,
+	"description": string,
+	"parent": {"id": string | null}
+}
+	    			\end{lstlisting}
+    			\\ \midrule
+    			\textbf{Risposta JSON} & 
+    			\\ \midrule
+    			\textbf{Note} & \\
+    			\bottomrule
+    		\end{tabular}
+    		\caption{API REST: \texttt{POST /tags}}
+    	\end{center}
+    \end{table}
+    
+    \subsubsection{Modifica argomento}
+    
+    \begin{table}[H]
+    	\begin{center}
+    		\begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+    			\toprule
+    			\textbf{URI} & \texttt{/tags/:id} \\ \midrule
+    			\textbf{Metodo} & \texttt{PUT} \\ \midrule
+    			\textbf{Parametri} & \\ \midrule
+    			\textbf{Descrizione} & Modifica argomento \\ \midrule
+    			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+    			\textbf{Richiesta JSON} &\
+	    			\begin{lstlisting}[basicstyle={\ttfamily}]
+{
+	"name": string,
+	"description": string,
+	"parent": {"id": string | null}
+}
+	    			\end{lstlisting}
+    			\\ \midrule
+    			\textbf{Risposta JSON} & \\ \midrule
+    			\textbf{Note} & \\
+    			\bottomrule
+    		\end{tabular}
+    		\caption{API REST: \texttt{PUT /tags}}
+    	\end{center}
+    \end{table}
+    
+        \subsubsection{Elimina argomento}
+        
+        \begin{table}[H]
+        	\begin{center}
+        		\begin{tabular}{p{0.3\textwidth} p{0.7\textwidth}}
+        			\toprule
+        			\textbf{URI} & \texttt{/tags/:id} \\ \midrule
+        			\textbf{Metodo} & \texttt{DELETE} \\ \midrule
+        			\textbf{Parametri} & \\ \midrule
+        			\textbf{Descrizione} & Elimina argomento \\ \midrule
+        			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+        			\textbf{Richiesta JSON} & \\ \midrule
+        			\textbf{Risposta JSON} & \\ \midrule
+        			\textbf{Note} & Il chiamante può eliminare un argomento solo se non ci sono domande associate allo stesso \\ 
+        			\bottomrule
+        		\end{tabular}
+        		\caption{API REST: \texttt{PUT /tags}}
+        	\end{center}
+        \end{table}
+    
 
 \subsection{Ruoli}
 
