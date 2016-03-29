@@ -83,7 +83,7 @@
 		\midrule
 		1.0.10 & \AVE{} & 2016-02-25 & Aggiunta del \textit{PianoDiQualifica\_v2.0.0} ai riferimenti normativi \\*		
 		\midrule
-		1.0.9 & \AVE{} & 2016-02-25 & Aggiunta "G" a pedice per termini presenti nel glossario \\*
+		1.0.9 & \AVE{} & 2016-02-25 & Aggiunta "G" a pendice per termini presenti nel glossario \\*
 		\midrule
 		1.0.8 & \AVE{} & 2016-02-25 & Corretto il termine attività o fase in periodo \\*
 		\midrule
@@ -272,7 +272,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     hanno avuto impegni personali, ma questi non hanno rappresentato alcuni ritardo significativo
                     applicando le strategie descritte qui sopra. \newline
                 \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
-                    complessivamente comportato alcuni ritardo significativo. \\
+                    complessivamente comportato alcun ritardo significativo. \newline
+                 \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \\
 			\midrule
 			\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\
 			\bottomrule
@@ -303,7 +304,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     che hanno invece mantenuto un rapporto rispettoso nei confronti 
                     del progetto e degli altri membri. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
-                \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \\
+                \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
+                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \\
             \midrule
 			\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\
 			\bottomrule
@@ -334,7 +336,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\textbf{Riscontro} & 
                 \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
-                \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware \\
+                \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
+                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \\
             \midrule
 			\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\
 			\bottomrule
@@ -365,17 +368,22 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. 
                     Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile 
                     ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. 
-                    In ogni caso erano stati previsti mgls{backup} della base di dati che avrebbero permesso il 
+                    In ogni caso erano stati previsti \mgls{backup} della base di dati che avrebbero permesso il 
                     ripristino del database con la perdita solo dei dati più recenti. \newline
                 \textbf{\FAD{}}: Si sono riscontrati lievi problemi con la gestione della \mgls{repository} git;
                     In particolare in alcuni casi i membri del gruppo hanno effettuato modifiche a \mgls{branch}
-                    non corretti. In ogni caso sono stati effettuati \mgls{backup} e si sono corretti
-                    i problemi in breve tempo. \newline
+                    non corrette. In ogni caso sono stati effettuati \mgls{backup} e si sono corretti
+                    i problemi in breve tempo. 
+                    Inoltre è stato rilevato un \mgls{bug} di \mgls{tracy} che causava, alla rimozione di un requisito,
+                    la rimozione dei casi d'uso associati ad esso. \newline
                 \textbf{\FPA{}}: Il software \mgls{draw.io} ha rappresentato iniziali ritardi in quanto difficile
                     da usare per la generazione dei diagrammi delle classi per la stesura della \ST{} interna.
                     Si è deciso di utilizzare un nuovo programma che ci ha permesso di recuperare il tempo
                     perso grazie alla sua interfaccia intuitiva e la possibilità di esportare porzioni di diagrammi
-                    in modo semplice ed efficiente. \\
+                    in modo semplice ed efficiente. \newline
+				\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
+					ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
+					minimi. \\
     		\midrule
             \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
 			\bottomrule
@@ -414,9 +422,11 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     dei diagrammi delle classi ha ovviamente portato ad un iniziale ritardo per l'inesperienza 
                     nell'utilizzo di tale programma, ma i membri del gruppo hanno velocemente appreso le
                     funzioni principali per poter completare il lavoro. Non si sono quindi verificati ritardi
-                    degni di nota. \\
+                    degni di nota. \newline
+                \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
+                	del gruppo e per questo motivo non hanno comportato ritardi. \\
     		\midrule
-            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per il periodo di \FPA{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
+            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Inesperienza tecnologica - Analisi dei rischi}
@@ -449,7 +459,11 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare.
                     Per questo motivo sono stati rinegoziati i requisiti con il proponente. \newline
                 \textbf{\FPA{}}: Grazie anche alla brevità di questo periodo, non si sono riscontrati particolari
-                    rispetto a quanto previsto. \\
+                    rispetto a quanto previsto. 
+                \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
+                    la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
+                    e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
+                    pianificato. \\
             \midrule
             \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\
 			\bottomrule
@@ -482,7 +496,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     e/o hanno chiesto consiglio ai membri che avevano già esperienza per il ruolo richiesto. \newline
                 \textbf{\FAD{}}: Come previsto non ci sono stati particolari problemi dovuti alla rotazione
                     dei ruoli. \newline
-                \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \\
+                \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
+                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \\
             \midrule
             \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\
 			\bottomrule
@@ -502,7 +517,7 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 			\midrule
 			\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR{}, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
 			\midrule
-			\textbf{Probabilità} & Bassa \\
+			\textbf{Probabilità} & Media \\
 			\midrule
 			\textbf{Gravità} & Alta \\
 			\midrule
@@ -513,15 +528,19 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
             \textbf{Riscontro} & 
                 \textbf{\FA{}}: I requisiti sono stati discussi con il proponente che ne ha confermato la 
                     validità. \newline
-                \textbf{\FAD{}}: Alcuni requisiti impostati come obbligatori erano in realtà opzionali.
+                \textbf{\FAD{}}: Alcuni requisiti definiti come obbligatori erano in realtà opzionali.
                     Questo è stato confermato con il proponente e il committente, e gli errori sono stati corretti.
                     La correzione di una di queste priorità ci ha permesso di semplificare notevolmente
-                    il sistema di autenticazione, eliminandolo quasi completamente e sostituendolo con
-                    l'autenticazione che riutilizza il protocollo OAuth2 e simili. \newline
+                    il sistema di autenticazione. Inoltre molti requisiti come la gestione delle statistiche
+                    e il salvataggio delle risposte degli studenti che ricoprivano una gran parte del progetto
+                    complessivo sono risultati requisiti opzionali. \newline
                 \textbf{\FPA{}}: I requisiti sono stati consolidati nei periodi precedenti e non si sono riscontrati
-                    altri problemi al riguardo. \\
+                    altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
+                    notevolmente questo periodo. \newline
+                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \\
             \midrule
-            \textbf{Previsione} & Non c'è motivo di credere che, specialmente dopo averne discusso con il proponente, i requisiti siano stati compresi in modo scorretto. Per questo motivo, a seguito della revisione dei requisiti, la probabilità di questo rischio viene abbassata. \\
+            \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
+            	diminuisca in modo lineare con l'avanzamento del progetto. \\
 			\bottomrule
 		\end{tabular}
 		\caption{Comprensione errata dei requisiti - Analisi dei rischi}
@@ -655,7 +674,6 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 Questo periodo ha inizio il 2016-02-18 e termina il 2016-03-01. I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
-	\item \PM{};
 	\item \AM{};
 	\item \AN{};
 	\item \RE{};
@@ -671,7 +689,7 @@ Le attività svolte sono:
 	Il documento potrebbe subire variazioni in base alle nuove necessità e strumenti
 	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
 	\item \textbf{\PdQ{}:}
-	La strategia di verifica deve essere aggiornata in base alle nuove richieste
+		La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -690,7 +708,8 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			AD2.1 & Incremento & \AM{} & 8 \\ \midrule
 			AD2.2 & Verifica & \VR{} & 2 \\ \midrule
 			\textbf{AD3} & \textbf{\PdQ{}} & &  \\ \midrule
-			AD3.1 & Incremento & \RE{} & 1 \\ \midrule
+			AD3.1 & Incremento & \RE{} & 0.5 \\ \midrule
+			AD3.2 & Incremento & \RE{} & 0.5 \\ \midrule
 			\textbf{AD4} & \textbf{Glossario} & &  \\ \midrule
 			AD4.1 & Incremento & \VR{} & 1 \\ \midrule
 			AD4.2 & Verifica & \VR{} & 1 \\ \midrule
@@ -725,14 +744,14 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{AD2.1: Incremento}{2016-02-18}{2016-02-24} \\
             \ganttbar{AD2.2: Verifica}{2016-02-25}{2016-02-26} \\
             \ganttlink[link type=f-s]{elem4}{elem5}
-            \ganttgroup{AD3: \PdQ{}}{2016-02-18}{2016-03-02} \\
+            \ganttgroup{AD3: \PdQ{}}{2016-02-18}{2016-03-01} \\
             \ganttbar{AD3.1: Incremento}{2016-02-18}{2016-02-18} \\
             \ganttbar{AD3.1: Incremento}{2016-03-01}{2016-03-01} \\
             \ganttgroup{AD4: Glossario}{2016-02-27}{2016-03-01} \\
             \ganttbar{AD4.1: Incremento}{2016-02-27}{2016-02-29} \\
             \ganttbar{AD4.2: Verifica}{2016-03-01}{2016-03-01} \\
-			\ganttlink[link type=f-s]{elem10}{elem11}
-            \ganttgroup{AD5: \PdQ{}}{2016-03-01}{2016-03-01} \\
+			\ganttlink[link type=f-s]{elem9}{elem10}
+            \ganttgroup{AD5: \PdP{}}{2016-03-01}{2016-03-01} \\
             \ganttbar{AD5.1: Incremento}{2016-03-01}{2016-03-01} \\
         \end{ganttchart}
     \end{resizedtikzpicture}
@@ -757,6 +776,7 @@ Le attività svolte sono:
 \begin{itemize}
 	\item \textbf{\ST{}:} Descrive la progettazione ad alto livello e i design pattern utilizzati
 	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
+	\item \textbf{\PdQ{}:} La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -774,7 +794,8 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
             \textbf{PA2} & \textbf{\PdP{}} & &  \\ \midrule
 			PA2.1 & Incremento & \RE{} & 1 \\ \midrule
 	        \textbf{PA3} & \textbf{\PdQ{}} & &  \\ \midrule
-	        PA3.1 & Incremento & \RE{} & 1 \\ \midrule
+	        PA3.1 & Incremento & \RE{} & 0.5 \\ \midrule
+	        PA3.2 & Incremento & \RE{} & 0.5 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -803,8 +824,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{PA2.1: Incremento}{2016-03-14}{2016-03-14} \\
             \ganttgroup{PA3: \PdQ{}}{2016-03-02}{2016-03-14} \\
             \ganttbar{PA3.1: Incremento}{2016-03-02}{2016-03-02} \\
-            \ganttbar{PA3.1: Incremento}{2016-03-14}{2016-03-14} \\
-            \ganttlink[link type=f-s]{elem6}{elem7}
+            \ganttbar{PA3.2: Incremento}{2016-03-14}{2016-03-14} \\
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FPA{}}
@@ -828,8 +848,8 @@ Le attività svolte sono:
 	\item \textbf{\DP{}:}
         Redazione di questo documento che descrive in dettaglio l'architettura del 
         sistema in modo che i programmatori ottengano specifiche dettagliate
-	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il 
-        periodo appena trascorso
+	\item \textbf{\PdP{}:} Viene redatto il consuntivo e preventivo a finire per il periodo appena trascorso
+	\item \textbf{\PdQ{}:} La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
 
 \subsubsection{Ripartizione delle risorse}
@@ -848,8 +868,9 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 			PD2.1 & Incremento & \RE{} & 2 \\ \midrule
 			PD2.2 & Verifica & \VR{} & 2 \\ \midrule
 			\textbf{PA3} & \textbf{\PdQ{}} & &  \\ \midrule
-			PD3.1 & Incremento & \RE{} & 2 \\ \midrule
-			PD3.2 & Verifica & \VR{} & 2 \\ \midrule
+			PD3.1 & Incremento & \RE{} & 1 \\ \midrule
+			PD3.2 & Incremento & \RE{} & 1 \\ \midrule
+			PD3.3 & Verifica & \VR{} & 2 \\ \midrule
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FPA{}}
@@ -875,17 +896,15 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
             \ganttbar{PD1.1: Stesura}{2016-03-15}{2016-04-05} \\
             \ganttbar{PD1.2: Verifica}{2016-04-06}{2016-04-08} \\
             \ganttlink[link type=f-s]{elem1}{elem2}
-            \ganttgroup{PD2: \PdP{}}{2016-04-06}{2016-04-08} \\
+            \ganttgroup{PD2: \PdP{}}{2016-04-07}{2016-04-08} \\
             \ganttbar{PD2.1: Incremento}{2016-04-07}{2016-04-07} \\
             \ganttbar{PD2.2: Verifica}{2016-04-08}{2016-04-08} \\
             \ganttlink[link type=f-s]{elem4}{elem5}
             
-            \ganttgroup{PD3: \PdQ{}}{2016-03-14}{2016-04-08} \\
+            \ganttgroup{PD3: \PdQ{}}{2016-03-15}{2016-04-08} \\
             \ganttbar{PD3.1: Incremento}{2016-03-15}{2016-03-15} \\
-            \ganttbar{PD3.1: Incremento}{2016-04-07}{2016-04-07} \\
-            \ganttbar{PD3.2: Verifica}{2016-04-08}{2016-04-08}  \\
-            \ganttlink[link type=f-s]{elem7}{elem8}
-            \ganttlink[link type=f-s]{elem8}{elem9}
+            \ganttbar{PD3.2: Incremento}{2016-04-07}{2016-04-07} \\
+            \ganttbar{PD3.3: Verifica}{2016-04-08}{2016-04-08}  \\
         \end{ganttchart}
     \end{resizedtikzpicture}
     \caption{Diagramma di Gantt - \FPD{}}
@@ -2023,8 +2042,5 @@ Ci si aspetta che la semplificazione dei requisiti continui, a cascata, a portar
 		\end{tabular}
 	\end{center}
 \end{table}
-
-\newpage
-\printglossary[title={Glossario}]
 
 \end{document}
