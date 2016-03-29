@@ -134,13 +134,13 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \umlactor[x=0, y=0]{Utente}
+        \umlactor[x=0, y=0]{Studente}
         \umlactor[x=4, y=0]{Docente}
         \umlactor[x=4, y=4]{Amministratore}
         \umlactor[x=0, y=4]{Proprietario}
         \umlactor[x=0, y=-4]{Ospite}
 
-        \umlinherit{Docente}{Utente}
+        \umlinherit{Docente}{Studente}
         \umlinherit{Amministratore}{Docente}
         \umlinherit{Proprietario}{Amministratore}
     \end{tikzpicture}
@@ -151,10 +151,10 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 Di seguito viene fornita una breve descrizione degli attori utilizzati nei casi d'uso:
 
 \begin{itemize}
-    \item \textbf{Ospite:} attore che non ha ancora effettuato l'accesso ed è quindi limitato
+    \item \textbf{Ospite:} utente che non ha ancora effettuato l'accesso ed è quindi limitato
         ad accedere o registrarsi
-    \item \textbf{Utente:} attore che è registrato al servizio ed ha effettuato l'accesso al
-        sistema
+    \item \textbf{Studente:} utente che è registrato al servizio, ha effettuato l'accesso al
+        sistema e esegue questionari
     \item \textbf{Docente:} utente in grado di gestire studenti, classi, argomenti, questionari
         e domande
     \item \textbf{Amministratore:} utente che gestisce i docenti
