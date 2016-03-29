@@ -1,0 +1,42 @@
+Verbale 29-03-16
+Segretario: Andrea Venier
+Tutti i membri presenti
+Inizio riunione: ore 11:30
+Fine riunione: ore 12.10
+
+
+Lavoro fatto:
+1) Diagrammi uml client e server finiti 
+2) Descrizione diagrammi uml server inserita su tracy
+
+Lavoro da fare :
+1) Finire il lavoro su tracy 
+	- Lato client tutto -> Walter, Igor
+	- Aggiungere metodo privato su question lato server per la validazione qml
+	
+2) Test node.js e angularjs -> Anna , Thomas , Igor, Andrea?
+	- Da pensare i test che bisogna effettuare
+	
+3) Controllare le norme -> Andrea
+	- Verificare nuova struttura che sia aderente all'iso e parti aggiunte
+	
+4) Controllare il piano di progetto -> Thomas
+
+5) Diagrammi di sequenza -> Nicola,Andrea
+	- Da definire le modalità e i tempi per produrli 
+	
+6) Descrizione pattern -> Alessio
+
+7) Esportare i diagrammi prodotti in png una volta veficati -> Nicola
+
+8) Da fare il verbale dell'incontro con la zucchetti in latex -> Andrea
+
+9) Da assegnare i task tu teamwork -> Nicola
+
+10) Da verificare i diagrammi uml del lato client -> Anna, Nicola , ? 
+
+11) Completamento Analisi dei requisiti -> Thomas
+
+12) Finire di modificare requisiti e use case -> Thomas, Alessio, Andrea
+
+13) Finire piano di qualifica -> Anna 
