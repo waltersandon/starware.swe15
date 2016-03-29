@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.18}
+\newcommand{\versione}{1.0.19}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -64,6 +64,8 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		1.0.19 & \AB{} & 2016-04-08 & Aggiunto consuntivo \FPA{} \\*
 		\midrule
 		1.0.18 & \AB{} & 2016-03-19 & Correzioni ai diagrammi e alle tabelle di \FAD, \FPA e \FPD{} \\*
 		\midrule
@@ -837,7 +839,7 @@ Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività prev
 Questo periodo ha inizio il 2016-03-15 e termina il 2016-04-08. I ruoli attivi in questo periodo saranno:
 
 \begin{itemize}
-	\item \PR{};
+	\item \PG{};
 	\item \VR{};
 	\item \RE{}.
 \end{itemize}
@@ -1950,6 +1952,78 @@ La rinegoziazione dei requisiti ha permesso una notevole semplificazione della p
 
 \subsubsection{Preventivo a finire}
 Ci si aspetta che la semplificazione dei requisiti continui, a cascata, a portare notevoli vantaggi nella stesura della \DP{} e della codifica stessa.
+
+\newpage
+
+\subsection{Progettazione di dettaglio}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} & & & & 15 & & 4 & 19 \\
+			\midrule
+			\AB{} & & & & 15 & & 5 & 20 \\
+			\midrule
+			\NDC{} & & & & 15 & & 4 & 19 \\
+			\midrule
+			\TP{} & 4 & & & 15 & & & 19 \\
+			\midrule
+			\WS{} & & & & 14 & & 7 & 21 \\
+			\midrule
+			\AVE{} & & & & 14 & & 6 & 20 \\
+			\midrule
+			\AVI{} & & & & 12 & & 8 & 20 \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FPD{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule	
+			\RE{} & 10(+6) & 30 & 300.00(+180.00) \\ \midrule
+			\AM{} & & 20 & 0.00 \\ \midrule
+			\AN{} & & 25 & 0.00 \\ \midrule
+			\PG{} & 85(-15) & 22 & 1 870.00(-330.00) \\ \midrule
+			\PR{} & & 15 & 0.00 \\ \midrule
+			\VR{} & 30(-4) & 15 & 450.00(-60.00) \\ \midrule
+            \textbf{Totale effettivo} & \textbf{125} &  & \textbf{2 620} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{138} &  & \textbf{2 830.00} \\ \midrule
+			\textbf{Differenza} & \textbf{-13} &  & \textbf{-210.00} \\ \midrule
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FPD{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FPD{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+Come previsto la semplificazione dei requisiti ha ridotto i costi della progettazione e relativa verifica. Nonostante anche in questo periodo di siano state più ore di lavoro per il \RE{} rispetto a quanto preventivato, il totale delle ore ha portato ad un deficit di \euro{}-210 che sommato al consuntivo dei due periodi precedenti risulta in \euro{}-20 che sommato al deficit del periodo di \FA{} risulta in un consuntivo di \euro{}-40.
+
+\subsubsection{Preventivo a finire}
+Dato il bilancio di \euro{}-40 e considerando che si prevedono anche notevoli semplificazioni anche nel periodo di \FC{}, sarà probabilmente possibile utilizzare il modello incrementale per concentrarsi anche su alcuni requisiti desiderabili o opzionali.
 
 \newpage
 
