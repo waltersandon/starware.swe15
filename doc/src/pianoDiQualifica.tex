@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.4}
+\newcommand{\versione}{1.1.2}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -64,6 +64,8 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		1.1.2 & \TP{} & 2016-03-30 & Correzioni minori di grammatica o formattazione \\*
 		\midrule
 		1.1.1 & \AVE{} & 2016-02-26 & Correzione degli errori ortografici   \\*
 		\midrule
@@ -227,10 +229,10 @@ Per facilità di trattazione e coerenza con i modelli di qualità adottati e sop
 La documentazione ha la funzione di rendere maggiormente comprensibile molti aspetti del prodotto, con lo scopo di migliorante il grado di manutenibilità. 
 Gli obiettivi sono pertanto:
 \begin{itemize}
-	\item\textbf{Usabilità della documentazione}:la documentazione deve essere corretta, leggibile e chiara nei contenuti e nella forma.
-	\item\textbf{Documentazione non obsoleta}La versione del documento deve essere sempre specificata.
-	\item\textbf{Correttezza}:la correttezza deve coinvolgere i contenuti oltre che la forma.
-	\item\textbf{Documentazione approvata}:la documentazione diffusa deve sempre essere preventivamente verificata ed approvata.
+	\item\textbf{Usabilità della documentazione}: la documentazione deve essere corretta, leggibile e chiara nei contenuti e nella forma.
+	\item\textbf{Documentazione non obsoleta}: la versione del documento deve essere sempre specificata.
+	\item\textbf{Correttezza}: la correttezza deve coinvolgere i contenuti oltre che la forma.
+	\item\textbf{Documentazione approvata}: la documentazione diffusa deve sempre essere preventivamente verificata ed approvata.
 \end{itemize}
 
 
@@ -240,19 +242,20 @@ Con la finalità di coprire il più possibile gli obiettivi di qualità proposti
 	\item{\textbf{Test driven software}}
 	Il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}.
 	\item{\textbf{Architettura modulare}}
-	Il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vai moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP e\AdR per approfondimenti.
-	\item{Tracciabilità e conformità dei requisiti}
-	Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP e \AdR.
+	Il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vari moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP{} e \AdR{} per approfondimenti.
+	\item{\textbf{Tracciabilità e conformità dei requisiti}}
+	Per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard  \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP{} e \AdR{}.
 	\item{\textbf{Usabilità utente}}
 	Dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione.
 	\item{\textbf{Utilizzo e scelta delle risorse}}
 	Si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}.
 \end{itemize}
-\subsection{Procedure di controllo di qualità di prodotto}\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
+\subsection{Procedure di controllo di qualità di prodotto}
+\label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo quantitativo della qualità verrà garantito attraverso:
 \begin{itemize}
 	\item{\textbf{Quality assurance}}: insieme di attività atte a garantire il raggiungimento degli obiettivi di qualità postulati. 
-	Le tecniche specifiche utilizzate in questo contesto sono suddivise in analisi statica e dinamica. Per ulteriore dettaglio si veda la sezione \ref{analisi}
+	Le tecniche specifiche utilizzate in questo contesto sono suddivise in analisi statica e dinamica. Per ulteriore dettaglio si veda la sezione \ref{analisi}.
 	\item{\textbf{Verifica}}: tale processo determina se l'output di una particolare attività è consistente. La verifica verrà sistematicamente eseguita alla fine di ogni attività, per tutta la durata del progetto. I risultati ottenuti verranno riportati nell'appendice preposta.
 	\item{\textbf{Validazione}}: tale attività ha lo scopo di confermare in modo oggettivo e conclusivo che il sistema risponda ai requisiti. L'efficienza nello svolgimento della validazione poggia sulla garanzia che una continua e ripetuta attività di verifica garantisca una buona qualità interna.
 \end{itemize}
@@ -260,12 +263,13 @@ Il controllo quantitativo della qualità verrà garantito attraverso:
 La valutazione del grado di qualità del prodotto deve essere effettuata in modo prevalentemente automatico. Laddove non sia possibile è necessario stabilire preventivamente strumenti di supporto alla verifica e alla validazione. Tali strumenti devono ridurre l'impatto sui costi, e ridurre il tempo necessario per la verifica o validazione. 
 
 
-\section{Gestione della qualità}\label{gest_qual}
+\section{Gestione della qualità}
+\label{gest_qual}
 \subsection{Scopo}
 La gestione della qualità è rappresentata le principali metodologie e strumenti utilizzabili per attuare un piano di persecuzione della qualità. 
 
 \subsection{Descrizione}
-Nella pratica non viene trattata in questo documento, ma in \PdP e \NdP.
+Nella pratica non viene trattata in questo documento, ma in \PdP{} e \NdP{}.
 La corrente sezione analizza le linee guida nella scelta delle metodologie e strumenti di concretizzazione del sistema qualità sopra descritto. Tali scelte vengono descritte dei documenti sopracitati.
 
 \subsection{Pianificazione preventiva}
