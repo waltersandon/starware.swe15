@@ -1,0 +1,131 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Verbale 2016-03-23}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{24 Marzo 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{0.0.1}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\intestazione{\titoloDocumento}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \TP{} \\
+\  &  \AVI{} \\
+\textbf{Presenti interni} & \AVE{}, \AVI{}, \TP{}, \AB{}, \WS{} \\
+\textbf{Presenti esterni} & Gregorio Piccoli \\
+\textbf{Verifica} &  \\
+\textbf{Approvazione} &  \\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
+			\midrule
+            \midrule
+			0.0.1 & \AVE{} & 2016-01-18 & Creazione e stesura documento \\
+			\bottomrule
+		\end{tabular}
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{center}
+\end{table}
+\newpage
+
+\tableofcontents
+\listoftables
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo}
+Lo scopo del documento è di tracciare il lavoro svolto con le domande poste e le decisioni prese durante o a seguito della riunione del \dataCreazione.
+
+\subsection{Descrizione}
+Il documento presenterà la lista delle domande poste e delle risposte ricevute. Seguirà successivamente la lista delle decisioni prese a seguito di tali risposte.
+
+\subsection{Descrizione Prodotto}
+\descrizioneProdotto
+
+\subsection{Glossario}
+\glossarioPrint
+
+\newpage
+
+
+\section{Domande \& risposte}
+
+    \begin{description}[style=nextline]
+        \item[È possibile sviluppare l'autenticazione e la registrazione nel sistema solo attraverso gli account \mgls{google}, \mgls{facebook} e simili ?]
+	        Sarebbe una funzionalità interessante, tuttavia bisogna gestire la possibilità in cui un utente non abbia un account \mgls{google} o \mgls{facebook} oppure non voglia fornire le informazioni associate. Quindi sarebbe un requisito opzionale, mentre l'autenticazione attraverso \mgls{username} e password è un requisito obbligatorio.
+        \item[Come dovremmo gestire il recupero della password nel caso un utente la abbia dimenticata?]
+            Non la vediamo come una funzionalità particolarmente interessante, quindi sarebbe un requisito opzionale.
+        \item[Come modello di sviluppo abbiamo scelto di adottare quello incrementale ( stabilendo una base solida di funzionalità obbligatorie ed imprescindibili ). Andando a rivedere tutti i requisiti e ci è sorto un dubbio:
+        l'archiviazione delle risposte di un utente e quindi anche la produzione delle statistiche relative, dalla presentazione del capitolato ci risulta essere una funzionalità desiderabile ma non obbligatoria.]
+        Concordo anche con la scelta del modello incrementale e l' analisi che avete fatto.
+        Prima gestite la risposta singola domanda,
+        quindi il blocco di domande che costituiscono il test,
+        poi il salvataggio e le statistiche.
+        \item[Approfittiamo dell'occasione per chiederle anche se sareste maggiormente interessati alla parte delle statistiche oppure al modellare diversi tipi di domande]
+            Per quanto riguarda la mia personale curiosità sono molto interessato a domande costruite in modo "fantasioso" e modellate con metodi innovativi, per quanto riguarda le statistiche come avete ben capito noi stiamo facendo un lavoro molto profondo in questo campo, quindi riteniamo di poter inserire con più facilità nel nostro prodotto le vostre idee del punto di prima piuttosto che questo.
+            Come avete visto chiacchierando insieme anche il tema delle statistiche è comunque molto fecondo, quindi se avete delle idee che ritenete interessanti ma non avete il tempo di realizzarle comunicatecele comunque, semmai possiamo provare a implementarle noi per voi.
+        \item[Nel caso riuscissimo a sviluppare la gestione delle statistiche delle domande, come dovremmo gestire la modifica ad una domanda? dovremmo eliminare le statistiche associate oppure dovrmmo tenerle?]
+           Potreste eliminare le statistiche dato che la domanda è cambiata oppure dare la possibilità di mantenere o resettare le statistiche attraverso un flag impostabile dall'utente ( nel caso la modifica alla domanda sia trascurabile).
+    \end{description}
+
+\section{Decisioni}
+
+Sono state quindi presi i seguenti provvedimenti in questa riunione:
+
+\begin{itemize}
+    \item L'accesso e la registrazione al sistema attraverso \mgls{username} o nickname e password è un requisito obbligatorio;
+    \item L'accesso e la registrazione al sistema attraverso accounte \mgls{google}, \mgls{facebook} o simili è un requisito opzionale;
+    \item Il recupero della password nel caso un utente se la sia dimenticata e un requisito opzionale;
+    \item L'archiviazione delle risposte di un utente e la relativa produzione e gestione delle statistiche diventa un requisito opzionale;
+    \item La gestione di diversi tipi di domanda attraverso QML, oltre alle tipologie già identificate come requisiti obbligatori, passano da requisito opzionali a desiderabili.
+\end{itemize}
+
+\end{document}
