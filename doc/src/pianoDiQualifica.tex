@@ -437,6 +437,134 @@ Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è
 \item \textbf{Range di Accettazione}: [50\%-100\%]
 \item \textbf{Range Ottimale}: [75\%-100\%]
 \end{itemize}
+\newpage
+\section{Standard di qualità}
+\subsection{Standard ISO/IEC 15504}
+Lo standard ISOG/IECG 15504 descrive come ogni processo debba essere controllato
+continuamente con lo scopo di rilevare possibili rischi e debolezze intrinseci che impediscono
+di raggiungere gli obiettivi prefissati, e di individuare le possibili cause in
+modo da migliorare l'effcienza di tali processi. I risultati delle singole valutazioni devono
+essere ripetibili, oggettivi e comparabili in contesti simili affinché contribuiscano
+al miglioramento effettivo dei processi in esame.
+
+Il modello SPICE definisce 6 possibili livelli di maturità del processo i quali possiedono
+degli attributi utili per misurarla:
+\begin{enumerate}
+\item\textbf{Incomplete process:}il processo non viene attuato o non riesce a raggiungere i
+suoi risultati;
+\item\textbf{Performed:} il processo attuato raggiunge i suoi risultati
+\begin{enumerate}
+	\item\textbf{Process performance attribute:} capacità di un processo di raggiungere gli obiettivi trasformando input identificabili in output identificabili.
+\end{enumerate}
+
+\item\textbf{Managed process:} il processo viene eseguito in modo controllato in base a
+obiettivi definiti
+\begin{enumerate}
+\item\textbf{Performance management attribute:} capacità del processo di elaborare
+un prodotto coerente con gli obiettivi prefissati;
+\item\textbf{ Work product management attribute:} capacità del processo di elaborare
+un prodotto documentato, controllato e verficato.
+\end{enumerate}
+\item{Established process:}il processo viene eseguito basandosi su principi dell'ingegneria
+del software ed è in grado di raggiungere i risultati prefisati
+\begin{enumerate}
+\item\textbf {Process definition attribute: }l'esecuzione del processo si basa su standard
+di processo per raggiungere i propri obiettivi;
+\item\textbf{Process resource attribute: }capacità del processo di attingere a risorse
+tecniche e umane appropriate per essere attuato efficacemente.
+\end{enumerate}
+\item\textbf{Predictable process:} il processo viene eseguito costantemente entro limiti definiti
+per raggiungere i risultati attesi
+\begin{enumerate}
+	\item \textbf{ Measurement attribute:} gli obiettivi e le misure di prodotto e di processo
+	vengono usati per garantire il raggiungimento dei traguardi definiti in
+	supporto ai target aziendali;
+	\item\textbf{ Process control attribute:} il processo viene controllato tramite misure di
+	prodotto e processo per effettuare correzioni migliorative al processo stesso.
+\end{enumerate}
+
+\item\textbf{Optimizing process:} il processo cambia e si adatta dinamicamente per raggiungere
+gli obiettivi aziendali
+\begin{enumerate}
+\item \textbf{Process change attribute:}i cambiamenti strutturali, di gestione e di
+esecuzione vengono gestiti in modo controllato per raggiungere i risultati prefissati;
+\item \textbf{Continuous improvement attribute:} le modifiche al processo sono identificate e implementate per garantire il miglioramento continuo nella realizzazione
+degli obiettivi di business dell'organizzazione.
+\end{enumerate}
+\end{enumerate}
+
+Ogni attributo di processo precedentemente descritto è misurabile e lo standard predispone
+4 differenti livelli:
+\begin{enumerate}
+	\item \textbf{N} non posseduto (0\% - 15\%);
+	\item \textbf{P} parzialmente posseduto (16\% - 50\%);
+	\item \textbf{L} largamente posseduto (51\% - 85\%);
+	\item \textbf{F} completamente posseduto (86\% - 100\%).
+\end{enumerate}
+
+\subsection{Standard ISO/IEC 9126}
+Lo standard ISOG/IECG 9126 è stato redatto con lo scopo di descrivere gli obiettivi
+qualitativi di prodotto e delineare delle metriche capaci di misurare il raggiungimento
+di tali obiettivi. Esso divide i criteri qualitativi in 3 aree diverse:
+\begin{itemize}
+	\item \textbf{Qualità in uso:} è la qualità del prodotto software dal punto di vista dell'utilizzatore che ne fa uso all'interno di uno specifico sistema e contesto;
+	\item \textbf{Qualità esterna:} è la qualità del prodotto software vista dall'esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova;
+	\item \textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno, fa quindi riferimento alle caratteristiche implementative del software quali l'architettura e il codice che ne deriva.
+\end{itemize}
+Non avendo la possibilità di testare la qualità in uso del prodotto software da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo\textit{Standard ISOG/IECG 9126}
+prevede 6 caratteristiche qualitative principali, suddivise in ulteriori sotto caratteristiche
+che possono essere misurate quantitativamente tramite metriche specifiche:
+
+\begin{itemize}
+	\item \textbf{Funzionalità: }capacità del prodotto software di fornire funzioni che rispondano a determinate esigenze
+	\begin{itemize}
+	\item \textbf{Idoneità: }capacità del prodotto software di fornire un insieme appropriato di funzioni per attività specifiche;
+	\item \textbf{Accuratezza:} capacità del prodotto software di fornire risultati corretti o concordati con il grado di precisione necessario;
+	\item \textbf{Interoperabilità: }capacità del prodotto software di interagire con uno o	più sistemi specifici;
+	\item \textbf{Sicurezza:} capacità del prodotto software di proteggere dati e informazioni in modo da impedire l'accesso e la modifica a persone o sistemi non autorizzati e a consentire l'uso di tali dati ai soli autorizzati;
+	\item \textbf{Conformità funzionale:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni e prescrizioni in materia di funzionalità.
+  \end{itemize}
+	\item \textbf{Affidabilità:} capacità del prodotto software di mantenere un adeguato livello di prestazioni
+	\begin{itemize}
+	\item \textbf{Maturità:} capacità del prodotto software di evitare fallimenti a causa di errori nel software;
+	\item \textbf{Tolleranza agli errori: }capacità del prodotto software di mantenere un adeguato livello di prestazioni in caso di errori software o di violazione alla propria interfaccia;
+	\item \textbf{Capacità di recupero:} capacità del prodotto software di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori;
+	\item \textbf
+	\item \textbf{ Conformità di affidabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità.
+	\end{itemize}
+	\item \textbf{Usabilità:} capacità del software di essere capito, imparato, usato e di essere allettante per l'utente
+	\begin{itemize}
+	\item \textbf{Intelligibilità:} capacità del prodotto software di consentire all'utente di capire se il software è adeguato e come può essere utilizzato per compiti	particolari;
+	\item \textbf{Apprendibilità:} capacità del prodotto software di consentire all'utente di imparare le sue applicazioni;
+	\item \textbf{Operabilità:} capacità del prodotto software di consentire all'utente di usarlo e controllarlo;
+	\item \textbf{Attrattività:} capacità del prodotto software di creare interesse nell'utente;
+	\item \textbf{Conformità di usabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di usabilità.
+	\end{itemize}
+	\item \textbf{Efficienza:} capacità del software di fornire prestazioni appropriate in relazione alla quantità di risorse usate
+	\begin{itemize}
+	\item \textbf{Comportamento temporale:} capacità del software di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni;
+	\item \textbf{Utilizzo di risorse:} capacità del prodotto software di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione;
+	\item \textbf{ Conformità di efficienza: } capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di efficienza.
+	\end{itemize}
+	\item \textbf{Manutenibilità:}capacità del prodotto software di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del software cambiamenti ambientali, nelle specifiche o nelle funzionalità
+    \begin{itemize}
+	\item \textbf{Analizzabilità:} capacità del prodotto software di poter essere studiato alla ricerca di carenze e difetti;
+	 \item \textbf{Modificabilità: }capacità del prodotto software di consentire l'implementazione di una specifica modifica;
+	 \item \textbf{ Stabilità:} capacità del prodotto software di evitare effetti indesiderati causati da una o più modifiche;
+	  \item \textbf{Testabilità:} capacità del prodotto software di consentire la validazione di	una versione modificata del software;
+	  \item \textbf{Conformità di manutenibilità:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità.
+	  \end{itemize}
+\item \textbf{Portabilità:} capacità del prodotto software di poter essere trasferito da un ambiente di lavoro ad un altro.
+	  \begin{itemize}
+	  \item \textbf{Adattabilità:} capacità del prodotto software di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite;
+	  \item \textbf{Installabilità: }capacità del prodotto software di poter essere installato in specifici ambienti;
+	  \item \textbf{Coesistenza: }capacità del prodotto software di coesistere in ambienti comuni con altri software indipendenti condividendo risorse comuni;
+	  \item \textbf{Sostituibilità:} capacità del prodotto software di poter sostituire un software analogo con la stessa finalità e nello stesso ambiente;
+	  \item \textbf{ Conformità di portabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di portabilità.
+	 \end{itemize}
+\end{itemize}
+
+
 
 \newpage
 \section{Gestione amministrativa della revisione}
