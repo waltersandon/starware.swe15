@@ -354,16 +354,38 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 	\item \textbf{Diagrammi dei package:} per descrivere l'architettura generale
 \end{itemize}
 
-Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
+
+%\TODO{vedi sotto}
+%Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
+
+
+\paragraph{Progettazione architetturale}
+\TODO{}
+La progettazione architetturale è un processo di progettazione finalizzato ad individuare i sottosistemi che compongono il sistema da realizzare, e le loro inter-relazioni di controllo e di comunicazione.
+E' una progettazione "ad altissimo livello", in cui si definisce solo la struttura complessiva del sistema in termini dei principali moduli di cui esso è composto e delle relazioni macroscopiche fra di essi.
+
+\paragraph{Progettazione di dettaglio}
+\TODO{}
+La progettazione di dettaglio, rappresenta una descrizione del sistema molto vicina alla codifica, nella quale vengono descritte in dettaglio le classi, gli attributi, i relativi metodi, parametri e tipi di ritorno.
+
+
+\paragraph{Definizione di prodotto}
+\TODO{}
+Il prodotto della \TODO{controllare la macro dell'rpmax} è il documento chiamato \DP\ sviluppato dai \PGpl\
+Lo scopo di questo documento è quello di definire dettagliatamente ogni singola unità
+di cui è composto il sistema in modo da semplificare l’attività di codifica e allo stesso
+tempo di non fornire alcun grado di libertà al \PR{}.
+Parallelamente alla progettazione di dettaglio dei componenti \mgls{software} dovranno essere
+progettati i relativi test di unità che verranno descritti nel \PdQ\ \TODO{aggiungere il numero della versione}.
 
 \subsubsubsection{Strumenti}
 
 \paragraph{Draw.io}		 
-Per la modellazione di alcuni diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
+Per la modellazione di alcuni diagrammi di attività è stato scelto l’editor \mGls{draw.io}. Le caratteristiche che hanno fatto propendere il gruppo ad usare questo \mgls{software} sono state: un interfaccia elementare ed intuitiva, il supporto di \mgls{uml}2.0 e la possibilità di utilizzare questa applicazione sia da \mgls{browser} che da \mGls{desktop}.
 %Per la modellazione dei diagrammi delle classi e dei \textit{\mgls{package}} è stato scelto di utilizzate \TODO{}
 
 \paragraph{TikZ-UML}\label{tikZ-UML}
-Per la modellazione dei diagrammi dei casi d'uso si è scelto di usare un \mgls{tikz-uml} che è un estensione della libreria grafica  \mgls{tikz} per \LaTeX{} utilizzata per la produzione di grafica vettoriale.
+Per la modellazione dei diagrammi dei casi d'uso si è deciso di usare \mgls{tikz-uml}, un estensione della libreria grafica  \mgls{tikz} per \LaTeX{} utilizzata per la produzione di grafica vettoriale.
 Si è scelto di usare \mgls{tikz-uml} in quanto permette di gestire facilmente i diagrammi dei casi d'uso e produrli direttamente dalla attraverso \LaTeX{}.
 
 
@@ -376,11 +398,50 @@ Per la modellazione dei diagrammi delle classi, dei \mgls{package} , i diagrammi
 	\item Fornisce un interfaccia semplice ed intuitiva per per la modellazione dei diagrammi.
 \end{itemize}
 
-\subsubsection{Attività di validazione}
+\paragraph{Tracy}
+Come \mgls{software} per la descrizione testuale e il tracciamento dei \mgls{package}, delle classi, dei relativi metodi e degli attributi si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
+
+\subparagraph{Definizione di un package}
+\TODO{}
+
+\subparagraph{Definizione di una classe}
+\TODO{}
+
+\subparagraph{Definizione di un metodi}
+\TODO{}
+
+\subparagraph{Definizione di un attributo}
+\TODO{}
+
+\subsubsection{Attività di codifica e Testing}
+\subsubsubsection{Codifica}
 Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
 
-\subsubsection{Attività di codifica}
-Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+\subsubsubsection{Test}
+Tutti i test che seguono vengono definiti in dettaglio nel documento \PdQ\ \TODO{forse da aggiungere la versione del documento}
+
+\paragraph{Test di Unità}
+\TODO{}
+Il test di unità verifica che ogni singola unità del prodotto \mgls{software} funzioni correttamente.
+Attraverso questo test si verifica la correttezza di tutti i moduli base che compongono i \mgls{software} andando
+a limitare gli errori di implementazione.
+
+\paragraph{Test di Integrazione}
+\TODO{}
+il test di integrazione verifica che due o più moduli precedentemente verificati (con test di unità), una volta assemblati, funzionino ed interagiscano come previsto. Aiuta inoltre a rilevare eventuali difetti residui dei moduli, non individuati nella precedente fase di test.
+
+\paragraph{Test di Sistema}
+\TODO{}
+I test di sistema consistono nella validazione dei prodotti \mgls{software}. Questo test viene eseguito quando si ritiene il prodotto sia giunto ad una versione definitiva. Viene quindi verificata la completa copertura dei requisiti da parte del prodotto;
+
+\paragraph{Test di Validazione}
+\TODO{}
+
+\subsubsubsection{Strumenti}
+
+\paragraph{Tracy}
+\TODO{}
+\mgls{tracy} permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
 
 \newpage
 
@@ -740,11 +801,27 @@ Il processo di verifica viene istanziato nel momento in cui l'output di un proce
 	\item \textbf{Segnalazione degli errori riscontrati:} Attenendosi a quanto riportato nella tabella \ref{tabCalssificazioneProb} il \VR{} deve generare dei \mglspl{ticket} secondo quando descritto nella sezione \ref{gestioneDeiProblemi}
 \end{itemize}
 
-\subsubsubsection{Verifica della progettazione}
+\subsubsubsection{Verifica dei diagrammi UML}\label{verificaUML}
 \TODO{}
+Il \VR\ deve verificare la correttezza dei diagrammi \mgls{uml} prodotti:
+\begin{itemize}
+	\item \textbf{Diagrammi di caso d'uso:} Il controllo dei casi d'uso deve avvenire in maniera manuale, controllando che essi rispettino le norme di \mgls{uml}2.4, assicurandosi inoltre che il diagramma esprima fedelmente quanto descritto dal caso d'uso
+	\item \textbf{Diagrammi delle classi:} Il controllo dei diagrammi delle classi deve avvenire in maniera manuale, controllando che esse rispettino le norme di \mgls{uml}2.4, assicurandosi inoltre che le classi definire siano fedeli a quanto progettato.
+\end{itemize}
 
-\subsubsubsection{Verifica del codice}
+\subsubsubsection{Verifica della progettazione architetturale}\label{verificaProgettazioneArchitetturale}
+\TODO{Anna,anna}
+Al \VR{} è richiesto il controllo del rispetto delle metriche riguardanti la \FPA{}. 
+
+\subsubsubsection{Verifica della progettazione di dettaglio}\label{verificaProgettazioneDiDettaglio}
+\TODO{Anna,anna}
+Al \VR\ è richiesto di controllare che il documento \DP\ contenga
+l’architettura di dettaglio con i vari moduli del sistema aventi una dimensione e un accoppiamento che li renda realizzabili per un singolo Programmatore.
+Ogni modulo deve essere associato ad almeno un requisito e il \VR dovrà controllare la bontà di tale tracciamento generato da \mgls{tracy}.
+
+\subsubsubsection{Verifica del codice}\label{verificaCodice}
 \TODO{}
+Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la codifica in previsione della \RQ.
 
 \subsubsubsection{Tecniche di analisi statica}
 Tale tecnica è applicabile sia alla documentazione sia al codice, consiste nell'individuazione di errori ed anomalie ad esempio effettuando una lettura critica del testo a largo spettro oppure più mirata. Il \VR{} controllerà i documenti e il codice utilizzando le seguenti tecniche:
