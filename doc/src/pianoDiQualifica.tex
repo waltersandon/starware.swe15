@@ -292,6 +292,18 @@ La distinzione di ruoli e l'attenzione al conflitto di interessi tra le varie fi
 Con il termine risorse si identificano risorse umane e tecnologiche. La pianificazione del loro utilizzo e l'analisi dei costi e di rischi connessi deve essere preventiva ed efficace.
 Qualora fosse possibile ridurre l'utilizzo di una risorsa, a scopo di controllo o diminuzione dei costi, è necessario valutare, prima, l'impatto che tale modifica apporta alla gestione della qualità nel suo complesso.
 
+\subsection{Gestione amministrativa della revisione}
+\subsubsection{Comunicazione e risoluzione di anomalie}
+Una anomalia corrisponde a:
+\begin{itemize}
+	\item violazione delle norme tipografiche da parte di un documento;
+	\item uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
+	\item incongruenza del prodotto con funzionalità indicate nell'analisi dei requisiti;
+	\item incongruenza del codice con il design del prodotto.
+\end{itemize}
+Nel caso in cui un \VR\ individui un'anomalia, dovrà aprire un ticket nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
+\subsubsection{Pianificazione ed esecuzione del collaudo}
+Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
 \newpage
 
 \section{Analisi della qualità}\label{analisi}
@@ -564,23 +576,36 @@ che possono essere misurate quantitativamente tramite metriche specifiche:
 	 \end{itemize}
 \end{itemize}
 
-
-
-\newpage
-\section{Gestione amministrativa della revisione}
-\subsection{Comunicazione e risoluzione di anomalie}
-Una anomalia corrisponde a:
-\begin{itemize}
-\item violazione delle norme tipografiche da parte di un documento;
-\item uscita dal range di accettazione degli indici di misurazione, descritti nella sezione \ref{metriche};
-\item incongruenza del prodotto con funzionalità indicate nell'analisi dei requisiti;
-\item incongruenza del codice con il design del prodotto.
-\end{itemize}
-Nel caso in cui un \VR\ individui un'anomalia, dovrà aprire un ticket nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
-\subsection{Pianificazione ed esecuzione del collaudo}
-Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
 \newpage
 \section{Definizione dei Test}
+\subsection{Strategia di testing}
+\subsubsection{Livelli di testing}
+\subsubsection{Struttura del sistema di testing}
+La struttura del sistema di testing deve essere conforme alla struttura del sistema. Tale carateristica è essenziale per il garantire il funzionamento dell'intero apparato di test. 
+L'esecuzione dei test deve seguire l'ordine cronologico seguente:
+\begin{enumerate}
+	\item Esecuzione e superamento dei test di unità;
+	\item Esecuzione e superameto dei test di integrazione;
+	\item Esecuzione e superamento dei test di sistema;
+	\item Esecuzione e superamento dei test di validazione.
+\end{enumerate}
+E' cruciale per l'efficacia dei test che le componenti prodotti non entrino nella fase di test successiva, rispetto a quelle precedentemente esposte, se non soddisfa i test nel punto precedente.
+\subsubsection{Pianificazione dei test}
+La pianificazione dei test deve essere preventiva rispetto alla produzione delle componenti oggetto di tali test. 
+Pertanto si raccomanda che, non appena le informazioni ricavate tramite la progettazione lo permettano, vengano definiti i test riguardanti le componenti interessate.
+Pertanto, poichè la definizione dei test deve integrarsi con le varie fasi di progettazione, questa deve rispettare la seguente successione temporale:
+\begin{enumerate}
+	\item Definizione dei test di validazione in fase di analisi.
+	\item Definizione dei test di sisema in fase di analisi dettagliata.
+	\item Definizione dei test di integrazione in fase di progettazione architetturale.
+	\item Definizione dei test di untà in fase di progettazione dettagliata.
+\end{enumerate}
+Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che facilitino la reativa gestione.
+E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo.
+Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di testing.
+
+\subsection{}
+\subsection{}
 
 \newpage
 \appendix
