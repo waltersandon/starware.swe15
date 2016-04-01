@@ -486,7 +486,7 @@ Anche tale caratteristica dovrebbe essere il più possibile automatizzata per ma
 \subsubsection{Test di Validazione}
 \subsubsection{Test di Sistema}
 \subsubsection{Test di Integrazione}
-\subsubsection{Test di Unità}
+ \subsubsection{Test di Unità}
 Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema
 \[ GU.X  \]
 dove X è un numero intero progressivo. 
@@ -503,20 +503,32 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\item Controllo delle chiamate ai servizi;
 	\item Controllo della consistenza dei parametri passati ai servizi.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & client::controller::public\\ \midrule
-			ID & Classe & client::controller::public\\ \midrule
-			ID & Classe & client::controller::public\\ \midrule
-			ID & Classe & client::controller::student\\ \midrule
-			ID & Classe & client::controller::teacher\\ \midrule
-			ID & Classe & client::controller::admin\\ \midrule
-			
+			83.TU & LogIn & client::controller::public\\ \midrule
+			84.TU & SingIn & client::controller::public\\ \midrule
+			159.TU & Menu & client::controller::student\\ \midrule
+			86.TU & Questionnaires & client::controller::student\\ \midrule
+			182.TU & ExecuteQuestionnaire & client::controller::student\\ \midrule
+			183.TU & ExecuteQuestion & client::controller::student\\ \midrule
+			165.TU & Tags & client::controller::student\\ \midrule
+			188.TU & User & client::controller::student\\ \midrule
+			85.TU & Home & client::controller::student\\ \midrule
+			171.TU & ManipulateTag & client::controller::teacher\\ \midrule
+			175.TU & ManipulateQuestion & client::controller::teacher\\ \midrule
+			176.TU & ManipulateQuestionnaire & client::controller::teacher\\ \midrule
+			177.TU & SelectQuestions & client::controller::teacher\\ \midrule
+			178.TU & Menu & client::controller::teacher\\ \midrule
+			184.TU & ManageTags & client::controller::teacher\\ \midrule
+			185.TU & ManageQuestions & client::controller::teacher\\ \midrule
+			186.TU & ManageQuestionnaire & client::controller::teacher\\ \midrule
+			157.TU & UserList & client::controller::admin\\ \midrule
+			158.TU & Menu & client::controller::admin\\ \midrule			
 		 \bottomrule
 		\end{tabular}
 	\end{center}
@@ -525,7 +537,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 
 
 \paragraph{Gruppo GU.2 }
-Tale gruppo di test verifica la correttezza delle classi interne al package client::data::services e
+Tale gruppo di test verifica la correttezza delle classi interne al package client::model::services
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -533,26 +545,26 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\item Controllo dei parametri passati alle API REST;
 	\item Correttezza della costruzione degli oggetti in client::model::data.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			
+			77.TU & SessionService & client::model::services\\ \midrule
+			78.TU & UserService & client::model::services\\ \midrule
+			79.TU & TagService & client::model::services\\ \midrule
+			80.TU & RoleService & client::model::services\\ \midrule
+			81.TU & QuestionServices & client::model::services\\ \midrule
+			82.TU & QuestionnaireServices & client::model::services\\ \midrule
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
+	\caption{Descrizione dei test relativi a client::model::services}
 \end{table}
 \paragraph{Gruppo GU.3}
+Tale gruppo di test verifica la correttezza delle classi interne al package client::model::util
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -560,26 +572,24 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\item I costruttori inizializzino correttamente i campi dati della classe
 	\item Eventuali chiamate a servizi passino  questi parametri consistenti.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
+			179.TU & Check & client::model::util\\ \midrule
+			180.TU & CurrentQuestion & client::model::util\\ \midrule
+			181.TU & CurrentQuestionnaire & client::model::util\\ \midrule
 			
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
+	\caption{Descrizione dei test relativi a client::model::util}
 \end{table}
 \paragraph{Gruppo GU.4}
+Tale gruppo di test verifica la correttezza delle classi interne al package server::services
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -587,52 +597,50 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\item Controllo dei parametri passati alle API REST;
 	\item Correttezza della costruzione degli oggetti in client::model::data.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			
+			14.TU & UserService & server::services\\ \midrule
+			15.TU & QuestionnaireService & server::services\\ \midrule
+			16.TU & QuestionService & server::services\\ \midrule
+			24.TU & TagService & server::services\\ \midrule
+			156.TU & SessionService & server::services\\ \midrule
+			160.TU & RoleService & server::services\\ \midrule			
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
+	\caption{Descrizione dei test relativi a server::services}
 \end{table}
 \paragraph{Gruppo GU.5}
+Tale gruppo di test verifica la correttezza delle classi interne al package server::validator
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
 	\item Ogni metodo di controllo devono rilevare oggetti, del tipo trattato, non consistenti
 	\item Ogni metodo di controllo deve accettare un oggetto, del tipo trattati, consistente con il modello.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			
+			161.TU & UserCheck & server::validator\\ \midrule
+			162.TU & QuestionnaireCheck & server::validator\\ \midrule
+			163.TU & TagCheck & server::validator\\ \midrule
+			164.TU & QuestionCheck & server::validator\\ \midrule			
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
+	\caption{Descrizione dei test relativi a server::validator}
 \end{table}
 \paragraph{Gruppo GU.6}
+Tale gruppo di test verifica la correttezza delle classi interne al package server::middleware
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -640,51 +648,22 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\item Ogni metodo deve costruire correttamente gli oggetti in server::data.
 	\item Ogni chiamata a metodi deve essere effettuata con parametri corretti.
 \end{itemize}
-\subparagraph{Descrizione Unità}
+\subparagraph{Descrizione Unità}:
 \begin{table}[H]
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
 			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
 			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			
+			18.TU & Router & server::middleware\\ \midrule
+			19.TU & Authorization & server::middleware\\ \midrule
+			20.TU & Loader & server::middleware\\ \midrule
+			21.TU & ErrorHandler & server::middleware\\ \midrule
+			28.TU & Error & server::middleware\\ \midrule			
 			\bottomrule
 		\end{tabular}
 	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
-\end{table}
-\paragraph{Gruppo GU.7}
-\subparagraph{Controlli oggetto del test}
-Per ogni unità software qui definita, devono essere verificati i seguenti punti:
-\begin{itemize}
-	\item Ogni costruttore deve inizializzare correttamente i campi dati della classe
-	\item Ogni metodo deve rispondere correttamente ad una chiamata con parametri corretti
-	\item I metodi di errore devono rilevare i malfunzionamenti
-\end{itemize}
-\subparagraph{Descrizione Unità}
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
-			\midrule
-			ID &  & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			ID & Classe & Package\\ \midrule
-			
-			\bottomrule
-		\end{tabular}
-	\end{center}
-	\caption{Descrizione dei test relativi a \TODO{}}
+	\caption{Descrizione dei test relativi a server::middleware}
 \end{table}
 \newpage
 \section{Standard di qualità}
