@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.10}
+\newcommand{\versione}{1.0.15}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -62,7 +62,25 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		1.1.0 & \AVI{} & 2016-02-26 & Verifica e piccole correzioni stilistiche \\*
+		1.0.15 & \TP{} & 2016-02-04 & Aggiunta lista di controllo per la verifica dei diagrammi degli use case e per i diagrammi delle classi [aggiunta sez. 
+		\ref{listaUseCase},
+		\ref{listaClassi}]\\*
+		\midrule
+		1.0.14 & \TP{} & 2016-02-04 & Aggiunta sezioni per la verifica dei diagrammi UML, verifica della \FPA{}, \FPD{} e sulla verifica del codice [aggiunta sez. 
+		\ref{verificaUML},
+		\ref{verificaProgettazioneArchitetturale},
+		\ref{verificaProgettazioneDiDettaglio},
+		\ref{verificaCodice}]\\*
+		\midrule
+		1.0.13 & \TP{} & 2016-02-04 & Aggiunta sezioni di Strumenti per il tracciamento della progettazione, Test e tracciamento dei Test [aggiunta sez. 
+		\ref{tracciamentoProgettazione},
+		\ref{test},
+		\ref{tracciamentoTest}]\\*
+		\midrule
+		\midrule
+		1.0.12 & \TP{} & 2016-02-04 & Aggiunta sezioni di \DP{},\FPD{},\FPA{} [aggiunta sez. \ref{definizioneDiProdotto},
+		\ref{progettazioneDiDettaglio},
+		\ref{progettazioneArchitetturale}]\\*
 		\midrule
 		1.0.11 & \TP{} & 2016-02-25 & Aggiunta sezioni su gli strumenti per la produzione di diagrammi UML TikZ-UML e Visual Paradigm [aggiunta sez. \ref{visualParadigm},\ref{tikZ-UML}]\\*
 		\midrule
@@ -359,38 +377,37 @@ La fase di progettazione deve essere supportata dai seguenti diagrammi realizzat
 %Questa sezione delle \NdP{} sarà ampliata non appena verranno concordate dal gruppo norme riguardanti la \FPA{} in previsione della \RP.
 
 
-\paragraph{Progettazione architetturale}
+\paragraph{Progettazione architetturale}\label{progettazioneArchitetturale}
 \TODO{}
 La progettazione architetturale è un processo di progettazione finalizzato ad individuare i sottosistemi che compongono il sistema da realizzare, e le loro inter-relazioni di controllo e di comunicazione.
 E' una progettazione "ad altissimo livello", in cui si definiscono:
 \begin{itemize}
-	\item le tecnologie da utilizzare
-	\item i \mgls{design pattern} da utilizzare e il loro ruolo all'interno del sistema
-	\item i \mgls{package} specificandone nomi e relazioni tra gli stessi
-	\item vengono definite le classi interne ai package specificando nome e relazioni tra le classi 
+	\item le tecnologie da utilizzare;
+	\item i \mgls{design pattern} da utilizzare e il loro ruolo all'interno del sistema;
+	\item i \mgls{package} specificandone nomi e relazioni tra gli stessi;
+	\item vengono definite le classi interne ai package specificando nome e relazioni tra le classi.
 \end{itemize}
 
-\paragraph{Progettazione di dettaglio}
+\paragraph{Progettazione di dettaglio}\label{progettazioneDiDettaglio}
 \TODO{}
-La progettazione di dettaglio, rappresenta una descrizione del sistema molto vicina alla codifica, nella quale, per ogni classe specificata nella \PA{}, vengono descritti in dettaglio:
+La progettazione di dettaglio, rappresenta una descrizione del sistema molto vicina alla codifica, nella quale, per ogni classe specificata nella \FPA{}, vengono descritti in dettaglio:
 \begin{itemize}
-	\item attributi
-	\item tipi degli attributi
-	\item relazione dettagliata dell'interazione tra le classi
-	\item metodi
-	\item parametri dei metodi
-	\item tipi di ritorno dei metodi
-	\item 
+	\item attributi;
+	\item tipi degli attributi;
+	\item relazione dettagliata dell'interazione tra le classi;
+	\item metodi;
+	\item parametri dei metodi;
+	\item tipi di ritorno dei metodi.
 \end{itemize}
 
 
 
-\paragraph{Definizione di prodotto}
+\paragraph{Definizione di prodotto}\label{definizioneDiProdotto}
 \TODO{}
-Il prodotto della \TODO{controllare la macro dell'rpmax} è il documento chiamato \DP\ sviluppato dai \PGpl\.
-Lo scopo di questo documento è quello di esporre le scelte addottate nella \PA{} e \PD{}.
-In particolare vengono definite le scelte architetturali, le tecnologie e la motivazione dietro la scelta delle stesse e le componenti del sistema e la loro interazione nel dettaglio.
-Parallelamente alla progettazione di dettaglio dei componenti \mgls{software} dovranno essere progettati i relativi test di unità che verranno descritti nel \PdQ\ \TODO{aggiungere il numero della versione}.
+Il prodotto della \FPD\ è il documento chiamato \DP\ sviluppato dai \PGpl{}.
+Lo scopo di questo documento è quello di esporre le scelte adottate nella \FPA{} e nella \DP{}.
+In particolare vengono definite le scelte architetturali, le tecnologie e la motivazione dietro le stesse e le componenti del sistema e la loro interazione nel dettaglio.
+Parallelamente alla progettazione di dettaglio dei componenti \mgls{software} dovranno essere progettati i relativi test di unità che verranno descritti nel \PdQ{}.
 
 \subsubsubsection{Strumenti}
 
@@ -412,34 +429,68 @@ Per la modellazione dei diagrammi delle classi, dei \mgls{package} , i diagrammi
 	\item Fornisce un interfaccia semplice ed intuitiva per per la modellazione dei diagrammi.
 \end{itemize}
 
-\paragraph{Tracy}
+\paragraph{Tracy}\label{tracciamentoProgettazione}
 Come \mgls{software} per la descrizione testuale e il tracciamento dei \mgls{package}, delle classi, dei relativi metodi e degli attributi si è scelto di utilizzare \mGls{tracy}, realizzato dal gruppo \textit{Don’t Panic} durante l’anno accademico 2012/2013. Si tratta di un’applicazione web per la gestione dei requisiti e casi d’uso. Premette inoltre l’esportazione in formato \LaTeX{}.
 
-\subparagraph{Definizione di un package}
+\subparagraph{Aggiunta di un package}
 \TODO{}
+Per aggiungere un \mgls{package} è necessario eseguire i seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Package in sezione di Progettazione; 
+	\item selezionare Create Package dal menu Operations;
+	\item inserire i dati richiesti;
+	\item premere il pulsante Create per confermare la creazione del nuovo \mgls{package};
+\end{enumerate}
 
-\subparagraph{Definizione di una classe}
+\subparagraph{Aggiunta di una classe}
 \TODO{}
+Per aggiungere un classe alla gerarchia è necessario eseguire i seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Class in sezione di Progettazione; 
+	\item selezionare Create Class dal menu Operations;
+	\item inserire i dati richiesti;
+	\item premere il pulsante Create per confermare la creazione della nuova classe;
+\end{enumerate}
 
-\subparagraph{Definizione di un metodi}
+\subparagraph{Aggiunta di un metodi}
 \TODO{}
+Per aggiungere un metodo ad una classe esistente è necessario eseguire i seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Class in sezione di Progettazione; 
+	\item selezionare la classe alla quale si desidera aggiungere il metodo;
+	\item selezionare Create Method dal menu Operation;
+	\item inserire i dati richiesti;
+	\item premere il pulsante Create per confermare al'inserimento del nuovo metodo.
+\end{enumerate}
 
-\subparagraph{Definizione di un attributo}
+\subparagraph{Aggiunta di un attributo}
 \TODO{}
+Per aggiungere un attributo ad una classe esistente è necessario eseguire i seguenti passi:
+\begin{enumerate}
+	\item eseguire l'accesso a \mgls{tracy};
+	\item selezionare Class in sezione di Progettazione; 
+	\item selezionare la classe alla quale si desidera aggiungere l'attributo;
+	\item selezionare Create Attribute dal menu Operation;
+	\item inserire i dati richiesti;
+	\item premere il pulsante Create per confermare al'inserimento del nuovo attributo.
+\end{enumerate}
 
 \subsubsection{Attività di codifica e Testing}
 \subsubsubsection{Codifica}
-Le \NdP\ saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+Le \NdP{} saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
 
-\subsubsubsection{Test}
-Tutti i test che seguono vengono definiti in dettaglio nel documento \PdQ\ \TODO{forse da aggiungere la versione del documento}
+\subsubsubsection{Test}\label{test}
+\TODO{}
+Tutti i test che seguono vengono definiti in dettaglio nel documento \PdQ{}.
 
 \paragraph{Test di Unità}
 \TODO{}
 Il test di unità verifica che ogni singola unità del prodotto \mgls{software} funzioni correttamente.
-Attraverso questo test si verifica la correttezza di tutti i moduli base che compongono i \mgls{software} andando
-a limitare gli errori di implementazione.
-In questa tipologia di test vanno identificati i metodi di ogni classe, che vengono coinvolti nella verifica da parte del test e di cui a test superato si certifica la correttezza.
+Attraverso questo test si verifica la correttezza di tutti i moduli base che compongono i \mgls{software} andando a limitare gli errori di implementazione.
+In questa tipologia di test vanno identificati i metodi di ogni classe coinvolti nella verifica e, a test superato, ne si certifica la correttezza.
 
 \paragraph{Test di Integrazione}
 \TODO{}
@@ -457,7 +508,7 @@ La specifica di un test di validazione consta nella definizione di una sequenza 
 
 \subsubsubsection{Strumenti}
 
-\paragraph{Tracy}
+\paragraph{Tracy}\label{tracciamentoTest}
 \TODO{}
 \mgls{tracy} permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
 Permettendo inoltre la produzione automatica in \LaTeX{} delle tabelle per il tracciamento dei test.
@@ -826,11 +877,11 @@ Il \VR\ deve verificare la correttezza dei diagrammi \mgls{uml} prodotti utilizz
 
 
 \subsubsubsection{Verifica della progettazione architetturale}\label{verificaProgettazioneArchitetturale}
-\TODO{Anna,anna}
+\TODO{}
 Al \VR{} è richiesto il controllo del rispetto delle metriche riguardanti la \FPA{}. 
 
 \subsubsubsection{Verifica della progettazione di dettaglio}\label{verificaProgettazioneDiDettaglio}
-\TODO{Anna,anna}
+\TODO{}
 Al \VR{} è richiesto il controllo del rispetto delle metriche riguardanti la \FPD{}. 
 
 \subsubsubsection{Verifica del codice}\label{verificaCodice}
@@ -874,6 +925,13 @@ La validazione dei requisiti va tracciata con \mgls{tracy}. Quando si crea un re
 	\item selezionare la checkbox Apported;
 	\item premere il pulsante Save per confermare.
 \end{enumerate}
+
+%\subsubsubsection{Validazione della progettazione}
+%\TODO{}
+%\subsubsubsection{Validazione dei diagrammi UML}
+%\TODO{}
+%\subsubsubsection{Validazione dei casi d'uso}
+%\TODO{}
 
 \subsection{Processo di risoluzione dei problemi}
 
@@ -1251,7 +1309,7 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 \end{itemize}
 
 
-\paragraph{Diagrammi UML Use Case}
+\paragraph{Diagrammi UML Use Case}\label{listaUseCase}
 \begin{itemize}
 	\item il sistema non deve mai essere un attore; 
 	\item controllo ortografico: deve essere effettuato in modo dettagliato a causa dell'impossibilità di automatizzare i controlli sui diagrammi; 
@@ -1259,7 +1317,7 @@ Durante l’applicazione del \mgls{walkthrough} ai documenti, sono state riporta
 	\item consistenza della nomenclatura tra i diagrammi e le descrizioni testuali nei documenti. 
 \end{itemize}
 
-\paragraph{Diagrammi UML delle classi}
+\paragraph{Diagrammi UML delle classi}\label{listaClassi}
 \begin{itemize}
 	\item Se la classe non è statica deve esistere un costruttore; 
 	\item I parametri del costruttore devono essere giusti e anche i tipi; 
