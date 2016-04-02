@@ -158,7 +158,7 @@ Lo standard ISO/IEC \textit{15504} fornisce gli strumenti necessari a valutare l
 Tale modello si appoggia in parte alle raccomandazioni dello standard ISO/IEC \textit{15504} ma pone enfasi sulla sequenza corretta di azioni su cui si basa un solido sistema orientato alla qualità. 
 Il valore di tale modello consiste in particolare nel rendere chiaro che per raggiungere obiettivi risultati di qualità è necessario predisporre metriche adeguate che li rendano quantificabili sul piano operativo. Pertanto è essenziale rendere i propri processi misurabili, in quanto oggetto centrale in un sistema di produzione del software.
 \paragraph{Miglioramento continuo}
-L'adozione del miglioramento continuo ha lo scopo di far crescere e maturare il sisetema di produzione e i suoi processi. Per fare ciò, pone come successiva alla misurazione e valutazione di processo, una nuova fase per la definizione di obiettivi. 
+L'adozione del miglioramento continuo ha lo scopo di far crescere e maturare il sistema di produzione e i suoi processi. Per fare ciò, pone come successiva alla misurazione e valutazione di processo, una nuova fase per la definizione di obiettivi. 
 Il modello adottato integra i precedenti adottati, senza porsi in contrasto con essi, aggiungendo efficacia al sistema qualità nel suo complesso.
 \subsubsection{Modelli per la qualità di prodotto}
 \paragraph{Standard ISO/IEC 9126}
@@ -338,9 +338,9 @@ Il processo di verifica, per essere informativo, deve esse quantificabile. Le mi
 La qualità dei processi viene valutata usando le seguenti metriche.
 
 \subsubsection{Milestone Schedule Variance (MSV)}
-Indica se le scadenze (milestone) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di milestone.
+Indica se le scadenze (\mgls{milestone}) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di milestone.
 \[MSV [\%] = \frac{SDT - PDT}{PDT}\]
-Dove MSV indica Milestone Schedule Variance, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
+Dove \TODO{gloss} MSV indica Milestone Schedule Variance, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
 \begin{itemize}
 	\item \textbf{Primo range di accettazione}: $\geq$ -4.5\%
 	\item \textbf{Range Ottimale}: $\geq$ 0\%
@@ -443,7 +443,7 @@ Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è
 
 \section{Test del prodotto software}
 \subsection{Strategia di testing}
-Il sistema di test si basa sul "V-Model", ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del software e le fasi di pianificazione ed esecuzione dei test.
+Il sistema di test si basa sul V-Model, ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del software e le fasi di pianificazione ed esecuzione dei test.
 L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
 \begin{figure}[h]
 \centering
@@ -454,16 +454,16 @@ L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prev
 
 \subsubsection{Livelli di testing}
 Sono descritte nel seguito i vari livelli di test del modello adottato, le relative caratteristiche e la relativa funzione all'interno del sistema di test. 
-	\paragraph{Test di Validazione} si attua sul sistema completo per verificare che le funzionalità previste in fase di analisi siano effettivamente raggiunte da quest'ultimo. Le funzionalità testate sono quelle previste per l'utente finale.
-	\paragraph{Test di Sistema} si attua sul sistema completamente integrato per verificare che i requisiti siano effettivamente soddistatti.
-	\paragraph{Test di Integrazione} è finalizzato alla verifica dell'interazione tra le componenti del sistema. Il soffisfacimento dei test di integrazioe è essenziale ad assicurare che ogni parte del sistema non presenti errori dopo la fase di integrazione delle varie componenti.
+	\paragraph{Test di Validazione} si attua sul sistema completo per verificare che le funzionalità previste in fase di analisi siano effettivamente raggiunte da quest ultimo. Le funzionalità testate sono quelle previste per l'utente finale.
+	\paragraph{Test di Sistema} si attua sul sistema completamente integrato per verificare che i requisiti siano effettivamente soddisfatti.
+	\paragraph{Test di Integrazione} è finalizzato alla verifica dell'interazione tra le componenti del sistema. Il soddisfacimento dei test di integrazione è essenziale ad assicurare che ogni parte del sistema non presenti errori dopo la fase di integrazione delle varie componenti.
 	\paragraph{Test di Unità} è finalizzato alla verifica delle funzionalità di una ristretta parte di codice, solitamente una funzione o procedura. Spesso coprono anche la verifica dei costruttori delle classi.
 \subsubsection{Struttura del sistema di testing}
-La struttura del sistema di testing deve essere conforme alla struttura del sistema. Tale carateristica è essenziale per il garantire il funzionamento dell'intero apparato di test. 
+La struttura del sistema di testing deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. 
 L'esecuzione dei test deve seguire l'ordine cronologico seguente:
 \begin{enumerate}
 	\item Esecuzione e superamento dei test di unità;
-	\item Esecuzione e superameto dei test di integrazione;
+	\item Esecuzione e superamento dei test di integrazione;
 	\item Esecuzione e superamento dei test di sistema;
 	\item Esecuzione e superamento dei test di validazione.
 \end{enumerate}
@@ -474,11 +474,11 @@ Pertanto si raccomanda che, non appena le informazioni ricavate tramite la proge
 Pertanto, poichè la definizione dei test deve integrarsi con le varie fasi di progettazione, questa deve rispettare la seguente successione temporale:
 \begin{enumerate}
 	\item Definizione dei test di validazione in fase di analisi.
-	\item Definizione dei test di sisema in fase di analisi dettagliata.
+	\item Definizione dei test di sistema in fase di analisi dettagliata.
 	\item Definizione dei test di integrazione in fase di progettazione architetturale.
-	\item Definizione dei test di untà in fase di progettazione dettagliata.
+	\item Definizione dei test di unità in fase di progettazione dettagliata.
 \end{enumerate}
-Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che facilitino la reativa gestione.
+Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione.
 E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo.
 Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di testing.
 
@@ -568,7 +568,7 @@ Tale gruppo di test verifica la correttezza delle classi interne al package clie
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
-	\item Nel caso di funzioni di controllo su stringhe queste rilevino le stringhe scorrette ed accettino quelle conformi ritornanto il valore booleano corretto in entrambi i casi.
+	\item Nel caso di funzioni di controllo su stringhe queste rilevino le stringhe scorrette ed accettino quelle conformi ritornando il valore booleano corretto in entrambi i casi.
 	\item I costruttori inizializzino correttamente i campi dati della classe
 	\item Eventuali chiamate a servizi passino  questi parametri consistenti.
 \end{itemize}
@@ -671,7 +671,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 Lo standard ISOG/IECG 15504 descrive come ogni processo debba essere controllato
 continuamente con lo scopo di rilevare possibili rischi e debolezze intrinseci che impediscono
 di raggiungere gli obiettivi prefissati, e di individuare le possibili cause in
-modo da migliorare l'effcienza di tali processi. I risultati delle singole valutazioni devono
+modo da migliorare l'efficienza di tali processi. I risultati delle singole valutazioni devono
 essere ripetibili, oggettivi e comparabili in contesti simili affinché contribuiscano
 al miglioramento effettivo dei processi in esame.
 
@@ -817,8 +817,8 @@ Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} ca
 			\toprule
 			\textbf{Indice}   & \textbf{Valore Percentuale}	& \textbf{Esito test} \\ \midrule
 			\midrule
-			\mgls{cost variance} &0 &  Superato \\ \midrule
-			\mgls{schedule variance} &0.5 &  Superato\\ \bottomrule
+			\mGls{cost variance} &0 &  Superato \\ \midrule
+			\mGls{schedule variance} &0.5 &  Superato\\ \bottomrule
 
 		\end{tabular}
 	
@@ -856,7 +856,7 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\midrule
 			Milestone schedule variance & 80\% & Non Superato\\ \midrule
 			Schedule variance & -167\% &  Non Superato\\ \midrule
-			\mgls{cost variance} & 157\% &  Non superato \\ \midrule
+			\mGls{cost variance} & 157\% &  Non superato \\ \midrule
 			Cost of poor quality & 23\% &  Ottimale \\ \midrule
 			Requirement Stability Index & 1 &  Ottimale \\ \bottomrule
 		\end{tabular}
@@ -893,7 +893,7 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\toprule
 			\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 			\midrule
-			\mgls{cost variance} & 12\% &  Ottimale \\ \midrule
+			\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
 			Milestone schedule variance & 4\% & Superato\\ \midrule
 			Schedule variance & 12\% & Ottimale\\ \midrule
 			Cost of poor quality & 40\% & Superato \\ \midrule
@@ -934,7 +934,7 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\toprule
 			\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 			\midrule
-			\mgls{cost variance} & 0\% & Ottimale\\ \midrule
+			\mGls{cost variance} & 0\% & Ottimale\\ \midrule
 			Milestone schedule variance &  0\% & Ottimale\\ \midrule
 			Schedule variance & 0\% & Ottimale \\ \midrule
 			Cost of poor quality & 21\% & Ottimale \\ \midrule
@@ -960,16 +960,10 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 						\DP & NaN  &  Superato \\ \midrule \midrule
 						\textbf{Valore medio} & \textbf{NaN}& \textbf{NaN}\\ 
 						\bottomrule
-						\end{tabular}
-						\end{center}
-						\caption{Esito dei test su Indice Gulpease in Progettazione di Dettaglio}
-						\end{table}
-
-
-
-
-
-
+					\end{tabular}
+				\end{center}
+				\caption{Esito dei test su Indice Gulpease in Progettazione di Dettaglio}
+			\end{table}
 
 \subsubsection{Software}
 Viene riporata la verifica effettuata sull'attività di pianificazione di dettaglio. 
@@ -980,7 +974,6 @@ Viene riporata la verifica effettuata sull'attività di pianificazione di dettag
 			\toprule
 			\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 			\midrule
-			
 			Ottimale & 98\% \\ \midrule
 			Accettabile & 2\%  \\ \midrule
 			Non Accettabile  & 0\%  \\ \midrule
@@ -996,7 +989,6 @@ Viene riporata la verifica effettuata sull'attività di pianificazione di dettag
 			\toprule
 			\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 			\midrule
-			
 			Ottimale & 80\% \\ \midrule
 			Accettabile & 5\%  \\ \midrule
 			Non Accettabile  & 15\%  \\ \midrule
@@ -1011,14 +1003,12 @@ Viene riporata la verifica effettuata sull'attività di pianificazione di dettag
 Nello sviluppo del progetto ci saranno quattro revisioni del committente a cui si deve sottoporsi. Il committente segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 \subsection{Revisione dei Requisiti}
 \begin{itemize}
-	\item \textbf{Generale}: si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è stabilito chi debba redare i verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate.
+	\item \textbf{Generale}: si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è stabilito chi debba redarre i verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate.
 	\item \textbf{\AdR}: sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento.
 	\item \textbf{\NdP}: in seguito alla \RR si è deciso di migliorare la struttura del documento. In particolare si è ritenuto opportuno renderne la struttura maggiormente conforme allo \textit{Standard ISO/IEC 12207}.
-	\item \textbf{\PdP}: è stata effettuata una revisione della struttura del documento. I countenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inolre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione.
+	\item \textbf{\PdP}: è stata effettuata una revisione della struttura del documento. I contenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inoltre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione.
 	\item \textbf{\PdQ}: in seguito alle segnalazioni sono stati rivisti i contenuti del documento. In particolare sono state riviste nei contenuti e nell'impostazione generale le sezioni relative alla politica di qualità, qualità di processo e qualità di prodotto. Sono state aggiunte metriche per la qualità di processo ed e si è rivisto il documento rimuovendo le sezioni e i contenuti normativi. 
 	\item \textbf{\textit{Glossario}}: come da indicazione, si è rivista l'organizzazione del glossario, che è divenuto un documento a se stante. 
 \end{itemize}
-\newpage
-\printglossary[title={Glossario}]
 
 \end{document}
