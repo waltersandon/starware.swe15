@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{24 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.1}
+\newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -65,6 +65,10 @@
 			\toprule
 			\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
 			\midrule
+			\midrule
+			 1.0.0 & \AB{} & 2016-04-04 & Approvazione\\
+			 \midrule
+			 0.1.0 & \AVI{} & 2016-04-04 & Verifica\\
             \midrule
 			0.0.1 & \AVE{} & 2016-01-18 & Creazione e stesura documento \\
 			\bottomrule
@@ -101,7 +105,7 @@ Il documento presenterà la lista delle domande poste e delle risposte ricevute.
     \begin{description}[style=nextline]
         \item[È possibile sviluppare l'autenticazione e la registrazione nel sistema solo attraverso gli account \mgls{google}, \mgls{facebook} e simili ?]
 	        Sarebbe una funzionalità interessante, tuttavia bisogna gestire la possibilità in cui un utente non abbia un account \mgls{google} o \mgls{facebook} oppure non voglia fornire le informazioni associate. Quindi sarebbe un requisito opzionale, mentre l'autenticazione attraverso \mgls{username} e password è un requisito obbligatorio.
-        \item[Come dovremmo gestire il recupero della password nel caso un utente la abbia dimenticata?]
+        \item[Come dovremmo gestire il recupero della password nel caso un utente l'abbia dimenticata?]
             Non la vediamo come una funzionalità particolarmente interessante, quindi sarebbe un requisito opzionale.
         \item[Come modello di sviluppo abbiamo scelto di adottare quello incrementale ( stabilendo una base solida di funzionalità obbligatorie ed imprescindibili ). Andando a rivedere tutti i requisiti e ci è sorto un dubbio:
         l'archiviazione delle risposte di un utente e quindi anche la produzione delle statistiche relative, dalla presentazione del capitolato ci risulta essere una funzionalità desiderabile ma non obbligatoria.]
@@ -109,10 +113,10 @@ Il documento presenterà la lista delle domande poste e delle risposte ricevute.
         Prima gestite la risposta singola domanda,
         quindi il blocco di domande che costituiscono il test,
         poi il salvataggio e le statistiche.
-        \item[Approfittiamo dell'occasione per chiederle anche se sareste maggiormente interessati alla parte delle statistiche oppure al modellare diversi tipi di domande]
-            Per quanto riguarda la mia personale curiosità sono molto interessato a domande costruite in modo "fantasioso" e modellate con metodi innovativi, per quanto riguarda le statistiche come avete ben capito noi stiamo facendo un lavoro molto profondo in questo campo, quindi riteniamo di poter inserire con più facilità nel nostro prodotto le vostre idee del punto di prima piuttosto che questo.
-            Come avete visto chiacchierando insieme anche il tema delle statistiche è comunque molto fecondo, quindi se avete delle idee che ritenete interessanti ma non avete il tempo di realizzarle comunicatecele comunque, semmai possiamo provare a implementarle noi per voi.
-        \item[Nel caso riuscissimo a sviluppare la gestione delle statistiche delle domande, come dovremmo gestire la modifica ad una domanda? dovremmo eliminare le statistiche associate oppure dovrmmo tenerle?]
+        \item[Siete maggiormente interessati alla parte delle statistiche oppure al modellare diversi tipi di domande?]
+            Per quanto riguarda la mia personale curiosità, sono interessato a domande costruite in modo "fantasioso" e modellate con metodi innovativi. Per quanto riguarda le statistiche, come avete ben capito noi stiamo facendo un lavoro molto profondo in questo campo, pertanto preferiremmo che vi concentraste sulla creazione di diversi tipi di domande piuttosto che sulle statistiche. In questo modo potremmo integrare il vostro lavoro con il nostro progetto.
+            Come abbiamo visto, anche il tema delle statistiche è comunque molto fecondo, quindi se avete delle idee che ritenete interessanti, ma non avete il tempo di realizzarle, comunicatecele comunque, semmai possiamo provare a implementarle noi per voi.
+        \item[Nel caso riuscissimo a sviluppare la gestione delle statistiche delle domande, come dovremmo gestire la modifica ad una domanda? dovremmo eliminare le statistiche associate oppure dovremmo tenerle?]
            Potreste eliminare le statistiche dato che la domanda è cambiata oppure dare la possibilità di mantenere o resettare le statistiche attraverso un flag impostabile dall'utente ( nel caso la modifica alla domanda sia trascurabile).
     \end{description}
 
