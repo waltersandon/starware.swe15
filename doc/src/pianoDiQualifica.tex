@@ -46,7 +46,7 @@
 \textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 \ 	&	\Vardanega{}	\\
 \ 	&	\Cardin{}	\\
-\ 	&	Il proponente \Zucchetti{}	\\
+\ 	&	Il \mgls{proponente} \Zucchetti{}	\\
 
 \end{tabular}
 \end{center}
@@ -64,6 +64,36 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Approvazione\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} & Correzione errori ortografici o formattazione \\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} & Revisione termini glossario \\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  \\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Aggiunta \ref{test_integrazione}, \ref{test_unita}.\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Revisione dettagli sezione \ref{test}\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Approvazione\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} & Correzione errori ortografici o formattazione \\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Aggiunta pianificazione test di sistema\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Aggiunta pianificazione test di validazione\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &   Aggiunta \ref{test_pianificazione}.\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &   Aggiunta \ref{test_strategia}.\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &   Incremento \ref{test}. Revisione struttura sezione\\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &   Aggiunta sezione \ref{test} \\*
+		\midrule
+		\TODO{} &\TODO{} & \TODO{} &  Approvazione\\*
 		\midrule
 		1.1.2 & \TP{} & 2016-03-30 & Correzioni minori di grammatica o formattazione \\*
 		\midrule
@@ -93,7 +123,7 @@
 		\midrule
 		0.0.0 & \IB{} & 2015-12-27 &  Creazione documento \\*
 		\bottomrule
-		\caption{Versionamento del documento}
+		\caption{\mgls{versionamento}  del documento}
 		\label{tabVers1}
 	\end{longtable}
 \end{center}
@@ -224,20 +254,20 @@ La documentazione ha la funzione di rendere maggiormente comprensibile molti asp
 \paragraph{Obiettivi per software}
 Con la finalità di coprire il più possibile gli obiettivi di qualità proposti dallo standard \textit{ISO/IEC 9126}, si individuano delle aree in cui definire obiettivi specifici per l'analisi della qualità \mgls{software} per il caso in esame.
 \begin{itemize}
-	\item \textbf{Test driven software:} il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'analisi dinamica del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}
+	\item \textbf{\mgls{test driven software}:} il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'\mgls{analisi dinamica}  del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su grosse componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}
 	\item \textbf{Architettura modulare:} il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vari moduli vengono assemblati per creare il prodotto finale.Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP{} e \AdR{} per approfondimenti
 	\item \textbf{Tracciabilità e conformità dei requisiti:} per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP{} e \AdR{}
-	\item \textbf{Usabilità utente:} dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'analisi di dettaglio, si raccomanda attenzione
+	\item \textbf{Usabilità utente:} dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'\FAD, si raccomanda attenzione.
 	\item \textbf{Utilizzo e scelta delle risorse:} si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}
 \end{itemize}
 \subsubsection{Procedure di controllo di qualità di prodotto}
 \label{sec:procedure-di-controllo-di-qualità-di-prodotto}
 Il controllo quantitativo della qualità verrà garantito attraverso:
 \begin{itemize}
-	\item \textbf{Quality assurance:} insieme di attività atte a garantire il raggiungimento degli obiettivi di qualità postulati. 
-	Le tecniche specifiche utilizzate in questo contesto sono suddivise in analisi statica e dinamica. Per ulteriore dettaglio si veda la sezione \ref{analisi}
-	\item \textbf{Verifica:} tale processo determina se l'output di una particolare attività è consistente. La verifica verrà sistematicamente eseguita alla fine di ogni attività, per tutta la durata del progetto. I risultati ottenuti verranno riportati nell'appendice preposta
-	\item \textbf{Validazione:} tale attività ha lo scopo di confermare in modo oggettivo e conclusivo che il sistema risponda ai requisiti. L'efficienza nello svolgimento della validazione poggia sulla garanzia che una continua e ripetuta attività di verifica garantisca una buona qualità interna
+	\item \textbf{Quality assurance:} insieme di \mgls{attivita}  atte a garantire il raggiungimento degli obiettivi di qualità postulati. 
+	Le tecniche specifiche utilizzate in questo contesto sono suddivise in \mgls{analisi statica}  e dinamica. Per ulteriore dettaglio si veda la sezione \ref{analisi}
+	\item \textbf{Verifica:} tale processo determina se l'output di una particolare attività è consistente. La verifica verrà sistematicamente eseguita alla fine di ogni \mgls{attivita}, per tutta la durata del progetto. I risultati ottenuti verranno riportati nell'appendice preposta
+	\item \textbf{Validazione:} tale \mgls{attivita}  ha lo scopo di confermare in modo oggettivo e conclusivo che il sistema risponda ai requisiti. L'efficienza nello svolgimento della validazione poggia sulla garanzia che una continua e ripetuta \mgls{attivita} di verifica garantisca una buona qualità interna
 \end{itemize}
 \subsubsection{Strumenti di supporto}
 La valutazione del grado di qualità del prodotto deve essere effettuata in modo prevalentemente automatico. Laddove non sia possibile è necessario stabilire preventivamente strumenti di supporto alla verifica e alla validazione. Tali strumenti devono ridurre l'impatto sui costi, e ridurre il tempo necessario per la verifica o validazione. 
@@ -254,14 +284,14 @@ Nella pratica non viene trattata in questo documento, ma in \PdP{} e \NdP{}. La 
 La pianificazione deve essere preventiva e basarsi su un'attenta analisi dei rischi. Deve coprire ogni insieme di processi e valutare il dispiego di risorse e i costi annessi. Altrettanto preventivamente vanno pianificati i controlli di qualità e momenti riservati alla valutazione dei risultati ottenuti e all'attuazione di correzioni o miglioramenti adeguati.
 
 \subsubsection{Responsabilità}
-L'utilizzo di una separazione netta dei ruoli, e una specifica chiara delle rispettive responsabilità è determinante per il raggiungimento efficace e garantibile degli obiettivi fissati.
+L'utilizzo di una separazione netta dei \mglspl{ruolo}, e una specifica chiara delle rispettive responsabilità è determinante per il raggiungimento efficace e garantibile degli obiettivi fissati.
 Tale ripartizione è finalizzata non solo a facilitare i compiti organizzativi, ma anche a garantire che vi sia un controllo sui processi e sui relativi prodotti.
 In particolare le figure di
 \begin{itemize}
-	\item Verificatore
-	\item Responsabile
+	\item \mgls{verificatore} 
+	\item \RE
 \end{itemize}
-hanno un forte impatto sulla garanzia di raggiungimento degli obiettivi e della correttezza dei risultati l'uno, e della gestione efficace l'altro. La distinzione di ruoli e l'attenzione al conflitto di interessi tra le varie figure, durante la fase di pianificazione, garantisce maggiore coerenza ed efficacia alle attività svolte, con una conseguente influenza sulla qualità dei  processi e del prodotto.
+hanno un forte impatto sulla garanzia di raggiungimento degli obiettivi e della correttezza dei risultati l'uno, e della gestione efficace l'altro. La distinzione di \mglspl{ruolo} e l'attenzione al conflitto di interessi tra le varie figure, durante la fase di pianificazione, garantisce maggiore coerenza ed efficacia alle \mgls{attivita}  svolte, con una conseguente influenza sulla qualità dei  processi e del prodotto.
 
 \subsubsection{Risorse}\label{risorse}
 Con il termine risorse si identificano risorse umane e tecnologiche. La pianificazione del loro utilizzo e l'analisi dei costi e di rischi connessi deve essere preventiva ed efficace. Qualora fosse possibile ridurre l'utilizzo di una risorsa, a scopo di controllo o diminuzione dei costi, è necessario valutare, prima, l'impatto che tale modifica apporta alla gestione della qualità nel suo complesso.
@@ -275,21 +305,21 @@ Una anomalia corrisponde a:
 	\item incongruenza del prodotto con funzionalità indicate nell'\AdR;
 	\item incongruenza del codice con il design del prodotto.
 \end{itemize}
-Nel caso in cui un \VR\ individui un'anomalia, dovrà aprire un ticket nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
+Nel caso in cui un \VR\ individui un'anomalia, dovrà aprire un \mgls{ticket}  nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
 
 \subsubsection{Pianificazione ed esecuzione del collaudo}
-Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la progettazione del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
+Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la \mgls{progettazione} del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
 
 \newpage
 
 \section{Analisi della qualità}\label{analisi}
 In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
 
-\subsection{Analisi statica}
-Tale tecnica è attuabile sia per verificare la documentazione che il software. Si tratta di un'attività meno dispendiosa e pertanto da preferirsi nel caso siano disponibili modalità di verifica efficienti di questo tipo. Per la descrizione dettagliata delle tecniche da utilizzare si veda le \NdP.
+\subsection{Analisi Statica} 
+Tale tecnica è attuabile sia per verificare la documentazione che il software. Si tratta di un'\mgls{attivita}  meno dispendiosa e pertanto da preferirsi nel caso siano disponibili modalità di verifica efficienti di questo tipo. Per la descrizione dettagliata delle tecniche da utilizzare si veda le \NdP.
 
-\subsection{Analisi dinamica}
-Per analisi dinamica si intende l'esecuzione di test predisposti. La struttura gerarchica dell'analisi dinamica rispetta gli obiettivi di modularità e l'approccio di verifica bottom-up sopra definito. Tali test devono essere preventivamente definiti. Per la definizione di un test si devono quindi definire i seguenti punti:
+\subsection{Analisi Dinamica} 
+Per \mgls{analisi dinamica}  si intende l'esecuzione di test predisposti. La struttura gerarchica dell'\mgls{analisi dinamica}  rispetta gli obiettivi di modularità e l'approccio di verifica \mgls{bottom-up} sopra definito. Tali test devono essere preventivamente definiti. Per la definizione di un test si devono quindi definire i seguenti punti:
 \begin{itemize}
 	\item \textbf{Ambiente:} consiste sia del sistema hardware che di quello software sui quali è stato pianificato l'utilizzo del prodotto
 	\item \textbf{Specifica:} consiste nella definizione di input e output attesi
@@ -310,7 +340,7 @@ Consiste nella validazione del prodotto giunto a versione definitiva. La corrett
 Consiste nella trattazione di casi in cui alcune componenti abbiano subito modifiche. Il controllo deve assicurare che non ci siano cambiamenti esterni alle componenti modificate, per garantire l'integrità del prodotto finale modificato.
 
 \subsubsection{Test di accettazione}
-E' il collaudo del prodotto \mgls{software} che viene eseguito in presenza del proponente. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
+E' il collaudo del prodotto \mgls{software} che viene eseguito in presenza del \mgls{proponente}. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
 
 \newpage
 \section{Misure e metriche}\label{metriche}
@@ -326,17 +356,17 @@ La qualità dei processi viene valutata usando le seguenti metriche.
 \subsubsection{Milestone Schedule Variance (MSV)}
 Indica se le scadenze (\mgls{milestone}) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di \mgls{milestone}.
 \[MSV [\%] = \frac{SDT - PDT}{PDT}\]
-Dove \TODO{gloss} MSV indica Milestone Schedule Variance, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
+Dove  MSV indica \mgls{milestone schedule variance}, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
 \begin{itemize}
 	\item \textbf{Primo range di accettazione}: $\geq$ -4.5\%
 	\item \textbf{Range Ottimale}: $\geq$ 0\%
 \end{itemize}
-L'indice Milestone Schedule Variance valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le attività in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
+L'indice \mgls{milestone schedule variance} valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le \mgls{attivita}  in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
 
 \subsubsection{Schedule Variance (SV)} \label{schedule_variance}
-Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle attività. Il calcolo utilizza le ore lavorative quantificate, ma non tiene conto della loro collocazione nel tempo. Pertanto l'utilizzo di tale metrica risulta utile solamente se le misure effettuate con l'utilizzo della metrica Milestone Schedule Variance hanno risultato positivo.
+Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle \mgls{attivita}. Il calcolo utilizza le ore lavorative quantificate, ma non tiene conto della loro collocazione nel tempo. Pertanto l'utilizzo di tale metrica risulta utile solamente se le misure effettuate con l'utilizzo della metrica \mgls{milestone schedule variance} hanno risultato positivo.
 \[SV [\%] = \frac{ST - PT}{PT}\]
-Dove SV indica Schedule Variance, ST (Spent time) è il valore in giorni delle attività realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le attività.
+Dove SV indica \mgls{schedule variance} , ST (Spent time) è il valore in giorni delle \mgls{attivita}  realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le \mgls{attivita} .
 Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: $\geq$ -5\%
@@ -345,17 +375,17 @@ Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior v
 \subsubsection{Cost Variance (CV)}
 Indica se alla data corrente si è speso di più o di meno rispetto a quanto pianificato.
 \[CV [\%] = \frac{EV - AC}{EV}\]
-Dove CV indica Cost Variance, EV (Earned Value) è il valore in euro delle attività realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente.
+Dove CV indica Cost Variance, EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente.
 Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: $\geq$ -10\%
 \item \textbf{Range Ottimale}: $\geq$ 0\%
 \end{itemize}
 \subsubsection{Cost of poor quality}
-Indica l'inefficienza di processi non buoni valutando il costo delle attività di correzione che seguono la verifica.
+Indica l'inefficienza di processi non buoni valutando il costo delle \mgls{attivita} di correzione che seguono la verifica.
 	\[Entita\ della\ verifica_{generale}[\%]= \frac{Lavoro\ rifatto}{Lavoro\ totale}\]
 	\[Entita\ della\ verifica_{documenti}[\%]= \frac{Sezioni\ che\ necessitano\ di\ modifiche}{Sezioni\ totali\ verificate}\]
-	\[Entita\ della\ verifica_{software}[\%]= \frac{bug\ trovati}{KLOC\ verificate}\]
+	\[Entita\ della\ verifica_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
 dove KLOC sono migliaia di linee di codice
 \begin{itemize}
 	\item \textbf{Range di Accettazione}: $\leq$ 50\%
@@ -412,21 +442,22 @@ Rappresenta il massimo numero di livelli di annidamento dei metodi. Un valore el
 \subsubsection{Instabilità}
 La stabilità di una componente indica la possibilità di effettuare modiche ad un componente senza influenzarne altri all'interno dell'applicazione.
 \[Instabilita=\frac{A_e}{A_a+A_e}\]
-Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un package che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al package che dipendono da classi esterne ad esso.
+Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
 \begin{itemize}
 \item \textbf{Range di Accettazione}:[0-0.9]
 \item \textbf{Range Ottimale}: [0-0.5]
 \end{itemize}
 \subsubsection{Copertura del codice da parte di test}
-Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono testing. Esempi di questi metodi sono: get e set.
+Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono \mgls{testing}. Esempi di questi metodi sono: get e set.
 \begin{itemize}
 \item \textbf{Range di Accettazione}: [50\%-100\%]
 \item \textbf{Range Ottimale}: [75\%-100\%]
 \end{itemize}
+
 \newpage
 
-\section{Test del prodotto software}
-\subsection{Strategia di testing}
+\section{Test del prodotto software}\label{test}
+\subsection{Strategia di testing}\label{test_strategia}
 Il sistema di test si basa sul V-Model, ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del software e le fasi di pianificazione ed esecuzione dei test. L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
 \begin{figure}[h]
 \centering
@@ -437,35 +468,35 @@ Il sistema di test si basa sul V-Model, ovvero un modello di sviluppo che enfati
 
 \subsubsection{Livelli di testing}
 Sono descritte nel seguito i vari livelli di test del modello adottato, le relative caratteristiche e la relativa funzione all'interno del sistema di test. 
-	\paragraph{Test di Validazione} si attua sul sistema completo per verificare che le funzionalità previste in fase di analisi siano effettivamente raggiunte da quest ultimo. Le funzionalità testate sono quelle previste per l'utente finale.
+	\paragraph{Test di validazione} si attua sul sistema completo per verificare che le funzionalità previste in fase di analisi siano effettivamente raggiunte da quest ultimo. Le funzionalità testate sono quelle previste per l'utente finale.
 	\paragraph{Test di Sistema} si attua sul sistema completamente integrato per verificare che i requisiti siano effettivamente soddisfatti.
 	\paragraph{Test di Integrazione} è finalizzato alla verifica dell'interazione tra le componenti del sistema. Il soddisfacimento dei test di integrazione è essenziale ad assicurare che ogni parte del sistema non presenti errori dopo la fase di integrazione delle varie componenti.
 	\paragraph{Test di Unità} è finalizzato alla verifica delle funzionalità di una ristretta parte di codice, solitamente una funzione o procedura. Spesso coprono anche la verifica dei costruttori delle classi.
-\subsubsection{Struttura del sistema di testing}
-La struttura del sistema di testing deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. L'esecuzione dei test deve seguire l'ordine cronologico seguente:
+\subsubsection{Struttura del sistema di \mgls{testing}}
+La struttura del sistema di \mgls{testing} deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. L'esecuzione dei test deve seguire l'ordine cronologico seguente:
 \begin{enumerate}
 	\item Esecuzione e superamento dei test di unità;
 	\item Esecuzione e superamento dei test di integrazione;
 	\item Esecuzione e superamento dei test di sistema;
-	\item Esecuzione e superamento dei test di validazione.
+	\item Esecuzione e superamento dei test di \mgls{validazione} .
 \end{enumerate}
 E' cruciale per l'efficacia dei test che le componenti prodotti non entrino nella fase di test successiva, rispetto a quelle precedentemente esposte, se non soddisfa i test nel punto precedente.
-\subsubsection{Pianificazione dei test}
-La pianificazione dei test deve essere preventiva rispetto alla produzione delle componenti oggetto di tali test. Pertanto si raccomanda che, non appena le informazioni ricavate tramite la progettazione lo permettano, vengano definiti i test riguardanti le componenti interessate.
-Pertanto, poichè la definizione dei test deve integrarsi con le varie fasi di progettazione, questa deve rispettare la seguente successione temporale:
+\subsubsection{Strategia di pianificazione}
+La pianificazione dei test deve essere preventiva rispetto alla produzione delle componenti oggetto di tali test. Pertanto si raccomanda che, non appena le informazioni ricavate tramite la \mgls{progettazione} lo permettano, vengano definiti i test riguardanti le componenti interessate.
+Pertanto, poichè la definizione dei test deve integrarsi con le varie fasi di \mgls{progettazione}, questa deve rispettare la seguente successione temporale:
 \begin{enumerate}
-	\item Definizione dei test di validazione in fase di analisi.
-	\item Definizione dei test di sistema in fase di analisi dettagliata.
-	\item Definizione dei test di integrazione in fase di progettazione architetturale.
-	\item Definizione dei test di unità in fase di progettazione dettagliata.
-\end{enumerate}
-Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di testing.
+	\item definizione dei test di \mgls{validazione}  in periodo di \FA;
+	\item definizione dei test di sistema in periodo di \FAD;
+	\item definizione dei test di integrazione in periodo di \FPA;
+	\item definizione dei test di unità in fase di \FPD.
+	\end{enumerate}
+Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di \mgls{testing}.
 
-\subsection{Pianificazione dettagliata dei test}
-\subsubsection{Test di Validazione}
-\subsubsection{Test di Sistema}
-\subsubsection{Test di Integrazione}
- \subsubsection{Test di Unità}
+\subsection{Pianificazione dettagliata dei test}\label{test_pianificazione}
+\subsubsection{Test di validazione}\label{test_validazione}
+\subsubsection{Test di Sistema}\label{test_sistema}
+\subsubsection{Test di Integrazione}\label{test_integrazione}
+\subsubsection{Test di Unità}\label{test_unita}
 Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema
 \[ GU.X  \]
 dove X è un numero intero progressivo. 
@@ -474,7 +505,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
 L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
 \paragraph{Gruppo GU.1}
-Tale gruppo di test verifica la correttezza delle classi interne al package client::contoller, in particolare le classi di client::controller::public, client::controller::student, client::controller::teacher e client::controller::admin.
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} client::contoller, in particolare le classi di client::controller::public, client::controller::student, client::controller::teacher e client::controller::admin.
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -487,7 +518,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			83.TU & LogIn & client::controller::public\\ \midrule
 			84.TU & SingIn & client::controller::public\\ \midrule
@@ -516,12 +547,12 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 
 
 \paragraph{Gruppo GU.2 }
-Tale gruppo di test verifica la correttezza delle classi interne al package client::model::services
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} client::model::services
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
 	\item Il costruttore deve inizializzare correttamente i campi dati rispetto ai parametri ricevuti;
-	\item Controllo dei parametri passati alle API REST;
+	\item Controllo dei parametri passati alle \mgls{api} REST;
 	\item Correttezza della costruzione degli oggetti in client::model::data.
 \end{itemize}
 \subparagraph{Descrizione Unità}:
@@ -529,7 +560,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			77.TU & SessionService & client::model::services\\ \midrule
 			78.TU & UserService & client::model::services\\ \midrule
@@ -543,7 +574,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\caption{Descrizione dei test relativi a client::model::services}
 \end{table}
 \paragraph{Gruppo GU.3}
-Tale gruppo di test verifica la correttezza delle classi interne al package client::model::util
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} client::model::util
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -556,7 +587,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			179.TU & Check & client::model::util\\ \midrule
 			180.TU & CurrentQuestion & client::model::util\\ \midrule
@@ -568,7 +599,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\caption{Descrizione dei test relativi a client::model::util}
 \end{table}
 \paragraph{Gruppo GU.4}
-Tale gruppo di test verifica la correttezza delle classi interne al package server::services
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} server::services
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -581,7 +612,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			14.TU & UserService & server::services\\ \midrule
 			15.TU & QuestionnaireService & server::services\\ \midrule
@@ -595,7 +626,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\caption{Descrizione dei test relativi a server::services}
 \end{table}
 \paragraph{Gruppo GU.5}
-Tale gruppo di test verifica la correttezza delle classi interne al package server::validator
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} server::validator
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -607,7 +638,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			161.TU & UserCheck & server::validator\\ \midrule
 			162.TU & QuestionnaireCheck & server::validator\\ \midrule
@@ -619,7 +650,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\caption{Descrizione dei test relativi a server::validator}
 \end{table}
 \paragraph{Gruppo GU.6}
-Tale gruppo di test verifica la correttezza delle classi interne al package server::middleware
+Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} server::middleware
 \subparagraph{Controlli oggetto del test}
 Per ogni unità software qui definita, devono essere verificati i seguenti punti:
 \begin{itemize}
@@ -632,7 +663,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\begin{center}
 		\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
 			\toprule
-			\textbf{ID}   & \textbf{Unità Test}	& \textbf{Package} \\ \midrule
+			\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
 			\midrule
 			18.TU & Router & server::middleware\\ \midrule
 			19.TU & Authorization & server::middleware\\ \midrule
@@ -645,7 +676,7 @@ Per ogni unità software qui definita, devono essere verificati i seguenti punti
 	\caption{Descrizione dei test relativi a server::middleware}
 \end{table}
 \newpage
-\section{Standard di qualità}
+\section{Standard di qualità}\label{standard}
 \subsection{Standard ISO/IEC 15504}
 Lo standard \textit{ISO/IEC 15504} descrive come ogni processo debba essere controllato continuamente con lo scopo di rilevare possibili rischi e debolezze intrinseci che impediscono di raggiungere gli obiettivi prefissati, e di individuare le possibili cause in modo da migliorare l'efficienza di tali processi. I risultati delle singole valutazioni devono essere ripetibili, oggettivi e comparabili in contesti simili affinché contribuiscano al miglioramento effettivo dei processi in esame.
 
@@ -666,7 +697,7 @@ degli attributi utili per misurarla:
 		\item\textbf{ Work product management attribute:} capacità del processo di elaborare un prodotto documentato, controllato e verficato.
 	\end{enumerate}
 	\item{Established process:}il processo viene eseguito basandosi su principi dell'ingegneria
-	del software ed è in grado di raggiungere i risultati prefisati
+	del \mgls{software}  ed è in grado di raggiungere i risultati prefisati
 	\begin{enumerate}
 		\item\textbf {Process definition attribute: }l'esecuzione del processo si basa su standard
 		di processo per raggiungere i propri obiettivi;
@@ -703,70 +734,70 @@ Lo standard \textit{ISO/IEC 9126} è stato redatto con lo scopo di descrivere gl
 qualitativi di prodotto e delineare delle metriche capaci di misurare il raggiungimento
 di tali obiettivi. Esso divide i criteri qualitativi in 3 aree diverse:
 \begin{itemize}
-	\item \textbf{Qualità in uso:} è la qualità del prodotto software dal punto di vista dell'utilizzatore che ne fa uso all'interno di uno specifico sistema e contesto;
-	\item \textbf{Qualità esterna:} è la qualità del prodotto software vista dall'esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova;
-	\item \textbf{Qualità interna:} è la qualità del prodotto software vista dall'interno, fa quindi riferimento alle caratteristiche implementative del software quali l'architettura e il codice che ne deriva.
+	\item \textbf{Qualità in uso:} è la qualità del prodotto \mgls{software}  dal punto di vista dell'utilizzatore che ne fa uso all'interno di uno specifico sistema e contesto;
+	\item \textbf{Qualità esterna:} è la qualità del prodotto \mgls{software}  vista dall'esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova;
+	\item \textbf{Qualità interna:} è la qualità del prodotto \mgls{software}  vista dall'interno, fa quindi riferimento alle caratteristiche implementative del \mgls{software}  quali l'architettura e il codice che ne deriva.
 \end{itemize}
-Non avendo la possibilità di testare la qualità in uso del prodotto software da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo\textit{Standard ISOG/IECG 9126}
+Non avendo la possibilità di testare la qualità in uso del prodotto \mgls{software}  da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo\textit{Standard ISOG/IECG 9126}
 prevede 6 caratteristiche qualitative principali, suddivise in ulteriori sotto caratteristiche
 che possono essere misurate quantitativamente tramite metriche specifiche:
 
 \begin{itemize}
-	\item \textbf{Funzionalità: }capacità del prodotto software di fornire funzioni che rispondano a determinate esigenze
+	\item \textbf{Funzionalità: }capacità del prodotto \mgls{software}  di fornire funzioni che rispondano a determinate esigenze
 	\begin{itemize}
-		\item \textbf{Idoneità: }capacità del prodotto software di fornire un insieme appropriato di funzioni per attività specifiche;
-		\item \textbf{Accuratezza:} capacità del prodotto software di fornire risultati corretti o concordati con il grado di precisione necessario;
-		\item \textbf{Interoperabilità: }capacità del prodotto software di interagire con uno o	più sistemi specifici;
-		\item \textbf{Sicurezza:} capacità del prodotto software di proteggere dati e informazioni in modo da impedire l'accesso e la modifica a persone o sistemi non autorizzati e a consentire l'uso di tali dati ai soli autorizzati;
-		\item \textbf{Conformità funzionale:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni e prescrizioni in materia di funzionalità.
+		\item \textbf{Idoneità: }capacità del prodotto \mgls{software}  di fornire un insieme appropriato di funzioni per \mgls{attivita} specifiche;
+		\item \textbf{Accuratezza:} capacità del prodotto \mgls{software}  di fornire risultati corretti o concordati con il grado di precisione necessario;
+		\item \textbf{Interoperabilità: }capacità del prodotto \mgls{software}  di interagire con uno o	più sistemi specifici;
+		\item \textbf{Sicurezza:} capacità del prodotto \mgls{software}  di proteggere dati e informazioni in modo da impedire l'accesso e la modifica a persone o sistemi non autorizzati e a consentire l'uso di tali dati ai soli autorizzati;
+		\item \textbf{Conformità funzionale:}capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni e prescrizioni in materia di funzionalità.
 	\end{itemize}
-	\item \textbf{Affidabilità:} capacità del prodotto software di mantenere un adeguato livello di prestazioni
+	\item \textbf{Affidabilità:} capacità del prodotto \mgls{software}  di mantenere un adeguato livello di prestazioni
 	\begin{itemize}
-		\item \textbf{Maturità:} capacità del prodotto software di evitare fallimenti a causa di errori nel software;
-		\item \textbf{Tolleranza agli errori: }capacità del prodotto software di mantenere un adeguato livello di prestazioni in caso di errori software o di violazione alla propria interfaccia;
-		\item \textbf{Capacità di recupero:} capacità del prodotto software di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori;
+		\item \textbf{Maturità:} capacità del prodotto \mgls{software}  di evitare fallimenti a causa di errori nel \mgls{software} ;
+		\item \textbf{Tolleranza agli errori: }capacità del prodotto \mgls{software}  di mantenere un adeguato livello di prestazioni in caso di errori \mgls{software}  o di violazione alla propria interfaccia;
+		\item \textbf{Capacità di recupero:} capacità del prodotto \mgls{software}  di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori;
 		\item \textbf
-		\item \textbf{ Conformità di affidabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità.
+		\item \textbf{ Conformità di affidabilità:} capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità.
 	\end{itemize}
-	\item \textbf{Usabilità:} capacità del software di essere capito, imparato, usato e di essere allettante per l'utente
+	\item \textbf{Usabilità:} capacità del \mgls{software}  di essere capito, imparato, usato e di essere allettante per l'utente
 	\begin{itemize}
-		\item \textbf{Intelligibilità:} capacità del prodotto software di consentire all'utente di capire se il software è adeguato e come può essere utilizzato per compiti	particolari;
-		\item \textbf{Apprendibilità:} capacità del prodotto software di consentire all'utente di imparare le sue applicazioni;
-		\item \textbf{Operabilità:} capacità del prodotto software di consentire all'utente di usarlo e controllarlo;
-		\item \textbf{Attrattività:} capacità del prodotto software di creare interesse nell'utente;
-		\item \textbf{Conformità di usabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di usabilità.
+		\item \textbf{Intelligibilità:} capacità del prodotto \mgls{software}  di consentire all'utente di capire se il \mgls{software}  è adeguato e come può essere utilizzato per compiti	particolari;
+		\item \textbf{Apprendibilità:} capacità del prodotto \mgls{software}  di consentire all'utente di imparare le sue applicazioni;
+		\item \textbf{Operabilità:} capacità del prodotto \mgls{software}  di consentire all'utente di usarlo e controllarlo;
+		\item \textbf{Attrattività:} capacità del prodotto \mgls{software}  di creare interesse nell'utente;
+		\item \textbf{Conformità di usabilità:} capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni in materia di usabilità.
 	\end{itemize}
-	\item \textbf{Efficienza:} capacità del software di fornire prestazioni appropriate in relazione alla quantità di risorse usate
+	\item \textbf{Efficienza:} capacità del \mgls{software}  di fornire prestazioni appropriate in relazione alla quantità di risorse usate
 	\begin{itemize}
-		\item \textbf{Comportamento temporale:} capacità del software di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni;
-		\item \textbf{Utilizzo di risorse:} capacità del prodotto software di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione;
-		\item \textbf{ Conformità di efficienza: } capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di efficienza.
+		\item \textbf{Comportamento temporale:} capacità del \mgls{software}  di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni;
+		\item \textbf{Utilizzo di risorse:} capacità del prodotto \mgls{software}  di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione;
+		\item \textbf{ Conformità di efficienza: } capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni in materia di efficienza.
 	\end{itemize}
-	\item \textbf{Manutenibilità:}capacità del prodotto software di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del software cambiamenti ambientali, nelle specifiche o nelle funzionalità
+	\item \textbf{Manutenibilità:}capacità del prodotto \mgls{software}  di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del \mgls{software}  cambiamenti ambientali, nelle specifiche o nelle funzionalità
 	\begin{itemize}
-		\item \textbf{Analizzabilità:} capacità del prodotto software di poter essere studiato alla ricerca di carenze e difetti;
-		\item \textbf{Modificabilità: }capacità del prodotto software di consentire l'implementazione di una specifica modifica;
-		\item \textbf{ Stabilità:} capacità del prodotto software di evitare effetti indesiderati causati da una o più modifiche;
-		\item \textbf{Testabilità:} capacità del prodotto software di consentire la validazione di una versione modificata del software;
-		\item \textbf{Conformità di manutenibilità:}capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità.
+		\item \textbf{Analizzabilità:} capacità del prodotto \mgls{software}  di poter essere studiato alla ricerca di carenze e difetti;
+		\item \textbf{Modificabilità: }capacità del prodotto \mgls{software}  di consentire l'implementazione di una specifica modifica;
+		\item \textbf{ Stabilità:} capacità del prodotto \mgls{software}  di evitare effetti indesiderati causati da una o più modifiche;
+		\item \textbf{Testabilità:} capacità del prodotto \mgls{software}  di consentire la \mgls{validazione}  di una versione modificata del \mgls{software} ;
+		\item \textbf{Conformità di manutenibilità:}capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità.
 	\end{itemize}
-	\item \textbf{Portabilità:} capacità del prodotto software di poter essere trasferito da un ambiente di lavoro ad un altro.
+	\item \textbf{Portabilità:} capacità del prodotto \mgls{software}  di poter essere trasferito da un ambiente di lavoro ad un altro.
 	\begin{itemize}
-		\item \textbf{Adattabilità:} capacità del prodotto software di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite;
-		\item \textbf{Installabilità: }capacità del prodotto software di poter essere installato in specifici ambienti;
-		\item \textbf{Coesistenza: }capacità del prodotto software di coesistere in ambienti comuni con altri software indipendenti condividendo risorse comuni;
-		\item \textbf{Sostituibilità:} capacità del prodotto software di poter sostituire un software analogo con la stessa finalità e nello stesso ambiente;
-		\item \textbf{ Conformità di portabilità:} capacità del prodotto software di aderire a standard, convenzioni o regolamentazioni in materia di portabilità.
+		\item \textbf{Adattabilità:} capacità del prodotto \mgls{software}  di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite;
+		\item \textbf{Installabilità: }capacità del prodotto \mgls{software}  di poter essere installato in specifici ambienti;
+		\item \textbf{Coesistenza: }capacità del prodotto \mgls{software}  di coesistere in ambienti comuni con altri \mgls{software}  indipendenti condividendo risorse comuni;
+		\item \textbf{Sostituibilità:} capacità del prodotto \mgls{software}  di poter sostituire un \mgls{software}  analogo con la stessa finalità e nello stesso ambiente;
+		\item \textbf{ Conformità di portabilità:} capacità del prodotto \mgls{software}  di aderire a standard, convenzioni o regolamentazioni in materia di portabilità.
 	\end{itemize}
 \end{itemize}
 
 \newpage
 \appendix
-\section{Resoconto delle attività di verifica} \label{Resoconto delle attività di verifica}
-\subsection{Riassunto delle attività di verifica} 
-\subsubsection{Revisione dei Requisiti}
+\section{Resoconto delle Attività di verifica} \label{Resoconto delle attività di verifica}
+\subsection{Riassunto delle \textbf{attività} di verifica} 
+\subsubsection{\RR}
 Nel periodo antecedente la consegna di tale revisione sono stati verificati i documenti ed i processi.
-I documenti sono stati verificati manualmente, l'analisi statica è stata applicata secondo i criteri e le modalità indicate nelle \NdP\, ovvero una prima fase di \mgls{walkthrough} seguita da \mgls{inspection}.
+I documenti sono stati verificati manualmente, l'\mgls{analisi statica}  è stata applicata secondo i criteri e le modalità indicate nelle \NdP\, ovvero una prima fase di \mgls{walkthrough} seguita da \mgls{inspection}.
 Si sono poi calcolate per i documenti le metriche descritte nella sezione \ref{metriche_doc}.
 I processi sono stati verificati applicando la procedura descritta nella sezione \ref{metriche_processi}.
 
@@ -814,7 +845,7 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 \end{table}
 \subsection{Analisi di dettaglio}
 \subsubsection{Processi}
-Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule variance calcolati. 
+Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
 
 \begin{table}[H]
 	\begin{center}
@@ -822,8 +853,8 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\toprule
 			\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito} \\ \midrule
 			\midrule
-			Milestone schedule variance & 80\% & Non Superato\\ \midrule
-			Schedule variance & -167\% &  Non Superato\\ \midrule
+			\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
+			\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
 			\mGls{cost variance} & 157\% &  Non superato \\ \midrule
 			Cost of poor quality & 23\% &  Ottimale \\ \midrule
 			Requirement Stability Index & 1 &  Ottimale \\ \bottomrule
@@ -838,7 +869,7 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 	\begin{center}
 		\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
 			\toprule
-			\textbf{Documento}   & \textbf{Indice Gulpease}	& \textbf{Esito test} \\ \midrule
+			\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 			\midrule
 			\NdP & 49 &  Superato \\ \midrule
 			\SdF & 44 &  Superato \\ \midrule
@@ -848,12 +879,12 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 			\textbf{Valore medio} & \textbf{51.6}& \textbf{Ottimale}\\ 
 			\bottomrule
 		\end{tabular}
-		\caption{Esito dei test su Indice Gulpease in \FAD}
+		\caption{Esito dei test su Indice \mgls{gulpease} in \FAD}
 	\end{center}
 \end{table}
 \subsection{\FPA}
 \subsubsection{Processi}
-Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule variance calcolati. 
+Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
 
 \begin{table}[H]
 	\begin{center}
@@ -862,8 +893,8 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 			\midrule
 			\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
-			Milestone schedule variance & 4\% & Superato\\ \midrule
-			Schedule variance & 12\% & Ottimale\\ \midrule
+			\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
+			\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
 			Cost of poor quality & 40\% & Superato \\ \midrule
 			Requirement Stability Index & 94\% & Ottimale\\ \bottomrule
 		\end{tabular}	
@@ -877,7 +908,7 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 	\begin{center}
 		\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
 			\toprule
-			\textbf{Documento}   & \textbf{Indice Gulpease}	& \textbf{Esito test} \\ \midrule
+			\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 			\midrule
 			\NdP & 46 &  Superato \\ \midrule
 			\SdF & 41 &  Superato \\ \midrule
@@ -889,12 +920,12 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 			\textbf{Valore medio} & \textbf{51.7}& \textbf{Ottimale}\\ 
 			\bottomrule
 		\end{tabular}
-		\caption{Esito dei test su Indice Gulpease in \FPA}
+		\caption{Esito dei test su Indice \mgls{gulpease} in \FPA}
 	\end{center}
 \end{table}
 \subsection{\FPD}
 \subsubsection{Processi}
-Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule variance calcolati. 
+Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
 
 \begin{table}[H]
 	\begin{center}
@@ -903,8 +934,8 @@ Vengono riportati i valori di \mgls{schedule variance} e  milestone schedule var
 			\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 			\midrule
 			\mGls{cost variance} & 0\% & Ottimale\\ \midrule
-			Milestone schedule variance &  0\% & Ottimale\\ \midrule
-			Schedule variance & 0\% & Ottimale \\ \midrule
+			\mgls{milestone schedule variance} &  0\% & Ottimale\\ \midrule
+			\mgls{schedule variance}  & 0\% & Ottimale \\ \midrule
 			Cost of poor quality & 21\% & Ottimale \\ \midrule
 			Requirement Stability Index & 91\% & Ottimale\\ \bottomrule
 			\end{tabular}	
@@ -918,7 +949,7 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 				\begin{center}
 					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
 						\toprule
-						\textbf{Documento}   & \textbf{Indice Gulpease}	& \textbf{Esito test} \\ \midrule
+						\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 						\midrule
 						\NdP & 49 &  Superato \\ \midrule
 						\SdF & 44 &  Superato \\ \midrule
@@ -930,11 +961,11 @@ Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra ne
 						\bottomrule
 					\end{tabular}
 				\end{center}
-				\caption{Esito dei test su Indice Gulpease in \FPD}
+				\caption{Esito dei test su Indice \mgls{gulpease} in \FPD}
 			\end{table}
 
-\subsubsection{Software}
-Viene riporata la verifica effettuata sull'attività di pianificazione di dettaglio. 
+\subsubsection{\mgls{software} }
+Viene riporata la verifica effettuata sull'\mgls{attivita}  di pianificazione di dettaglio. 
 \paragraph{Numero di parametri per metodo}
 \begin{table}[H]
 	\begin{center}
@@ -968,8 +999,8 @@ Viene riporata la verifica effettuata sull'attività di pianificazione di dettag
 
 
 \section{Dettaglio dell'esito delle revisioni}
-Nello sviluppo del progetto ci saranno quattro revisioni del committente a cui si deve sottoporsi. Il committente segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
-\subsection{Revisione dei Requisiti}
+Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente} a cui si deve sottoporsi. Il \mgls{committente} segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
+\subsection{\RR}
 \begin{itemize}
 	\item \textbf{Generale}: si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è stabilito chi debba redarre i verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate.
 	\item \textbf{\AdR}: sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento.
