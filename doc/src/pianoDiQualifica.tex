@@ -167,7 +167,7 @@ Il documento presenterà  le strategie di verifica adottate da \nomeGruppo{} vol
 	\item \PdP\ \textit{v1.2.0};
 	\item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
 	\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm};
-	\item Standard \textit{ISO/IEC 15507} \TODO{ISO/IEC 15504 oppure ISO/IEC 15507 ?? sotto metti solo ISO/IEC 15504}
+	\item Standard \textit{ISO/IEC 15504} \url{https://en.wikipedia.org/wiki/ISO/IEC_15504}
 	\item Modello Pdca \url{https://it.wikipedia.org/wiki/PDCA}
 	\item Standard \textit{ISO/IEC 9126} \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}.
 \end{itemize}
@@ -192,7 +192,6 @@ Per garantire un'efficacia trasversale della qualità di processo, con evidenti 
 Lo standard \textit{ISO/IEC 90003:2004} indica quali sono gli obiettivi operativamente utili da adottare per ogni categoria di processo. La scelta degli obiettivi da raggiungere rappresenta il primo punto cruciale per la definizione di un percorso valido di perseguimento della qualità. In tale ottica, l'utilizzo di uno standard valido e riconosciuto rappresenta un ottima risorsa per un sistema di qualità efficace.
 
 \paragraph{Standard ISO/IEC 15504}
-\TODO{ISO/IEC 15504 oppure ISO/IEC 15507 ?? nei riferimenti metti ISO/IEC 15507}
 Lo standard \textit{ISO/IEC 15504} fornisce gli strumenti necessari a valutare l'idoneità di un insieme di processi. Un approccio quantitativo alla qualità garantisce di poter assicurare risultati obiettivi nonostante la complessità del sistema da valutare.
 
 \paragraph{Ciclo di Deming o PDCA}
@@ -266,7 +265,7 @@ Con la finalità di coprire il più possibile gli obiettivi di qualità proposti
 	\item \textbf{\mgls{test driven software}:} il \mgls{software} deve essere progettato per facilitare l'esecuzione di test automatici. Si prevede un'\mgls{analisi dinamica}  del prodotto con approccio \mgls{bottom-up}. Si intende testare in modo approfondito ogni unità \mgls{software} in modo isolato per prevenire errori su macro-componenti del \mgls{software}. Tale obiettivo si confà agli obiettivi di analizzabilità proposti dalla sezione manutenibilità dello standard \textit{ISO/IEC 9126}
 	\item \textbf{Architettura modulare:} il \mgls{software} deve essere scomposto in modo modulare durante l'analisi dei requisiti. E' essenziale tracciare come i vari moduli vengono assemblati per creare il prodotto finale. Tali scopi richiamano le raccomandazioni di modificabilità e analizzabilità relativi alla sezione manutenibilità e affidabilità (maturità, tolleranza agli errori e conformità di affidabilità) dello standard \textit{ISO/IEC 9126}. A tale scopo si ritiene essenziale utilizzare strumenti adeguati per il tracciamento e l'analisi dei requisiti. Si veda \NdP{} e \AdR{} per approfondimenti
 	\item \textbf{Tracciabilità e conformità dei requisiti:} per evitare di produrre un prodotto non conforme alle aspettative si prevede che ogni requisito \mgls{software} abbia una o più fonti. Tali fonti devono essere chiarite nella descrizione dei ogni requisito. Tale obiettivo è riconducibile alla sezione funzionalità dello standard \textit{ISO/IEC 9126}, ed in particolare ai punti circa idoneità, e conformità funzionale. Si veda per approfondimenti \NdP{} e \AdR{}
-	\item \textbf{Usabilità utente:} dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività. Per tali punti, approfonditi nell'\FAD, si raccomanda attenzione \TODO{perché bisogna guardare un periodo??}
+	\item \textbf{Usabilità utente:} dato che per \mgls{software} in esame si prevede interazione con l'utente, è necessario garantire l'usabilità del sistema. In particolare lo standard \textit{ISO/IEC 9126} prevede particolare attenzione per intelligibilità, apprendibilità, operabilità e attrattività.
 	\item \textbf{Utilizzo e scelta delle risorse:} si devono utilizzare strumenti e linguaggi adatti al prodotto in esame. Tali scelte vanno analizzate e documentate. Questo punto si confà alla sezione relativa all'efficienza dello standard \textit{ISO/IEC 9126}
 \end{itemize}
 
@@ -331,7 +330,7 @@ Tale tecnica è attuabile sia per verificare la documentazione che il software. 
 Per \mgls{analisi dinamica} si intende l'esecuzione di test predisposti. La struttura gerarchica dell'\mgls{analisi dinamica} rispetta gli obiettivi di modularità e l'approccio di verifica \mgls{bottom-up} sopra definito. Tali test devono essere preventivamente definiti. Per la definizione di un test si devono quindi definire i seguenti punti:
 
 \begin{itemize}
-	\item \textbf{Ambiente:} consiste sia del sistema \mgls{hardware} che di quello \mgls{software} sui quali è stato pianificato l'utilizzo del prodotto
+	\item \textbf{Ambiente:} consiste sia del sistema \mgls{hardware} 0 che di quello \mgls{software} sui quali è stato pianificato l'utilizzo del prodotto
 	\item \textbf{Specifica:} consiste nella definizione di input e output attesi
 	\item \textbf{Procedure:} descrizione delle modalità e degli strumenti necessari all'esecuzione
 \end{itemize}
@@ -509,7 +508,7 @@ Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è
 \section{Test del prodotto software}\label{test}
 
 \subsection{Strategia di testing}\label{test_strategia}
-Il sistema di test si basa sul V-Model \TODO{Modello a V}, ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del \mgls{software} e le fasi di pianificazione ed esecuzione dei test. L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
+Il sistema di test si basa sul Modello a V, ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del \mgls{software} e le fasi di pianificazione ed esecuzione dei test. L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
 
 \begin{figure}[h]
 	\centering
@@ -1091,9 +1090,9 @@ Viene riporata la verifica effettuata sull'\mgls{attivita}  di pianificazione di
 \paragraph{Numero di campi dati per classe}
 \begin{table}[H]
 	\begin{center}
-		\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+		\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth} }
 			\toprule
-			\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
+			\textbf{Range}   & \textbf{\% metodi nel Range}	\\ \midrule
 			\midrule
 			Ottimale & 80\% \\ \midrule
 			Accettabile & 5\%  \\ \midrule
@@ -1103,15 +1102,20 @@ Viene riporata la verifica effettuata sull'\mgls{attivita}  di pianificazione di
 	\end{center}
 	\caption{Esito dei test su campi dati/classe}
 \end{table}
-\TODO{FORSE DA SCRIVERE I METODI NON ACCETTABILI}
+\subparagraph{Analisi dei test non superati} 
+Si sono analizzate le classi e i relativi campi dati che non hanno superato i test sopra riportati. Si è trovato tuttavia, che nella quasi totalità dei casi il non superameto del test è dovuto al tipo di linguaggio utilizzato. A questo si deve il fatto che molte classi sono in realtà un raggruppamento di funzionalità, e non rispecchiano completamente il concetto di classe perseguito da un linguaggio OO.
+Pur decidendo di non cosiderare completamente gli esiti in questo caso, la metrica sopra valutata non viene eliminata dall'insieme utilizzato per la valutaizone del codice. 
+Questo perchè spesso permette di riconoscere cattivi metodi di programmazione.
+
+
+
 
 \section{Dettaglio dell'esito delle revisioni}
 Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente} a cui si deve sottoporsi. Il \mgls{committente} segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 
 \subsection{Revisione dei Requisiti}
 \begin{itemize}
-	\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è stabilito chi debba redarre i verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate
-	\TODO{CHE UNA PERSONA SOLA REDIGA I VERBALI è CONTRO LE NORME}
+	\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è normata la redazione dei verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate
 	\item \textbf{\AdR{}:} sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento
 	\item \textbf{\NdP{}:} in seguito alla \RR{} si è deciso di migliorare la struttura del documento. In particolare si è ritenuto opportuno renderne la struttura maggiormente conforme allo standard \textit{ISO/IEC 12207}
 	\item \textbf{\PdP{}:} è stata effettuata una revisione della struttura del documento. I contenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inoltre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione
