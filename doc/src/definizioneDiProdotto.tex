@@ -344,17 +344,18 @@ Express presenta alcune differenze:
 \section{Descrizione Design Pattern}
 \subsection{Design Pattern Architetturali}
 \subsubsection{MVC}
-Model-View-Controller (MVC) è un pattern per l’implementazione di interfacce utente. Esso divide un’applicazione software in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il model è il modulo che contiene i dati. Una view può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici view della stessa informazione. La terza parte, il controller, si occupa di accettare degli input e di convertirli in comandi per il model o per la view.\\
-Oltre a dividere l’applicazione in queste tre componenti, MVC si occupa anche di definire le interazioni tra esse:
+Model-View-Controller (\mgls{mvc}) è un \mgls{design pattern} per l’implementazione di interfacce utente. Esso divide un’applicazione \mgls{software} in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il \mgls{model} è il modulo che contiene i dati. Una \mgls{view} può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici \mgls{view} della stessa informazione. La terza parte, il \mgls{controller}, si occupa di accettare degli input e di convertirli in comandi per il \mgls{model} o per la \mgls{view}.\\
+Oltre a dividere l’applicazione in queste tre componenti, \mgls{mvc} si occupa anche di definire le interazioni tra esse:
 \begin{itemize}
-	\item Un controller può inviare comandi al model per aggiornare il suo stato. Può inoltre inviare comandi alla sua view associata, in modo da cambiarne la presentazione;
-	\item Un model quando cambia il suo stato interno notifica le sue view e i suoi controller associati. Questo permette alle view di cambiare la loro presentazione e ai controller di cambiare il loro insieme di comandi disponibili;
-	\item Una view viene aggiornata dal controller sui dati che necessita per generare un output per l’utente.
+	\item Un \mgls{controller} può inviare comandi al \mgls{model} per aggiornare il suo stato. Può inoltre inviare comandi alla sua \mgls{view} associata, in modo da cambiarne la presentazione;
+	\item Un \mgls{model} quando cambia il suo stato interno notifica le sue \mgls{view} e i suoi \mgls{controller} associati. Questo permette alle \mgls{view} di cambiare la loro presentazione e ai \mgls{controller} di cambiare il loro insieme di comandi disponibili;
+	\item Una \mgls{view} viene aggiornata dal \mgls{controller} sui dati che necessita per generare un output per l’utente.
 \end{itemize}
-Sebbene inizialmente sviluppata per applicazioni desktop, MVC è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi framework commerciali e non sono stati progettati utilizzando questo pattern.
+\TODO{teoricamente la view non viene aggiornata dal controller bensi si aggiorna ogni volta che avviene una modifica al model in quanto lo osserva, mentre il controller guarda solo la view senza mandarle comandi ma "ricevendone" solamente}
+Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
 
 \subsubsection{Middleware}
-Il Middleware è uno strato software che si interpone tra l’applicazione software e uno strato di servizi per semplificarne le comunicazioni e la gestione di input/output. Viene solitamente utilizzato in applicazioni distribuite e facilita l’interoperabilità, fornendo servizi che permettono la comunicazione tra applicazioni di sistemi operativi diversi. Può accedere che il Middleware fornisca dei servizi abitualmente attribuibili a un sistema operativo. I servizi Middleware forniscono un set di interfacce che permetto a un’applicazione di:
+Il Middleware è uno strato \mgls{software} che si interpone tra l’applicazione \mgls{software} e uno strato di servizi per semplificarne le comunicazioni e la gestione di input/output. Viene solitamente utilizzato in applicazioni distribuite e facilita l’interoperabilità, fornendo servizi che permettono la comunicazione tra applicazioni di sistemi operativi diversi. Può accedere che il Middleware fornisca dei servizi abitualmente attribuibili a un sistema operativo. I servizi Middleware forniscono un set di interfacce che permetto a un’applicazione di:
 \begin{itemize}
 	\item Localizzare facilmente applicazioni o servizi in una rete;
 	\item Filtrare dati per renderli user-friendly oppure anonimizzarli per renderli pubblicabili, proteggendone la privacy;
@@ -362,27 +363,27 @@ Il Middleware è uno strato software che si interpone tra l’applicazione softw
 	\item Essere affidabile e sempre disponibile;
 	\item Aggiungere attributi complementari.
 \end{itemize}
-Si tratta quindi di funzionalità leggermente più specializzate da quelle normalmente offerte da un sistema operativo. L’avvento del web ha avuto una forte ripercussione sulla diffusione dei software di Middleware. Essi hanno infatti permesso l’accesso sicuro da remoto a database locali. I tipi di Middleware sono:
+Si tratta quindi di funzionalità leggermente più specializzate da quelle normalmente offerte da un sistema operativo. L’avvento del web ha avuto una forte ripercussione sulla diffusione dei \mgls{software} di Middleware. Essi hanno infatti permesso l’accesso sicuro da remoto a \mgls{database} locali. I tipi di Middleware sono:
 \begin{itemize}
-	\item \textbf{Message-Oriented Middleware} (MOM): sono Middleware dove le notifiche degli	eventi vengono spedite come messaggi tra sistemi o componenti. I messaggi inviati al
-	client vengono memorizzati fintanto che non vengono gestiti, nel frattempo il client può	svolgere altro lavoro; 
-	\item \textbf{Enterprise messaging system}: è un tipo di Middleware che facilita il passaggio di messaggi tra sistemi diversi o componenti in formato standard, spesso utilizzando servizi web o XML;
-	\item \textbf{Message broker}: è parte dell entreprise messaging system. Accoda, duplica, traduce e spedisce messaggi a sistemi o componenti diverse;
-	\item \textbf{Enterprise Service Bus}: è definito come qualche tipo di Middleware integrato che supporta sia MOM che dei servizi web;
-	\item \textbf{Intelligent Middleware}: gestisce il processamento in tempo reale di grandi volumi di segnali che trasforma in informazioni di business. Particolarmente adatto per architetture scalabili e distribuite;
-	\item \textbf{Content-Centric Middleware}: questo tipo di Middleware fornisce una semplice astrazione con la quale le applicazioni possono inoltrare richieste per contenuti univocamente identificati, senza occuparsi su come e dove vanno ottenuti.
+	\item \textbf{Message-Oriented Middleware (MOM):} sono Middleware dove le notifiche degli	eventi vengono spedite come messaggi tra sistemi o componenti. I messaggi inviati al
+	\mgls{client} vengono memorizzati fintanto che non vengono gestiti, nel frattempo il \mgls{client} può	svolgere altro lavoro 
+	\item \textbf{Enterprise messaging system:} è un tipo di Middleware che facilita il passaggio di messaggi tra sistemi diversi o componenti in formato standard, spesso utilizzando servizi web o \mgls{xml}
+	\item \textbf{Message broker:} è parte dell'entreprise messaging system. Accoda, duplica, traduce e spedisce messaggi a sistemi o componenti diverse
+	\item \textbf{Enterprise Service Bus:} è definito come qualche tipo di Middleware integrato che supporta sia MOM che dei servizi web
+	\item \textbf{Intelligent Middleware:} gestisce il processamento in tempo reale di grandi volumi di segnali che trasforma in informazioni di business. Particolarmente adatto per architetture scalabili e distribuite
+	\item \textbf{Content-Centric Middleware:} questo tipo di Middleware fornisce una semplice astrazione con la quale le applicazioni possono inoltrare richieste per contenuti univocamente identificati, senza occuparsi su come e dove vanno ottenuti
 \end{itemize}
 
 \subsection{Design Pattern Creazionali}
 \subsubsection{Singleton}
-Il Singleton è un design pattern creazionale che permette di avere un’unica istanza di una classe con un unico punto di accesso noto. Tale condizione è tipica di alcuni contesti e trova risvolti pratici in svariate applicazioni. Per permettere l’implementazione di questo pattern è sufficiente che la classe stessa si occupi di tracciare la propria istanziazione e bloccarla qualora sia già avvenuta almeno una volta. Il Singleton dovrebbe essere estensibile usando il subclassing. Il client può utilizzarne l’estensione senza quindi modificarne il codice.\\
-L’utilizzo di questo pattern comporta una serie di conseguenze:
+Il Singleton è un \mgls{design pattern} creazionale che permette di avere un’unica istanza di una classe con un unico punto di accesso noto. Tale condizione è tipica di alcuni contesti e trova risvolti pratici in svariate applicazioni. Per permettere l’implementazione di questo pattern è sufficiente che la classe stessa si occupi di tracciare la propria istanziazione e bloccarla qualora sia già avvenuta almeno una volta. Il Singleton dovrebbe essere estensibile usando il \mgls{subclassing}. Il \mgls{client} può utilizzarne l’estensione senza quindi modificarne il codice.\\
+L’utilizzo di questo \mgls{design pattern} comporta una serie di conseguenze:
 \begin{itemize}
-	\item Accesso controllato alla singola istanza: poiché la classe Singleton incapsula la sua unica istanza, è in grado di controllare quando e come i client vi accedono;
-	\item Namespace pulito: l’utilizzo di questo pattern risulta migliore rispetto all’uso di variabili globali poiché scongiura l’inquinamento del namespace globale;
-	\item Permette raffinamenti di operazioni e rappresentazioni: il Singleton dovrebbe venire sempre esteso prima dell’utilizzo, che in termini pratici si traduce in un operazione banale. Questo può avvenire anche a runtime;
-	\item Eventualmente permette un numero variabile di istanze: questo pattern permette, se necessario, di avere istanze multiple mantenendo però il controllo sul numero;
-	\item Flessibilità: un modo per avere una funzionalità riconducibile al Singleton è quello di utilizzare le operazioni sulle classi, come per esempio la keyword static del C++, ma in questo modo è più difficile controllarne il design e permetterne più istanze. Inoltre nel linguaggio succitato le funzioni statiche non sono mai virtuali, rendendone impossibile l’utilizzo polimorfo alle sottoclassi che le ridefinisco
+	\item accesso controllato alla singola istanza: poiché la classe Singleton incapsula la sua unica istanza, è in grado di controllare quando e come i \mgls{client} vi accedono;
+	\item \mgls{namespace} pulito: l’utilizzo di questo pattern risulta migliore rispetto all’uso di variabili globali poiché scongiura l’inquinamento del \mgls{namespace} globale;
+	\item permette raffinamenti di operazioni e rappresentazioni: il Singleton dovrebbe venire sempre esteso prima dell’utilizzo, che in termini pratici si traduce in un operazione banale. Questo può avvenire anche a runtime;
+	\item eventualmente permette un numero variabile di istanze: questo pattern permette, se necessario, di avere istanze multiple mantenendo però il controllo sul numero;
+	\item flessibilità: un modo per avere una funzionalità riconducibile al Singleton è quello di utilizzare le operazioni sulle classi, come per esempio la keyword static del C++, ma in questo modo è più difficile controllarne il design e permetterne più istanze. Inoltre nel linguaggio succitato le funzioni statiche non sono mai virtuali, rendendone impossibile l’utilizzo polimorfo alle sottoclassi che le ridefinisco.
 \end{itemize}
 
 %Non utilizzato per ora
@@ -402,19 +403,19 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 \subsubsection{Facade}
 Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce presenti in un sottosistema. Facade definisce un’interfaccia di alto livello che rende il sottosistema più semplice da utilizzare. Suddividere un sistema in sottosistemi aiuta a ridurne la complessità. Può essere utilizzato nei seguenti casi:
 \begin{itemize}
-	\item Quando si vuole fornire un’interfaccia semplice a un sottosistema complesso. La complessità dei sottosistemi tende ad aumentare con la loro evoluzione. Molti pattern, quando applicati, portano a un aumento nel numero di classi piccole. Ciò rende il sottosistema maggiormente riusabile e semplice da personalizzare, ma di utilizzo più difficile per i client che non richiedono alcuna personalizzazione. Un facade può fornire una vista semplice di base su un sottosistema che si rivela essere sufficiente per la maggior parte dei client. Soltanto i client che richiedono una personalizzazione maggiore dovranno guardare dietro la facciata;
-	\item Nei casi in cui sono molte le dipendenze fra i client e le classi che implementano un’astrazione. Introducendo un facade si disaccoppia il sottosistema dai client e dagli altri sottosistemi, promuovendo quindi la portabilità e l’indipendenza di sottosistemi;
-	\item Quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti facade.
+	\item Quando si vuole fornire un’interfaccia semplice a un sottosistema complesso. La complessità dei sottosistemi tende ad aumentare con la loro evoluzione. Molti pattern, quando applicati, portano a un aumento nel numero di classi piccole. Ciò rende il sottosistema maggiormente riusabile e semplice da personalizzare, ma di utilizzo più difficile per i \mgls{client} che non richiedono alcuna personalizzazione. Un Facade può fornire una vista semplice di base su un sottosistema che si rivela essere sufficiente per la maggior parte dei \mgls{client}. Soltanto i \mgls{client} che richiedono una personalizzazione maggiore dovranno guardare dietro la facciata;
+	\item Nei casi in cui sono molte le dipendenze fra i \mgls{client} e le classi che implementano un’astrazione. Introducendo un Facade si disaccoppia il sottosistema dai \mgls{client} e dagli altri sottosistemi, promuovendo quindi la portabilità e l’indipendenza di sottosistemi;
+	\item Quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
 \end{itemize}
 
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
-Il Chain of Responsibility è un pattern comportamentale che permette di separare i sender dai receiver delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il receiver oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il sender non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni receiver condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
+Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{reciever} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{reciever} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{reciever} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
 L’utilizzo di questo pattern comporta una serie di conseguenze:
 \begin{itemize}
 	\item Ridotto accoppiamento: gli oggetti non sono a conoscenza di chi gestirà la richiesta ma sanno solo che verrà gestita in modo appropriato. Inoltre non bisognerà manutenere i riferimenti a tutti i possibili riceventi;
-	\item Aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il subclassing per specializzare i gestori;
-	\item Non c’è garanzia che la request venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
+	\item Aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il |\mgls{subclassing} per specializzare i gestori;
+	\item Non c’è garanzia che la richiesta venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
 \end{itemize}
 
 %Non utilizzato per ora
