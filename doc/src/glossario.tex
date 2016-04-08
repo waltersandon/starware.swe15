@@ -67,9 +67,11 @@
 \midrule
 1.0.0 & \TP & 2016-04-10  & Approvazione \\
 \midrule
-0.1.0 & \NC & 2016-04-09  & Verifica \\
+0.1.0 & \NDC & 2016-04-09  & Verifica \\
 \midrule
-0.1.0 & \NC & 2016-04-08  & Revisione e correzione errori ortografici \\
+0.1.0 & \NDC & 2016-04-08  & Revisione e correzione errori ortografici \\
+\midrule
+0.0.4 & \WS & 2016-04-05  & Inserimento termini \\
 \midrule
 0.0.3 & \AB & 2016-03-30  & Inserimento termini \\
 \midrule
@@ -176,7 +178,7 @@
 
 \begin{description}
 \item[C]
-\hfill\\ linguaggio di programmazione procedurale, e ciò vuol dire che non esistono classi, oggetti, eventi, ecc. come per esempio nel C++, Java e molti altri linguaggi di più alto livello. Offrendo quindi un livello di programmazione relativamente basso, è per tanto utilizzato in applicazioni che necessitano di prestazioni elevate. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/Linguaggio_C}{qui}.
+\hfill\\ linguaggio di programmazione procedurale, e ciò vuol dire che non esistono classi, oggetti, eventi, ecc. come per esempio nel \mgls{c++}, Java e molti altri linguaggi di più alto livello. Offrendo quindi un livello di programmazione relativamente basso, è per tanto utilizzato in applicazioni che necessitano di prestazioni elevate. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/Linguaggio_C}{qui}.
 
 \item[C++]
 \hfill\\ linguaggio di programmazione orientato agli oggetti, con tipizzazione statica, sviluppato nei primi anni '80 come un miglioramento del linguaggio C. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/C\%2B\%2B}{qui}.
@@ -185,7 +187,7 @@
 \hfill\\ è un controllo grafico con cui l'utente può effettuare selezioni multiple.
 
 \item[Client]
-\hfill\\nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un server; si può riferire all'applicazione o all'\mgls{hardware}.
+\hfill\\nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un \mgls{server}; si può riferire all'applicazione o all'\mgls{hardware}.
 
 \item[Cloud]
 \hfill\\ si indica un sistema di erogazione di risorse informatiche, come l'archiviazione, l'elaborazione o la trasmissione di dati, caratterizzato dalla disponibilità on demand attraverso Internet.
@@ -198,6 +200,9 @@
 
 \item[Committente] 
 \hfill\\ colui che assegna un compito. In questo caso è il Professor Tullio Vardanega.
+
+\item[Controller] 
+\hfill\\ è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
 
 \item[Cost variance] 
 \hfill\\ indica al management aziendale se il valore del costo realmente maturato è maggiore, uguale o minore rispetto al costo pianificato.
@@ -411,7 +416,7 @@
 
 \begin{description}
 \item[Mac OS] 
-\hfill\\ il sistema operativo di Apple dedicato dedicati ai personal computer Macintosh, alle workstation, ai server e agli \mgls{smartphone}.
+\hfill\\ il sistema operativo di Apple dedicato dedicati ai personal computer Macintosh, alle workstation, ai \mgls{server} e agli \mgls{smartphone}.
 
 \item[Makefile] 
 \hfill\\ è usata soprattutto per la compilazione di codice sorgente in codice oggetto, unendo e poi linkando il codice oggetto in programmi eseguibili o in librerie.
@@ -448,7 +453,7 @@
 \hfill\\ è un sistema gestionale di basi di dati \mgls{nosql} orientato ai documenti, adatto per ambienti che hanno la necessità d'immagazzinare grosse quantità di dati, e dove il linguaggio utilizzato per la gestione dei dati è \mgls{javascript}.
 
 \item[Mongoose] 
-\hfill\\ è un web server multipiattaforma scritto da Sergey Lyubka, che con poco più 130KB di codice sorgente, risulta essere uno fra i server web più piccoli.
+\hfill\\ è un web server multipiattaforma scritto da Sergey Lyubka, che con poco più 130KB di codice sorgente, risulta essere uno fra i \mgls{server} web più piccoli.
 
 \item[MQTT] 
 \hfill\\ è un protocollo di messaggistica leggero posizionato in cima a TCP/IP, disegnato per le situazioni in cui è richiesto un basso impatto e dove la banda è limitata.
@@ -471,14 +476,17 @@
 
 \begin{description}
 
+\item[Namespace] 
+\hfill\\ o spazio dei noi è una collezione di nomi di entità, definite dal \mgls{programmatore}, omogeneamente usate in uno o più file sorgente. Lo scopo dei namespace è quello di evitare confusione ed equivoci nel caso siano necessarie molte entità con nomi simili, fornendo il modo di raggruppare i nomi per categorie.
+
 \item[Node package manager] 
 \hfill\\ rende più facile agli sviluppatori \mgls{javascript} condividere e riutilizzare il codice rendendolo oltremodo facile da aggiornare.
 
 \item[Node.js] 
-\hfill\\ è una piattaforma lato server avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
+\hfill\\ è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
 
 \item[NoSQL] 
-\hfill\\ come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più server dove salvare questi dati e non solamente incrementando la potenza di un singolo server.
+\hfill\\ come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più \mgls{server} dove salvare questi dati e non solamente incrementando la potenza di un singolo \mgls{server}.
 \end{description}
 
 \newpage
@@ -587,6 +595,10 @@
 \end{center}
 
 \begin{description}
+	
+\item[Receiver] 
+\hfill\\ricevitore delle richieste.	
+	
 \item[Redattore] 
 \hfill\\colui che redige un documento.
 
@@ -600,7 +612,7 @@
 \hfill\\è dove i file sono memorizzati, spesso su un server.
 
 \item[Request] 
-\hfill\\richiesta fatta da un client ad un server, ad esempio \mgls{http}.
+\hfill\\richiesta fatta da un client ad un \mgls{server}, ad esempio \mgls{http}.
 
 \item[Responsabile] 
 \hfill\\è il responsabile della gestione, pianificazione e realizzazione del progetto.
@@ -661,6 +673,9 @@
 \item[Scripting] 
 \hfill\\è un linguaggio di programmazione interpretato destinato in genere a compiti di automazione del sistema operativo o delle applicazioni, o a essere usato all'interno delle pagine web.
 
+\item[Sender] 
+\hfill\\mandante delle richieste.
+
 \item[Server] 
 \hfill\\nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
 
@@ -695,11 +710,16 @@ dEtermination, per dettagli vedi \PdQ
 \item[Stub] 
 \hfill\\nel contesto dei test di unità, sono programmi che simulano l'esecuzione di componenti \mgls{software} per la temporanea sostituzione di essi all'interno di un test \mgls{software} che non riguarda tali componenti.
 
-\item[SVG] 
-\hfill\\è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.
+\item[Subclassing] 
+\hfill\\o sottoclasse è una così detta "classe derivata" che eredita le sue caratteristiche dalla classe o dalle "classi padre". La semantica dell'ereditarietà di classe può cambiare da linguaggio a linguaggio ma comunemente la sottoclasse eredita i campi dati e i metodi della super classe.
 
 \item[Subtask] 
 \hfill\\è un \mgls{task} compreso all'interno di un altro \mgls{task}. La totalità di tutti i subtasks costituisce un intero \mgls{task}.
+
+\item[SVG] 
+\hfill\\è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.
+
+
 \end{description}
 
 \newpage
@@ -752,7 +772,7 @@ dEtermination, per dettagli vedi \PdQ
 \hfill\\è un'estensione TikZ per gestire diagrammi \mgls{uml} comune: diagrammi delle classi, diagrammi dei casi d'uso, diagrammi di stato-macchina e diagrammi di sequenza.
 
 \item[Tomcat] 
-\hfill\\è un application server nella forma di contenitore servlet \mgls{open-source} sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.
+\hfill\\è un application \mgls{server} nella forma di contenitore servlet \mgls{open-source} sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.
 
 \item[Tracy] 
 \hfill\\software \mgls{open-source} per il tracciamento.Per maggiori informazioni si veda \href{http://tracy-tpiga.rhcloud.com/tracy/}{qui}.
@@ -786,7 +806,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \begin{description}
 \item[V8 JavaScript Engine] 
-\hfill\\motore JavaScript \mgls{open-source} sviluppato da \mgls{google} e scritto in C++ che  può essere eseguito stand-alone esempio in server destinati a supportare il framework Node.js.
+\hfill\\motore JavaScript \mgls{open-source} sviluppato da \mgls{google} e scritto in \mgls{c++} che  può essere eseguito stand-alone esempio in \mgls{server} destinati a supportare il framework Node.js.
 
 \item[Validazione] 
 \hfill\\è il periodo che intercorre tra la \RQ\ e la \RA.
@@ -824,7 +844,7 @@ dEtermination, per dettagli vedi \PdQ
 \hfill\\consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.
 
 \item[Windows] 
-\hfill\\è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai server e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.
+\hfill\\è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai \mgls{server} e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.
 \end{description}
 
 \newpage
