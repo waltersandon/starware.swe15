@@ -162,10 +162,7 @@ I principali motivi della scelta di questo linguaggio sono:
 
 
 \subsubsection{NoSql}\label{nosql}
-I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente.
-Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{api} semplici e la possibilità di avere una quantità di dati enormi al loro interno.
-Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database.
-
+I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente. Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{api} semplici e la possibilità di avere una quantità di dati enormi al loro interno. Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database.
 
 \subsection{Frameworks}
 \subsubsection{Node.js}\label{node.js}
@@ -260,11 +257,19 @@ Gli strumenti da adottare e le procedure da seguire per utilizzarli correttament
 del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
-\section{Specifica componenti}
 
-\subsection{Back-end}
+% Definizione api REST
+\section{API REST}
+\input{../tex/definizioneDiProdotto/apiRest.tex}
 
-\subsection{Front-End}
+\newpage
+\section{Specifica componenti server}
+\input{../tex/definizioneDiProdotto/backEnd.tex}
+
+\newpage
+
+\section{Specifica componenti client}
+\input{../tex/definizioneDiProdotto/frontEnd.tex}
 
 \newpage
 \section{Design Pattern}
@@ -330,11 +335,6 @@ Express presenta alcune differenze:
 
 \newpage
 
-% Definizione api REST
-\section{API REST}
-\input{../tex/definizioneDiProdotto/apiRest.tex}
-
-\newpage
 
 \section{Diagrammi di sequenza}
 
@@ -459,5 +459,16 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 %\subsubsection{Command}
 %Il command pattern è uno dei Design Pattern che permette di isolare la porzione di codice che effettua un’azione (eventualmente molto complessa) dal codice che ne richiede l’esecuzione. L’azione è incapsulata nell’oggetto Command. L’obiettivo è rendere variabile l’azione del client senza però conoscere i dettagli dell’operazione stessa. Altro aspetto importante è che il destinatario della richiesta può non essere deciso staticamente all’atto dell’istanziazione del Command ma dev’essere ricavato a tempo di esecuzione. È possibile incapsulare un’azione in modo che questa sia atomica. È così possibile implementare un paradigma basato su transazioni in cui un insieme di operazioni è svolto in toto o per nulla.
 
+\newpage
+
+\section{Tracciamento}
+
+\subsection{Requisiti - classe}
+\input{../tex/definizioneDiProdotto/requisitiClassi.tex}
+
+\newpage
+
+\subsection{Classe - requisiti}
+\input{../tex/definizioneDiProdotto/classiRequisiti.tex}
 
 \end{document} 
