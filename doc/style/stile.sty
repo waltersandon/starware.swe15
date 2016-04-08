@@ -32,6 +32,8 @@
 \usepackage{listings}
 \usepackage{siunitx}
 \usepackage[official]{eurosym}
+\usepackage[export]{adjustbox}
+\usepackage{calc}
 
 % Per i diagrammi casi d'uso
 \usepackage{tikz}
@@ -143,6 +145,10 @@
 
 \newcommand{\descrizioneProdotto}{
 Lo scopo del progetto è lo sviluppo di un sito web per la creazione e somministrazione di questionari che verranno forniti attraverso uno specifico Quiz Markup Language (\mgls{qml}). L'obiettivo è quello di creare un \mgls{software} che consenta di eseguire questionari e di visualizzare il punteggio ottenuto.I questionari disponibilili devono essere creati da docenti, i quali avranno la possibilità di scegliere le domande da inserire nel proprio questionario selezionandole tra quelle relative a vari argomenti, disponibili nel sistema.}
+
+\newlength{\myheight}
+\setlength{\myheight}{\textheight}
+\addtolength{\myheight}{-2cm}
 
 %
 %	Setup stili
