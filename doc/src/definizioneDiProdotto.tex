@@ -280,68 +280,68 @@ Gli strumenti da adottare e le procedure da seguire per utilizzarli correttament
 \input{../tex/definizioneDiProdotto/frontEnd.tex}
 
 \newpage
-\section{Design Pattern}
-Un Design Pattern descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei Design Pattern facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i Design Pattern in
+\section{Design pattern}
+Un \mgls{design pattern} descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei \mgls{design pattern} facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i \mgls{design pattern} in
 quattro categorie:
 
 \begin{itemize}
-	\item \textbf{Design Pattern architetturali}, che esprimono schemi di base per impostare l’organizzazione strutturale di un sistema software
-	\item \textbf{Design Pattern creazionali}, che forniscono un’astrazione del processo di istanziazione degli oggetti;
-	\item \textbf{Design Pattern strutturali}, che si occupano delle modalità di composizione di classi e oggetti per formare strutture complesse
-	\item \textbf{Design Pattern comportamentali}, che si occupano di algoritmi e dell’assegnamento	di responsabilità tra oggetti collaboranti
+	\item \textbf{Design pattern architetturali:} che esprimono schemi di base per impostare l’organizzazione strutturale di un sistema software
+	\item \textbf{Design pattern creazionali:} che forniscono un’astrazione del processo di istanziazione degli oggetti;
+	\item \textbf{Design pattern strutturali:} che si occupano delle modalità di composizione di classi e oggetti per formare strutture complesse
+	\item \textbf{Design pattern comportamentali:} che si occupano di algoritmi e dell’assegnamento di responsabilità tra oggetti collaboranti
 \end{itemize}
 
-\subsection{Design Pattern Architetturali}
+\subsection{Design pattern architetturali}
 \subsubsection{MVC}
 \paragraph{Scopo}
 Questo pattern è utilizzato per separare le responsabilità dell’applicazione a diversi componenti e permettere di fare una chiara divisione presentazione, struttura dei dati e operazioni su di essi.
 
 \paragraph{Utilizzo}
-Nel front-end viene utilizzato questo Design Pattern per dividere la presentazione dei dati dalla logica dell'applicazione e la logica di business. I vari componenti sono identificati nelle seguenti classi:
+Nel front-end viene utilizzato questo \mgls{design pattern} per dividere la presentazione dei dati dalla logica dell'applicazione e la logica di business. I vari componenti sono identificati nelle seguenti classi:
 
 \begin{itemize}
-	\item il package client::model è la business logic che gestisce i dati;
-	\item il package client::view è la presentation logic che costruisce le pagine da visualizzare;
-	\item il package client::controller è l'application logic.
+	\item il package \texttt{client::model} è la business logic che gestisce i dati;
+	\item il package \texttt{client::view} è la presentation logic che costruisce le pagine da visualizzare;
+	\item il package \texttt{client::controller} è l'application logic.
 \end{itemize}
 
 \subsubsection{Middleware}
 \paragraph{Scopo}
-Si è scelto di utilizzare questo Design Pattern per fornire un intermediario tra i vari componenti software dell’applicazione in modo da semplificare notevolmente la loro connessione e collaborazione. Questo pattern in generale è molto utile nello sviluppo e nella gestione di di sistemi distribuiti complessi, e nel nostro caso si adatta bene alla gestione di richieste REST.
+Si è scelto di utilizzare questo \mgls{design pattern} per fornire un intermediario tra i vari componenti software dell’applicazione in modo da semplificare notevolmente la loro connessione e collaborazione. Questo pattern in generale è molto utile nello sviluppo e nella gestione di sistemi distribuiti complessi, e nel nostro caso si adatta bene alla gestione di richieste \mgls{rest}.
 \paragraph{Utilizzo}
-Viene utilizzato dal framework Express attraverso il modulo connect per fornire una libreria di funzioni comuni. Definisce una serie di livelli (o funzioni) per gestire le varie richieste dell’applicazione e richiamare i rispettivi handler. Tutti i componenti del middleware sono collegati l’uno con l’altro e ricevono a turno una richiesta in ingresso, finché uno di questi non decide di partire con l’elaborazione per poi chiamare la funzione next. Come si può notare è molto legato a Chain of Responsibility, che verrà descritto in seguito. Tutti i componenti di Express vengono utilizzati con il metodo use di Express. Nella progettazione architetturale è utilizzato nel package Server::middleware.
+Viene utilizzato dal framework \mgls{express} per fornire una libreria di funzioni comuni. Definisce una serie di livelli (o funzioni) per gestire le varie richieste dell’applicazione e richiamare i rispettivi handler. Tutti i componenti del middleware sono collegati l’uno con l’altro e ricevono a turno una richiesta in ingresso, finché uno di questi non decide di partire con l’elaborazione per poi chiamare la funzione \texttt{next}. Come si può notare è molto legato a Chain of Responsibility, che verrà descritto in seguito. Nella progettazione architetturale è utilizzato nel package \texttt{server::middleware}.
 
-\subsection{Design Pattern Creazionali}
+\subsection{Design pattern creazionali}
 
 \subsubsection{Singleton}
 \paragraph{Scopo}
-Viene utilizzato per le classi che devono avere un’unica istanza durante l’esecuzione dell’applicazione.
+Viene utilizzato per le classi che devono avere un’unica istanza, accessibile globalmente, durante l’esecuzione dell’applicazione.
 \paragraph{Utilizzo}
-Ogni modulo di Node.js è nativamente un singleton, perché viene caricato al primo require e poi tutti i successivi riferiscono allo stesso.
+Ogni modulo di \mgls{node.js} è nativamente un singleton, perché viene caricato alla prima chiamata \texttt{require} e poi tutti gli utilizzi successivi riferiscono sempre alla stessa istanza del modulo.
 
-\subsection{Design Pattern Strutturali}
+\subsection{Design pattern strutturali}
 
 \subsubsection{Facade}
 \paragraph{Scopo}
-Viene utilizzato per rendere visibili solamente alcune cose agli altri oggetti ed avere un unico punto di accesso semplificato a un sottosistema fornendo un’interfaccia di alto livello e minimizzando dunque le comunicazioni e le dipendenze.
+Viene utilizzato per rendere visibili solamente alcune componenti agli altri moduli ed avere un unico punto di accesso semplificato a un sottosistema fornendo un’interfaccia di alto livello e minimizzando dunque le comunicazioni e le dipendenze.
 
 \paragraph{Utilizzo}
-Viene utilizzato all’interno della classe Server::middleware::Loader, la quale utilizza facade per nascondere l’esistenza di tutti i middleware alla ServerApp. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
+Viene utilizzato all’interno della classe \texttt{server::middleware::Loader}, la quale utilizza Facade per nascondere l’esistenza di tutti i middleware all'esterno. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
 
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
 
 \paragraph{Scopo}
-Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta possa esaudire le richieste di più oggetti. In questo modo si evita l’accoppiamento fra il mittente di una richiesta e il destinatario. Tutti gli oggetti destinatari della richiesta sono concatenati tra di loro. Ogni nodo della catena se può esaudire la richiesta la effettua, altrimenti delega l’onere al nodo successivo. La catena viene attraversata finché un nodo non può eseguire l’ordine del mittente.
+Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta possa completare le richieste di più oggetti. In questo modo si evita l’accoppiamento fra il mittente di una richiesta e il destinatario. Tutti gli oggetti destinatari della richiesta sono concatenati tra di loro. Ogni nodo della catena se può esaudire la richiesta la effettua, altrimenti delega l’onere al nodo successivo. La catena viene attraversata finché un nodo non può eseguire l’ordine del mittente.
 
 \paragraph{Utilizzo}
-Express usa chain of Responsibility per la gestione dei middleware e del routing. Come già accennato è particolarmente legato al pattern Middleware. Viene utilizzato nella nostra architettura all’interno del package Server::middleware. La classe Server::middleware::Router gestisce la richiesta scorrendo tutta la lista delle sottoclassi e richiamando il metodo next finché una di queste non può soddisfarla. Nel gergo del framework Express i middleware corrispondono agli oggetti ConcreteHandler del design pattern. Sebbene il comportamento e lo scopo sia quasi identico, l’implementazione di Express presenta alcune differenze:
+\mgls{express} usa chain of responsibility per la gestione dei middleware e del routing. Come già accennato è particolarmente legato al pattern Middleware. Viene utilizzato nella nostra architettura all’interno del package \texttt{server::middleware}. La classe \texttt{server::middleware::Router} gestisce la richiesta scorrendo tutta la lista delle sottoclassi e richiamando il metodo \texttt{next} finché una di queste non può soddisfarla. Nel gergo del framework Express i middleware corrispondono agli oggetti ConcreteHandler del design pattern. Sebbene il comportamento e lo scopo sia quasi identico, l’implementazione di Express presenta alcune differenze:
 
 \begin{itemize}
-	\item I middleware di Express possono essere classi con un metodo handle o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in Node.js. Nel progetto sarà utilizzata principalmente la seconda versione.
-	\item Il Design Pattern prevede che l’oggetto Handler abbia un riferimento successor all’Handler successivo. Express invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di Express il quale passerà il controllo al successivo middleware.
-	\item Express divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti try catch, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono.
-	\item Ogni middleware di Express deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
+	\item I middleware di Express possono essere classi con un metodo \texttt{handle} o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in \mgls{node.js}. Nel progetto sarà utilizzata principalmente la seconda versione.
+	\item Il \mgls{design pattern} prevede che l’oggetto \texttt{Handler} abbia un riferimento \texttt{successor} all’\texttt{Handler} successivo. \mgls{express} invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di \mgls{express} il quale passerà il controllo al successivo middleware.
+	\item \mgls{express} divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti \texttt{try-catch}, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono.
+	\item Ogni middleware di \mgls{express} deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
 \end{itemize}
 
 \newpage
