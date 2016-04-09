@@ -9,10 +9,10 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.5}
+\newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Informale}
+\newcommand{\stato}{Formale}
 
 %Uso del documento
 \newcommand{\uso}{Esterno}
@@ -41,8 +41,15 @@
 					\  & \TP\\
 					\  &  \WS\\
 					\  &  \AVE\\
-					\textbf{Verifica} &  \IB\\
-					\ & \AVI \\
+                    \  &  \AVI\\
+  					\  &  \IB\\
+  					\  &  \NDC\\
+					\textbf{Verifica} & \AB\\
+					\  &  \WS\\
+					\  &  \AVE\\
+					\  &  \AVI\\
+					\  &  \IB\\
+					\  &  \NDC\\
                     \textbf{Approvazione} &  \TP{}\\
 					\textbf{Lista Distribuzione} & \nomeGruppo \\
 					\  & \Vardanega \\
@@ -65,20 +72,44 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		1.0.0 & \TP & 2016-04-08 & Approvazione \\*
+		\midrule
+		0.1.0 & \IB{} \& \AB{} \& \AVI{} \& \AVE \& \WS \& \NDC & 2016-04-07 & Verifica \\*
+		\midrule
+		0.0.15 & \IB{} & 2016-04-05 & Aggiunta classi server \\*
+		\midrule
+		0.0.14 & \WS{} & 2016-04-01 & Aggiunta classi server \\*
+		\midrule
+		0.0.13 & \AB{} & 2016-03-25 & Aggiunta classi server \\*
+		\midrule
+		0.0.12 & \NDC{} & 2016-03-22 & Aggiunta classi server \\*
+		\midrule
+		0.0.11 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
+		\midrule
+		0.0.10 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		\midrule
+		0.0.9 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
         \midrule
-        0.0.5 & \TP{} & 2016-03-15 & Definizione struttura del documento e aggiunta
+        0.0.8 & \NDC{} & 2016-03-15 & Definizione struttura del documento e aggiunta
             degli standard di progetto \\*
 		\midrule
-		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
+		0.0.7 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
             Express, Bootstrap e Angular \\*
 		\midrule
-		0.0.3 & \AVE{} & 2016-03-09 & Aggiunte descrizioni tecnoglogie Node.js, NoSQL, Mongoose, MongoDB \\*
+		0.0.6 & \AVE{} & 2016-03-11 & Aggiunte descrizioni tecnologie Node.js, NoSQL, Mongoose, MongoDB \\*
+		\midrule
+		0.0.5 & \AVE{} & 2016-03-011 &  modifica descrizioni tabella REST API \\*
+		\midrule
+		0.0.4 & \TP{} & 2016-03-09 &  Aggiunta descrizioni tabella REST API \\*
+		\midrule
+		0.0.3 & \TP{} & 2016-03-07 &  modifica struttura tabella REST API \\*
 		\midrule
 		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella REST API \\*
 		\midrule
-		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella REST API \\*
+		0.0.1 & \NDC{} & 2016-03-03 &  Creazione tabella REST API \\*
 		\midrule
-		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
+		0.0.0 & \NDC{} & 2016-03-02 &  Creazione documento \\*
 		\bottomrule
 		\caption{Versionamento del documento}
 		\label{tabVers1} 
@@ -97,7 +128,7 @@
 Lo scopo di questo documento è di definire nel dettaglio l'architettura del sistema sviluppato, fornendo una struttura completa ai programmatori per l'attività di codifica.
 
 \subsection{Descrizione}
-Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del \gmls{software}. Verranno inoltre specificati nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verranno specificati i diagrammi di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
+Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del \mgls{software}. Verranno inoltre specificati nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verranno specificati i diagrammi di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
 
 \subsection{Descrizione Prodotto}
 \descrizioneProdotto
