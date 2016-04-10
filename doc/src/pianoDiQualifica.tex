@@ -542,43 +542,40 @@
 	
 	Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di \mgls{testing}.
 	
-	
 	\subsection{Notazione}
 	\paragraph{Test di Validazione}
-		L'identificativo di un test di validazione è attribuito in modo automatico secondo lo schema:
-		\[ TV.[ID test ]\]
-		dove la sigla TSV si riferisce a un test di validazione, [ID test] viene sostituito dall'identificativo numerico, attribuito automaticamente ad ogni test di validazione.
+	L'identificativo di un test di validazione è attribuito in modo automatico secondo lo schema:
+	\[ TV.[ID test ]\]
+	dove la sigla TSV si riferisce a un test di validazione, [ID test] viene sostituito dall'identificativo numerico, attribuito automaticamente ad ogni test di validazione.
 		
 	\paragraph{Test di Sistema}
 	L'identificativo di un test di sistema è attribuito in modo automatico secondo lo schema:
 	\[ TS.[ID req]\]
-	dove la sigla TS si riferisce a un test di sistema, [Id req] viene sostituito dall'identificativo numerico del requisito sul sistema. 
+	dove la sigla TS si riferisce a un test di sistema, [Id req] viene sostituito dall'identificativo numerico del requisito sul sistema.
+	 
 	\paragraph{Test di Integrazione}
-	   L'identificativo di un test di integrazione è attribuito in modo automatico secondo lo schema:
-	   \[ TI.[componete]\]
-	   dove la sigla TI si riferisce a un test di integrazione, [componente] viene sostituito dalla macrocomponente di cui si verifica l'integrrazione.
+	L'identificativo di un test di integrazione è attribuito in modo automatico secondo lo schema:
+	\[ TI.[componete]\]
+	dove la sigla TI si riferisce a un test di integrazione, [componente] viene sostituito del macro componente di cui si verifica l'integrazione.
+	
 	\paragraph{Test di Unità}
+	Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema	
+	\[ GU.X  \]
+	dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
+	\[ [ID Classe][- ...].TU \] 
+	dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-". L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
 	
-	
-		Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema
+	\paragraph{Stato dei test}
+	Per indicare lo stato dei test si usa la seguente notazione:
+
+	\begin{itemize}
+		\item \textbf{NI:} test non implementato
+		\item \textbf{I:} test implementato
+		\item \textbf{Success:} test implementato superato
+		\item \textbf{Fail:} test implementato non superato
+	\end{itemize}
 		
-		\[ GU.X  \]
-		
-		dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-		
-		\[ [ID Classe][- ...].TU \] 
-		
-		dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
-		L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
-		\paragraph{Stato dei test}
-		Per indicare lo stato dei test si usa la seguente notazione:
-		\begin{itemize}
-			\item \textbf{NI:} test non implementato
-			\item \textbf{I:} test implementato
-			\item \textbf{Success:} test implemantato superato
-			\item \textbf{Fail:} test implementato non superato
-		\end{itemize}
-	\subsection{Test di Validazione}\label{test_pianificazione}
+\subsection{Test di Validazione}\label{test_pianificazione}
 \subsubsection{Definizione dettagliata}
 	\hypertarget{TV1}{}
 	\paragraph{Test TV1}
