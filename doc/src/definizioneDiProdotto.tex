@@ -414,12 +414,14 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
 	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
 	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
-	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica e gestione di un singolo questionario
-	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione di un singolo questionario
-	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica del questionario
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
 \end{itemize}
 
+\subsubsection{Modifica questionario}
 
+Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore.
 
 \begin{center}
 	\begin{figure}[H]
@@ -428,6 +430,21 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
+
+\subsubsection{Rimozione questionario}
+
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente.
+
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
@@ -435,21 +452,40 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare, modificare o eliminare i questionari della view corrispondente
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica, creazione o eliminazione del questionario
+\end{itemize}
+
+\subsection{Server}
+
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{server}.
+
+\subsubsection{Inserimento domanda}
+
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente.
+
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciDomandaServer.png}
-		\caption{Diagramma sequenza - Inserisci Domanda Server}
+		\caption{Diagramma sequenza - Inserimento Domanda Server}
 	\end{figure}
-
 \end{center}
+
+\subsubsection{Inserimento questionario}
 
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
-		\caption{Diagramma sequenza - Inserisci Questionario Server}
+		\caption{Diagramma sequenza - Inserimento Questionario Server}
 	\end{figure}
 \end{center}
 
+\subsubsection{Login}
 
 \begin{center}
 	\begin{figure}[H]
@@ -458,6 +494,7 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+\subsubsection{Modifica domanda}
 
 \begin{center}
 	\begin{figure}[H]
@@ -466,6 +503,8 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+\subsubsection{Modifica questionario}
+
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
@@ -473,6 +512,7 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+\subsubsection{Registrazione}
 
 \begin{center}
 	\begin{figure}[H]
@@ -481,6 +521,7 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\end{figure}
 \end{center}
 
+\subsubsection{Rimozione domanda}
 
 \begin{center}
 	\begin{figure}[H]
@@ -488,6 +529,8 @@ Gli oggetti e attori attivi durante questa interazione sono:
 		\caption{Diagramma sequenza - Rimozione Domanda Server}
 	\end{figure}
 \end{center}
+
+\subsubsection{Rimozione questionario}
 
 \begin{center}
 	\begin{figure}[H]
