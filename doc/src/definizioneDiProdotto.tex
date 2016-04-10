@@ -361,7 +361,7 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 \subsection{Server}
 Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{server}.
 
-\subsection{Login}
+\subsubsection{Login}
 Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -378,7 +378,7 @@ Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di u
 \end{center}
 
 \newpage
-\subsection{Registrazione}
+\subsubsection{Registrazione}
 Di seguito viene presentato il diagramma di sequenza del flusso per la registrazione di un utente presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -396,8 +396,8 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la registraz
 \end{center}
 
 \newpage
-\subsection{Inserisci Domanda}
-Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Inserisci Domanda}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente, o utente di grado superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -415,8 +415,8 @@ Di seguito viene presentato il diagramma di sequenza per l'inserimento di una do
 \end{center}
 
 \newpage
-\subsection{Inserisci Questionario}
-Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Inserisci Questionario}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente, o utente di grado superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -434,11 +434,11 @@ Di seguito viene presentato il diagramma di sequenza per l'inserimento di un que
 \end{center}
 
 \newpage
-\subsection{Visualizzazione questionario}
+\subsubsection{Visualizzazione Questionario}
 Di seguito viene presentato il diagramma di sequenza per ottenere i dati di un questionario da visualizzare da parte del client. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
-	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’\mgls{uri} ricevuto e ad invocare l’opportuno servizio
 	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
 	\item \textbf{questionnaireService:} è l'oggetto che si occupa di reperire i dati del questionario da restituire
 	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
@@ -452,8 +452,8 @@ Di seguito viene presentato il diagramma di sequenza per ottenere i dati di un q
 \end{center}
 
 \newpage
-\subsection{Modifica Domanda}
-Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Modifica Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di una domanda da parte del docente, o utente di grado superiore, che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -471,8 +471,8 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la modifica 
 \end{center}
 
 \newpage
-\subsection{Modifica Questionario}
-Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di un questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Modifica Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di un questionario da parte del docente, o utente di grado superiore, che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -490,8 +490,8 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la modifica 
 \end{center}
 
 \newpage
-\subsection{Rimozione Domanda}
-Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Rimozione Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente, o utente di grado superiore, che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -508,8 +508,8 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione
 \end{center}
 
 \newpage
-\subsection{Rimozione Questionario}
-Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
+\subsubsection{Rimozione Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una questionario da parte del docente, o utente di grado superiore, che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -529,7 +529,7 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione
 
 Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
 
-\subsection{Cambio Informazioni}
+\subsubsection{Cambio Informazioni}
 Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -548,7 +548,7 @@ Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di
 \end{center}
 
 \newpage
-\subsection{Cambio Password}
+\subsubsection{Cambio Password}
 Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -566,7 +566,7 @@ Di seguito viene presentato il diagramma di sequenza per il cambio della passwor
 \end{center}
 
 \newpage
-\subsection{Inserisci Questionario}
+\subsubsection{Inserisci Questionario}
 Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -586,7 +586,7 @@ Di seguito viene presentato il diagramma di sequenza per l'inserimento di un que
 \end{center}
 
 \newpage
-\subsection{Esecuzione questionario}
+\subsubsection{Esecuzione Questionario}
 Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -624,7 +624,7 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione
 \end{center}
 
 \newpage
-\subsection{Modifica Questionario}
+\subsubsection{Modifica Questionario}
 Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
@@ -644,7 +644,7 @@ Di seguito viene presentato il diagramma di sequenza per la modifica di un singo
 \end{center}
 
 \newpage
-\subsection{Rimozione Questionario}
+\subsubsection{Rimozione Questionario}
 Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
