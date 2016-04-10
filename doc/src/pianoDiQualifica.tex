@@ -170,10 +170,7 @@
 	
 	\section{Politica generale di qualità}
 	
-	\subsection{Scopo}
 	La corrente sezione introduce i modelli di qualità scelti come guida per la gestione della qualità nel suo complesso. La descrizione di ogni modello è stata inclusa con lo scopo di rendere chiare le scelte successive.
-	
-	\subsection{Descrizione}
 	La necessità delle definizione di una politica per la qualità è atta a fornire un supporto alla qualità di prodotto. Ciò attraverso l'adesione a modelli e standard universalmente riconosciuti e adatti al caso in questione. La qualità di prodotto viene, inoltre, perseguita utilizzando una particolare attenzione alla qualità dei processi che producono il software come oggetto finale.
 	
 	\subsection{Modelli e standard di qualità}
@@ -278,10 +275,7 @@
 	
 	\section{Gestione della qualità} \label{gest_qual}
 	
-	\subsection{Scopo}
 	La gestione della qualità è rappresentata le principali metodologie e strumenti utilizzabili per attuare un piano di persecuzione della qualità. 
-	
-	\subsection{Descrizione}
 	Nella pratica non viene trattata in questo documento, ma in \NdP. La corrente sezione analizza le linee guida nella scelta delle metodologie e strumenti di concretizzazione del sistema qualità sopra descritto. Tali scelte vengono descritte dei documenti sopracitati.
 	
 	\subsection{Metodologie e strumenti di gestione}
@@ -315,6 +309,7 @@
 	\newpage
 	
 	\section{Analisi della qualità}\label{analisi}
+	
 	In questa sezione si intende esporre metodi concreti e relative metriche per ottenere risultati quantitativi sulla qualità di prodotto e dei processi. 
 	
 	\subsection{Analisi Statica} 
@@ -547,8 +542,44 @@
 	
 	Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di \mgls{testing}.
 	
+	
+	\subsection{Notazione}
+	\paragraph{Test di Validazione}
+		L'identificativo di un test di validazione è attribuito in modo automatico secondo lo schema:
+		\[ TV.[ID test ]\]
+		dove la sigla TSV si riferisce a un test di validazione, [ID test] viene sostituito dall'identificativo numerico, attribuito automaticamente ad ogni test di validazione.
+		
+	\paragraph{Test di Sistema}
+	L'identificativo di un test di sistema è attribuito in modo automatico secondo lo schema:
+	\[ TS.[ID req]\]
+	dove la sigla TS si riferisce a un test di sistema, [Id req] viene sostituito dall'identificativo numerico del requisito sul sistema. 
+	\paragraph{Test di Integrazione}
+	   L'identificativo di un test di integrazione è attribuito in modo automatico secondo lo schema:
+	   \[ TI.[componete]\]
+	   dove la sigla TI si riferisce a un test di integrazione, [componente] viene sostituito dalla macrocomponente di cui si verifica l'integrrazione.
+	\paragraph{Test di Unità}
+	
+	
+		Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema
+		
+		\[ GU.X  \]
+		
+		dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
+		
+		\[ [ID Classe][- ...].TU \] 
+		
+		dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
+		L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
+		\paragraph{Stato dei test}
+		Per indicare lo stato dei test si usa la seguente notazione:
+		\begin{itemize}
+			\item \textbf{NI:} test non implementato
+			\item \textbf{I:} test implementato
+			\item \textbf{Success:} test implemantato superato
+			\item \textbf{Fail:} test implementato non superato
+		\end{itemize}
 	\subsection{Test di Validazione}\label{test_pianificazione}
-	\subsubsection{Descrizione dettagliata}
+\subsubsection{Definizione dettagliata}
 	\hypertarget{TV1}{}
 	\paragraph{Test TV1}
 	Verifica che l'ospite sia in grado di effettuare la registrazione presso il sistema attraverso i seguenti passi:
@@ -762,7 +793,7 @@
 			\item accesso alla pagina di registrazione;
 			\item immissione dei dati dell'utente;
 			\item conferma registrazione.
-		\end{enumerate} & R-3F9 & success\tabularnewline
+		\end{enumerate} & R-3F9 & NI\tabularnewline
 		\midrule
 		& TV2 & Verifica che l'ospite sia in grado di effettuare l'accesso attraverso i passi seguenti:
 		
@@ -770,7 +801,7 @@
 			\item accesso alla pagina di login;
 			\item inserimento credenziali;
 			\item conferma accesso.
-		\end{enumerate} & R-3F31 & success\tabularnewline
+		\end{enumerate} & R-3F31 & NI\tabularnewline
 		\midrule
 		& TV3 & Verifica che uno studente sia in grado di eseguire un questionario attraverso i seguenti passi:
 		
@@ -780,7 +811,7 @@
 			\item compilazione questionario;
 			\item conferma compilazione;
 			\item visualizzazione dei risultati.
-		\end{enumerate} & R-3F16 & success\tabularnewline
+		\end{enumerate} & R-3F16 & NI\tabularnewline
 		\midrule
 		& TV4 & Verifica che il docente sia in grado di creare una domanda attraverso i seguenti passi:
 		
@@ -789,7 +820,7 @@
 			\item scrittura della domanda in QML;
 			\item selezione degli argomenti relativi alla domanda;
 			\item conferma della creazione della domanda.
-		\end{enumerate} & R-3F7.11.1 & success\tabularnewline
+		\end{enumerate} & R-3F7.11.1 & NI\tabularnewline
 		\midrule
 		& TV5 & Verifica che il docente sia in grado di modificare una domanda attraverso i seguenti passi:
 		
@@ -798,14 +829,14 @@
 			\item modifica QML domanda;
 			\item modifica argomenti domanda;
 			\item conferma modifica.
-		\end{enumerate} & R-3F7.11.2 & success\tabularnewline
+		\end{enumerate} & R-3F7.11.2 & NI\tabularnewline
 		\midrule
 		& TV6 & Verifica che un docente sia in grado di cancellare una propria domanda non utilizzata da alcun questionario attraverso i seguenti passi:
 		
 		\begin{enumerate}
 			\item selezione domanda da eliminare;
 			\item conferma eliminazione domanda.
-		\end{enumerate} & R-3F7.11.3 & success\tabularnewline
+		\end{enumerate} & R-3F7.11.3 & NI\tabularnewline
 		\midrule
 		& TV7 & Verifica che un docente sia in grado di creare un questionario attraverso i seguenti passi:
 		
@@ -814,7 +845,7 @@
 			\item selezione argomenti questionario;
 			\item aggiunta domande questionario;
 			\item conferma creazione.
-		\end{enumerate} & R-3F7.7 & success\tabularnewline
+		\end{enumerate} & R-3F7.7 & NI\tabularnewline
 		\midrule
 		& TV8 & Verifica che un docente sia in grado di modificare un proprio questionario attraverso i seguenti passi:
 		
@@ -823,14 +854,14 @@
 			\item modifica argomenti del questionario;
 			\item modifica lista domande del questionario;
 			\item conferma modifica.
-		\end{enumerate} & R-3F7.12 & success\tabularnewline
+		\end{enumerate} & R-3F7.12 & NI\tabularnewline
 		\midrule
 		& TV9 & Verifica che un docente sia in grado di eliminare un proprio questionario attraverso i seguenti passi:
 		
 		\begin{enumerate}
 			\item selezione questionario;
 			\item conferma eliminazione questionario.
-		\end{enumerate} & R-3F7.13 & success\tabularnewline
+		\end{enumerate} & R-3F7.13 & NI\tabularnewline
 		\midrule
 		& TV10 & Verifica che il docente sia in grado di creare un nuovo argomento attraverso i seguenti passi:
 		
@@ -838,7 +869,7 @@
 			\item accesso pagina di aggiunta argomento;
 			\item definizione dati argomento;
 			\item conferma creazione argomento.
-		\end{enumerate} & R-3F22.1 & success\tabularnewline
+		\end{enumerate} & R-3F22.1 & NI\tabularnewline
 		\midrule
 		& TV11 & Verifica che un docente sia in grado di modificare un argomento attraverso i seguenti passi:
 		
@@ -846,21 +877,21 @@
 			\item selezione argomento da modificare;
 			\item modifica dati argomento;
 			\item conferma modifica dati argomento.
-		\end{enumerate} & R-3F22.3 & success\tabularnewline
+		\end{enumerate} & R-3F22.3 & NI\tabularnewline
 		\midrule
 		& TV12 & Verifica che un docente sia in grado di eliminare un argomento attraverso i seguenti passi:
 		
 		\begin{enumerate}
 			\item selezione argomento da eliminare;
 			\item conferma eliminazione argomento.
-		\end{enumerate} & R-3F22.2 & success\tabularnewline
+		\end{enumerate} & R-3F22.2 & NI\tabularnewline
 		\midrule
 		& TV13 & Verifica che un amministratore o proprietario sia in grado di eliminare un utente di ruolo inferiore al proprio attraverso i seguenti passi:
 		
 		\begin{enumerate}
 			\item selezione utente da eliminare;
 			\item conferma eliminazione utente.
-		\end{enumerate} & R-3F11.2 & success\tabularnewline
+		\end{enumerate} & R-3F11.2 & NI\tabularnewline
 		\midrule
 		& TV14 & Verifica che un amministratore o proprietario sia in grado di cambiare il ruolo di un utente di ruolo inferiore al proprio attraverso i seguenti passi:
 		
@@ -868,7 +899,7 @@
 			\item selezione utente;
 			\item selezione ruolo utente;
 			\item conferma modifica ruolo utente.
-		\end{enumerate} & R-3F11.1 & success\tabularnewline
+		\end{enumerate} & R-3F11.1 & NI\tabularnewline
 		\midrule
 		& TV15 & Verifica che un utente sia in grado di aggiornare i propri dati personali attraverso i seguenti passi:
 		
@@ -877,7 +908,7 @@
 			\item accesso pagina di modifica profilo;
 			\item modifica dati personali;
 			\item conferma modifica.
-		\end{enumerate} & R-3F13.3 & success\tabularnewline
+		\end{enumerate} & R-3F13.3 & NI\tabularnewline
 		\midrule
 		& TV16 & Verifica che un utente sia in grado di modificare la propria password attraverso i seguenti passi:
 		
@@ -888,14 +919,14 @@
 			\item inserimento nuova password;
 			\item inserimento nuova password una seconda volta;
 			\item conferma modifica password.
-		\end{enumerate} & R-3F13.2 & success\tabularnewline
+		\end{enumerate} & R-3F13.2 & NI\tabularnewline
 		\midrule
 		& TV17 & Verifica che un utente sia in grado di disconnettersi dal sistema attraverso i seguenti passi:
 		
 		\begin{enumerate}
 			\item accesso profilo;
 			\item conferma disconnessione.
-		\end{enumerate} & R-3F17 & success\tabularnewline
+		\end{enumerate} & R-3F17 & NI\tabularnewline
 		\midrule
 		& TV18 & Verifica che un amministratore o proprietario sia in grado di visualizzare la lista degli utenti, eventualmente specificando parametri per il filtraggio del risultati, attraverso i seguenti passi:
 		
@@ -903,7 +934,7 @@
 			\item accesso lista utenti;
 			\item specifica parametri di filtraggio dei risultati;
 			\item visualizzazione elenco.
-		\end{enumerate} & R-3F32 & success\tabularnewline
+		\end{enumerate} & R-3F32 & NI\tabularnewline
 		\midrule
 		& TV19 & Verifica che un docente sia in grado di visualizzare la lista degli argomenti, eventualmente specificando parametri per il filtraggio del risultati, attraverso i seguenti passi:
 		
@@ -911,7 +942,7 @@
 			\item accesso lista argomenti;
 			\item specifica parametri di filtraggio dei risultati;
 			\item visualizzazione elenco.
-		\end{enumerate} & R-3F22.4 & success\tabularnewline
+		\end{enumerate} & R-3F22.4 & NI\tabularnewline
 		\midrule
 		& TV20 & Verifica che un docente sia in grado di visualizzare la lista delle domande, eventualmente specificando parametri per il filtraggio del risultati, attraverso i seguenti passi:
 		
@@ -919,7 +950,7 @@
 			\item accesso lista domande;
 			\item specifica parametri di filtraggio dei risultati;
 			\item visualizzazione elenco.
-		\end{enumerate} & R-3F19 & success\tabularnewline
+		\end{enumerate} & R-3F19 & NI\tabularnewline
 		\midrule
 		& TV21 & Verifica che un utente sia in grado di visualizzare la lista dei questionari, eventualmente specificando parametri per il filtraggio del risultati, attraverso i seguenti passi:
 		
@@ -927,77 +958,77 @@
 			\item accesso lista questionari;
 			\item specifica parametri di filtraggio dei risultati;
 			\item visualizzazione elenco.
-		\end{enumerate} & R-3F14 & success\tabularnewline
+		\end{enumerate} & R-3F14 & NI\tabularnewline
 		\midrule
-		& TV22 & Verifica che il docente sia in grado di visualizzare una domanda attraverso i passi seguenti: \begin{enumerate} \item selezione della domanda; \item visualizzazione dati domanda. \end{enumerate} & R-3F29 & success\tabularnewline
+		& TV22 & Verifica che il docente sia in grado di visualizzare una domanda attraverso i passi seguenti: \begin{enumerate} \item selezione della domanda; \item visualizzazione dati domanda. \end{enumerate} & R-3F29 & NI\tabularnewline
 		\midrule
-		& TV23 & Verifica che il docente sia in grado di visualizzare un questionario attraverso i passi seguenti: \begin{enumerate} \item selezione del questionario; \item visualizzazione dati e elenco domande questionario. \end{enumerate} & R-3F30 & success\tabularnewline
+		& TV23 & Verifica che il docente sia in grado di visualizzare un questionario attraverso i passi seguenti: \begin{enumerate} \item selezione del questionario; \item visualizzazione dati e elenco domande questionario. \end{enumerate} & R-3F30 & NI\tabularnewline
 		\midrule
 		\caption{Tabella test validazione / requisiti} \tabularnewline
 	\end{longtable}
 	\subsection{Test di Sistema}\label{test_sistema}
-	\subsubsection{Descrizione dettagliata }
+	\subsubsection{Definizione dettagliata}
 	\begin{longtable}{l p{6cm} l l}
 		\midrule
 		\textbf{Test} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Requisito} \tabularnewline
 		\midrule
 		\midrule
-		TS7.5 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML riesca a descrivere in maniera efficace tutte le caratteristiche previste per un questionario e le relative domande & success & \hypertarget{R-3F7.5}{R-3F7.5}\tabularnewline
+		TS7.5 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML riesca a descrivere in maniera efficace tutte le caratteristiche previste per un questionario e le relative domande & NI& \hypertarget{R-3F7.5}{R-3F7.5}\tabularnewline
 		\midrule
-		TS7.5.1 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML permetta di definire il testo di una domanda e delle relative risposte attraverso una sintassi univoca & success & \hypertarget{R-3F7.5.1}{R-3F7.5.1}\tabularnewline
+		TS7.5.1 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML permetta di definire il testo di una domanda e delle relative risposte attraverso una sintassi univoca & NI& \hypertarget{R-3F7.5.1}{R-3F7.5.1}\tabularnewline
 		\midrule
-		TS7.5.1.2 & Viene verificato che il QML permetta l'inserimento di immagini & success & \hypertarget{R-3F7.5.1.2}{R-3F7.5.1.2}\tabularnewline
+		TS7.5.1.2 & Viene verificato che il QML permetta l'inserimento di immagini & NI& \hypertarget{R-3F7.5.1.2}{R-3F7.5.1.2}\tabularnewline
 		\midrule
-		TS7.5.1.6 & Viene verificato che il QML permetta di definire vari tipi di domanda & success & \hypertarget{R-3F7.5.1.6}{R-3F7.5.1.6}\tabularnewline
+		TS7.5.1.6 & Viene verificato che il QML permetta di definire vari tipi di domanda & NI& \hypertarget{R-3F7.5.1.6}{R-3F7.5.1.6}\tabularnewline
 		\midrule
-		TS7.5.3 & Viene verificato che le domande in QML possano essere scritte e modificate da un docente & success & \hypertarget{R-3F7.5.3}{R-3F7.5.3}\tabularnewline
+		TS7.5.3 & Viene verificato che le domande in QML possano essere scritte e modificate da un docente & NI& \hypertarget{R-3F7.5.3}{R-3F7.5.3}\tabularnewline
 		\midrule
-		TS7.5.5 & Viene verificato che Il QML possa gestire risposte vero/falso, risposte a scelta multipla, possa contenere testi e immagini	 & success & \hypertarget{R-3F7.5.5}{R-3F7.5.5}\tabularnewline
+		TS7.5.5 & Viene verificato che Il QML possa gestire risposte vero/falso, risposte a scelta multipla, possa contenere testi e immagini	 & NI& \hypertarget{R-3F7.5.5}{R-3F7.5.5}\tabularnewline
 		\midrule
 		TS7.7 & Viene verificato che un docente possa costruire un nuovo questionario utilizzando le domande presenti nel sistema e che non sia possibile creare un questionario che non contenga domande o argomenti
-		& success & \hypertarget{R-3F7.7}{R-3F7.7}\tabularnewline
+		& NI& \hypertarget{R-3F7.7}{R-3F7.7}\tabularnewline
 		\midrule
-		TS7.11 & Viene verificato che sia possibile per un docente eseguire le operazioni di inserimento, modifica e rimozione di una domanda e che tutti i casi non corretti vengano segnalati & success & \hypertarget{R-3F7.11}{R-3F7.11}\tabularnewline
+		TS7.11 & Viene verificato che sia possibile per un docente eseguire le operazioni di inserimento, modifica e rimozione di una domanda e che tutti i casi non corretti vengano segnalati & NI& \hypertarget{R-3F7.11}{R-3F7.11}\tabularnewline
 		\midrule
-		TS7.11.1.2.1 & Viene verificato che il sistema sia in grado di verificare l'inserimento di QML valido e, in caso contrario, segnalare un errore & success & \hypertarget{R-3F7.11.1.2.1}{R-3F7.11.1.2.1}\tabularnewline
+		TS7.11.1.2.1 & Viene verificato che il sistema sia in grado di verificare l'inserimento di QML valido e, in caso contrario, segnalare un errore & NI& \hypertarget{R-3F7.11.1.2.1}{R-3F7.11.1.2.1}\tabularnewline
 		\midrule
-		TS7.11.1.2.2 & Viene verificato che il docente possa inserire domande di tipo vero/falso	 & success & \hypertarget{R-3F7.11.1.2.2}{R-3F7.11.1.2.2}\tabularnewline
+		TS7.11.1.2.2 & Viene verificato che il docente possa inserire domande di tipo vero/falso	 & NI& \hypertarget{R-3F7.11.1.2.2}{R-3F7.11.1.2.2}\tabularnewline
 		\midrule
-		TS7.11.1.2.4 & Viene verificato che il docente possa inserire domande di tipo scelta multipla & success & \hypertarget{R-1F7.11.1.2.4}{R-1F7.11.1.2.4}\tabularnewline
+		TS7.11.1.2.4 & Viene verificato che il docente possa inserire domande di tipo scelta multipla & NI& \hypertarget{R-1F7.11.1.2.4}{R-1F7.11.1.2.4}\tabularnewline
 		\midrule
-		TS7.12 & Viene verificato che sia possibile per un docente modificare un questionario che ha precedentemente creato & success & \hypertarget{R-3F7.12}{R-3F7.12}\tabularnewline
+		TS7.12 & Viene verificato che sia possibile per un docente modificare un questionario che ha precedentemente creato & NI& \hypertarget{R-3F7.12}{R-3F7.12}\tabularnewline
 		\midrule
-		TS7.13 & Viene verificato che sia possibile per un docente eliminare un questionario che ha precedentemente creato & success & \hypertarget{R-3F7.13}{R-3F7.13}\tabularnewline
+		TS7.13 & Viene verificato che sia possibile per un docente eliminare un questionario che ha precedentemente creato & NI& \hypertarget{R-3F7.13}{R-3F7.13}\tabularnewline
 		\midrule
-		TS8 & Viene verificato che il sistema possa gestire l'accesso e la registrazione di ogni tipo di utente previsto & success & \hypertarget{R-3F8}{R-3F8}\tabularnewline
+		TS8 & Viene verificato che il sistema possa gestire l'accesso e la registrazione di ogni tipo di utente previsto & NI& \hypertarget{R-3F8}{R-3F8}\tabularnewline
 		\midrule
-		TS9 & Viene verificato che sia possibile per ogni tipo di utente registrarsi presso il sistema & success & \hypertarget{R-3F9}{R-3F9}\tabularnewline
+		TS9 & Viene verificato che sia possibile per ogni tipo di utente registrarsi presso il sistema & NI& \hypertarget{R-3F9}{R-3F9}\tabularnewline
 		\midrule
-		TS9.1 & Viene verificato che il sistema consenta le funzionalità utente solo se possiede un proprietario & success & \hypertarget{R-3F9.1}{R-3F9.1}\tabularnewline
+		TS9.1 & Viene verificato che il sistema consenta le funzionalità utente solo se possiede un proprietario & NI& \hypertarget{R-3F9.1}{R-3F9.1}\tabularnewline
 		\midrule
-		TS9.2 & I sotto-requisiti sono verificati. Viene verificato che sia possibile per un utente registrarsi presso il sistema con una password e le proprie informazioni personali & success & \hypertarget{R-3F9.2}{R-3F9.2}\tabularnewline
+		TS9.2 & I sotto-requisiti sono verificati. Viene verificato che sia possibile per un utente registrarsi presso il sistema con una password e le proprie informazioni personali & NI& \hypertarget{R-3F9.2}{R-3F9.2}\tabularnewline
 		\midrule
-		TS9.2.1 & Viene verificato che il sistema segnali un errore se non vengono inseriti tutti i campi necessari alla registrazione di un utente & success & \hypertarget{R-3F9.2.1}{R-3F9.2.1}\tabularnewline
+		TS9.2.1 & Viene verificato che il sistema segnali un errore se non vengono inseriti tutti i campi necessari alla registrazione di un utente & NI& \hypertarget{R-3F9.2.1}{R-3F9.2.1}\tabularnewline
 		\midrule
-		TS11 & Viene verificato che il sistema gestisca correttamente tutte le funzionalità di un amministratore & success & \hypertarget{R-3F11}{R-3F11}\tabularnewline
+		TS11 & Viene verificato che il sistema gestisca correttamente tutte le funzionalità di un amministratore & NI& \hypertarget{R-3F11}{R-3F11}\tabularnewline
 		\midrule
-		TS13 & Viene verificato che il sistema consenta ad un utente di modificare le proprie informazioni personali presenti nel sistema & success & \hypertarget{R-3F13}{R-3F13}\tabularnewline
+		TS13 & Viene verificato che il sistema consenta ad un utente di modificare le proprie informazioni personali presenti nel sistema & NI& \hypertarget{R-3F13}{R-3F13}\tabularnewline
 		\midrule
-		TS14 & Viene verificato che, per ogni tipo di utente, il sistema gestisca correttamente la ricerca di un questionario da parte di un utente & success & \hypertarget{R-3F14}{R-3F14}\tabularnewline
+		TS14 & Viene verificato che, per ogni tipo di utente, il sistema gestisca correttamente la ricerca di un questionario da parte di un utente & NI& \hypertarget{R-3F14}{R-3F14}\tabularnewline
 		\midrule
-		TS16 & Viene verificato che un utente sia in grado di rispondere alle domande di un questionario & success & \hypertarget{R-3F16}{R-3F16}\tabularnewline
+		TS16 & Viene verificato che un utente sia in grado di rispondere alle domande di un questionario & NI& \hypertarget{R-3F16}{R-3F16}\tabularnewline
 		\midrule
-		TS17 & Viene verificato che per un qualsiasi tipo di utente autenticato presso il sistema sia possibile effettuare correttamente il log-out  & success & \hypertarget{R-3F17}{R-3F17}\tabularnewline
+		TS17 & Viene verificato che per un qualsiasi tipo di utente autenticato presso il sistema sia possibile effettuare correttamente il log-out  & NI& \hypertarget{R-3F17}{R-3F17}\tabularnewline
 		\midrule
-		TS18 & Viene verificato che il sistema consenta e gestisca correttamente tutte le azioni previste per il proprietario & success & \hypertarget{R-3F18}{R-3F18}\tabularnewline
+		TS18 & Viene verificato che il sistema consenta e gestisca correttamente tutte le azioni previste per il proprietario & NI& \hypertarget{R-3F18}{R-3F18}\tabularnewline
 		\midrule
-		TS19 & Viene verificato che per un docente sia possibile effettuare correttamente la ricerca di una domanda presente nel sistema & success & \hypertarget{R-3F19}{R-3F19}\tabularnewline
+		TS19 & Viene verificato che per un docente sia possibile effettuare correttamente la ricerca di una domanda presente nel sistema & NI& \hypertarget{R-3F19}{R-3F19}\tabularnewline
 		\midrule
-		TS22 & Viene verificato che sia possibile per un docente, amministratore e proprietario la gestione degli argomenti presenti nel sistema & success & \hypertarget{R-3F22}{R-3F22}\tabularnewline
+		TS22 & Viene verificato che sia possibile per un docente, amministratore e proprietario la gestione degli argomenti presenti nel sistema & NI& \hypertarget{R-3F22}{R-3F22}\tabularnewline
 		\midrule
-		TS29 & Viene verificato che il sistema consenta ad un docente di visualizzare una domanda & success & \hypertarget{R-3F29}{R-3F29}\tabularnewline
+		TS29 & Viene verificato che il sistema consenta ad un docente di visualizzare una domanda & NI& \hypertarget{R-3F29}{R-3F29}\tabularnewline
 		\midrule
-		TS30 & Viene verificato che il sistema consenta ad un docente di visualizzare un questionario & success & \hypertarget{R-3F30}{R-3F30}\tabularnewline
+		TS30 & Viene verificato che il sistema consenta ad un docente di visualizzare un questionario & NI& \hypertarget{R-3F30}{R-3F30}\tabularnewline
 		\midrule
 		\caption{Tabella di tracciamento test di sistema / requisiti} \tabularnewline
 	\end{longtable}
@@ -1690,49 +1721,49 @@
 		\caption{Tabella requisiti / test di sistema} \tabularnewline
 	\end{longtable}
 	\subsection{Test di Integrazione}\label{test_integrazione}
-	\subsubsection{Descrizione dettagliata}
+	\subsubsection{Definizione dettagliata dei test}
 	\begin{longtable}{l p{6cm} l l}
 		\midrule
 		\textbf{Test} & \textbf{Descrizione} & \textbf{Componente} & \textbf{Stato} \tabularnewline
 		\midrule
 		\midrule
-		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & success \tabularnewline
+		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & NI\tabularnewline
 		\midrule
-		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & success\tabularnewline
+		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & NI\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & success\tabularnewline
+		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & NI\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & success\tabularnewline
+		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & NI\tabularnewline
 		\midrule
-		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & success\tabularnewline
+		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & NI\tabularnewline
 		\midrule
-		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & success \tabularnewline
+		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & NI\tabularnewline
 		\midrule
-		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & success\tabularnewline
+		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & NI\tabularnewline
 		\midrule
-		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & success\tabularnewline
+		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & NI\tabularnewline
 		\midrule
-		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & success\tabularnewline
+		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & NI\tabularnewline
 		\midrule
-		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & success \tabularnewline
+		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & NI\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & success\tabularnewline
+		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & NI\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & success\tabularnewline
+		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & NI\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & success\tabularnewline
+		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & NI\tabularnewline
 		\midrule
-		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & success\tabularnewline
+		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & NI\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & success\tabularnewline
+		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & NI\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & success\tabularnewline
+		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & NI\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & success\tabularnewline
+		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & NI\tabularnewline
 		\midrule
-		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & success\tabularnewline
+		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & NI\tabularnewline
 		\midrule
-		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & success\tabularnewline
+		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & NI\tabularnewline
 		\midrule
 		\caption{Tabella test di integrazione} \tabularnewline
 	\end{longtable}
@@ -1790,18 +1821,7 @@
 	\end{longtable}
 	
 	\subsection{Test di Unità}\label{test_unita}
-	
-	Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema
-	
-	\[ GU.X  \]
-	
-	dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-	
-	\[ [ID Classe][- ...].TU \] 
-	
-	dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
-	L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
-	
+	\subsubsection{Definizione dettagliata dei test}	
 	\paragraph{Gruppo GU.1}
 	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{client::contoller}, in particolare le classi di \texttt{client::controller::public}, \texttt{client::controller::student}, \texttt{client::controller::teacher} e \texttt{client::controller::admin}.
 	
