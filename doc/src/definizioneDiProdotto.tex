@@ -356,9 +356,10 @@ Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta
 Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della catena delle chiamate durante il lavoro in fase di codifica.
 
 \subsection{Server}
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{server}.
 
 \subsection{Inserisci Domanda}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente.
 
 \begin{center}
 	\begin{figure}[H]
@@ -446,8 +447,18 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 
 \subsection{Client}
 
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
+
 \subsection{Cambio Informazioni}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:} l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare le informazioni personali
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{check:} è l'oggetto che controlla se la password, l'username o titolo rispettano il formato scelto	
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
@@ -458,7 +469,14 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 
 \newpage
 \subsection{Cambio Password}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:}	 l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare la password
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
@@ -469,7 +487,16 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 
 \newpage
 \subsection{Inserisci Questionario}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
@@ -480,7 +507,16 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 
 \newpage
 \subsection{Modifica Questionario}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
@@ -491,7 +527,14 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 
 \newpage
 \subsection{Rimozione Questionario}
-\TODO{desc}
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare, modificare o eliminare i questionari della view corrispondente
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica, creazione o eliminazione del questionario
+\end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
