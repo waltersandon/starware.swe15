@@ -467,7 +467,7 @@ Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni
 
 \subsubsection{Inserimento domanda}
 
-Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente.
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente.
 
 \begin{center}
 	\begin{figure}[H]
@@ -476,7 +476,19 @@ Di seguito viene presentato il diagramma di sequenza per la rimozione di un ques
 	\end{figure}
 \end{center}
 
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{questionCheck:} è l'oggetto che si occupa di controllare che gli attributi di una domanda siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
 \subsubsection{Inserimento questionario}
+
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente.
 
 \begin{center}
 	\begin{figure}[H]
@@ -485,7 +497,19 @@ Di seguito viene presentato il diagramma di sequenza per la rimozione di un ques
 	\end{figure}
 \end{center}
 
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
+	\item \textbf{questionnaireCheck:} è l'oggetto che si occupa di controllare che gli attributi di un questionario siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
 \subsubsection{Login}
+
+Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite.
 
 \begin{center}
 	\begin{figure}[H]
@@ -493,6 +517,14 @@ Di seguito viene presentato il diagramma di sequenza per la rimozione di un ques
 		\caption{Diagramma sequenza - Login Server}
 	\end{figure}
 \end{center}
+
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio	
+	\item \textbf{sessionService:} è l'oggetto che si occupa di controllare che le credenziali di accesso siano corrette e di eseguire l'accesso da parte dell'utente creando la sessione corrispondente
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
 
 \subsubsection{Modifica domanda}
 
