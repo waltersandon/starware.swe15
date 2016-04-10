@@ -37,13 +37,7 @@
 					\textbf{Uso} & \emph{\uso} \\
 					\textbf{Data Creazione} & \dataCreazione \\
 					\textbf{Data Ultima Modifica} & \today \\
-					\textbf{Redazione} & \AB\\
-					\  & \TP\\
-					\  &  \WS\\
-					\  &  \AVE\\
-                    \  &  \AVI\\
-  					\  &  \IB\\
-  					\  &  \NDC\\
+					\textbf{Redazione} & Tutto il gruppo \nomeGruppo \\
 					\textbf{Verifica} & \AB\\
 					\  &  \WS\\
 					\  &  \AVE\\
@@ -73,25 +67,39 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		1.0.0 & \TP & 2016-04-08 & Approvazione \\*
+		1.0.0 & \TP & 2016-04-10 & Approvazione \\*
 		\midrule
-		0.1.0 & \IB{} \& \AB{} \& \AVI{} \& \AVE \& \WS \& \NDC & 2016-04-07 & Verifica \\*
+		0.1.5 & \NDC{} & 2016-04-08 & Verifica \\*
 		\midrule
-		0.0.16 & \NDC{} & 2016-04-05 & Aggiunti diagrammi di sequenza \\*
+		0.1.4 & \WS{} & 2016-04-07 & Verifica \\*
 		\midrule
-		0.0.15 & \IB{} & 2016-04-05 & Aggiunta classi client \\*
+		0.1.3 & \AVE{} & 2016-04-07 & Verifica \\*
 		\midrule
-		0.0.14 & \WS{} & 2016-04-01 & Aggiunta classi client \\*
+		0.1.2 & \AVI{} & 2016-04-06 & Verifica \\*
 		\midrule
-		0.0.13 & \AB{} & 2016-03-25 & Aggiunta classi client \\*
+		0.1.1 & \AB{} & 2016-04-06 & Verifica \\*
 		\midrule
-		0.0.12 & \NDC{} & 2016-03-22 & Aggiunta classi client \\*
+		0.1.0 & \IB{} & 2016-04-05 & Verifica \\*
 		\midrule
-		0.0.11 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
+		0.0.18 & \NDC{} & 2016-04-05 & Aggiunti diagrammi di sequenza \\*
 		\midrule
-		0.0.10 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		0.0.17 & \IB{} & 2016-04-05 & Aggiunta classi client \\*
 		\midrule
-		0.0.9 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
+		0.0.16 & \WS{} & 2016-04-01 & Aggiunta classi client \\*
+		\midrule
+		0.0.15 & \AB{} & 2016-03-25 & Aggiunta classi client \\*
+		\midrule
+		0.0.14 & \NDC{} & 2016-03-22 & Aggiunta classi client \\*
+		\midrule
+		0.0.13 & \NDC{} & 2016-03-22 & Aggiunta package client \\*
+		\midrule
+		0.0.12 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
+		\midrule
+		0.0.11 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		\midrule
+		0.0.10 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
+		\midrule
+		0.0.9 & \TP{} & 2016-03-16 & Aggiunta package server \\*
         \midrule
         0.0.8 & \NDC{} & 2016-03-15 & Definizione struttura del documento e aggiunta
             degli standard di progetto \\*
@@ -270,21 +278,20 @@ Gli strumenti da adottare e le procedure da seguire per utilizzarli correttament
 
 % Definizione api REST
 \section{API REST}
-%\input{../tex/definizioneDiProdotto/apiRest.tex}
+\input{../tex/definizioneDiProdotto/apiRest.tex}
 
 \newpage
 \section{Specifica componenti server}
-%\input{../tex/definizioneDiProdotto/backEnd.tex}
+\input{../tex/definizioneDiProdotto/backEnd.tex}
 
 \newpage
 
 \section{Specifica componenti client}
-%\input{../tex/definizioneDiProdotto/frontEnd.tex}
+\input{../tex/definizioneDiProdotto/frontEnd.tex}
 
 \newpage
 \section{Design pattern}
-Un \mgls{design pattern} descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei \mgls{design pattern} facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i \mgls{design pattern} in
-quattro categorie:
+Un \mgls{design pattern} descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei \mgls{design pattern} facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i \mgls{design pattern} in quattro categorie:
 
 \begin{itemize}
 	\item \textbf{Design pattern architetturali:} che esprimono schemi di base per impostare l’organizzazione strutturale di un sistema software
@@ -348,135 +355,14 @@ Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta
 
 \newpage
 
-
 \section{Diagrammi di sequenza}
 Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della catena delle chiamate durante il lavoro in fase di codifica.
 
-\subsection{Client}
-
-Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
-
-\subsubsection{Cambio informazioni}
-
-Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheighttwo, angle=90 ]{../img/diagrammiSequenza/cambioInfoClient.png}
-		\caption{Diagramma sequenza - Cambio Informazioni Client}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
-
-\begin{itemize}
-	\item \textbf{Studente:} l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare le informazioni personali
-	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
-	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
-	\item \textbf{check:} è l'oggetto che controlla se la password, l'username o titolo rispettano il formato scelto	
-	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
-\end{itemize}
-
-\subsubsection{Cambio password}
-
-Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/cambioPasswordClient.png}
-		\caption{Diagramma sequenza - Cambio Password Client}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
-
-\begin{itemize}
-	\item \textbf{Studente:}	 l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare la password
-	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
-	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
-	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
-\end{itemize}
-
-\subsubsection{Inserimento questionario}
-
-Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
-		\caption{Diagramma sequenza - Inserimento questionario Client}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
-
-\begin{itemize}
-	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
-	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
-	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
-	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
-	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
-	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
-\end{itemize}
-
-\subsubsection{Modifica questionario}
-
-Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
-		\caption{Diagramma sequenza - Modifica Questionario Client}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
-
-\begin{itemize}
-	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
-	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
-	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
-	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
-	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
-	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
-\end{itemize}
-
-\subsubsection{Rimozione questionario}
-
-Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
-		\caption{Diagramma sequenza - Rimozione Questionario Client}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
-
-\begin{itemize}
-	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
-	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
-	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare, modificare o eliminare i questionari della view corrispondente
-	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica, creazione o eliminazione del questionario
-\end{itemize}
-
 \subsection{Server}
-
 Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{server}.
 
-\subsubsection{Inserimento domanda}
-
-Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente.
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciDomandaServer.png}
-		\caption{Diagramma sequenza - Inserimento Domanda Server}
-	\end{figure}
-\end{center}
-
-Gli oggetti e attori attivi durante questa interazione sono:
+\subsection{Inserisci Domanda}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -486,18 +372,16 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
 \end{itemize}
 
-\subsubsection{Inserimento questionario}
-
-Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente.
-
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
-		\caption{Diagramma sequenza - Inserimento Questionario Server}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciDomandaServer.png}
+		\caption{Diagramma sequenza - Inserisci Domanda Server}
 	\end{figure}
 \end{center}
 
-Gli oggetti e attori attivi durante questa interazione sono:
+\newpage
+\subsection{Inserisci Questionario}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -507,18 +391,16 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
 \end{itemize}
 
-\subsubsection{Login}
-
-Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite.
-
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/loginServer.png}
-		\caption{Diagramma sequenza - Login Server}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
+		\caption{Diagramma sequenza - Inserisci Questionario Server}
 	\end{figure}
 \end{center}
 
-Gli oggetti e attori attivi durante questa interazione sono:
+\newpage
+\subsection{Login}
+Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio	
@@ -526,8 +408,16 @@ Gli oggetti e attori attivi durante questa interazione sono:
 	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
 \end{itemize}
 
-\subsubsection{Modifica domanda}
-Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di una domanda da parte del docente che la ha creata.
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/loginServer.png}
+		\caption{Diagramma sequenza - Login Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Modifica Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -539,15 +429,14 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la modifica 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaDomandaServer.png}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaDomandaServer.png}
 		\caption{Diagramma sequenza - Modifica Domanda Server}
 	\end{figure}
 \end{center}
 
-
-
-\subsubsection{Modifica questionario}
-Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di un questionario da parte del docente che lo ha creato.
+\newpage
+\subsection{Modifica Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di un questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -559,13 +448,14 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la modifica 
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
 		\caption{Diagramma sequenza - Modifica Questionario Server}
 	\end{figure}
 \end{center}
 
-\subsubsection{Registrazione}
-Di seguito viene presentato il diagramma di sequenza del flusso per la registrazione di un utente presso il sistema.
+\newpage
+\subsection{Registrazione}
+Di seguito viene presentato il diagramma di sequenza del flusso per la registrazione di un utente presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
 	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio	
@@ -576,11 +466,99 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la registraz
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/registrazioneServer.png}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/registrazioneServer.png}
 		\caption{Diagramma sequenza - Registrazione Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Rimozione Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneDomandaServer.png}
+		\caption{Diagramma sequenza - Rimozione Domanda Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioServer.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Server}
+	\end{figure}
+\end{center}
+
+\subsection{Client}
+
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
+
+\subsection{Cambio Informazioni}
+Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:} l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare le informazioni personali
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{check:} è l'oggetto che controlla se la password, l'username o titolo rispettano il formato scelto	
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/cambioInfoClient.png}
+		\caption{Diagramma sequenza - Cambio Informazioni Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Cambio Password}
+Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:}	 l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare la password
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/cambioPasswordClient.png}
+		\caption{Diagramma sequenza - Cambio Password Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Inserisci Questionario}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
 
 \subsubsection{Rimozione domanda}
 Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata.
@@ -594,26 +572,46 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneDomandaServer.png}
-		\caption{Diagramma sequenza - Rimozione Domanda Server}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
+		\caption{Diagramma sequenza - Inserisci Questionario Client}
 	\end{figure}
 \end{center}
 
-
-\subsubsection{Rimozione questionario}
-Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una questionario da parte del docente che lo ha creato.
+\newpage
+\subsection{Modifica Questionario}
+Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
 
 \begin{itemize}
-	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
-	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
-	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
-	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
 \end{itemize}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioServer.png}
-		\caption{Diagramma sequenza - Rimozione Questionario Server}
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
+		\caption{Diagramma sequenza - Modifica Questionario Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Questionario}
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare, modificare o eliminare i questionari della view corrispondente
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica, creazione o eliminazione del questionario
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Client}
 	\end{figure}
 \end{center}
 
@@ -743,11 +741,11 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 \section{Tracciamento}
 
 \subsection{Requisiti - classe}
-%\input{../tex/definizioneDiProdotto/requisitiClassi.tex}
+\input{../tex/definizioneDiProdotto/requisitiClassi.tex}
 
 \newpage
 
 \subsection{Classe - requisiti}
-%\input{../tex/definizioneDiProdotto/classiRequisiti.tex}
+\input{../tex/definizioneDiProdotto/classiRequisiti.tex}
 
 \end{document} 
