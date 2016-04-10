@@ -56,8 +56,8 @@
 		
 	\end{center}
 \end{titlepage}
-\newpage
 
+\newpage
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
@@ -558,6 +558,16 @@ Di seguito viene presentato il diagramma di sequenza per l'inserimento di un que
 	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
 	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
 	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
+
+\subsubsection{Rimozione domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata.
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
 \end{itemize}
 
 \begin{center}
