@@ -62,8 +62,8 @@
 		
 	\end{center}
 \end{titlepage}
-\newpage
 
+\newpage
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
@@ -352,12 +352,34 @@ Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta
 \section{Diagrammi di sequenza}
 Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della catena delle chiamate durante il lavoro in fase di codifica.
 
+\subsection{Client}
+
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
+
+\subsubsection{Cambio informazioni}
+
+Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema.
+
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheighttwo, angle=90 ]{../img/diagrammiSequenza/cambioInfoClient.png}
 		\caption{Diagramma sequenza - Cambio Informazioni Client}
 	\end{figure}
 \end{center}
+
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:} l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare le informazioni personali
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{check:} è l'oggetto che controlla se la password, l'username o titolo rispettano il formato scelto	
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\subsubsection{Cambio password}
+
+Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema.
 
 \begin{center}
 	\begin{figure}[H]
@@ -366,19 +388,57 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 	\end{figure}
 \end{center}
 
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:}	 l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare la password
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\subsubsection{Inserimento questionario}
+
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
+		\caption{Diagramma sequenza - Inserimento questionario Client}
+	\end{figure}
+\end{center}
+
+Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica e gestione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica del questionario
+\end{itemize}
+
+
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
+		\caption{Diagramma sequenza - Modifica Questionario Client}
+	\end{figure}
+\end{center}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Client}
+	\end{figure}
+\end{center}
 
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciDomandaServer.png}
 		\caption{Diagramma sequenza - Inserisci Domanda Server}
-	\end{figure}
-
-\end{center}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
-		\caption{Diagramma sequenza - Inserisci Questionario Client}
 	\end{figure}
 
 \end{center}
@@ -406,15 +466,6 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 	\end{figure}
 \end{center}
 
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
-		\caption{Diagramma sequenza - Modifica Questionario Client}
-	\end{figure}
-\end{center}
-
-
 \begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
@@ -437,15 +488,6 @@ Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della 
 		\caption{Diagramma sequenza - Rimozione Domanda Server}
 	\end{figure}
 \end{center}
-
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
-		\caption{Diagramma sequenza - Rimozione Questionario Client}
-	\end{figure}
-\end{center}
-
 
 \begin{center}
 	\begin{figure}[H]
