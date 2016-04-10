@@ -1,11 +1,12 @@
 \section{server}
-\begin{center}
+Package base per le funzionalità del server\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server.png}
 			\caption{Diagramma package - server}
 		\end{figure}
 	\end{center}\subsection{server::app}
-\begin{center}
+Questo Package ha il compito di fornire la configurazione e avviare il web server di Quizzipedia. Consiste negli oggetti che dovranno essere predisposti dal developer che
+vorrà installare il software.\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/app.png}
 			\caption{Diagramma package - server::app}
@@ -69,8 +70,12 @@
 
 \end{description}
 
-\subsection{server::middleware}
-\begin{center}
+\vspace{0.5cm}
+\subsection{server::express}
+Express è un framework minimale, basato sul design pattern architetturale MVC per creare applicazioni web con Node.js. Express offre funzionalità che semplificano e aumentano le potenzialità di Node.js, fornendo una migliore implementazione del sistema di routing, incrementando
+le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi middleware, ed agevolando la realizzazione delle viste.
+Express non limita l’utente nella scelta del linguaggio di templating, lo aiuta a gestire le route, le request e le view.\subsection{server::middleware}
+Package che si occupa di ricevere richieste, richiamare il servizio adatto e restituire le risposte\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/middleware.png}
 			\caption{Diagramma package - server::middleware}
@@ -232,7 +237,7 @@
 
 \vspace{0.5cm}
 \subsection{server::data}
-\begin{center}
+Package contenente le componenti che gestiscono i dati utilizzati dall'applicazione e l'interfacciamento con il database\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/data.png}
 			\caption{Diagramma package - server::data}
@@ -392,7 +397,7 @@
 
 \vspace{0.5cm}
 \subsection{server::service}
-\begin{center}
+Package contenente le classi che implementano tutti i servizi offerti dall'applicazione lato server\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/service.png}
 			\caption{Diagramma package - server::service}
@@ -674,7 +679,7 @@
 
 \vspace{0.5cm}
 \subsection{server::validator}
-\begin{center}
+Questo package contiene tutte le classi "validator" che hanno il compito di controllare che alcuni campi di alcuni model siano validi; esempi includo la password dell'utente, la lunghezza del nome utente o il QML di una domanda.\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/validator.png}
 			\caption{Diagramma package - server::validator}
@@ -793,19 +798,20 @@
 
 \vspace{0.5cm}
 \section{client}
-\begin{center}
+È il package che racchiude tutte le parti del front-end. Contiene le componenti che vengono eseguite nel browser da un qualsiasi utente, fornendo loro un’interfaccia grafica per interagire con il sistema\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client.png}
 			\caption{Diagramma package - client}
 		\end{figure}
 	\end{center}\subsection{client::view}
-\begin{center}
+è il package che contiene tutte le classi che costituiscono la view del client. 
+Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view.png}
 			\caption{Diagramma package - client::view}
 		\end{figure}
 	\end{center}\subsubsection{client::view::public}
-\begin{center}
+è il package che contiene tutte le classi che costituiscono la view della porzione publica di client. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente non autenticato\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/public.png}
 			\caption{Diagramma package - client::view::public}
@@ -853,7 +859,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::view::student}
-\begin{center}
+è il package che contiene tutte le classi che costituiscono la view della porzione di client per uno studente. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di uno studente\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/student.png}
 			\caption{Diagramma package - client::view::student}
@@ -968,7 +974,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::view::teacher}
-\begin{center}
+è il package che contiene tutte le classi che costituiscono la view della porzione di client per un docente. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un docente\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/teacher.png}
 			\caption{Diagramma package - client::view::teacher}
@@ -1127,7 +1133,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::view::admin}
-\begin{center}
+è il package che contiene tutte le classi che costituiscono la view della porzione di client per un amministratore. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un amministratore\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/admin.png}
 			\caption{Diagramma package - client::view::admin}
@@ -1182,13 +1188,15 @@
 
 \vspace{0.5cm}
 \subsection{client::model}
-\begin{center}
+E' il package che contiene le classi dei modelli di dati utilizzati
+dal client e i servizi che mettono in comunicazione esso con il server
+attraverso i diversi servizi REST\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/model.png}
 			\caption{Diagramma package - client::model}
 		\end{figure}
 	\end{center}\subsubsection{client::model::data}
-\begin{center}
+Questo package si occupa della modellazione dei dati utili al client\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/model/data.png}
 			\caption{Diagramma package - client::model::data}
@@ -1373,7 +1381,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::model::service}
-\begin{center}
+Questo package contiene le classi che gestiscono il recupero dei dati, che siano essi salvati in locale o recuperabili dall'interfaccia server tramite le Api REST\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/model/service.png}
 			\caption{Diagramma package - client::model::service}
@@ -1668,7 +1676,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::model::util}
-\begin{center}
+Il package che contiene le classi di utilità del client\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/model/util.png}
 			\caption{Diagramma package - client::model::util}
@@ -1788,13 +1796,14 @@
 
 \vspace{0.5cm}
 \subsection{client::controller}
-\begin{center}
+È il package che contiene le componenti che contengono i
+controller dell’applicazione e che incapsulano le funzionalità di two-way data binding tra le View e il Model. In esse è contenuta la logica applicativa riguardante le diverse pagine HTML\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller.png}
 			\caption{Diagramma package - client::controller}
 		\end{figure}
 	\end{center}\subsubsection{client::controller::public}
-\begin{center}
+È il package che contiene tutte le classi che costituiscono i controller della porzione pubblica di un client. Ogni componente si occupa della gestione di una particolare porzione dell'interfaccia di un utente non autenticato che verrà successivamente visualizzata nella corrispondente view\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/public.png}
 			\caption{Diagramma package - client::controller::public}
@@ -1877,7 +1886,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::controller::student}
-\begin{center}
+È il package che contiene tutte le classi che costituiscono i controller della porzione client per uno studente. Ogni componente si occupa della gestione di una particolare porzione dell'interfaccia di uno studente\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/student.png}
 			\caption{Diagramma package - client::controller::student}
@@ -2216,7 +2225,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::controller::teacher}
-\begin{center}
+È il package che contiene tutte le classi che costituiscono i controller della porzione client per un docente. Ogni componente si occupa della gestione di una particolare porzione dell'interfaccia di un docente\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/teacher.png}
 			\caption{Diagramma package - client::controller::teacher}
@@ -2628,7 +2637,7 @@
 
 \vspace{0.5cm}
 \subsubsection{client::controller::admin}
-\begin{center}
+È il package che contiene tutte le classi che costituiscono i controller della porzione client per un amministratore. Ogni componente si occupa della gestione di una particolare porzione dell'interfaccia di un amministratore\begin{center}
 		\begin{figure}[H]
 			\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/admin.png}
 			\caption{Diagramma package - client::controller::admin}

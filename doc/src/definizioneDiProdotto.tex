@@ -77,21 +77,25 @@
 		\midrule
 		0.1.0 & \IB{} \& \AB{} \& \AVI{} \& \AVE \& \WS \& \NDC & 2016-04-07 & Verifica \\*
 		\midrule
-		0.0.16 & \NDC{} & 2016-04-05 & Aggiunti diagrammi di sequenza \\*
+		0.0.18 & \NDC{} & 2016-04-05 & Aggiunti diagrammi di sequenza \\*
 		\midrule
-		0.0.15 & \IB{} & 2016-04-05 & Aggiunta classi client \\*
+		0.0.17 & \IB{} & 2016-04-05 & Aggiunta classi client \\*
 		\midrule
-		0.0.14 & \WS{} & 2016-04-01 & Aggiunta classi client \\*
+		0.0.16 & \WS{} & 2016-04-01 & Aggiunta classi client \\*
 		\midrule
-		0.0.13 & \AB{} & 2016-03-25 & Aggiunta classi client \\*
+		0.0.15 & \AB{} & 2016-03-25 & Aggiunta classi client \\*
 		\midrule
-		0.0.12 & \NDC{} & 2016-03-22 & Aggiunta classi client \\*
+		0.0.14 & \NDC{} & 2016-03-22 & Aggiunta classi client \\*
 		\midrule
-		0.0.11 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
+		0.0.13 & \NDC{} & 2016-03-22 & Aggiunta package client \\*
 		\midrule
-		0.0.10 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		0.0.12 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
 		\midrule
-		0.0.9 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
+		0.0.11 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		\midrule
+		0.0.10 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
+		\midrule
+		0.0.9 & \TP{} & 2016-03-16 & Aggiunta package server \\*
         \midrule
         0.0.8 & \NDC{} & 2016-03-15 & Definizione struttura del documento e aggiunta
             degli standard di progetto \\*
@@ -270,16 +274,16 @@ Gli strumenti da adottare e le procedure da seguire per utilizzarli correttament
 
 % Definizione api REST
 \section{API REST}
-%\input{../tex/definizioneDiProdotto/apiRest.tex}
+\input{../tex/definizioneDiProdotto/apiRest.tex}
 
 \newpage
 \section{Specifica componenti server}
-%\input{../tex/definizioneDiProdotto/backEnd.tex}
+\input{../tex/definizioneDiProdotto/backEnd.tex}
 
 \newpage
 
 \section{Specifica componenti client}
-%\input{../tex/definizioneDiProdotto/frontEnd.tex}
+\input{../tex/definizioneDiProdotto/frontEnd.tex}
 
 \newpage
 \section{Design pattern}
@@ -348,112 +352,153 @@ Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta
 
 \newpage
 
-
 \section{Diagrammi di sequenza}
 Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della catena delle chiamate durante il lavoro in fase di codifica.
 
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheighttwo, angle=90 ]{../img/diagrammiSequenza/cambioInfoClient.png}
-		\caption{Diagramma sequenza - Cambio Informazioni Client}
-	\end{figure}
-\end{center}
+\subsection{Server}
+
+\subsection{Inserisci Domanda}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/cambioPasswordClient.png}
-		\caption{Diagramma sequenza - Cambio Password Client}
-	\end{figure}
-\end{center}
-
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciDomandaServer.png}
+		\centering \includegraphics[max width=\myheightfour, angle=90]{../img/diagrammiSequenza/inserisciDomandaServer.png}
 		\caption{Diagramma sequenza - Inserisci Domanda Server}
 	\end{figure}
-
 \end{center}
+
+\newpage
+\subsection{Inserisci Questionario}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
-		\caption{Diagramma sequenza - Inserisci Questionario Client}
-	\end{figure}
-
-\end{center}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
 		\caption{Diagramma sequenza - Inserisci Questionario Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Login}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/loginServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/loginServer.png}
 		\caption{Diagramma sequenza - Login Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Modifica Domanda}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaDomandaServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/modificaDomandaServer.png}
 		\caption{Diagramma sequenza - Modifica Domanda Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Modifica Questionario}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
-		\caption{Diagramma sequenza - Modifica Questionario Client}
-	\end{figure}
-\end{center}
-
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
 		\caption{Diagramma sequenza - Modifica Questionario Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Registrazione}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/registrazioneServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/registrazioneServer.png}
 		\caption{Diagramma sequenza - Registrazione Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Rimozione Domanda}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneDomandaServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/rimozioneDomandaServer.png}
 		\caption{Diagramma sequenza - Rimozione Domanda Server}
 	\end{figure}
 \end{center}
 
+\newpage
+\subsection{Rimozione Questionario}
+\TODO{desc}
 
 \begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
-		\caption{Diagramma sequenza - Rimozione Questionario Client}
-	\end{figure}
-\end{center}
-
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\myheight, angle=90 ]{../img/diagrammiSequenza/rimozioneQuestionarioServer.png}
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioServer.png}
 		\caption{Diagramma sequenza - Rimozione Questionario Server}
 	\end{figure}
 \end{center}
 
+\subsection{Client}
+
+\subsection{Cambio Informazioni}
+\TODO{desc}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheightthree, angle=90]{../img/diagrammiSequenza/cambioInfoClient.png}
+		\caption{Diagramma sequenza - Cambio Informazioni Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Cambio Password}
+\TODO{desc}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/cambioPasswordClient.png}
+		\caption{Diagramma sequenza - Cambio Password Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Inserisci Questionario}
+\TODO{desc}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
+		\caption{Diagramma sequenza - Inserisci Questionario Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Modifica Questionario}
+\TODO{desc}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
+		\caption{Diagramma sequenza - Modifica Questionario Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Questionario}
+\TODO{desc}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheighttwo, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Client}
+	\end{figure}
+\end{center}
 
 \newpage
 \appendix
@@ -581,11 +626,11 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 \section{Tracciamento}
 
 \subsection{Requisiti - classe}
-%\input{../tex/definizioneDiProdotto/requisitiClassi.tex}
+\input{../tex/definizioneDiProdotto/requisitiClassi.tex}
 
 \newpage
 
 \subsection{Classe - requisiti}
-%\input{../tex/definizioneDiProdotto/classiRequisiti.tex}
+\input{../tex/definizioneDiProdotto/classiRequisiti.tex}
 
 \end{document} 
