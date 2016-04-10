@@ -9,10 +9,10 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.5}
+\newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Informale}
+\newcommand{\stato}{Formale}
 
 %Uso del documento
 \newcommand{\uso}{Esterno}
@@ -37,12 +37,13 @@
 					\textbf{Uso} & \emph{\uso} \\
 					\textbf{Data Creazione} & \dataCreazione \\
 					\textbf{Data Ultima Modifica} & \today \\
-					\textbf{Redazione} & \AB\\
-					\  & \TP\\
+					\textbf{Redazione} & Tutto il gruppo \nomeGruppo \\
+					\textbf{Verifica} & \AB\\
 					\  &  \WS\\
 					\  &  \AVE\\
-					\textbf{Verifica} &  \IB\\
-					\ & \AVI \\
+					\  &  \AVI\\
+					\  &  \IB\\
+					\  &  \NDC\\
                     \textbf{Approvazione} &  \TP{}\\
 					\textbf{Lista Distribuzione} & \nomeGruppo \\
 					\  & \Vardanega \\
@@ -55,8 +56,8 @@
 		
 	\end{center}
 \end{titlepage}
-\newpage
 
+\newpage
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
@@ -65,20 +66,60 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		1.0.0 & \TP & 2016-04-10 & Approvazione \\*
+		\midrule
+		0.1.5 & \NDC{} & 2016-04-08 & Verifica \\*
+		\midrule
+		0.1.4 & \WS{} & 2016-04-07 & Verifica \\*
+		\midrule
+		0.1.3 & \AVE{} & 2016-04-07 & Verifica \\*
+		\midrule
+		0.1.2 & \AVI{} & 2016-04-06 & Verifica \\*
+		\midrule
+		0.1.1 & \AB{} & 2016-04-06 & Verifica \\*
+		\midrule
+		0.1.0 & \IB{} & 2016-04-05 & Verifica \\*
+		\midrule
+		0.0.18 & \NDC{} & 2016-04-05 & Aggiunti diagrammi di sequenza \\*
+		\midrule
+		0.0.17 & \IB{} & 2016-04-05 & Aggiunta classi client \\*
+		\midrule
+		0.0.16 & \WS{} & 2016-04-01 & Aggiunta classi client \\*
+		\midrule
+		0.0.15 & \AB{} & 2016-03-25 & Aggiunta classi client \\*
+		\midrule
+		0.0.14 & \NDC{} & 2016-03-22 & Aggiunta classi client \\*
+		\midrule
+		0.0.13 & \NDC{} & 2016-03-22 & Aggiunta package client \\*
+		\midrule
+		0.0.12 & \AVE{} & 2016-03-20 & Aggiunta classi server \\*
+		\midrule
+		0.0.11 & \AVI{} & 2016-03-18 & Aggiunta classi server \\*
+		\midrule
+		0.0.10 & \TP{} & 2016-03-16 & Aggiunta classi server \\*
+		\midrule
+		0.0.9 & \TP{} & 2016-03-16 & Aggiunta package server \\*
         \midrule
-        0.0.5 & \TP{} & 2016-03-15 & Definizione struttura del documento e aggiunta
+        0.0.8 & \NDC{} & 2016-03-15 & Definizione struttura del documento e aggiunta
             degli standard di progetto \\*
 		\midrule
-		0.0.4 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
+		0.0.7 & \AVE{} & 2016-03-12 & Aggiunta descrizioni tecnologie HTML5, CSS3, Javascript, 
             Express, Bootstrap e Angular \\*
 		\midrule
-		0.0.3 & \AVE{} & 2016-03-09 & Aggiunte descrizioni tecnoglogie Node.js, NoSQL, Mongoose, MongoDB \\*
+		0.0.6 & \AVE{} & 2016-03-11 & Aggiunte descrizioni tecnologie Node.js, NoSQL, Mongoose, MongoDB \\*
+		\midrule
+		0.0.5 & \AVE{} & 2016-03-011 &  modifica descrizioni tabella REST API \\*
+		\midrule
+		0.0.4 & \TP{} & 2016-03-09 &  Aggiunta descrizioni tabella REST API \\*
+		\midrule
+		0.0.3 & \TP{} & 2016-03-07 &  modifica struttura tabella REST API \\*
 		\midrule
 		0.0.2 & \AVI{} & 2016-03-05 &  Aggiunta descrizioni tabella REST API \\*
 		\midrule
-		0.0.1 & \NDC{} & 2016-03-01 &  Creazione tabella REST API \\*
+		0.0.1 & \NDC{} & 2016-03-03 &  Creazione tabella REST API \\*
 		\midrule
-		0.0.0 & \NDC{} & 2016-03-01 &  Creazione documento \\*
+		0.0.0 & \NDC{} & 2016-03-02 &  Creazione documento \\*
 		\bottomrule
 		\caption{Versionamento del documento}
 		\label{tabVers1} 
@@ -94,13 +135,10 @@
 
 \section{Introduzione}	\label{intro}
 \subsection{Scopo}
-Lo scopo di questo documento è di definire nel dettaglio l'architettura del sistema sviluppato, fornendo
-una struttura completa ai programmatori per l'attività di codifica.
+Lo scopo di questo documento è di definire nel dettaglio l'architettura del sistema sviluppato, fornendo una struttura completa ai programmatori per l'attività di codifica.
 
 \subsection{Descrizione}
-Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del software. Verranno inoltre specificati
-nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verrano specificati i diagrammi
-di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
+Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del \mgls{software}. Verranno inoltre specificati nel dettaglio i \mgls{package} e le classi che verranno poi codificati. Successivamente verranno specificati i diagrammi di sequenza delle operazioni principali fornite dall'applicazione. E infine verrà specifica l'interfaccia REST.
 
 \subsection{Descrizione Prodotto}
 \descrizioneProdotto
@@ -133,83 +171,68 @@ di sequenza delle operazioni principali fornite dall'applicazione. E infine verr
 \section{Tecnologie}\label{tecnologie}
 In questa sezione verranno descritte le tecnologie che il gruppo ha deciso di utilizzare per lo sviluppo dell'applicazione \prjL{}, alcune delle quali sono state consigliate dal \mgls{proponente}.
 
-
 \subsection{Linguaggi}
 \subsubsection{HTML5}\label{html}
-L’\mgls{html5} è un linguaggio di \mgls{markup} per strutturare pagine web. Verrà utilizzato per la realizzazione dell’interfaccia grafica Web dell’applicativo. \mgls{html5} è diventato standard \mgls{w3c} nell’ottobre 2014 ed è ben supportato dai \mgls{browser} moderni.
-I vantaggi principali del linguaggio sono:
+L’\mgls{html5} è un linguaggio di \mgls{markup} per strutturare pagine web. Verrà utilizzato per la realizzazione dell’interfaccia grafica Web dell’applicativo. \mgls{html5} è diventato standard \mgls{w3c} nell’ottobre 2014 ed è ben supportato dai \mgls{browser} moderni. I vantaggi principali del linguaggio sono:
+
 \begin{itemize}
 	\item permette di definire in maniera semplice la struttura delle pagine web;
 	\item permette una maggiore semantica della pagina web, garantendo così una migliore indicizzazione da parte dei motori di ricerca.
 \end{itemize}
 
 \subsubsection{CSS3}\label{css}
-CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’aspetto grafico delle pagine web per l'applicazione qualora non bastassero i costrutti forniti dal
-\mgls{framework} Bootstrap \ref{bootsrap}.
+CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’aspetto grafico delle pagine web per l'applicazione qualora non bastassero i costrutti forniti dal \mgls{framework} Bootstrap ( \ref{bootsrap}).
 
 \subsubsection{JavaScript}\label{javascript}
-\mgls{javascript} è un linguaggio di \mgls{scripting} interpretato che consente ai \mgls{browser} di eseguire codice rendendo le pagine web dinamiche. Consente di realizzare prodotti \mgls{software} che eseguono sfruttandoo le capacità di calcolo fornite dai \mgls{browser} degli utenti e quindi, che non necessitano dell’intervento di elaborazione del \mgls{server}. \mgls{javascript} tuttavia introduce anche degli aspetti critici a cui il gruppo dovrà prestare particolare attenzione: come la mancanza di tipizzazione del linguaggio, che potrebbe indurre a commettere errori nel codice e rendere più difficile, oppure gli eventuali problemi di sicurezza per l'utente nel caso venisse eseguito del codice malevolo.
-la progettazione dei test.
-I principali motivi della scelta di questo linguaggio sono:
+\mgls{javascript} è un linguaggio di \mgls{scripting} interpretato che consente ai \mgls{browser} di eseguire codice rendendo le pagine web dinamiche. Consente di realizzare prodotti \mgls{software} che eseguono sfruttando le capacità di calcolo fornite dai \mgls{browser} degli utenti e quindi, che non necessitano dell’intervento di elaborazione del \mgls{server}. \mgls{javascript} tuttavia introduce anche degli aspetti critici a cui il gruppo dovrà prestare particolare attenzione: come la mancanza di tipizzazione del linguaggio, che potrebbe indurre a commettere errori nel codice e rendere più difficile, oppure gli eventuali problemi di sicurezza per l'utente nel caso venisse eseguito del codice malevolo. la progettazione dei test. I principali motivi della scelta di questo linguaggio sono:
+
 \begin{itemize}
-	\item Velocità di risposta dell’applicazione complessivamente migliore, a causa dell’esecuzione locale;
-	\item Possibilità di rendere dinamiche le pagine web e di estenderne le funzionalità;
-	\item Permette di reagire ad eventi generati dall’interazione tra l’utente e la pagina.
+	\item velocità di risposta dell’applicazione complessivamente migliore, a causa dell’esecuzione locale;
+	\item possibilità di rendere dinamiche le pagine web e di estenderne le funzionalità;
+	\item permette di reagire ad eventi generati dall’interazione tra l’utente e la pagina.
 \end{itemize}
-\mgls{javascript} verrà impiegato per tutte le funzionalità legate allo standard \mgls{html5} che non sono direttamente accessibili dal \mgls{framework} \mgls{angularjs}.
 
-\TODO{da definire se bisogna aggiungere altri ambiti}
-
+\mgls{javascript} verrà utilizzato sia per la parte \mgls{client} che \mgls{server}. \mgls{javascript} verrà impiegato per tutte le funzionalità legate allo standard \mgls{html5} che non sono direttamente accessibili dal \mgls{framework} \mgls{angularjs}.
 
 \subsubsection{NoSql}\label{nosql}
 I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente. Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{api} semplici e la possibilità di avere una quantità di dati enormi al loro interno. Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database.
 
 \subsection{Frameworks}
-\subsubsection{Node.js}\label{node.js}
 
-\mgls{node.js} è un \mgls{framework} \mgls{open-source} per lo sviluppo di applicazioni Web server-side.
-Anche se \mgls{node.js} non è un \mgls{framework} \mgls{javascript} molti dei suoi moduli base  sono scritti in \mgls{javascript}, e gli sviluppatori possono facilmente scriverne di nuovi.
-\mgls{node.js} ha un architettura di tipo \mgls{event-driven} capace di chiamate \mgls{i/o} asincrone, il che lo rende particolarmente adatto per lo sviluppo di server Web.
-Queste scelte di design nel linguaggio di ottimizzare la capacità e la scalabilità delle applicazioni Web con molte operazioni di \mgls{i/o}.
+\subsubsection{Node.js}\label{node.js}
+\mgls{node.js} è un \mgls{framework} \mgls{open-source} per lo sviluppo di applicazioni Web server-side. Anche se \mgls{node.js} non è un \mgls{framework} \mgls{javascript} molti dei suoi moduli base  sono scritti in \mgls{javascript}, e gli sviluppatori possono facilmente scriverne di nuovi. \mgls{node.js} ha un architettura di tipo \mgls{event-driven} capace di chiamate \mgls{i/o} asincrone, il che lo rende particolarmente adatto per lo sviluppo di server Web. Queste scelte di design nel linguaggio di ottimizzare la capacità e la scalabilità delle applicazioni Web con molte operazioni di \mgls{i/o}.
 Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{node.js} sono quindi:
+
 \begin{itemize}
 	\item \textbf{Approccio asincrono:} in quanto permette di accedere alle risorse del sistema operativo in modalità \mgls{event-driven} e non sfruttando il classico modello basato su processi o \mgls{thread} concorrenti utilizzato dai classici web server. Ciò garantisce una maggiore efficienza in termini di prestazioni, poiché durante le attese il runtime può gestire qualcos’altro in maniera asincrona
-	
 	\item \textbf{Architettura modulare:} lavorando con \mgls{node.js} è molto facile organizzare il lavoro in librerie, importare i \mgls{moduli} e combinarli fra loro. Questo è reso molto comodo attraverso il \mgls{node package manager} (npm) attraverso il quale lo sviluppatore può contribuire e
 	accedere ai \mgls{package} messi a disposizione dalla community.
 	Le applicazioni \mgls{node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete
 \end{itemize}
 
 \subsubsection{AngularJS}\label{angularjs}
-\mgls{angularjs} è un \mgls{framework} \mgls{javascript} \mgls{open-source}  inspirato al pattern \mgls{mvc} patrocinato da \mgls{google}.
-Uno dei vantaggi più grandi che caratterizzano questo \mgls{framework} è la possibilità di integrare e
-utilizzare molte funzioni utilizzando quasi esclusivamente l’\mgls{html} grazie all’approccio dichiarativo, permettendo di estenderne la sintassi per esprimere le componenti dell’applicazione in maniera chiara e succinta.
-Le caratteristiche principali che caratterizzano questo \mgls{framework} sono:
+\mgls{angularjs} è un \mgls{framework} \mgls{javascript} \mgls{open-source}  inspirato al pattern \mgls{mvc} patrocinato da \mgls{google}. Uno dei vantaggi più grandi che caratterizzano questo \mgls{framework} è la possibilità di integrare e utilizzare molte funzioni utilizzando quasi esclusivamente l’\mgls{html} grazie all’approccio dichiarativo, permettendo di estenderne la sintassi per esprimere le componenti dell’applicazione in maniera chiara e succinta. Le caratteristiche principali che caratterizzano questo \mgls{framework} sono:
+
 \begin{itemize}
 	\item \textbf{Data Binding:} è un’ approccio automatico per aggiornare la \mgls{vista} ogni qualvolta il \mgls{model} cambia e viceversa. Aiuta lo sviluppo eliminando la manipolazione del \mgls{dom} allo sviluppatore
 	\item \textbf{Dependency injection:} permette di descrivere in maniera dichiarativa quali sono le
 	dipendenze che l’applicazione possiede, isolando i comportamenti e le responsabilità dei componenti garantendo un facile rimpiazzo di quest’ultimi. Questo meccanismo favorisce inoltre la testabilità del codice dell’applicazione	
 \end{itemize}
+
 \mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la parte algoritmica del \mgls{front-end}.
 
-
-
 \subsubsection{Bootstrap}\label{bootstrap}
-Bootstrap è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}.
-Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
+Bootstrap è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}. Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
+
 \begin{itemize}
-	\item Permette all’applicativo di essere responsive G applicando facilmente delle regole già pronte;
+	\item permette all’applicativo di essere responsive G applicando facilmente delle regole già pronte;
 	\item Le diverse componenti vengono già incorporate direttamente nel \mgls{framework} \mgls{angularjs};
-	\item Presenza di una vasta comunità a supporto;
-	\item Permette di gestire in modo automatico il \mgls{rendering} delle pagine dell'applicazione per svariati dispositivi (smartphone, tablet, Pc).
+	\item presenza di una vasta comunità a supporto;
+	\item permette di gestire in modo automatico il \mgls{rendering} delle pagine dell'applicazione per svariati dispositivi (\mgls{smartphone}, tablet, PC).
 \end{itemize}
 
-
 \subsubsection{Express}\label{express}
-application framework to help organize your web application into an MVC architecture on the server side
-
-Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}.
-Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
+Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
 
 
 \subsection{Librerie}\label{librery}
@@ -217,22 +240,20 @@ Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{v
 Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
 La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente.
 
-
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
 %copiata dagli stakeholders
-\mgls{mongodb} è un database \mgls{nosql} \mgls{open-source} scalabile e altamente performante di tipo \mgls{document-oriented}, in cui i dati sono archiviati sotto forma di documenti in stile \mgls{json} con
-schemi dinamici che \mgls{mongodb} chiama \mgls{bson}, secondo una struttura semplice e potente.
-I principali vantaggi derivati dal suo utilizzo sono:
+\mgls{mongodb} è un database \mgls{nosql} \mgls{open-source} scalabile e altamente performante di tipo \mgls{document-oriented}, in cui i dati sono archiviati sotto forma di documenti in stile \mgls{json} con schemi dinamici che \mgls{mongodb} chiama \mgls{bson}, secondo una struttura semplice e potente. I principali vantaggi derivati dal suo utilizzo sono:
+
 \begin{itemize}
 	\item \textbf{Alte performance:} non ci sono \mgls{join} che possono rallentare le operazioni di lettura o scrittura. L’indicizzazione include gli indici di chiave anche sui documenti innestati e sugli array, permettendo una rapida interrogazione al database
 	\item \textbf{Affidabilità:} alto meccanismo di replicazione su server
 	\item \textbf{Schemaless:} non esiste nessuno \mgls{schema}, è più flessibile e può essere facilmente trasposto in un modello ad oggetti
-	\item Permette di processare parallelamente i dati (\mgls{mapreduce})
-	\item Tipi di dato più flessibili
+	\item \textbf{Parallelizzazione:} permette di processare parallelamente i dati (\mgls{mapreduce})
+	\item \textbf{Flessibilità:} tipi di dato più flessibili
 \end{itemize}
-Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo.
-Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
+
+Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo. Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
 
 \newpage
 \section{Standard di progetto}
@@ -248,13 +269,10 @@ Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione
 % nelle \textit{\NdP\_v3.0.0}.
 
 \subsection{Denominazione di entità e relazioni}
-Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi
-per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano
-le \textit{\NdP\_v2.0.0}.
+Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano le \textit{\NdP\_v2.0.0}.
 
 \subsection{Strumenti di lavoro}
-Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione 
-del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
+Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione  del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
 
@@ -272,71 +290,330 @@ del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 \input{../tex/definizioneDiProdotto/frontEnd.tex}
 
 \newpage
-\section{Design Pattern}
-Un Design Pattern descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei Design Pattern facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i Design Pattern in
-quattro categorie:
+\section{Design pattern}
+Un \mgls{design pattern} descrive problemi che si presentano frequentemente nell'ambiente informatico, specificando relative soluzioni. La conoscenza dei \mgls{design pattern} facilita l’attività di progettazione, favorendo la riusabilità del codice e portando molteplici benefici in termini di manutenibilità. Possiamo suddividere i \mgls{design pattern} in quattro categorie:
+
 \begin{itemize}
-	\item \textbf{Design Pattern architetturali}, che esprimono schemi di base per impostare l’organizzazione strutturale di un sistema software;
-	\item \textbf{Design Pattern creazionali}, che forniscono un’astrazione del processo di istanziazione degli oggetti;
-	\item \textbf{Design Pattern strutturali}, che si occupano delle modalità di composizione di classi e oggetti per formare strutture complesse;
-	\item \textbf{Design Pattern comportamentali}, che si occupano di algoritmi e dell’assegnamento	di responsabilità tra oggetti collaboranti.
+	\item \textbf{Design pattern architetturali:} che esprimono schemi di base per impostare l’organizzazione strutturale di un sistema software
+	\item \textbf{Design pattern creazionali:} che forniscono un’astrazione del processo di istanziazione degli oggetti;
+	\item \textbf{Design pattern strutturali:} che si occupano delle modalità di composizione di classi e oggetti per formare strutture complesse
+	\item \textbf{Design pattern comportamentali:} che si occupano di algoritmi e dell’assegnamento di responsabilità tra oggetti collaboranti
 \end{itemize}
 
-\subsection{Design Pattern Architetturali}
+\subsection{Design pattern architetturali}
 \subsubsection{MVC}
 \paragraph{Scopo}
-Questo pattern è utilizzato per separare le responsabilità dell’applicazione a diversi componenti e permettere di fare una chiara divisione presentazione, struttura dei dati e operazioni su di essi
+Questo pattern è utilizzato per separare le responsabilità dell’applicazione a diversi componenti e permettere di fare una chiara divisione presentazione, struttura dei dati e operazioni su di essi.
+
 \paragraph{Utilizzo}
-Nel front-end viene utilizzato questo Design Pattern per dividere la presentazione dei dati dalla logica dell'applicazione e la logica di business. I vari componenti sono identificati nelle seguenti classi:
+Nel front-end viene utilizzato questo \mgls{design pattern} per dividere la presentazione dei dati dalla logica dell'applicazione e la logica di business. I vari componenti sono identificati nelle seguenti classi:
+
 \begin{itemize}
-	\item Il Package Client::model è la business logic che gestisce i dati;
-	\item Il package Client::view è la presentation logic che costruisce le pagine da visualizzare;
-	\item Il package Client::controller è l'application logic
+	\item il package \texttt{client::model} è la business logic che gestisce i dati;
+	\item il package \texttt{client::view} è la presentation logic che costruisce le pagine da visualizzare;
+	\item il package \texttt{client::controller} è l'application logic.
 \end{itemize}
 
 \subsubsection{Middleware}
 \paragraph{Scopo}
-Si è scelto di utilizzare questo Design Pattern per fornire un intermediario tra i vari componenti software dell’applicazione in modo da semplificare notevolmente la loro connessione e collaborazione. Questo pattern in generale è molto utile nello sviluppo e nella gestione di di sistemi distribuiti complessi, e nel nostro caso si adatta bene alla gestione di richieste REST.
+Si è scelto di utilizzare questo \mgls{design pattern} per fornire un intermediario tra i vari componenti software dell’applicazione in modo da semplificare notevolmente la loro connessione e collaborazione. Questo pattern in generale è molto utile nello sviluppo e nella gestione di sistemi distribuiti complessi, e nel nostro caso si adatta bene alla gestione di richieste \mgls{rest}.
 \paragraph{Utilizzo}
-Viene utilizzato dal framework Express attraverso il modulo connect per fornire una libreria di funzioni comuni. Definisce una serie di livelli (o funzioni) per gestire le varie richieste dell’applicazione e richiamare i rispettivi handler. Tutti i componenti del middleware sono collegati l’uno con l’altro e ricevono a turno una richiesta in ingresso, finché uno di questi non decide di partire con l’elaborazione per poi chiamare la funzione next. Come si può notare è molto legato a Chain of Responsibility, che verrà descritto in seguito. Tutti i componenti di Express vengono utilizzati con il metodo use di Express. Nella progettazione architetturale è utilizzato nel package Server::middleware.
+Viene utilizzato dal framework \mgls{express} per fornire una libreria di funzioni comuni. Definisce una serie di livelli (o funzioni) per gestire le varie richieste dell’applicazione e richiamare i rispettivi handler. Tutti i componenti del middleware sono collegati l’uno con l’altro e ricevono a turno una richiesta in ingresso, finché uno di questi non decide di partire con l’elaborazione per poi chiamare la funzione \texttt{next}. Come si può notare è molto legato a Chain of Responsibility, che verrà descritto in seguito. Nella progettazione architetturale è utilizzato nel package \texttt{server::middleware}.
 
-\subsection{Design Pattern Creazionali}
+\subsection{Design pattern creazionali}
 
 \subsubsection{Singleton}
 \paragraph{Scopo}
-Viene utilizzato per le classi che devono avere un’unica istanza durante l’esecuzione dell’applicazione.
+Viene utilizzato per le classi che devono avere un’unica istanza, accessibile globalmente, durante l’esecuzione dell’applicazione.
 \paragraph{Utilizzo}
-Ogni modulo di Node.js è nativamente un singleton, perché viene caricato al primo require e poi tutti i successivi riferiscono allo stesso.
+Ogni modulo di \mgls{node.js} è nativamente un singleton, perché viene caricato alla prima chiamata \texttt{require} e poi tutti gli utilizzi successivi riferiscono sempre alla stessa istanza del modulo.
 
-\subsection{Design Pattern Strutturali}
+\subsection{Design pattern strutturali}
 
 \subsubsection{Facade}
 \paragraph{Scopo}
-Viene utilizzato per rendere visibili solamente alcune cose agli altri oggetti ed avere un unico punto di accesso semplificato a un sottosistema fornendo un’interfaccia di alto livello e minimizzando dunque le comunicazioni e le dipendenze.
+Viene utilizzato per rendere visibili solamente alcune componenti agli altri moduli ed avere un unico punto di accesso semplificato a un sottosistema fornendo un’interfaccia di alto livello e minimizzando dunque le comunicazioni e le dipendenze.
+
 \paragraph{Utilizzo}
-Viene utilizzato all’interno della classe Server::middleware::Loader, la quale utilizza facade per nascondere l’esistenza di tutti i middleware alla ServerApp. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
+Viene utilizzato all’interno della classe \texttt{server::middleware::Loader}, la quale utilizza Facade per nascondere l’esistenza di tutti i middleware all'esterno. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
 
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
+
 \paragraph{Scopo}
-Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta possa esaudire le richieste di più oggetti. In questo modo si evita l’accoppiamento fra il mittente di una richiesta e il destinatario. Tutti gli oggetti destinatari della richiesta sono concatenati tra di loro. Ogni nodo della catena se può esaudire la richiesta la effettua, altrimenti delega l’onere al nodo successivo. La catena viene attraversata finché un nodo non può eseguire l’ordine del mittente.
+Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta possa completare le richieste di più oggetti. In questo modo si evita l’accoppiamento fra il mittente di una richiesta e il destinatario. Tutti gli oggetti destinatari della richiesta sono concatenati tra di loro. Ogni nodo della catena se può esaudire la richiesta la effettua, altrimenti delega l’onere al nodo successivo. La catena viene attraversata finché un nodo non può eseguire l’ordine del mittente.
+
 \paragraph{Utilizzo}
-ExpressG usa chain of Responsibility per la gestione dei middleware e del routing. Come già accennato è particolarmente legato al pattern Middleware. Viene utilizzato nella nostra architettura all’interno del package Server::middleware.
-La classe Server::middleware::Router gestisce la richiesta
-scorrendo tutta la lista delle sottoclassi e richiamando il metodo next finché una di queste non può soddisfarla.
-Nel gergo del framework Express i middleware corrispondono agli oggetti ConcreteHandler del design pattern. Sebbene il comportamento e lo scopo sia quasi identico, l’implementazione di
-Express presenta alcune differenze:
+\mgls{express} usa chain of responsibility per la gestione dei middleware e del routing. Come già accennato è particolarmente legato al pattern Middleware. Viene utilizzato nella nostra architettura all’interno del package \texttt{server::middleware}. La classe \texttt{server::middleware::Router} gestisce la richiesta scorrendo tutta la lista delle sottoclassi e richiamando il metodo \texttt{next} finché una di queste non può soddisfarla. Nel gergo del framework Express i middleware corrispondono agli oggetti ConcreteHandler del design pattern. Sebbene il comportamento e lo scopo sia quasi identico, l’implementazione di Express presenta alcune differenze:
+
 \begin{itemize}
-	\item I middleware di Express possono essere classi con un metodo handle o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in Node.js. Nel progetto sarà utilizzata principalmente la seconda versione.
-	\item Il Design Pattern prevede che l’oggetto Handler abbia un riferimento successor all’Handler successivo. Express invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di Express il quale passerà il controllo al successivo middleware.
-	\item Express divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti try catch, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono.
-	\item Ogni middleware di Express deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
+	\item I middleware di Express possono essere classi con un metodo \texttt{handle} o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in \mgls{node.js}. Nel progetto sarà utilizzata principalmente la seconda versione.
+	\item Il \mgls{design pattern} prevede che l’oggetto \texttt{Handler} abbia un riferimento \texttt{successor} all’\texttt{Handler} successivo. \mgls{express} invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di \mgls{express} il quale passerà il controllo al successivo middleware.
+	\item \mgls{express} divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti \texttt{try-catch}, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono.
+	\item Ogni middleware di \mgls{express} deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
 \end{itemize}
 
 \newpage
 
-
 \section{Diagrammi di sequenza}
+Qui riportati alcuni diagrammi di sequenza per facilitare la comprensione della catena delle chiamate durante il lavoro in fase di codifica.
+
+\subsection{Server}
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{server}.
+
+\subsection{Inserisci Domanda}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di una domanda da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{questionCheck:} è l'oggetto che si occupa di controllare che gli attributi di una domanda siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciDomandaServer.png}
+		\caption{Diagramma sequenza - Inserisci Domanda Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Inserisci Questionario}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
+	\item \textbf{questionnaireCheck:} è l'oggetto che si occupa di controllare che gli attributi di un questionario siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioServer.png}
+		\caption{Diagramma sequenza - Inserisci Questionario Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Login}
+Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio	
+	\item \textbf{sessionService:} è l'oggetto che si occupa di controllare che le credenziali di accesso siano corrette e di eseguire l'accesso da parte dell'utente creando la sessione corrispondente
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/loginServer.png}
+		\caption{Diagramma sequenza - Login Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Modifica Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{questionCheck:} è l'oggetto che si occupa di controllare che gli attributi di una domanda siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaDomandaServer.png}
+		\caption{Diagramma sequenza - Modifica Domanda Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Modifica Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la modifica di un questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
+	\item \textbf{questionnaireCheck:} è l'oggetto che si occupa di controllare che gli attributi di un questionario siano consistenti
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaQuestionarioServer.png}
+		\caption{Diagramma sequenza - Modifica Questionario Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Registrazione}
+Di seguito viene presentato il diagramma di sequenza del flusso per la registrazione di un utente presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio	
+	\item \textbf{userService:}  è l'oggetto che si occupa di aggiungere le informazioni di un nuovo utente presso il sistema.
+	\item \textbf{userCheck:} è l'oggetto che si occupa di controllare che le informazioni inserite dal nuovo utente siano corrette.
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/registrazioneServer.png}
+		\caption{Diagramma sequenza - Registrazione Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneDomandaServer.png}
+		\caption{Diagramma sequenza - Rimozione Domanda Server}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Questionario}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una questionario da parte del docente che lo ha creato. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di questionari
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioServer.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Server}
+	\end{figure}
+\end{center}
+
+\subsection{Client}
+
+Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
+
+\subsection{Cambio Informazioni}
+Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:} l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare le informazioni personali
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{check:} è l'oggetto che controlla se la password, l'username o titolo rispettano il formato scelto	
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/cambioInfoClient.png}
+		\caption{Diagramma sequenza - Cambio Informazioni Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Cambio Password}
+Di seguito viene presentato il diagramma di sequenza per il cambio della password da parte dell'utente connesso al sistema. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Studente:}	 l'utente autenticato con ruolo di studente o superiore che ha intenzione di cambiare la password
+	\item \textbf{userView:} è la pagina che mostra i dati dell'utente connesso al sistema
+	\item \textbf{userController:} è il \mgls{controller} dell'applicazione che si occupa delle modifiche dell'utente, dal cambio di informazioni personali al cambio di password
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per apportare le modifiche
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/cambioPasswordClient.png}
+		\caption{Diagramma sequenza - Cambio Password Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Inserisci Questionario}
+Di seguito viene presentato il diagramma di sequenza per l'inserimento di un questionario da parte di un utente con ruolo docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
+
+\subsubsection{Rimozione domanda}
+Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione di una domanda da parte del docente che la ha creata.
+
+\begin{itemize}
+	\item \textbf{router:} è l'oggetto che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+	\item \textbf{authorization:} è l'oggetto che si occupa di verificare i permessi dell'utente per ogni richiesta	
+	\item \textbf{questionService:} è l'oggetto che si occupa di effettuare le modifiche nel database per l'aggiunta, rimozione e modifica di domande
+	\item \textbf{errorHandler:} è il \mgls{middleware} che viene invocato verso la fine della richiesta che si occupa di trasformare eventuali errori nel formato \mgls{json} richiesto
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/inserisciQuestionarioClient.png}
+		\caption{Diagramma sequenza - Inserisci Questionario Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Modifica Questionario}
+Di seguito viene presentato il diagramma di sequenza per la modifica di un singolo questionario da parte di un utente con ruolo di docente o superiore. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare e modificare i questionari della view corrispondente
+	\item \textbf{manipulateQuestionnaireView:} rappresenta la pagina per la modifica o creazione di un singolo questionario
+	\item \textbf{manipulateQuestionnaireController:} è il \mgls{controller} che si occupa di gestire le richieste dalla view corrispondente per la gestione o creazione di un singolo questionario
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica o creazione del questionario
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/modificaQuestionarioClient.png}
+		\caption{Diagramma sequenza - Modifica Questionario Client}
+	\end{figure}
+\end{center}
+
+\newpage
+\subsection{Rimozione Questionario}
+Di seguito viene presentato il diagramma di sequenza per la rimozione di un questionario da parte di un docente. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Docente:}	 l'utente autenticato con ruolo di docente o superiore che ha intenzione di inserire il questionario
+	\item \textbf{manageQuestionnairesView:} è la pagina dell'applicazione che mostra la lista di tutti i questionari e permette la modifica o eliminazione di questionari esistenti o aggiunta di nuovi questionari
+	\item \textbf{manageQuestionnairesController:} è il \mgls{controller} che permette di visualizzare, modificare o eliminare i questionari della view corrispondente
+	\item \textbf{questionnaireService:} è l'oggetto che si occupa della comunicazione con il server per completare l'operazione di modifica, creazione o eliminazione del questionario
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/rimozioneQuestionarioClient.png}
+		\caption{Diagramma sequenza - Rimozione Questionario Client}
+	\end{figure}
+\end{center}
 
 \newpage
 \appendix
@@ -347,11 +624,11 @@ Express presenta alcune differenze:
 Model-View-Controller (\mgls{mvc}) è un \mgls{design pattern} per l’implementazione di interfacce utente. Esso divide un’applicazione \mgls{software} in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il \mgls{model} è il modulo che contiene i dati. Una \mgls{view} può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici \mgls{view} della stessa informazione. La terza parte, il \mgls{controller}, si occupa di accettare degli input e di convertirli in comandi per il \mgls{model} o per la \mgls{view}.\\
 Oltre a dividere l’applicazione in queste tre componenti, \mgls{mvc} si occupa anche di definire le interazioni tra esse:
 \begin{itemize}
-	\item Un \mgls{controller} può inviare comandi al \mgls{model} per aggiornare il suo stato. Può inoltre inviare comandi alla sua \mgls{view} associata, in modo da cambiarne la presentazione;
-	\item Un \mgls{model} quando cambia il suo stato interno notifica le sue \mgls{view} e i suoi \mgls{controller} associati. Questo permette alle \mgls{view} di cambiare la loro presentazione e ai \mgls{controller} di cambiare il loro insieme di comandi disponibili;
-	\item Una \mgls{view} viene aggiornata dal \mgls{controller} sui dati che necessita per generare un output per l’utente.
+	\item Un \mgls{controller} gestisce gli input che vengono generati dalla \mgls{view} e può inviare comandi al \mgls{model} per aggiornare il suo stato. Inoltre seleziona quale view deve essere eseguita e visualizzata;
+	\item Un \mgls{model} quando cambia il suo stato interno notifica le \mgls{view} associate. Questo permette alle \mgls{view} di cambiare la loro presentazione;
+	\item Una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
-\TODO{teoricamente la view non viene aggiornata dal controller bensi si aggiorna ogni volta che avviene una modifica al model in quanto lo osserva, mentre il controller guarda solo la view senza mandarle comandi ma "ricevendone" solamente}
+
 Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
 
 \subsubsection{Middleware}
@@ -410,7 +687,7 @@ Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce 
 
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
-Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{reciever} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{reciever} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{reciever} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
+Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{receiver} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{receiver} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{receiver} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
 L’utilizzo di questo pattern comporta una serie di conseguenze:
 \begin{itemize}
 	\item Ridotto accoppiamento: gli oggetti non sono a conoscenza di chi gestirà la richiesta ma sanno solo che verrà gestita in modo appropriato. Inoltre non bisognerà manutenere i riferimenti a tutti i possibili riceventi;
