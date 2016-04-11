@@ -99,11 +99,11 @@
 			\midrule
 			1.0.5 & \AB & 2016-02-18 &  Inserimento resoconto finale di \FAD \\*
 			\midrule
-			1.0.4 & \AB{} & 2016-02-18 & Modifica da \ref{intro} a \ref{gest_qual} \\*
+			1.0.4 & \AB{} & 2016-02-18 & Modifica da  sezione \ref{intro} a \ref{gest_qual} \\*
 			\midrule
-			1.0.3 & \AB{} & 2016-02-18 & Modifica glossario [modifica \ref{glossario}] \\*
+			1.0.3 & \AB{} & 2016-02-18 & Modifica sezione glossario  \\*
 			\midrule
-			1.0.2 & \AB{} & 2016-02-18 & Modifica riferimenti normativi [modifica \ref{riferimenti} ] \\*
+			1.0.2 & \AB{} & 2016-02-18 & Modifica sezione riferimenti normativi \\*
 			\midrule
 			1.0.1 & \AB{} & 2016-01-18 & Aggiunte due metriche per i processi \\*
 			\midrule
@@ -121,7 +121,7 @@
 			\midrule
 			0.0.0 & \IB{} & 2015-12-27 &  Creazione documento \\*
 			\bottomrule
-			\caption{\mgls{versionamento}  del documento}
+			\caption{\mGls{versionamento}  del documento}
 			\label{tabVers1}
 		\end{longtable}
 	\end{center}
@@ -273,6 +273,7 @@
 	\subsubsection{Strumenti di supporto}
 	La valutazione del grado di qualità del prodotto deve essere effettuata in modo prevalentemente automatico. Laddove non sia possibile è necessario stabilire preventivamente strumenti di supporto alla verifica e alla validazione. Tali strumenti devono ridurre l'impatto sui costi, e ridurre il tempo necessario per la verifica o validazione. 
 	
+	\newpage
 	\section{Gestione della qualità} \label{gest_qual}
 	
 	La gestione della qualità è rappresentata le principali metodologie e strumenti utilizzabili per attuare un piano di persecuzione della qualità. 
@@ -304,7 +305,10 @@
 	Nel caso in cui un \VR\ individui un'anomalia, dovrà aprire un \mgls{ticket} nel sistema di \mgls{ticketing} secondo le modalità specificate nelle \NdP.
 	
 	\subsubsection{Pianificazione ed esecuzione del collaudo}
-	Allo stato attuale non è possibile definire in dettaglio il collaudo in quanto non è stata ancora affrontata la \mgls{progettazione} del prodotto, quindi la pianificazione ed esecuzione del collaudo sarà trattata nella prossima revisione.
+	La pianificazione dei test deve essere preventiva rispetto alla produzione delle componenti oggetto di tali test. Pertanto si raccomanda che, non appena le informazioni ricavate tramite la \mgls{progettazione} lo permettano, vengano definiti i test riguardanti le componenti interessate.
+	Pertanto, poiché la definizione dei test deve integrarsi con le varie fasi di \mgls{progettazione}, questa deve rispettare la struttura del modello di collaudo adottato.	
+	
+	Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato per il \mgls{collaudo}.
 	
 	\newpage
 	
@@ -316,31 +320,53 @@
 	Tale tecnica è attuabile sia per verificare la documentazione che il software. Si tratta di un'\mgls{attivita} meno dispendiosa e pertanto da preferirsi nel caso siano disponibili modalità di verifica efficienti di questo tipo. Per la descrizione dettagliata delle tecniche da utilizzare si veda le \NdP.
 	
 	\subsection{Analisi Dinamica} 
-	Per \mgls{analisi dinamica} si intende l'esecuzione di test predisposti. La struttura gerarchica dell'\mgls{analisi dinamica} rispetta gli obiettivi di modularità e l'approccio di verifica \mgls{bottom-up} sopra definito. Tali test devono essere preventivamente definiti. Per la definizione di un test si devono quindi definire i seguenti punti:
+	Per \mgls{analisi dinamica} si intende l'esecuzione di test predisposti. La struttura gerarchica dell'\mgls{analisi dinamica} rispetta gli obiettivi di modularità e un approccio di verifica \mgls{bottom-up}. Tali test devono essere preventivamente definiti. Per la definizione di un test si devono quindi definire i seguenti punti:
 	
 	\begin{itemize}
-		\item \textbf{Ambiente:} consiste sia del sistema \mgls{hardware} 0 che di quello \mgls{software} sui quali è stato pianificato l'utilizzo del prodotto
+		\item \textbf{Ambiente:} consiste sia del sistema \mgls{hardware} che di quello \mgls{software} sui quali è stato pianificato l'utilizzo del prodotto
 		\item \textbf{Specifica:} consiste nella definizione di input e output attesi
 		\item \textbf{Procedure:} descrizione delle modalità e degli strumenti necessari all'esecuzione
 	\end{itemize}
+		
+	\subsubsection{Modello di analisi}\label{test_strategia}
+		Il sistema di test si basa sul Modello a V, ovvero un modello di analisi del software che enfatizza la relazione tra le fasi di sviluppo del \mgls{software} e le fasi di pianificazione ed esecuzione dei test. L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.9\linewidth]{../img/v-model}
+			\caption[V Model]{}
+			\label{fig:v-model}
+		\end{figure}
+		
+	Sono definibili 5 tipi diversi di test: test di unità, test di integrazione, test di sistema, test di regressione e test di accettazione o validazione.
 	
-	Sono definibili 5 tipi diversi di test: test di unità, test di integrazione, test di sistema, test di regressione e test di accettazione.
-	
-	\subsubsection{Test di unità}
+	\paragraph{Test di unità}
 	Consiste nella verifica di ogni singola unità del prodotto \mgls{software} tramite l'utilizzo di \mgls{stub}, \mgls{driver} e \mgls{logger}. Per unità si intende la più piccola quantità di \mgls{software} che è utile verificare singolarmente e che viene prodotta da un singolo programmatore. Ogni requisito includerà i relativi test di unità allegati nel rispettivo caso d'uso.
 	
-	\subsubsection{Test di integrazione}
+	\paragraph{Test di integrazione}
 	Rispecchia il primo livello della suddivisione modulare del \mgls{software} e si basa sulla correttezza dei test di unità per la diminuzione dei costi di verifica. Verranno pertanto verificati solamente le interazioni tra le varie unità \mgls{software}.
 	
-	\subsubsection{Test di sistema}
+	\paragraph{Test di sistema}
 	Consiste nella validazione del prodotto giunto a versione definitiva. La correttezza del sistema e dei relativi test è garantita per costruzione dalla struttura gerarchica della suddivisione del \mgls{software}.
 	
-	\subsubsection{Test di regressione}
+	\paragraph{Test di regressione}
 	Consiste nella trattazione di casi in cui alcune componenti abbiano subito modifiche. Il controllo deve assicurare che non ci siano cambiamenti esterni alle componenti modificate, per garantire l'integrità del prodotto finale modificato.
 	
-	\subsubsection{Test di accettazione}
+	\paragraph{Test di validazione}
 	E' il collaudo del prodotto \mgls{software} che viene eseguito in presenza del \mgls{proponente}. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
 	
+	\subsubsection{Strategia di analisi}
+	La struttura del sistema di \mgls{collaudo} o analisi deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. L'esecuzione dei test deve seguire l'ordine cronologico seguente:
+	
+	\begin{enumerate}
+		\item esecuzione e superamento dei test di unità;
+		\item esecuzione e superamento dei test di integrazione;
+		\item esecuzione e superamento dei test di sistema;
+		\item esecuzione e superamento dei test di \mgls{validazione}.
+	\end{enumerate}
+	
+	E' cruciale per l'efficacia dei test che le componenti prodotti non entrino nella fase di test successiva, rispetto a quelle precedentemente esposte, se non soddisfa i test nel punto precedente.
+	Inoltre, nel caso di modifiche apportate al software, sarà necessario predisporre opportuni test di regressione.
 	\newpage
 	
 	\section{Misure e metriche}\label{metriche}
@@ -485,7 +511,7 @@
 	\end{itemize}
 	
 	\subsubsection{Copertura del codice da parte di test}
-	Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono \mgls{testing}. Esempi di questi metodi sono: get e set.
+	Indica la percentuale di istruzioni che sono coperte durante i test. Maggiore è la percentuale di istruzioni coperte dai test eseguiti, maggiore sarà la probabilità che le componenti testate abbiano una ridotta quantità di errori. Il valore di tale indice può essere abbassato da metodi molto semplici che non richiedono alcun \mgls{collaudo}. Esempi di questi metodi sono: get e set.
 	
 	\begin{itemize}
 		\item \textbf{Range di Accettazione}: [50\%-100\%]
@@ -495,53 +521,6 @@
 	\newpage
 	
 	\section{Test del prodotto software}\label{test}
-	
-	\subsection{Strategia di testing}\label{test_strategia}
-	Il sistema di test si basa sul Modello a V, ovvero un modello di sviluppo che enfatizza la relazione tra le fasi di sviluppo del \mgls{software} e le fasi di pianificazione ed esecuzione dei test. L'adozione di tale modello è giustificata dall'intento di ridurre i costi, prevenire gli errori nel programma e ridurre i tempi di sviluppo e verifica, oltre che per garantire il soddisfacimento del requisiti del sistema, rilevati in fase di analisi.
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.9\linewidth]{../img/v-model}
-		\caption[V Model]{}
-		\label{fig:v-model}
-	\end{figure}
-	
-	\subsubsection{Livelli di testing}
-	Sono descritte nel seguito i vari livelli di test del modello adottato, le relative caratteristiche e la relativa funzione all'interno del sistema di test. 
-	
-	\paragraph{Test di validazione} si attua sul sistema completo per verificare che le funzionalità previste in fase di analisi siano effettivamente raggiunte da quest'ultimo. Le funzionalità testate sono quelle previste per l'utente finale.
-	
-	\paragraph{Test di Sistema} si attua sul sistema completamente integrato per verificare che i requisiti siano effettivamente soddisfatti.
-	
-	\paragraph{Test di Integrazione} è finalizzato alla verifica dell'interazione tra le componenti del sistema. Il soddisfacimento dei test di integrazione è essenziale ad assicurare che ogni parte del sistema non presenti errori dopo la fase di integrazione delle varie componenti.
-	
-	\paragraph{Test di Unità} è finalizzato alla verifica delle funzionalità di una ristretta parte di codice, solitamente una funzione o procedura. Spesso coprono anche la verifica dei costruttori delle classi.
-	
-	\subsubsection{Struttura del sistema di testing}
-	La struttura del sistema di \mgls{testing} deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. L'esecuzione dei test deve seguire l'ordine cronologico seguente:
-	
-	\begin{enumerate}
-		\item Esecuzione e superamento dei test di unità;
-		\item Esecuzione e superamento dei test di integrazione;
-		\item Esecuzione e superamento dei test di sistema;
-		\item Esecuzione e superamento dei test di \mgls{validazione}.
-	\end{enumerate}
-	
-	E' cruciale per l'efficacia dei test che le componenti prodotti non entrino nella fase di test successiva, rispetto a quelle precedentemente esposte, se non soddisfa i test nel punto precedente.
-	
-	\subsubsection{Strategia di pianificazione}
-	La pianificazione dei test deve essere preventiva rispetto alla produzione delle componenti oggetto di tali test. Pertanto si raccomanda che, non appena le informazioni ricavate tramite la \mgls{progettazione} lo permettano, vengano definiti i test riguardanti le componenti interessate.
-	Pertanto, poiché la definizione dei test deve integrarsi con le varie fasi di \mgls{progettazione}, questa deve rispettare la seguente successione temporale:
-	
-	\begin{enumerate}
-		\item definizione dei test di \mgls{validazione}  in periodo di \FA;
-		\item definizione dei test di sistema in periodo di \FAD;
-		\item definizione dei test di integrazione in periodo di \FPA;
-		\item definizione dei test di unità in fase di \FPD.
-	\end{enumerate}
-	
-	Si raccomanda, durante la definizione dei test, di utilizzare sistemi di gestione e archiviazione di questi ultimi che siano adeguati allo scopo e che ne facilitino la relativa gestione. E' inoltre essenziale mantenere il collegamento tra il test definito e lo scopo che ne motiva la definizione, sia esso un requisito del sistema o una sua componente o metodo. Anche tale caratteristica dovrebbe essere il più possibile automatizzata per mantenere e garantire in modo facile ed efficace la correttezza e consistenza dell'apparato di \mgls{testing}.
-	
 	\subsection{Notazione}
 	\paragraph{Test di Validazione}
 	L'identificativo di un test di validazione è attribuito in modo automatico secondo lo schema:
@@ -575,7 +554,7 @@
 		\item \textbf{Fail:} test implementato non superato
 	\end{itemize}
 		
-\subsection{Test di Validazione}\label{test_pianificazione}
+\subsection{Test di validazione}\label{test_pianificazione}
 \subsubsection{Definizione dettagliata}
 	\hypertarget{TV1}{}
 	\paragraph{Test TV1}
@@ -963,7 +942,7 @@
 		\midrule
 		\caption{Tabella test validazione / requisiti} \tabularnewline
 	\end{longtable}
-	\subsection{Test di Sistema}\label{test_sistema}
+	\subsection{Test di sistema}\label{test_sistema}
 	\subsubsection{Definizione dettagliata}
 	\begin{longtable}{l p{6cm} l l}
 		\midrule
@@ -1717,7 +1696,7 @@
 		\midrule
 		\caption{Tabella requisiti / test di sistema} \tabularnewline
 	\end{longtable}
-	\subsection{Test di Integrazione}\label{test_integrazione}
+	\subsection{Test di integrazione}\label{test_integrazione}
 	\subsubsection{Definizione dettagliata}
 	\begin{longtable}{l p{6cm} l l}
 		\midrule
@@ -1817,7 +1796,7 @@
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
 	
-	\subsection{Test di Unità}\label{test_unita}
+	\subsection{Test di unità}\label{test_unita}
 	\subsubsection{Definizione dettagliata}	
 	\paragraph{Gruppo GU.1}
 	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{client::contoller}, in particolare le classi di \texttt{client::controller::public}, \texttt{client::controller::student}, \texttt{client::controller::teacher} e \texttt{client::controller::admin}.
@@ -2140,20 +2119,10 @@
 	\end{itemize}
 	
 	\newpage
-	\appendix
-	\section{Resoconto delle Attività di verifica} \label{Resoconto delle attività di verifica}
-	
-	\subsection{Riassunto delle attività di verifica} 
-	
-	\subsubsection{\RR}
-	Nel periodo antecedente la consegna di tale revisione sono stati verificati i documenti ed i processi. I documenti sono stati verificati manualmente, l'\mgls{analisi statica} è stata applicata secondo i criteri e le modalità indicate nelle \NdP\, ovvero una prima fase di \mgls{walkthrough} seguita da \mgls{inspection}. Si sono poi calcolate per i documenti le metriche descritte nella sezione \ref{metriche_doc}. I processi sono stati verificati applicando la procedura descritta nella sezione \ref{metriche_processi}.
-	
-	\subsection{Tracciamento componenti - requisiti}
-	Il tracciamento (requisiti - fonti, use-case - requisiti) è stato effettuato tramite l'applicativo \mgls{tracy}.
-	
+	\newpage
 	\section{Dettaglio delle verifiche tramite analisi}
 	
-	\subsection{\FA}
+	\subsection{Analisi}
 	\subsubsection{Processi}
 	Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di \FA:
 	
@@ -2190,7 +2159,7 @@
 		\end{center}
 	\end{table}
 	
-	\subsection{\FAD}
+	\subsection{Analisi di dettaglio}
 	\subsubsection{Processi}
 	Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
 	
@@ -2231,7 +2200,7 @@
 		\end{center}
 	\end{table}
 	
-	\subsection{\FPA}
+	\subsection{Progettazione architetturale}
 	\subsubsection{Processi}
 	Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
 	
@@ -2274,7 +2243,7 @@
 		\end{center}
 	\end{table}
 	
-	\subsection{\FPD}
+	\subsection{Progettazione di dettaglio}
 	\subsubsection{Processi}
 	Vengono riportati i valori di \mgls{schedule variance} e \mgls{milestone schedule variance} calcolati. 
 	
@@ -2353,6 +2322,7 @@
 	Si sono analizzate le classi e i relativi campi dati che non hanno superato i test sopra riportati. Si è trovato tuttavia, che nella quasi totalità dei casi il non superamento del test è dovuto al tipo di linguaggio utilizzato. A questo si deve il fatto che molte classi sono in realtà un raggruppamento di funzionalità, e non rispecchiano completamente il concetto di classe perseguito da un linguaggio OO. Pur decidendo di non considerare completamente gli esiti in questo caso, la metrica sopra valutata non viene eliminata dall'insieme utilizzato per la valutazione del codice. 
 	Questo perché spesso permette di riconoscere cattivi metodi di programmazione.
 	
+	\newpage
 	\section{Dettaglio dell'esito delle revisioni}
 	Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente} a cui si deve sottoporsi. Il \mgls{committente} segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 	
