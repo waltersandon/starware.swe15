@@ -1,0 +1,24 @@
+<html>
+<head><title>ciao</title></head>
+<body>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<form method="post" action="/profile">
+		<input type="button" value="esci" id="btn"/>
+	</form>
+	<script>
+		var obj = { };
+		$( "#btn" ).click(function() {
+			alert(JSON.stringify(obj));
+			$.ajax({
+				type: "DELETE",
+				url: "/login",
+				dataType: "json",
+				data: obj,
+				success: function(data) {
+					alert(data);
+				}
+			});
+		});
+	</script>
+</body>
+</html>

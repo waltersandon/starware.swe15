@@ -1,0 +1,51 @@
+<html>
+<head><title>ciao</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script></head>
+<body>
+	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+	<form method="post" action="/profile">
+		<input type="text" name="name" id="name" />
+		<input type="password" name="password" id="password" />
+		<input type="button" value="daghine" id="btn"/>
+	</form>
+	<script>
+
+		$( "#btn" ).click(function() {
+			var obj = {
+				user : $("#name").val(),
+				password: $("#password").val()
+			};
+			$.ajax({
+				type: "POST",
+				url: "/login",
+				dataType: "json",
+				data: obj,
+				success: function(data) {
+					alert(data);
+				}
+			});
+		});
+	</script>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p>Today's welcome message is:</p>
+        <h1>{{myWelcome}}</h1>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $http) {
+            $http({
+                method : "POST",
+                url : "/login"
+            }).then(function mySucces(response) {
+                $scope.myWelcome = response.data;
+            }, function myError(response) {
+                $scope.myWelcome = response.statusText;
+            });
+        });
+    </script>
+</body>
+</html>
