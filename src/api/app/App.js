@@ -29,10 +29,10 @@ function App() {
      * Metodo che fa partire il server, non ritorna il controllo finché il server è in funzione
      */
     this.start = function(){
-        mongoose.connect(this.config.dbUri);
         mongoose.connection.on('error', function(err) {
-            console.log("Error: " + err);
+            console.error("Error: " + err);
         });
+        mongoose.connect(this.config.dbUri);
         var port = this.app.get('port');
         var ip = this.app.get('ip');
         this.app.listen(port, ip, function () {
