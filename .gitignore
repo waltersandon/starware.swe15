@@ -16,3 +16,5 @@
 *.vpp~*
 .DS_Store
 .texpadtmp
+
+src/.idea/*
