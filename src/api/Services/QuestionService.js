@@ -68,14 +68,9 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        this.newQuest = new Question(req.body);
-        Question.findById(req.params.id, function (err, quest) {
+        Question.findByIdAndUpdate(req.params.id, new Question(req.body), function (err, tank) {
             if (err) next({code:401, error:"Domanda non valida"});
-            quest = newQuest;
-            quest.save(function (err) {
-                if (err) next({code:401, error:"Domanda non valida"});
-                res.send();
-            });
+            res.send();
         });
         console.log("modifyQuestion");
     };
@@ -88,6 +83,10 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
+        Question.findByIdAndRemove(req.params.id, function (err, tank) {
+            if (err) next({code:401, error:"Domanda non trovata"});
+            res.send();
+        });
         console.log("deleteQuestion");
     };
 }
