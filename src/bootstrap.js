@@ -14,17 +14,17 @@ mongoose.connect(config.dbUri, function() {
 	// Remove all roles
 	Promise.all([
 		Role.remove({})
-	]);
-
-	// Add basic roles
-	Promise.all([
-		new Role({name: 'Studente'}).save(),
-		new Role({name: 'Docente'}).save(),
-		new Role({name: 'Amministratore'}).save(),
-		new Role({name: 'Proprietario'}).save()
-	]);
-
-	mongoose.disconnect();
-	console.log('Aggiunti ruoli base');
+	]).then(function() {
+		// Add basic roles
+		Promise.all([
+			new Role({name: 'Studente'}).save(),
+			new Role({name: 'Docente'}).save(),
+			new Role({name: 'Amministratore'}).save(),
+			new Role({name: 'Proprietario'}).save()
+		]).then(function() {
+			mongoose.disconnect();
+			console.log('Aggiunti ruoli base');
+		});
+	});
 
 });
