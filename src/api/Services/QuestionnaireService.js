@@ -15,9 +15,9 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Questionnaire.find({}, function(err,quest){
+        Questionnaire.findById(req.params.id,function(err, quest){
             if(err){
-                return next({code:404, error:"Ruoli non trovato"});
+                return next({code:404, error:"Questionari non trovati"});
             }
             res.send(quest);
         });
@@ -31,7 +31,12 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req,res,next){
-        console.log("getQuestionnaires");
+        Questionnaire.find({}, function(err, quest){
+            if(err){
+                return next({code:404, error:"Questionario non trovato"});
+            }
+            res.send(quest);
+        });
     };
 
 
@@ -43,12 +48,11 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req,res,next){
-        this.quest = new Tag(req.body);
+        this.quest = new Questionnaire(req.body);
         this.quest.save(function(err){
             if(err)
-                next({code:401, error:"Tag non valido"});
-            else
-                res.send();
+                next({code:401, error:"Questionario non valido"});
+            res.send();
         });
     };
 
@@ -60,7 +64,10 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        console.log("modifyQuestionnaire");
+        Questionnaire.findByIdAndUpdate(req.params.id, new Questionnaire(req.body), function (err, tank) {
+            if (err) next({code:401, error:"Questionario non valido"});
+            res.send();
+        });
     };
 
     /**
