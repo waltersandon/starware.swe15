@@ -1,6 +1,5 @@
-/**
- * Created by alessio on 26/03/16.
- */
+var Question = require('./../data/Question');
+
 
 
 /**
@@ -16,7 +15,13 @@ function QuestionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getQuestions = function(req,res,next){
+    this.get = function(req,res,next){
+        Question.find({},function(err,quest){
+            if(err){
+                return next({code:404, error:"Domande non trovate"});
+            }
+            res.send(quest);
+        });
         console.log("getQuestions");
     };
 
@@ -27,7 +32,13 @@ function QuestionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getQuestion = function(req,res,next){
+    this.getByID = function(req,res,next){
+        Question.findById(req.params.id,function(err,quest){
+            if(err){
+                return next({code:404, error:"Domanda non trovata"});
+            }
+            res.send(quest);
+        });
         console.log("getQuestion");
     };
 
@@ -38,7 +49,14 @@ function QuestionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.createQuestion = function(req,res,next){
+    this.new = function(req,res,next){
+        this.quiz = new Question(req.body);
+        this.quiz.save(function(err){
+            if(err)
+                next({code:401, error:"Domanda non valida"});
+            else
+                res.send();
+        });
         console.log("createQuestion");
     };
 
@@ -49,7 +67,11 @@ function QuestionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.modifyQuestion = function(req,res,next){
+    this.modify = function(req,res,next){
+        Question.findByIdAndUpdate(req.params.id, new Question(req.body), function (err, tank) {
+            if (err) next({code:401, error:"Domanda non valida"});
+            res.send();
+        });
         console.log("modifyQuestion");
     };
 
@@ -60,7 +82,11 @@ function QuestionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.deleteQuestion = function(req,res,next){
+    this.delete = function(req,res,next){
+        Question.findByIdAndRemove(req.params.id, function (err, tank) {
+            if (err) next({code:401, error:"Domanda non trovata"});
+            res.send();
+        });
         console.log("deleteQuestion");
     };
 }

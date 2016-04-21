@@ -12,7 +12,7 @@ var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: false
     },
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
@@ -26,4 +26,4 @@ var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
     }]
 }));
 
-module.exports = User;
+module.exports = Questionnaire;

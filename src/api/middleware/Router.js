@@ -46,23 +46,23 @@ function Router(auth, error) {
     this.router.post('/users/:id',auth.requireAdmin,this.userService.changeRole);
 
     //Routing question request
-    this.router.get('/questions',auth.requireTeacher,this.questionService.getQuestions);
-    this.router.get('/questions/:id',auth.requireUser,this.questionService.getQuestion);
-    this.router.post('/questions',auth.requireTeacher,this.questionService.createQuestion);
-    this.router.put('/questions/:id',auth.requireTeacher,this.questionService.modifyQuestion);
-    this.router.delete('/questions/:id',auth.requireTeacher,this.questionService.deleteQuestion);
+    this.router.get('/questions',auth.requireTeacher,this.questionService.get);
+    this.router.get('/questions/:id',auth.requireUser,this.questionService.getByID);
+    this.router.post('/questions',auth.requireTeacher,this.questionService.new);
+    this.router.put('/questions/:id',auth.requireTeacher,this.questionService.modify);
+    this.router.delete('/questions/:id',auth.requireTeacher,this.questionService.delete);
 
     //Routing questionnaire requests
-    this.router.get('/questionnaires',auth.requireUser,this.questionnaireService.getQuestionnaires);
-    this.router.get('/questionnaires/:id',auth.requireUser,this.questionnaireService.getQuestionnaire);
-    this.router.post('/questionnaires',auth.requireTeacher,this.questionnaireService.createQuestionnaire);
-    this.router.put('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.modifyQuestionnaire);
-    this.router.delete('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.deleteQuestionnaire);
+    this.router.get('/questionnaires',auth.requireUser,this.questionnaireService.get);
+    this.router.get('/questionnaires/:id',auth.requireUser,this.questionnaireService.getByID);
+    this.router.post('/questionnaires',auth.requireTeacher,this.questionnaireService.new);
+    this.router.put('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.modify);
+    this.router.delete('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.delete);
 
     //Routing subject requests
     this.router.get('/tags',auth.requireUser,this.tagService.getTags);
     this.router.get('/tags/:id',auth.requireUser,this.tagService.getTag);
-    this.router.post('/tags',auth.requireTeacher,this.tagService.createTag);
+    this.router.post('/tags',auth.requireTeacher,this.tagService.new);
     this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
     this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);
 
