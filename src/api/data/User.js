@@ -1,3 +1,4 @@
+var _ = require('./Role');
 var mongoose = require('mongoose');
 
 var User = mongoose.model('User', new mongoose.Schema({

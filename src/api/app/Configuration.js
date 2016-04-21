@@ -25,7 +25,7 @@ function Configuration() {
      * Porta su cui il server deve mettersi in ascolto
      * @type {number}
      */
-    this.serverPort = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+    this.serverPort = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
     /**
      * Percorso della cartella che il server deve utilizzare per fornire file statici
@@ -49,7 +49,7 @@ function Configuration() {
      * Nome del database dell'applicazione
      * @type {string}
      */
-    this.dbName = process.env.OPENSHIFT_APP_NAME || 'quizzipediajs';
+    this.dbName = process.env.OPENSHIFT_APP_NAME || 'quizzipedia';
 
     /**
      * Username per connettersi al database
@@ -68,9 +68,9 @@ function Configuration() {
      * @type {string}
      */
     this.dbUri = (this.dbPassword)
-        ? 'mongodb:' + this.dbUser + ":" + this.dbPassword + "@" +
+        ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
         this.dbHost + ':' + this.dbPort + '/' + this.dbName
-        :'mongodb:' + this.dbHost + ':' + this.dbPort + '/' + this.dbName;
+        :'mongodb://' + this.dbHost + ':' + this.dbPort + '/' + this.dbName;
 
 
 }

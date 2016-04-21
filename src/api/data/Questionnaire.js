@@ -1,3 +1,7 @@
+var _ = require('./User');
+var _ = require('./Question');
+var _ = require('./Tag');
+
 var mongoose = require('mongoose');
 
 var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({

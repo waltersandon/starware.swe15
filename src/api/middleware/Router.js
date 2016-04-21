@@ -18,7 +18,6 @@ var RoleService = require('../services/RoleService');
 function Router(auth, error) {
 
     this.router = express.Router();
-
     this.sessionService = new SessionService();
     this.userService = new UserService();
     this.questionService = new QuestionService();
@@ -67,9 +66,9 @@ function Router(auth, error) {
     this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
     this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);
 
-    //Routing question requests
-    this.router.get('/roles',auth.requireAdmin,this.roleService.getRoles);
-    this.router.get('/roles/:id',auth.requireUser,this.roleService.getRole);
+    //Routing role requests
+    this.router.get('/roles',auth.requireAdmin,this.roleService.get);
+    this.router.get('/roles/:id',auth.requireUser,this.roleService.getByID);
     
     //Error handler
     this.router.use(error.handler);

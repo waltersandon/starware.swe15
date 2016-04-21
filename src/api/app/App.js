@@ -29,7 +29,7 @@ function App() {
      * Metodo che fa partire il server, non ritorna il controllo finché il server è in funzione
      */
     this.start = function(){
-        mongoose.connect('mongodb://localhost/chat');
+        mongoose.connect(this.config.dbUri);
         mongoose.connection.on('error', function(err) {
             console.log("Error: " + err);
         });

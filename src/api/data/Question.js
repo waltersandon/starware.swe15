@@ -1,6 +1,5 @@
-/**
- * Created by andre on 21/04/2016.
- */
+var _ = require('./Tag');
+var _ = require('./User');
 var mongoose = require('mongoose');
 
 var Question = mongoose.model('Question', new mongoose.Schema({
