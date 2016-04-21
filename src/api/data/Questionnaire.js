@@ -26,4 +26,4 @@ var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
     }]
 }));
 
-module.exports = User;
+module.exports = Questionnaire;

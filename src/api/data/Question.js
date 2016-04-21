@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var Question = mongoose.model('Question', new mongoose.Schema({
     author: {
-        type: mongoose.Schema.Types.ObjectID,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
@@ -13,7 +13,7 @@ var Question = mongoose.model('Question', new mongoose.Schema({
         required: true
     },
     tags: [{
-        type: mongoose.Schema.Types.ObjectID,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',
         required: true
     }]

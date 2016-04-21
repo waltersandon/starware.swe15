@@ -1,3 +1,5 @@
+var Tag = require('./../data/Tag');
+
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
@@ -12,7 +14,12 @@ function TagService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getTags = function(req,res,next){
-        console.log("getTags");
+        Tag.find({},function(err,tags){
+            if(err){
+                return next({code:404, error:"Ruoli non trovato"});
+            }
+            res.send(tags);
+        });
     };
 
     /**
@@ -33,8 +40,14 @@ function TagService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.createTag = function(req,res,next){
-        console.log("createSubject");
+    this.new = function(req,res,next){
+        this.tag = new Tag(req.body);
+        this.tag.save(function(err){
+            if(err)
+                next({code:401, error:"Tag non valido"});
+            else
+                res.send();
+        });
     };
 
     /**

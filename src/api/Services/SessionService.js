@@ -19,9 +19,8 @@ function SessionService() {
     this.login = function(req,res,next){
         console.log("login");
         if(1==1)//mail e password iuste
-            req.session.role = "Utente";
-        res.write(true);
-        res.end();
+            req.session.role = "User";
+        res.send(true);
     };
 
     /**
