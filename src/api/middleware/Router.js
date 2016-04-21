@@ -1,7 +1,3 @@
-/**
- * Created by avenier on 20/03/2016.
- */
-
 var express = require('express');
 var session = require('express-session');
 var UserService = require('../services/UserService');

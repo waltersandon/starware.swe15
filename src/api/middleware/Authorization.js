@@ -1,8 +1,4 @@
 /**
- * Created by avenier on 20/03/2016.
- */
-
-/**
  * Classe utilizzata per verificare i dati inseriti dall’utente e concedere all'utente i relativi permessi
  * @constructor
  */

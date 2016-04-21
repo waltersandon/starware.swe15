@@ -1,7 +1,3 @@
-/**
- * Created by alessio on 19/03/16.
- */
-
 var Authorization = require('./Authorization');
 var Router = require('./Router');
 var ErrorHandler = require('./ErrorHandler');
