@@ -13,7 +13,7 @@ var express = require('express');
  * @constructor
  */
 function Loader(app) {
-    app.use('/public', express.static('static'));
+    app.use('/', express.static('static'));
     this.authorization = new Authorization();
     this.error = new ErrorHandler();
     this.router = new Router(this.authorization, this.error);
