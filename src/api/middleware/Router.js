@@ -4,12 +4,12 @@
 
 var express = require('express');
 var session = require('express-session');
-var UserService = require('../Services/UserService');
-var QuestionService = require('../Services/QuestionService');
-var QuestionnaireService = require('../Services/QuestionnaireService');
-var SessionService = require('../Services/SessionService');
-var TagService = require('../Services/TagService');
-var RoleService = require('../Services/RoleService');
+var UserService = require('../services/UserService');
+var QuestionService = require('../services/QuestionService');
+var QuestionnaireService = require('../services/QuestionnaireService');
+var SessionService = require('../services/SessionService');
+var TagService = require('../services/TagService');
+var RoleService = require('../services/RoleService');
 
 
 
