@@ -50,8 +50,7 @@ function QuestionnaireService() {
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
         this.quest.save(function(err){
-            if(err)
-                next({code:401, error:"Questionario non valido"});
+            if(err) next({code:404, error:"Questionario non valido"});
             res.send();
         });
     };
@@ -64,8 +63,10 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Questionnaire.findByIdAndUpdate(req.params.id, new Questionnaire(req.body), function (err, tank) {
-            if (err) next({code:401, error:"Questionario non valido"});
+        this.newQuest = new Questionnaire(req.body);
+        this.newQuest._id = req.params.id;
+        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err, tank) {
+            if (err) next({code:404, error:"Questionario non valido"});
             res.send();
         });
     };
@@ -78,7 +79,10 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
-        console.log("deleteQuestionnaire");
+        Questionnaire.findByIdAndRemove(req.params.id, function (err) {
+            if (err) next({code:404, error:"Questionario non trovato"});
+            res.send();
+        });
     };
 
 

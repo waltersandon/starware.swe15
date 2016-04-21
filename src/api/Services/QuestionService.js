@@ -51,7 +51,7 @@ function QuestionService() {
         this.quiz = new Question(req.body);
         this.quiz.save(function(err){
             if(err)
-                next({code:401, error:"Domanda non valida"});
+                next({code:404, error:"Domanda non valida"});
             else
                 res.send();
         });
@@ -68,7 +68,7 @@ function QuestionService() {
         this.quest = new Question(req.body);
         this.quest._id = req.params.id;
         Question.findByIdAndUpdate(req.params.id, quest, {overwrite: true}, function (err) {
-            if (err) next({code:401, error:"Domanda non valida"});
+            if (err) next({code:404, error:"Domanda non valida"});
             res.send();
         });
     };
@@ -82,7 +82,7 @@ function QuestionService() {
      */
     this.delete = function(req,res,next){
         Question.findByIdAndRemove(req.params.id, function (err) {
-            if (err) next({code:401, error:"Domanda non trovata"});
+            if (err) next({code:404, error:"Domanda non trovata"});
             res.send();
         });
     };
