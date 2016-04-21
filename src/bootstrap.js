@@ -17,10 +17,10 @@ mongoose.connect(config.dbUri, function() {
 	]).then(function() {
 		// Add basic roles
 		Promise.all([
-			new Role({name: 'Studente'}).save(),
-			new Role({name: 'Docente'}).save(),
-			new Role({name: 'Amministratore'}).save(),
-			new Role({name: 'Proprietario'}).save()
+			new Role({name: 'student'}).save(),
+			new Role({name: 'teacher'}).save(),
+			new Role({name: 'admin'}).save(),
+			new Role({name: 'superadmin'}).save()
 		]).then(function() {
 			mongoose.disconnect();
 			console.log('Aggiunti ruoli base');

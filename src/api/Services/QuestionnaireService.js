@@ -17,7 +17,7 @@ function QuestionnaireService() {
     this.getByID = function(req,res,next){
         Questionnaire.findById(req.params.id,function(err, quest){
             if(err){
-                return next({code:404, error:"Questionari non trovati"});
+                return next({code:404, error:"Questionario non trovati"});
             }
             res.send(quest);
         });
@@ -33,7 +33,7 @@ function QuestionnaireService() {
     this.get = function(req,res,next){
         Questionnaire.find({}, function(err, quest){
             if(err){
-                return next({code:404, error:"Questionario non trovato"});
+                return next({code:404, error:"Questionari non trovato"});
             }
             res.send(quest);
         });
