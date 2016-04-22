@@ -14,11 +14,8 @@
 *.working2
 *.vux
 *.vpp~*
-.DS_Store
-.texpadtmp
-<<<<<<< HEAD
-src/.idea/ 
-=======
-
+*.DS_Store
+*.texpadtmp
+*.blg
 src/.idea/*
->>>>>>> 2881f506cbd64bbc3074b2fe297579e811019c3e
+
