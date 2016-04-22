@@ -103,13 +103,20 @@
                     \textbf{Metodo} & \texttt{GET} \\ \midrule
                     \textbf{Parametri} & \
                         \begin{itemize}
-                            \item \texttt{username}: filtra i risultati in base all'username
-                            \item \texttt{full\_name}: filtra i risultati in base al nome completo
+                            \item \texttt{userName}: filtra i risultati in base all'username
+                            \item \texttt{fullName}: filtra i risultati in base al nome completo
                         \end{itemize} 
                         \\ \midrule
                     \textbf{Descrizione} & Restituisce l'elenco degli utenti \\ \midrule
                     \textbf{Permessi} & Amministratore, Proprietario  \\ \midrule
-                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Richiesta JSON} &
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+"userName": string,
+"fullName": string,
+}
+                        \end{lstlisting}
+                     \\ \midrule
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
