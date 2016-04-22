@@ -15,7 +15,11 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Questionnaire.findById(req.params.id,function(err, quest){
+        Questionnaire.findById(req.params.id)
+            .populate("author")
+            .populate("question")
+            .populate("tags")
+            .exec(function(err, quest){
             if(err){
                 return next({code:404, error:"Questionario non trovati"});
             }
@@ -42,7 +46,11 @@ function QuestionnaireService() {
             this.tags = req.query.tags.split("|");
             this.query.tags = {"$in": this.tags};
         }
-        Questionnaire.find(this.query, function(err, quest){
+        Questionnaire.find(this.query)
+            .populate("author")
+            .populate("question")
+            .populate("tags")
+            .exec(function(err, quest){
             if(err) next({code:404, error:"Questionari non trovato"});
             res.send(quest);
         });
@@ -93,8 +101,6 @@ function QuestionnaireService() {
             res.send();
         });
     };
-
-
 
 }
 
