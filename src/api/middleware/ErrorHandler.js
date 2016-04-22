@@ -1,9 +1,4 @@
 /**
- * Created by avenier on 20/03/2016.
- */
-
-
-/**
  * Classe utilizzata per gestire tutti gli errori che vengono generati
  * @constructor
  */

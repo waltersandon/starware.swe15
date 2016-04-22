@@ -1,7 +1,5 @@
-/**
- * Created by alessio on 26/03/16.
- */
-
+var User = require('./../data/User');
+var Role = require('./../data/Role');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -16,8 +14,10 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getUsers = function(req,res,next){
-        console.log("getUsers");
+    this.get = function(req, res, next){
+        User.find({}).exec(function(err, users){
+            res.json(users);
+        });
     };
 
     /**
@@ -27,10 +27,10 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getUser = function(req,res,next){
-        console.log("getUser");
-        res.write("ciao");
-        res.end();
+    this.getByID = function(req,res,next){
+        User.findById(req.params.id, function(err, user) {
+            res.json(user);
+        });
     };
 
     /**
@@ -40,10 +40,8 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getUserMe = function(req,res,next){
-        console.log("getUser");
-        res.write("ciao");
-        res.end();
+    this.getMe = function(req,res,next){
+        // @todo
     };
 
     /**
@@ -53,8 +51,18 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.createUser = function(req,res,next){
-        console.log("createUser");
+    this.new = function(req,res,next){
+        Role.findOne({ name: 'student' }).exec(function(err, role) {
+            var user = new User({
+                fullName: req.body.fullName,
+                userName: req.body.userName,
+                password: req.body.password,
+                role: role._id
+            });
+            user.save(function(err) {
+                res.sendStatus(200);
+            });
+        });
     };
 
     /**
@@ -66,11 +74,9 @@ function UserService() {
      *
      */
     this.modifyUser = function(req,res,next){
-        console.log("modifyUser");
-        if(req.body.fullName || req.body.userName){
+        if (req.body.fullName || req.body.userName){
 
-        }
-        else if(req.body.oldPassword || req.body.newPassword){
+        } else if (req.body.oldPassword || req.body.newPassword) {
 
         }
     };

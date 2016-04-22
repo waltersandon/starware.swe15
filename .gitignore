@@ -14,6 +14,8 @@
 *.working2
 *.vux
 *.vpp~*
-.DS_Store
-.texpadtmp
-src/node_modules
+*.DS_Store
+*.texpadtmp
+*.blg
+src/.idea/*
+src/node_modules/mocha

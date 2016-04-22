@@ -1,6 +1,4 @@
-/**
- * Created by alessio on 26/03/16.
- */
+var Questionnaire = require('./../data/Questionnaire');
 
 
 /**
@@ -16,8 +14,13 @@ function QuestionnaireService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getQuestionnaire = function(req,res,next){
-        console.log("getQuestionnaire");
+    this.getByID = function(req,res,next){
+        Questionnaire.findById(req.params.id,function(err, quest){
+            if(err){
+                return next({code:404, error:"Questionario non trovati"});
+            }
+            res.send(quest);
+        });
     };
 
     /**
@@ -27,8 +30,13 @@ function QuestionnaireService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getQuestionnaires = function(req,res,next){
-        console.log("getQuestionnaires");
+    this.get = function(req,res,next){
+        Questionnaire.find({}, function(err, quest){
+            if(err){
+                return next({code:404, error:"Questionari non trovato"});
+            }
+            res.send(quest);
+        });
     };
 
 
@@ -39,8 +47,12 @@ function QuestionnaireService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.createQuestionnaire = function(req,res,next){
-        console.log("createQuestionnaire");
+    this.new = function(req,res,next){
+        this.quest = new Questionnaire(req.body);
+        this.quest.save(function(err){
+            if(err) next({code:404, error:"Questionario non valido"});
+            res.send();
+        });
     };
 
     /**
@@ -50,8 +62,13 @@ function QuestionnaireService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.modifyQuestionnaire = function(req,res,next){
-        console.log("modifyQuestionnaire");
+    this.modify = function(req,res,next){
+        this.newQuest = new Questionnaire(req.body);
+        this.newQuest._id = req.params.id;
+        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err, tank) {
+            if (err) next({code:404, error:"Questionario non valido"});
+            res.send();
+        });
     };
 
     /**
@@ -61,8 +78,11 @@ function QuestionnaireService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.deleteQuestionnaire = function(req,res,next){
-        console.log("deleteQuestionnaire");
+    this.delete = function(req,res,next){
+        Questionnaire.findByIdAndRemove(req.params.id, function (err) {
+            if (err) next({code:404, error:"Questionario non trovato"});
+            res.send();
+        });
     };
 
 
