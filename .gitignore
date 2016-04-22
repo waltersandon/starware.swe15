@@ -18,4 +18,4 @@
 *.texpadtmp
 *.blg
 src/.idea/*
-
+src/node_modules/mocha
