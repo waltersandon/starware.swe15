@@ -14,4 +14,3 @@ function TagCheck() {
 
 
 module.exports = TagCheck;
-
