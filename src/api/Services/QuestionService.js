@@ -16,12 +16,13 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req,res,next){
-        Question.find({},function(err,quest){
+        Question.find({},function(err,quest)
+        {
             if(err){
                 return next({code:404, error:"Domande non trovate"});
             }
             res.send(quest);
-        });
+        }).populate('tags');
     };
 
     /**
@@ -37,7 +38,7 @@ function QuestionService() {
                 return next({code:404, error:"Domanda non trovata"});
             }
             res.send(quest);
-        });
+        }).populate('tags');
     };
 
     /**
@@ -67,7 +68,7 @@ function QuestionService() {
     this.modify = function(req,res,next){
         this.quest = new Question(req.body);
         this.quest._id = req.params.id;
-        Question.findByIdAndUpdate(req.params.id, quest, {overwrite: true}, function (err) {
+        Question.findByIdAndUpdate(req.params.id, quest, function (err) {
             if (err) next({code:404, error:"Domanda non valida"});
             res.send();
         });
