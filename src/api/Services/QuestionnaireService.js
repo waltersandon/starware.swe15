@@ -20,10 +20,8 @@ function QuestionnaireService() {
             .populate("question")
             .populate("tags")
             .exec(function(err, quest){
-            if(err){
-                return next({code:404, error:"Questionario non trovati"});
-            }
-            res.send(quest);
+            if(err) next({code:404, error:"Questionario non trovati"});
+            res.json(quest);
         });
     };
 
@@ -52,7 +50,7 @@ function QuestionnaireService() {
             .populate("tags")
             .exec(function(err, quest){
             if(err) next({code:404, error:"Questionari non trovato"});
-            res.send(quest);
+            res.json(quest);
         });
     };
 

@@ -17,9 +17,10 @@ function SessionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.login = function(req,res,next){
-        console.log("login");
-        if(1==1)//mail e password iuste
+        if(!req.session.role) {//mail e password iuste
             req.session.role = "User";
+            console.log("dd");
+        }
         res.send(true);
     };
 
