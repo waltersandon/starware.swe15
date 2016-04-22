@@ -4,20 +4,20 @@ angular.module('SessionService', []).service('SessionService', ['$http', functio
             $http.post('/session', {
                 'password': password,
                 'userName': userName
-            }).then(function success(response) {
-                console.log(response);
+            }).then(function success(res) {
+                console.log(res);
                 return true;
-            }, function error(response) {
-                console.log(response);
+            }, function error(res) {
+                console.log(res);
                 return false;
             });
         };
         this.logout = function () {
-            $http.delete('/session').then(function success(response) {
-                console.log(response);
+            $http.delete('/session').then(function success(res) {
+                console.log(res);
                 return true;
-            }, function error(response) {
-                console.log(response);
+            }, function error(res) {
+                console.log(res);
                 return false;
             });
         };

@@ -1,7 +1,8 @@
 
 angular.module('Questionnaire', []).factory('Questionnaire', function() {
-    function Questionnaire(author, questions, tags, title) {
+    function Questionnaire(author, id, questions, tags, title) {
         this.author = author;
+        this.id = id;
         this.questions = questions;
         this.tags = tags;
         this.title = title;

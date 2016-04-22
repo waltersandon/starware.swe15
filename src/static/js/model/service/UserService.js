@@ -1,32 +1,39 @@
 
-angular.module('UserService', ['UserFactory']).service('UserService', ['$http', 'User', function ($http, User) {
+angular.module('UserServiceModule', ['UserModule']).service('UserService', ['$http', 'User', function ($http, User) {
         this.delete = function (user) {
-
+            $http.delete('/users/' + user.id).then(function success(res) {
+                return true;
+            }, function error(res) {
+                return false;
+            });
         };
         this.get = function (fullName, userName) {
             $http.get('/users', {
                 'fullName': fullName,
-                'userName': userName,
+                'userName': userName
             }).then(function success(res) {
                 var a = [];
                 res.forEach(function (item) {
-                    a.push(User(res.id, res.fullName, res.role, res.userName))
+                    a.push(new User(item.id, item.fullName, item.role, item.userName));
                 });
-
                 return a;
             }, function error(res) {
                 return res;
             });
         };
         this.getByID = function (id) {
-            $http.get('/users' + id).then(function success(res) {
-                return res;
+            $http.get('/users/' + id).then(function success(res) {
+                return new User(res.id, res.fullName, res.role, res.userName);
             }, function error(res) {
                 return res;
             });
         };
         this.getMe = function () {
-
+            $http.get('/users/me').then(function success(res) {
+                return new User(res.id, res.fullName, res.role, res.userName);
+            }, function error(res) {
+                return res;
+            });
         };
         this.modifyRole = function (user, role) {
             $http.post('/users/' + user.id, {
