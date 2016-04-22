@@ -1,27 +1,74 @@
 
-angular.module('UserService', []).factory('UserService', ['$http', function ($http) {
-        return {
-            get: function (fullName, userName) {
+angular.module('UserService', ['UserFactory']).service('UserService', ['$http', 'User', function ($http, User) {
+        this.delete = function (user) {
 
-            },
-            getByID: function (id) {
+        };
+        this.get = function (fullName, userName) {
+            $http.get('/users', {
+                'fullName': fullName,
+                'userName': userName,
+            }).then(function success(res) {
+                var a = [];
+                res.forEach(function (item) {
+                    a.push(User(res.id, res.fullName, res.role, res.userName))
+                });
 
-            },
-            getMe: function () {
+                return a;
+            }, function error(res) {
+                return res;
+            });
+        };
+        this.getByID = function (id) {
+            $http.get('/users' + id).then(function success(res) {
+                return res;
+            }, function error(res) {
+                return res;
+            });
+        };
+        this.getMe = function () {
 
-            },
-            modifyRole: function (user, role) {
-
-            },
-            signUp: function (fullName, password, userName) {
-
-            },
-            updateInformation: function (fullName, userName) {
-
-            },
-            updatePassword: function (newPassword, oldPassword) {
-
-            }
+        };
+        this.modifyRole = function (user, role) {
+            $http.post('/users/' + user.id, {
+                'role': {
+                    'id': role.id
+                }
+            }).then(function success(res) {
+                return true;
+            }, function error(res) {
+                return false;
+            });
+        };
+        this.signUp = function (fullName, password, userName) {
+            $http.post('/users', {
+                'fullName': fullName,
+                'userName': userName,
+                'password': password
+            }).then(function success(res) {
+                return true;
+            }, function error(res) {
+                return false;
+            });
+        };
+        this.updateInformation = function (fullName, userName) {
+            $http.post('/users/me', {
+                'fullName': fullName,
+                'userName': userName
+            }).then(function success(res) {
+                return true;
+            }, function error(res) {
+                return false;
+            });
+        };
+        this.updatePassword = function (newPassword, oldPassword) {
+            $http.post('/users/me', {
+                'newPassword': newPassword,
+                'oldPassword': oldPassword
+            }).then(function success(res) {
+                return true;
+            }, function error(res) {
+                return false;
+            });
         };
     }]);
 

@@ -1,20 +1,24 @@
 
-angular.module('QuestionnaireService', []).factory('QuestionnaireService', ['$http', function ($http) {
-        return {
-            delete: function (questionnaire) {
+angular.module('QuestionnaireService', []).service('QuestionnaireService', ['$http', function ($http) {
+        this.delete = function (questionnaire) {
+            $http.delete('/questionnaire/' + questionnaire.id).then(function success(response) {
+                console.log(response);
+                return true;
+            }, function error(response) {
+                console.log(response);
+                return false;
+            });
+        };
+        this.get = function (author, tags, title) {
 
-            },
-            get: function (author, tags , title) {
+        };
+        this.getByID = function (id) {
 
-            },
-            getByID: function (id) {
+        };
+        this.modify = function (questionnaire) {
 
-            },
-            modify: function (questionnaire) {
+        };
+        this.new = function (questionnaire) {
 
-            },
-            new : function (questionnaire) {
-
-            }
         };
     }]);

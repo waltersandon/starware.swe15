@@ -1,21 +1,19 @@
 
-angular.module('QuestionService', []).factory('QuestionService', ['$http', function ($http) {
-        return {
-            delete: function (question) {
+angular.module('QuestionService', []).service('QuestionService', ['$http', function ($http) {
+        this.delete = function (question) {
 
-            },
-            get: function (author, keywords, tags) {
+        };
+        this.get = function (author, keywords, tags) {
 
-            },
-            getByID: function (id) {
+        };
+        this.getByID = function (id) {
 
-            },
-            modify: function (question) {
+        };
+        this.modify = function (question) {
 
-            },
-            new: function (question) {
+        };
+        this.new = function (question) {
 
-            }
         };
     }]);
 

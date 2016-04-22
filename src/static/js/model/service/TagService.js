@@ -1,21 +1,19 @@
 
-angular.module('TagService', []).factory('TagService', ['$http', function ($http) {
-        return {
-            delete: function (tag) {
+angular.module('TagService', []).service('TagService', ['$http', function ($http) {
+        this.delete = function (tag) {
 
-            },
-            get: function (keywords) {
+        };
+        this.get = function (keywords) {
 
-            },
-            getByID: function (id) {
+        };
+        this.getByID = function (id) {
+            
+        };
+        this.modify = function (tag) {
 
-            },
-            modify: function (tag) {
+        };
+        this.new = function (tag) {
 
-            },
-            new: function (tag) {
-
-            }
         };
     }]);
 
