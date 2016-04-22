@@ -31,64 +31,34 @@
 <div ng-app="myApp" ng-controller="UsersList">
     <div class="container">
         <h2>Lista Utenti</h2>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>UserName</th>
-                <th>FullName</th>
-                <th>Ruolo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="success">
-                <td>John</td>
-                <td>Doe</td>
-                <td>Insegnate</td>
-            </tr>
-            <tr class="danger">
-                <td>Mary</td>
-                <td>Moe</td>
-                <td>Studentem</td>
-            </tr>
-            </tbody>
-        </table>
 
-        <table class="table table-striped">
+        <table class="table table-striped table-hover ">
             <thead>
             <tr>
                 <th>UserName</th>
                 <th>FullName</th>
                 <th>Ruolo</th>
-                <th>Up</th>
-                <th>Down</th>
+                <th style="text-align: center">Up/Down</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>jDoe</td>
-                <td>John Doe</td>
-                <td>Insegnate</td>
-                <td><a href="#" class="btn btn-info btn-lg">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                </a>
+                <td style="vertical-align:middle">jDoe</td>
+                <td style="vertical-align:middle">John Doe</td>
+                <td style="vertical-align:middle">Insegnate</td>
+                <td style="text-align: center">
+                    <a href="javascript:void(0)" class="btn btn-raised btn-success"><span class="glyphicon glyphicon-menu-up" aria-hidden="true" ></span></a>
+                    <a href="javascript:void(0)" class="btn btn-raised btn-danger"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
                 </td>
-                <td><a href="#" class="btn btn-info btn-lg">
-                    <span class="glyphicon glyphicon-minus-sign"></span>
-                </a></td>
+
             </tr>
             <tr>
-                <td>mMoe</td>
-                <td>Mary Moe</td>
-                <td>Studente</td>
-                <td>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-plus-sign"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-minus-sign"></span>
-                    </a>
+                <td style="vertical-align:middle;">mMoe</td>
+                <td style="vertical-align:middle;">Mary Moe</td>
+                <td style="vertical-align:middle;">Studente</td>
+                <td style="text-align: center">
+                    <a href="javascript:void(0)" class="btn btn-raised btn-success"><span class="glyphicon glyphicon-menu-up" aria-hidden="true" ></span></a>
+                    <a href="javascript:void(0)" class="btn btn-raised btn-danger"><span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
                 </td>
             </tr>
             </tbody>
