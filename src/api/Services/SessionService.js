@@ -1,7 +1,4 @@
-/**
- * Created by alessio on 26/03/16.
- */
-
+var User = require('./../data/User');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -16,12 +13,16 @@ function SessionService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.login = function(req,res,next){
-        if(!req.session.role) {//mail e password iuste
-            req.session.role = "User";
-            console.log("dd");
-        }
-        res.send(true);
+    this.login = function(req, res, next){
+        var userName = req.body.userName;
+        var password = req.body.password;
+        User.findOne({ userName: userName }).populate('role').exec(function(err, user) {
+            if (user && user.isActive && new User(user).hasPassword(password)) {
+                req.session.user = user;
+                res.json(user);
+            }
+            else res.json({ code: 401, error: "Credenziali incorrette" });
+        });
     };
 
     /**
@@ -32,13 +33,9 @@ function SessionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.logout = function(req,res,next){
-        console.log("logout");
+        req.session.user = null;
     };
-
-
 
 }
 
-
 module.exports = SessionService;
-

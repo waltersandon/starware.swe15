@@ -1,8 +1,10 @@
 var Authorization = require('./Authorization');
 var Router = require('./Router');
 var ErrorHandler = require('./ErrorHandler');
+
 var express = require('express');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 var cookieParser = require('cookie-parser');
 
 /**
@@ -17,6 +19,11 @@ function Loader(app) {
     app.use(cookieParser());
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({extended: true}));
+    app.use(session({
+        secret: 'a4f8071f-c873-4447-8ee2',
+        resave: false,
+        saveUninitialized: false
+    }));
 
     this.authorization = new Authorization();
     this.error = new ErrorHandler();

@@ -1,13 +1,13 @@
 var express = require('express');
-var session = require('express-session');
+
+var Configuration = require('./../app/Configuration');
+
 var UserService = require('../services/UserService');
 var QuestionService = require('../services/QuestionService');
 var QuestionnaireService = require('../services/QuestionnaireService');
 var SessionService = require('../services/SessionService');
 var TagService = require('../services/TagService');
 var RoleService = require('../services/RoleService');
-
-
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -25,13 +25,6 @@ function Router(auth, error) {
     this.tagService = new TagService();
     this.roleService = new RoleService();
 
-    //Sessioni
-    this.router.use(session({
-        resave: false, // don't save session if unmodified
-        saveUninitialized: true, // don't create session until something stored
-        secret: 'honkey cat'
-    }));
-
     //login & logout
     this.router.post("/session",this.sessionService.login);
     this.router.delete("/session",this.sessionService.logout);
@@ -41,9 +34,9 @@ function Router(auth, error) {
     this.router.get('/users/me',auth.requireUser, this.userService.getMe);
     this.router.get('/users/:id',auth.requireAdmin,this.userService.getByID);
     this.router.post('/users',auth.requireUser,this.userService.new);
-    this.router.post('/users/me',auth.requireUser,this.userService.modifyUser);
-    this.router.delete('/users/:id',auth.requireAdmin,this.userService.deleteUser);
-    this.router.post('/users/:id',auth.requireAdmin,this.userService.changeRole);
+    this.router.post('/users/me',auth.requireUser,this.userService.modifyMe);
+    this.router.post('/users/:id',auth.requireUser,this.userService.modify);
+    this.router.delete('/users/:id',auth.requireAdmin,this.userService.delete);
 
     //Routing question request
     this.router.get('/questions',auth.requireTeacher,this.questionService.get);
