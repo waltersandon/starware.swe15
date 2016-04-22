@@ -1,7 +1,6 @@
 var Question = require('./../data/Question');
 
 
-
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
@@ -16,12 +15,24 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req,res,next){
-        Question.find({},function(err,quest){
-            if(err){
-                return next({code:404, error:"Domande non trovate"});
-            }
+        this.query = {};
+        if(req.query.keywords) {
+            //this.keywords = req.query.keywords.split("|");
+            this.rex = "\\b("+req.query.keywords+")\\b";
+            this.query.body = new RegExp(this.rex, 'i');
+        }
+        if(req.query.author){
+            this.query.author = req.query.author;
+        }
+        if(req.query.tags) {
+            this.tags = req.query.tags.split("|");
+            this.query.tags = {"$in": this.tags};
+        }
+        Question.find(this.query).populate('tags').exec( function(err, quest){
+            if(err) next({code:404, error:"Domande non trovate"});
             res.send(quest);
         });
+        console.log("getQuestions");
     };
 
     /**
@@ -32,7 +43,7 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Question.findById(req.params.id,function(err,quest){
+        Question.findById(req.params.id).populate('tags').exec(function(err,quest){
             if(err){
                 return next({code:404, error:"Domanda non trovata"});
             }
@@ -67,7 +78,7 @@ function QuestionService() {
     this.modify = function(req,res,next){
         this.quest = new Question(req.body);
         this.quest._id = req.params.id;
-        Question.findByIdAndUpdate(req.params.id, quest, {overwrite: true}, function (err) {
+        Question.findByIdAndUpdate(req.params.id, quest, function (err) {
             if (err) next({code:404, error:"Domanda non valida"});
             res.send();
         });

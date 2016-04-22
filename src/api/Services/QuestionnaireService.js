@@ -15,11 +15,13 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Questionnaire.findById(req.params.id,function(err, quest){
-            if(err){
-                return next({code:404, error:"Questionario non trovati"});
-            }
-            res.send(quest);
+        Questionnaire.findById(req.params.id)
+            .populate("author")
+            .populate("question")
+            .populate("tags")
+            .exec(function(err, quest){
+            if(err) next({code:404, error:"Questionario non trovati"});
+            res.json(quest);
         });
     };
 
@@ -31,11 +33,24 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req,res,next){
-        Questionnaire.find({}, function(err, quest){
-            if(err){
-                return next({code:404, error:"Questionari non trovato"});
-            }
-            res.send(quest);
+        this.query = {};
+        if(req.query.title){
+            this.query.title = new RegExp(req.query.title, 'i');
+        }
+        if(req.query.author){
+            this.query.author = req.query.author;
+        }
+        if(req.query.tags) {
+            this.tags = req.query.tags.split("|");
+            this.query.tags = {"$in": this.tags};
+        }
+        Questionnaire.find(this.query)
+            .populate("author")
+            .populate("question")
+            .populate("tags")
+            .exec(function(err, quest){
+            if(err) next({code:404, error:"Questionari non trovato"});
+            res.json(quest);
         });
     };
 
@@ -65,7 +80,7 @@ function QuestionnaireService() {
     this.modify = function(req,res,next){
         this.newQuest = new Questionnaire(req.body);
         this.newQuest._id = req.params.id;
-        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err, tank) {
+        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err) {
             if (err) next({code:404, error:"Questionario non valido"});
             res.send();
         });
@@ -84,8 +99,6 @@ function QuestionnaireService() {
             res.send();
         });
     };
-
-
 
 }
 

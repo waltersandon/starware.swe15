@@ -12,7 +12,7 @@ var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: false
+        required: true
     },
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
