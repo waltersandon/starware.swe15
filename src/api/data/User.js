@@ -39,16 +39,4 @@ UserSchema.pre('save', function(next) {
     next();
 });
 
-// JSON formatting
-UserSchema.options.toJSON = {
-    transform : function(doc, ret, options) {
-        return {
-            id: ret._id,
-            fullName: ret.fullName,
-            userName: ret.userName,
-            role: { href: "/api/roles/"+ret.role+"/" }
-        };
-    }
-};
-
 module.exports = User;

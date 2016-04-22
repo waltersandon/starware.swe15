@@ -16,6 +16,7 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req,res,next){
+
         Question.find({},function(err,quest){
             if(err){
                 return next({code:404, error:"Domande non trovate"});
