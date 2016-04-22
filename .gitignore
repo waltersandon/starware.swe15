@@ -16,3 +16,4 @@
 *.vpp~*
 .DS_Store
 .texpadtmp
+src/node_modules
