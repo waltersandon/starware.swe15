@@ -15,12 +15,8 @@ function RoleService() {
      */
     this.get = function(req,res,next){
         Role.find({},function(err,role){
-            if(err){
-                return next({code:404, error:"Ruoli non trovato"});
-            }
             res.send(role);
         });
-        console.log("getRoles");
     };
 
 
@@ -33,15 +29,12 @@ function RoleService() {
      */
     this.getByID = function(req,res,next){
         Role.findById(req.params.id,function(err,role){
-            if(err){
-                return next({code:404, error:"Ruolo non trovato"});
-            }
+            if (!role)
+                return res.status(404).json({ error:"Ruolo non trovato" });
             res.send(role);
         });
-        console.log("getRole");
     };
 }
 
 
 module.exports = RoleService;
-

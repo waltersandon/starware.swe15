@@ -21,7 +21,7 @@ function SessionService() {
                 req.session.user = user;
                 res.json(user);
             }
-            else res.json({ code: 401, error: "Credenziali incorrette" });
+            else res.status(400).json({ , error: "Credenziali incorrette" });
         });
     };
 

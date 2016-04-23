@@ -1,4 +1,5 @@
 var User = require('./../data/User');
+var UserCheck = require('./../validator/UserCheck');
 var Role = require('./../data/Role');
 
 /**
@@ -15,7 +16,7 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req, res, next){
-        User.find({}).exec(function(err, users){
+        User.find({}).exec(function(err, users) {
             res.json(users);
         });
     };
@@ -29,6 +30,8 @@ function UserService() {
      */
     this.getByID = function(req, res, next){
         User.findById(req.params.id, function(err, user) {
+            if (!user)
+                return res.status(404).json({ error: 'Utente non esistente' });
             res.json(user);
         });
     };
@@ -42,6 +45,8 @@ function UserService() {
      */
     this.getMe = function(req, res, next){
         User.findById(req.session.user._id, function(err, user) {
+            if (!user)
+                return res.status(404).json({ error: 'Utente non esistente' });
             res.json(user);
         });
     };
@@ -53,15 +58,25 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.new = function(req, res, next){
+    this.new = function(req, res, next) {
         Role.findOne({ name: 'student' }).exec(function(err, role) {
+            var check = new UserCheck();
+            if (!check.checkFullName(req.body.fullName))
+                return res.status(400).json({ error: 'Nome completo non valido' });
+            if (!check.checkUserName(req.body.userName))
+                return res.status(400).json({ error: 'Nome utente non valido' });
+            if (!check.checkUniqueUserName(req.body.userName))
+                return res.status(400).json({ error: 'Nome utente già esistente' });
+            if (!check.checkPassword(req.body.password))
+                return res.status(400).json({ error: 'Password troppo corta' });
+            if (!role)
+                return res.status(400).json({ error: 'Ruolo non trovato' })
             var user = new User({
                 fullName: req.body.fullName,
                 userName: req.body.userName,
                 password: req.body.password,
                 role: role._id
             });
-            console.log(user);
             user.save(function(err) {
                 res.sendStatus(200);
             });
@@ -81,6 +96,8 @@ function UserService() {
             { 
                 role: req.body.role.id 
             }, function(err, user) {
+                if (!user)
+                    return res.status(404).json({ error: 'Utente non esistente' });
                 req.sendStatus(200);
             }
         );
@@ -95,23 +112,30 @@ function UserService() {
      *
      */
     this.modifyMe = function(req, res, next){
-        console.log(req.body);
         if (req.body.fullName || req.body.userName) {
             User.findByIdAndUpdate(req.session.user._id, 
                 { 
                     fullName: req.body.fullName,
                     userName: req.body.userName
                 }, function(err, user) {
+                    if (!user)
+                        return res.status(404).json({ error: 'Utente non esistente' });
                     req.sendStatus(200);
                 }
             );
         } else if (req.body.oldPassword || req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
-                return next({ code: 401, error: "Password specificata incorretta" });
+                return res.status(400).json({ error: "Password specificata incorretta" });
+
+            var check = new UserCheck();
+            if (check.checkPassword(req.body.newPassword))
+                return res.status(400).json({ error: "Nuova password non valida" });
             User.findByIdAndUpdate(req.session.user._id, 
                 {
                     password: req.body.newPassword
                 }, function(err, user) {
+                    if (!user)
+                        return res.status(404).json({ error: 'Utente non esistente' });
                     req.sendStatus(200);
                 }
             );
@@ -130,6 +154,8 @@ function UserService() {
             {
                 isActive: false
             }, function(err, user) {
+                if (!user)
+                    return res.status(404).json({ error: 'Utente non esistente' });
                 res.sendStatus(200);
             }
         );
@@ -139,4 +165,3 @@ function UserService() {
 
 
 module.exports = UserService;
-

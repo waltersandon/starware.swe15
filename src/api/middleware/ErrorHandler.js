@@ -14,6 +14,7 @@ function ErrorHandler() {
      */
     this.handler = function(err,req,res,next){
         //da discriminare se è un errore server o client
+        
         res.send(err);
     };
 
