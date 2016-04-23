@@ -14,6 +14,10 @@ function QuestionnaireCheck() {
     this.checkTitle = function(title){
         return (title.length !== 0);
     };
+
+    this.checkTags = function(tagsArray){
+        return (typeof tagsArray !== 'undefined' && questionArray.length > 0);
+    };
 }
 
 
