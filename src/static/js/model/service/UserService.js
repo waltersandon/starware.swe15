@@ -1,82 +1,119 @@
+$(function () {
+    angular.module('UserServiceModule', ['UserModule']).service('UserService', ['$http', 'User', function ($http, User) {
+            this.delete = function (user) {
+                var ret;
 
-angular.module('UserServiceModule', ['UserModule']).service('UserService', ['$http', 'User', function ($http, User) {
-        this.delete = function (user) {
-            $http.delete('/users/' + user.id).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.get = function (fullName, userName) {
-            $http.get('/users', {
-                'fullName': fullName,
-                'userName': userName
-            }).then(function success(res) {
-                var a = [];
-                res.forEach(function (item) {
-                    a.push(new User(item.id, item.fullName, item.role, item.userName));
+                $http.delete('api/users/' + user.id).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = false;
                 });
-                return a;
-            }, function error(res) {
-                return res;
-            });
-        };
-        this.getByID = function (id) {
-            $http.get('/users/' + id).then(function success(res) {
-                return new User(res.id, res.fullName, res.role, res.userName);
-            }, function error(res) {
-                return res;
-            });
-        };
-        this.getMe = function () {
-            $http.get('/users/me').then(function success(res) {
-                return new User(res.id, res.fullName, res.role, res.userName);
-            }, function error(res) {
-                return res;
-            });
-        };
-        this.modifyRole = function (user, role) {
-            $http.post('/users/' + user.id, {
-                'role': {
-                    'id': role.id
-                }
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.signUp = function (fullName, password, userName) {
-            $http.post('/users', {
-                'fullName': fullName,
-                'userName': userName,
-                'password': password
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.updateInformation = function (fullName, userName) {
-            $http.post('/users/me', {
-                'fullName': fullName,
-                'userName': userName
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.updatePassword = function (newPassword, oldPassword) {
-            $http.post('/users/me', {
-                'newPassword': newPassword,
-                'oldPassword': oldPassword
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-    }]);
 
+                return ret;
+            };
+            this.get = function (fullName, userName) {
+                var ret = [];
 
+                $http.get('api/users', {
+                    'fullName': fullName,
+                    'userName': userName
+                }).then(function success(res) {
+                    res.forEach(function (item) {
+                        ret.push(new User(item.fullName, item.id, item.role, item.userName));
+                    });
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = res;
+                });
+
+                return ret;
+            };
+            this.getByID = function (id) {
+                var ret;
+
+                $http.get('api/users/' + id).then(function success(res) {
+                    ret = new User(res.fullName, res.id, res.role, res.userName);
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = res;
+                });
+
+                return ret;
+            };
+            this.getMe = function () {
+                var ret;
+
+                $http.get('api/users/me').then(function success(res) {
+                    ret = new User(res.fullName, res.id, res.role, res.userName);
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = res;
+                });
+
+                return ret;
+            };
+            this.modifyRole = function (user, role) {
+                var ret;
+
+                $http.post('api/users/' + user.id, {
+                    'role': {
+                        'id': role.id
+                    }
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = false;
+                });
+
+                return ret;
+            };
+            this.signUp = function (fullName, password, userName) {
+                var ret;
+
+                $http.post('api/users', {
+                    'fullName': fullName,
+                    'userName': userName,
+                    'password': password
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = false;
+                });
+
+                return ret;
+            };
+            this.updateInformation = function (fullName, userName) {
+                var ret;
+
+                $http.post('api/users/me', {
+                    'fullName': fullName,
+                    'userName': userName
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = false;
+                });
+
+                return ret;
+            };
+            this.updatePassword = function (newPassword, oldPassword) {
+                var ret;
+
+                $http.post('api/users/me', {
+                    'newPassword': newPassword,
+                    'oldPassword': oldPassword
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res.error);
+                    ret = false;
+                });
+
+                return ret;
+            };
+        }]);
+});

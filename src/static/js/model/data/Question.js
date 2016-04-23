@@ -1,10 +1,11 @@
- 
-angular.module('QuestionModule', []).factory('Question', function() {
-    function Question(author, body, id, tags) {
-        this.author = author;
-        this.body = body;
-        this.id = id;
-        this.tags = tags;
-    }
-    return Question;
+$(function () {
+    angular.module('QuestionModule', []).factory('Question', function () {
+        function Question(author, body, id, tags) {
+            this.author = author;
+            this.body = body;
+            this.id = id;
+            this.tags = tags;
+        }
+        return Question;
+    });
 });
