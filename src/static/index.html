@@ -1,51 +1,36 @@
-<html>
-    <head><title>ciao</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script></head>
-    <body>
-        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        <form method="post" action="/profile">
-            <input type="text" name="name" id="name" />
-            <input type="password" name="password" id="password" />
-            <input type="button" value="daghine" id="btn"/>
-        </form>
-        <script>
+<!DOCTYPE html>
+<html ng-app='quizzipediaApp'>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-            $("#btn").click(function () {
-                var obj = {
-                    user: $("#name").val(),
-                    password: $("#password").val()
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "/login",
-                    dataType: "json",
-                    data: obj,
-                    success: function (data) {
-                        alert(data);
-                    }
-                });
-            });
-        </script>
+        <title>Quizzipedia</title>
 
-        <div ng-app="myApp" ng-controller="myCtrl">
+        <!-- Material Design fonts -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' type='text/css'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 
-            <p>Today's welcome message is:</p>
-            <h1>{{myWelcome}}</h1>
+        <!-- jQuery -->
+        <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 
-        </div>
+        <!-- Bootstrap -->
+        <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet'>
+        <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 
-        <script>
-            var app = angular.module('myApp', []);
-            app.controller('myCtrl', function ($scope, $http) {
-                $http({
-                    method: "POST",
-                    url: "/login"
-                }).then(function mySucces(response) {
-                    $scope.myWelcome = response.data;
-                }, function myError(response) {
-                    $scope.myWelcome = response.statusText;
-                });
-            });
-        </script>
+        <!-- Bootstrap Material Design -->
+        <link href='css/bootstrap-material-design.min.css' rel='stylesheet'>
+        <script src='js/material.min.js'></script>
+
+        <!-- AngularJS -->
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js' defer></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js' defer></script>
+        
+        <script src='js/index.js'></script>
+        <script src='js/controller/LogIn.js'></script>
+        <script src='js/model/service/SessionService.js'></script>
+    </head>
+    <body ng-controller='quizzipediaController'>
+        <div ng-view></div>
     </body>
 </html>

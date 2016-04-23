@@ -1,54 +1,78 @@
+$(function () {
+    angular.module('QuestionService', ['QuestionModule']).service('QuestionService', ['$http', 'Question', function ($http, Question) {
+            this.delete = function (question) {
+                var ret;
 
-angular.module('QuestionService', ['QuestionModule']).service('QuestionService', ['$http', 'Question', function ($http, Question) {
-        this.delete = function (question) {
-            $http.delete('/questions/' + question.id).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.get = function (author, keywords, tags) {
-            $http.get('/questions', {
-                'author': author,
-                'keywords': keywords,
-                'tags': tags
-            }).then(function success(res) {
-                var a = [];
-                res.forEach(function (item) {
-                    a.push(new Question(item.author, item.body, item.id, item.tags));
+                $http.delete('api/questions/' + question.id).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res);
+                    ret = false;
                 });
-                return a;
-            }, function error(res) {
-                return res;
-            });
-        };
-        this.getByID = function (id) {
-            $http.get('/questions/' + id).then(function success(res) {
-                return new Question(res.author, res.body, res.id, res.tags);
-            }, function error(res) {
-                return res;
-            });
-        };
-        this.modify = function (question) {
-            $http.put('/questions/' + question.id, {
-                'author': question.author,
-                'body': question.body,
-                'tags': question.tags
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-        this.new = function (question) {
-            $http.post('/questionnaires', {
-                'author': question.author,
-                'body': question.body,
-                'tags': question.tags
-            }).then(function success(res) {
-                return true;
-            }, function error(res) {
-                return false;
-            });
-        };
-    }]);
+
+                return ret;
+            };
+            this.get = function (author, keywords, tags) {
+                var ret = [];
+
+                $http.get('api/questions', {
+                    'author': author,
+                    'keywords': keywords,
+                    'tags': tags
+                }).then(function success(res) {
+                    res.forEach(function (item) {
+                        ret.push(new Question(item.author, item.body, item.id, item.tags));
+                    });
+                }, function error(res) {
+                    console.log(res);
+                    ret = res;
+                });
+
+                return ret;
+            };
+            this.getByID = function (id) {
+                var ret;
+
+                $http.get('api/questions/' + id).then(function success(res) {
+                    ret = new Question(res.author, res.body, res.id, res.tags);
+                }, function error(res) {
+                    console.log(res);
+                    ret = res;
+                });
+
+                return ret;
+            };
+            this.modify = function (question) {
+                var ret;
+
+                $http.put('api/questions/' + question.id, {
+                    'author': question.author,
+                    'body': question.body,
+                    'tags': question.tags
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res);
+                    ret = false;
+                });
+
+                return ret;
+            };
+            this.new = function (question) {
+                var ret;
+
+                $http.post('api/questionnaires', {
+                    'author': question.author,
+                    'body': question.body,
+                    'tags': question.tags
+                }).then(function success(res) {
+                    ret = true;
+                }, function error(res) {
+                    console.log(res);
+                    ret = false;
+                });
+
+                return ret;
+            };
+        }]);
+});
