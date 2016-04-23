@@ -1,5 +1,5 @@
 
-angular.module('SessionService', []).service('SessionService', ['$http', function ($http) {
+angular.module('SessionServiceModule', []).service('SessionService', ['$http', function ($http) {
         this.login = function (password, userName) {
             $http.post('/session', {
                 'password': password,

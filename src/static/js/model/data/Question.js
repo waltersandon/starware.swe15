@@ -1,5 +1,5 @@
  
-angular.module('Question', []).factory('Question', function() {
+angular.module('QuestionModule', []).factory('Question', function() {
     function Question(author, body, id, tags) {
         this.author = author;
         this.body = body;

@@ -1,5 +1,5 @@
 
-angular.module('CurrentQuestionnaire', ['QuestionService']).factory('CurrentQuestionnaire', ['QuestionService', function (QuestionService) {
+angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule']).factory('CurrentQuestionnaire', ['QuestionService', function (QuestionService) {
     function CurrentQuestionnaire(questionnaire) {
         this.currentNumber = 0;
         this.questionNumber = questionnaire.length;
@@ -12,9 +12,13 @@ angular.module('CurrentQuestionnaire', ['QuestionService']).factory('CurrentQues
         this.questions = q;
         this.tags = questionnaire.tags;
     }
-
     CurrentQuestionnaire.prototype.checkAnswers = function () {
-
+        this.questions.forEach(function (item) {
+            if (item === null) {
+                return false;
+            }
+        });
+        return true;
     };
     CurrentQuestionnaire.prototype.getNext = function () {
         if (this.currentNumber < this.questionNumber - 1) {

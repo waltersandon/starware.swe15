@@ -15,7 +15,7 @@ angular.module('QuestionService', ['QuestionModule']).service('QuestionService',
             }).then(function success(res) {
                 var a = [];
                 res.forEach(function (item) {
-                    a.push(new Question(item.author, item.id, item.keywords, item.tags));
+                    a.push(new Question(item.author, item.body, item.id, item.tags));
                 });
                 return a;
             }, function error(res) {
@@ -24,7 +24,7 @@ angular.module('QuestionService', ['QuestionModule']).service('QuestionService',
         };
         this.getByID = function (id) {
             $http.get('/questions/' + id).then(function success(res) {
-                return new Question(res.author, res.id, res.keywords, res.tags);
+                return new Question(res.author, res.body, res.id, res.tags);
             }, function error(res) {
                 return res;
             });

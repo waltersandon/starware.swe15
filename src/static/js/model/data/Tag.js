@@ -1,5 +1,5 @@
  
-angular.module('Tag', []).factory('Tag', function() {
+angular.module('TagModule', []).factory('Tag', function() {
     function Tag(description, id, name, parent) {
         this.description = description;
         this.id = id;

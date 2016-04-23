@@ -1,5 +1,5 @@
 
-angular.module('TagService', ['TagModule']).service('TagService', ['$http', 'Tag', function ($http, Tag) {
+angular.module('TagServiceModule', ['TagModule']).service('TagService', ['$http', 'Tag', function ($http, Tag) {
         this.delete = function (tag) {
             $http.delete('/tags/' + tag.id).then(function success(res) {
                 return true;

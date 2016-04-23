@@ -1,5 +1,5 @@
 
-angular.module('RoleService', ['RoleModule']).service('RoleService', ['$http', 'Role', function ($http, Role) {
+angular.module('RoleServiceModule', ['RoleModule']).service('RoleService', ['$http', 'Role', function ($http, Role) {
         this.delete = function (role) {
             $http.delete('/roles/' + role.id).then(function success(res) {
                 return true;
