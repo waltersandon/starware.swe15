@@ -1,4 +1,5 @@
 var User = require('./../data/User');
+var ErrorHandler = require('./../middleware/ErrorHandler');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -16,13 +17,13 @@ function SessionService() {
     this.login = function(req, res, next){
         var userName = req.body.userName;
         var password = req.body.password;
-        User.findOne({ userName: userName }).populate('role').exec(function(err, user) {
+        User.findOne({ userName: userName }).exec(ErrorHandler(res, function(user) {
             if (user && user.isActive && new User(user).hasPassword(password)) {
                 req.session.user = user;
                 res.json(user);
             }
-            else res.json({ code: 401, error: "Credenziali incorrette" });
-        });
+            else res.sendStatus(400);
+        }));
     };
 
     /**
