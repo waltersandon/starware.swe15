@@ -58,11 +58,15 @@ function QuestionnaireService() {
      */
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
-        if(QuestionnaireCheck.q)
-        this.quest.save(function(err){
-            if(err) next(err);
-            res.send();
-        });
+        this.check = new QuestionnaireCheck();
+        if(check.checkQuestions(this.quest.questions) && check.checkTags(this.quest.tags)){
+            this.quest.save(function(err){
+                if(err) next(err);
+                res.send();
+            });    
+        }else{
+            next(400);
+        }
     };
 
     /**
@@ -73,10 +77,15 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(err);
-            res.send();
-        });
+        this.check = new QuestionnaireCheck();
+        if(check.checkQuestions(req.body.questions) && check.checkTags(req.body.tags)){
+            Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
+                if (err) next(err);
+                res.send();
+            });
+        }else{
+            next(400);
+        }
     };
 
     /**

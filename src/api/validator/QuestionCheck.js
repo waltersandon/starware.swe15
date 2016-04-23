@@ -1,5 +1,3 @@
-var markdown = require("markdown").markdown;
-
 /**
  * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Question
  * @constructor
@@ -45,8 +43,6 @@ function QuestionCheck() {
             return true;
         };
     };
-
-    console.log( markdown.toHTML( "Hello *World*!" ) );
 }
 
 

@@ -24,20 +24,20 @@ var QuestionnaireSchema = new mongoose.Schema({
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question',
-        required: true,
+        required: true/*,
         validate: {
             validator: check.checkQuestions,
             message: 'La lista delle domande non può essere vuota'
-        }
+        }*/
     }],
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',
         required: true,
-        validate: {
+        /*validate: {
             validator: check.checkTags,
             message: 'La lista degli argomenti non può essere vuota'
-        }
+        }*/
     }]
 });
 
