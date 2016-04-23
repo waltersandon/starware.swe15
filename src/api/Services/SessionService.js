@@ -1,5 +1,4 @@
 var User = require('./../data/User');
-var ErrorHandler = require('./../middleware/ErrorHandler');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -17,13 +16,14 @@ function SessionService() {
     this.login = function(req, res, next){
         var userName = req.body.userName;
         var password = req.body.password;
-        User.findOne({ userName: userName }).exec(ErrorHandler(res, function(user) {
+        User.findOne({ userName: userName }).exec(function(err, user) {
+            if (err) next(err);
             if (user && user.isActive && new User(user).hasPassword(password)) {
                 req.session.user = user;
                 res.json(user);
             }
-            else res.sendStatus(400);
-        }));
+            else next(401);
+        });
     };
 
     /**

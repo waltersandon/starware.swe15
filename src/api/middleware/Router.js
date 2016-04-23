@@ -62,6 +62,9 @@ function Router(auth, error) {
     //Routing role requests
     this.router.get('/roles',auth.requireAdmin,this.roleService.get);
     this.router.get('/roles/:id',auth.requireUser,this.roleService.getByID);
+
+    // Error handler
+    this.router.use(error.handler);
     
 }
 

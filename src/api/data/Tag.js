@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var TagCheck = require('./../validator/TagCheck');
 var check = new TagCheck();
 
-var Tag = mongoose.model('Tag', new mongoose.Schema({
+var TagSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -21,6 +21,20 @@ var Tag = mongoose.model('Tag', new mongoose.Schema({
         ref: 'Tag',
         required: false
     }
-}));
+});
 
+/* Metodo che viene chiamato quando è necessario restituire
+ * una domanda in formato JSON all'esterno
+ */
+TagSchema.options.toJSON = {
+    transform: function(doc, ret, options) {
+        console.log(ret);
+        if (ret.parent)
+            ret.parent = { href: '/api/tags/' + ret.parent + '/' };
+        delete ret.__v;
+        return ret;
+    }
+};
+
+var Tag = mongoose.model('Tag', TagSchema);
 module.exports = Tag;

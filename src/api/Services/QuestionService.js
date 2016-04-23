@@ -28,11 +28,10 @@ function QuestionService() {
             this.tags = req.query.tags.split("|");
             this.query.tags = {"$in": this.tags};
         }
-        Question.find(this.query).populate('tags').exec( function(err, quest){
-            if(err) next({code:404, error:"Domande non trovate"});
-            res.send(quest);
+        Question.find(this.query).exec(function(err, quest) {
+            if (err) next(err);
+            res.json(quest);
         });
-        console.log("getQuestions");
     };
 
     /**
@@ -43,11 +42,10 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Question.findById(req.params.id).populate('tags').exec(function(err,quest){
-            if(err){
-                return next({code:404, error:"Domanda non trovata"});
-            }
-            res.send(quest);
+        Question.findById(req.params.id).exec(function(err, quest){
+            if (err) next(err);
+            if(!quest) next(404);
+            res.json(quest);
         });
     };
 
@@ -61,10 +59,8 @@ function QuestionService() {
     this.new = function(req,res,next){
         this.quiz = new Question(req.body);
         this.quiz.save(function(err){
-            if(err)
-                next({code:404, error:"Domanda non valida"});
-            else
-                res.send();
+            if(err) next(err);
+            res.send();
         });
     };
 
@@ -76,10 +72,8 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        this.quest = new Question(req.body);
-        this.quest._id = req.params.id;
-        Question.findByIdAndUpdate(req.params.id, quest, function (err) {
-            if (err) next({code:404, error:"Domanda non valida"});
+        Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
+            if (err) next(err);
             res.send();
         });
     };
@@ -93,7 +87,7 @@ function QuestionService() {
      */
     this.delete = function(req,res,next){
         Question.findByIdAndRemove(req.params.id, function (err) {
-            if (err) next({code:404, error:"Domanda non trovata"});
+            if (err) next(err);
             res.send();
         });
     };
@@ -101,4 +95,3 @@ function QuestionService() {
 
 
 module.exports = QuestionService;
-

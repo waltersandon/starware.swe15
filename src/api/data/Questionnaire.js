@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 var QuestionnaireCheck = require('./../validator/QuestionnaireCheck');
 var check = new QuestionnaireCheck();
 
-var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
+var QuestionnaireSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -39,6 +39,24 @@ var Questionnaire = mongoose.model('Questionnaire', new mongoose.Schema({
             message: 'La lista degli argomenti non può essere vuota'
         }
     }]
-}));
+});
 
+/* Metodo che viene chiamato quando è necessario restituire
+ * una domanda in formato JSON all'esterno
+ */
+QuestionnaireSchema.options.toJSON = {
+    transform: function(doc, ret, options) {
+        ret.author = { href: '/api/users/' + ret.author + '/' };
+        ret.questions = ret.questions.map(function(question) {
+            return { href: '/api/questions/' + question + '/' };
+        });
+        ret.tags = ret.tags.map(function(tag) {
+            return { href: '/api/tags/' + tag + '/' };
+        });
+        delete ret.__v;
+        return ret;
+    }
+};
+
+var Questionnaire = mongoose.model('Questionnaire', QuestionnaireSchema);
 module.exports = Questionnaire;

@@ -15,12 +15,9 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Questionnaire.findById(req.params.id)
-            .populate("author")
-            .populate("question")
-            .populate("tags")
-            .exec(function(err, quest){
-            if(err) next({code:404, error:"Questionario non trovati"});
+        Questionnaire.findById(req.params.id).exec(function(err, quest){
+            if(err) next(err);
+            if (!quest) next(404);
             res.json(quest);
         });
     };
@@ -44,12 +41,9 @@ function QuestionnaireService() {
             this.tags = req.query.tags.split("|");
             this.query.tags = {"$in": this.tags};
         }
-        Questionnaire.find(this.query)
-            .populate("author")
-            .populate("question")
-            .populate("tags")
-            .exec(function(err, quest){
-            if(err) next({code:404, error:"Questionari non trovato"});
+        Questionnaire.find(this.query).exec(function(err, quest){
+            if(err) next(err);
+            if (!quest) next(404);
             res.json(quest);
         });
     };
@@ -65,7 +59,7 @@ function QuestionnaireService() {
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
         this.quest.save(function(err){
-            if(err) next({code:404, error:"Questionario non valido"});
+            if(err) next(err);
             res.send();
         });
     };
@@ -78,10 +72,8 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        this.newQuest = new Questionnaire(req.body);
-        this.newQuest._id = req.params.id;
-        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err) {
-            if (err) next({code:404, error:"Questionario non valido"});
+        Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
+            if (err) next(err);
             res.send();
         });
     };
@@ -94,14 +86,12 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
-        Questionnaire.findByIdAndRemove(req.params.id, function (err) {
-            if (err) next({code:404, error:"Questionario non trovato"});
+        Questionnaire.findByIdAndRemove(req.params.id, function(err) {
+            if (err) next(err);
             res.send();
         });
     };
 
 }
 
-
 module.exports = QuestionnaireService;
-

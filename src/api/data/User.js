@@ -68,9 +68,7 @@ UserSchema.methods.hasPassword = function(rawPassword) {
  */
 UserSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        ret.id = ret._id;
         ret.role = { href: '/api/roles/' + ret.role + '/' };
-        delete ret._id;
         delete ret.__v;
         delete ret.password;
         return ret;
