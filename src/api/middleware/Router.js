@@ -53,8 +53,8 @@ function Router(auth, error) {
     this.router.delete('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.delete);
 
     //Routing subject requests
-    this.router.get('/tags',auth.requireUser,this.tagService.getTags);
-    this.router.get('/tags/:id',auth.requireUser,this.tagService.getTag);
+    this.router.get('/tags',auth.requireUser,this.tagService.get);
+    this.router.get('/tags/:id',auth.requireUser,this.tagService.getByID);
     this.router.post('/tags',auth.requireTeacher,this.tagService.new);
     this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
     this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);

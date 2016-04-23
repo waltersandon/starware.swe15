@@ -34,13 +34,23 @@ function UserCheck() {
     };
 
     this.checkUniqueUserName = function(un){
-        var userOut;
+        //var userOut;
         User.find({ userName: un }, function(err, user) {
-            if (err) console.error(err);
-            userOut = user;
+            if (err) {
+                console.log('Signup error');
+                return true;
+            }
+            if (user.length!=0) {
+                console.log('Username already exists, username: ' + user);
+                return false;
+            }
+
         });
-        while (typeof(userOut) == "undefined");
-        return (!userOut);
+        //while (typeof(userOut) == "undefined");
+        //return (!userOut);
+
+
+
     };
 
 }
