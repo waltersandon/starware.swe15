@@ -1,6 +1,6 @@
 var User = require('./../data/User');
-var UserCheck = require('./../validator/UserCheck');
 var Role = require('./../data/Role');
+var ErrorHandler = require('./../middleware/ErrorHandler');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -16,9 +16,9 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req, res, next){
-        User.find({}).exec(function(err, users) {
+        User.find({}).exec(ErrorHandler(res, function(users) {
             res.json(users);
-        });
+        }));
     };
 
     /**
@@ -29,11 +29,10 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req, res, next){
-        User.findById(req.params.id, function(err, user) {
-            if (!user)
-                return res.status(404).json({ error: 'Utente non esistente' });
+        User.findById(req.params.id, ErrorHandler(res, function(user) {
+            if (!user) res.sendStatus(404);
             res.json(user);
-        });
+        }));
     };
 
     /**
@@ -44,11 +43,10 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getMe = function(req, res, next){
-        User.findById(req.session.user._id, function(err, user) {
-            if (!user)
-                return res.status(404).json({ error: 'Utente non esistente' });
+        User.findById(req.session.user._id, ErrorHandler(res, function(user) {
+            if (!user) return res.sendStatus(404);
             res.json(user);
-        });
+        }));
     };
 
     /**
@@ -59,28 +57,17 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req, res, next) {
-        Role.findOne({ name: 'student' }).exec(function(err, role) {
-            var check = new UserCheck();
-            if (!check.checkFullName(req.body.fullName))
-                return res.status(400).json({ error: 'Nome completo non valido' });
-            if (!check.checkUserName(req.body.userName))
-                return res.status(400).json({ error: 'Nome utente non valido' });
-            if (!check.checkUniqueUserName(req.body.userName))
-                return res.status(400).json({ error: 'Nome utente già esistente' });
-            if (!check.checkPassword(req.body.password))
-                return res.status(400).json({ error: 'Password troppo corta' });
-            if (!role)
-                return res.status(400).json({ error: 'Ruolo non trovato' })
+        Role.findOne({ name: 'student' }).exec(ErrorHandler(res, function(role) {
             var user = new User({
                 fullName: req.body.fullName,
                 userName: req.body.userName,
                 password: req.body.password,
                 role: role._id
             });
-            user.save(function(err) {
+            user.save(ErrorHandler(res, function() {
                 res.sendStatus(200);
-            });
-        });
+            }));
+        }));
     };
 
     /**
@@ -92,15 +79,12 @@ function UserService() {
      *
      */
     this.modify = function(req, res, next){
-        User.findByIdAndUpdate(req.params.id, 
-            { 
+        User.findByIdAndUpdate(req.params.id, { 
                 role: req.body.role.id 
-            }, function(err, user) {
-                if (!user)
-                    return res.status(404).json({ error: 'Utente non esistente' });
-                req.sendStatus(200);
-            }
-        );
+        }, ErrorHandler(res, function(user) {
+            if (!user) return res.sendStatus(404);
+            res.sendStatus(200);
+        }));
     };
 
     /**
@@ -113,32 +97,21 @@ function UserService() {
      */
     this.modifyMe = function(req, res, next){
         if (req.body.fullName || req.body.userName) {
-            User.findByIdAndUpdate(req.session.user._id, 
-                { 
+            User.findByIdAndUpdate(req.session.user._id, { 
                     fullName: req.body.fullName,
                     userName: req.body.userName
-                }, function(err, user) {
-                    if (!user)
-                        return res.status(404).json({ error: 'Utente non esistente' });
-                    req.sendStatus(200);
-                }
-            );
+            }, ErrorHandler(res, function(user) {
+                res.sendStatus(200);
+            }));
         } else if (req.body.oldPassword || req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
                 return res.status(400).json({ error: "Password specificata incorretta" });
-
-            var check = new UserCheck();
-            if (check.checkPassword(req.body.newPassword))
-                return res.status(400).json({ error: "Nuova password non valida" });
-            User.findByIdAndUpdate(req.session.user._id, 
-                {
+            User.findByIdAndUpdate(req.session.user._id, {
                     password: req.body.newPassword
-                }, function(err, user) {
-                    if (!user)
-                        return res.status(404).json({ error: 'Utente non esistente' });
-                    req.sendStatus(200);
-                }
-            );
+            }, ErrorHandler(res, function(user) {
+                if (!user) return res.sendStatus(404);
+                req.sendStatus(200);
+            }));
         }
     };
 
@@ -150,18 +123,14 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req, res, next){
-        User.findByIdAndUpdate(req.session.user._id, 
-            {
-                isActive: false
-            }, function(err, user) {
-                if (!user)
-                    return res.status(404).json({ error: 'Utente non esistente' });
-                res.sendStatus(200);
-            }
-        );
+        User.findByIdAndUpdate(req.session.user._id, {
+            isActive: false
+        }, ErrorHandler(res, function() {
+            if (!user) return res.sendStatus(404);
+            res.sendStatus(200);
+        }));
     };
 
 }
-
 
 module.exports = UserService;

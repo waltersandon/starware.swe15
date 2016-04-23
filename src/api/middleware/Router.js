@@ -63,10 +63,6 @@ function Router(auth, error) {
     this.router.get('/roles',auth.requireAdmin,this.roleService.get);
     this.router.get('/roles/:id',auth.requireUser,this.roleService.getByID);
     
-    //Error handler
-    this.router.use(error.handler);
-
-
 }
 
 module.exports = Router;

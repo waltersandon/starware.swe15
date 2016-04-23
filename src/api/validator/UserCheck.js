@@ -6,51 +6,16 @@ var User = require('./../data/User');
  */
 function UserCheck() {
 
-    this.checkFullName = function(fn){
-        if(fn.length < 2) {
-            return false;
-        }
-        else {
-            return true;
-        }
+    this.checkFullName = function(fullName){
+        return (fullName.length >= 2);
     };
 
     this.checkPassword = function(psw){
-        if(psw.length < 8) {
-            return false;
-        }
-        else {
-            return true;
-        }
+        return (psw.length >= 8);
     };
 
-    this.checkUserName = function(un){
-        if(un.length < 6) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
-
-    this.checkUniqueUserName = function(un){
-        //var userOut;
-        User.find({ userName: un }, function(err, user) {
-            if (err) {
-                console.log('Signup error');
-                return true;
-            }
-            if (user.length!=0) {
-                console.log('Username already exists, username: ' + user);
-                return false;
-            }
-
-        });
-        //while (typeof(userOut) == "undefined");
-        //return (!userOut);
-
-
-
+    this.checkUserName = function(userName){
+        return (userName.length >= 6);
     };
 
 }
