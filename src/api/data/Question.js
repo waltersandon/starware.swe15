@@ -15,7 +15,7 @@ var QuestionSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: check.checkQML,
-            message: 'Password troppo corta'
+            message: 'Errore QML'
         }
     },
     tags: [{
