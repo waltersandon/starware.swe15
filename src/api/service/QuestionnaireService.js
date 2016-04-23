@@ -1,5 +1,5 @@
 var Questionnaire = require('./../data/Questionnaire');
-
+var QuestionnaireCheck = require('./../validator/QuestionnaireCheck');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -58,6 +58,7 @@ function QuestionnaireService() {
      */
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
+        if(QuestionnaireCheck.q)
         this.quest.save(function(err){
             if(err) next(err);
             res.send();

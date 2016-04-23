@@ -6,6 +6,10 @@ var markdown = require("markdown").markdown;
  */
 function QuestionCheck() {
 
+    this.checkTags = function(tagsArray){
+        return (typeof tagsArray !== 'undefined' && questionArray.length > 0);
+    };
+    
     this.checkQML = function(qml){
         if(qml.charAt(0) == "<"){
             this.i = 1;
