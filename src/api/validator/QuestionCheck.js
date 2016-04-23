@@ -1,5 +1,3 @@
-var markdown = require("markdown").markdown;
-
 /**
  * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Question
  * @constructor
@@ -7,10 +5,11 @@ var markdown = require("markdown").markdown;
 function QuestionCheck() {
 
     this.checkTags = function(tagsArray){
-        return (typeof tagsArray !== 'undefined' && questionArray.length > 0);
+        return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
     };
     
     this.checkQML = function(qml){
+        return true;
         if(qml.charAt(0) == "<"){
             this.i = 1;
             while(qml.charAt(this.i) != ">"){
@@ -46,7 +45,6 @@ function QuestionCheck() {
         };
     };
 
-    console.log( markdown.toHTML( "Hello *World*!" ) );
 }
 
 

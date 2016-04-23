@@ -1,4 +1,5 @@
 var Question = require('./../data/Question');
+var QuestionCheck = require('./../validator/QuestionCheck');
 
 
 /**
@@ -58,10 +59,16 @@ function QuestionService() {
      */
     this.new = function(req,res,next){
         this.quiz = new Question(req.body);
-        this.quiz.save(function(err){
-            if(err) next(err);
-            res.send();
-        });
+        this.check = new QuestionCheck();
+        if(true) {
+            this.quiz.save(function (err) {
+                if (err) next(err);
+                res.send();
+            });
+        }
+        else{
+            next(400);
+        }
     };
 
     /**
@@ -72,10 +79,15 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(err);
-            res.send();
-        });
+        if(QuestionCheck.checkTags(req.body.tags)) {
+            Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
+                if (err) next(err);
+                res.send();
+            });
+        }
+        else{
+            next(400);
+        }
     };
 
     /**
