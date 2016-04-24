@@ -14,14 +14,31 @@ function ErrorHandler() {
      */
     this.handler = function(err, req, res, next) {
     	if (err.name === 'ValidationError') {
-        	console.error(err);
-        	res.sendStatus(400);
+        	console.error("Validation error: ", err);
+            const validationCode = 400;
+            const attribute = Object.keys(err.errors)[0];
+            const message = err.errors[attribute].message;
+        	res.status(validationCode).json({
+                code: validationCode,
+                message: attribute + ': ' + message
+            });
         } else if (typeof err === 'number') {
-        	console.error("Error: ", err);
-        	res.sendStatus(err);
+        	console.error("Error code: ", err);
+            const messages = {
+                404: 'Risorsa non trovata',
+                401: 'Accesso non consentito'
+            };
+        	res.status(err).json({
+                code: err,
+                message: messages[err] || 'Errore sconosciuto'
+            });
         } else {
-        	console.error("Uknown: ", err);
-        	res.sendStatus(500);
+        	console.error("Uknown error: ", err);
+            const statusCode = 400;
+        	res.status(500).json({
+                code: 500,
+                message: 'Errore di sistema'
+            });
         }
     };
 
