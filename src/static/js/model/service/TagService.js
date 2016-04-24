@@ -6,7 +6,7 @@ $(function () {
                 $http.delete('api/tags/' + tag.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -22,7 +22,7 @@ $(function () {
                         ret.push(new Tag(item.description, item.id, item.name, item.parent));
                     });
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -34,7 +34,7 @@ $(function () {
                 $http.get('api/tags/' + id).then(function success(res) {
                     ret = new Tag(res.description, res.id, res.name, res.parent);
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -51,7 +51,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -67,7 +67,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 

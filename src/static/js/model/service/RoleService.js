@@ -6,7 +6,7 @@ $(function () {
                 $http.delete('api/roles/' + role.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -22,7 +22,7 @@ $(function () {
                         ret.push(new Role(item.id, item.name));
                     });
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -34,7 +34,7 @@ $(function () {
                 $http.get('api/roles/' + id).then(function success(res) {
                     ret = new Role(res.id, res.name);
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -48,7 +48,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -62,7 +62,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 

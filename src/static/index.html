@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='quizzipediaApp'>
+<html>
     <head>
         <meta charset='utf-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -25,12 +25,36 @@
         <!-- AngularJS -->
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js' defer></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js' defer></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js' defer></script>  
+
         
-        <script src='js/index.js'></script>
-        <script src='js/controller/LogIn.js'></script>
+        <script src='js/controller/App.js'></script>
+        <script src='js/controller/public/Home.js'></script>
         <script src='js/model/service/SessionService.js'></script>
+        
     </head>
-    <body ng-controller='quizzipediaController'>
-        <div ng-view></div>
+
+    <body ng-app='quizzipediaApp' ng-controller='HomeController'>
+        <div ng-switch on='urlPath()'>
+            <div ng-switch-when='login' >
+                <script src='js/controller/public/LogIn.js'></script>
+                <ng-include src="'html/public/LogIn.html'" ></ng-include>
+            </div>
+            <div ng-switch-when='signup'>
+                <ng-include src="'html/public/SignUp.html'" ></ng-include>
+            </div>
+            <div ng-switch-when='student'>
+                <ng-include src="'html/student/Home.html'" ></ng-include>
+            </div>
+            <div ng-switch-when='teacher'>
+                <ng-include src="'html/teacher/Home.html'" ></ng-include>
+            </div>
+            <div ng-switch-when='admin'>
+                <ng-include src="'html/admin/Home.html'" ></ng-include>
+            </div>
+            <div ng-switch-default>
+                <ng-include src="'html/public/Home.html'" ></ng-include>
+            </div>
+        </div>
     </body>
 </html>

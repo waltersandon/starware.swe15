@@ -6,7 +6,7 @@ $(function () {
                 $http.delete('api/users/' + user.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -23,7 +23,7 @@ $(function () {
                         ret.push(new User(item.fullName, item.id, item.role, item.userName));
                     });
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -35,7 +35,7 @@ $(function () {
                 $http.get('api/users/' + id).then(function success(res) {
                     ret = new User(res.fullName, res.id, res.role, res.userName);
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -47,7 +47,7 @@ $(function () {
                 $http.get('api/users/me').then(function success(res) {
                     ret = new User(res.fullName, res.id, res.role, res.userName);
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -63,7 +63,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -79,7 +79,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -94,7 +94,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -109,7 +109,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 

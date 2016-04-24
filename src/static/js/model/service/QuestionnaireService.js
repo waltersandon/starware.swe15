@@ -6,7 +6,7 @@ $(function () {
                 $http.delete('api/questionnaires/' + questionnaire.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -24,7 +24,7 @@ $(function () {
                         ret.push(new Questionnaire(item.author, item.id, item.questions, item.tags, item.title));
                     });
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -36,7 +36,7 @@ $(function () {
                 $http.get('api/questionnaires/' + id).then(function success(res) {
                     ret = new Questionnaire(res.author, res.id, res.questions, res.tags, res.title);
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = res;
                 });
 
@@ -53,7 +53,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
@@ -70,7 +70,7 @@ $(function () {
                 }).then(function success(res) {
                     ret = true;
                 }, function error(res) {
-                    console.log(res.error);
+                    console.log(res);
                     ret = false;
                 });
 
