@@ -13,14 +13,14 @@ function ErrorHandler() {
      * per passare il controllo ai successivi middleware.
      */
     this.handler = function(err, req, res, next) {
-    	if (err.name === 'MongoError') {
+    	if (err.name === 'ValidationError') {
         	console.error(err);
         	res.sendStatus(400);
         } else if (typeof err === 'number') {
         	console.error("Error: ", err);
         	res.sendStatus(err);
         } else {
-        	console.error("Unknown: ", err);
+        	console.error("Uknown: ", err);
         	res.sendStatus(500);
         }
     };

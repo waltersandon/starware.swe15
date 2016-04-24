@@ -25,6 +25,10 @@ var QuestionSchema = new mongoose.Schema({
     }]
 });
 
+QuestionSchema.path('tags').validate(
+    check.checkTags, 
+    'La lista degli argomenti non può essere vuota'
+);
 
 /* Metodo che viene chiamato quando è necessario restituire
  * una domanda in formato JSON all'esterno

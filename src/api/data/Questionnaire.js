@@ -24,22 +24,24 @@ var QuestionnaireSchema = new mongoose.Schema({
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question',
-        required: true/*,
-        validate: {
-            validator: check.checkQuestions,
-            message: 'La lista delle domande non può essere vuota'
-        }*/
+        required: true
     }],
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',
-        required: true,
-        /*validate: {
-            validator: check.checkTags,
-            message: 'La lista degli argomenti non può essere vuota'
-        }*/
+        required: true
     }]
 });
+
+QuestionnaireSchema.path('questions').validate(
+    check.checkQuestions, 
+    'La lista delle domande non può essere vuota'
+);
+
+QuestionnaireSchema.path('tags').validate(
+    check.checkTags, 
+    'La lista degli argomenti non può essere vuota'
+);
 
 /* Metodo che viene chiamato quando è necessario restituire
  * una domanda in formato JSON all'esterno
