@@ -1,4 +1,3 @@
-
 <div class='container' ng-controller='controller.student.User'>
     <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
@@ -33,22 +32,22 @@
             <div class='well'>
                 <form class='form-horizontal' ng-submit='submit()'>
                     <div class='form-group'>
-                        <label for='inputOldPassword' class='col-md-2 control-label'>Old Password </label>
+                        <label for='inputOldPassword' class='col-md-2 control-label'>Vecchia Password </label>
                         <div class='col-md-10'>
-                            <input ng-model='oldPassword' type='password' class='form-control' id='inputOldPassword' placeholder='Inserisci la pasword attuale' required>
+                            <input ng-model='oldPassword' type='password' class='form-control' id='inputOldPassword' placeholder='Inserisci la pasword attuale' required ng-minlength="6">
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='inputNewPassword' class='col-md-2 control-label'>New Password</label>
+                        <label for='inputNewPassword' class='col-md-2 control-label'>Nuova password</label>
                         <div class='col-md-10'>
                             <input ng-model='newPwd' type='password' class='form-control' id='inputNewPassword'
-                                   placeholder='Inserire la nuova password' required>
+                                   placeholder='Inserire la nuova password' required ng-minlength="6">
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label for='inputRepeatPassword' class='col-md-2 control-label'>Repeat Password</label>
+                        <label for='inputRepeatPassword' class='col-md-2 control-label'>Ripeti password</label>
                         <div class='col-md-10'>
-                            <input ng-model='repeatPwd' type='password' class='form-control' id='inputRepeatPassword'
+                            <input ng-model='repeatPassword' type='password' class='form-control' id='inputRepeatPassword'
                                    placeholder='Ripetere la nuova password' required>
                         </div>
                     </div>
