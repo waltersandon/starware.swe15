@@ -85,7 +85,7 @@ function UserService() {
      */
     this.modify = function(req, res, next){
         User.findByIdAndUpdate(req.params.id, { 
-            role: req.body.role.id
+            role: req.body.role
         }, ErrorHandler(res, function(user) {
             if (!user) next(404);
             res.send();

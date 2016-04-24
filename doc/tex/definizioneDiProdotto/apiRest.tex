@@ -112,8 +112,8 @@
                     \textbf{Richiesta JSON} &
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-"userName": string,
-"fullName": string,
+	"userName": string,
+	"fullName": string,
 }
                         \end{lstlisting}
                      \\ \midrule
@@ -121,7 +121,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "id": string,
+        "_id": string,
         "fullName": string,
         "userName": string,
         "role": { "href": string }
@@ -151,7 +151,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "fullName": string,
     "userName": string,
     "role": { "href": string }
@@ -180,7 +180,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "fullName": string,
     "userName": string,
     "role": { "href": string }
@@ -290,7 +290,7 @@
                     \textbf{Richiesta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "role": { "id": string }
+    "role": string
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -348,7 +348,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "id": string,
+        "_id": string,
         "body": string,
         "author": { "href": string }
         "tags": [{ "href": string }]
@@ -378,7 +378,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "body": string,
     "author": { "href": string }
     "tags": [{ "href": string }]
@@ -407,7 +407,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "tags": [{ "id": string }]
+    "tags": [string]
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -434,7 +434,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "tags": [{ "id": string }]
+    "tags": [string]
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -491,7 +491,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "id": string,
+        "_id": string,
         "title": string,
         "author": { "href": string },
         "tags": [{ "href": string }],
@@ -522,7 +522,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "title": string,
     "author": { "href": string },
     "tags": [{ "href": string }],
@@ -552,8 +552,8 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "title": string,
-    "tags": [{ "id": string }],
-    "questions": [{ "id": string }] 
+    "tags": [string],
+    "questions": [string] 
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -580,8 +580,8 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "title": string,
-    "tags": [{ "id": string }],
-    "questions": [{ "id": string }] 
+    "tags": [string],
+    "questions": [string] 
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -636,7 +636,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "id": string,
+        "_id": string,
         "name": string,
        	"description": string,
     	"parent": {"href": string | null}
@@ -666,10 +666,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "name": string,
     "description": string,
-    "parent": {"href": string | null}
+    "parent": {"href": string} | null
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -696,7 +696,7 @@
 {
 	"name": string,
 	"description": string,
-	"parent": {"id": string | null}
+	"parent": string | null
 }
 	    			\end{lstlisting}
     			\\ \midrule
@@ -725,7 +725,7 @@
 {
 	"name": string,
 	"description": string,
-	"parent": {"id": string | null}
+	"parent": string | null
 }
 	    			\end{lstlisting}
     			\\ \midrule
@@ -780,7 +780,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "id": string,
+        "_id": string,
         "name": string
     }
 ]
@@ -808,7 +808,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "id": string,
+    "_id": string,
     "name": string
 }
                         \end{lstlisting}
