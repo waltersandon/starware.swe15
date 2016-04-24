@@ -61,7 +61,16 @@
 }
                         \end{lstlisting}
                         \\ \midrule
-                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+	"_id": string,
+    "userName": string,
+    "fullName": string,
+    "role": { "href: string }
+}
+                        \end{lstlisting}
+                    	\\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -214,7 +223,16 @@
 }
                         \end{lstlisting}
                         \\ \midrule
-                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+	"_id": string,
+    "userName": string,
+    "fullName": string,
+    "role": { "href: string }
+}
+                        \end{lstlisting}
+                    	\\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -411,7 +429,16 @@
 }
                         \end{lstlisting}
                         \\ \midrule
-                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+	"_id": string,
+    "body": string,
+    "author": { "href": string },
+    "tags": [{ "href": string }]
+}
+                        \end{lstlisting}
+                    	\\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -557,7 +584,17 @@
 }
                         \end{lstlisting}
                         \\ \midrule
-                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "_id": string,
+    "title": string,
+    "author": { "href": string },
+    "tags": [{ "href": string }],
+    "questions": [{ "href": string }] 
+}
+                        \end{lstlisting}
+                        \\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -700,8 +737,16 @@
 }
 	    			\end{lstlisting}
     			\\ \midrule
-    			\textbf{Risposta JSON} & 
-    			\\ \midrule
+    			\textbf{Risposta JSON} & \
+                	\begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "_id": string,
+    "name": string,
+    "description": string,
+    "parent": {"href": string} | null
+}
+      				\end{lstlisting}
+					\\ \midrule
     			\textbf{Note} & \\
     			\bottomrule
     		\end{tabular}
