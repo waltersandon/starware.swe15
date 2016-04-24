@@ -28,7 +28,6 @@ var TagSchema = new mongoose.Schema({
  */
 TagSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        console.log(ret);
         if (ret.parent)
             ret.parent = { href: '/api/tags/' + ret.parent + '/' };
         delete ret.__v;
