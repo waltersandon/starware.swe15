@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('RoleServiceModule', ['RoleModule']).service('RoleService', ['$http', 'Role', function ($http, Role) {
+    angular.module('RoleServiceModule', ['RoleModule']).service('model.service.RoleService', ['$http', 'model.data.Role', function ($http, Role) {
             this.delete = function (role) {
                 var ret;
 

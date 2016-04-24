@@ -1,5 +1,5 @@
 
-angular.module('CheckModule', ['UserServiceModule' , 'QuestionnaireServiceModule']).service('Check', ['UserService' , 'QuestionnaireService', function (UserService, QuestionnaireService) {
+angular.module('CheckModule', ['UserServiceModule' , 'QuestionnaireServiceModule']).service('model.util.Check', ['UserService' , 'QuestionnaireService', function (UserService, QuestionnaireService) {
     this.checkPassword = function (password) {
         return password.length >= 6;
     };

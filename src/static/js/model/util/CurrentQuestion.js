@@ -1,5 +1,5 @@
  
-angular.module('CurrentQuestionModule', []).factory('CurrentQuestion', function() {
+angular.module('CurrentQuestionModule', []).factory('model.util.CurrentQuestion', function() {
     function CurrentQuestion(question) {
         this.answer = null;
         this.body = question.body;

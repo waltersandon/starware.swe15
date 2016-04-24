@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('QuestionnaireServiceModule', ['QuestionnaireModule']).service('QuestionnaireService', ['$http', 'Questionnaire', function ($http, Questionnaire) {
+    angular.module('QuestionnaireServiceModule', ['QuestionnaireModule']).service('model.service.QuestionnaireService', ['$http', 'model.data.Questionnaire', function ($http, Questionnaire) {
             this.delete = function (questionnaire) {
                 var ret;
 

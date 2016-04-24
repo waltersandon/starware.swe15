@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('QuestionModule', []).factory('Question', function () {
+    angular.module('QuestionModule', []).factory('model.data.Question', function () {
         function Question(author, body, id, tags) {
             this.author = author;
             this.body = body;

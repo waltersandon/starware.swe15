@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('UserServiceModule', ['UserModule']).service('UserService', ['$http', 'User', function ($http, User) {
+    angular.module('UserServiceModule', ['UserModule']).service('model.service.UserService', ['$http', 'model.data.User', function ($http, User) {
             this.delete = function (user) {
                 var ret;
 

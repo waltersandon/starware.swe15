@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('TagServiceModule', ['TagModule']).service('TagService', ['$http', 'Tag', function ($http, Tag) {
+    angular.module('TagServiceModule', ['TagModule']).service('model.service.TagService', ['$http', 'model.data.Tag', function ($http, Tag) {
             this.delete = function (tag) {
                 var ret;
 

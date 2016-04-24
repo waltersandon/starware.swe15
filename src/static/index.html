@@ -29,30 +29,38 @@
 
         
         <script src='js/controller/App.js'></script>
-        <script src='js/controller/public/Home.js'></script>
+
+        <script src='js/model/data/User.js'></script>
+        
         <script src='js/model/service/SessionService.js'></script>
+        <script src='js/model/service/UserService.js'></script>
         
     </head>
 
-    <body ng-app='quizzipediaApp' ng-controller='HomeController'>
+    <body ng-app='quizzipediaApp' ng-controller='controller.public.Home'>
         <div ng-switch on='urlPath()'>
             <div ng-switch-when='login' >
                 <script src='js/controller/public/LogIn.js'></script>
                 <ng-include src="'html/public/LogIn.html'" ></ng-include>
             </div>
             <div ng-switch-when='signup'>
+                <script src='js/controller/public/SignUp.js'></script>
                 <ng-include src="'html/public/SignUp.html'" ></ng-include>
             </div>
             <div ng-switch-when='student'>
+                <script src='js/controller/student/Home.js'></script>
                 <ng-include src="'html/student/Home.html'" ></ng-include>
             </div>
             <div ng-switch-when='teacher'>
+                <script src='js/controller/teacher/Home.js'></script>
                 <ng-include src="'html/teacher/Home.html'" ></ng-include>
             </div>
             <div ng-switch-when='admin'>
+                <script src='js/controller/admin/Home.js'></script>
                 <ng-include src="'html/admin/Home.html'" ></ng-include>
             </div>
             <div ng-switch-default>
+                <script src='js/controller/public/Home.js'></script>
                 <ng-include src="'html/public/Home.html'" ></ng-include>
             </div>
         </div>

@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('SessionServiceModule', []).service('SessionService', ['$http', function ($http) {
+    angular.module('SessionServiceModule', []).service('model.service.SessionService', ['$http', function ($http) {
             this.login = function (password, userName) {
                 var ret;
                 
