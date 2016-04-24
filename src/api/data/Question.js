@@ -15,7 +15,7 @@ var QuestionSchema = new mongoose.Schema({
         required: true,
         validate: {
             validator: check.checkQML,
-            message: 'Password troppo corta'
+            message: 'Errore QML'
         }
     },
     tags: [{
@@ -25,22 +25,24 @@ var QuestionSchema = new mongoose.Schema({
     }]
 });
 
-var Question = mongoose.model('Question', QuestionSchema);
+QuestionSchema.path('tags').validate(
+    check.checkTags, 
+    'La lista degli argomenti non può essere vuota'
+);
 
 /* Metodo che viene chiamato quando è necessario restituire
- * un utente in formato JSON all'esterno
+ * una domanda in formato JSON all'esterno
  */
 QuestionSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        ret.id = ret._id;
         ret.author = { href: '/api/users/' + ret.author + '/' };
-        ret.tags.map(function(tag) {
-            return { href: '/api/tags/' + tag._id + '/' };
+        ret.tags = ret.tags.map(function(tag) {
+            return { href: '/api/tags/' + tag + '/' };
         });
-        delete ret._id;
         delete ret.__v;
         return ret;
     }
 };
 
+var Question = mongoose.model('Question', QuestionSchema);
 module.exports = Question;

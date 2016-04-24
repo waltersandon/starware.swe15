@@ -16,9 +16,10 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req, res, next){
-        User.find({}).exec(ErrorHandler(res, function(users) {
-            res.json(users);
-        }));
+        User.find({}).exec(function(err, users) {
+            if (err) next(err);
+            else {res.json(users);}
+        });
     };
 
     /**
@@ -29,10 +30,11 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req, res, next){
-        User.findById(req.params.id, ErrorHandler(res, function(user) {
-            if (!user) res.sendStatus(404);
-            res.json(user);
-        }));
+        User.findById(req.params.id, function(err, user) {
+            if (err) next(err);
+            else if (!user) next(404);
+            else {res.json(user);}
+        });
     };
 
     /**
@@ -43,10 +45,11 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.getMe = function(req, res, next){
-        User.findById(req.session.user._id, ErrorHandler(res, function(user) {
-            if (!user) return res.sendStatus(404);
-            res.json(user);
-        }));
+        User.findById(req.session.user._id, function(err, user) {
+            if (err) next(err);
+            else if (!user) next(404);
+            else {res.json(user);}
+        });
     };
 
     /**
@@ -57,17 +60,19 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req, res, next) {
-        Role.findOne({ name: 'student' }).exec(ErrorHandler(res, function(role) {
+        Role.findOne({ name: 'student' }).exec(function(err, role)  {
+            if (err) next(err);
             var user = new User({
                 fullName: req.body.fullName,
                 userName: req.body.userName,
                 password: req.body.password,
                 role: role._id
             });
-            user.save(ErrorHandler(res, function() {
-                res.sendStatus(200);
-            }));
-        }));
+            user.save(function(err, user) {
+                if (err) next(err);
+                else {res.json(user);}
+            });
+        });
     };
 
     /**
@@ -80,10 +85,10 @@ function UserService() {
      */
     this.modify = function(req, res, next){
         User.findByIdAndUpdate(req.params.id, { 
-                role: req.body.role.id 
+            role: req.body.role
         }, ErrorHandler(res, function(user) {
-            if (!user) return res.sendStatus(404);
-            res.sendStatus(200);
+            if (!user) next(404);
+            else {res.send();}
         }));
     };
 
@@ -98,19 +103,19 @@ function UserService() {
     this.modifyMe = function(req, res, next){
         if (req.body.fullName || req.body.userName) {
             User.findByIdAndUpdate(req.session.user._id, { 
-                    fullName: req.body.fullName,
-                    userName: req.body.userName
+                fullName: req.body.fullName,
+                userName: req.body.userName
             }, ErrorHandler(res, function(user) {
-                res.sendStatus(200);
+                res.send();
             }));
         } else if (req.body.oldPassword || req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
-                return res.status(400).json({ error: "Password specificata incorretta" });
+                next(401);
             User.findByIdAndUpdate(req.session.user._id, {
-                    password: req.body.newPassword
+                password: req.body.newPassword
             }, ErrorHandler(res, function(user) {
-                if (!user) return res.sendStatus(404);
-                req.sendStatus(200);
+                if (!user) next(404);
+                else {req.send();}
             }));
         }
     };
@@ -126,8 +131,8 @@ function UserService() {
         User.findByIdAndUpdate(req.session.user._id, {
             isActive: false
         }, ErrorHandler(res, function() {
-            if (!user) return res.sendStatus(404);
-            res.sendStatus(200);
+            if (!user) next(404);
+            else {res.send();}
         }));
     };
 

@@ -16,7 +16,7 @@ function QuestionnaireCheck() {
     };
 
     this.checkTags = function(tagsArray){
-        return (typeof tagsArray !== 'undefined' && questionArray.length > 0);
+        return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
     };
 }
 

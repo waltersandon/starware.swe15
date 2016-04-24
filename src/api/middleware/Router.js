@@ -2,12 +2,12 @@ var express = require('express');
 
 var Configuration = require('./../app/Configuration');
 
-var UserService = require('../services/UserService');
-var QuestionService = require('../services/QuestionService');
-var QuestionnaireService = require('../services/QuestionnaireService');
-var SessionService = require('../services/SessionService');
-var TagService = require('../services/TagService');
-var RoleService = require('../services/RoleService');
+var UserService = require('../service/UserService');
+var QuestionService = require('../service/QuestionService');
+var QuestionnaireService = require('../service/QuestionnaireService');
+var SessionService = require('../service/SessionService');
+var TagService = require('../service/TagService');
+var RoleService = require('../service/RoleService');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -62,6 +62,9 @@ function Router(auth, error) {
     //Routing role requests
     this.router.get('/roles',auth.requireAdmin,this.roleService.get);
     this.router.get('/roles/:id',auth.requireUser,this.roleService.getByID);
+
+    // Error handler
+    this.router.use(error.handler);
     
 }
 

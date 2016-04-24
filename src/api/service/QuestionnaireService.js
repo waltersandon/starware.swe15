@@ -1,98 +1,97 @@
-var Tag = require('./../data/Tag');
-var TagCheck = require('./../validator/TagCheck');
+var Questionnaire = require('./../data/Questionnaire');
+var QuestionnaireCheck = require('./../validator/QuestionnaireCheck');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
  */
-function TagService() {
+function QuestionnaireService() {
 
     /**
-     * Metodo che invoca il servizio per ritornare la lista degli argomenti
-     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
-     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
-     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
-     * per passare il controllo ai successivi middleware.
-     */
-    this.get = function(req,res,next){
-        Tag.find({},function(err,tags){
-            res.send(tags);
-        });
-    };
-
-    /**
-     * Metodo che invoca il servizio per ritornare un argomento specifico
+     * Metodo che invoca il servizio per ritornare il questionario specifico richiesto dall'utente
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
     this.getByID = function(req,res,next){
-        Tag.findById(req.params.id, function(err, tag){
-            if (!tag)
-                return res.status(404).json({ error: "Argomento non trovato" });
-            res.send(tag);
+        Questionnaire.findById(req.params.id).exec(function(err, quest){
+            if(err) next(err);
+            else if (!quest) next(404);
+            else {res.json(quest);}
         });
     };
 
     /**
-     * Metodo che invoca il servizio per creare un nuovo argomento
+     * Metodo che invoca il servizio per ritornare una lista di questionari
+     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
+     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
+     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+     * per passare il controllo ai successivi middleware.
+     */
+    this.get = function(req,res,next){
+        this.query = {};
+        if(req.query.title){
+            this.query.title = new RegExp(req.query.title, 'i');
+        }
+        if(req.query.author){
+            this.query.author = req.query.author;
+        }
+        if(req.query.tags) {
+            this.tags = req.query.tags.split("|");
+            this.query.tags = {"$in": this.tags};
+        }
+        Questionnaire.find(this.query).exec(function(err, quest){
+            if(err) next(err);
+            else if (!quest) next(404);
+            else {res.json(quest);}
+        });
+    };
+
+
+    /**
+     * Metodo che invoca il servizio per creare un nuovo questionario
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req,res,next){
-        var check = new TagCheck();
-        if (!check.checkName(req.body.name))
-            return res.status(400).json({ error: 'Nome troppo corto' });
-
-        if (req.body.parent && req.body.parent.id) {
-            Tag.findById(req.body.parent.id, function(err, tag) {
-                if (!tag)
-                    res.status(400).json({ error: 'Padre non trovato' });
-            });
-        }
-
-        this.tag = new Tag(req.body);
-        this.tag.save(function(err) {
-            res.sendStatus(200);
+        this.quest = new Questionnaire(req.body);
+        this.quest.save(function(err,quest){
+            if(err) next(err);
+            else {res.json(quest);}
         });
     };
 
     /**
-     * Metodo che invoca il servizio per modificare un argomento specifico
+     * Metodo che invoca il servizio per modificare un questionario specifico
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.modifyTag = function(req,res,next) {
-        var check = new TagCheck();
-        if (!check.checkName(req.body.name))
-            return res.status(400).json({ error: 'Nome troppo corto' });
-
-        if (req.body.parent && req.body.parent.id) {
-            Tag.findById(req.body.parent.id, function(err, tag) {
-                if (!tag)
-                    res.status(400).json({ error: 'Padre non trovato' });
-            });
-        }
+    this.modify = function(req,res,next){
+        Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
+            if (err) next(err);
+            else {res.send();}
+        });
     };
 
     /**
-     * Metodo che invoca il servizio per eliminare un argomento specifico
+     * Metodo che invoca il servizio per cancellare un questionario specifico
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.deleteTag = function(req,res,next){
-        console.log("deleteSubject");
+    this.delete = function(req,res,next){
+        Questionnaire.findByIdAndRemove(req.params.id, function(err) {
+            if (err) next(err);
+            else {res.send();}
+        });
     };
 
 }
 
-
-module.exports = TagService;
-
+module.exports = QuestionnaireService;
