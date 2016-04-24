@@ -31,7 +31,7 @@ function QuestionService() {
         }
         Question.find(this.query).exec(function(err, quest) {
             if (err) next(err);
-            res.json(quest);
+            else {res.json(quest);}
         });
     };
 
@@ -45,8 +45,8 @@ function QuestionService() {
     this.getByID = function(req,res,next){
         Question.findById(req.params.id).exec(function(err, quest){
             if (err) next(err);
-            if(!quest) next(404);
-            res.json(quest);
+            else if(!quest) next(404);
+            else {res.json(quest);}
         });
     };
 
@@ -59,9 +59,9 @@ function QuestionService() {
      */
     this.new = function(req,res,next){
         this.quiz = new Question(req.body);
-        this.quiz.save(function (err) {
+        this.quiz.save(function (err,quiz) {
             if (err) next(err);
-            res.send();
+            else {res.json(quiz);}
         });
     };
 
@@ -75,7 +75,7 @@ function QuestionService() {
     this.modify = function(req,res,next){
         Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
             if (err) next(err);
-            res.send();
+            else {res.send();}
         });
     };
 
@@ -89,7 +89,7 @@ function QuestionService() {
     this.delete = function(req,res,next){
         Question.findByIdAndRemove(req.params.id, function (err) {
             if (err) next(err);
-            res.send();
+            else {res.send();}
         });
     };
 }

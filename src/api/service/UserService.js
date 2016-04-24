@@ -18,7 +18,7 @@ function UserService() {
     this.get = function(req, res, next){
         User.find({}).exec(function(err, users) {
             if (err) next(err);
-            res.json(users);
+            else {res.json(users);}
         });
     };
 
@@ -32,8 +32,8 @@ function UserService() {
     this.getByID = function(req, res, next){
         User.findById(req.params.id, function(err, user) {
             if (err) next(err);
-            if (!user) next(404);
-            res.json(user);
+            else if (!user) next(404);
+            else {res.json(user);}
         });
     };
 
@@ -47,8 +47,8 @@ function UserService() {
     this.getMe = function(req, res, next){
         User.findById(req.session.user._id, function(err, user) {
             if (err) next(err);
-            if (!user) next(404);
-            res.json(user);
+            else if (!user) next(404);
+            else {res.json(user);}
         });
     };
 
@@ -70,7 +70,7 @@ function UserService() {
             });
             user.save(function(err, user) {
                 if (err) next(err);
-                res.json(user);
+                else {res.json(user);}
             });
         });
     };
@@ -88,7 +88,7 @@ function UserService() {
             role: req.body.role
         }, ErrorHandler(res, function(user) {
             if (!user) next(404);
-            res.send();
+            else {res.send();}
         }));
     };
 
@@ -115,7 +115,7 @@ function UserService() {
                 password: req.body.newPassword
             }, ErrorHandler(res, function(user) {
                 if (!user) next(404);
-                req.send();
+                else {req.send();}
             }));
         }
     };
@@ -132,7 +132,7 @@ function UserService() {
             isActive: false
         }, ErrorHandler(res, function() {
             if (!user) next(404);
-            res.send();
+            else {res.send();}
         }));
     };
 
