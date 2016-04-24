@@ -1,0 +1,64 @@
+
+<div ng-controller='controller.user.User'>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <h2>Modifica Profilo</h2>
+            <div class='well'>
+                <form class='form-horizontal' ng-submit='submitInformation()'>
+                    <div class='form-group'>
+                        <label for='userName' class='col-md-2 control-label'>Username</label>
+                        <div class='col-md-10'>
+                            <input ng-model='userName' name ='userName' type='text' class='form-control' id='userName' placeholder='Username' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='fullname' class='col-md-2 control-label'>Nome completo</label>
+                        <div class='col-md-10'>
+                            <input ng-model='fullName' name='fullname' type='text' class='form-control' id='fullname' placeholder='Nome completo' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-md-3 col-md-offset-9'>
+                            <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-10 col-md-offset-1'>
+            <h2>Modifica Password</h2>
+            <div class='well'>
+                <form class='form-horizontal' ng-submit='submitPassword()'>
+                    <div class='form-group'>
+                        <label for='oldPassword' class='col-md-2 control-label'>Vecchia Password </label>
+                        <div class='col-md-10'>
+                            <input ng-model='oldPassword' name='oldPassword' type='password' class='form-control' id='oldPassword' placeholder='Inserisci la pasword attuale' required ng-minlength='6'>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='newPassword' class='col-md-2 control-label'>Nuova password</label>
+                        <div class='col-md-10'>
+                            <input ng-model='newPassword' name='newPassword' type='password' class='form-control' id='newPassword' placeholder='Inserire la nuova password' required ng-minlength='6'>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <label for='repeatPassword' class='col-md-2 control-label'>Ripeti password</label>
+                        <div class='col-md-10'>
+                            <input ng-model='repeatPassword' name='repeatPassword' type='password' class='form-control' id='repeatPassword' placeholder='Ripetere la nuova password' required>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-md-3 col-md-offset-9'>
+                            <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

@@ -1,5 +1,8 @@
 $(function () {
     $.material.init();
 
-    var app = angular.module('quizzipediaApp', ['SessionServiceModule', 'UserServiceModule']);
+    var app = angular.module('quizzipediaApp', ['CheckModule', 'CurrentQuestionModule', 'CurrentQuestionnaireModule', 'QuestionnaireServiceModule', 'QuestionServiceModule', 'RoleServiceModule', 'SessionServiceModule', 'TagServiceModule', 'UserServiceModule']);
 });
+
+
+ 

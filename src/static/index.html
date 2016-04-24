@@ -27,10 +27,13 @@
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js' defer></script>
         <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js' defer></script>  
 
+        <!-- CSS -->
+        <link href='css/style.css' rel='stylesheet'>
+
         <!-- App.js -->
         <script src='js/controller/App.js'></script>
 
-        <!-- Load model::data::* -->
+        <!-- Load model::data* -->
         <script src='js/model/data/Question.js'></script>
         <script src='js/model/data/Questionnaire.js'></script>
         <script src='js/model/data/Role.js'></script>
@@ -45,35 +48,41 @@
         <script src='js/model/service/TagService.js'></script>
         <script src='js/model/service/UserService.js'></script>
 
+        <!-- Load model::util* -->
+        <script src='js/model/util/Check.js'></script>
+        <script src='js/model/util/CurrentQuestion.js'></script>
+        <script src='js/model/util/CurrentQuestionnaire.js'></script>
+
         <!-- Load controller::* -->
         <script src='js/controller/public/Home.js'></script>
         <script src='js/controller/public/LogIn.js'></script>
         <script src='js/controller/public/SignUp.js'></script>
-        
-        
-        <script src='js/controller/student/Home.js'></script>
-        <script src='js/controller/teacher/Home.js'></script>
-        <script src='js/controller/admin/Home.js'></script>
-        
+
+
+        <script src='js/controller/user/Home.js'></script>
+        <script src='js/controller/user/User.js'></script>
 
     </head>
 
     <body ng-app='quizzipediaApp' ng-controller='controller.public.Home'>
-        <div ng-switch on='urlPath()'>
+        <div ng-switch on='urlPath()[1]'>
             <div ng-switch-when='login' >
                 <div ng-include="'html/public/LogIn.html'"></div>
             </div>
             <div ng-switch-when='signup'>
                 <div ng-include="'html/public/SignUp.html'"></div>
             </div>
+            <div ng-switch-when='user'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
             <div ng-switch-when='student'>
-                <div ng-include="'html/student/Home.html'"></div>
+                <div ng-include="'html/user/Home.html'"></div>
             </div>
             <div ng-switch-when='teacher'>
-                <div ng-include="'html/teacher/Home.html'"></div>
+                <div ng-include="'html/user/Home.html'"></div>
             </div>
             <div ng-switch-when='admin'>
-                <div ng-include="'html/admin/Home.html'"></div>
+                <div ng-include="'html/user/Home.html'"></div>
             </div>
             <div ng-switch-default>
                 <div ng-include="'html/public/Home.html'"></div>

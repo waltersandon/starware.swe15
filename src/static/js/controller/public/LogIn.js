@@ -1,7 +1,7 @@
 $(function () {
-    angular.module('quizzipediaApp').controller('controller.public.LogIn', ['$location', '$scope', '$rootScope', 'model.service.SessionService', function ($location, $scope, $rootScope, SessionService) {
+    angular.module('quizzipediaApp').controller('controller.public.LogIn', ['$location', '$scope', '$rootScope', 'model.service.SessionService', function ($location, $scope, $rootScope, sessionService) {
             $scope.submit = function () {
-                if (SessionService.login($scope.password, $scope.userName)) {
+                if (sessionService.login($scope.password, $scope.userName)) {
 
                 } else {
 
