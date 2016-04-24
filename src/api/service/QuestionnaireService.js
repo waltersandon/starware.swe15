@@ -17,8 +17,8 @@ function QuestionnaireService() {
     this.getByID = function(req,res,next){
         Questionnaire.findById(req.params.id).exec(function(err, quest){
             if(err) next(err);
-            if (!quest) next(404);
-            res.json(quest);
+            else if (!quest) next(404);
+            else {res.json(quest);}
         });
     };
 
@@ -43,8 +43,8 @@ function QuestionnaireService() {
         }
         Questionnaire.find(this.query).exec(function(err, quest){
             if(err) next(err);
-            if (!quest) next(404);
-            res.json(quest);
+            else if (!quest) next(404);
+            else {res.json(quest);}
         });
     };
 
@@ -58,9 +58,9 @@ function QuestionnaireService() {
      */
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
-        this.quest.save(function(err){
+        this.quest.save(function(err,quest){
             if(err) next(err);
-            res.send();
+            else {res.json(quest);}
         });
     };
 
@@ -74,7 +74,7 @@ function QuestionnaireService() {
     this.modify = function(req,res,next){
         Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
             if (err) next(err);
-            res.send();
+            else {res.send();}
         });
     };
 
@@ -88,7 +88,7 @@ function QuestionnaireService() {
     this.delete = function(req,res,next){
         Questionnaire.findByIdAndRemove(req.params.id, function(err) {
             if (err) next(err);
-            res.send();
+            else {res.send();}
         });
     };
 

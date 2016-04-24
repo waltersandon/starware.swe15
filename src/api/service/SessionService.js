@@ -18,11 +18,11 @@ function SessionService() {
         var password = req.body.password;
         User.findOne({ userName: userName }).exec(function(err, user) {
             if (err) next(err);
-            if (user && user.isActive && new User(user).hasPassword(password)) {
+            else if (user && user.isActive && new User(user).hasPassword(password)) {
                 req.session.user = user;
                 res.json(user);
             }
-            else next(401);
+            else {next(401);} 
         });
     };
 
@@ -35,6 +35,7 @@ function SessionService() {
      */
     this.logout = function(req,res,next){
         req.session.user = null;
+        res.send();
     };
 
 }
