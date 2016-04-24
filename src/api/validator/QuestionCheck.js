@@ -7,9 +7,63 @@ function QuestionCheck() {
     this.checkTags = function(tagsArray){
         return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
     };
-    
+
     this.checkQML = function(qml){
-        return true;
+
+        this.checkTF = function(qml) {
+            var answers = [];
+            var text = "";
+            qml.split('\n').map(function(row) {
+                if (row.startsWith('[T]')) {
+                    answers.push({
+                        value: "T"
+                    });
+                }
+                else if (row.startsWith('[F]')) {
+                    answers.push({
+                        value: "F"
+                    });
+                }
+                else text += row;
+            });
+            text.replace("\\[","[");
+            text.replace("\\]","]");
+            if (answers.length == 1){
+                return true;
+            }
+            return false;
+        };
+
+        this.checkMultipleChoice = function(qml) {
+            var answers = [];
+            var text = "";
+            var rightAnswer = 0;
+            var wrongAnswer = 0;
+            qml.split('\n').map(function(row) {
+                if (row.startsWith('[]')) {
+                    answers.push({
+                        text: row.replace("[]", ""),
+                        correct: false
+                    });
+                    rightAnswer++;
+                }
+                else if (row.startsWith('[*]')) {
+                    answers.push({
+                        text: row.replace("[*]", ""),
+                        correct: true
+                    });
+                    wrongAnswer++;
+                }
+                else text += row;
+            });
+            text.replace("\\[","[");
+            text.replace("\\]","]");
+            if (rightAnswer == 1 && wrongAnswer > 0){
+                return true;
+            }
+            return false;
+        };
+
         if(qml.charAt(0) == "<"){
             this.i = 1;
             while(qml.charAt(this.i) != ">"){
@@ -24,26 +78,8 @@ function QuestionCheck() {
             }
         }
         return false;
-
-        this.checkTF = function(qml) {
-            this.i = 0;
-            while(qml.charAt(this.i) != "["){
-                this.i++
-            }
-            if((qml.charAt(this.i + 1) == "T" || qml.charAt(this.i + 1) == "F" )
-                && qml.charAt(this.i + 2) == "]"
-                && qml.length == 3) {
-                return true;
-            }
-            else{
-                return false;
-            }
-        };
-
-        this.checkMultipleChoice = function(qml) {
-            return true;
-        };
     };
+
 }
 
 

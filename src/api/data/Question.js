@@ -35,7 +35,6 @@ QuestionSchema.path('tags').validate(
  */
 QuestionSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        console.log(ret);
         ret.author = { href: '/api/users/' + ret.author + '/' };
         ret.tags = ret.tags.map(function(tag) {
             return { href: '/api/tags/' + tag + '/' };
