@@ -19,3 +19,6 @@
 *.blg
 src/.idea/*
 src/node_modules/mocha
+src/static/nbproject/
+src/static/prova.html
+.gitignore

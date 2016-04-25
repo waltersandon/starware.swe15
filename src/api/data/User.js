@@ -1,14 +1,25 @@
 var _ = require('./Role');
 var mongoose = require('mongoose');
 
+var UserCheck = require('./../validator/UserCheck');
+var check = new UserCheck();
+
 var UserSchema = new mongoose.Schema({
     fullName: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: check.checkFullName,
+            message: 'Nome completo incorretto'
+        }
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        validate: {
+            validator: check.checkPassword,
+            message: 'Password troppo corta'
+        }
     },
     role: {
         type: mongoose.Schema.Types.ObjectId,
@@ -18,7 +29,11 @@ var UserSchema = new mongoose.Schema({
     userName: {
         type: String,
         unique: true,
-        required: true
+        required: true,
+        validate: {
+            validator: check.checkUserName,
+            message: 'Nome utente incorretto'
+        }
     },
     isActive: {
         type: Boolean,
@@ -53,6 +68,8 @@ UserSchema.methods.hasPassword = function(rawPassword) {
  */
 UserSchema.options.toJSON = {
     transform: function(doc, ret, options) {
+        ret.role = { href: '/api/roles/' + ret.role + '/' };
+        delete ret.__v;
         delete ret.password;
         return ret;
     }

@@ -1,32 +1,15 @@
-var Questionnaire = require('./../data/Questionnaire');
+var Question = require('./../data/Question');
+var QuestionCheck = require('./../validator/QuestionCheck');
 
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
  */
-function QuestionnaireService() {
+function QuestionService() {
 
     /**
-     * Metodo che invoca il servizio per ritornare il questionario specifico richiesto dall'utente
-     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
-     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
-     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
-     * per passare il controllo ai successivi middleware.
-     */
-    this.getByID = function(req,res,next){
-        Questionnaire.findById(req.params.id)
-            .populate("author")
-            .populate("question")
-            .populate("tags")
-            .exec(function(err, quest){
-            if(err) next({code:404, error:"Questionario non trovati"});
-            res.json(quest);
-        });
-    };
-
-    /**
-     * Metodo che invoca il servizio per ritornare una lista di questionari
+     * Metodo che invoca il servizio per ritornare una lista di domande
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
@@ -34,8 +17,10 @@ function QuestionnaireService() {
      */
     this.get = function(req,res,next){
         this.query = {};
-        if(req.query.title){
-            this.query.title = new RegExp(req.query.title, 'i');
+        if(req.query.keywords) {
+            //this.keywords = req.query.keywords.split("|");
+            this.rex = "\\b("+req.query.keywords+")\\b";
+            this.query.body = new RegExp(this.rex, 'i');
         }
         if(req.query.author){
             this.query.author = req.query.author;
@@ -44,64 +29,70 @@ function QuestionnaireService() {
             this.tags = req.query.tags.split("|");
             this.query.tags = {"$in": this.tags};
         }
-        Questionnaire.find(this.query)
-            .populate("author")
-            .populate("question")
-            .populate("tags")
-            .exec(function(err, quest){
-            if(err) next({code:404, error:"Questionari non trovato"});
-            res.json(quest);
+        Question.find(this.query).exec(function(err, quest) {
+            if (err) next(err);
+            else {res.json(quest);}
         });
     };
 
+    /**
+     * Metodo che invoca il servizio per ritornare una domanda specifica
+     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
+     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
+     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+     * per passare il controllo ai successivi middleware.
+     */
+    this.getByID = function(req,res,next){
+        Question.findById(req.params.id).exec(function(err, quest){
+            if (err) next(err);
+            else if(!quest) next(404);
+            else {res.json(quest);}
+        });
+    };
 
     /**
-     * Metodo che invoca il servizio per creare un nuovo questionario
+     * Metodo che invoca il servizio per creare una nuova domanda
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req,res,next){
-        this.quest = new Questionnaire(req.body);
-        this.quest.save(function(err){
-            if(err) next({code:404, error:"Questionario non valido"});
-            res.send();
+        this.quiz = new Question(req.body);
+        this.quiz.save(function (err,quiz) {
+            if (err) next(err);
+            else {res.json(quiz);}
         });
     };
 
     /**
-     * Metodo che invoca il servizio per modificare un questionario specifico
+     * Metodo che invoca il servizio per modificare una domanda selezionata
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        this.newQuest = new Questionnaire(req.body);
-        this.newQuest._id = req.params.id;
-        Questionnaire.findByIdAndUpdate(req.params.id, this.newQuest, function (err) {
-            if (err) next({code:404, error:"Questionario non valido"});
-            res.send();
+        Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
+            if (err) next(err);
+            else {res.send();}
         });
     };
 
     /**
-     * Metodo che invoca il servizio per cancellare un questionario specifico
+     * Metodo che invoca il servizio per eliminare una domanda selezionata
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
-        Questionnaire.findByIdAndRemove(req.params.id, function (err) {
-            if (err) next({code:404, error:"Questionario non trovato"});
-            res.send();
+        Question.findByIdAndRemove(req.params.id, function (err) {
+            if (err) next(err);
+            else {res.send();}
         });
     };
-
 }
 
 
-module.exports = QuestionnaireService;
-
+module.exports = QuestionService;

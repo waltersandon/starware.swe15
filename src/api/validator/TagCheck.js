@@ -5,13 +5,8 @@
  */
 function TagCheck() {
 
-    this.checkName = function(n){
-        if(n.length == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
+    this.checkName = function(name){
+        return (name.length !== 0);
     };
 
 }

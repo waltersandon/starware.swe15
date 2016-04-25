@@ -1,47 +1,43 @@
-var Role = require('./../data/Role');
+var User = require('./../data/User');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
  */
-function RoleService() {
+function SessionService() {
 
     /**
-     * Metodo che invoca il servizio per ottenere i ruoli presenti
+     * Metodo che invoca il servizio per creare una nuova sessione associata all'utente
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.get = function(req,res,next){
-        Role.find({},function(err,role){
-            if(err){
-                return next({code:404, error:"Ruoli non trovato"});
+    this.login = function(req, res, next){
+        var userName = req.body.userName;
+        var password = req.body.password;
+        User.findOne({ userName: userName }).exec(function(err, user) {
+            if (err) next(err);
+            else if (user && user.isActive && new User(user).hasPassword(password)) {
+                req.session.user = user;
+                res.json(user);
             }
-            res.send(role);
+            else {next(401);} 
         });
-        console.log("getRoles");
     };
 
-
     /**
-     * Metodo che invoca il servizio per ottenere il ruolo di un utente specificato
+     * Metodo che invoca il servizio per eliminare la sessione dell'utente
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.getByID = function(req,res,next){
-        Role.findById(req.params.id,function(err,role){
-            if(err){
-                return next({code:404, error:"Ruolo non trovato"});
-            }
-            res.send(role);
-        });
-        console.log("getRole");
+    this.logout = function(req,res,next){
+        req.session.user = null;
+        res.send();
     };
+
 }
 
-
-module.exports = RoleService;
-
+module.exports = SessionService;

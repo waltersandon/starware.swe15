@@ -5,25 +5,19 @@
  */
 function QuestionnaireCheck() {
 
-    /*Da controllare*/
+    //controlla che l'array delle domande di un questionario non sia vuoto
     this.checkQuestions = function(questionArray){
-        if (typeof questionArray !== 'undefined' && questionArray.length > 0) {
-            return true;
-        }else{
-            return false;
-        }
+        return (typeof questionArray !== 'undefined' && questionArray.length > 0);
+    };
+    
+    //controlla che il titolo del questionario non sia vuoto
+    this.checkTitle = function(title){
+        return (title.length !== 0);
     };
 
-    /*Da controllare*/
-    this.checkTitle = function(n){
-        if(n.length == 0) {
-            return false;
-        }
-        else {
-            return true;
-        }
+    this.checkTags = function(tagsArray){
+        return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
     };
-
 }
 
 

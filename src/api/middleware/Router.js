@@ -2,12 +2,12 @@ var express = require('express');
 
 var Configuration = require('./../app/Configuration');
 
-var UserService = require('../services/UserService');
-var QuestionService = require('../services/QuestionService');
-var QuestionnaireService = require('../services/QuestionnaireService');
-var SessionService = require('../services/SessionService');
-var TagService = require('../services/TagService');
-var RoleService = require('../services/RoleService');
+var UserService = require('../service/UserService');
+var QuestionService = require('../service/QuestionService');
+var QuestionnaireService = require('../service/QuestionnaireService');
+var SessionService = require('../service/SessionService');
+var TagService = require('../service/TagService');
+var RoleService = require('../service/RoleService');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -53,8 +53,8 @@ function Router(auth, error) {
     this.router.delete('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.delete);
 
     //Routing subject requests
-    this.router.get('/tags',auth.requireUser,this.tagService.getTags);
-    this.router.get('/tags/:id',auth.requireUser,this.tagService.getTag);
+    this.router.get('/tags',auth.requireUser,this.tagService.get);
+    this.router.get('/tags/:id',auth.requireUser,this.tagService.getByID);
     this.router.post('/tags',auth.requireTeacher,this.tagService.new);
     this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
     this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);
@@ -62,11 +62,10 @@ function Router(auth, error) {
     //Routing role requests
     this.router.get('/roles',auth.requireAdmin,this.roleService.get);
     this.router.get('/roles/:id',auth.requireUser,this.roleService.getByID);
-    
-    //Error handler
+
+    // Error handler
     this.router.use(error.handler);
-
-
+    
 }
 
 module.exports = Router;

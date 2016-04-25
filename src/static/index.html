@@ -1,51 +1,92 @@
+<!DOCTYPE html>
 <html>
-<head><title>ciao</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script></head>
-<body>
-	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-	<form method="post" action="/profile">
-		<input type="text" name="name" id="name" />
-		<input type="password" name="password" id="password" />
-		<input type="button" value="daghine" id="btn"/>
-	</form>
-	<script>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-		$( "#btn" ).click(function() {
-			var obj = {
-				user : $("#name").val(),
-				password: $("#password").val()
-			};
-			$.ajax({
-				type: "POST",
-				url: "/login",
-				dataType: "json",
-				data: obj,
-				success: function(data) {
-					alert(data);
-				}
-			});
-		});
-	</script>
+        <title>Quizzipedia</title>
 
-    <div ng-app="myApp" ng-controller="myCtrl">
+        <!-- Material Design fonts -->
+        <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' type='text/css'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 
-        <p>Today's welcome message is:</p>
-        <h1>{{myWelcome}}</h1>
+        <!-- jQuery -->
+        <script src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
 
-    </div>
+        <!-- Bootstrap -->
+        <link href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet'>
+        <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 
-    <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope, $http) {
-            $http({
-                method : "POST",
-                url : "/login"
-            }).then(function mySucces(response) {
-                $scope.myWelcome = response.data;
-            }, function myError(response) {
-                $scope.myWelcome = response.statusText;
-            });
-        });
-    </script>
-</body>
+        <!-- Bootstrap Material Design -->
+        <link href='css/bootstrap-material-design.min.css' rel='stylesheet'>
+        <script src='js/material.min.js'></script>
+
+        <!-- AngularJS -->
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js' defer></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js' defer></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.min.js' defer></script>  
+
+        <!-- CSS -->
+        <link href='css/style.css' rel='stylesheet'>
+
+        <!-- App.js -->
+        <script src='js/controller/App.js'></script>
+
+        <!-- Load model::data* -->
+        <script src='js/model/data/Question.js'></script>
+        <script src='js/model/data/Questionnaire.js'></script>
+        <script src='js/model/data/Role.js'></script>
+        <script src='js/model/data/Tag.js'></script>
+        <script src='js/model/data/User.js'></script>
+
+        <!-- Load model::service::* -->
+        <script src='js/model/service/QuestionnaireService.js'></script>
+        <script src='js/model/service/QuestionService.js'></script>
+        <script src='js/model/service/RoleService.js'></script>
+        <script src='js/model/service/SessionService.js'></script>
+        <script src='js/model/service/TagService.js'></script>
+        <script src='js/model/service/UserService.js'></script>
+
+        <!-- Load model::util* -->
+        <script src='js/model/util/Check.js'></script>
+        <script src='js/model/util/CurrentQuestion.js'></script>
+        <script src='js/model/util/CurrentQuestionnaire.js'></script>
+
+        <!-- Load controller::* -->
+        <script src='js/controller/public/Home.js'></script>
+        <script src='js/controller/public/LogIn.js'></script>
+        <script src='js/controller/public/SignUp.js'></script>
+
+
+        <script src='js/controller/user/Home.js'></script>
+        <script src='js/controller/user/User.js'></script>
+
+    </head>
+
+    <body ng-app='quizzipediaApp' ng-controller='controller.public.Home'>
+        <div ng-switch on='urlPath()[1]'>
+            <div ng-switch-when='login' >
+                <div ng-include="'html/public/LogIn.html'"></div>
+            </div>
+            <div ng-switch-when='signup'>
+                <div ng-include="'html/public/SignUp.html'"></div>
+            </div>
+            <div ng-switch-when='user'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
+            <div ng-switch-when='student'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
+            <div ng-switch-when='teacher'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
+            <div ng-switch-when='admin'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
+            <div ng-switch-default>
+                <div ng-include="'html/public/Home.html'"></div>
+            </div>
+        </div>
+    </body>
 </html>
