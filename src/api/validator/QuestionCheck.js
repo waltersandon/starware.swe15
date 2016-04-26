@@ -8,6 +8,11 @@ function QuestionCheck() {
         return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
     };
 
+    /**
+     * Funzione che controlla se il QML è valido
+     * @param qml - Stringa qml da parsare
+     * @returns {boolean}
+     */
     this.checkQML = function(qml){
 
         this.checkTF = function(qml) {
@@ -45,14 +50,14 @@ function QuestionCheck() {
                         text: row.replace("[]", ""),
                         correct: false
                     });
-                    rightAnswer++;
+                    wrongAnswer++;
                 }
                 else if (row.startsWith('[*]')) {
                     answers.push({
                         text: row.replace("[*]", ""),
                         correct: true
                     });
-                    wrongAnswer++;
+                    rightAnswer++;
                 }
                 else text += row;
             });
