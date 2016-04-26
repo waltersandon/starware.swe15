@@ -33,12 +33,12 @@ function QuestionCheck() {
             var answers = [];
             var text = "";
             qml.split('\n').map(function(row) {
-                if (row.startsWith('[T]')) {
+                if (row.indexOf('[T]') == 0) {
                     answers.push({
                         value: "T"
                     });
                 }
-                else if (row.startsWith('[F]')) {
+                else if (row.indexOf('[F]') == 0) {
                     answers.push({
                         value: "F"
                     });
@@ -59,14 +59,14 @@ function QuestionCheck() {
             var rightAnswer = 0;
             var wrongAnswer = 0;
             qml.split('\n').map(function(row) {
-                if (row.startsWith('[]')) {
+                if (row.indexOf('[]') == 0) {
                     answers.push({
                         text: row.replace("[]", ""),
                         correct: false
                     });
                     wrongAnswer++;
                 }
-                else if (row.startsWith('[*]')) {
+                else if (row.indexOf('[*]') == 0) {
                     answers.push({
                         text: row.replace("[*]", ""),
                         correct: true
