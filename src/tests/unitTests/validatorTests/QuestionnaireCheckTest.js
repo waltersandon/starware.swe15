@@ -30,10 +30,10 @@ describe('Testing di QuestionnaireCheck', function() {
             expect(check.checkQuestions(lista)).to.equal(false);        });
         it('deve bloccare  passata lista con domande doppie', function() {
             var lista= ["SWE","SWE"];
-            expect(check.checkTitle(lista)).to.equal(false);        });
+            expect(check.checkQuestions(lista)).to.equal(false);        });
         it('deve accettare passata lista corretta',function (){
             var lista= ["SWE","Informatica"];
-            expect(check.checkTitle(lista)).to.equal(true);
+            expect(check.checkQuestions(lista)).to.equal(true);
         });
 
     });
