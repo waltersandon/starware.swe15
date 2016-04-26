@@ -2,19 +2,38 @@
  * Created by igor on 21/04/16.
  * 18.TU
  */
+var expect = require('expect.js');
+var request = require('superagent');
 var testSubject = require('../../../api/middleware/Router.js');
+var AuthorizationCorrect = require('./mocks/AuthorizationMockCorrect');
+var AuthorizationInCorrect = require('./mocks/AuthorizationMockInCorrect');
+var ErrorHandler = require('./../../../api/middleware/ErrorHandler');
+var Questionnaire = require('./../../../api/data/Questionnaire');
+
 describe('Router check', function() {
-    //Mock dell oggetto ErrorHandler  TODO
+    var error = new ErrorHandler();
+    var url = "http://localhost:3000/";
     describe('richiesta auth corretta', function() {
-        //Mock dell oggetto Autorization  TODO
+        var authorization = new AuthorizationCorrect();
+        var check = new testSubject(authorization, error);
         describe('user', function() {
-            it('deve permettere di recuparere un questionario da eseguire', function() {
-                //TODO
+            it('deve permettere di recuparere un questionario da eseguire', function(done) {
+                request.get(url+'/questionnaires').end(function(res) {
+                    expect(res).to.exist;
+                    expect(res.status).to.equal(200);
+                    expect(res.body).to.be.an(Questionnaire);
+                    done();
+                });
             });
          });
         describe('teacher', function() {
-            it('deve permettere di fare modifica questionario', function() {
-                //TODO
+            it('deve permettere di fare modifica questionario', function(done) {
+                request.put(url+'/questionnaires').end(function(res) {
+                    expect(res).to.exist;
+                    expect(res.status).to.equal(200);
+                    expect(res.body).to.be.an(Questionnaire);
+                    done();
+                });
             });
             it('deve permettere di fare cancella questionario', function() {
                 //TODO
@@ -50,7 +69,8 @@ describe('Router check', function() {
         
     });
     describe('richiesta auth errata', function() {
-        //Mock dell oggetto Autorization  TODO
+        var authorization = new AuthorizationInCorrect();
+        var check = new testSubject(authorization, error);
         describe('user', function() {
            it('deve impedire di fare modifica questionario', function() {
                 //TODO

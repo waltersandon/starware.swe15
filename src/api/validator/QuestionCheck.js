@@ -5,10 +5,29 @@
 function QuestionCheck() {
 
     this.checkTags = function(tagsArray){
-        return (typeof tagsArray !== 'undefined' && tagsArray.length > 0);
+
+        //non vuota
+        if (typeof tagsArray === 'undefined' || tagsArray.length == 0){
+            return false;
+        }
+        //non duplicati
+        this.sorted_arr = tagsArray.slice().sort();
+        for (this.i = 0; this.i < tagsArray.length - 1; this.i++) {
+            if (this.sorted_arr[this.i + 1] == this.sorted_arr[this.i]) {
+                return false;
+            }
+        }
+        return true;
+
     };
 
+    /**
+     * Funzione che controlla se il QML è valido
+     * @param qml - Stringa qml da parsare
+     * @returns {boolean}
+     */
     this.checkQML = function(qml){
+
 
         this.checkTF = function(qml) {
             var answers = [];
@@ -45,14 +64,14 @@ function QuestionCheck() {
                         text: row.replace("[]", ""),
                         correct: false
                     });
-                    rightAnswer++;
+                    wrongAnswer++;
                 }
                 else if (row.startsWith('[*]')) {
                     answers.push({
                         text: row.replace("[*]", ""),
                         correct: true
                     });
-                    wrongAnswer++;
+                    rightAnswer++;
                 }
                 else text += row;
             });
@@ -78,6 +97,7 @@ function QuestionCheck() {
             }
         }
         return false;
+
     };
 
 }
