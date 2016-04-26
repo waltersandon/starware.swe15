@@ -9,13 +9,21 @@ var AuthorizationCorrect = require('./mocks/AuthorizationMockCorrect');
 var AuthorizationInCorrect = require('./mocks/AuthorizationMockInCorrect');
 var ErrorHandler = require('./../../../api/middleware/ErrorHandler');
 var Questionnaire = require('./../../../api/data/Questionnaire');
+var express = require('express');
+var fs = require('fs');
+
+var App = require('./../../../api/app/App');
+var Loader = require('./mocks/LoaderMock');
+
 
 describe('Router check', function() {
     var error = new ErrorHandler();
     var url = "http://localhost:3000/";
     describe('richiesta auth corretta', function() {
-        var authorization = new AuthorizationCorrect();
-        var check = new testSubject(authorization, error);
+        var a = new App();
+        var auth= new AuthorizationCorrect();
+        var l = new Loader(a.config(),auth);
+        a.start();
         describe('user', function() {
             it('deve permettere di recuparere un questionario da eseguire', function(done) {
                 request.get(url+'/questionnaires').end(function(res) {
