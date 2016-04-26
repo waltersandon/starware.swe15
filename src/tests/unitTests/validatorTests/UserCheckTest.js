@@ -27,13 +27,6 @@ describe('Testing di UserCheck', function() {
         });
     });
 
-    describe('check unique username', function() {
-        it('deve bloccare username gia presente', function() {
-            expect(check.checkUniqueUserName()("mrossi")).to.equal(false);
-        });
-        it('deve accettare username non presente', function() {
-            expect(check.checkUniqueUserName()("ciao")).to.equal(true);        });
-    });
     describe('check username', function() {
         it('deve accettare username di lungezza 6 caratteri', function() {
             var check = new testSubject();
