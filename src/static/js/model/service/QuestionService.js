@@ -21,7 +21,7 @@ $(function () {
                     'tags': tags
                 }).then(function success(res) {
                     res.forEach(function (item) {
-                        ret.push(new Question(item.author, item.body, item.id, item.tags));
+                        ret.push(new Question(item.author, item.body, item._id, item.tags));
                     });
                 }, function error(res) {
                     console.log(res);
@@ -34,7 +34,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/questions/' + id).then(function success(res) {
-                    ret = new Question(res.author, res.body, res.id, res.tags);
+                    ret = new Question(res.author, res.body, res._id, res.tags);
                 }, function error(res) {
                     console.log(res);
                     ret = res;

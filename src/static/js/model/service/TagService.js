@@ -19,7 +19,7 @@ $(function () {
                     'keywords': keywords
                 }).then(function success(res) {
                     res.forEach(function (item) {
-                        ret.push(new Tag(item.description, item.id, item.name, item.parent));
+                        ret.push(new Tag(item.description, item._id, item.name, item.parent));
                     });
                 }, function error(res) {
                     console.log(res);
@@ -32,7 +32,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/tags/' + id).then(function success(res) {
-                    ret = new Tag(res.description, res.id, res.name, res.parent);
+                    ret = new Tag(res.description, res._id, res.name, res.parent);
                 }, function error(res) {
                     console.log(res);
                     ret = res;

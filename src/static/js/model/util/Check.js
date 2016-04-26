@@ -4,10 +4,28 @@ $(function () {
                 return password.length >= 6;
             };
             this.checkTitle = function (title) {
-                return QuestionnaireService.get(null, null, title).length === 0;
+                var ret = false;
+                var a = QuestionnaireService.get(null, null, title);
+                
+                a.forEach(function (item) {
+                    if (item.title === title) {
+                        ret = true;
+                    }
+                });
+                
+                return ret;
             };
             this.checkUserName = function (userName) {
-                return UserService.get(null, userName).length === 0;
+                var ret = false;
+                var a = UserService.get(null, userName);
+                
+                a.forEach(function (item) {
+                    if (item.userName === userName) {
+                        ret = true;
+                    }
+                });
+                
+                return ret;
             };
         }]);
 });

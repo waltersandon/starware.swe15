@@ -21,7 +21,7 @@ $(function () {
                     'title': title
                 }).then(function success(res) {
                     res.forEach(function (item) {
-                        ret.push(new Questionnaire(item.author, item.id, item.questions, item.tags, item.title));
+                        ret.push(new Questionnaire(item.author, item._id, item.questions, item.tags, item.title));
                     });
                 }, function error(res) {
                     console.log(res);
@@ -34,7 +34,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/questionnaires/' + id).then(function success(res) {
-                    ret = new Questionnaire(res.author, res.id, res.questions, res.tags, res.title);
+                    ret = new Questionnaire(res.author, res._id, res.questions, res.tags, res.title);
                 }, function error(res) {
                     console.log(res);
                     ret = res;

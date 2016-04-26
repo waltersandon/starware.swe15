@@ -20,7 +20,7 @@ $(function () {
                     'userName': userName
                 }).then(function success(res) {
                     res.forEach(function (item) {
-                        ret.push(new User(item.fullName, item.id, item.role, item.userName));
+                        ret.push(new User(item.fullName, item._id, item.role, item.userName));
                     });
                 }, function error(res) {
                     console.log(res);
@@ -33,7 +33,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/users/' + id).then(function success(res) {
-                    ret = new User(res.fullName, res.id, res.role, res.userName);
+                    ret = new User(res.fullName, res._id, res.role, res.userName);
                 }, function error(res) {
                     console.log(res);
                     ret = res;
@@ -45,7 +45,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/users/me').then(function success(res) {
-                    ret = new User(res.fullName, res.id, res.role, res.userName);
+                    ret = new User(res.fullName, res._id, res.role, res.userName);
                 }, function error(res) {
                     console.log(res);
                     ret = res;

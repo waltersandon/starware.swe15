@@ -1,6 +1,6 @@
 $(function () {
     angular.module('RoleServiceModule', ['RoleModule']).service('model.service.RoleService', ['$http', 'model.data.Role', function ($http, Role) {
-            this.delete = function (role) {
+            /*this.delete = function (role) {
                 var ret;
 
                 $http.delete('api/roles/' + role.id).then(function success(res) {
@@ -11,7 +11,7 @@ $(function () {
                 });
 
                 return ret;
-            };
+            };*/
             this.get = function (keywords) {
                 var ret = [];
 
@@ -19,7 +19,7 @@ $(function () {
                     'keywords': keywords
                 }).then(function success(res) {
                     res.forEach(function (item) {
-                        ret.push(new Role(item.id, item.name));
+                        ret.push(new Role(item._id, item.name));
                     });
                 }, function error(res) {
                     console.log(res);
@@ -32,7 +32,7 @@ $(function () {
                 var ret;
 
                 $http.get('api/roles/' + id).then(function success(res) {
-                    ret = new Role(res.id, res.name);
+                    ret = new Role(res._id, res.name);
                 }, function error(res) {
                     console.log(res);
                     ret = res;
@@ -40,7 +40,7 @@ $(function () {
 
                 return ret;
             };
-            this.modify = function (role) {
+            /*this.modify = function (role) {
                 var ret;
 
                 $http.put('api/roles/' + role.id, {
@@ -67,6 +67,6 @@ $(function () {
                 });
 
                 return ret;
-            };
+            };*/
         }]);
 });

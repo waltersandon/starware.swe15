@@ -6,19 +6,21 @@ $(function () {
 
                 var q = [];
                 questionnaire.questions.forEach(function (item) {
-                    q.push(QuestionService.getByID(item));
+                    q.push(QuestionService.getByID(item.id));
                 });
 
                 this.questions = q;
                 this.tags = questionnaire.tags;
             }
             CurrentQuestionnaire.prototype.checkAnswers = function () {
+                var ret = true;
+                
                 this.questions.forEach(function (item) {
-                    if (item === null) {
-                        return false;
+                    if (item.answer === null) {
+                        ret = false;
                     }
                 });
-                return true;
+                return ret;
             };
             CurrentQuestionnaire.prototype.getNext = function () {
                 if (this.currentNumber < this.questionNumber - 1) {
