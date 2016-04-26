@@ -65,28 +65,14 @@ mongoose.connect(config.dbUri, function() {
 			question2.save(),
 			question3.save(),
 			questionnaire1.save()
-		]).then(function() {
-			mongoose.disconnect();
-			console.log('Aggiunti ruoli base');
-			console.log('Aggiunti agromenti base');
-			console.log('Aggiunti utenti base');
-			console.log('Aggiunte domande base');
-			console.log('Aggiunto questionario base');
-		});
-
-
-
-		/*
-		Promise.all([
-			new Role({name: 'student'}).save(),
-			new Role({name: 'teacher'}).save(),
-			new Role({name: 'admin'}).save(),
-			new Role({name: 'superadmin'}).save()
-		]).then(function() {
-			mongoose.disconnect();
-			console.log('Aggiunti ruoli base');
-		});
-		*/
+		]).then(function() {});
+		
+		mongoose.disconnect();
+		console.log('Aggiunti ruoli base');
+		console.log('Aggiunti agromenti base');
+		console.log('Aggiunti utenti base');
+		console.log('Aggiunte domande base');
+		console.log('Aggiunto questionario base');
 	});
 
 });
