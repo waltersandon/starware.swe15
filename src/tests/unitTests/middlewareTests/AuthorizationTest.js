@@ -2,6 +2,7 @@
  * Created by igor on 21/04/16.
  * 19.TU
  */
+
 var testSubject = require('../../../api/middleware/Authorization.js');
 describe('Authorization check', function() {
     //Mock dell oggetto ErrorHandler  TODO
