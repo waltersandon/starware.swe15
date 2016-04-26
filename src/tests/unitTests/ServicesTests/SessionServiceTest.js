@@ -6,6 +6,9 @@ describe('Testing di SessionService', function() {
     it('Deve creare una nuova sessione', function () {
         //TODO
     });
+    it('Gestione Errori: deve rilevare una sessione non valida', function () {
+        //TODO
+    });
     it('Deve eliminare una sessione esistente', function () {
         //TODO
     });
