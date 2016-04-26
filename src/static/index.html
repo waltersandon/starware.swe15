@@ -31,7 +31,7 @@
         <link href='css/style.css' rel='stylesheet'>
 
         <!-- App.js -->
-        <script src='js/controller/App.js'></script>
+        <script src='js/app/App.js'></script>
 
         <!-- Load model::data* -->
         <script src='js/model/data/Question.js'></script>
@@ -64,7 +64,7 @@
 
     </head>
 
-    <body ng-app='quizzipediaApp' ng-controller='controller.public.Home'>
+    <body ng-app='app.App' ng-controller='controller.public.Home'>
         <div ng-switch on='urlPath()[1]'>
             <div ng-switch-when='login' >
                 <div ng-include="'html/public/LogIn.html'"></div>

@@ -32,7 +32,7 @@ function QuestionCheck() {
         this.checkTF = function(qml) {
             var answers = [];
             var text = "";
-            qml.split('\n').map(function(row) {
+            qml.split("\n").map(function(row) {
                 if (row.startsWith('[T]')) {
                     answers.push({
                         value: "T"
