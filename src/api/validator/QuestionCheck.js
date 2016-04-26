@@ -5,9 +5,11 @@
 function QuestionCheck() {
 
     this.checkTags = function(tagsArray){
-        if (typeof tagsArray !== 'undefined' && tagsArray.length > 0){
+        //non vuota
+        if (typeof tagsArray === 'undefined' || tagsArray.length == 0){
             return false;
         }
+        //non duplicati
         this.sorted_arr = tagsArray.slice().sort();
         for (this.i = 0; this.i < tagsArray.length - 1; this.i++) {
             if (this.sorted_arr[this.i + 1] == this.sorted_arr[this.i]) {

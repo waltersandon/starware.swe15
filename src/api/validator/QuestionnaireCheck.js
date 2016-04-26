@@ -7,9 +7,11 @@ function QuestionnaireCheck() {
 
     //controlla che l'array delle domande di un questionario non sia vuoto
     this.checkQuestions = function(questionArray){
-        if (typeof questionArray !== 'undefined' && questionArray.length > 0){
+        //non vuota
+        if (typeof questionArray === 'undefined' || questionArray.length == 0){
             return false;
         }
+        //non duplicati
         this.sorted_arr = questionArray.slice().sort();
         for (this.i = 0; this.i < questionArray.length - 1; this.i++) {
             if (this.sorted_arr[this.i + 1] == this.sorted_arr[this.i]) {
@@ -25,9 +27,11 @@ function QuestionnaireCheck() {
     };
 
     this.checkTags = function(tagsArray){
-        if (typeof tagsArray !== 'undefined' && tagsArray.length > 0){
+        //non vuota
+        if (typeof tagsArray === 'undefined' || tagsArray.length == 0){
             return false;
         }
+        //non duplicati
         this.sorted_arr = tagsArray.slice().sort();
         for (this.i = 0; this.i < tagsArray.length - 1; this.i++) {
             if (this.sorted_arr[this.i + 1] == this.sorted_arr[this.i]) {
