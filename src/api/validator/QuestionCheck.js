@@ -5,6 +5,7 @@
 function QuestionCheck() {
 
     this.checkTags = function(tagsArray){
+
         //non vuota
         if (typeof tagsArray === 'undefined' || tagsArray.length == 0){
             return false;
@@ -17,6 +18,7 @@ function QuestionCheck() {
             }
         }
         return true;
+
     };
 
     /**
@@ -25,6 +27,7 @@ function QuestionCheck() {
      * @returns {boolean}
      */
     this.checkQML = function(qml){
+
 
         this.checkTF = function(qml) {
             var answers = [];
@@ -94,6 +97,7 @@ function QuestionCheck() {
             }
         }
         return false;
+
     };
 
 }
