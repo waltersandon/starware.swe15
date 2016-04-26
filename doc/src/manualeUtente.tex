@@ -1,0 +1,133 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Manuale Utente}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{26 aprile 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{0.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			\intestazione{\titoloDocumento}
+			
+			\begin{table}[h]
+				\begin{center}
+					\begin{tabular}{r | l}
+						\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+						\midrule
+						\textbf{Nome Documento}	&	\titoloDocumento	\\
+						\textbf{Versione}	&	\versione	\\
+						\textbf{Stato}	&	\emph{\stato}	\\
+						\textbf{Uso}	&	\emph{\uso}	\\
+						\textbf{Data Creazione}	&	\dataCreazione	\\
+						\textbf{Data Ultima Modifica}	&	\today	\\
+						\textbf{Redazione}	\\
+						\textbf{Verifica}	&		\\
+						\textbf{Approvazione}	& \AB{} \\
+						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
+						\ 	&	\Vardanega{}	\\
+						\ 	&	\Cardin{}	\\
+						\ 	&	Il \mgls{proponente} \Zucchetti{}	\\
+						
+					\end{tabular}
+				\end{center}
+			\end{table}
+			
+		\end{center}
+	\end{titlepage}
+	\newpage
+	
+	\Large{\textbf{Registro delle modifiche}}\\
+	\normalsize
+	
+	\begin{center}
+		\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+			\midrule
+			0.0.0 & \AB{} & 2016-04-26 &  Creazione documento \\*
+			\bottomrule
+			\caption{\mGls{versionamento}  del documento}
+			\label{tabVers1}
+		\end{longtable}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoftables
+	\listoffigures
+	\newpage
+	
+	
+	\section{Introduzione}	\label{intro}
+	
+	\subsection{Scopo}
+
+	
+	\subsection{Descrizione}
+
+	
+	\subsection{Descrizione Prodotto}
+	\descrizioneProdotto
+	
+	\subsection{Glossario}
+	\glossarioPrint
+	
+	\subsection{Riferimenti}
+	
+	\subsubsection{Normativi}
+	\begin{itemize}
+		\item
+		
+	\end{itemize}
+	
+	\subsubsection{Informativi}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	
+	\newpage
+
+	\section{Autenticazione e gestione profilo}
+	\subsection{Registrazione}
+	\subsection{Autenticazione}
+	\subsection{Logout}
+	\subsection{Recupero password}
+	\subsection{Accesso e modifica profilo personale}
+	\section{Azioni studente}
+	\subsection{Ricerca questionario}
+	\subsection{Esecuzione questionario}
+	\section{Azioni docente}
+    \subsection{Gestione domande}
+	\subsection{Gestione tag}
+	\subsection{Gestione questionario}
+	\section{Azioni amministratore}
+	\subsection{Ricerca utente}
+	\subsection{Rimozione utente}
+	\subsection{Gestione docenti}
+	\section{Azioni proprietario}
+	\subsection{Gestione  amministratori}
+	
+	
+	
+
+
+	
+\end{document}
