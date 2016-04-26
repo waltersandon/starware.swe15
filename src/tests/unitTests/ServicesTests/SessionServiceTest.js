@@ -3,5 +3,13 @@
  */
 var testSubject = require('../../../api/service/SessionService.js');
 describe('Testing di SessionService', function() {
-    //TODO
+    it('Deve creare una nuova sessione', function () {
+        //TODO
+    });
+    it('Deve eliminare una sessione esistente', function () {
+        //TODO
+    });
+    it('Deve segnalare eliminazione sessione esistente', function () {
+        //TODO
+    });
 });

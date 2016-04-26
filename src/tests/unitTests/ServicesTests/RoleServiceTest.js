@@ -3,5 +3,10 @@
  */
 var testSubject = require('../../../api/service/RoleService.js');
 describe('Testing di RoleService', function() {
-    //TODO
+    it('Deve ottenre il ruolo richiesto', function () {
+        //TODO
+    });
+    it('Gestione Errori: ruolo inesistente', function () {
+        //TODO
+    });
 });
