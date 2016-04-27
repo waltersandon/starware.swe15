@@ -2,21 +2,14 @@
  * Created by igor on 21/04/16.
  * 18.TU
  */
-var expect = require('expect.js');
+
 var request = require('superagent');
 var testSubject = require('../../../api/middleware/Router.js');
 var AuthorizationCorrect = require('./mocks/AuthorizationMockCorrect');
 var AuthorizationInCorrect = require('./mocks/AuthorizationMockInCorrect');
 var ErrorHandler = require('./../../../api/middleware/ErrorHandler');
-var Questionnaire = require('./../../../api/data/Questionnaire');
-var express = require('express');
-var fs = require('fs');
 
-var App = require('./../../../api/app/App');
-var Loader = require('./mocks/LoaderMock');
-
-
-describe('Router check', function() {
+/*describe('Router check', function() {
     var error = new ErrorHandler();
     var url = "http://localhost:3000/";
     describe('richiesta auth corretta', function() {
@@ -116,4 +109,4 @@ describe('Router check', function() {
         });
 
     });
-});
+});*/
