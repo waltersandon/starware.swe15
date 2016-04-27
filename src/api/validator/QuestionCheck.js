@@ -34,6 +34,7 @@ function QuestionCheck() {
             var text = "";
             qml.split('\n').map(function(row) {
                 if (row.startsWith('[T]')) {
+
                     answers.push({
                         value: "T"
                     });

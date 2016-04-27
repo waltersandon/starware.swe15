@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('quizzipediaApp').controller('controller.user.User', ['$location', '$rootScope', '$scope', 'model.service.UserService', function ($location, $rootScope, $scope, userService) {
+    angular.module('app.App').controller('controller.user.User', ['$location', '$rootScope', '$scope', 'model.service.UserService', function ($location, $rootScope, $scope, userService) {
             /*var me = userService.getMe();
 
             $scope.fullName = me.fullName;
