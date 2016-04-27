@@ -17,7 +17,7 @@ function SessionService() {
         var userName = req.body.userName;
         var password = req.body.password;
         User.findOne({ userName: userName }).exec(function(err, user) {
-            if (err) next(err);
+            if (err) next(400);
             else if (user && user.isActive && new User(user).hasPassword(password)) {
                 req.session.user = user;
                 res.json(user);
