@@ -7,7 +7,6 @@ $(function () {
                     'password': password,
                     'userName': userName
                 }).then(function success(res) {
-                    $cookies
                     ret = true;
                 }, function error(res) {
                     console.log(res);

@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('UserServiceModule', ['ConfigurationModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', '$http', 'model.data.User', function (Configuration, $http, User) {
+    angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.data.User', function (Configuration, CurrentUser, $http, User) {
             this.delete = function (user) {
                 var ret;
 
@@ -45,7 +45,7 @@ $(function () {
                 var ret;
 
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
-                    ret = new User(res.fullName, res._id, res.role, res.userName);
+                    ret = new CurrentUser(new User(res.fullName, res._id, res.role, res.userName));
                 }, function error(res) {
                     console.log(res);
                     ret = res;

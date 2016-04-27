@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('UserModule', ['RoleServiceModule']).factory('model.data.CurrentUser', ['model.service.RoleService', function (RoleService) {
+    angular.module('CurrentUserModule', ['RoleServiceModule']).factory('model.data.CurrentUser', ['model.service.RoleService', function (RoleService) {
         function CurrentUser(user) {
             this.fullName = user.fullName;
             this.id = user.id;

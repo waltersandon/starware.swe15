@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.public.SignUp', ['model.util.Check', '$location', '$scope', '$rootScope', 'model.service.UserService', function (check, $location, $scope, $rootScope, userService) {
+    angular.module('app.App').controller('controller.public.SignUp', ['util.Check', '$location', '$scope', '$rootScope', 'model.service.UserService', function (check, $location, $scope, $rootScope, userService) {
             $scope.checkPassword = function () {
 
             };
