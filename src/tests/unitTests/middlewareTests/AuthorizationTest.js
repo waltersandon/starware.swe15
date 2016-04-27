@@ -56,7 +56,7 @@ describe('Authorization check', function() {
                 //next({code:401, error:"Utente non autorizzato"});
                 var res=false;
                 var req= {'session' : null };
-                check.requireTeacher(req,res,function(){ if(err.code === 401 ) res=true;});
+                check.requireTeacher(req,res,function(err){ if(err.code === 401 ) res=true;});
                 expect(res).to.equal(true);
             });
         });
