@@ -15,7 +15,7 @@ function RoleService() {
      */
     this.get = function(req, res, next){
         Role.find({},function(err, role){
-            if (err) next(err);
+            if (err) next(400);
             else {res.json(role);}
         });
     };
@@ -30,7 +30,7 @@ function RoleService() {
      */
     this.getByID = function(req, res, next){
         Role.findById(req.params.id,function(err,role){
-            if (err) next(err);
+            if (err) next(400);
             else if (!role) next(404);
             else {res.json(role);}
         });

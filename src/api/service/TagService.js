@@ -29,7 +29,7 @@ function TagService() {
      */
     this.getByID = function(req,res,next){
         Tag.findById(req.params.id, function(err, tag){
-            if (err) next(err);
+            if (err) next(400);
             else if (!tag) next(404);
             else {res.json(tag);}
         });
@@ -45,7 +45,7 @@ function TagService() {
     this.new = function(req, res, next){
         this.tag = new Tag(req.body);
         this.tag.save(function(err,tag) {
-            if (err) next(err);
+            if (err) next(400);
             else {res.json(tag);}
         });
     };
@@ -59,7 +59,7 @@ function TagService() {
      */
     this.modifyTag = function(req, res, next) {
         Tag.findByIdAndUpdate(req.params.id, req.body, function(err) {
-            if (err) next(err);
+            if (err) next(400);
             else {res.send();}
         });
     };
@@ -73,7 +73,7 @@ function TagService() {
      */
     this.deleteTag = function(req,res,next){
         Tag.findByIdAndRemove(req.params.id, function(err) {
-            if (err) next(err);
+            if (err) next(400);
             else {res.send();}
         });
     };

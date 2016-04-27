@@ -17,7 +17,7 @@ function UserService() {
      */
     this.get = function(req, res, next){
         User.find({}).exec(function(err, users) {
-            if (err) next(err);
+            if (err) next(400);
             else {res.json(users);}
         });
     };
@@ -31,7 +31,7 @@ function UserService() {
      */
     this.getByID = function(req, res, next){
         User.findById(req.params.id, function(err, user) {
-            if (err) next(err);
+            if (err) next(400);
             else if (!user) next(404);
             else {res.json(user);}
         });
@@ -46,7 +46,7 @@ function UserService() {
      */
     this.getMe = function(req, res, next){
         User.findById(req.session.user._id, function(err, user) {
-            if (err) next(err);
+            if (err) next(400);
             else if (!user) next(404);
             else {res.json(user);}
         });
@@ -61,7 +61,7 @@ function UserService() {
      */
     this.new = function(req, res, next) {
         Role.findOne({ name: 'student' }).exec(function(err, role)  {
-            if (err) next(err);
+            if (err) next(400);
             var user = new User({
                 fullName: req.body.fullName,
                 userName: req.body.userName,
@@ -69,7 +69,7 @@ function UserService() {
                 role: role._id
             });
             user.save(function(err, user) {
-                if (err) next(err);
+                if (err) next(400);
                 else {res.json(user);}
             });
         });
