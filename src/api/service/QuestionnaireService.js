@@ -16,7 +16,7 @@ function QuestionnaireService() {
      */
     this.getByID = function(req,res,next){
         Questionnaire.findById(req.params.id).exec(function(err, quest){
-            if(err) next(err);
+            if(err) next(400);
             else if (!quest) next(404);
             else {res.json(quest);}
         });

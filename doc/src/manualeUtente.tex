@@ -79,10 +79,11 @@
 	\section{Introduzione}	\label{intro}
 	
 	\subsection{Scopo}
+	Lo scopo del seguente documento è fornire una guida dettagliata all’utente per l’utilizzo dell’applicazione Quizzipedia. Sono descritte le funzionalità dell'applicazione e i profili utente offerti.
 
-	
 	\subsection{Descrizione}
-
+    Il documento include la descrizione dettagliata delle funzionalità offerte dal sistema per ogni tipo di utente previsto. In particolar modo, vengono definite tutte le funzionalità offerte dal sistema all’utente con l’ausilio di immagini illustrative. 
+   
 	
 	\subsection{Descrizione Prodotto}
 	\descrizioneProdotto
@@ -111,17 +112,59 @@
 	\subsection{Logout}
 	\subsection{Recupero password}
 	\subsection{Accesso e modifica profilo personale}
+	
+	\section{Profili utente}
+	L'applicazione Quizzipedia offre diversi profili utente. Ognuno di questi ha privilegi dedicati e un insieme di funzionalità distinte.
+	I vari profili utente offerti dall'applicazione offrono un insieme di funzionalità crescente da studente fino a propritario.
+	Ogni profilo aggiunge alle funzionalità disponibili ai ruoli precedenti in gerarchia, un insieme di funzionalità aggiuntivo.
+
+	\subsection{Profilo studente}
+	Il profilo studente è il profilo  base offerto dal sistema. Ogni utente registrato dispone di tali funzinalità. Tali funzionalità sono:
+	\begin{itemize}
+		\item la possibilità di ricercare questionari in base a piu parametri;
+		\item la possibiilità di esplorare i questionari presenti nel sistema per argomento;
+		\item la possibilità di eseguire un questionario presente nel sistema.
+	\end{itemize}
+	\subsection{Profilo docente}
+	Un profilo docente ha accesso a tutte le funzionalità di uno studente.
+		Inoltre offre funzionalità aggiuntive quali:
+		\begin{itemize}
+			\item la possibilità di gestire questionari (aggiungerli, rimuoverli e modificarli);
+			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
+			\item la possibilità di gestire argomenti o tag (aggiungerli, rimuoverli e modificarli)
+		\end{itemize}
+	\subsection{Profilo amministratore}
+	Un profilo amministratore ha accesso a tutte le funzionalità di docente e studente.
+	Inoltre offre funzionalità aggiuntive quali:
+	\begin{itemize}
+		\item la possibilità di promuovere uno studente a ruolo di docente;
+		\item la possibilità di degradare un docente a ruolo di studente;
+		\item la possibilità di rimuovere un docente o uno studente dal sistema.
+	\end{itemize}
+	\subsection{Profilo proprietario} 
+	Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore.
+	Inoltre offre funzionalità aggiuntive quali:
+	\begin{itemize}
+		\item la possibilità di promuovere uno utente (docente/studente) a ruolo di amministratore;
+		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
+		\item la possibilità di rimuovere un amministratore dal sistema.
+	\end{itemize}
+	\newpage
 	\section{Azioni studente}
 	\subsection{Ricerca questionario}
 	\subsection{Esecuzione questionario}
+	\newpage
 	\section{Azioni docente}
     \subsection{Gestione domande}
 	\subsection{Gestione tag}
 	\subsection{Gestione questionario}
+	\newpage
 	\section{Azioni amministratore}
 	\subsection{Ricerca utente}
 	\subsection{Rimozione utente}
 	\subsection{Gestione docenti}
+
+\newpage
 	\section{Azioni proprietario}
 	\subsection{Gestione  amministratori}
 	

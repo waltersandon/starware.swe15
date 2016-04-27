@@ -5,7 +5,6 @@
  */
 function QuestionnaireCheck() {
 
-    //controlla che l'array delle domande di un questionario non sia vuoto
     this.checkQuestions = function(questionArray){
         //non vuota
         if (typeof questionArray === 'undefined' || questionArray.length == 0){
@@ -40,8 +39,8 @@ function QuestionnaireCheck() {
         }
         return true;
     };
-}
 
+}
 
 module.exports = QuestionnaireCheck;
 
