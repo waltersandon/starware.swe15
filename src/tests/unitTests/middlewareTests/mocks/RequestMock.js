@@ -2,6 +2,7 @@ function RequestMock() {
 	this.session = {};
 	this.params = {};
 	this.query = {};
+	this.body = {};
 }
 
 RequestMock.prototype.setUser = function(user) {
@@ -14,6 +15,9 @@ RequestMock.prototype.setParam = function(name, value) {
 
 RequestMock.prototype.setQueryParam = function(name, value) {
 	this.query[name] = value;
+};
+RequestMock.prototype.setBody = function(body) {
+	this.body = body;
 };
 
 module.exports = RequestMock;

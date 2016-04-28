@@ -59,6 +59,7 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req, res, next) {
+        console.log("errore ");
         Role.findOne({ name: 'student' }).exec(function(err, role)  {
             if (err) next(400);
             var user = new User({

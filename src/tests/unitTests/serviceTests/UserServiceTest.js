@@ -2,14 +2,20 @@
  * Created by igor on 22/04/16.
  */
 var expect = require('chai').expect;
-var request = require('superagent');
 var testSubject = require('../../../api/service/UserService.js');
+var Request = require('./../middlewareTests/mocks/RequestMock');
+var Response = require('./../middlewareTests/mocks/ResponseMock');
 describe('Testing di UserService', function() {
     var check = new testSubject();
-    var url = 'http://localhost:3000/';
     it('Deve creare un utente', function () {
-            //TODO
-            
+            var errore = 0;
+            var req = new Request();
+            req.setBody({fullName: "testName", userName: "userTest", password: "password"});
+            var res = new Response();
+            check.new(req,res,function(err){errore = err;});
+            expect(errore).to.equal(0);
+            console.log(res);
+            expect(res.response.userName).to.equal("userTest")
         });
         
 
