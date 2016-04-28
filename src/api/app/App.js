@@ -6,7 +6,7 @@ var Configuration = require('./Configuration');
 var express = require('express');
 var http = require('http');
 var mongoose = require('mongoose');
-var cors = require('cors');
+//var cors = require('cors');
 
 /**
  * 
@@ -22,7 +22,7 @@ function App() {
      * @param config - Oggetto per la configurazione del server
      */
     this.config = function(){
-		app.use(cors());
+		//app.use(cors());
         app.set('port', config.serverPort);
         app.set('ip', config.serverHost);
         return app;
