@@ -1,0 +1,58 @@
+
+<div  ng-controller='SelectQuestion as selectCtrl'>
+    <h2>Seleziona domanda</h2>
+    <table class='table table-striped table-hover'>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Autore</th>
+            <th>Corpo</th>
+            <th>Argomenti</th>
+        </tr>
+        </thead>
+        <tbody>
+        <form action="" ng-submit="search()">
+        <tr>
+            <td>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="author"></label>
+                    <input type="text" class="form-control" id="author" ng-model="selectCtrl.author" placeholder="Inserisci autore" >
+                    <!--<button type="button" class="btn btn-primary hidden" ng-click="search()"></button>-->
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="corpo"></label>
+                    <input type="text" class="form-control" id="corpo" ng-model="selectCtrl.body" placeholder="Inserisci corpo">
+
+                </div>
+            </td>
+            <td>
+                <div class="form-group">
+                    <label for="argomenti"></label>
+                    <input type="text" class="form-control" id="argomenti" ng-model="selectCtrl.keywordQuery" placeholder="Inserisci argomenti">
+                    <button type="submit" style="position: absolute; top: -999999px;"></button>
+                </div>
+            </td>
+        </tr>
+        </form>
+        <tr>
+            <td>1</td>
+            <td>Tullio</td>
+            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</td>
+            <td>SWE, informatica etc.....</td>
+
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>R Cardin</td>
+            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</td>
+            <td>Java, distribuzione, etc.....</td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
