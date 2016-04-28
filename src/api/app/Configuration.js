@@ -52,6 +52,12 @@ function Configuration() {
     this.dbName = process.env.OPENSHIFT_APP_NAME || 'quizzipedia';
 
     /**
+     * Nome del database usato per i test
+     * @type {string}
+     */
+    this.dbTestName = 'test-quizzipedia';
+
+    /**
      * Username per connettersi al database
      * @type {*|string}
      */
@@ -71,6 +77,15 @@ function Configuration() {
         ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
         this.dbHost + ':' + this.dbPort + '/' + this.dbName
         :'mongodb://' + this.dbHost + ':' + this.dbPort + '/' + this.dbName;
+
+    /**
+     * Stringa di connessione al database
+     * @type {string}
+     */
+    this.dbTestUri = (this.dbPassword)
+        ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
+        this.dbHost + ':' + this.dbPort + '/' + this.dbTestName
+        :'mongodb://' + this.dbHost + ':' + this.dbPort + '/' + this.dbTestName;
 
 
 }

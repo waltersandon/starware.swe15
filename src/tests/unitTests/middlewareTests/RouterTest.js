@@ -6,7 +6,13 @@
 var testSubject = require('./../../../api/middleware/Router.js');
 var ErrorHandler = require('./../../../api/middleware/ErrorHandler');
 describe('Router check', function() {
-   /* describe('richiesta auth corretta', function() {
+    /*var error = new ErrorHandler();
+    var url = "http://localhost:3000/api";
+    describe('richiesta auth corretta', function() {
+        var a = new App();
+        var auth= new AuthorizationCorrect();
+        var l = new Loader(a.config(),auth);
+        a.start();
         describe('user', function() {
             it('deve permettere di recuparere un questionario da eseguire', function() {
                 //TODO
