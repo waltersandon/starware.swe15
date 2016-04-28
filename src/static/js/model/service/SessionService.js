@@ -1,31 +1,25 @@
 $(function () {
     angular.module('SessionServiceModule', ['ConfigurationModule']).service('model.service.SessionService', ['app.Configuration', '$http', function (Configuration, $http) {
-            this.login = function (password, userName) {
-                var ret;
-                
+            this.login = function (password, userName, next, err) {
                 $http.post(Configuration.remote + 'api/session', {
                     'password': password,
                     'userName': userName
                 }).then(function success(res) {
-                    ret = true;
+                    console.log(res);
+                    next();
                 }, function error(res) {
                     console.log(res);
-                    ret = false;
+                    err();
                 });
-                
-                return ret;
             };
-            this.logout = function () {
-                var ret;
-                
+            this.logout = function (next, err) {
                 $http.delete(Configuration.remote + 'api/session').then(function success(res) {
-                    ret = true;
+                    console.log(res);
+                    next();
                 }, function error(res) {
                     console.log(res);
-                    ret = false;
+                    err();
                 });
-                
-                return ret;
             };
         }]);
 });

@@ -1,78 +1,67 @@
 $(function () {
     angular.module('QuestionServiceModule', ['ConfigurationModule', 'QuestionModule']).service('model.service.QuestionService', ['app.Configuration', '$http', 'model.data.Question', function (Configuration, $http, Question) {
-            this.delete = function (question) {
-                var ret;
-
+            this.delete = function (question, next, err) {
                 $http.delete(Configuration.remote + 'api/questions/' + question.id).then(function success(res) {
-                    ret = true;
+                    console.log(res);
+                    next();
                 }, function error(res) {
                     console.log(res);
-                    ret = false;
+                    err();
                 });
-
-                return ret;
             };
-            this.get = function (author, keywords, tags) {
-                var ret = [];
-
+            this.get = function (author, keywords, tags, next, err) {
                 $http.get(Configuration.remote + 'api/questions', {
                     'author': author,
                     'keywords': keywords,
                     'tags': tags
                 }).then(function success(res) {
+                    console.log(res);
+                    
+                    var ret = [];
                     res.forEach(function (item) {
                         ret.push(new Question(item.author, item.body, item._id, item.tags));
                     });
+                    
+                    next(ret);
                 }, function error(res) {
                     console.log(res);
-                    ret = res;
+                    err();
                 });
-
-                return ret;
             };
-            this.getByID = function (id) {
-                var ret;
-
+            this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/questions/' + id).then(function success(res) {
-                    ret = new Question(res.author, res.body, res._id, res.tags);
+                    console.log(res);
+                    next(new Question(res.author, res.body, res._id, res.tags));
                 }, function error(res) {
                     console.log(res);
-                    ret = res;
+                    err();
                 });
-
-                return ret;
             };
-            this.modify = function (question) {
-                var ret;
-
+            this.modify = function (question, next, err) {
                 $http.put(Configuration.remote + 'api/questions/' + question.id, {
                     'author': question.author,
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
-                    ret = true;
+                    console.log(res);
+                    next();
                 }, function error(res) {
                     console.log(res);
-                    ret = false;
+                    err();
                 });
-
-                return ret;
             };
-            this.new = function (question) {
-                var ret;
-
+            this.new = function (question, next, err) {
                 $http.post(Configuration.remote + 'api/questionnaires', {
                     'author': question.author,
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
-                    ret = true;
+                    console.log(res);
+                    next();
                 }, function error(res) {
                     console.log(res);
-                    ret = false;
+                    err();
                 });
-
-                return ret;
             };
         }]);
 });
