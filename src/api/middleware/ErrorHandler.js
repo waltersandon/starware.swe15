@@ -21,13 +21,11 @@ function ErrorHandler() {
                 400: 'Errore di validazione'
             };
         	res.status(err).json({
-                code: err,
                 message: messages[err] || 'Errore sconosciuto'
             });
         } else {
         	console.error("Uknown error: ", err);
         	res.status(500).json({
-                code: 500,
                 message: 'Errore di sistema'
             });
         }
