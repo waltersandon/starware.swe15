@@ -18,9 +18,9 @@ function SessionService() {
         var password = req.body.password;
         User.findOne({ userName: userName }).exec(function(err, user) {
             if (err) next(400);
-            else if (user && user.isActive && new User(user).hasPassword(password)) {
+            else if (user && user.isActive && user.hasPassword(password)) {
                 req.session.user = user;
-                res.json(user);
+                res.send();
             }
             else {next(401);} 
         });
