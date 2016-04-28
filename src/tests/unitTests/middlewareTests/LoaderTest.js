@@ -2,15 +2,22 @@
  * Created by igor on 22/04/16.
  * 20.TU
  */
+var expect = require('chai').expect;
 var testSubject = require('../../../api/middleware/Loader.js');
+var App = require('./../../../api/app/App');
+var Authorization = require('./../../../api/middleware/Authorization');
+var Router = require('./../../../api/middleware/Router');
+var ErrorHandler = require('./../../../api/middleware/ErrorHandler');
 describe('Loader check', function() {
+        var a = new App();
+        var check = new testSubject(a.config());
         it('deve creare ogetto Authorization', function() {
-            //TODO
+                expect(check.authorization).to.be.an.instanceof(Authorization);
         });
         it('deve creare ogetto ErrorHandler', function() {
-            //TODO
+                expect(check.error).to.be.an.instanceof(ErrorHandler);
         });
         it('deve creare ogetto Router', function() {
-        //TODO
+                expect(check.router).to.be.an.instanceof(Router);
          });
 });
