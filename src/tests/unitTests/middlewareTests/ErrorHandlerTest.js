@@ -6,7 +6,7 @@ var expect = require('chai').expect;
 var testSubject = require('../../../api/middleware/ErrorHandler.js');
 describe('ErrorHandler check', function() {
     var check = new testSubject();
-    it('deve inviare ValidationError passato', function() {
+   /* it('deve inviare ValidationError passato', function() {
         //TODO
     });
     it('deve inviare number error passato', function() {
@@ -14,6 +14,6 @@ describe('ErrorHandler check', function() {
     });
     it('deve inviare Uknown error passato', function() {
         //TODO
-    });
+    });*/
 
 });
