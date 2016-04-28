@@ -1,9 +1,9 @@
 $(function () {
-    angular.module('UserServiceModule', ['UserModule']).service('model.service.UserService', ['$http', 'model.data.User', function ($http, User) {
+    angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.data.User', function (Configuration, CurrentUser, $http, User) {
             this.delete = function (user) {
                 var ret;
 
-                $http.delete('api/users/' + user.id).then(function success(res) {
+                $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
                     console.log(res);
@@ -15,7 +15,7 @@ $(function () {
             this.get = function (fullName, userName) {
                 var ret = [];
 
-                $http.get('api/users', {
+                $http.get(Configuration.remote + 'api/users', {
                     'fullName': fullName,
                     'userName': userName
                 }).then(function success(res) {
@@ -32,7 +32,7 @@ $(function () {
             this.getByID = function (id) {
                 var ret;
 
-                $http.get('api/users/' + id).then(function success(res) {
+                $http.get(Configuration.remote + 'api/users/' + id).then(function success(res) {
                     ret = new User(res.fullName, res._id, res.role, res.userName);
                 }, function error(res) {
                     console.log(res);
@@ -44,8 +44,8 @@ $(function () {
             this.getMe = function () {
                 var ret;
 
-                $http.get('api/users/me').then(function success(res) {
-                    ret = new User(res.fullName, res._id, res.role, res.userName);
+                $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
+                    ret = new CurrentUser(new User(res.fullName, res._id, res.role, res.userName));
                 }, function error(res) {
                     console.log(res);
                     ret = res;
@@ -56,7 +56,7 @@ $(function () {
             this.modifyRole = function (user, role) {
                 var ret;
 
-                $http.post('api/users/' + user.id, {
+                $http.post(Configuration.remote + 'api/users/' + user.id, {
                     'role': {
                         'id': role.id
                     }
@@ -72,7 +72,7 @@ $(function () {
             this.signUp = function (fullName, password, userName) {
                 var ret;
 
-                $http.post('api/users', {
+                $http.post(Configuration.remote + 'api/users', {
                     'fullName': fullName,
                     'userName': userName,
                     'password': password
@@ -88,7 +88,7 @@ $(function () {
             this.updateInformation = function (fullName, userName) {
                 var ret;
 
-                $http.post('api/users/me', {
+                $http.post(Configuration.remote + 'api/users/me', {
                     'fullName': fullName,
                     'userName': userName
                 }).then(function success(res) {
@@ -103,7 +103,7 @@ $(function () {
             this.updatePassword = function (newPassword, oldPassword) {
                 var ret;
 
-                $http.post('api/users/me', {
+                $http.post(Configuration.remote + 'api/users/me', {
                     'newPassword': newPassword,
                     'oldPassword': oldPassword
                 }).then(function success(res) {

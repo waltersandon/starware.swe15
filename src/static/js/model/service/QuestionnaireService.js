@@ -1,9 +1,9 @@
 $(function () {
-    angular.module('QuestionnaireServiceModule', ['QuestionnaireModule']).service('model.service.QuestionnaireService', ['$http', 'model.data.Questionnaire', function ($http, Questionnaire) {
+    angular.module('QuestionnaireServiceModule', ['ConfigurationModule', 'QuestionnaireModule']).service('model.service.QuestionnaireService', ['app.Configuration', '$http', 'model.data.Questionnaire', function (Configuration, $http, Questionnaire) {
             this.delete = function (questionnaire) {
                 var ret;
 
-                $http.delete('api/questionnaires/' + questionnaire.id).then(function success(res) {
+                $http.delete(Configuration.remote + 'api/questionnaires/' + questionnaire.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
                     console.log(res);
@@ -15,7 +15,7 @@ $(function () {
             this.get = function (author, tags, title) {
                 var ret = [];
 
-                $http.get('api/questionnaires', {
+                $http.get(Configuration.remote + 'api/questionnaires', {
                     'author': author,
                     'tags': tags,
                     'title': title
@@ -33,7 +33,7 @@ $(function () {
             this.getByID = function (id) {
                 var ret;
 
-                $http.get('api/questionnaires/' + id).then(function success(res) {
+                $http.get(Configuration.remote + 'api/questionnaires/' + id).then(function success(res) {
                     ret = new Questionnaire(res.author, res._id, res.questions, res.tags, res.title);
                 }, function error(res) {
                     console.log(res);
@@ -45,7 +45,7 @@ $(function () {
             this.modify = function (questionnaire) {
                 var ret;
 
-                $http.put('api/questionnaires/' + questionnaire.id, {
+                $http.put(Configuration.remote + 'api/questionnaires/' + questionnaire.id, {
                     'author': questionnaire.author,
                     'questions': questionnaire.questions,
                     'tags': questionnaire.tags,
@@ -62,7 +62,7 @@ $(function () {
             this.new = function (questionnaire) {
                 var ret;
 
-                $http.post('api/questionnaires', {
+                $http.post(Configuration.remote + 'api/questionnaires', {
                     'author': questionnaire.author,
                     'questions': questionnaire.questions,
                     'tags': questionnaire.tags,

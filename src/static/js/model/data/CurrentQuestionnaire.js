@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule']).factory('model.util.CurrentQuestionnaire', ['model.service.QuestionService', function (QuestionService) {
+    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule']).factory('model.data.CurrentQuestionnaire', ['model.service.QuestionService', function (QuestionService) {
             function CurrentQuestionnaire(questionnaire) {
                 this.currentNumber = 0;
                 this.questionNumber = questionnaire.length;

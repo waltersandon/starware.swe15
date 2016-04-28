@@ -1,9 +1,9 @@
 $(function () {
-    angular.module('SessionServiceModule', []).service('model.service.SessionService', ['$http', function ($http) {
+    angular.module('SessionServiceModule', ['ConfigurationModule']).service('model.service.SessionService', ['app.Configuration', '$http', function (Configuration, $http) {
             this.login = function (password, userName) {
                 var ret;
                 
-                $http.post('api/session', {
+                $http.post(Configuration.remote + 'api/session', {
                     'password': password,
                     'userName': userName
                 }).then(function success(res) {
@@ -18,7 +18,7 @@ $(function () {
             this.logout = function () {
                 var ret;
                 
-                $http.delete('api/session').then(function success(res) {
+                $http.delete(Configuration.remote + 'api/session').then(function success(res) {
                     ret = true;
                 }, function error(res) {
                     console.log(res);

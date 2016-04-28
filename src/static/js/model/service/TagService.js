@@ -1,9 +1,9 @@
 $(function () {
-    angular.module('TagServiceModule', ['TagModule']).service('model.service.TagService', ['$http', 'model.data.Tag', function ($http, Tag) {
+    angular.module('TagServiceModule', ['ConfigurationModule', 'TagModule']).service('model.service.TagService', ['app.Configuration', '$http', 'model.data.Tag', function (Configuration, $http, Tag) {
             this.delete = function (tag) {
                 var ret;
 
-                $http.delete('api/tags/' + tag.id).then(function success(res) {
+                $http.delete(Configuration.remote + 'api/tags/' + tag.id).then(function success(res) {
                     ret = true;
                 }, function error(res) {
                     console.log(res);
@@ -15,7 +15,7 @@ $(function () {
             this.get = function (keywords) {
                 var ret = [];
 
-                $http.get('api/tags', {
+                $http.get(Configuration.remote + 'api/tags', {
                     'keywords': keywords
                 }).then(function success(res) {
                     res.forEach(function (item) {
@@ -31,7 +31,7 @@ $(function () {
             this.getByID = function (id) {
                 var ret;
 
-                $http.get('api/tags/' + id).then(function success(res) {
+                $http.get(Configuration.remote + 'api/tags/' + id).then(function success(res) {
                     ret = new Tag(res.description, res._id, res.name, res.parent);
                 }, function error(res) {
                     console.log(res);
@@ -43,7 +43,7 @@ $(function () {
             this.modify = function (tag) {
                 var ret;
 
-                $http.put('api/tags/' + tag.id, {
+                $http.put(Configuration.remote + 'api/tags/' + tag.id, {
                     'description': tag.description,
                     'id': tag.id,
                     'name': tag.name,
@@ -60,7 +60,7 @@ $(function () {
             this.new = function (tag) {
                 var ret;
 
-                $http.post('api/tags', {
+                $http.post(Configuration.remote + 'api/tags', {
                     'description': tag.description,
                     'name': tag.name,
                     'parent': tag.parent
