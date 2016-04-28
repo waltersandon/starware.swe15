@@ -1,6 +1,5 @@
 var User = require('./../data/User');
 var Role = require('./../data/Role');
-var ErrorHandler = require('./../middleware/ErrorHandler');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -86,10 +85,10 @@ function UserService() {
     this.modify = function(req, res, next){
         User.findByIdAndUpdate(req.params.id, { 
             role: req.body.role
-        }, ErrorHandler(res, function(user) {
+        }, function(user) {
             if (!user) next(404);
             else {res.send();}
-        }));
+        });
     };
 
     /**
@@ -105,18 +104,16 @@ function UserService() {
             User.findByIdAndUpdate(req.session.user._id, { 
                 fullName: req.body.fullName,
                 userName: req.body.userName
-            }, ErrorHandler(res, function(user) {
-                res.send();
-            }));
+            }, function(user) { res.send(); });
         } else if (req.body.oldPassword || req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
                 next(401);
             User.findByIdAndUpdate(req.session.user._id, {
                 password: req.body.newPassword
-            }, ErrorHandler(res, function(user) {
+            }, function(user) {
                 if (!user) next(404);
                 else {req.send();}
-            }));
+            });
         }
     };
 
@@ -130,10 +127,10 @@ function UserService() {
     this.delete = function(req, res, next){
         User.findByIdAndUpdate(req.session.user._id, {
             isActive: false
-        }, ErrorHandler(res, function() {
+        }, function() {
             if (!user) next(404);
             else {res.send();}
-        }));
+        });
     };
 
 }
