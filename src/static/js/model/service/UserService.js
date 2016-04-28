@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.data.User', function (Configuration, CurrentUser, $http, User) {
+    angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
             this.delete = function (user, next, err) {
                 $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
                     console.log(res);
@@ -15,12 +15,12 @@ $(function () {
                     'userName': userName
                 }).then(function success(res) {
                     console.log(res);
-                    
+
                     var ret = [];
-                    res.forEach(function (item) {
+                    res.data.forEach(function (item) {
                         ret.push(new User(item.fullName, item._id, item.role, item.userName));
                     });
-                    
+
                     next(ret);
                 }, function error(res) {
                     console.log(res);
@@ -30,7 +30,7 @@ $(function () {
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/users/' + id).then(function success(res) {
                     console.log(res);
-                    next(new User(res.fullName, res._id, res.role, res.userName));
+                    next(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName));
                 }, function error(res) {
                     console.log(res);
                     err();
@@ -39,13 +39,15 @@ $(function () {
             this.getMe = function (next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
-                    next(new CurrentUser(new User(res.fullName, res._id, res.role, res.userName)));
+                    RoleService.get(res.data.role.href, function (role) {
+                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
+                    }, function () {
+                        err();
+                    });
                 }, function error(res) {
                     console.log(res);
                     err();
                 });
-
-                return ret;
             };
             this.modifyRole = function (user, role, next, err) {
                 $http.post(Configuration.remote + 'api/users/' + user.id, {

@@ -48,12 +48,15 @@ QuestionnaireSchema.path('tags').validate(
  */
 QuestionnaireSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        ret.author = { href: '/api/users/' + ret.author + '/' };
-        ret.questions = ret.questions.map(function(question) {
-            return { href: '/api/questions/' + question + '/' };
+        //ret.author = { href: '/api/users/' + ret.author + '/' };
+        ret.author = { href: ret.author };
+		ret.questions = ret.questions.map(function(question) {
+			//return { href: '/api/questions/' + question + '/' };
+            return { href: question };
         });
         ret.tags = ret.tags.map(function(tag) {
-            return { href: '/api/tags/' + tag + '/' };
+			//return { href: '/api/tags/' + tag + '/' };
+            return { href: tag };
         });
         delete ret.__v;
         return ret;

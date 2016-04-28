@@ -18,7 +18,7 @@ $(function () {
                     console.log(res);
 
                     var ret = [];
-                    res.forEach(function (item) {
+                    res.data.forEach(function (item) {
                         ret.push(new Questionnaire(item.author, item._id, item.questions, item.tags, item.title));
                     });
                     
@@ -31,7 +31,7 @@ $(function () {
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/questionnaires/' + id).then(function success(res) {
                     console.log(res);
-                    next(new Questionnaire(res.author, res._id, res.questions, res.tags, res.title));
+                    next(new Questionnaire(res.data.author, res.data._id, res.data.questions, res.data.tags, res.data.title));
                 }, function error(res) {
                     console.log(res);
                     err();

@@ -35,9 +35,11 @@ QuestionSchema.path('tags').validate(
  */
 QuestionSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        ret.author = { href: '/api/users/' + ret.author + '/' };
-        ret.tags = ret.tags.map(function(tag) {
-            return { href: '/api/tags/' + tag + '/' };
+        //ret.author = { href: '/api/users/' + ret.author + '/' };
+		ret.author = { href: ret.author };
+		ret.tags = ret.tags.map(function(tag) {
+			//return { href: '/api/tags/' + tag + '/' };
+            return { href: tag };
         });
         delete ret.__v;
         return ret;

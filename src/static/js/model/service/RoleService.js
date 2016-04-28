@@ -7,7 +7,7 @@ $(function () {
                     console.log(res);
                     
                     var ret = [];
-                    res.forEach(function (item) {
+                    res.data.forEach(function (item) {
                         ret.push(new Role(item._id, item.name));
                     });
                     
@@ -20,7 +20,7 @@ $(function () {
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/roles/' + id).then(function success(res) {
                     console.log(res);
-                    next(new Role(res._id, res.name));
+                    next(new Role(res.data._id, res.data.name));
                 }, function error(res) {
                     console.log(res);
                     err();

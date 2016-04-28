@@ -16,7 +16,7 @@ $(function () {
                     console.log(res);
 
                     var ret = [];
-                    res.forEach(function (item) {
+                    res.data.forEach(function (item) {
                         ret.push(new Tag(item.description, item._id, item.name, item.parent));
                     });
 
@@ -29,7 +29,7 @@ $(function () {
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/tags/' + id).then(function success(res) {
                     console.log(res);
-                    next(new Tag(res.description, res._id, res.name, res.parent));
+                    next(new Tag(res.data.description, res.data._id, res.data.name, res.data.parent));
                 }, function error(res) {
                     console.log(res);
                     err();
