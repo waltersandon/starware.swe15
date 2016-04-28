@@ -1,27 +1,27 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.User', ['$location', '$rootScope', '$scope', 'model.service.UserService', function ($location, $rootScope, $scope, userService) {
+    angular.module('app.App').controller('controller.user.User', ['$location', '$rootScope', '$scope', 'model.service.UserService', function ($location, $rootScope, $scope, UserService) {
             /*var me = userService.getMe();
-
-            $scope.fullName = me.fullName;
-            $scope.newPassword = '';
-            $scope.oldPasword = '';
-            $scope.repeatPassword = '';
-            $scope.userName = me.userName;
+             
+             $scope.fullName = me.fullName;
+             $scope.newPassword = '';
+             $scope.oldPasword = '';
+             $scope.repeatPassword = '';
+             $scope.userName = me.userName;*/
 
             $scope.submitInformation = function () {
-                if (userService.updateInformation($scope.fullName, $scope.userName)) {
-                    
-                } else {
-                    
-                }
+                UserService.updateInformation($scope.fullName, $scope.userName, function () {
+
+                }, function () {
+
+                });
             };
             $scope.submitPassword = function () {
-                if (userService.updatePassword($scope.newPassword, $scope.oldPasword)) {
-                    
-                } else {
-                    
-                }
-            };*/
+                UserService.updatePassword($scope.newPassword, $scope.oldPasword, function () {
+
+                }, function () {
+
+                });
+            };
         }]);
 });
 

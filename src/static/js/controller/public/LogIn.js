@@ -7,7 +7,7 @@ $(function () {
                         $rootScope.me = me;
                         $cookies.putObject('me', me);
                         $location.url('#/user');
-
+                        
                     }, function () {
                         console.log('no getme');
                     });

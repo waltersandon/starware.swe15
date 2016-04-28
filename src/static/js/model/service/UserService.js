@@ -39,7 +39,7 @@ $(function () {
             this.getMe = function (next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
-                    RoleService.get(res.data.role.href, function (role) {
+                    RoleService.getByID(res.data.role.href, function (role) {
                         next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
                     }, function () {
                         err();

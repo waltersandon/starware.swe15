@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.public.SignUp', ['util.Check', '$location', '$scope', '$rootScope', 'model.service.UserService', function (check, $location, $scope, $rootScope, userService) {
+    angular.module('app.App').controller('controller.public.SignUp', ['util.Check', '$location', '$scope', '$rootScope', 'model.service.UserService', function (check, $location, $scope, $rootScope, UserService) {
             $scope.checkPassword = function () {
 
             };
@@ -10,11 +10,11 @@ $(function () {
 
             };
             $scope.submit = function () {
-                if (userService.signUp($scope.fullName, $scope.password, $scope.userName)) {
-
-                } else {
-
-                }
+                UserService.signUp($scope.fullName, $scope.password, $scope.userName, function () {
+                    
+                }, function () {
+                    
+                });
             };
         }]);
 });
