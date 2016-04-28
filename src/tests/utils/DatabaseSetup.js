@@ -6,6 +6,12 @@ var Questionnaire = require('../../api/data/Questionnaire');
 var Tag = require('../../api/data/Tag');
 var User = require('../../api/data/User');
 
+function databaseConnect() {
+	var config = new Configuration();
+    mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
+	mongoose.connect(config.dbTestUri);
+}
+
 function objLoader(objs, onLoaded) {
 	if (objs.length > 0) {
 		var obj = objs.shift(); // pop front
@@ -28,12 +34,12 @@ function resetDatabase(onReset) {
 }
 
 function databaseSetup(objs, fn) {
-	var config = new Configuration();
-    mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-	mongoose.connect(config.dbTestUri);
 	resetDatabase(function() {
 		objLoader(objs, fn);
 	});
 }
 
-module.exports = databaseSetup;
+module.exports = {
+	databaseConnect: databaseConnect,
+	databaseSetup: databaseSetup,
+};
