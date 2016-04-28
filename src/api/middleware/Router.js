@@ -33,7 +33,7 @@ function Router(auth, error) {
     this.router.get('/users',auth.requireAdmin,this.userService.get);
     this.router.get('/users/me',auth.requireUser, this.userService.getMe);
     this.router.get('/users/:id',auth.requireAdmin,this.userService.getByID);
-    this.router.post('/users',auth.requireUser,this.userService.new);
+    this.router.post('/users',this.userService.new);
     this.router.post('/users/me',auth.requireUser,this.userService.modifyMe);
     this.router.post('/users/:id',auth.requireUser,this.userService.modify);
     this.router.delete('/users/:id',auth.requireAdmin,this.userService.delete);
