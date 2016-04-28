@@ -1,11 +1,11 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.Home', ['$location', '$rootScope', '$scope', 'model.service.SessionService', function ($location, $rootScope, $scope, sessionService) {
+    angular.module('app.App').controller('controller.user.Home', ['$location', '$rootScope', '$scope', 'model.service.SessionService', function ($location, $rootScope, $scope, SessionService) {
             $scope.logout = function () {
-                if (sessionService.logout()) {
+                SessionService.logout(function () {
 
-                } else {
+                }, function () {
 
-                }
+                });
             };
         }]);
 });
