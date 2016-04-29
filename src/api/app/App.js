@@ -13,7 +13,7 @@ var mongoose = require('mongoose');
  */
 function App(config) {
 
-    var app = express();
+    this.app = express();
 
     /**
      * Metodo che configura i parametri del server sulla base dell'oggetto di configurazione
@@ -21,9 +21,9 @@ function App(config) {
      */
     this.config = function(){
 		//app.use(cors());
-        app.set('port', config.serverPort);
-        app.set('ip', config.serverHost);
-        return app;
+        this.app.set('port', config.serverPort);
+        this.app.set('ip', config.serverHost);
+        return this.app;
     };
 
     /**
@@ -34,9 +34,9 @@ function App(config) {
             console.error("Error: " + err);
         });
         mongoose.connect(config.dbUri);
-        var port = app.get('port');
-        var ip = app.get('ip');
-        app.listen(port, ip, function () {
+        var port = this.app.get('port');
+        var ip = this.app.get('ip');
+        this.app.listen(port, ip, function () {
             console.log('%s: Node server started on %s:%d ', Date(Date.now()), ip, port);
         });
     }
