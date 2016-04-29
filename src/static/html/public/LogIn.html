@@ -4,7 +4,7 @@
         <div class='col-md-8 col-md-offset-2'>
             <h1>Accesso</h1>
             <div class='well bs-component'>
-                <form class='form-horizontal' ng-submit='submit()'>
+                <form name='login' class='form-horizontal' ng-submit='login.$valid && submit()'>
                     <div class='form-group'>
                         <label for='inputUsername' class='col-md-2 control-label'>Username</label>
                         <div class='col-md-10'>
