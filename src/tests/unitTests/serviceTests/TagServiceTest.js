@@ -69,9 +69,14 @@ describe('POST /api/tags', function() {
         "userName": "mario.rossi",
         "password": "password.mario.rossi"
     };
-    var tag = {
+    var tagTeacher = {
         "name": "testTag" ,
         "description": "tag di testing" ,
+        "parent":  null
+    };
+    var tagStudente = {
+        "name": "testTagStudente" ,
+        "description": "tag di testing dello studente" ,
         "parent":  null
     };
     before(function (done) {
@@ -85,12 +90,24 @@ describe('POST /api/tags', function() {
     });
     it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
         var req = request(app).post('/api/tags');
-        console.log(agent);
+        //console.log(agent);
         agent.attachCookies(req);
         // console.log(req);
-        req.send(tag).end(function(err, res) {
+        req.send(tagStudente).end(function(err, res) {
             expect(err).to.not.be.ok;
-            expect(res).to.have.property('status', 401);
+            //console.log(res);
+            expect(res).to.have.property('accepted', false);
+
+        });
+        req = request(app).get('/api/tags');
+        agent.attachCookies(req);
+        // console.log(req);
+        req.end(function(err, res) {
+            expect(res).to.have.property('status', 200);
+            //console.log(res.body);
+            expect(res.body.find(function (tag) {
+                return tag.name === "testTagStudente";
+            })).to.equal(undefined);
             done();
         });
     });
@@ -110,8 +127,18 @@ describe('POST /api/tags', function() {
         //console.log(agent);
         agent.attachCookies(req);
         // console.log(req);
-        req.send(tag).end(function(err, res) {
+        req.send(tagTeacher).end(function(err, res) {
             expect(res).to.have.property('status', 200);
+        });
+        req = request(app).get('/api/tags');
+        agent.attachCookies(req);
+        // console.log(req);
+        req.end(function(err, res) {
+            expect(res).to.have.property('status', 200);
+
+            expect(res.body.find(function (tag) {
+                return tag.name === "testTag";
+            }).name).to.equal("testTag");
             done();
         });
     });
