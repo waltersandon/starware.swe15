@@ -3,29 +3,31 @@ $(function () {
             this.checkPassword = function (password) {
                 return password.length >= 6;
             };
-            this.checkTitle = function (title) {
-                var ret = false;
-                var a = QuestionnaireService.get(null, null, title);
-                
-                a.forEach(function (item) {
-                    if (item.title === title) {
-                        ret = true;
-                    }
+            this.checkTitle = function (title, next, err) {
+                QuestionnaireService.get(null, null, title, function (questionnaires) {
+                    var ret = false;
+                    questionnaires.forEach(function (item) {
+                        if (item.title === title) {
+                            ret = true;
+                        }
+                    });
+                    next(ret);
+                }, function () {
+                    err();
                 });
-                
-                return ret;
             };
-            this.checkUserName = function (userName) {
-                var ret = false;
-                var a = UserService.get(null, userName);
-                
-                a.forEach(function (item) {
-                    if (item.userName === userName) {
-                        ret = true;
-                    }
+            /*this.checkUserName = function (userName, next, err) {
+                UserService.get(null, userName, function (users) {
+                    var ret = false;
+                    users.forEach(function (item) {
+                        if (item.userName === userName) {
+                            ret = true;
+                        }
+                    });
+                    next(ret);
+                }, function () {
+                    err();
                 });
-                
-                return ret;
-            };
+            };*/
         }]);
 });

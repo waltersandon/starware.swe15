@@ -9,7 +9,11 @@ var app = require('../../utils/AppUtils').testApp;
 
 
 describe('GET /api/tags', function() {
-
+    var agent;
+    var theAccount = {
+        "userName": "tullio.vardanega",
+        "password": "password.tullio.vardanega"
+    };
     beforeEach(function (done) {
         db.databaseSetup;
         login.login(theAccount, function (loginAgent) {
@@ -26,17 +30,6 @@ describe('GET /api/tags', function() {
                 done();
             });
     });
-    var agent;
-    var theAccount = {
-        "userName": "tullio.vardanega",
-        "password": "password.tullio.vardanega"
-    };
-    /*before(function (done) {
-            login.login(theAccount, function (loginAgent) {
-            agent = loginAgent;
-            done();
-        });
-    });*/
     it('ritorna la lista dei tags all\'utente autenticato', function (done) {
         //console.log(agent.getCookies);
         var req = request(app).get('/api/tags');
@@ -66,9 +59,47 @@ describe('GET /api/tags', function() {
     });
 
 });
+describe('POST /api/tags', function() {
+    var agentTeacher;
+    var agentStudent;
+    var theAccountTeacher = {
+        "userName": "tullio.vardanega",
+        "password": "password.tullio.vardanega"
+    };
+    var theAccountStudent = {
+        "userName": "mario.rossi",
+        "password": "password.mario.rossi"
+    };
+    var tag = {
+        " name ": "testTag" ,
+        " description ": "tag di testing" ,
+        " parent ":  null
+    };
+    beforeEach(function (done) {
+        db.databaseSetup;
+        login.login(theAccountTeacher, function (loginAgent) {
+            agentTeacher = loginAgent;
+        });
+        login.login(theAccountStudent, function (loginAgent) {
+            agentStudent = loginAgent;
+        });
+        done();
+    });
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+        var req = request(app).post('/api/tags');
+        agentStudent.attachCookies(req);
+        // console.log(req);
+        req.send(tag).end(function(err, res) {
+            expect(err).to.not.be.ok;
+            expect(res).to.have.property('status', 401);
+            done();
+        });
+    });
+    it('ritorna la lista dei tags all\'utente autenticato', function (done) {
+    });
+
+});
 /*
- this.router.get('/tags',auth.requireUser,this.tagService.get);
- this.router.get('/tags/:id',auth.requireUser,this.tagService.getByID);
  this.router.post('/tags',auth.requireTeacher,this.tagService.new);
  this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
  this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);
