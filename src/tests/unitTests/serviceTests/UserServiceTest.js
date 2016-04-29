@@ -7,7 +7,10 @@ var app = require('../../utils/AppUtils').testApp;
 
 describe('GET /api/users', function() {
 
-    beforeEach(db.databaseSetup);
+    beforeEach(function (done) {
+            db.databaseSetup;
+            done();
+    });
 
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
