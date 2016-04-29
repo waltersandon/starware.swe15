@@ -2,7 +2,6 @@
  * Created by alessio on 19/03/16.
  */
 
-var Configuration = require('./Configuration');
 var express = require('express');
 var http = require('http');
 var mongoose = require('mongoose');
@@ -12,9 +11,8 @@ var mongoose = require('mongoose');
  * 
  * @constructor
  */
-function App() {
+function App(config) {
 
-    var config = new Configuration();
     var app = express();
 
     /**
