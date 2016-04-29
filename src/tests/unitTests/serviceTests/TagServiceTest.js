@@ -60,8 +60,7 @@ describe('GET /api/tags', function() {
 
 });
 describe('POST /api/tags', function() {
-    var agentTeacher;
-    var agentStudent;
+    var agent;
     var theAccountTeacher = {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
@@ -71,23 +70,23 @@ describe('POST /api/tags', function() {
         "password": "password.mario.rossi"
     };
     var tag = {
-        " name ": "testTag" ,
-        " description ": "tag di testing" ,
-        " parent ":  null
+        "name": "testTag" ,
+        "description": "tag di testing" ,
+        "parent":  null
     };
-    beforeEach(function (done) {
+    before(function (done) {
         db.databaseSetup;
-        login.login(theAccountTeacher, function (loginAgent) {
-            agentTeacher = loginAgent;
-        });
         login.login(theAccountStudent, function (loginAgent) {
-            agentStudent = loginAgent;
+            agent = loginAgent;
+            done();
         });
-        done();
+        //console.log(agent);
+
     });
     it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
         var req = request(app).post('/api/tags');
-        agentStudent.attachCookies(req);
+        console.log(agent);
+        agent.attachCookies(req);
         // console.log(req);
         req.send(tag).end(function(err, res) {
             expect(err).to.not.be.ok;
@@ -95,7 +94,26 @@ describe('POST /api/tags', function() {
             done();
         });
     });
+
+
+    before(function (done) {
+        db.databaseSetup;
+        login.login(theAccountTeacher, function (loginAgent) {
+            agent = loginAgent;
+            done();
+        });
+        //console.log(agent);
+
+    });
     it('ritorna la lista dei tags all\'utente autenticato', function (done) {
+        var req = request(app).post('/api/tags');
+        //console.log(agent);
+        agent.attachCookies(req);
+        // console.log(req);
+        req.send(tag).end(function(err, res) {
+            expect(res).to.have.property('status', 200);
+            done();
+        });
     });
 
 });
