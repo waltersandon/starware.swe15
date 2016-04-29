@@ -38,7 +38,6 @@ $(function () {
                 }
                 return this.questions[this.currentNumber];
             };
-
             return CurrentQuestionnaire;
         }]);
 });

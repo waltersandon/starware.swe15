@@ -16,14 +16,19 @@ function SessionService() {
     this.login = function(req, res, next){
         var userName = req.body.userName;
         var password = req.body.password;
+        if(userName && password){
         User.findOne({ userName: userName }).exec(function(err, user) {
             if (err) next(400);
             else if (user && user.isActive && user.hasPassword(password)) {
                 req.session.user = user;
                 res.send();
             }
-            else {next(401);} 
+            else {next(401);}
         });
+        }
+        else{
+            next(400);
+        }
     };
 
     /**

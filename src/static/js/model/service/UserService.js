@@ -1,6 +1,9 @@
 $(function () {
     angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
             this.delete = function (user, next, err) {
+
+            };
+            this.delete = function (user, next, err) {
                 $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
                     console.log(res);
                     next();
