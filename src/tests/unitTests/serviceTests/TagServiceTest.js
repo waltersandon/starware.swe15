@@ -1,8 +1,36 @@
 /**
  * Created by igor on 22/04/16.
  */
-var testSubject = require('../../../api/service/TagService.js');
+var expect = require('chai').expect;
+var Tag = require('../../../api/data/Tag');
+var Role = require('../../../api/data/Role');
+var db = require('../../utils/DatabaseSetup');
+
+var TagService = require('../../../api/service/TagService');
+var RequestMock = require('../middlewareTests/mocks/RequestMock');
+var ResponseMock = require('../middlewareTests/mocks/ResponseMock');
 describe('Testing di TagService', function() {
+    /* Hook eseguito prima di questa batteria di test
+     */
+    before(function(done) {
+        db.databaseConnect();
+        done();
+    });
+
+    /* Hook eseguito prima di ogni singolo test
+     */
+    beforeEach(function(done) {
+        var tag1 = 	new Tag({name: 'Matematica', description: 'Scienza che si occupa dello studio dei numeri e delle loro relazioni'});
+        var tag2 = 	new Tag({name: 'Informatica', description: 'Scienza che si occupa dello studio dei computer'});
+        var tag3 = 	new Tag({name: 'Italiano', description: 'Scienza che si occupa dello studio della lingua e grammatica italiana'});
+        var tag4 =  new Tag({name: 'SWE', description: 'Scienza che si occupa dello studio della qualità di un SW',parent: tag2._id});
+        db.databaseSetup([
+            studentRole,
+            aStudent1,
+            aStudent2,
+            aStudent3
+        ], done);
+    });
         it('Deve creare il tag', function () {
             //TODO
         });
