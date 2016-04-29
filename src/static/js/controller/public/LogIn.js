@@ -5,10 +5,9 @@ $(function () {
                     UserService.getMe(function (me) {
                         $rootScope.me = me;
                         $cookies.putObject('me', me);
-                        $location.url('#/user');
-                        console.log('getme');
+                        $location.path("user");
                     }, function () {
-                        console.log('no getme');
+                        
                     });
                 }, function () {
                     
