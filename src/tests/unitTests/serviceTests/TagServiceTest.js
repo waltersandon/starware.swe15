@@ -4,7 +4,7 @@
 var expect = require('chai').expect;
 var Tag = require('../../../api/data/Tag');
 var Role = require('../../../api/data/Role');
-var db = require('../../utils/DatabaseSetup');
+var db = require('../../utils/DatabaseUtils');
 
 var TagService = require('../../../api/service/TagService');
 var RequestMock = require('../middlewareTests/mocks/RequestMock');
