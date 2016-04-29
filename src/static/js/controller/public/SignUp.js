@@ -16,7 +16,7 @@ $(function () {
              });
              };*/
             $scope.checkRepeatPassword = function () {
-                
+                    
             };
             $scope.submit = function () {
                 UserService.signUp($scope.fullName, $scope.password, $scope.userName, function () {
