@@ -96,7 +96,7 @@ describe('POST /api/tags', function() {
         req.send(tagStudente).end(function(err, res) {
             expect(err).to.not.be.ok;
             //console.log(res);
-            expect(res).to.have.property('accepted', false);
+            expect(res).to.have.property('status', 401);
 
         });
         req = request(app).get('/api/tags');
