@@ -11,7 +11,7 @@ function UserCheck() {
     };
 
     this.checkPassword = function(psw){
-        return (psw.length >= 8);
+        return (psw.length >= 6);
     };
 
     this.checkUserName = function(userName){

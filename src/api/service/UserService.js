@@ -22,6 +22,20 @@ function UserService() {
     };
 
     /**
+     * Metodo che invoca il servizio per ritornare la lista degli utenti
+     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
+     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
+     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+     * per passare il controllo ai successivi middleware.
+     */
+    this.get = function(req, res, next){
+        User.find({}).exec(function(err, users) {
+            if (err) next(400);
+            else {res.json(users);}
+        });
+    };
+
+    /**
      * Metodo che invoca il servizio per ritornare un utente specificato dalla variabile id
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
@@ -67,9 +81,10 @@ function UserService() {
                 password: req.body.password,
                 role: role._id
             });
+            console.log(user);
             user.save(function(err, user) {
                 if (err) next(400);
-                else {res.json(user);}
+                else {res.send();}
             });
         });
     };

@@ -6,7 +6,7 @@
  * Classe che rappresenta i parametri di configurazione del server
  * @constructor
  */
-function Configuration() {
+function Configuration(options) {
 
     /**
      * Variabile d'ambiente che informa se l'applicazione deve essere
@@ -49,13 +49,9 @@ function Configuration() {
      * Nome del database dell'applicazione
      * @type {string}
      */
-    this.dbName = process.env.OPENSHIFT_APP_NAME || 'quizzipedia';
-
-    /**
-     * Nome del database usato per i test
-     * @type {string}
-     */
-    this.dbTestName = 'test-quizzipedia';
+    this.dbName = (options && options.test)
+        ? 'quizzipedia-test'
+        : 'quizzipedia';
 
     /**
      * Username per connettersi al database
@@ -77,15 +73,6 @@ function Configuration() {
         ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
         this.dbHost + ':' + this.dbPort + '/' + this.dbName
         :'mongodb://' + this.dbHost + ':' + this.dbPort + '/' + this.dbName;
-
-    /**
-     * Stringa di connessione al database
-     * @type {string}
-     */
-    this.dbTestUri = (this.dbPassword)
-        ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
-        this.dbHost + ':' + this.dbPort + '/' + this.dbTestName
-        :'mongodb://' + this.dbHost + ':' + this.dbPort + '/' + this.dbTestName;
 
 
 }

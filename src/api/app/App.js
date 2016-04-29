@@ -2,7 +2,6 @@
  * Created by alessio on 19/03/16.
  */
 
-var Configuration = require('./Configuration');
 var express = require('express');
 var http = require('http');
 var mongoose = require('mongoose');
@@ -12,10 +11,9 @@ var mongoose = require('mongoose');
  * 
  * @constructor
  */
-function App() {
+function App(config) {
 
-    var config = new Configuration();
-    var app = express();
+    this.app = express();
 
     /**
      * Metodo che configura i parametri del server sulla base dell'oggetto di configurazione
@@ -23,9 +21,9 @@ function App() {
      */
     this.config = function(){
 		//app.use(cors());
-        app.set('port', config.serverPort);
-        app.set('ip', config.serverHost);
-        return app;
+        this.app.set('port', config.serverPort);
+        this.app.set('ip', config.serverHost);
+        return this.app;
     };
 
     /**
@@ -36,9 +34,9 @@ function App() {
             console.error("Error: " + err);
         });
         mongoose.connect(config.dbUri);
-        var port = app.get('port');
-        var ip = app.get('ip');
-        app.listen(port, ip, function () {
+        var port = this.app.get('port');
+        var ip = this.app.get('ip');
+        this.app.listen(port, ip, function () {
             console.log('%s: Node server started on %s:%d ', Date(Date.now()), ip, port);
         });
     }
