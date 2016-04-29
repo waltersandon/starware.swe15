@@ -81,7 +81,6 @@ function UserService() {
                 password: req.body.password,
                 role: role._id
             });
-            console.log(user);
             user.save(function(err, user) {
                 if (err) next(400);
                 else {res.send();}
