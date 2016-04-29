@@ -1,4 +1,3 @@
-var mongoose
 var expect = require('chai').expect;
 var User = require('../../../api/data/User');
 var Role = require('../../../api/data/Role');
