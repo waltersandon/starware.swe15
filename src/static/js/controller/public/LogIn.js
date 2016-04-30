@@ -4,11 +4,13 @@ $(function () {
             $scope.checkPassword = function () {
                 if ($scope.password) {
                     $scope.error = Check.checkPassword($scope.password);
+                    return !$scope.error.status;
                 }
             };
             $scope.checkUserName = function () {
                 if ($scope.userName) {
                     $scope.error = Check.checkUserName($scope.userName);
+                    return !$scope.error.status;
                 }
             };
             $scope.submit = function () {
