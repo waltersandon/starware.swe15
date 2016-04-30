@@ -7,25 +7,12 @@ var login = require('./../../utils/LoginUtils');
 var db = require('../../utils/DatabaseUtils');
 var app = require('../../utils/AppUtils').testApp;
 
-
 describe('GET /api/tags', function() {
     var agent;
     var theAccount = {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
     };
-    beforeEach(function (done) {
-<<<<<<< HEAD
-        db.databaseSetup(done);
-        login.login(theAccount, function (loginAgent) {
-=======
-        db.databaseSetup;
-        login.login(app, theAccount, function (loginAgent) {
->>>>>>> naughty
-            agent = loginAgent;
-            done();
-        });
-    });
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
             .get('/api/tags')
@@ -35,8 +22,16 @@ describe('GET /api/tags', function() {
                 done();
             });
     });
+   // before(function (done) {
+        login.login(app, theAccount, function (loginAgent) {
+            agent = loginAgent;
+            console.log(agent.getCookies);
+
+            //   done();
+        });
+    //});
     it('ritorna la lista dei tags all\'utente autenticato', function (done) {
-        //console.log(agent.getCookies);
+
         var req = request(app).get('/api/tags');
         agent.attachCookies(req);
        // console.log(req);
@@ -85,13 +80,7 @@ describe('POST /api/tags', function() {
         "parent":  null
     };
     before(function (done) {
-<<<<<<< HEAD
-        db.databaseSetup(done);
-        login.login(theAccountStudent, function (loginAgent) {
-=======
-        db.databaseSetup;
         login.login(app, theAccountStudent, function (loginAgent) {
->>>>>>> naughty
             agent = loginAgent;
             done();
         });
@@ -124,15 +113,14 @@ describe('POST /api/tags', function() {
 
 
     before(function (done) {
-        db.databaseSetup;
+
         login.login(app, theAccountTeacher, function (loginAgent) {
             agent = loginAgent;
             done();
         });
-        //console.log(agent);
-
     });
     it('ritorna la lista dei tags all\'utente autenticato', function (done) {
+
         var req = request(app).post('/api/tags');
         //console.log(agent);
         agent.attachCookies(req);
