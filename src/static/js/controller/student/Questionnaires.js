@@ -1,11 +1,14 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.Questionnaires', ['$location', '$rootScope', 'model.service.QuestionnaireService', '$scope', 'model.service.TagService', function ($location, questionnaireService, $rootScope, $scope, tagService) {
-            $scope.author = '';
-            $scope.questionnaires = [];
-            $scope.tags = '';
+    angular.module('app.App').controller('controller.student.Questionnaires', ['$location', '$rootScope', '$scope', 'model.service.QuestionnaireService', function ($location,  $rootScope, $scope, questionnaireService) {
+        $scope.questionnaires = [];
 
-            $scope.search = function () {
-                
-            };
-        }]);
+        $scope.submit = function () {
+            questionnaireService.get($scope.searchText, [], $scope.searchText, function (quest) {
+                console.log(quest);
+                $scope.questionnaires.push = {title:"aaa"};
+                }, function () {
+
+            });
+        }
+    }]);
 });

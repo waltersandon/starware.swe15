@@ -14,8 +14,8 @@ $(function () {
                 }
             };
             $scope.submit = function () {
-                SessionService.login(md5($scope.password), $scope.userName, function () {
-                    UserService.getMe(md5($scope.password), function (me) {
+                SessionService.login($scope.password, $scope.userName, function () {
+                    UserService.getMe($scope.password, function (me) {
                         $rootScope.me = me;
 
                         var now = new Date();
