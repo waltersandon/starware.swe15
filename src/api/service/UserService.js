@@ -22,20 +22,6 @@ function UserService() {
     };
 
     /**
-     * Metodo che invoca il servizio per ritornare la lista degli utenti
-     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
-     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
-     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
-     * per passare il controllo ai successivi middleware.
-     */
-    this.get = function(req, res, next){
-        User.find({}).exec(function(err, users) {
-            if (err) next(400);
-            else {res.json(users);}
-        });
-    };
-
-    /**
      * Metodo che invoca il servizio per ritornare un utente specificato dalla variabile id
      * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
      * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
@@ -83,7 +69,7 @@ function UserService() {
                 password: req.body.password,
                 role: role._id
             });
-            User.find({userName: req.body.userName}).exec(function(err, user){console.log(user);
+            User.find({userName: req.body.userName}).exec(function(err, user){
                 if(err) next(err);
                 else if (user.length != 0) next({type: 422, message:"L'username esiste già"});
                 else{
@@ -146,11 +132,8 @@ function UserService() {
                     if (!user.hasPassword(req.body.oldPassword))
                         next(401);
                     else{
-                        var bcrypt = require('bcryptjs');
-                        this.hash = bcrypt.hashSync(req.body.newPassword, 10);
-                        User.findByIdAndUpdate(req.session.user._id, {
-                            password: this.hash
-                        }, function(err, user) {
+                        user.password = req.body.newPassword;
+                        user.save(function(err) {
                             if(err) next(err);
                             else if (!user) next(404);
                             else {res.send();}
