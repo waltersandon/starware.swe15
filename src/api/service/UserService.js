@@ -146,8 +146,10 @@ function UserService() {
                     if (!user.hasPassword(req.body.oldPassword))
                         next(401);
                     else{
+                        var bcrypt = require('bcryptjs');
+                        this.hash = bcrypt.hashSync(req.body.newPassword, 10);
                         User.findByIdAndUpdate(req.session.user._id, {
-                            password: req.body.newPassword
+                            password: this.hash
                         }, function(err, user) {
                             if(err) next(err);
                             else if (!user) next(404);
