@@ -23,6 +23,11 @@ function ErrorHandler() {
         	res.status(err).json({
                 message: messages[err] || 'Errore sconosciuto'
             });
+        } else if (err.message && err.type) {
+            console.error("Errore: ", err.message);
+            res.status(err.type).json({
+                message: err.message
+            });
         } else if(err.name === "ValidationError") {
             console.error("Mongoose Error: ", err);
             this.mex = "";

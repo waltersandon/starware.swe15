@@ -81,9 +81,15 @@ function UserService() {
                 password: req.body.password,
                 role: role._id
             });
-            user.save(function(err, user) {
-                if (err) next(err);
-                else {res.send();}
+            User.find({userName: req.body.userName}, function(err, user){
+                if(err) next(err);
+                else if (user) next({type: 422, message:"L'username esiste già"});
+                else{
+                    user.save(function(err, user) {
+                        if (err) next(err);
+                        else {res.send();}
+                    });
+                }
             });
         });
     };
