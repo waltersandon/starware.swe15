@@ -10,7 +10,6 @@ $(function () {
                     UserService.getMe(function (me) {
                         $rootScope.me = me;
                         $rootScope.logged = true;
-                        $location.path('user');
                     }, function (res) {
                         $rootScope.logged = false;
                     });
@@ -18,12 +17,6 @@ $(function () {
                     $rootScope.logged = false;
                 }
             };
-
-            /*$scope.$on("$locationChangeStart", function (event, next, current) {
-                if ($scope.urlPath()[1] === 'login' || $scope.urlPath()[1] === 'signup') {
-                    $scope.checkLogged();
-                }
-            });*/
 
             $scope.checkLogged();
         }]);
