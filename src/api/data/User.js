@@ -47,7 +47,7 @@ var UserSchema = new mongoose.Schema({
  */
 var SALT_LENGTH = 10;
 UserSchema.pre('save', function(next) {
-    if (this.isModified('password') || this.isNew) {
+    if (this.isModified('password')) {
         var bcrypt = require('bcryptjs');
         var hash = bcrypt.hashSync(this.password, SALT_LENGTH);
         this.password = hash;
