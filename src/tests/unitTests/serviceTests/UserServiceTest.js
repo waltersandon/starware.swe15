@@ -19,8 +19,8 @@ describe('GET /api/users', function() {
 
     it('fornisce la lista degli utenti ad un docente', function (done) {
         login(app, {
-            userName: 'alessandro.sperduti',
-            password: 'password.alessandro.sperduti'
+            userName: 'gregorio.piccoli',
+            password: 'password.gregorio.piccoli'
         }, function(agent) {
             var req = request(app).get('/api/users');
             agent.attachCookies(req);
