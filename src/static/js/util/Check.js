@@ -1,7 +1,7 @@
 $(function () {
-    angular.module('CheckModule', ['UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.service.UserService', 'model.service.QuestionnaireService', function (UserService, QuestionnaireService) {
+    angular.module('CheckModule', ['ErrorModule', 'UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.data.Error', 'model.service.UserService', 'model.service.QuestionnaireService', function (Error, UserService, QuestionnaireService) {
             this.checkPassword = function (password) {
-                return password.length >= 6;
+                return password.length >= 6 ? new Error() : new Error('La password deve avere almeno <strong>6</strong> caratteri', 'errorPassword', true, 'alert-warning');
             };
             this.checkTitle = function (title, next, err) {
                 QuestionnaireService.get(null, null, title, function (questionnaires) {
@@ -17,7 +17,7 @@ $(function () {
                 });
             };
             this.checkUserName = function (userName) {
-                return userName.length >= 6;
+                return userName.length >= 6 ? new Error() : new Error('L\'username deve avere almeno <strong>6</strong> caratteri', 'errorUserName', true, 'alert-warning');
             };
         }]);
 });
