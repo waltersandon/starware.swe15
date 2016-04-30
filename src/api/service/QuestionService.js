@@ -60,7 +60,7 @@ function QuestionService() {
     this.new = function(req,res,next){
         this.quiz = new Question(req.body);
         this.quiz.save(function (err,quiz) {
-            if (err) next(400);
+            if (err) next(err);
             else {res.json(quiz);}
         });
     };
@@ -74,7 +74,7 @@ function QuestionService() {
      */
     this.modify = function(req,res,next){
         Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(400);
+            if (err) next(err);
             else {res.send();}
         });
     };

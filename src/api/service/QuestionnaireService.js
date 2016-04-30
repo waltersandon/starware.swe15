@@ -59,7 +59,7 @@ function QuestionnaireService() {
     this.new = function(req,res,next){
         this.quest = new Questionnaire(req.body);
         this.quest.save(function(err,quest){
-            if(err) next(400);
+            if(err) next(err);
             else {res.json(quest);}
         });
     };
@@ -73,7 +73,7 @@ function QuestionnaireService() {
      */
     this.modify = function(req,res,next){
         Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(400);
+            if (err) next(err);
             else {res.send();}
         });
     };
