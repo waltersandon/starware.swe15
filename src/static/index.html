@@ -86,39 +86,20 @@
     </head>
 
     <body ng-app='app.App' ng-controller='controller.public.Home'>
-        <div ng-switch on='urlPath()[1]'>
-            <div ng-switch-when='login' >
-                <div ng-switch on='logged'>
-                    <div ng-switch-when='false'>
+        <div ng-switch on='logged'>
+            <div ng-switch-when='true'>
+                <div ng-include="'html/user/Home.html'"></div>
+            </div>
+            <div ng-switch-when='false'>
+                <div ng-switch on='urlPath()[1]'>
+                    <div ng-switch-when='login' >
                         <div ng-include="'html/public/LogIn.html'"></div>
                     </div>
-                    <div ng-switch-when='true'>
-                        <div ng-include="'html/user/Home.html'"></div>
+                    <div ng-switch-when='signup'>
+                        <div ng-include="'html/public/SignUp.html'"></div>
                     </div>
-                </div>
-            </div>
-            <div ng-switch-when='signup'>
-                <div ng-include="'html/public/SignUp.html'"></div>
-            </div>
-            <div ng-switch-when='user'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-when='student'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-when='teacher'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-when='admin'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-default>
-                <div ng-switch on='logged'>
-                    <div ng-switch-when='false'>
+                    <div ng-switch-default>
                         <div ng-include="'html/public/Home.html'"></div>
-                    </div>
-                    <div ng-switch-when='true'>
-                        <div ng-include="'html/user/Home.html'"></div>
                     </div>
                 </div>
             </div>

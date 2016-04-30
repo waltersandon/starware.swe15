@@ -75,17 +75,17 @@ function UserService() {
     this.new = function(req, res, next) {
         Role.findOne({ name: 'student' }).exec(function(err, role)  {
             if (err) next(400);
-            var user = new User({
+            var newUser = new User({
                 fullName: req.body.fullName,
                 userName: req.body.userName,
                 password: req.body.password,
                 role: role._id
             });
-            User.find({userName: req.body.userName}, function(err, user){
+            User.find({userName: req.body.userName}).exec(function(err, user){console.log(user);
                 if(err) next(err);
-                else if (user) next({type: 422, message:"L'username esiste già"});
+                else if (user.length != 0) next({type: 422, message:"L'username esiste già"});
                 else{
-                    user.save(function(err, user) {
+                    newUser.save(function(err, user) {
                         if (err) next(err);
                         else {res.send();}
                     });
@@ -137,14 +137,22 @@ function UserService() {
                 else { res.send(); }
             });
         } else if (req.body.oldPassword && req.body.newPassword) {
-            if (!req.session.user.hasPassword(req.body.oldPassword))
-                next(401);
-            User.findByIdAndUpdate(req.session.user._id, {
-                password: req.body.newPassword
-            }, function(err, user) {
-                if(err) next(err);
+            User.findById(req.session.user._id, function(err, user) {
+                if (err) next(400);
                 else if (!user) next(404);
-                else {res.send();}
+                else {
+                    if (!user.hasPassword(req.body.oldPassword))
+                        next(401);
+                    else{
+                        User.findByIdAndUpdate(req.session.user._id, {
+                            password: req.body.newPassword
+                        }, function(err, user) {
+                            if(err) next(err);
+                            else if (!user) next(404);
+                            else {res.send();}
+                        });
+                    }
+                }
             });
         }
         else{

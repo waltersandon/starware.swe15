@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.public.SignUp', ['util.Check', '$cookies', '$location', '$scope', 'model.service.SessionService', '$rootScope', 'model.service.UserService', function (Check, $cookies, $location, $scope, SessionService, $rootScope, UserService) {
+    angular.module('app.App').controller('controller.public.SignUp', ['util.Check', '$cookies', 'model.data.Error', '$location', '$scope', 'model.service.SessionService', '$rootScope', 'model.service.UserService', function (Check, $cookies, Error, $location, $scope, SessionService, $rootScope, UserService) {
             $scope.error = new Error();
             $scope.checkFullName = function () {
                 if ($scope.fullName) {
