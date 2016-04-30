@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('CheckModule', ['ErrorModule', 'UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.data.Error', 'model.service.UserService', 'model.service.QuestionnaireService', function (Error, UserService, QuestionnaireService) {
+    angular.module('CheckModule', ['ErrorModule', 'UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.data.Error', 'model.service.QuestionnaireService', function (Error, QuestionnaireService) {
             this.checkPassword = function (password) {
                 return password.length >= 6 ? new Error() : new Error('La password deve avere almeno <strong>6</strong> caratteri', 'errorPassword', true, 'alert-warning');
             };
