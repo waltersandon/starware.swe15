@@ -27,7 +27,6 @@ $(function () {
             };
             $scope.checkRepeatPassword = function () {
                 if ($scope.password && $scope.repeatPassword) {
-                    console.log($scope.password === $scope.repeatPassword);
                     $scope.error = $scope.password === $scope.repeatPassword ? new Error() : new Error('Le <strong>password</strong> non corrispondono', 'errorRepeatPassword', true, 'alert-warning');
                     console.log(!$scope.error.status);
                     return !$scope.error.status;
