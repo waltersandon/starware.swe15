@@ -92,7 +92,7 @@ function UserService() {
      */
     this.modify = function(req, res, next){
         Role.findById(req.body.role).exec(function(err, role) {
-            if(!role) next(404);
+            if(!role) next(400);
             else {
                 User.findByIdAndUpdate(req.params.id, {
                     role: req.body.role
