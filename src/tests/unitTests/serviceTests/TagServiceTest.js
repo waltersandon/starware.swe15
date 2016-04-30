@@ -14,13 +14,7 @@ describe('GET /api/tags', function() {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
     };
-    beforeEach(function (done) {
-        db.databaseSetup;
-        login.login(theAccount, function (loginAgent) {
-            agent = loginAgent;
-        done();
-        });
-    });
+
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
             .get('/api/tags')
@@ -81,7 +75,7 @@ describe('POST /api/tags', function() {
     };
     before(function (done) {
         db.databaseSetup;
-        login.login(theAccountStudent, function (loginAgent) {
+        login.login(app, theAccountStudent, function (loginAgent) {
             agent = loginAgent;
             done();
         });
@@ -115,7 +109,7 @@ describe('POST /api/tags', function() {
 
     before(function (done) {
         db.databaseSetup;
-        login.login(theAccountTeacher, function (loginAgent) {
+        login.login(app, theAccountTeacher, function (loginAgent) {
             agent = loginAgent;
             done();
         });

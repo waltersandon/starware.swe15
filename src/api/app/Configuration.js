@@ -53,6 +53,8 @@ function Configuration(options) {
         ? 'quizzipedia-test'
         : 'quizzipedia';
 
+    this.test = options.test || false;
+
     /**
      * Username per connettersi al database
      * @type {*|string}

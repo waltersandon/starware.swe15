@@ -22,7 +22,7 @@ $(function () {
                     UserService.getMe(function (me) {
                         $rootScope.me = me;
                         $rootScope.logged = true;
-                        
+
                         var now = new Date();
                         $cookies.putObject('me', me, {expires: new Date(now.getFullYear() + 1, now.getMonth(), now.getDate())});
 
