@@ -14,10 +14,12 @@ $(function () {
                 }
             };
             $scope.submit = function () {
-                SessionService.login($scope.password, $scope.userName, function () {
-                    UserService.getMe(function (me) {
+                SessionService.login(md5($scope.password), $scope.userName, function () {
+                    UserService.getMe(md5($scope.password), function (me) {
+                        var now = new Date();
+                        
                         $rootScope.me = me;
-                        $cookies.putObject('me', me);
+                        $cookies.putObject('me', me, {expires:  new Date(now.getFullYear() + 1, now.getMonth(), now.getDate())});   
                         $location.path("user");
                     }, function (res) {
                         $scope.error = new Error(res.data.message, 'errorGetMe', true, 'alert-danger');

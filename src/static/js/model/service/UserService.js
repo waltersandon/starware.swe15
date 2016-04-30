@@ -1,9 +1,6 @@
 $(function () {
     angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
             this.delete = function (user, next, err) {
-
-            };
-            this.delete = function (user, next, err) {
                 $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
                     console.log(res);
                     next();
@@ -39,11 +36,11 @@ $(function () {
                     err(res);
                 });
             };
-            this.getMe = function (next, err) {
+            this.getMe = function (password, next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
                     RoleService.getByID(res.data.role.href, function (role) {
-                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
+                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role, password));
                     }, function () {
                         err();
                     });
