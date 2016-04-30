@@ -26,9 +26,8 @@ $(function () {
             }, function (res) {
 
             });
-            $scope.changeUserRole = function (user, role) {
-                console.log(role);
-                UserService.modifyRole(user, role, function () {
+            $scope.changeUserRole = function (user) {
+                UserService.modifyRole(user, user.role, function () {
                     console.log('success!');
                 }, function (res) {
                     

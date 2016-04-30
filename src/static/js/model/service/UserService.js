@@ -50,11 +50,7 @@ $(function () {
                 });
             };
             this.modifyRole = function (user, role, next, err) {
-                $http.post(Configuration.remote + 'api/users/' + user.id, {
-                    'role': {
-                        'id': role.id
-                    }
-                }).then(function success(res) {
+                $http.post(Configuration.remote + 'api/users/' + user.id, role).then(function success(res) {
                     console.log(res);
                     next();
                 }, function error(res) {
