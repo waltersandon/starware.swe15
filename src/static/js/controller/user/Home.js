@@ -3,8 +3,9 @@ $(function () {
             $scope.logout = function () {
                 SessionService.logout(function () {
                     $rootScope.me = {};
+                    $rootScope.logged = false;
+                    $cookies.remove('connect.sid');
                     $cookies.remove('me');
-                    $location.path('');
                 }, function (res) {
 
                 });
