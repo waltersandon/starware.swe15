@@ -15,7 +15,7 @@ describe('GET /api/tags', function() {
         "password": "password.tullio.vardanega"
     };
     beforeEach(function (done) {
-        db.databaseSetup;
+        db.databaseSetup(done);
         login.login(theAccount, function (loginAgent) {
             agent = loginAgent;
         done();
@@ -80,7 +80,7 @@ describe('POST /api/tags', function() {
         "parent":  null
     };
     before(function (done) {
-        db.databaseSetup;
+        db.databaseSetup(done);
         login.login(theAccountStudent, function (loginAgent) {
             agent = loginAgent;
             done();
