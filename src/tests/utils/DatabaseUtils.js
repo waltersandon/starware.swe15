@@ -7,19 +7,13 @@ var Tag = require('../../api/data/Tag');
 var User = require('../../api/data/User');
 
 function databaseSetState(objs, onSetState) {
-	var config = new Configuration({
-		test: true
-	});
-    mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
-	mongoose.connect(config.dbTestUri, function() {
-		mongoose.connection.db.dropDatabase();
-		Promise
-			.all(objs.map(function(e) { return e.save(); }))
-			.then(function() {
-				mongoose.disconnect();
-				onSetState();
-			}, console.error);
-	});
+	mongoose.connection.db.dropDatabase();
+	Promise
+		.all(objs.map(function(e) { return e.save(); }))
+		.then(function() {
+			mongoose.disconnect();
+			onSetState();
+		}, console.error);
 }
 
 function databaseSetup(onSetup) {
