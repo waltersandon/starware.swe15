@@ -23,7 +23,18 @@ function ErrorHandler() {
         	res.status(err).json({
                 message: messages[err] || 'Errore sconosciuto'
             });
-        } else {
+        } else if(err.name === "ValidationError") {
+            console.error("Mongoose Error: ", err);
+            this.mex = "";
+            for(var e in err.errors){
+                this.mex = this.mex + err.errors[e].message + ". ";
+            }
+            this.mex = this.mex.substr(0, this.mex.length -1);
+            res.status(400).json({
+                message: this.mex
+            });
+        }
+        else {
         	console.error("Uknown error: ", err);
         	res.status(500).json({
                 message: 'Errore di sistema'

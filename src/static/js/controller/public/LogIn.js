@@ -7,7 +7,7 @@ $(function () {
                         $cookies.putObject('me', me);
                         $location.path("user");
                     }, function () {
-                        
+
                     });
                 }, function () {
                     

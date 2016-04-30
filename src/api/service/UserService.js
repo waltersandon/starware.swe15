@@ -59,7 +59,7 @@ function UserService() {
      */
     this.getMe = function(req, res, next){
         User.findById(req.session.user._id, function(err, user) {
-            if (err) next(400);
+            if (err) next(err);
             else if (!user) next(404);
             else {res.json(user);}
         });
@@ -82,7 +82,7 @@ function UserService() {
                 role: role._id
             });
             user.save(function(err, user) {
-                if (err) next(400);
+                if (err) next(err);
                 else {res.send();}
             });
         });
