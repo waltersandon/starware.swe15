@@ -14,7 +14,6 @@ function ErrorHandler() {
      */
     this.handler = function(err, req, res, next) {
     	if (typeof err === 'number') {
-        	console.error("Error code: ", err);
             const messages = {
                 404: 'Risorsa non trovata',
                 401: 'Accesso non consentito',
@@ -24,7 +23,6 @@ function ErrorHandler() {
                 message: messages[err] || 'Errore sconosciuto'
             });
         } else if(err.name === "ValidationError") {
-            console.error("Mongoose Error: ", err);
             this.mex = "";
             for(var e in err.errors){
                 this.mex = this.mex + err.errors[e].message + ". ";
@@ -35,7 +33,6 @@ function ErrorHandler() {
             });
         }
         else {
-        	console.error("Uknown error: ", err);
         	res.status(500).json({
                 message: 'Errore di sistema'
             });

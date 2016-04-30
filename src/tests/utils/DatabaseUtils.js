@@ -16,7 +16,6 @@ function databaseSetState(objs, onSetState) {
 			Question.remove({}),
 			Questionnaire.remove({})
 		]).then(function() {
-			console.log('Errore');
 			Promise.all(objs.map(function(e) { return e.save(); }))
 				.then(function() { onSetState(); }, console.error);
 		}, console.error);
