@@ -42,18 +42,23 @@ var UserSchema = new mongoose.Schema({
     }
 });
 
-/* Hook che fa l'hash della password prima di salvare
+/* Hooks che fa l'hash della password prima di salvare
  * l'utente nel database
  */
-var SALT_LENGTH = 10;
-UserSchema.pre('save', function(next) {
+function hashPassword(rawPassword) {
+    var SALT_LENGTH = 10;
+    var bcrypt = require('bcryptjs');
+    return bcrypt.hashSync(rawPassword, SALT_LENGTH);
+}
+
+function hashPasswordIfModified(next) {
     if (this.isModified('password')) {
-        var bcrypt = require('bcryptjs');
-        var hash = bcrypt.hashSync(this.password, SALT_LENGTH);
-        this.password = hash;
+        this.password = hashPassword(this.password);
         next();
     }
-});
+}
+
+UserSchema.pre('save', hashPasswordIfModified);
 
 /* Metodo del model `User` che controlla se la password dell'utente
  * corrisponde a quella specificata.
