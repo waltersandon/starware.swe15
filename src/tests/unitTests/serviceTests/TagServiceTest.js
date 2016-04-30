@@ -13,10 +13,6 @@ describe('GET /api/tags', function() {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
     };
-<<<<<<< HEAD
-=======
-
->>>>>>> naughty
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
             .get('/api/tags')
@@ -26,14 +22,14 @@ describe('GET /api/tags', function() {
                 done();
             });
     });
-   // before(function (done) {
+    before(function (done) {
         login.login(app, theAccount, function (loginAgent) {
             agent = loginAgent;
             console.log(agent.getCookies);
 
-            //   done();
+               done();
         });
-    //});
+    });
     it('ritorna la lista dei tags all\'utente autenticato', function (done) {
 
         var req = request(app).get('/api/tags');
