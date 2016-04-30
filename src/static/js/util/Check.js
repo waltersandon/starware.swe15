@@ -12,22 +12,12 @@ $(function () {
                         }
                     });
                     next(ret);
-                }, function () {
-                    err();
+                }, function (res) {
+                    err(res);
                 });
             };
-            /*this.checkUserName = function (userName, next, err) {
-                UserService.get(null, userName, function (users) {
-                    var ret = false;
-                    users.forEach(function (item) {
-                        if (item.userName === userName) {
-                            ret = true;
-                        }
-                    });
-                    next(ret);
-                }, function () {
-                    err();
-                });
-            };*/
+            this.checkUserName = function (userName) {
+                return userName.length >= 6;
+            };
         }]);
 });

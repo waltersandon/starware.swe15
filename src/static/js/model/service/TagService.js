@@ -6,7 +6,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.get = function (keywords, next, err) {
@@ -23,7 +23,7 @@ $(function () {
                     next(ret);
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.getByID = function (id, next, err) {
@@ -32,7 +32,7 @@ $(function () {
                     next(new Tag(res.data.description, res.data._id, res.data.name, res.data.parent));
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.modify = function (tag, next, err) {
@@ -46,7 +46,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.new = function (tag, next, err) {
@@ -59,7 +59,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
         }]);

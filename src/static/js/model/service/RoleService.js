@@ -14,7 +14,7 @@ $(function () {
                     next(ret);
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.getByID = function (id, next, err) {
@@ -23,7 +23,7 @@ $(function () {
                     next(new Role(res.data._id, res.data.name));
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
         }]);
