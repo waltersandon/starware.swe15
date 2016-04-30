@@ -1,39 +1,35 @@
-/**
- * Created by igor on 22/04/16.
- */
-var testSubject = require('../../../api/service/UserService.js');
-describe('Testing di UserService', function() {
-    it('Deve creare un utente', function () {
-            //TODO
-        });
+var expect = require('chai').expect;
+var request = require('supertest');
 
-        it('Deve ottenere un utente per ID', function () {
-            //TODO
-        });
+var app = require('../../utils/AppUtils').testApp;
+var login = require('../../utils/LoginUtils').login;
 
-        it('Deve modificare un utente', function () {
-        //TODO
-         });
-          it('Deve modificare utente corrente', function () {
-        //TODO
+
+describe('GET /api/users', function() {
+
+    it('impedisce l\'accesso ad un utente non autenticato', function (done) {
+        request(app)
+            .get('/api/users')
+            .end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 401);
+                done();
             });
-
-        it('Deve eliminare utente', function () {
-            //TODO
-        });
     });
 
-    describe('Testing gestione errori di UserService', function() {
-        it('Gestione Errore: utente richiesto inesistente', function () {
-            //TODO
-        });
-        it('Gestione Errore: ID utente inesistente', function () {
-            //TODO
-        });
-        it('Gestione Errore: modifica utente inesistente', function () {
-            //TODO
-        });
-        it('Gestione Errore: eliminazione utente inesistente', function () {
-            //TODO
-        });
+    it('fornisce la lista degli utenti ad un docente', function (done) {
+        login(app, {
+            userName: 'gregorio.piccoli',
+            password: 'password.gregorio.piccoli'
+        }, function(agent) {
+            var req = request(app).get('/api/users');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                done();
+            });
+        })
     });
+
+});

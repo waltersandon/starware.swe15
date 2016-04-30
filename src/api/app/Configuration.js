@@ -6,7 +6,7 @@
  * Classe che rappresenta i parametri di configurazione del server
  * @constructor
  */
-function Configuration() {
+function Configuration(options) {
 
     /**
      * Variabile d'ambiente che informa se l'applicazione deve essere
@@ -49,7 +49,11 @@ function Configuration() {
      * Nome del database dell'applicazione
      * @type {string}
      */
-    this.dbName = process.env.OPENSHIFT_APP_NAME || 'quizzipedia';
+    this.dbName = (options && options.test)
+        ? 'quizzipedia-test'
+        : 'quizzipedia';
+
+    this.test = options.test || false;
 
     /**
      * Username per connettersi al database

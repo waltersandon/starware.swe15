@@ -45,7 +45,7 @@ function TagService() {
     this.new = function(req, res, next){
         this.tag = new Tag(req.body);
         this.tag.save(function(err,tag) {
-            if (err) next(400);
+            if (err) next(err);
             else {res.json(tag);}
         });
     };
@@ -59,7 +59,7 @@ function TagService() {
      */
     this.modifyTag = function(req, res, next) {
         Tag.findByIdAndUpdate(req.params.id, req.body, function(err) {
-            if (err) next(400);
+            if (err) next(err);
             else {res.send();}
         });
     };

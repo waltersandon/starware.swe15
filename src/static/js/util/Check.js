@@ -1,31 +1,23 @@
 $(function () {
-    angular.module('CheckModule', ['UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.service.UserService', 'model.service.QuestionnaireService', function (UserService, QuestionnaireService) {
+    angular.module('CheckModule', ['ErrorModule', 'UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.data.Error', 'model.service.QuestionnaireService', function (Error, QuestionnaireService) {
             this.checkPassword = function (password) {
-                return password.length >= 6;
+                return password.length >= 6 ? new Error() : new Error('La password deve avere almeno <strong>6</strong> caratteri', 'errorPassword', true, 'alert-warning');
             };
-            this.checkTitle = function (title) {
-                var ret = false;
-                var a = QuestionnaireService.get(null, null, title);
-                
-                a.forEach(function (item) {
-                    if (item.title === title) {
-                        ret = true;
-                    }
+            this.checkTitle = function (title, next, err) {
+                QuestionnaireService.get(null, null, title, function (questionnaires) {
+                    var ret = false;
+                    questionnaires.forEach(function (item) {
+                        if (item.title === title) {
+                            ret = true;
+                        }
+                    });
+                    next(ret);
+                }, function (res) {
+                    err(res);
                 });
-                
-                return ret;
             };
             this.checkUserName = function (userName) {
-                var ret = false;
-                var a = UserService.get(null, userName);
-                
-                a.forEach(function (item) {
-                    if (item.userName === userName) {
-                        ret = true;
-                    }
-                });
-                
-                return ret;
+                return userName.length >= 6 ? new Error() : new Error('L\'username deve avere almeno <strong>6</strong> caratteri', 'errorUserName', true, 'alert-warning');
             };
         }]);
 });

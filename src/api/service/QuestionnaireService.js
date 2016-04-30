@@ -42,7 +42,7 @@ function QuestionnaireService() {
             this.query.tags = {"$in": this.tags};
         }
         Questionnaire.find(this.query).exec(function(err, quest){
-            if(err) next(err);
+            if(err) next(400);
             else if (!quest) next(404);
             else {res.json(quest);}
         });
@@ -87,7 +87,7 @@ function QuestionnaireService() {
      */
     this.delete = function(req,res,next){
         Questionnaire.findByIdAndRemove(req.params.id, function(err) {
-            if (err) next(err);
+            if (err) next(400);
             else {res.send();}
         });
     };

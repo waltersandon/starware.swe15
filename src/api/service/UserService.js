@@ -1,12 +1,25 @@
 var User = require('./../data/User');
 var Role = require('./../data/Role');
-var ErrorHandler = require('./../middleware/ErrorHandler');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
  * @constructor
  */
 function UserService() {
+
+    /**
+     * Metodo che invoca il servizio per ritornare la lista degli utenti
+     * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
+     * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
+     * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+     * per passare il controllo ai successivi middleware.
+     */
+    this.get = function(req, res, next){
+        User.find({}).exec(function(err, users) {
+            if (err) next(400);
+            else {res.json(users);}
+        });
+    };
 
     /**
      * Metodo che invoca il servizio per ritornare la lista degli utenti
@@ -69,8 +82,8 @@ function UserService() {
                 role: role._id
             });
             user.save(function(err, user) {
-                if (err) next(400);
-                else {res.json(user);}
+                if (err) next(err);
+                else {res.send();}
             });
         });
     };
@@ -84,12 +97,20 @@ function UserService() {
      *
      */
     this.modify = function(req, res, next){
-        User.findByIdAndUpdate(req.params.id, { 
-            role: req.body.role
-        }, ErrorHandler(res, function(user) {
-            if (!user) next(404);
-            else {res.send();}
-        }));
+        Role.findById(req.body.role).exec(function(err, role) {
+            if(!role) next(404);
+            else {
+                User.findByIdAndUpdate(req.params.id, {
+                    role: req.body.role
+                }, function (err, user) {
+                    if (err) next(err);
+                    else if (!user) next(404);
+                    else {
+                        res.send();
+                    }
+                });
+            }
+        });
     };
 
     /**
@@ -105,18 +126,23 @@ function UserService() {
             User.findByIdAndUpdate(req.session.user._id, { 
                 fullName: req.body.fullName,
                 userName: req.body.userName
-            }, ErrorHandler(res, function(user) {
-                res.send();
-            }));
-        } else if (req.body.oldPassword || req.body.newPassword) {
+            }, function(err, user) {
+                if(err) next(err);
+                else { res.send(); }
+            });
+        } else if (req.body.oldPassword && req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
                 next(401);
             User.findByIdAndUpdate(req.session.user._id, {
                 password: req.body.newPassword
-            }, ErrorHandler(res, function(user) {
-                if (!user) next(404);
-                else {req.send();}
-            }));
+            }, function(err, user) {
+                if(err) next(err);
+                else if (!user) next(404);
+                else {res.send();}
+            });
+        }
+        else{
+            next(400);
         }
     };
 
@@ -130,10 +156,10 @@ function UserService() {
     this.delete = function(req, res, next){
         User.findByIdAndUpdate(req.session.user._id, {
             isActive: false
-        }, ErrorHandler(res, function() {
+        }, function() {
             if (!user) next(404);
             else {res.send();}
-        }));
+        });
     };
 
 }

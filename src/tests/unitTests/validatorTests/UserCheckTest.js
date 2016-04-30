@@ -16,8 +16,8 @@ describe('Testing di UserCheck', function() {
 
     });
     describe('check password', function() {
-        it('deve bloccare  password di lungezza 7 caratteri', function() {
-            expect(check.checkPassword("1234567")).to.equal(false);
+        it('deve accettare  password di lungezza 6 caratteri', function() {
+            expect(check.checkPassword("123456")).to.equal(true);
         });
         it('deve accettare password di lungezza 8 caratteri', function() {
             expect(check.checkPassword("12345678")).to.equal(true);

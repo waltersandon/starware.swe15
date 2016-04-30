@@ -6,7 +6,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.get = function (fullName, userName, next, err) {
@@ -24,7 +24,7 @@ $(function () {
                     next(ret);
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.getByID = function (id, next, err) {
@@ -33,20 +33,20 @@ $(function () {
                     next(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName));
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
-            this.getMe = function (next, err) {
+            this.getMe = function (password, next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
                     RoleService.getByID(res.data.role.href, function (role) {
-                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
+                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role, password));
                     }, function () {
                         err();
                     });
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.modifyRole = function (user, role, next, err) {
@@ -59,7 +59,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.signUp = function (fullName, password, userName, next, err) {
@@ -72,7 +72,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.updateInformation = function (fullName, userName, next, err) {
@@ -84,7 +84,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.updatePassword = function (newPassword, oldPassword, next, err) {
@@ -96,7 +96,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
         }]);

@@ -1,6 +1,5 @@
 $(function () {
     angular.module('SessionServiceModule', ['ConfigurationModule']).service('model.service.SessionService', ['app.Configuration', '$http', function (Configuration, $http) {
-
             this.login = function (password, userName, next, err) {
                 $http.post(Configuration.remote + 'api/session', {
                     'password': password,
@@ -10,7 +9,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.logout = function (next, err) {
@@ -19,7 +18,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
         }]);
