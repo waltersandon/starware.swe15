@@ -36,6 +36,10 @@
                     </div>
                 </form>
             </div>
+            <div class='alert' ng-class='error.type' ng-show='error.status'>
+                <a ng-click='error.status = false' href='' class='close'>&times;</a>
+                <strong>Errore! </strong><span ng-bind-html='error.message'></span>
+            </div>
         </div>
     </div>
 </div>

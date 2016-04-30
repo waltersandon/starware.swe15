@@ -82,7 +82,7 @@ function UserService() {
                 role: role._id
             });
             user.save(function(err, user) {
-                if (err) next(400);
+                if (err) next(err);
                 else {res.send();}
             });
         });
@@ -97,11 +97,19 @@ function UserService() {
      *
      */
     this.modify = function(req, res, next){
-        User.findByIdAndUpdate(req.params.id, { 
-            role: req.body.role
-        }, function(user) {
-            if (!user) next(404);
-            else {res.send();}
+        Role.findById(req.body.role).exec(function(err, role) {
+            if(!role) next(404);
+            else {
+                User.findByIdAndUpdate(req.params.id, {
+                    role: req.body.role
+                }, function (err, user) {
+                    if (err) next(err);
+                    else if (!user) next(404);
+                    else {
+                        res.send();
+                    }
+                });
+            }
         });
     };
 
@@ -118,16 +126,23 @@ function UserService() {
             User.findByIdAndUpdate(req.session.user._id, { 
                 fullName: req.body.fullName,
                 userName: req.body.userName
-            }, function(user) { res.send(); });
-        } else if (req.body.oldPassword || req.body.newPassword) {
+            }, function(err, user) {
+                if(err) next(err);
+                else { res.send(); }
+            });
+        } else if (req.body.oldPassword && req.body.newPassword) {
             if (!req.session.user.hasPassword(req.body.oldPassword))
                 next(401);
             User.findByIdAndUpdate(req.session.user._id, {
                 password: req.body.newPassword
-            }, function(user) {
-                if (!user) next(404);
-                else {req.send();}
+            }, function(err, user) {
+                if(err) next(err);
+                else if (!user) next(404);
+                else {res.send();}
             });
+        }
+        else{
+            next(400);
         }
     };
 
