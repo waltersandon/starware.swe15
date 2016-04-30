@@ -1,7 +1,7 @@
 $(function () {
-    angular.module('CheckModule', ['UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.service.UserService', 'model.service.QuestionnaireService', function (UserService, QuestionnaireService) {
+    angular.module('CheckModule', ['ErrorModule', 'UserServiceModule', 'QuestionnaireServiceModule']).service('util.Check', ['model.data.Error', 'model.service.UserService', 'model.service.QuestionnaireService', function (Error, UserService, QuestionnaireService) {
             this.checkPassword = function (password) {
-                return password.length >= 6;
+                return password.length >= 6 ? new Error() : new Error('La password deve avere almeno <strong>6</strong> caratteri', 'errorPassword', true, 'alert-warning');
             };
             this.checkTitle = function (title, next, err) {
                 QuestionnaireService.get(null, null, title, function (questionnaires) {
@@ -12,22 +12,12 @@ $(function () {
                         }
                     });
                     next(ret);
-                }, function () {
-                    err();
+                }, function (res) {
+                    err(res);
                 });
             };
-            /*this.checkUserName = function (userName, next, err) {
-                UserService.get(null, userName, function (users) {
-                    var ret = false;
-                    users.forEach(function (item) {
-                        if (item.userName === userName) {
-                            ret = true;
-                        }
-                    });
-                    next(ret);
-                }, function () {
-                    err();
-                });
-            };*/
+            this.checkUserName = function (userName) {
+                return userName.length >= 6 ? new Error() : new Error('L\'username deve avere almeno <strong>6</strong> caratteri', 'errorUserName', true, 'alert-warning');
+            };
         }]);
 });

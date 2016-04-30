@@ -6,7 +6,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.get = function (author, tags, title, next, err) {
@@ -25,7 +25,7 @@ $(function () {
                     next(ret);
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.getByID = function (id, next, err) {
@@ -34,7 +34,7 @@ $(function () {
                     next(new Questionnaire(res.data.author, res.data._id, res.data.questions, res.data.tags, res.data.title));
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.modify = function (questionnaire, next, err) {
@@ -48,7 +48,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
             this.new = function (questionnaire, next, err) {
@@ -62,7 +62,7 @@ $(function () {
                     next();
                 }, function error(res) {
                     console.log(res);
-                    err();
+                    err(res);
                 });
             };
         }]);
