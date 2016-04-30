@@ -194,7 +194,7 @@ describe('POST /api/users/me', function() {
             req.end(function(err, res) {
                 login(app, {
                     userName: 'utente.test.1.modified',
-                    password: 'password.utente.test.1'
+                    password: 'password.utente.test.1.modified'
                 }, function(agent) {
                     var req = request(app).get('/api/users/me');
                     agent.attachCookies(req);
