@@ -13,6 +13,10 @@ describe('GET /api/tags', function() {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
     };
+<<<<<<< HEAD
+=======
+
+>>>>>>> naughty
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
             .get('/api/tags')

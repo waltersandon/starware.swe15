@@ -7,13 +7,19 @@ var Tag = require('../../api/data/Tag');
 var User = require('../../api/data/User');
 
 function databaseSetState(objs, onSetState) {
-	mongoose.connection.db.dropDatabase();
-	Promise
-		.all(objs.map(function(e) { return e.save(); }))
-		.then(function() {
-			mongoose.disconnect();
-			onSetState();
-		}, console.error);
+	var config = new Configuration({ test: true });
+	mongoose.connect(config.dbTestUri, function() {
+		Promise.all([
+			Role.remove({}),
+			User.remove({}),
+			Tag.remove({}),
+			Question.remove({}),
+			Questionnaire.remove({})
+		]).then(function() {
+			Promise.all(objs.map(function(e) { return e.save(); }))
+				.then(function() { onSetState(); }, console.error);
+		});
+	});
 }
 
 function databaseSetup(onSetup) {
@@ -54,9 +60,9 @@ function databaseSetup(onSetup) {
         role: adminRole._id
     });
     var user6 = new User({
-        userName: 'alessandro.sperduti',
-        fullName: 'Alessandro Sperduti',
-        password: 'password.alessandro.sperduti',
+        userName: 'gregorio.piccoli',
+        fullName: 'Gregorio Piccoli',
+        password: 'password.gregorio.piccoli',
         role: superAdminRole._id
     });
 
@@ -124,5 +130,5 @@ function databaseSetup(onSetup) {
 }
 
 module.exports = {
-	databaseSetup: databaseSetup,
+	databaseSetup: databaseSetup
 };
