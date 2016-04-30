@@ -36,11 +36,11 @@ $(function () {
                     err(res);
                 });
             };
-            this.getMe = function (password, next, err) {
+            this.getMe = function (next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
                     RoleService.getByID(res.data.role.href, function (role) {
-                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role, password));
+                        next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
                     }, function () {
                         err();
                     });
