@@ -14,13 +14,7 @@ describe('GET /api/tags', function() {
         "userName": "tullio.vardanega",
         "password": "password.tullio.vardanega"
     };
-    beforeEach(function (done) {
-        db.databaseSetup;
-        login.login(app, theAccount, function (loginAgent) {
-            agent = loginAgent;
-            done();
-        });
-    });
+
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
             .get('/api/tags')

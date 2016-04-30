@@ -31,13 +31,14 @@ function App(config) {
      */
     this.start = function(){
         mongoose.connection.on('error', function(err) {
-            console.error("Error: " + err);
+            if (!config.test) console.error("Error: " + err);
         });
         mongoose.connect(config.dbUri);
         var port = this.app.get('port');
         var ip = this.app.get('ip');
         this.app.listen(port, ip, function () {
-            console.log('%s: Node server started on %s:%d ', Date(Date.now()), ip, port);
+            if (!config.test) 
+                console.log('%s: Node server started on %s:%d ', Date(Date.now()), ip, port);
         });
     }
 }

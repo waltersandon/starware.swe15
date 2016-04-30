@@ -1,17 +1,11 @@
 var expect = require('chai').expect;
 var request = require('supertest');
 
-var db = require('../../utils/DatabaseUtils');
 var app = require('../../utils/AppUtils').testApp;
 var login = require('../../utils/LoginUtils').login;
 
 
 describe('GET /api/users', function() {
-
-    beforeEach(function(done) {
-        db.databaseSetup();
-        done();
-    });
 
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
         request(app)
