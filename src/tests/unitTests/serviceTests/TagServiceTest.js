@@ -15,10 +15,15 @@ describe('GET /api/tags', function() {
         "password": "password.tullio.vardanega"
     };
     beforeEach(function (done) {
+<<<<<<< HEAD
         db.databaseSetup(done);
         login.login(theAccount, function (loginAgent) {
+=======
+        db.databaseSetup;
+        login.login(app, theAccount, function (loginAgent) {
+>>>>>>> naughty
             agent = loginAgent;
-        done();
+            done();
         });
     });
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
@@ -80,8 +85,13 @@ describe('POST /api/tags', function() {
         "parent":  null
     };
     before(function (done) {
+<<<<<<< HEAD
         db.databaseSetup(done);
         login.login(theAccountStudent, function (loginAgent) {
+=======
+        db.databaseSetup;
+        login.login(app, theAccountStudent, function (loginAgent) {
+>>>>>>> naughty
             agent = loginAgent;
             done();
         });
@@ -115,7 +125,7 @@ describe('POST /api/tags', function() {
 
     before(function (done) {
         db.databaseSetup;
-        login.login(theAccountTeacher, function (loginAgent) {
+        login.login(app, theAccountTeacher, function (loginAgent) {
             agent = loginAgent;
             done();
         });
