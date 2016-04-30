@@ -44,9 +44,11 @@ function UserService() {
      */
     this.getByID = function(req, res, next){
         User.findById(req.params.id, function(err, user) {
-            if (err) next(err);
-            else if (!user) next(404);
-            else {res.json(user);}
+            if (err) return next(400);
+            if (!user) return next(404);
+            if (user && !user.isActive)
+                return next(404);
+            res.json(user);
         });
     };
 
@@ -168,11 +170,11 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req, res, next){
-        User.findByIdAndUpdate(req.session.user._id, {
-            isActive: false
-        }, function() {
-            if (!user) next(404);
-            else {res.send();}
+        User.findByIdAndUpdate(req.params.id, {
+            $set: { isActive: false }
+        }, { new: true }, function(err, user) {
+            if (err) return next(400);
+            res.send();
         });
     };
 
