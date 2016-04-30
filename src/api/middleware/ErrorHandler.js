@@ -22,6 +22,11 @@ function ErrorHandler() {
         	res.status(err).json({
                 message: messages[err] || 'Errore sconosciuto'
             });
+        } else if (err.message && err.type) {
+            console.error("Errore: ", err.message);
+            res.status(err.type).json({
+                message: err.message
+            });
         } else if(err.name === "ValidationError") {
             this.mex = "";
             for(var e in err.errors){

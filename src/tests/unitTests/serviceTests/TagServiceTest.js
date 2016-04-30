@@ -48,6 +48,54 @@ describe('GET /api/tags', function() {
     });
 
 });
+describe('GET /api/tags/:id', function() {
+    it('impedisce l\'accesso ad un utente non autenticato', function (done) {
+        login(app, {
+            userName: 'mario.rossi',
+            password: 'password.mario.rossi'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+
+                var id = res.body.find(function (tag) {
+                    return tag.name === "Matematica";
+                })._id;
+                request(app)
+                    .get('/api/tags/'+id)
+                    .end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 401);
+                        done();
+                    });
+                });
+            });
+    });
+    it('ritorna il tag per id passato all\'utente autenticato', function (done) {
+        login(app, {
+            userName: 'mario.rossi',
+            password: 'password.mario.rossi'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var id = res.body.find(function (tag) {
+                    return tag.name === "Matematica";
+                })._id;
+                var req = request(app).get('/api/tags/'+id);
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.name).to.eql("Matematica");
+                });
+                done();
+            });
+        });
+    });
+
+});
 describe('POST /api/tags', function() {
     it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
         login(app, {
@@ -67,7 +115,7 @@ describe('POST /api/tags', function() {
             });
         })
     });
-    it('ritorna la lista dei tags all\'utente autenticato', function (done) {
+    it('permette la creazione del tag di test  all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
@@ -79,8 +127,60 @@ describe('POST /api/tags', function() {
                 "description": "tag di testing" ,
                 "parent":  null
             }).end(function(err, res) {
-                expect(res).to.have.property('status', 200);
+                var req = request(app).get('/api/tags/');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "testTag";
+                    }).name).to.eql("testTag");
+                    done();
+                });
+            });
+        });
+    });
+
+});
+describe('POST /api/tags', function() {
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+        login(app, {
+            userName: 'mario.rossi',
+            password: 'password.mario.rossi'
+        }, function(agent) {
+            var req = request(app).post('/api/tags');
+            agent.attachCookies(req);
+            req.send({
+                "name": "testTagStudente" ,
+                "description": "tag di testing" ,
+                "parent":  null
+            }).end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 401);
                 done();
+            });
+        })
+    });
+    it('permette la creazione del tag di test  all\'utente autenticato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var req = request(app).post('/api/tags');
+            agent.attachCookies(req);
+            req.send({
+                "name": "testTag" ,
+                "description": "tag di testing" ,
+                "parent":  null
+            }).end(function(err, res) {
+                var req = request(app).get('/api/tags/');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "testTag";
+                    }).name).to.eql("testTag");
+                    done();
+                });
             });
         });
     });
@@ -107,7 +207,7 @@ describe('PUT /api/tags', function() {
             });
         })
     });
-    it('ritorna la lista dei tags all\'utente autenticato', function (done) {
+    it('permette la sostituzione del tag di test all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
@@ -118,18 +218,77 @@ describe('PUT /api/tags', function() {
                 var tag = res.body.find(function (tag) {
                     return tag.name === "testTag";
                 });
-                 var req = request(app).put('/api/tags/'+tag._id);
+                tag.name="testTagDopoPut";
+                var req = request(app).put('/api/tags/'+tag._id);
                    agent.attachCookies(req);
                    req.send(tag).end(function(err, res) {
                        expect(res).to.have.property('status', 200);
-                       done();
+                       var req = request(app).get('/api/tags/');
+                       agent.attachCookies(req);
+                       req.end(function(err, res) {
+                           expect(res).to.have.property('status', 200);
+                           expect(res.body.find(function (tag) {
+                               return tag.name === "testTagDopoPut";
+                           }).name).to.eql("testTagDopoPut");
+                           done();
+                       });
                    });
             });
         });
     });
 
 });
-/*
- this.router.put('/tags/:id',auth.requireTeacher,this.tagService.modifyTag);
- this.router.delete('/tags/:id',auth.requireTeacher,this.tagService.deleteTag);
- */
+describe('DELETE /api/tags', function() {
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+        login(app, {
+            userName: 'mario.rossi',
+            password: 'password.mario.rossi'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                var tag = res.body.find(function (tag) {
+                    return tag.name === "testTagDopoPut";
+                });
+                var req = request(app).delete('/api/tags/'+tag._id);
+                agent.attachCookies(req);
+                req.send(tag).end(function(err, res) {
+                    expect(res).to.have.property('status', 401);
+                    done();
+                });
+            });
+        })
+    });
+    it('permette la cancellazione del tag di test all\'utente autenticato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            //richiesta per ottenere id del tag che si vuole cancellare
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                var tag = res.body.find(function (tag) {
+                    return tag.name === "testTagDopoPut";
+                });
+                //richiesta di cancellazione
+                var req = request(app).delete('/api/tags/'+tag._id);
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 200);
+                    // richiesta della verifica della avvenuta cancellazione
+                    var req = request(app).get('/api/tags/');
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body.find(function (tag) {
+                            return tag.name === "testTagDopoPut";
+                        })).to.eql(undefined);
+                        done();
+                    });
+                });
+            });
+        });
+    });
+
+});
