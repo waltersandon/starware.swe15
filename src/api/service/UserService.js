@@ -44,7 +44,7 @@ function UserService() {
      */
     this.getByID = function(req, res, next){
         User.findById(req.params.id, function(err, user) {
-            if (err) next(400);
+            if (err) next(err);
             else if (!user) next(404);
             else {res.json(user);}
         });
