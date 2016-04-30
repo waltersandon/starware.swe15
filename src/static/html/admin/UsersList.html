@@ -1,37 +1,31 @@
 
 <div  ng-controller='controller.admin.UsersList'>
     <h2>Lista Utenti</h2>
-
+    {{ usersList }}
+    
+    
     <table class='table table-striped table-hover'>
         <thead>
             <tr>
-                <th>#</th>
-                <th>UserName</th>
-                <th>FullName</th>
-                <th>Roles</th>
-                <th style='text-align: center'>Up/Down Roles</th>
+                <th>Username</th>
+                <th>Nome completo</th>
+                <th>Tipo</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr >
-                <td style='vertical-align:middle'>1</td>
-                <td style='vertical-align:middle'>jDoe</td>
-                <td style='vertical-align:middle'>John Doe</td>
-                <td style='vertical-align:middle'>Docente</td>
-                <td style='text-align: center'>
-                    <a href='' class='btn btn-raised btn-success'><span class='glyphicon glyphicon-menu-up' aria-hidden='true' ></span></a>
-                    <a href='' class='btn btn-raised btn-danger'><span class='glyphicon glyphicon-menu-down' aria-hidden='true'></span></a>
+            <tr ng-repeat='user in usersList'>
+                <td style='vertical-align:middle'>{{ user.userName }}</td>
+                <td style='vertical-align:middle'>{{ user.fullName }}</td>
+                <td style='vertical-align: middle'>
+                    <div class='form-group' style='margin: 0; padding: 0;'>
+                        <select class='form-control' ng-change='changeUserRole(user, "ss")'>
+                            <option ng-repeat='role in roles' ng-selected='user.role.href === role.id' value='{{ role.id }}'>{{ role.name }}</option>
+                        </select>
+                    </div>
                 </td>
-
-            </tr>
-            <tr>
-                <td style='vertical-align:middle'>2</td>
-                <td style='vertical-align:middle;'>mMoe</td>
-                <td style='vertical-align:middle;'>Mary Moe</td>
-                <td style='vertical-align:middle;'>Studente</td>
                 <td style='text-align: center'>
-                    <a href='' class='btn btn-raised btn-success'><span class='glyphicon glyphicon-menu-up' aria-hidden='true' ></span></a>
-                    <a href='' class='btn btn-raised btn-danger'><span class='glyphicon glyphicon-menu-down' aria-hidden='true'></span></a>
+                    <a href='' ng-click='deleteUser(user)' class='btn'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>
                 </td>
             </tr>
         </tbody>
