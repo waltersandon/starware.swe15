@@ -22,7 +22,11 @@ function Loader(app) {
     app.use(session({
         secret: 'a4f8071f-c873-4447-8ee2',
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
+		cookie: {
+			httpOnly: false,
+			maxAge: 3600*24*365*1000
+		}
     }));
 
     this.authorization = new Authorization();

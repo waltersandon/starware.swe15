@@ -1,32 +1,32 @@
 
-<div class='container'  ng-controller='controller.public.SignUp'>
+<div class='container'  ng-controller='controller.public.SignUp' ng-show='logged === false'>
     <div class='row'>
         <div class='col-md-8 col-md-offset-2'>
             <h1>Registrazione</h1>
             <div class='well bs-component'>
-                <form name='signup' class='form-horizontal' ng-submit='signup.$valid && submit()'>
-                    <div class='form-group'>
+                <form name='signup' class='form-horizontal' ng-submit='checkUserName() && checkFullName() && checkPassword() && checkRepeatPassword() && submit()'>
+                    <div class='form-group' ng-class='{ "has-warning" : error.status && error.name === "errorUserName" }'>
                         <label for='userName' class='col-md-2 control-label'>Username</label>
                         <div class='col-md-10'>
-                            <input ng-model='userName' name='userName' type='text' class='form-control' id='userName' placeholder='Username' required ng-minlength='6' ng-blur='checkUserName()'>
+                            <input ng-model='userName' name='userName' type='text' class='form-control' id='userName' placeholder='Username' required ng-change='checkUserName()'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : error.status && error.name === "errorFullName" }'>
                         <label for='fullName' class='col-md-2 control-label'>Nome completo</label>
                         <div class='col-md-10'>
-                            <input ng-model='fullName' name='fullName' type='text' class='form-control' id='fullName' placeholder='Nome completo' required ng-minlength='2'>
+                            <input ng-model='fullName' name='fullName' type='text' class='form-control' id='fullName' placeholder='Nome completo' required ng-change='checkFullName()'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : error.status && error.name === "errorPassword" }'>
                         <label for='password' class='col-md-2 control-label'>Password</label>
                         <div class='col-md-10'>
-                            <input ng-model='password' name='password' type='password' class='form-control' id='password' placeholder='Password' required ng-minlength='6'>
+                            <input ng-model='password' name='password' type='password' class='form-control' id='password' placeholder='Password' required ng-change='checkPassword()'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : error.status && error.name === "errorRepeatPassword" }'>
                         <label for='repeatPassword' class='col-md-2 control-label'>Ripeti password</label>
                         <div class='col-md-10'>
-                            <input ng-model='repeatPassword' name='repeatPassword' type='password' class='form-control' id='repeatPassword' placeholder='Password' required ng-minlength='6'>
+                            <input ng-model='repeatPassword' name='repeatPassword' type='password' class='form-control' id='repeatPassword' placeholder='Password' required ng-change='checkRepeatPassword()'>
                         </div>
                     </div>
                     <div class='form-group'>

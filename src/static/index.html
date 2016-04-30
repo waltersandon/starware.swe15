@@ -26,10 +26,7 @@
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js' defer></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.min.js' defer></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js' defer></script>
-        
-        <!-- blueimp/JavaScript-MD5 -->
-        <script src="js/md5.min.js"></script>
-        
+
         <!-- CSS -->
         <link href='css/style.css' rel='stylesheet'>
 
@@ -91,7 +88,14 @@
     <body ng-app='app.App' ng-controller='controller.public.Home'>
         <div ng-switch on='urlPath()[1]'>
             <div ng-switch-when='login' >
-                <div ng-include="'html/public/LogIn.html'"></div>
+                <div ng-switch on='logged'>
+                    <div ng-switch-when='false'>
+                        <div ng-include="'html/public/LogIn.html'"></div>
+                    </div>
+                    <div ng-switch-when='true'>
+                        <div ng-include="'html/user/Home.html'"></div>
+                    </div>
+                </div>
             </div>
             <div ng-switch-when='signup'>
                 <div ng-include="'html/public/SignUp.html'"></div>
@@ -109,7 +113,14 @@
                 <div ng-include="'html/user/Home.html'"></div>
             </div>
             <div ng-switch-default>
-                <div ng-include="'html/public/Home.html'"></div>
+                <div ng-switch on='logged'>
+                    <div ng-switch-when='false'>
+                        <div ng-include="'html/public/Home.html'"></div>
+                    </div>
+                    <div ng-switch-when='true'>
+                        <div ng-include="'html/user/Home.html'"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
