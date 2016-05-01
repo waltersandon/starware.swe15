@@ -87,8 +87,8 @@ describe('POST /api/questionnaires', function() {
         }, function(agent) {
             var newQuestionnaire ={
                 title: "Quiz Test" ,
-                tags: [{ id: undefined }],
-                questions: [{id: undefined }]
+                tags: [],
+                questions: []
             };
             var req = request(app).get('/api/tags');
             agent.attachCookies(req);
@@ -214,7 +214,7 @@ describe('PUT /api/questionnaires/:id', function() {
             });
         });
     });
-    it('permette la creazione del quiz di test  all\'utente autenticato', function (done) {
+    it('permette la modifica dela domanda di test  all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
@@ -281,7 +281,7 @@ describe('DELETE /api/questionnaires/:id', function() {
             });
         })
     });
-    it('permette la cancellazione del questionario di test all\'utente autenticato', function (done) {
+    it('permette la cancellazione dela domanda di test all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
