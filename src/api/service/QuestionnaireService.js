@@ -73,9 +73,17 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Questionnaire.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(err);
-            else {res.send();}
+        Questionnaire.findById(req.params.id, function (err, questionnaire) {
+            if (questionnaire.author != req.session.user._id)
+                return next(401);
+            if (err) return next(err);
+            questionnaire.title = req.body.title;
+            questionnaire.tags = req.body.tags;
+            questionnaire.questions = req.body.questions;
+            questionnaire.save(function(err) {
+                if (err) return next(err);
+                res.send();
+            });
         });
     };
 
@@ -87,9 +95,14 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
-        Questionnaire.findByIdAndRemove(req.params.id, function(err) {
-            if (err) next(400);
-            else {res.send();}
+        Questionnaire.findById(req.params.id, function(err, questionnaire) {
+           if (questionnaire.author != req.session.user._id)
+                return next(401);
+            if (err) return next(err);
+            questionnaire.remove(function(err) {
+                if (err) return next(err);
+                res.send();
+            });
         });
     };
 
