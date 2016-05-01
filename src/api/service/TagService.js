@@ -15,7 +15,13 @@ function TagService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req, res, next){
-        Tag.find({},function(err, tags){
+        this.query = {};
+        if (req.query.keywords){
+            this.rex = req.query.keywords;
+            this.queryArray = [{name:new RegExp(this.rex, 'i')},{description:new RegExp(this.rex, 'i')}]
+            this.query.$or = this.queryArray;
+        }
+        Tag.find(this.query,function(err, tags){
             res.json(tags);
         });
     };

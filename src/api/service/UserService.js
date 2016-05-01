@@ -15,12 +15,16 @@ function UserService() {
      * per passare il controllo ai successivi middleware.
      */
     this.get = function(req, res, next) {
-        var filter = { isActive: true };
-        if (req.query.username) 
-            filter.userName = new RegExp(req.query.username, 'i');
-        if (req.query.fullname) 
-            filter.fullName = new RegExp(req.query.fullname, 'i');
-        User.find(filter).exec(function(err, users) {
+        this.query = { isActive: true };
+        if (req.query.userName){
+            this.rex = "\\b("+req.query.userName+")\\b";
+            this.query.userName = new RegExp(this.rex, 'i');
+        }
+        if (req.query.fullName){
+            this.rex = req.query.fullName;
+            this.query.fullName = new RegExp(this.rex, 'i');
+        }
+        User.find(this.query).exec(function(err, users) {
             if (err) next(400);
             else {res.json(users);}
         });

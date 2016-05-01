@@ -10,6 +10,7 @@ $(function () {
                 });
             };
             this.get = function (author, tags, title, next, err) {
+                console.log(author,tags,title);
                 $http.get(Configuration.remote + 'api/questionnaires?' +
                         'author=' + function () {
                             var a = '';
