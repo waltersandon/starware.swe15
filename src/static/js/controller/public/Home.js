@@ -1,7 +1,6 @@
 $(function () {
     angular.module('app.App').controller('controller.public.Home', ['$cookies', '$location', '$rootScope', '$scope', 'model.service.SessionService', 'model.service.UserService', function ($cookies, $location, $rootScope, $scope, SessionService, UserService) {
             $rootScope.logged = 'wait';
-
             $scope.urlPath = function () {
                 return $location.path().split('/');
             };
@@ -17,7 +16,6 @@ $(function () {
                     $rootScope.logged = false;
                 }
             };
-
             $scope.checkLogged();
         }]);
 });

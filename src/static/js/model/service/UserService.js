@@ -51,7 +51,7 @@ $(function () {
             };
             this.modifyRole = function (user, role, next, err) {
                 $http.post(Configuration.remote + 'api/users/' + user.id, {
-                    id: role.href
+                    role: role.href
                 }).then(function success(res) {
                     console.log(res);
                     next();
