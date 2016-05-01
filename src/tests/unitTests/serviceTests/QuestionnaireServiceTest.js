@@ -140,7 +140,6 @@ describe('POST /api/questionnaires', function() {
                 res.body.forEach(function (elem) {
                         tags_id.push(elem._id);
                 });
-                //console.log(tags_id);
                 newQuestionnaire.tags = tags_id;
                 var req = request(app).get('/api/questions');
                 agent.attachCookies(req);
@@ -153,11 +152,14 @@ describe('POST /api/questionnaires', function() {
                         questions_id.push(elem._id);
 
                     });
-                    //console.log(questions_id);
                     newQuestionnaire.questions = questions_id;
                     var req = request(app).post('/api/questionnaires');
+<<<<<<< HEAD
                     //console.log(newQuestionnaire);
                     agent.attachCookies(req);
+=======
+                    //agent.attachCookies(req);
+>>>>>>> naughty
                     req.send(newQuestionnaire).end(function(err, res) {
                             expect(err).to.not.be.ok;
                             expect(res).to.have.property('status', 200);
