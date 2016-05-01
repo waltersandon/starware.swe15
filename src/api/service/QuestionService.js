@@ -58,6 +58,7 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req,res,next){
+        req.body.author = req.session.user._id;
         this.quiz = new Question(req.body);
         this.quiz.save(function (err,quiz) {
             if (err) next(err);

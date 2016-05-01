@@ -16,7 +16,7 @@ describe('GET /api/questions', function() {
             });
     });
 
-    it("ritorna la lista dei questionari all'utente autenticato", function (done) {
+    it("ritorna la lista delle domande all'utente autenticato", function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
@@ -24,6 +24,7 @@ describe('GET /api/questions', function() {
             var req = request(app).get('/api/questions');
             agent.attachCookies(req);
             req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
                 expect(res).to.have.property('status', 200);
                 expect(res.body).to.be.instanceof(Array);
                 expect(res.body.length).to.be.equal(3);
@@ -33,6 +34,198 @@ describe('GET /api/questions', function() {
                 expect(res.body[0]).to.have.property('tags');
                 expect(res.body[0].tags).to.be.instanceof(Array);
                 done();
+            });
+        });
+    });
+
+});
+
+describe('GET /api/questions/:id', function() {
+
+    it("ritorna la domanda specificata", function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var req = request(app).get('/api/questions');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(1);
+
+                var question = res.body[0];
+	            var req = request(app).get('/api/questions/'+question._id);
+	            agent.attachCookies(req);
+	            req.end(function(err, res) {
+            		expect(err).to.not.be.ok;
+                	expect(res).to.have.property('status', 200);
+                	expect(res.body).to.have.property('_id');
+                	expect(res.body).to.have.property('body');
+                	expect(res.body).to.have.property('author');
+                	expect(res.body).to.have.property('tags');
+	            });
+                done();
+            });
+        });
+    });
+
+});
+
+describe('POST /api/questions', function() {
+
+    it("non permette la creazione di una domanda ad un utente con ruolo inferiore a docente", function (done) {
+        login(app, {
+            userName: 'mario.rossi',
+            password: 'password.mario.rossi'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(2);
+                var tags = res.body;
+
+                var newQuestion = {
+                	body: "<TF>\nQuesta domanda verrà eliminata?\n[T]",
+                	tags: [tags[0], tags[1]]
+                };
+	            var req = request(app).post('/api/questions').send(newQuestion);
+	            agent.attachCookies(req);
+	            req.end(function(err, res) {
+            		expect(err).to.not.be.ok;
+                	expect(res).to.have.property('status', 401);
+                	done();
+	            });
+            });
+        });
+    });
+
+    it("crea la domanda specificata", function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(2);
+                var tags = res.body;
+
+                var newQuestion = {
+                	body: "<TF>\nQuesta domanda verrà eliminata?\n[T]",
+                	tags: [tags[0]._id, tags[1]._id]
+                };
+	            var req = request(app).post('/api/questions').send(newQuestion);
+	            agent.attachCookies(req);
+	            req.end(function(err, res) {
+            		expect(err).to.not.be.ok;
+                	expect(res).to.have.property('status', 200);
+
+		            var req = request(app).get('/api/questions');
+		            agent.attachCookies(req);
+		            req.end(function(err, res) {
+		            	expect(err).to.not.be.ok;
+                		expect(res).to.have.property('status', 200);
+                		expect(res.body).to.be.instanceof(Array);
+                		var maybeQuestion = res.body.find(function(q) {
+                			return q.body == newQuestion.body;
+                		});
+                		expect(maybeQuestion).to.have.property('_id');
+                		expect(maybeQuestion).to.have.property('body', newQuestion.body);
+                		expect(maybeQuestion).to.have.property('author');
+                		expect(maybeQuestion).to.have.property('tags');
+                		done();
+		            });
+	            });
+            });
+        });
+    });
+
+    it("non crea una domanda con QML invalido", function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(2);
+                var tags = res.body;
+
+                var newQuestion = {
+                	body: "QML non valido",
+                	tags: [tags[0]._id, tags[1]._id]
+                };
+	            var req = request(app).post('/api/questions').send(newQuestion);
+	            agent.attachCookies(req);
+	            req.end(function(err, res) {
+            		expect(err).to.not.be.ok;
+                	expect(res).to.have.property('status', 400);
+
+		            var req = request(app).get('/api/questions');
+		            agent.attachCookies(req);
+		            req.end(function(err, res) {
+		            	expect(err).to.not.be.ok;
+                		expect(res).to.have.property('status', 200);
+                		expect(res.body).to.be.instanceof(Array);
+                		var maybeQuestion = res.body.find(function(q) {
+                			return q.body == newQuestion.body;
+                		});
+                		expect(maybeQuestion).to.not.be.ok;
+                		done();
+		            });
+	            });
+            });
+        });
+    });
+
+    it("non crea una domanda senza tag", function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+            	expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(2);
+                var tags = res.body;
+
+                var newQuestion = {
+                	body: "<TF>\nQuesta domanda verrà aggiunta?\n[F]",
+                	tags: []
+                };
+	            var req = request(app).post('/api/questions').send(newQuestion);
+	            agent.attachCookies(req);
+	            req.end(function(err, res) {
+            		expect(err).to.not.be.ok;
+                	expect(res).to.have.property('status', 400);
+
+		            var req = request(app).get('/api/questions');
+		            agent.attachCookies(req);
+		            req.end(function(err, res) {
+		            	expect(err).to.not.be.ok;
+                		expect(res).to.have.property('status', 200);
+                		expect(res.body).to.be.instanceof(Array);
+                		var maybeQuestion = res.body.find(function(q) {
+                			return q.body == newQuestion.body;
+                		});
+                		expect(maybeQuestion).to.not.be.ok;
+                		done();
+		            });
+	            });
             });
         });
     });
