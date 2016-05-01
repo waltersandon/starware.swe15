@@ -32,7 +32,7 @@ function QuestionnaireService() {
     this.get = function(req,res,next){
         this.query = {};
         if(req.query.title){
-            this.rex = "\\b("+req.query.title+")\\b";
+            this.rex = req.query.title;
             this.query.title = new RegExp(this.rex, 'i');
         }
         if(req.query.author){
