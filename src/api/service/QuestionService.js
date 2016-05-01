@@ -99,10 +99,14 @@ function QuestionService() {
             if (err) return next(err);
             if (question.author != req.session.user._id)
                 return next(401);
-            // @todo: controlla se permette la rimozione con questionari che hanno questa domanda
-            question.remove(function(err) {
+            Questionnaire.count({ questions: question._id }, function(err, count) {
                 if (err) return next(err);
-                res.send();
+                if (count > 0)
+                    return next(400);
+                question.remove(function(err) {
+                    if (err) return next(err);
+                    res.send();
+                });
             });
         });
     };
