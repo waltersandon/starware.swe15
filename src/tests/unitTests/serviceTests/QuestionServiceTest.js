@@ -399,7 +399,7 @@ describe('DELETE /api/questions/:id',function () {
             });
         });
     });
-    it('blocca la cancellazione della domanda utilizzata in un questionario all\'utente autenticato  autore', function (done) {
+    it('blocca la cancellazione della domanda utilizzata in un questionario all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'

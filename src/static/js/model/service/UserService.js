@@ -10,10 +10,28 @@ $(function () {
                 });
             };
             this.get = function (fullName, userName, next, err) {
-                $http.get(Configuration.remote + 'api/users', {
-                    'fullName': fullName,
-                    'userName': userName
-                }).then(function success(res) {
+                $http.get(Configuration.remote + 'api/users?' +
+                        'fullName=' + +function () {
+                            var a = '';
+                            if (fullName instanceof Array)
+                                fullName.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 2)
+                                a.substr(0, a.length - 2);
+                            return a;
+                        }() +
+                        '&userName=' + +function () {
+                            var a = '';
+                            if (userName instanceof Array)
+                                userName.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 2)
+                                a.substr(0, a.length - 2);
+                            return a;
+                        }()
+                        ).then(function success(res) {
                     console.log(res);
 
                     var ret = [];
@@ -39,10 +57,10 @@ $(function () {
             this.getMe = function (next, err) {
                 $http.get(Configuration.remote + 'api/users/me').then(function success(res) {
                     console.log(res);
-                    RoleService.getByID(res.data.role.href, function (role) {
+                    RoleService.getByID(res.data.role, function (role) {
                         next(new CurrentUser(new User(res.data.fullName, res.data._id, res.data.role, res.data.userName), role));
-                    }, function () {
-                        err();
+                    }, function (res) {
+                        err(res);
                     });
                 }, function error(res) {
                     console.log(res);
@@ -51,7 +69,7 @@ $(function () {
             };
             this.modifyRole = function (user, role, next, err) {
                 $http.post(Configuration.remote + 'api/users/' + user.id, {
-                    role: role.href
+                    role: role.id
                 }).then(function success(res) {
                     console.log(res);
                     next();

@@ -82,13 +82,13 @@
                     <div ng-switch-when='teacher'>
                         <div ng-switch on='urlPath()[2]'>
                             <div ng-switch-when='questions'>
-                                <div ng-include="'html/teacher/Questions.html'"></div>
+                                <div ng-include="'html/teacher/ManageQuestions.html'"></div>
                             </div>
                             <div ng-switch-when='questionnaires'>
-                                <div ng-include="'html/teacher/Questionnaires.html'"></div>
+                                <div ng-include="'html/teacher/ManageQuestionnaires.html'"></div>
                             </div>
                             <div ng-switch-when='tags'>
-                                <div ng-include="'html/teacher/Tags.html'"></div>
+                                <div ng-include="'html/teacher/ManageTags.html'"></div>
                             </div>
                             <div ng-switch-default>
                                 <div ng-include="'html/user/Welcome.html'"></div>

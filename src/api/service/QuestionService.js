@@ -1,4 +1,5 @@
 var Question = require('./../data/Question');
+var Questionnaire = require('./../data/Questionnaire');
 var QuestionCheck = require('./../validator/QuestionCheck');
 
 
@@ -23,7 +24,8 @@ function QuestionService() {
             this.query.body = new RegExp(this.rex, 'i');
         }
         if(req.query.author){
-            this.query.author = req.query.author;
+            this.authors = req.query.author.split("|");
+            this.query.author = {$in: this.authors};
         }
         if(req.query.tags) {
             this.tags = req.query.tags.split("|");
@@ -99,10 +101,14 @@ function QuestionService() {
             if (err) return next(err);
             if (question.author != req.session.user._id)
                 return next(401);
-            // @todo: controlla se permette la rimozione con questionari che hanno questa domanda
-            question.remove(function(err) {
+            Questionnaire.count({ questions: question._id }, function(err, count) {
                 if (err) return next(err);
-                res.send();
+                if (count > 0)
+                    return next(400);
+                question.remove(function(err) {
+                    if (err) return next(err);
+                    res.send();
+                });
             });
         });
     };
