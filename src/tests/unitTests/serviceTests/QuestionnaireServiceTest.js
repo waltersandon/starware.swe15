@@ -179,6 +179,7 @@ describe('POST /api/questionnaires', function() {
     });
 });
 describe('PUT /api/questionnaires/:id', function() {
+
     it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
@@ -214,6 +215,7 @@ describe('PUT /api/questionnaires/:id', function() {
             });
         });
     });
+
     it('permette la modifica dela domanda di test  all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
@@ -257,6 +259,42 @@ describe('PUT /api/questionnaires/:id', function() {
         });
 
     });
+
+    it("non permette la modifica di un questionario non proprio", function (done) {
+        login(app, {
+            userName: 'riccardo.cardin',
+            password: 'password.riccardo.cardin'
+        }, function(agent) {
+            var newQuestionnaire ={
+                title: "Quiz Test Dopo Put" ,
+                tags: [],
+                questions: []
+            };
+            var req = request(app).get('/api/questionnaires');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var questionnaire = res.body[0];
+                newQuestionnaire.tags.push(questionnaire.tags[0]);
+                newQuestionnaire.questions.push(questionnaire.questions[0]);
+                var req = request(app).put('/api/questionnaires/'+questionnaire._id);
+                agent.attachCookies(req);
+                req.send(newQuestionnaire).end(function(err, res) {
+                    expect(res).to.have.property('status', 401);
+                    var req = request(app).get('/api/questionnaires/'+questionnaire._id);
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body).to.have.property('title', questionnaire.title);
+                        expect(res.body.questions).to.eql(questionnaire.questions);
+                        expect(res.body.tags).to.eql(questionnaire.tags);
+                        done();
+                    });
+                });
+            });
+        });
+    });
+
 });
 
 describe('DELETE /api/questionnaires/:id', function() {
@@ -281,6 +319,7 @@ describe('DELETE /api/questionnaires/:id', function() {
             });
         })
     });
+
     it('permette la cancellazione dela domanda di test all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
@@ -309,4 +348,44 @@ describe('DELETE /api/questionnaires/:id', function() {
             });
         });
     });
+
+   it("permette la cancellazione dela domanda di test all'utente autenticato", function (done) {
+
+        login(app, {
+            userName: 'riccardo.cardin',
+            password: 'password.riccardo.cardin'
+        }, function(agent) {
+
+            // ricerca domanda da eliminare
+            var req = request(app).get('/api/questionnaires');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                var questionnaire = res.body[0];
+
+                // richiesta di cancellazione
+                var req = request(app).delete('/api/questionnaires/'+questionnaire._id);
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 401);
+
+                    // verifica della non eliminazione
+                    var req = request(app).get('/api/questionnaires/'+questionnaire._id);
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body).to.have.property('_id');
+                        expect(res.body).to.have.property('title');
+                        expect(res.body).to.have.property('questions');
+                        expect(res.body).to.have.property('tags');
+                        done();
+                    });
+
+                });
+
+            });
+
+        });
+
+    });
+
 });

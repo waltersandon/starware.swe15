@@ -85,7 +85,7 @@ function databaseSetup(onSetup) {
 	});
 
 	var question1 = new Question ({
-		author: user2._id, 
+		author: user3._id, 
 		body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", 
 		tags: [tag2._id,tag1._id]});
  	var question2 = new Question ({
@@ -94,13 +94,13 @@ function databaseSetup(onSetup) {
  		tags: [tag2._id]
  	});
 	var question3 = new Question ({
-		author: user4._id, 
+		author: user3._id, 
 		body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", 
 		tags: [tag3._id]
 	});
 
 	var questionnaire1 = new Questionnaire({
-		author: user2._id, 
+		author: user3._id, 
 		questions: [question1._id,question2._id,question3._id], 
 		tags: [tag1._id,tag2._id,tag3._id], 
 		title: "Quiz 1"
