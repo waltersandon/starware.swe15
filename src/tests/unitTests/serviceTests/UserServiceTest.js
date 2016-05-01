@@ -4,7 +4,6 @@ var request = require('supertest');
 var app = require('../../utils/AppUtils').testApp;
 var login = require('../../utils/LoginUtils').login;
 
-
 describe('GET /api/users', function() {
 
     it('impedisce l\'accesso ad un utente non autenticato', function (done) {
@@ -277,7 +276,7 @@ describe('POST /api/users/:id', function() {
                         req.end(function(err, res) {
                             expect(err).to.not.be.ok;
                             expect(res).to.have.property('status', 200);
-                            expect(res.body.role.href).to.be.eql(teacherRole._id);
+                            expect(res.body.role).to.be.eql(teacherRole._id);
                             done();
                         });
                     });
