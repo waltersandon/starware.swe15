@@ -399,5 +399,25 @@ describe('DELETE /api/questions/:id',function () {
             });
         });
     });
+    it('blocca la cancellazione della domanda utilizzata in un questionario all\'utente autenticato  autore', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            //richiesta per ottenere id del tag che si vuole cancellare
+            var req = request(app).get('/api/questions');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                var question = res.body[0];
+                //richiesta di cancellazione
+                var req = request(app).delete('/api/questions/'+question._id);
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 400);
+                    done();
+                });
+            });
+        });
+    });
 
 });
