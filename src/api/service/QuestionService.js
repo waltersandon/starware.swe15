@@ -74,7 +74,7 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Question.findById(req.params.id, req.body, function (err, question) {
+        Question.findById(req.params.id, function (err, question) {
             if (err) return next(err);
             if (question.author != req.session.user._id)
                 return next(401);
