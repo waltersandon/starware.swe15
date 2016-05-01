@@ -14,8 +14,13 @@ function UserService() {
      * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
      * per passare il controllo ai successivi middleware.
      */
-    this.get = function(req, res, next){
-        User.find({}).exec(function(err, users) {
+    this.get = function(req, res, next) {
+        var filter = { isActive: true };
+        if (req.query.username) 
+            filter.userName = new RegExp(req.query.username, 'i');
+        if (req.query.fullname) 
+            filter.fullName = new RegExp(req.query.fullname, 'i');
+        User.find({ isActive: true }).exec(function(err, users) {
             if (err) next(400);
             else {res.json(users);}
         });
