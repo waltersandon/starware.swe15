@@ -57,6 +57,7 @@ function QuestionnaireService() {
      * per passare il controllo ai successivi middleware.
      */
     this.new = function(req,res,next){
+        req.body.author = req.session.user._id;
         this.quest = new Questionnaire(req.body);
         this.quest.save(function(err,quest){
             if(err) next(err);

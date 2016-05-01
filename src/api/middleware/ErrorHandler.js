@@ -23,7 +23,6 @@ function ErrorHandler() {
                 message: messages[err] || 'Errore sconosciuto'
             });
         } else if (err.message && err.type) {
-            console.error("Errore: ", err.message);
             res.status(err.type).json({
                 message: err.message
             });
