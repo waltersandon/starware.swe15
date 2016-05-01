@@ -156,8 +156,8 @@ describe('POST /api/questionnaires', function() {
                     //console.log(questions_id);
                     newQuestionnaire.questions = questions_id;
                     var req = request(app).post('/api/questionnaires');
-                    console.log(newQuestionnaire);
-                    //agent.attachCookies(req);
+                    //console.log(newQuestionnaire);
+                    agent.attachCookies(req);
                     req.send(newQuestionnaire).end(function(err, res) {
                             expect(err).to.not.be.ok;
                             expect(res).to.have.property('status', 200);
@@ -179,7 +179,91 @@ describe('POST /api/questionnaires', function() {
         })
     });
 });
-describe('PUT /api/questionnaires/:id', function() {});
+describe('PUT /api/questionnaires/:id', function() {
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var newQuestionnaire ={
+                title: "Quiz Test Dopo Put" ,
+                tags: [],
+                questions: []
+            };
+            var req = request(app).get('/api/questionnaires');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var questionnaire = res.body.find(function (questionnaire) {
+                    return questionnaire.title === "Quiz Test";
+                });
+                var id = questionnaire._id;
+                newQuestionnaire.tags = push(questionnaire.tags[0].href);
+                newQuestionnaire.questions = push(questionnaire.questions[0].href);
+                done();
+            });
+        })
+    });
+    it('permette la creazione del quiz di test  all\'utente autenticato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var newQuestionnaire ={
+                title: "Quiz Test" ,
+                tags: [],
+                questions: []
+            };
+            var req = request(app).get('/api/tags');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body.length > 0).to.be.equal(true);
+                var tags_id = [];
+                res.body.forEach(function (elem) {
+                    tags_id.push(elem._id);
+                });
+                //console.log(tags_id);
+                newQuestionnaire.tags = tags_id;
+                var req = request(app).get('/api/questions');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.length > 0).to.be.equal(true);
+                    var questions_id = [];
+                    res.body.forEach(function (elem) {
+                        questions_id.push(elem._id);
+
+                    });
+                    //console.log(questions_id);
+                    newQuestionnaire.questions = questions_id;
+                    var req = request(app).post('/api/questionnaires');
+                    //console.log(newQuestionnaire);
+                    //agent.attachCookies(req);
+                    req.send(newQuestionnaire).end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+
+                        var req = request(app).get('/api/questionnaires');
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(res).to.have.property('status', 200);
+
+                            expect(res.body.find(function (questionnaire) {
+                                return questionnaire.title === "Quiz Test";
+                            }).title).to.eql("Quiz Test");
+
+                            done();
+                        });
+                    });
+                });
+            });
+        })
+    });
+
+});
 /*
 describe('DELETE /api/questionnaires/:id', function() {
 
