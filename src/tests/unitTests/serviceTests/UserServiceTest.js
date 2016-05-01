@@ -330,8 +330,3 @@ describe('DELETE /api/users/:id', function() {
     });
 
 });
-
-
-/*
-    this.router.delete('/users/:id',auth.requireAdmin,this.userService.delete);
-*/
