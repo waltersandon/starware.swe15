@@ -138,7 +138,7 @@ describe('POST /api/questionnaires', function() {
                 expect(res.body.length > 0).to.be.equal(true);
                 var tags_id = [];
                 res.body.forEach(function (elem) {
-                        tags_id.push({"id": elem._id} );
+                        tags_id.push(elem._id);
                 });
                 //console.log(tags_id);
                 newQuestionnaire.tags = tags_id;
@@ -150,14 +150,14 @@ describe('POST /api/questionnaires', function() {
                     expect(res.body.length > 0).to.be.equal(true);
                     var questions_id = [];
                     res.body.forEach(function (elem) {
-                        questions_id.push({"id": ""+elem._id+"" } );
+                        questions_id.push(elem._id);
 
                     });
                     //console.log(questions_id);
                     newQuestionnaire.questions = questions_id;
                     var req = request(app).post('/api/questionnaires');
-                    //console.log(newQuestionnaire);
-                    agent.attachCookies(req);
+                    console.log(newQuestionnaire);
+                    //agent.attachCookies(req);
                     req.send(newQuestionnaire).end(function(err, res) {
                             expect(err).to.not.be.ok;
                             expect(res).to.have.property('status', 200);
