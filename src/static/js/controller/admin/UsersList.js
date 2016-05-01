@@ -8,17 +8,19 @@ $(function () {
 
             $scope.changeUserRole = function (user) {
                 UserService.modifyRole(user, user.role, function () {
-                    console.log('success!');
+
                 }, function (res) {
 
                 });
             };
             $scope.deleteUser = function (user) {
-                UserService.delete(user, function () {
-                    $scope.usersList.splice($scope.usersList.indexOf(user), 1);
-                }, function (res) {
+                if (confirm('Vuoi eliminare l\'utente: ' + user.userName + '?')) {
+                    UserService.delete(user, function () {
+                        $scope.usersList.splice($scope.usersList.indexOf(user), 1);
+                    }, function (res) {
 
-                });
+                    });
+                }
             };
             RoleService.get(null, function (roles) {
                 roles.forEach(function (item) {
