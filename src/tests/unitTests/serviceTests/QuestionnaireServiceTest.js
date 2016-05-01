@@ -154,7 +154,9 @@ describe('POST /api/questionnaires', function() {
                     });
                     newQuestionnaire.questions = questions_id;
                     var req = request(app).post('/api/questionnaires');
-                    //agent.attachCookies(req);
+                    //console.log(newQuestionnaire);
+                    agent.attachCookies(req);
+
                     req.send(newQuestionnaire).end(function(err, res) {
                             expect(err).to.not.be.ok;
                             expect(res).to.have.property('status', 200);
@@ -176,11 +178,90 @@ describe('POST /api/questionnaires', function() {
         })
     });
 });
-describe('PUT /api/questionnaires/:id', function() {});
-/*
+describe('PUT /api/questionnaires/:id', function() {
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var newQuestionnaire ={
+                title: "Quiz Test Dopo Put" ,
+                tags: [],
+                questions: []
+            };
+            var req = request(app).get('/api/questionnaires');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var questionnaire = res.body.find(function (questionnaire) {
+                    return questionnaire.title === "Quiz Test";
+                });
+                var id = questionnaire._id;
+                newQuestionnaire.tags.push(questionnaire.tags[0]);
+                newQuestionnaire.questions.push(questionnaire.questions[0]);
+                login(app, {
+                    userName: 'mario.rossi',
+                    password: 'password.mario.rossi'
+                }, function(agent) {
+                    var req = request(app).put('/api/questionnaires/'+id);
+                    agent.attachCookies(req);
+                    req.send(newQuestionnaire).end(function(err, res) {
+                        expect(res).to.have.property('status', 401);
+                        done();
+                    });
+                });
+
+            });
+        });
+    });
+    it('permette la creazione del quiz di test  all\'utente autenticato', function (done) {
+        login(app, {
+            userName: 'tullio.vardanega',
+            password: 'password.tullio.vardanega'
+        }, function(agent) {
+            var newQuestionnaire ={
+                title: "Quiz Test Dopo Put" ,
+                tags: [],
+                questions: []
+            };
+            var req = request(app).get('/api/questionnaires');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var questionnaire = res.body.find(function (questionnaire) {
+                    return questionnaire.title === "Quiz Test";
+                });
+                var id = questionnaire._id;
+                newQuestionnaire.tags.push(questionnaire.tags[0]);
+                newQuestionnaire.questions.push(questionnaire.questions[0]);
+                    var req = request(app).put('/api/questionnaires/'+id);
+                    agent.attachCookies(req);
+                    req.send(newQuestionnaire).end(function(err, res) {
+                        expect(res).to.have.property('status', 200);
+                        var req = request(app).get('/api/questionnaires/'+id);
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(res).to.have.property('status', 200);
+                            expect(res.body.title).to.eql("Quiz Test Dopo Put");
+                            expect(res.body.tags.length).to.eql(1);
+                            expect(res.body.questions.length).to.eql(1);
+                            expect(res.body.tags[0]).to.eql(questionnaire.tags[0]);
+                            expect(res.body.questions[0]).to.eql(questionnaire.questions[0]);
+
+                            done();
+                        });
+                    });
+
+
+            });
+        });
+
+    });
+});
+
 describe('DELETE /api/questionnaires/:id', function() {
 
-    /*it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
+    it('impedisce l\'accesso ad un utente non autorizzato', function (done) {
         login(app, {
             userName: 'mario.rossi',
             password: 'password.mario.rossi'
@@ -200,7 +281,7 @@ describe('DELETE /api/questionnaires/:id', function() {
             });
         })
     });
-    it('permette la cancellazione del tag di test all\'utente autenticato', function (done) {
+    it('permette la cancellazione del questionario di test all\'utente autenticato', function (done) {
         login(app, {
             userName: 'tullio.vardanega',
             password: 'password.tullio.vardanega'
@@ -213,18 +294,15 @@ describe('DELETE /api/questionnaires/:id', function() {
                     return questionnaire.title === "Quiz Test Dopo Put";
                 });
                 //richiesta di cancellazione
-                var req = request(app).delete('/api/tags/'+questionnaire._id);
+                var req = request(app).delete('/api/questionnaires/'+questionnaire._id);
                 agent.attachCookies(req);
                 req.end(function(err, res) {
                     expect(res).to.have.property('status', 200);
                     // richiesta della verifica della avvenuta cancellazione
-                    var req = request(app).get('/api/questionnaires/');
+                    var req = request(app).get('/api/questionnaires/'+questionnaire._id);
                     agent.attachCookies(req);
                     req.end(function(err, res) {
-                        expect(res).to.have.property('status', 200);
-                        expect(res.body.find(function (questionnaire) {
-                            return questionnaire.title === "Quiz Test Dopo Put";
-                        })).to.eql(undefined);
+                        expect(res).to.have.property('status', 404);
                         done();
                     });
                 });
@@ -232,8 +310,3 @@ describe('DELETE /api/questionnaires/:id', function() {
         });
     });
 });
-*/
-/*
- this.router.put('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.modify);
- this.router.delete('/questionnaires/:id',auth.requireTeacher,this.questionnaireService.delete);
- */
