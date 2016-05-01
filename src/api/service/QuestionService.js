@@ -74,9 +74,16 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.modify = function(req,res,next){
-        Question.findByIdAndUpdate(req.params.id, req.body, function (err) {
-            if (err) next(err);
-            else {res.send();}
+        Question.findById(req.params.id, req.body, function (err, question) {
+            if (err) return next(err);
+            if (question.author != req.session.user._id)
+                return next(401);
+            question.body = req.body.body;
+            question.tags = req.body.tags;
+            question.save(function(err) {
+                if (err) return next(err);
+                res.send();
+            });
         });
     };
 
@@ -88,9 +95,15 @@ function QuestionService() {
      * per passare il controllo ai successivi middleware.
      */
     this.delete = function(req,res,next){
-        Question.findByIdAndRemove(req.params.id, function (err) {
-            if (err) next(400);
-            else {res.send();}
+        Question.findById(req.params.id, function (err, question) {
+            if (err) return next(err);
+            if (question.author != req.session.user._id)
+                return next(401);
+            // @todo: controlla se permette la rimozione con questionari che hanno questa domanda
+            question.remove(function(err) {
+                if (err) return next(err);
+                res.send();
+            });
         });
     };
 }
