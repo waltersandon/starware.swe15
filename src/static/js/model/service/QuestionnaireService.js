@@ -17,8 +17,8 @@ $(function () {
                                 author.forEach(function (item) {
                                     a += item + '|';
                                 });
-                            if (a.length >= 2)
-                                a.substr(0, a.length - 2);
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
                             return a;
                         }() +
                         '&tags=' + function () {
@@ -27,8 +27,8 @@ $(function () {
                                 tags.forEach(function (item) {
                                     a += item + '|';
                                 });
-                            if (a.length >= 2)
-                                a.substr(0, a.length - 2);
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
                             return a;
                         }() +
                         '&title=' + function () {
@@ -37,8 +37,8 @@ $(function () {
                                 title.forEach(function (item) {
                                     a += item + '|';
                                 });
-                            if (a.length >= 2)
-                                a.substr(0, a.length - 2);
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
                             return a;
                         }()
                         ).then(function success(res) {

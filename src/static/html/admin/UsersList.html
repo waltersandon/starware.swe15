@@ -18,12 +18,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='user in usersList | orderBy : myOrderBy | filter : {id: "!" + me.id, role: {href: myFilter}}'>
+                    <tr ng-repeat='user in usersList | orderBy : myOrderBy | filter : {id: "!" + me.id, role: myFilter}'>
                         <td style='vertical-align:middle'>{{user.userName}}</td>
                         <td style='vertical-align:middle'>{{user.fullName}}</td>
                         <td style='vertical-align: middle'>
                             <div class='form-group' style='margin: 0; padding: 0;'>
-                                <select class='form-control' ng-model='user.role.href' ng-change='changeUserRole(user)'>
+                                <select class='form-control' ng-model='user.role' ng-change='changeUserRole(user)'>
                                     <option ng-repeat='role in roles | filter : {name: "!superadmin"}' value='{{role.id}}'>{{role.viewName}}</option>
                                 </select>
                             </div>
