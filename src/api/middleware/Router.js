@@ -39,7 +39,7 @@ function Router(auth, error) {
     this.router.delete('/users/:id',auth.requireAdmin,this.userService.delete);
 
     //Routing question request
-    this.router.get('/questions',auth.requireTeacher,this.questionService.get);
+    this.router.get('/questions',auth.requireUser,this.questionService.get);
     this.router.get('/questions/:id',auth.requireUser,this.questionService.getByID);
     this.router.post('/questions',auth.requireTeacher,this.questionService.new);
     this.router.put('/questions/:id',auth.requireTeacher,this.questionService.modify);
