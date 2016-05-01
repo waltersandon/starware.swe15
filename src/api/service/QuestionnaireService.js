@@ -35,7 +35,8 @@ function QuestionnaireService() {
             this.query.title = new RegExp(req.query.title, 'i');
         }
         if(req.query.author){
-            this.query.author = req.query.author;
+            this.authors = req.query.author.split("|");
+            this.query.author = {$in: this.authors};
         }
         if(req.query.tags) {
             this.tags = req.query.tags.split("|");

@@ -24,7 +24,8 @@ function QuestionService() {
             this.query.body = new RegExp(this.rex, 'i');
         }
         if(req.query.author){
-            this.query.author = req.query.author;
+            this.authors = req.query.author.split("|");
+            this.query.author = {$in: this.authors};
         }
         if(req.query.tags) {
             this.tags = req.query.tags.split("|");
