@@ -10,9 +10,18 @@ $(function () {
                 });
             };
             this.get = function (keywords, next, err) {
-                $http.get(Configuration.remote + 'api/tags', {
-                    'keywords': keywords
-                }).then(function success(res) {
+                $http.get(Configuration.remote + 'api/tags?' +
+                        'keywords=' + function () {
+                            var a = '';
+                            if (keywords instanceof Array)
+                                keywords.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 2)
+                                a.substr(0, a.length - 2);
+                            return a;
+                        }()
+                        ).then(function success(res) {
                     console.log(res);
 
                     var ret = [];
