@@ -20,7 +20,7 @@ function UserService() {
             filter.userName = new RegExp(req.query.username, 'i');
         if (req.query.fullname) 
             filter.fullName = new RegExp(req.query.fullname, 'i');
-        User.find({ isActive: true }).exec(function(err, users) {
+        User.find(filter).exec(function(err, users) {
             if (err) next(400);
             else {res.json(users);}
         });
