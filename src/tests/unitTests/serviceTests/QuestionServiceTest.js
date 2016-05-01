@@ -299,6 +299,34 @@ describe('PUT /api/questions/:id',function () {
         });
 
     });
+    it('blocca la modifica della domanda di test  all\'utente autenticato non autore', function (done) {
+        login(app, {
+            userName: 'riccardo.cardin',
+            password: 'password.riccardo.cardin'
+        }, function(agent) {
+            var newQuestion ={
+                body: "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                tags: []
+            };
+            var req = request(app).get('/api/questions');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                expect(res).to.have.property('status', 200);
+                var question = res.body[res.body.length - 1];
+                var id = question._id;
+                newQuestion.tags.push(question.tags[0]);
+                var req = request(app).put('/api/questions/'+id);
+                agent.attachCookies(req);
+                req.send(newQuestion).end(function(err, res) {
+                    expect(res).to.have.property('status', 401);
+                        done();
+                });
+
+
+            });
+        });
+
+    });
 
 });
 describe('DELETE /api/questions/:id',function () {
@@ -347,6 +375,26 @@ describe('DELETE /api/questions/:id',function () {
                         expect(res).to.have.property('status', 404);
                         done();
                     });
+                });
+            });
+        });
+    });
+    it('blocca la cancellazione della domanda di test all\'utente autenticato non autore', function (done) {
+        login(app, {
+            userName: 'riccardo.cardin',
+            password: 'password.riccardo.cardin'
+        }, function(agent) {
+            //richiesta per ottenere id del tag che si vuole cancellare
+            var req = request(app).get('/api/questions');
+            agent.attachCookies(req);
+            req.end(function(err, res) {
+                var question = res.body[0];
+                //richiesta di cancellazione
+                var req = request(app).delete('/api/questions/'+question._id);
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(res).to.have.property('status', 401);
+                        done();
                 });
             });
         });
