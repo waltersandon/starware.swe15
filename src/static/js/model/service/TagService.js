@@ -49,7 +49,7 @@ $(function () {
                     'description': tag.description,
                     'id': tag.id,
                     'name': tag.name,
-                    'parent': parent
+                    'parent': tag.parent
                 }).then(function success(res) {
                     console.log(res);
                     next();
