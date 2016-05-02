@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
-
+\usepackage{verbatim}
 %Titolo documento
 \newcommand{\titoloDocumento}{Manuale Utente}
 
@@ -80,10 +80,11 @@
 	
 	\subsection{Scopo}
 	Lo scopo del seguente documento è fornire una guida dettagliata all’utente per l’utilizzo dell’applicazione Quizzipedia. Sono descritte le funzionalità dell'applicazione e i profili utente offerti.
+	Vengono inoltre specificati i requisiti tecnici per l'utilizzo dell'applicazione Quizzipedia.
 
 	\subsection{Descrizione}
     Il documento include la descrizione dettagliata delle funzionalità offerte dal sistema per ogni tipo di utente previsto. In particolar modo, vengono definite tutte le funzionalità offerte dal sistema all’utente con l’ausilio di immagini illustrative. 
-   
+    I requisiti tecnici per l'utilizzo dell'applicazione Quizzipedia sono specificati nel dettaglio.
 	
 	\subsection{Descrizione Prodotto}
 	\descrizioneProdotto
@@ -105,68 +106,144 @@
 	\end{itemize}
 	
 	\newpage
-
-	\section{Autenticazione e gestione profilo}
-	\subsection{Registrazione}
-	\subsection{Autenticazione}
-	\subsection{Logout}
-	\subsection{Recupero password}
-	\subsection{Accesso e modifica profilo personale}
+	\section{Requisiti per l'utilizzo dell'applicazione} 
+	\subsection{Requisiti hardware}
 	
-	\section{Profili utente}
-	L'applicazione Quizzipedia offre diversi profili utente. Ognuno di questi ha privilegi dedicati e un insieme di funzionalità distinte.
-	I vari profili utente offerti dall'applicazione offrono un insieme di funzionalità crescente da studente fino a propritario.
-	Ogni profilo aggiunge alle funzionalità disponibili ai ruoli precedenti in gerarchia, un insieme di funzionalità aggiuntivo.
+	\subsection{Requisiti software}
+	
+	Affinchè l’applicazione possa funzionare correttamente tramite computer desktop è
+	necessario disporre di uno dei seguenti browser:
+	\begin{itemize}
+		\item \textit{\textbf{Google Chrome}}: versione  47.0.2526 o superiore;
+		\item \textit{\textbf{Microsoft Edge}}: versione 25.10586 o superiore;
+	\item \textit{\textbf{Mozilla Firefox}}: versione 38.5.2esr o superiore;
+	\item\textit{	\textbf{Safari}}: versione 9.0.2 o superiore.
+	\end{itemize}
+ L'applicazione è supportata sui seguenti dispositivi mobile:
+	\begin{itemize}
+	\item \textit{\textbf{Android}} dalla versione 4.0;
+	\item \textit{\textbf{iOS}} dalla versione iOS6.
+\end{itemize}
+	\subsection{Comunicazione malfunzionamenti}
+	Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o
+	malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email
+	all’indirizzo:
+	\url{starware.swe@gmail.com}
+	Nella mail di segnalazione si dovranno riportare:
+	\begin{itemize}
+	\item username fornito in fase di registrazione dell’applicazione (ATTENZIONE:
+	non è richiesta la password di autenticazione);
+	\item versione di browser e sistema operativoG utilizzato. Nel caso di dispositivi
+	mobile il modello utilizzato;
+	\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati;
+	Prima di aprire una richiesta di assistenza si consiglia di effettuare operazioni di
+	pulizia dei file cookiesG. Per le istruzioni fare riferimento alle specifiche funzionali di
+	ciascun browser.
+	\end{itemize}
+	\newpage
+	\section{Autenticazione e gestione profilo}
+	\subsection{Registrazione}\label{registrazione}
+	Per accedere all'applicazione la prima volta è necessario effettuare la registrazione. Nel caso si sia già effettuata questa procedura una volta, si veda la sezione \ref{autenticazione}.
+	Per effettuare la procedura di registrazione è necessario:
+	\begin{itemize}
+		\item inserire l'username;
+		\item inserire nome e cognome;
+		\item inserire la password;
+		\item ripetere la password;
+		\item cliccare il pultasante "Registrati". \TODO{inserire screen-shot}
+	\end{itemize}
+\begin{comment}
+\begin{figure}[h]
+		
+\centering
+\includegraphics[width=0.8\linewidth]{}
+\caption{}
+\label{Schermata di registrazione}
+\end{figure}
 
-	\subsection{Profilo studente}
+\end{comment}
+
+	\subsection{Autenticazione}\label{autenticazione}
+	Per accedere alle funzinoalità dell'applicazione è necessario effettuare l'autenticazione. Nel caso non si posseggano le credenziali di accesso si veda la sezione di \ref{registrazione}.
+	Per effettuare l'autenticazione è necessario:
+		\begin{itemize}
+			\item inserire l'username corretto;
+			\item inserire la password corrispondente corretta;
+			\item cliccare il pulsante "accedi".
+		\end{itemize}\TODO{inserire screen-shot}
+		\begin{comment}
+		\begin{figure}[h]
+		
+		\centering
+		\includegraphics[width=0.8\linewidth]{}
+		\caption{}
+		\label{Schermata di autenticazione}
+		\end{figure}
+		
+		\end{comment}
+	\subsection{Logout}
+	Per effettuare il logout e uscire dall'applicazione è necessario aver precedentemente effettuato l'autenticazione.
+	E' necessario cliccare sul pulsante in alto a destra in figura.\TODO{essere più precisi}
+		\TODO{inserire screen-shot}
+		\begin{comment}
+		\begin{figure}[h]
+		
+		\centering
+		\includegraphics[width=0.8\linewidth]{}
+		\caption{}
+		\label{Pulsante di logout}
+		\end{figure}
+		
+		\end{comment}
+	\subsection{Accesso e modifica profilo personale}
+	Una volta effettuato l'accesso all'applicazione, vedi \ref{autenticazione}, è possibile modificare i propri dati personali salvati nel sistema.
+	Per accedere alla pagina delle impostazioni personali è necessario cliccare sul pulsante in alto a destra sul simbolo: ...
+	
+	\subsubsection{Modifica nome e cognome}
+	Per modificare il nome e cognome salvati è necessario:
+	\begin{itemize}
+		\item inserire il nuovo nome e cognome negli appositi spazi;
+		\item ciccare sul pulsante "modifica" per confermare la modifica.
+	\end{itemize}
+	\subsubsection{Modifica username}
+	
+	\subsection{Modifica password}
+
+	\section{Studente}\label{studente}
 	Il profilo studente è il profilo  base offerto dal sistema. Ogni utente registrato dispone di tali funzinalità. Tali funzionalità sono:
 	\begin{itemize}
 		\item la possibilità di ricercare questionari in base a piu parametri;
 		\item la possibiilità di esplorare i questionari presenti nel sistema per argomento;
 		\item la possibilità di eseguire un questionario presente nel sistema.
 	\end{itemize}
-	\subsection{Profilo docente}
-	Un profilo docente ha accesso a tutte le funzionalità di uno studente.
+	\subsection{Ricerca questionario}
+	\subsubsection{Pagina di ricerca  di un questionario}
+	L'accesso alla pagina di ricerca questionari si effettua dal \textbf{menu laterale}. 
+	E' necessario selezionare la voce "\textbf{Ricerca questionario}" nella sezione \textbf{Studente} del menu.
+	\subsubsection{Effettuare una ricerca}
+	Una volta entrati nella pagina di ricerca, è possibile inserire i parametri di ricerca nella barra apposita.
+	\begin{comment}
+	inserire immagine barra di ricerca
+	\end{comment}
+	
+	E' possibile inserire dei filtri per la ricerca. 
+	\begin{comment} inserire immagine e altre informazioni per la ricerca con filtri	\end{comment}
+	\subsection{Esplorazione questionari per argomento}
+	\subsubsection{Pagina di esplorazione argomenti}
+	\subsection{Esecuzione questionario}
+	\section{Docente}\label{docente}
+	Un profilo docente ha accesso a tutte le funzionalità di uno studente.Per informazioni dettagliate su tali funzionalità si veda la sezione \ref{studente}
 		Inoltre offre funzionalità aggiuntive quali:
 		\begin{itemize}
 			\item la possibilità di gestire questionari (aggiungerli, rimuoverli e modificarli);
 			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
 			\item la possibilità di gestire argomenti o tag (aggiungerli, rimuoverli e modificarli)
 		\end{itemize}
-	\subsection{Profilo amministratore}
-	Un profilo amministratore ha accesso a tutte le funzionalità di docente e studente.
-	Inoltre offre funzionalità aggiuntive quali:
-	\begin{itemize}
-		\item la possibilità di promuovere uno studente a ruolo di docente;
-		\item la possibilità di degradare un docente a ruolo di studente;
-		\item la possibilità di rimuovere un docente o uno studente dal sistema.
-	\end{itemize}
-	\subsection{Profilo proprietario} 
-	Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore.
-	Inoltre offre funzionalità aggiuntive quali:
-	\begin{itemize}
-		\item la possibilità di promuovere uno utente (docente/studente) a ruolo di amministratore;
-		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
-		\item la possibilità di rimuovere un amministratore dal sistema.
-	\end{itemize}
-	\newpage
-	\section{Azioni studente}
-	\subsection{Ricerca questionario}
-	\subsection{Esecuzione questionario}
-	\newpage
-	\section{Azioni docente}
     \subsection{Gestione domande}
 	\subsection{Gestione tag}
 	\subsection{Gestione questionario}
-	\newpage
-	\section{Azioni amministratore}
-	\subsection{Ricerca utente}
-	\subsection{Rimozione utente}
-	\subsection{Gestione docenti}
+	
 
-\newpage
-	\section{Azioni proprietario}
-	\subsection{Gestione  amministratori}
 	
 	
 	
