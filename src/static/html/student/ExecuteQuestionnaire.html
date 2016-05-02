@@ -1,23 +1,19 @@
-
-<div ng-controller="Executequestionnaire">
+<div ng-controller="controller.student.ExecuteQuestionnaire">
     <div class="container">
         <h2>Esegui questionario</h2>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">Nome questionario</h3>
+                <h3 class="panel-title">{{questionnaire.title}}</h3>
             </div>
             <div class="panel-body">
-                <div class="jumbotron" style="background: yellowgreen" >
-                    <h1>Testo domanda</h1>
-                    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing
-                            responsive, mobile-first projects on the web.</p>
-                </div>
+                <h3>Domanda {{questionnaire.currentNumber + 1}} di {{questionnaire.questionNumber}}</h3>
+                <div ng-include="'html/student/ExecuteQuestion.html'"></div>
 
                 <div class="row">
                     <div class="text-center">
-                            <button type="button" class="btn btn-primary">Precedente</button>
-                            <button type="button" class="btn btn-default">Successiva</button>
+                            <button type="button" class="btn btn-default" ng-click="getPrevious()">Precedente</button>
+                            <button type="button" class="btn btn-primary" ng-click="getNext()">Successiva</button>
                     </div>
                 </div>
             </div>
