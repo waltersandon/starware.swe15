@@ -2,7 +2,7 @@
  * Created by igor on 21/04/16.
  * 19.TU
  */
-var expect = require('chai').expect;
+/*var expect = require('chai').expect;
 var request = require('superagent');
 var testSubject = require('../../../api/middleware/Authorization.js');
 describe('Authorization check', function() {
@@ -24,12 +24,6 @@ describe('Authorization check', function() {
         );
         describe('controllo requireUser', function() {
             it('deve eseguire callback dato request con i permessi giusti', function() {
-                /*{
-                    " _id ": string ,
-                    " userName ": string ,
-                    " fullName ": string ,
-                    " role ": { " href : string }
-                }*/
 
                 var res=false;
                 var req = {session: user};
@@ -120,4 +114,4 @@ describe('Authorization check', function() {
         });
 
     });
-});
+});*/
