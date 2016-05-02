@@ -1,5 +1,7 @@
 var Tag = require('./../data/Tag');
 var TagCheck = require('./../validator/TagCheck');
+var Question = require('./../data/Question');
+var Questionnaire = require('./../data/Questionnaire');
 
 /**
  * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
@@ -78,9 +80,20 @@ TagService.prototype.modifyTag = function(req, res, next) {
  * per passare il controllo ai successivi middleware.
  */
 TagService.prototype.deleteTag = function(req,res,next){
-    Tag.findByIdAndRemove(req.params.id, function(err) {
-        if (err) next(400);
-        else {res.send();}
+    Tag.findById(req.params.id, function(err, tag) {
+        if (err) return next(err);
+        Questionnaire.count({ tags: tag._id }, function(err, questionCount) {
+            if (err) return next(err);
+            Question.count({ tags: tag._id }, function(err, questionnaireCount) {
+                if (err) return next(err);
+                if (questionCount > 0 || questionnaireCount > 0)
+                    return next(400);
+                tag.remove(function(err) {
+                    if (err) return next(err);
+                    res.send();
+                });
+            });
+        });
     });
 };
 

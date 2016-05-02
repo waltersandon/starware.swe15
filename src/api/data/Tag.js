@@ -16,11 +16,6 @@ var TagSchema = new mongoose.Schema({
     description: {
         type: String,
         required: false
-    },
-    parent: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Tag',
-        required: false
     }
 });
 

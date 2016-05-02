@@ -26,7 +26,7 @@ ErrorHandler.prototype.handler = function(err, req, res, next) {
         res.status(err.type).json({
             message: err.message
         });
-    } else if(err.name === "ValidationError") {
+    } else if(err.name === "ValidationError" || err.name === 'MongoError') {
         this.mex = "";
         for(var e in err.errors){
             this.mex = this.mex + err.errors[e].message + ". ";
@@ -37,6 +37,7 @@ ErrorHandler.prototype.handler = function(err, req, res, next) {
         });
     }
     else {
+        console.log(err);
     	res.status(500).json({
             message: 'Errore di sistema'
         });
