@@ -7,6 +7,7 @@ var TagSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
         validate: {
             validator: check.checkName,
             message: 'Nome troppo corto'
