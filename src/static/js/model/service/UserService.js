@@ -11,24 +11,24 @@ $(function () {
             };
             this.get = function (fullName, userName, next, err) {
                 $http.get(Configuration.remote + 'api/users?' +
-                        'fullName=' + +function () {
+                        'fullName=' + function () {
                             var a = '';
                             if (fullName instanceof Array)
                                 fullName.forEach(function (item) {
                                     a += item + '|';
                                 });
-                            if (a.length >= 2)
-                                a.substr(0, a.length - 2);
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
                             return a;
                         }() +
-                        '&userName=' + +function () {
+                        '&userName=' + function () {
                             var a = '';
                             if (userName instanceof Array)
                                 userName.forEach(function (item) {
                                     a += item + '|';
                                 });
-                            if (a.length >= 2)
-                                a.substr(0, a.length - 2);
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
                             return a;
                         }()
                         ).then(function success(res) {

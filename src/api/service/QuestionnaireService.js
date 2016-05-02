@@ -32,7 +32,8 @@ function QuestionnaireService() {
     this.get = function(req,res,next){
         this.query = {};
         if(req.query.title){
-            this.query.title = new RegExp(req.query.title, 'i');
+            this.rex = req.query.title;
+            this.query.title = new RegExp(this.rex, 'i');
         }
         if(req.query.author){
             this.authors = req.query.author.split("|");
@@ -42,7 +43,7 @@ function QuestionnaireService() {
             this.tags = req.query.tags.split("|");
             this.query.tags = {"$in": this.tags};
         }
-        Questionnaire.find(this.query).exec(function(err, quest){
+        Questionnaire.find(this.query).populate('author').populate('tags').exec(function(err, quest){
             if(err) next(400);
             else if (!quest) next(404);
             else {res.json(quest);}

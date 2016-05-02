@@ -104,7 +104,7 @@ function QuestionService() {
             Questionnaire.count({ questions: question._id }, function(err, count) {
                 if (err) return next(err);
                 if (count > 0)
-                    return next(400);
+                    return next({type: 400, message:"Impossibile eliminare: questa domanda è ancora presente in qualche questionario"});
                 question.remove(function(err) {
                     if (err) return next(err);
                     res.send();

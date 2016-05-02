@@ -43,6 +43,7 @@ mongoose.connect(config.dbUri, function() {
 		var question1 = new Question ({author: usr2._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id,tag1._id]});
  		var question2 = new Question ({author: usr3._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id]});
 		var question3 = new Question ({author: usr4._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag3._id]});
+		var question4 = new Question ({author: usr3._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id]});
 
 		var questionnaire1 = new Questionnaire({author: usr2._id, questions: [question1._id,question2._id,question3._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 
@@ -64,6 +65,7 @@ mongoose.connect(config.dbUri, function() {
 			question1.save(),
 			question2.save(),
 			question3.save(),
+			question4.save(),
 			questionnaire1.save()
 
 		]).then(function() {
