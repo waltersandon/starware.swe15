@@ -1,6 +1,6 @@
-var App = require('../../api/app/App');
-var Configuration = require('../../api/app/Configuration');
-var Loader = require('../../api/middleware/Loader');
+var App = require('../../../api/app/App');
+var Configuration = require('../../../api/app/Configuration');
+var Loader = require('../../../api/middleware/Loader');
 
 var app = new App(new Configuration({
 	test: true

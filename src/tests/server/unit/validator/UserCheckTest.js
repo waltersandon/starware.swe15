@@ -3,7 +3,7 @@
  * 161.TU
  */
 var expect = require('chai').expect;
-var testSubject = require('../../../api/validator/UserCheck.js');
+var testSubject = require('../../../../api/validator/UserCheck.js');
 describe('Testing di UserCheck', function() {
     var check = new testSubject();
     describe('check full name', function() {
