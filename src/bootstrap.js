@@ -33,7 +33,7 @@ mongoose.connect(config.dbUri, function() {
 		var tag1 = 	new Tag({name: 'Matematica', description: 'Scienza che si occupa dello studio dei numeri e delle loro relazioni'});
 		var tag2 = 	new Tag({name: 'Informatica', description: 'Scienza che si occupa dello studio dei computer'});
 		var tag3 = 	new Tag({name: 'Italiano', description: 'Scienza che si occupa dello studio della lingua e grammatica italiana'});
-		var tag4 =  new Tag({name: 'SWE', description: 'Scienza che si occupa dello studio della qualità di un SW',parent: tag2._id});
+		var tag4 =  new Tag({name: 'SWE', description: 'Scienza che si occupa dello studio della qualità di un SW'});
 		
 		var usr1 = new User ({fullName:'Mario Rossi', password: 'password', role: student._id, userName: "mrossi" });
 		var usr2 = new User ({fullName:'Carlo Bianchi', password: 'password', role: teacher._id, userName: "cbianchi" });

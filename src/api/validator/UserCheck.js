@@ -4,22 +4,18 @@ var User = require('./../data/User');
  * Classe che contiene tutte le funzioni di controllo della validità dei campi del model User
  * @constructor
  */
-function UserCheck() {
+function UserCheck() {}
 
-    this.checkFullName = function(fullName){
-        return (fullName.length >= 2);
-    };
+UserCheck.prototype.checkFullName = function(fullName){
+    return (fullName.length >= 2);
+};
 
-    this.checkPassword = function(psw){
-        return (psw.length >= 6);
-    };
+UserCheck.prototype.checkPassword = function(psw){
+    return (psw.length >= 6);
+};
 
-    this.checkUserName = function(userName){
-        return (userName.length >= 6);
-    };
-
-}
-
+UserCheck.prototype.checkUserName = function(userName){
+    return (userName.length >= 6);
+};
 
 module.exports = UserCheck;
-

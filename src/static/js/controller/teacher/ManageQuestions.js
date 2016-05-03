@@ -10,25 +10,26 @@ $(function () {
                 }
             };
             QuestionSerivce.get([$rootScope.me.id], null, null, function (questions) {
-                /// qui non funziona! le chiamate sono async ma dovrebbero essere sync: trovare riemndio!
-                questions.forEach(function (question) {
+                async.each(questions, function (question, cb) {
                     var tags = '';
-                    question.tags.forEach(function (tag) {
-                        TagService.getByID(tag, function (tagComplete) {
-                            console.log('1' + tagComplete.name);
-                            tags += tagComplete.name + ', ';
-                        }, function (res) {
 
+                    async.each(question.tags, function (tag, cll) {
+                        TagService.getByID(tag, function (tagComplete) {
+                            tags += tagComplete.name + ', ';
+                            cll();
+                        }, function (res) {
+                            cll();
                         });
+                    }, function (err, res) {
+                        if (tags.length >= 2)
+                            tags = tags.substr(0, tags.length - 2);
+
+                        question.tags = tags;
+                        cb();
                     });
-                    
-                    if (tags.length >= 2)
-                        tags = tags.substr(0, tags.length - 2);
-                    
-                    console.log('2' + tags);
-                    question.tags = tags;
+                }, function (err, res) {
+                    $scope.questions = questions;
                 });
-                $scope.questions = questions;
             }, function (res) {
 
             });

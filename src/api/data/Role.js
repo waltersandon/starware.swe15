@@ -17,5 +17,22 @@ RoleSchema.options.toJSON = {
     }
 };
 
+/* Metodo che viene chiamato quando è necessario restituire
+ * una ur ruolo in formato JSON all'esterno
+ */
+RoleSchema.methods.greaterThan = function(role) {
+	var order = ['student', 'teacher', 'admin', 'superadmin'];
+	var thisIndex = order.indexOf(this.name);
+	var otherIndex = order.indexOf(role.name);
+	return (thisIndex > otherIndex);
+};
+
+/* Metodo che viene chiamato quando è necessario restituire
+ * una ur ruolo in formato JSON all'esterno
+ */
+RoleSchema.methods.equalTo = function(role) {
+	return (this.name == role.name);
+};
+
 var Role = mongoose.model('Role', RoleSchema);
 module.exports = Role;
