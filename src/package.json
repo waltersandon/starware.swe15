@@ -2,7 +2,9 @@
   "name": "Quizzipedia",
   "version": "1.0.0",
   "description": "Quizzipedia",
-  "keywords": ["application"],
+  "keywords": [
+    "application"
+  ],
   "author": {
     "name": "Star Ware",
     "email": "starware.swe@gmail.com",
@@ -18,6 +20,8 @@
     "npm": ">= 1.0.0"
   },
   "dependencies": {
+    "angular": "^1.5.5",
+    "angular-mocks": "^1.5.5",
     "bcryptjs": "^2.3.0",
     "blueimp-md5": "^2.3.0",
     "body-parser": "^1.15.0",
@@ -27,6 +31,7 @@
     "expect.js": "^0.3.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "karma-mocha": "^1.0.1",
     "markdown": "^0.5.0",
     "mongoose": "^4.4.12",
     "mongoose-searchable": "^1.0.0",
@@ -36,22 +41,25 @@
     "supertest": "^1.2.0"
   },
   "devDependencies": {
+    "bower": "^1.3.1",
+    "chai": "^3.5.0",
+    "http-server": "^0.6.1",
     "karma": "^0.12.16",
     "karma-chrome-launcher": "^0.1.4",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "~0.1.0",
+    "karma-mocha": "^1.0.1",
+    "mocha": "^2.4.5",
     "protractor": "^2.1.0",
-    "http-server": "^0.6.1",
-    "tmp": "0.0.23",
-    "bower": "^1.3.1",
-    "shelljs": "^0.2.6"
+    "shelljs": "^0.2.6",
+    "tmp": "0.0.23"
   },
   "bundleDependencies": [],
   "scripts": {
     "start": "node server.js",
     "test-server": "mocha tests/server/unit --recursive",
-    "test": "node node_modules/karma/bin/karma start tests/client/karma.conf.js",
-    "test-single-run": "node node_modules/karma/bin/karma start tests/client/karma.conf.js  --single-run"
+    "test-client": "node node_modules/karma/bin/karma start tests/client/karma.conf.js",
+    "test-client-single-run": "node node_modules/karma/bin/karma start tests/client/karma.conf.js  --single-run"
   },
   "private": true,
   "main": "server.js"

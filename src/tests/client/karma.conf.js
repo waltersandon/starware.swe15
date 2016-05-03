@@ -3,15 +3,31 @@ module.exports = function(config){
 
         basePath : '../../',
 
+        client: {
+            captureConsole: false
+        },
+
         files : [
-            'https://code.jquery.com/jquery-1.10.2.min.js',
-            'static/js/jquery-ui.min.js',
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
+
+            'https://code.jquery.com/jquery-1.10.2.min.js',
+            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js',
+            'static/js/material.min.js',
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js',
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.min.js',
+            'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js',
+            'static/js/async.min.js',
+            'static/js/jquery-ui.min.js',
+            'https://cdn.jsdelivr.net/editor/0.1.0/editor.js',
+            'https://cdn.jsdelivr.net/editor/0.1.0/marked.js',
+            'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js',
+            
+
             'static/js/app/*.js',
-            'static/js/controller/*.js',
-            'static/js/model/*.js',
-            'tests/client/unit/**/*.js'
+            'static/js/controller/**/*.js',
+            'static/js/model/**/**.js',
+            'tests/client/unit/service/*.js'
 
         ],
 
@@ -19,13 +35,12 @@ module.exports = function(config){
 
         frameworks: ['jasmine'],
 
-        browsers : ['Chrome', 'Firefox'],
+        browsers : ['Chrome', /*'Firefox'*/],
 
         plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-jquery'
+            'karma-jasmine'
         ],
 
         junitReporter : {
