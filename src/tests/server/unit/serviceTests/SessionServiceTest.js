@@ -2,7 +2,7 @@ var expect = require('chai').expect;
 var request = require('supertest');
 var superagent = require('superagent');
 
-var app = require('../../utils/AppUtils').testApp;
+var app = require('.././AppUtils').testApp;
 
 describe('/api/session', function() {
 
