@@ -7,6 +7,7 @@ var TagSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
         validate: {
             validator: check.checkName,
             message: 'Nome troppo corto'
@@ -14,11 +15,6 @@ var TagSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false
-    },
-    parent: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Tag',
         required: false
     }
 });
@@ -28,9 +24,6 @@ var TagSchema = new mongoose.Schema({
  */
 TagSchema.options.toJSON = {
     transform: function(doc, ret, options) {
-        if (ret.parent)
-            //ret.parent = { href: '/api/tags/' + ret.parent + '/' };
-			ret.parent = { href: ret.parent };
         delete ret.__v;
         return ret;
     }

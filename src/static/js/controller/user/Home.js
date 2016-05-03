@@ -1,9 +1,12 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.Home', ['$location', '$rootScope', '$scope', 'model.service.SessionService', function ($location, $rootScope, $scope, SessionService) {
+    angular.module('app.App').controller('controller.user.Home', ['$cookies', '$location', '$rootScope', '$scope', 'model.service.SessionService', function ($cookies, $location, $rootScope, $scope, SessionService) {
             $scope.logout = function () {
                 SessionService.logout(function () {
-                    $location.path('');
-                }, function () {
+                    $rootScope.me = {};
+                    $rootScope.logged = false;
+                    $cookies.remove('connect.sid');
+                    $cookies.remove('me');
+                }, function (res) {
 
                 });
             };

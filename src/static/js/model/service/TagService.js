@@ -10,9 +10,18 @@ $(function () {
                 });
             };
             this.get = function (keywords, next, err) {
-                $http.get(Configuration.remote + 'api/tags', {
-                    'keywords': keywords
-                }).then(function success(res) {
+                $http.get(Configuration.remote + 'api/tags?' +
+                        'keywords=' + function () {
+                            var a = '';
+                            if (keywords instanceof Array)
+                                keywords.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
+                            return a;
+                        }()
+                        ).then(function success(res) {
                     console.log(res);
 
                     var ret = [];
@@ -40,7 +49,7 @@ $(function () {
                     'description': tag.description,
                     'id': tag.id,
                     'name': tag.name,
-                    'parent': parent
+                    'parent': tag.parent
                 }).then(function success(res) {
                     console.log(res);
                     next();

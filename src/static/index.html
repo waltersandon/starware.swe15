@@ -9,13 +9,13 @@
 
         <!-- Material Design fonts -->
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' type='text/css' rel='stylesheet'>
-        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/icon?family=Material+Icons' type='text/css' rel='stylesheet'>
 
         <!-- jQuery -->
         <script src='https://code.jquery.com/jquery-1.10.2.min.js'></script>
 
         <!-- Bootstrap -->
-        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' type='text/css' rel='stylesheet'>
         <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
 
         <!-- Bootstrap Material Design -->
@@ -26,12 +26,25 @@
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js' defer></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-cookies.min.js' defer></script>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js' defer></script>
-        
-        <!-- blueimp/JavaScript-MD5 -->
-        <script src="js/md5.min.js"></script>
-        
+
         <!-- CSS -->
-        <link href='css/style.css' rel='stylesheet'>
+        <link href='css/style.css' type='text/css' rel='stylesheet'>
+
+        <!-- async -->
+        <script src='js/async.min.js' defer></script>
+
+        <!-- jQueryUI -->
+        <script src='js/jquery-ui.min.js' defer></script>
+        <link href='css/jquery-ui.min.css' type='text/css' rel='stylesheet'>
+
+        <!-- lab.lepture.com/editor/ -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/editor/0.1.0/editor.css">
+        <script src="https://cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
+        <script src="https://cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>
+
+        <link rel="stylesheet" href="http://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+        <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
 
         <!-- App.js -->
         <script src='js/app/App.js'></script>
@@ -89,27 +102,22 @@
     </head>
 
     <body ng-app='app.App' ng-controller='controller.public.Home'>
-        <div ng-switch on='urlPath()[1]'>
-            <div ng-switch-when='login' >
-                <div ng-include="'html/public/LogIn.html'"></div>
-            </div>
-            <div ng-switch-when='signup'>
-                <div ng-include="'html/public/SignUp.html'"></div>
-            </div>
-            <div ng-switch-when='user'>
+        <div ng-switch on='logged'>
+            <div ng-switch-when='true'>
                 <div ng-include="'html/user/Home.html'"></div>
             </div>
-            <div ng-switch-when='student'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-when='teacher'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-when='admin'>
-                <div ng-include="'html/user/Home.html'"></div>
-            </div>
-            <div ng-switch-default>
-                <div ng-include="'html/public/Home.html'"></div>
+            <div ng-switch-when='false'>
+                <div ng-switch on='urlPath()[1]'>
+                    <div ng-switch-when='login' >
+                        <div ng-include="'html/public/LogIn.html'"></div>
+                    </div>
+                    <div ng-switch-when='signup'>
+                        <div ng-include="'html/public/SignUp.html'"></div>
+                    </div>
+                    <div ng-switch-default>
+                        <div ng-include="'html/public/Home.html'"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

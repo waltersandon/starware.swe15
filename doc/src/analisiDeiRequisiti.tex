@@ -65,6 +65,10 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		2.0.2 & \TODO{} & 2016-05-03 & Aggiunta riferimenti informativi \\*
+		\midrule
+		2.0.1 & \TODO{} & 2016-04-28 & Correzioni segnalazioni RP \\*
+		\midrule
 		2.0.0 & \AB{} & 2016-02-26 & Approvazione \\*
 		\midrule
 		1.1.0 & \AVE{} \& \AVI{} & 2016-02-26 & Verifica \\*
@@ -128,8 +132,21 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
 	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
 	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
 \end{itemize}
-
 \newpage
+
+\subsubsection{Informativi}
+	\begin{itemize}
+		\item Slide d’insegnamento di Ingegneria del Software modulo A, Ingegneria dei requisiti: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
+		\item Software Engineering - Ian Sommerville - 9th Edition (2010)
+		\begin{itemize}
+			\item Chapter 4: Requirements engineering;
+		\end{itemize}
+		\item \textit{IEEE 830-1998}: \url{http://www.math.uaa.alaska.edu/~afkjm/cs401/IEEE830.pdf};
+		\item Standard \mgls{uml} 2.0 :
+		\url{http://www.omg.org/spec/UML/2.0/}.
+	\end{itemize}
+
+
 \section{Attori}
 
 \begin{figure}[H]
@@ -140,6 +157,7 @@ Il documento presenterà una breve descrizione degli attori coinvolti nell'itera
         \umlactor[x=4, y=4]{Amministratore}
         \umlactor[x=0, y=4]{Proprietario}
         \umlactor[x=0, y=-4]{Ospite}
+
 
         \umlinherit{Docente}{Studente}
         \umlinherit{Amministratore}{Docente}

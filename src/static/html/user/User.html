@@ -4,17 +4,17 @@
         <div class='col-md-10 col-md-offset-1'>
             <h2>Modifica Profilo</h2>
             <div class='well'>
-                <form class='form-horizontal' ng-submit='submitInformation()'>
-                    <div class='form-group'>
+                <form class='form-horizontal' ng-submit='checkUserName() && checkFullName() && submitInformation()'>
+                    <div class='form-group' ng-class='{ "has-warning" : errorInformation.status && errorInformation.name === "errorUserName" }'>
                         <label for='userName' class='col-md-2 control-label'>Username</label>
                         <div class='col-md-10'>
-                            <input ng-model='userName' name ='userName' type='text' class='form-control' id='userName' placeholder='Username' required>
+                            <input ng-model='userName' name ='userName' type='text' class='form-control' id='userName' placeholder='Username' required ng-change='checkUserName()'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : errorInformation.status && errorInformation.name === "errorFullName" }'>
                         <label for='fullname' class='col-md-2 control-label'>Nome completo</label>
                         <div class='col-md-10'>
-                            <input ng-model='fullName' name='fullname' type='text' class='form-control' id='fullname' placeholder='Nome completo' required>
+                            <input ng-model='fullName' name='fullname' type='text' class='form-control' id='fullname' placeholder='Nome completo' required ng-change='checkFullName()'>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -23,6 +23,14 @@
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class='alert' ng-class='errorInformation.type' ng-show='errorInformation.status'>
+                <a ng-click='errorInformation.status = false' href='' class='close'>&times;</a>
+                <strong>Errore! </strong><span ng-bind-html='errorInformation.message'></span>
+            </div>
+            <div class='alert alert-success' ng-show='successInformation'>
+                <a ng-click='successInformation = false' href='' class='close'>&times;</a>
+                <strong>Successo! </strong>Informazioni aggiornate con successo
             </div>
         </div>
     </div>
@@ -30,23 +38,23 @@
         <div class='col-md-10 col-md-offset-1'>
             <h2>Modifica Password</h2>
             <div class='well'>
-                <form class='form-horizontal' ng-submit='submitPassword()'>
-                    <div class='form-group'>
+                <form class='form-horizontal' ng-submit='checkPassword() && checkRepeatPassword() && submitPassword()'>
+                    <div class='form-group' ng-class='{ "has-warning" : errorPassword.status && errorPassword.name === "errorUserName" }'>
                         <label for='oldPassword' class='col-md-2 control-label'>Vecchia Password </label>
                         <div class='col-md-10'>
-                            <input ng-model='oldPassword' name='oldPassword' type='password' class='form-control' id='oldPassword' placeholder='Inserisci la pasword attuale' required ng-minlength='6'>
+                            <input ng-model='oldPassword' name='oldPassword' type='password' class='form-control' id='oldPassword' placeholder='Inserisci la pasword attuale' required>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : errorPassword.status && errorPassword.name === "errorPassword" }'>
                         <label for='newPassword' class='col-md-2 control-label'>Nuova password</label>
                         <div class='col-md-10'>
-                            <input ng-model='newPassword' name='newPassword' type='password' class='form-control' id='newPassword' placeholder='Inserire la nuova password' required ng-minlength='6'>
+                            <input ng-model='newPassword' name='newPassword' type='password' class='form-control' id='newPassword' placeholder='Inserire la nuova password' required ng-change='checkPassword()'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' ng-class='{ "has-warning" : errorPassword.status && errorPassword.name === "errorRepeatPassword" }'>
                         <label for='repeatPassword' class='col-md-2 control-label'>Ripeti password</label>
                         <div class='col-md-10'>
-                            <input ng-model='repeatPassword' name='repeatPassword' type='password' class='form-control' id='repeatPassword' placeholder='Ripetere la nuova password' required>
+                            <input ng-model='repeatPassword' name='repeatPassword' type='password' class='form-control' id='repeatPassword' placeholder='Ripetere la nuova password' required ng-change='checkRepeatPassword()'>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -56,9 +64,14 @@
                     </div>
                 </form>
             </div>
+            <div class='alert' ng-class='errorPassword.type' ng-show='errorPassword.status'>
+                <a ng-click='errorPassword.status = false' href='' class='close'>&times;</a>
+                <strong>Errore! </strong><span ng-bind-html='errorPassword.message'></span>
+            </div>
+            <div class='alert alert-success' ng-show='successPassword'>
+                <a ng-click='successPassword = false' href='' class='close'>&times;</a>
+                <strong>Successo! </strong>Password aggiornata con successo
+            </div>
         </div>
     </div>
 </div>
-
-
-

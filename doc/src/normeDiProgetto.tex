@@ -60,6 +60,8 @@
 		\midrule
 
 		\midrule
+		3.0.1 & \IB{} & 2016-05-02 & Aggiunto paragrafo di mocha, strumento per testing del codice [aggiunta sez. \ref{strumentoTest}]\\*
+		\midrule
 		2.0.0 & \AB{} & 2016-02-29 & Approvazione\\*
 		\midrule
 		1.1.0 & \AVI{} & 2016-02-28 & Prima Verifica\\*
@@ -481,7 +483,26 @@ Per aggiungere un attributo ad una classe esistente è necessario eseguire i seg
 
 \subsubsection{Attività di codifica e Testing}
 \subsubsubsection{Codifica}
-Le \NdP{} saranno ampliate con questa sezione non appena verranno concordate dal gruppo.
+\TODO{}
+
+
+
+Nell'attività di codifica i \PRpl{}, seguendo quanto specificato nella \DP{}, dovranno produrre il codice sorgente del \mgls{software} \prj{}.
+
+\paragraph{Convenzioni e norme stilistiche}
+\begin{itemize}
+	\item I programmatori devono prendere come riferimento le norme stilistiche fornite da \mgls{google}, specifiche per
+	linguaggio adottato;
+	\item I nomi di variabili, classi e metodi devono essere scritti in inglese;
+	\item I nomi dei \mgls{package} devono avere l’iniziale maiuscola;
+	\item I nomi delle classi devono avere l’iniziale maiuscola;
+	\item I nomi di variabili e metodi devono avere la prima lettera minuscola, mentre devono essere maiuscole le iniziali delle eventuali altre parole che compongono il nome stesso;
+	%\item I commenti devono essere in italiano.
+\end{itemize}
+
+\paragraph{Commenti al codice}
+\TODO{}
+
 
 \subsubsubsection{Test}\label{test}
 
@@ -513,7 +534,15 @@ La specifica di un test di validazione consta nella definizione di una sequenza 
 
 \mgls{tracy} permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
 Permettendo inoltre la produzione automatica in \LaTeX{} delle tabelle per il tracciamento dei test.
+\paragraph{Mocha}\label{strumentoTest}
 
+\mgls{mocha} è un test framework eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
+\subparagraph{Installazione}
+Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi in terminale bisogna eseguire il commando:\texttt{\$ npm install -g mocha}  
+\subparagraph{Esecuzione}
+Per eseguire i test bisogna eseguire il comando al terminale mocha path/alla/cartella/coi/test con opzione --recursive se si vogliono eseguire tutti i test anche nelle sottocartelle.
+Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src/tests/ e per lanciare tutti i test bisogna eseguire il commando : \texttt{\$ mocha starware.swe15/src/tests/ --recursive
+}
 \newpage
 
 \section{Processi di supporto}

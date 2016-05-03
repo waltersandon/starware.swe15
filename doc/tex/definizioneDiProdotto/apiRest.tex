@@ -1,25 +1,25 @@
 \subsection{Introduzione}
 
-    L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
-    attraverso la procedura descritta sopra.
+    \par L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
+    attraverso la procedura descritta sotto.
     
     \subsubsection{Riferimenti ad oggetti}
-    \par I riferimenti ad altri oggetti sono rappresentati da un oggetto \mgls{json} contenente solo un attributo \texttt{href} che identifica l'\mgls{uri} della risorsa (eg. \texttt{"author": \{ "href": string \}}.
-    
-    \par Il \mgls{client} potrà effettuare una richiesta attraverso il metodo \texttt{GET} all'\mgls{uri} per ottenere la risorsa.
-    
+    	\par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo \texttt{\_id} della risorsa. 
+    	
+    	\par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
 
     \subsubsection{Errori}
 
-        Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
-        con un errore nel formato \mgls{json} seguente:
-
-        \begin{lstlisting}[basicstyle={\ttfamily}]
-{
-    "code": <codice HTTP>,
-    "error": <descrizione testuale dell'errore>
-}
-        \end{lstlisting}
+        \par Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
+        con un errore HTTP e corpo vuoto.
+        
+    \subsubsection{Sicurezza}
+    
+    	\par Le password e tutti gli altri dati, inclusi
+    		quelli di sessione sono passati in chiaro, poiché si assume che 
+    		utilizzato un protocollo sicuro, come \mgls{https}, per la 
+    		comunicazione con l'\mgls{api}, che quindi deve appoggiarsi ad un
+    		server che fornisca i certificati e garanzie adeguate.
 
     \subsubsection{Struttura}
 
@@ -41,6 +41,10 @@
         \end{itemize}
 
 \subsection{Autenticazione}
+
+	L'utente può effettuare l'autenticazione facendo una richiesta \texttt{POST} sull'\mgls{uri} \texttt{/session} il quale ritornerà come cookie l'ID della sessione assegnata all'utente.
+	
+	Successive richieste all'\mgls{api} potranno essere completate fornendo il valori della sessione attraverso il cookie impostato.
 
     \subsubsection{Login}
 
@@ -64,10 +68,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": string,
-    "userName": string,
-    "fullName": string,
-    "role": { "href: string }
+	"_id": ref,
+	"userName": string,
+	"fullName": string,
+	"role": ref
 }
                         \end{lstlisting}
                     	\\ \midrule
@@ -130,10 +134,10 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "_id": string,
+        "_id": ref,
         "fullName": string,
         "userName": string,
-        "role": { "href": string }
+        "role": ref
     }
 ]
                         \end{lstlisting}
@@ -160,10 +164,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "fullName": string,
     "userName": string,
-    "role": { "href": string }
+    "role": ref
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -189,10 +193,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "fullName": string,
     "userName": string,
-    "role": { "href": string }
+    "role": ref
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -226,10 +230,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": string,
+    "_id": string,
     "userName": string,
     "fullName": string,
-    "role": { "href: string }
+    "role": ref
 }
                         \end{lstlisting}
                     	\\ \midrule
@@ -308,7 +312,7 @@
                     \textbf{Richiesta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "role": string
+    "role": ref
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -360,16 +364,16 @@
                         \end{itemize}
                         \\ \midrule
                     \textbf{Descrizione} & Visualizzazione dell'elenco delle domande \\ \midrule
-                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Permessi} & Studente, Docente, Amministratore, Proprietario  \\ \midrule
                     \textbf{Richiesta JSON} & \\ \midrule
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "_id": string,
+        "_id": ref,
         "body": string,
-        "author": { "href": string }
-        "tags": [{ "href": string }]
+        "author": ref
+        "tags": [ref]
     }
 ]
                         \end{lstlisting}
@@ -396,10 +400,10 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "body": string,
-    "author": { "href": string }
-    "tags": [{ "href": string }]
+    "author": ref
+    "tags": [ref]
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -425,17 +429,17 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "tags": [string]
+    "tags": [ref]
 }
                         \end{lstlisting}
                         \\ \midrule
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": string,
+	"_id": ref,
     "body": string,
-    "author": { "href": string },
-    "tags": [{ "href": string }]
+    "author": ref,
+    "tags": [ref]
 }
                         \end{lstlisting}
                     	\\ \midrule
@@ -461,7 +465,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "tags": [string]
+    "tags": [ref]
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -518,11 +522,11 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "_id": string,
+        "_id": ref,
         "title": string,
-        "author": { "href": string },
-        "tags": [{ "href": string }],
-        "questions": [{ "href": string }] 
+        "author": ref,
+        "tags": [ref],
+        "questions": [ref] 
     }
 ]
                         \end{lstlisting}
@@ -549,11 +553,11 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "title": string,
-    "author": { "href": string },
-    "tags": [{ "href": string }],
-    "questions": [{ "href": string }] 
+    "author": ref,
+    "tags": [ref],
+    "questions": [ref] 
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -579,19 +583,19 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "title": string,
-    "tags": [string],
-    "questions": [string] 
+    "tags": [ref],
+    "questions": [ref] 
 }
                         \end{lstlisting}
                         \\ \midrule
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "title": string,
-    "author": { "href": string },
-    "tags": [{ "href": string }],
-    "questions": [{ "href": string }] 
+    "author": ref,
+    "tags": [ref]
+    "questions": [ref] 
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -617,8 +621,8 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "title": string,
-    "tags": [string],
-    "questions": [string] 
+    "tags": [ref],
+    "questions": [ref] 
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -673,10 +677,9 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "_id": string,
+        "_id": ref,
         "name": string,
-       	"description": string,
-    	"parent": {"href": string | null}
+       	"description": string
     }
 ]
                         \end{lstlisting}
@@ -703,10 +706,9 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "name": string,
-    "description": string,
-    "parent": {"href": string} | null
+    "description": string
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -732,18 +734,16 @@
 	    			\begin{lstlisting}[basicstyle={\ttfamily}]	
 {
 	"name": string,
-	"description": string,
-	"parent": string | null
+	"description": string
 }
 	    			\end{lstlisting}
     			\\ \midrule
     			\textbf{Risposta JSON} & \
                 	\begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "name": string,
-    "description": string,
-    "parent": {"href": string} | null
+    "description": string
 }
       				\end{lstlisting}
 					\\ \midrule
@@ -769,8 +769,7 @@
 	    			\begin{lstlisting}[basicstyle={\ttfamily}]
 {
 	"name": string,
-	"description": string,
-	"parent": string | null
+	"description": string
 }
 	    			\end{lstlisting}
     			\\ \midrule
@@ -825,7 +824,7 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 [
     {
-        "_id": string,
+        "_id": ref,
         "name": string
     }
 ]
@@ -853,7 +852,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-    "_id": string,
+    "_id": ref,
     "name": string
 }
                         \end{lstlisting}

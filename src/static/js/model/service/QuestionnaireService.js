@@ -10,18 +10,45 @@ $(function () {
                 });
             };
             this.get = function (author, tags, title, next, err) {
-                $http.get(Configuration.remote + 'api/questionnaires', {
-                    'author': author,
-                    'tags': tags,
-                    'title': title
-                }).then(function success(res) {
+                $http.get(Configuration.remote + 'api/questionnaires?' +
+                        'author=' + function () {
+                            var a = '';
+                            if (author instanceof Array)
+                                author.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
+                            return a;
+                        }() +
+                        '&tags=' + function () {
+                            var a = '';
+                            if (tags instanceof Array)
+                                tags.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
+                            return a;
+                        }() +
+                        '&title=' + function () {
+                            var a = '';
+                            if (title instanceof Array)
+                                title.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
+                            return a;
+                        }()
+                        ).then(function success(res) {
                     console.log(res);
 
                     var ret = [];
                     res.data.forEach(function (item) {
                         ret.push(new Questionnaire(item.author, item._id, item.questions, item.tags, item.title));
                     });
-                    
+
                     next(ret);
                 }, function error(res) {
                     console.log(res);
