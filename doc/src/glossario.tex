@@ -1,6 +1,10 @@
 \documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\setcounter{secnumdepth}{0}
 
 
 %Titolo documento
@@ -65,6 +69,8 @@
 \textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.1 & \WS & 2016-05-03  & Inserimento indice documento \\
+\midrule
 1.0.1 & \TP & 2016-04-03  & Inserimento termini HTTP e HTTPS \\
 \midrule
 1.0.0 & \TP & 2016-03-01  & Approvazione \\
@@ -85,13 +91,12 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 \end{table}
 
 \newpage
+\tableofcontents
+\newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{A}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+
+\section{A}
+
 
 \begin{description}
 \item[Akka] 
@@ -133,12 +138,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{B}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{B}
 
 \begin{description}
 \item[Backup]
@@ -168,12 +168,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{C}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{C}
 
 \begin{description}
 \item[C]
@@ -218,12 +213,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{D}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{D}
 
 \begin{description}
 \item[Database] 
@@ -256,12 +246,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{E}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{E}
 
 \begin{description}
 \item[Etichetta] 
@@ -282,12 +267,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{F}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{F}
 
 \begin{description}
 \item[Framework] 
@@ -328,12 +308,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{H}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{H}
 
 \begin{description}
 \item[Hardware] 
@@ -356,12 +331,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 \end{description}
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{I}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{I}	
 
 \begin{description}
 \item[Inspection] 
@@ -373,12 +343,8 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{J}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{J}
+
 \begin{description}
 \item[Java] 
 \hfill\\ è un linguaggio di programmazione orientato agli oggetti, specificatamente progettato per essere il più possibile indipendente dalla piattaforma di esecuzione. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)}{qui}.
@@ -395,12 +361,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{L}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{L}
 
 \begin{description}
 \item[Latex] 
@@ -418,12 +379,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{M}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{M}
 
 \begin{description}
 \item[Mac OS] 
@@ -482,12 +438,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{N}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{N}
 
 \begin{description}
 
@@ -506,12 +457,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{O}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{O}
 
 \begin{description}
 
@@ -524,12 +470,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{P}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{P}
 
 \begin{description}
 \item[Package] 
@@ -580,12 +521,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{Q}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{Q}
 
 \begin{description}
 \item[Query] 
@@ -602,12 +538,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{R}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{R}
 
 \begin{description}
 	
@@ -662,12 +593,7 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{S}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{S}
 
 \begin{description}
 \item[Scala] 
@@ -739,12 +665,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{T}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{T}
 
 \begin{description}
 \item[Tag] 
@@ -790,12 +711,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{U}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{U}
 
 \begin{description}
 \item[UML] 
@@ -807,12 +723,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{V}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{V}
 
 \begin{description}
 \item[V8 JavaScript Engine] 
@@ -839,12 +750,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{W}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{W}
 
 \begin{description}
 \item[W3C] 
@@ -859,12 +765,7 @@ dEtermination, per dettagli vedi \PdQ
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{X}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{X}
 
 \begin{description}
 \item[XML] 
