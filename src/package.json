@@ -50,8 +50,8 @@
   "scripts": {
     "start": "node server.js",
     "test-server": "mocha tests/server/unit --recursive",
-    "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
-    "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run"
+    "test": "node node_modules/karma/bin/karma start tests/client/karma.conf.js",
+    "test-single-run": "node node_modules/karma/bin/karma start tests/client/karma.conf.js  --single-run"
   },
   "private": true,
   "main": "server.js"
