@@ -1,16 +1,11 @@
 {
-  "name": "OpenShift-Sample-App",
+  "name": "Quizzipedia",
   "version": "1.0.0",
-  "description": "OpenShift Sample Application",
-  "keywords": [
-    "OpenShift",
-    "Node.js",
-    "application",
-    "openshift"
-  ],
+  "description": "Quizzipedia",
+  "keywords": ["application"],
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
+    "name": "Star Ware",
+    "email": "starware.swe@gmail.com",
     "url": "http://www.openshift.com/"
   },
   "homepage": "http://www.openshift.com/",
@@ -54,6 +49,7 @@
   "bundleDependencies": [],
   "scripts": {
     "start": "node server.js",
+    "test-server": "mocha tests/server/unit --recursive",
     "test": "node node_modules/karma/bin/karma start test/karma.conf.js",
     "test-single-run": "node node_modules/karma/bin/karma start test/karma.conf.js  --single-run"
   },

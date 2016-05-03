@@ -1,18 +1,25 @@
 \subsection{Introduzione}
 
-    L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
-    attraverso la procedura descritta sopra.
+    \par L'interfaccia \mgls{rest} è utilizzabile solo da client o utenti che hanno effettuato l'accesso
+    attraverso la procedura descritta sotto.
     
     \subsubsection{Riferimenti ad oggetti}
-    \par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo
-    	\texttt{\_id} della risorsa. 
+    	\par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo \texttt{\_id} della risorsa. 
     	
-    \par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
+    	\par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
 
     \subsubsection{Errori}
 
-        Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
+        \par Nel caso avvenga un errore durante una qualsiasi delle richieste all'\mgls{api}, il server risponderà
         con un errore HTTP e corpo vuoto.
+        
+    \subsubsection{Sicurezza}
+    
+    	\par Le password e tutti gli altri dati, inclusi
+    		quelli di sessione sono passati in chiaro, poiché si assume che 
+    		utilizzato un protocollo sicuro, come \mgls{https}, per la 
+    		comunicazione con l'\mgls{api}, che quindi deve appoggiarsi ad un
+    		server che fornisca i certificati e garanzie adeguate.
 
     \subsubsection{Struttura}
 
@@ -34,6 +41,10 @@
         \end{itemize}
 
 \subsection{Autenticazione}
+
+	L'utente può effettuare l'autenticazione facendo una richiesta \texttt{POST} sull'\mgls{uri} \texttt{/session} il quale ritornerà come cookie l'ID della sessione assegnata all'utente.
+	
+	Successive richieste all'\mgls{api} potranno essere completate fornendo il valori della sessione attraverso il cookie impostato.
 
     \subsubsection{Login}
 
@@ -219,7 +230,7 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": ref,
+    "_id": string,
     "userName": string,
     "fullName": string,
     "role": ref
@@ -668,8 +679,7 @@
     {
         "_id": ref,
         "name": string,
-       	"description": string,
-    	"parent": ref | null
+       	"description": string
     }
 ]
                         \end{lstlisting}
@@ -698,8 +708,7 @@
 {
     "_id": ref,
     "name": string,
-    "description": string,
-    "parent": ref | null
+    "description": string
 }
                         \end{lstlisting}
                         \\ \midrule
@@ -725,8 +734,7 @@
 	    			\begin{lstlisting}[basicstyle={\ttfamily}]	
 {
 	"name": string,
-	"description": string,
-	"parent": ref | null
+	"description": string
 }
 	    			\end{lstlisting}
     			\\ \midrule
@@ -735,8 +743,7 @@
 {
     "_id": ref,
     "name": string,
-    "description": string,
-    "parent": ref | null
+    "description": string
 }
       				\end{lstlisting}
 					\\ \midrule
@@ -762,8 +769,7 @@
 	    			\begin{lstlisting}[basicstyle={\ttfamily}]
 {
 	"name": string,
-	"description": string,
-	"parent": ref | null
+	"description": string
 }
 	    			\end{lstlisting}
     			\\ \midrule

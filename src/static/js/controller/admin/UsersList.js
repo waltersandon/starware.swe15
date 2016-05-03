@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.admin.UsersList', ['$location', 'model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function ($location, RoleService, $rootScope, $scope, UserService) {
+    angular.module('app.App').controller('controller.admin.UsersList', ['model.service.RoleService', '$scope', 'model.service.UserService', function (RoleService, $scope, UserService) {
             $scope.filterByRole = function (roleName) {
                 return $scope.roles.find(function (item) {
                     return item.name === roleName;
@@ -40,7 +40,7 @@ $(function () {
                     }
                 });
                 $scope.roles = roles;
-                $scope.myFilter = "!" + $scope.filterByRole("superadmin");
+                $scope.roleFilter = "!" + $scope.filterByRole("superadmin");
             }, function (res) {
 
             });
