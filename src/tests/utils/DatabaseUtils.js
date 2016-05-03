@@ -80,8 +80,7 @@ function databaseSetup(onSetup) {
 	});
 	var tag4 = new Tag({
 		name: 'SWE', 
-		description: 'Scienza che si occupa dello studio della qualità di un SW',
-		parent: tag2._id
+		description: 'Scienza che si occupa dello studio della qualità di un SW'
 	});
 
 	var question1 = new Question ({

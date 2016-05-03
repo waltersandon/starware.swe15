@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QuestionnaireSerivce, $rootScope, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QuestionnaireService, $rootScope, $scope, TagService) {
             $scope.deleteQuestionnaire = function (questionnaire) {
                 if (confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
                     QuestionnaireSerivce.delete(questionnaire, function () {
@@ -9,7 +9,7 @@ $(function () {
                     });
                 }
             };
-            QuestionnaireSerivce.get([$rootScope.me.id], null, null, function (questionnaires) {
+            QuestionnaireService.get([$rootScope.me.id], null, null, function (questionnaires) {
                 async.each(questionnaires, function (questionnaire, cb) {
                     var tags = '';
 
