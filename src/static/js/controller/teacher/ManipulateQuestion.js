@@ -8,8 +8,8 @@ $(function () {
             QuestionService.getByID($scope.urlPath()[4], function (question) {
                 $scope.question = question;
                 $scope.simplemde = new SimpleMDE({
-                    element: document.getElementById("editor"),
-                    toolbar: ["bold", "italic",'|','link', 'image', 'table'] //finire
+                    element: document.getElementById('editor'),
+                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'table', 'guide'] //finire
                 });
  
                 $scope.simplemde.value(question.body);
@@ -17,7 +17,8 @@ $(function () {
             }, function (res) {
 
             });
-            $scope.xsss = "$scope.simplemde.value()";
+            $scope.xsss = '$scope.simplemde.value()';
 
         }]);
 });
+
