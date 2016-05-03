@@ -1,4 +1,4 @@
-var db = require('../utils/DatabaseUtils');
+var db = require('./DatabaseUtils');
 
 before(function(done) {
 	this.timeout(10000);
