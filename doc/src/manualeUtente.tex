@@ -147,21 +147,20 @@
 	Per effettuare la procedura di registrazione è necessario:
 	\begin{itemize}
 		\item inserire l'username;
-		\item inserire nome e cognome;
+		\item inserire nome completo;
 		\item inserire la password;
 		\item ripetere la password;
-		\item cliccare il pultasante "Registrati". \TODO{inserire screen-shot}
+		\item cliccare il pultasante "SUBMIT". 
 	\end{itemize}
-\begin{comment}
+
 \begin{figure}[h]
 		
 \centering
-\includegraphics[width=0.8\linewidth]{}
+\includegraphics[width=0.8\linewidth]{../img/screenshot/signup.png}
 \caption{}
 \label{Schermata di registrazione}
 \end{figure}
 
-\end{comment}
 
 	\subsection{Autenticazione}\label{autenticazione}
 	Per accedere alle funzinoalità dell'applicazione è necessario effettuare l'autenticazione. Nel caso non si posseggano le credenziali di accesso si veda la sezione di \ref{registrazione}.
@@ -169,45 +168,76 @@
 		\begin{itemize}
 			\item inserire l'username corretto;
 			\item inserire la password corrispondente corretta;
-			\item cliccare il pulsante "accedi".
-		\end{itemize}\TODO{inserire screen-shot}
-		\begin{comment}
+			\item cliccare il pulsante "SUBMIT".
+		\end{itemize}
+	
 		\begin{figure}[h]
 		
 		\centering
-		\includegraphics[width=0.8\linewidth]{}
+		\includegraphics[width=0.8\linewidth]{../img/screenshot/login_crop.png}
 		\caption{}
 		\label{Schermata di autenticazione}
 		\end{figure}
 		
-		\end{comment}
+		
 	\subsection{Logout}
 	Per effettuare il logout e uscire dall'applicazione è necessario aver precedentemente effettuato l'autenticazione.
-	E' necessario cliccare sul pulsante in alto a destra in figura.\TODO{essere più precisi}
-		\TODO{inserire screen-shot}
-		\begin{comment}
+	E' necessario cliccare sul pulsante in alto a destra in figura.
+	
+	
 		\begin{figure}[h]
 		
 		\centering
-		\includegraphics[width=0.8\linewidth]{}
+		\includegraphics[width=1.0\linewidth]{../img/screenshot/barra_logout.png}
 		\caption{}
 		\label{Pulsante di logout}
 		\end{figure}
-		
-		\end{comment}
-	\subsection{Accesso e modifica profilo personale}
+
+	\subsection{Modifica profilo personale}
 	Una volta effettuato l'accesso all'applicazione, vedi \ref{autenticazione}, è possibile modificare i propri dati personali salvati nel sistema.
-	Per accedere alla pagina delle impostazioni personali è necessario cliccare sul pulsante in alto a destra sul simbolo: ...
+    
+	\paragraph{Pagina di modifica profilo}Per accedere alla pagina delle impostazioni personali è necessario cliccare sul pulsante in alto a destra sul simbolo indicato in figura.
 	
-	\subsubsection{Modifica nome e cognome}
+	\begin{figure}[h]
+		
+		\centering
+		\includegraphics[width=1.0\linewidth]{../img/screenshot/barra_impostaz.png}
+		\caption{}
+		\label{Pulsante di logout}
+	\end{figure}
+	
+	\subsubsection{Modifica username e nome completo}
 	Per modificare il nome e cognome salvati è necessario:
 	\begin{itemize}
-		\item inserire il nuovo nome e cognome negli appositi spazi;
-		\item ciccare sul pulsante "modifica" per confermare la modifica.
+		\item inserire il nome completo e/o username;
+		\item ciccare sul pulsante "SUBMIT" per confermare la modifica.
 	\end{itemize}
-	\subsubsection{Modifica username}
+	\begin{figure}[h]
+		
+		\centering
+		\includegraphics[width=1.0\linewidth]{../img/screenshot/user1.png}
+		\caption{}
+		\label{Modifica profilo}
+	\end{figure}
+
 	
 	\subsection{Modifica password}
+	Per modificare la password  è necessario:
+	\begin{itemize}
+		\item inserire la password attuale;
+		\item inserire la nuova password;
+		\item ripetere la nuova password;
+		\item cliccare sul pulsante "SUBMIT" per confermare la modifica.
+	\end{itemize}
+	\begin{figure}[h]
+
+		\centering
+		\includegraphics[width=1.0\linewidth]{../img/screenshot/user2.png}
+		\caption{}
+		\label{Modifica password}
+	\end{figure}
+	
+	\newpage
 
 	\section{Studente}\label{studente}
 	Il profilo studente è il profilo  base offerto dal sistema. Ogni utente registrato dispone di tali funzinalità. Tali funzionalità sono:
@@ -216,7 +246,9 @@
 		\item la possibiilità di esplorare i questionari presenti nel sistema per argomento;
 		\item la possibilità di eseguire un questionario presente nel sistema.
 	\end{itemize}
-	\subsection{Ricerca questionario}
+	
+	\subsection{Homepage studente}
+	\subsection{Ricerca questionario}\label{ricerca_questionario}
 	\subsubsection{Pagina di ricerca  di un questionario}
 	L'accesso alla pagina di ricerca questionari si effettua dal \textbf{menu laterale}. 
 	E' necessario selezionare la voce "\textbf{Ricerca questionario}" nella sezione \textbf{Studente} del menu.
@@ -228,9 +260,25 @@
 	
 	E' possibile inserire dei filtri per la ricerca. 
 	\begin{comment} inserire immagine e altre informazioni per la ricerca con filtri	\end{comment}
-	\subsection{Esplorazione questionari per argomento}
-	\subsubsection{Pagina di esplorazione argomenti}
+	\subsection{Esplorazione argomenti}
+	
+	\subsubsection{Pagina di esplorazione argomenti} \label{esplorazione_arg}
+	L'accesso alla pagina di esplorazione degli argomenti e si effettua dal \textbf{menu laterale}. 
+	E' necessario selezionare la voce "\textbf{Esplora argomenti}" nella sezione \textbf{Studente} del menu.
+	\subsubsection{Navigare tra gli argomenti}
+	Dalla pagina di esplorazione degli argomenti è possibile vedere quali argomenti sono disponibili nel sistema. Cliccando su un argomento è possibile vedere i sottoargomenti e i relativi questionari disponibili.
+	
 	\subsection{Esecuzione questionario}
+	\subsubsection{Trovare il questionario}
+		Per trovare un questionario da seguire è possibile effettuare una ricerca, vedi \ref{ricerca_questionario}.
+		Oppure è possibile sceglierlo in base all'argomento, vedi \ref{esplorazione_arg}.
+	\subsection{Esegurire un questionario}
+	Una  volta trovato il questionario desiderato, è possibile eseguirlo cliccando sul tasto "esegui" a fianco ad esso.
+	Durante l'esecuzione di un quesitionario sarà possibile navigare tra le domande presenti con i tasti "precedente" e "successiva".
+	Una volta terminato di segnare le risposte, cliccando sul tasto "conferma" sarà possibile vedere la suluzione del questionario svolto.
+	Attenzione, tutte le domande devono essere compilate perchè sia possibile visualizzare la correzione.
+	Per abbandonare il questionario in esecuzione basterà premere "abbandona", e si verrà riportati alla schermata precedente all'inizio dell'esecuzione.
+	
 	\section{Docente}\label{docente}
 	Un profilo docente ha accesso a tutte le funzionalità di uno studente.Per informazioni dettagliate su tali funzionalità si veda la sezione \ref{studente}
 		Inoltre offre funzionalità aggiuntive quali:
@@ -239,12 +287,94 @@
 			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
 			\item la possibilità di gestire argomenti o tag (aggiungerli, rimuoverli e modificarli)
 		\end{itemize}
-    \subsection{Gestione domande}
-	\subsection{Gestione tag}
-	\subsection{Gestione questionario}
+	\subsection{Homepage docente}
 	
+    \subsection{Gestione domande}
+
+    Selezionando la voce "domande" dal menu a lato, sotto la voce "Docente", vengono visualizzate le domande precedentemente create. 
+	\subsubsection{Creazione domanda}
+	Per creare una nuova domanda è sufficiente premere il taso in alto a destra nella pagina "gestione domande". 
+	Si aprirà un form apposito per l'inserimento del QML per la descrizione della domanda.
+	Una volta inserito il QML, cliccare il pulsante "crea" in basso a destra.
+	
+	\paragraph{Attenzione !!}Se il QML inserito non è valido, l'applicazione chiederà di correggere il QML inserito e di cliccare nuovamente sul pulsante "crea.
+		\subsubsection{Modifica domanda}
+	Per modifcare una domanda è necessario cliccare la voce "modifica" a fianco della domanda che si desidera modificare. Si aprirà una schermata che permetterà di editare il QML della domanda scelta.
+	Una volta modificata la domanda, premere il pulsante "salva" in basso a destra per confermare le modifiche effettuate. 
+	Se il QML modificato non risulta corretto, il sistema chiederà di corregere il QML inserito prima di salvare nuovamente.
+	
+		\subsubsection{Eliminazione domanda}
+		Per eliminare una domanda è necessario cliccare la voce "elimina" a fianco della domanda da eliminare. Prima di eliminare la domanda definitivamente il sistema chiederà di confermare nuovamente l'eliminazione.
+		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", la domanda selezionata verrà eliminata irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verà interrotto e la domanda non verrà eliminata.
+		
+	\subsection{Gestione tag}
+	Selezionando la voce "tag" dal menu a lato, sotto la voce "Docente", vengono visualizzatei tag precedentememte creati.
+		\subsubsection{Creazione tag}
+		Per creare un nuovo tag è necessario cliccare il simbolo "+" in alto a destra, nella pagina "tag" del menu "Docente".
+		Si aprirà un apposito form per l'inserimento di un nuovo tag.
+		Sarà necessario 
+			\begin{itemize}
+			\item il nome del tag
+			\item il nome del padre del tag (opzionale)
+			\item cliccare "crea" per confermare la creazione del tag, o "annulla" per annullare l'operazione.
+		\end{itemize}
+		
+		Una volta creato un nuovo tag, questo comparirà nella schermata dei tag precedentemente creati.
+		
+		\subsubsection{Modifica tag}
+		Per modifcare un tag è necessario cliccare la voce "modifica" a fianco della domanda che si desidera modificare. Si aprirà una schermata che permetterà di editare il tag scelto.
+		Una volta modificata il tag, premere il pulsante "salva" in basso a destra per confermare le modifiche effettuate. 
+		Se il tag modificato non rispetta le regole per la definizione di un tag, il sistema chiederà di corregere il tag inserito prima di salvare nuovamente.
+		\subsubsection{Eliminazione tag}
+			Per eliminare un tag è necessario cliccare la voce "elimina" a fianco del tag da eliminare. Prima di eliminare un tag definitivamente, il sistema chiederà di confermare nuovamente l'eliminazione.
+			Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", il tag selezionato verrà eliminato irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verà interrotto e il tag non verrà eliminato.
+	\subsection{Gestione questionario}
+		\subsubsection{Creazione questionario}
+			Per creare un questionario è necessario cliccare "+" in alto a destra della pagina. Si aprirà una schermata che permetterà di inserire il titolo del questionario, di aggiugere le domande e di aggiungere i tag dal questionario corente.
+			Una volta terminata la modifica, cliccare la voce "salva" per creare il nuovo questionario costruito. 
+			Per annullare l'operazione di creazione del questionario cliccare "annulla".
+			
+			Nel caso il questionario creato non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente.
+		\subsubsection{Modifica questionario}
+			Per modifcare un questionario è necessario cliccare la voce "modifica" a fianco del questionario che si desidera modificare. Si aprirà una schermata che permetterà di editare il titolo del questionario, di aggiugere o rimuovere domande e di aggiungere o rimuovere tag dal questionario corente.
+			Una volta terminata la modifica, cliccare la voce "salva" per rendere permanenti le modifiche effettuate. Per non salvare le modifiche effettuate cliccare "annulla".
+			
+			Nel caso la modifica non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente.
+			
+		\subsubsection{Eliminazione questionario}
+		Per eliminare un questionario è necessario cliccare la voce "elimina" a fianco del questionario da eliminare. Prima di eliminare un questionario definitivamente, il sistema chiederà di confermare nuovamente l'eliminazione.
+		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", il questionario selezionato verrà eliminato irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verà interrotto e il questionario non verrà eliminato.
 
 	
+		\section{Amministratore}
+		Un profilo amministratore ha accesso a tutte le funzionalità di docente e studente.
+		Inoltre offre funzionalità aggiuntive quali:
+		\begin{itemize}
+			\item la possibilità di promuovere uno studente a ruolo di docente;
+			\item la possibilità di degradare un docente a ruolo di studente;
+			\item la possibilità di rimuovere un docente o uno studente dal sistema.
+		\end{itemize}
+		\paragraph{Accesso alla pagina}
+		Per accedere alla pagina di gestione degli utenti è necessario selezionare la voce "Lista utenti" del menù amministratore.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.2\linewidth]{../img/screenshot/usersList_menu.png}
+			\caption{}
+			\label{Lista utenti}
+		\end{figure}
+		\subsection{Lista utenti e filtri}
+        Dalla schermata "Lista Utenti" è possibile filtrare gli utenti presenti nel sistema per ruolo cliccando sulla relativa opzione del filtro "Mostra".
+		\begin{figure}[h]
+			
+			\centering
+			\includegraphics[width=1.0\linewidth]{../img/screenshot/usersList_crop.png}
+			\caption{}
+			\label{Lista utenti}
+		\end{figure}
+		\subsection{Eliminazione utente}
+		\subsection{Gestione docenti}
+			\subsubsection{Promozione a ruolo docente}
+			\subsubsection{Rimozione da ruolo docente}
 	
 	
 
