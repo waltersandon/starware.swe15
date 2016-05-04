@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.Home', ['$cookies', '$location', '$rootScope', '$scope', 'model.service.SessionService', function ($cookies, $location, $rootScope, $scope, SessionService) {
+    angular.module('app.App').controller('controller.user.Home', ['$cookies', '$rootScope', '$scope', 'model.service.SessionService', function ($cookies, $rootScope, $scope, SessionService) {
             $scope.logout = function () {
                 SessionService.logout(function () {
                     $rootScope.me = {};

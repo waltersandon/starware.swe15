@@ -1,19 +1,32 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['$location', 'model.service.QuestionService', '$rootScope', '$scope', function ($location, QuestionService, $rootScope, $scope) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['$location', 'util.QML', 'model.service.QuestionService', '$rootScope', '$scope', function ($location, QML, QuestionService, $rootScope, $scope) {
 
-            $scope.foo = function (){
+            $scope.foo = function () {
                 console.log('lol');
-                console.log($scope.simplemde.value());
+                console.log($scope.editor.value());
             };
             QuestionService.getByID($scope.urlPath()[4], function (question) {
                 $scope.question = question;
-                $scope.simplemde = new SimpleMDE({
+                $scope.editor = new SimpleMDE({
                     element: document.getElementById('editor'),
-                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'table', 'guide'] //finire
+                    previewRender: function (plainText) {
+                        return QML.parse(plainText).message;
+                    },
+                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'table', 'guide', '|', 'preview'] //finire
                 });
- 
-                $scope.simplemde.value(question.body);
-                
+
+
+                /*
+                 <MultipleChoice>
+                 **sdf**
+                 [answers]
+                 [] f
+                 [*] esdf
+                 * 
+                 */
+
+                $scope.editor.value(question.body);
+
             }, function (res) {
 
             });

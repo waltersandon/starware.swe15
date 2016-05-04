@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.User', ['util.Check', 'model.data.Error', '$location', '$rootScope', '$scope', 'model.service.UserService', function (Check, Error, $location, $rootScope, $scope, UserService) {
+    angular.module('app.App').controller('controller.user.User', ['util.Check', 'model.data.Error', '$rootScope', '$scope', 'model.service.UserService', function (Check, Error, $rootScope, $scope, UserService) {
             $scope.errorInformation = new Error();
             $scope.errorPassword = new Error();
             $scope.fullName = $rootScope.me.fullName;

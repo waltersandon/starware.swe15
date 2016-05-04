@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.user.Welcome', ['$location', '$rootScope', '$scope', function ($location, $rootScope, $scope) {
+    angular.module('app.App').controller('controller.user.Welcome', ['$location', '$rootScope', '$scope', function () {
 
         }]);
 });
