@@ -1,6 +1,6 @@
 'use strict';
 
-describe('RoleServiceModule', function () {
+describe('model.service.RoleService', function () {
 
     var $httpBackend;
     var RoleService;
@@ -12,83 +12,84 @@ describe('RoleServiceModule', function () {
         Configuration = $injector.get('app.Configuration');
     }));
 
-    describe('model.service.RoleService', function () {
+        describe("Test RoleService.get", function () {
 
-        it("effettua la richiesta dei role con keywords ", function () {
-            var keywords = ['key1','key2'];
-            var param = function (keywords) {
-                return 'api/roles?' +
-                'keywords=' + function () {
-                    var a = '';
-                    if (keywords instanceof Array)
-                        keywords.forEach(function (item) {
-                            a += item + '|';
-                        });
-                    if (a.length >= 1)
-                        a = a.substr(0, a.length - 1);
-                    return a;
-                }();};
+            it("effettua la richiesta dei role con keywords ", function () {
+                var keywords = ['key1', 'key2'];
+                var param = function (keywords) {
+                    return 'api/roles?' +
+                        'keywords=' + function () {
+                            var a = '';
+                            if (keywords instanceof Array)
+                                keywords.forEach(function (item) {
+                                    a += item + '|';
+                                });
+                            if (a.length >= 1)
+                                a = a.substr(0, a.length - 1);
+                            return a;
+                        }();
+                };
 
-            $httpBackend
-                .whenGET(Configuration.remote + param(keywords) , {
-                }).respond([{
-                            "_id": "idrole" ,
-                            "name": "testRole"
-                 }]);
-
-            $httpBackend
-                .expectGET(Configuration.remote + param(keywords),{
-                    "Accept":"application/json, text/plain, */*"
-
-            }).respond(
-                [{
-                    "_id": "idrole" ,
+                $httpBackend
+                    .whenGET(Configuration.remote + param(keywords), {}).respond([{
+                    "_id": "idrole",
                     "name": "testRole"
-                }]
-            );
+                }]);
 
-            RoleService.get(keywords,function(ret) {
-                expect(true).toBe(true);
-            }, function() {
-                expect(true).toBe(false);
+                $httpBackend
+                    .expectGET(Configuration.remote + param(keywords), {
+                        "Accept": "application/json, text/plain, */*"
+
+                    }).respond(
+                    [{
+                        "_id": "idrole",
+                        "name": "testRole"
+                    }]
+                );
+
+                RoleService.get(keywords, function (ret) {
+                    expect(true).toBe(true);
+                }, function () {
+                    expect(true).toBe(false);
+                });
+                $httpBackend.flush();
+
             });
-            $httpBackend.flush();
-
         });
+        describe("Test RoleService.getByID",function () {
 
-        it("effettua la richiesta dei role per id", function () {
-            var id = 'idrole';
+            it("effettua la richiesta dei role per id", function () {
+                var id = 'idrole';
 
-            $httpBackend
-                .whenGET(Configuration.remote + 'api/roles/'+id, {
-                }).respond(
-                {
-                    "_id": "idrole" ,
-                    "name": "testRole"
-                }
-            );
+                $httpBackend
+                    .whenGET(Configuration.remote + 'api/roles/' + id, {}).respond(
+                    {
+                        "_id": "idrole",
+                        "name": "testRole"
+                    }
+                );
 
 
-            $httpBackend
-                .expectGET(Configuration.remote + 'api/roles/'+id, {
-                    "Accept":"application/json, text/plain, */*"
+                $httpBackend
+                    .expectGET(Configuration.remote + 'api/roles/' + id, {
+                        "Accept": "application/json, text/plain, */*"
 
-                }).respond(
-                {
-                    "_id": "idrole" ,
-                    "name": "testRole"
-                }
-            );
+                    }).respond(
+                    {
+                        "_id": "idrole",
+                        "name": "testRole"
+                    }
+                );
 
-            RoleService.getByID(id,function(ret) {
-                expect(true).toBe(true);
-            }, function() {
-                expect(true).toBe(false);
+                RoleService.getByID(id, function (ret) {
+                    expect(true).toBe(true);
+                }, function () {
+                    expect(true).toBe(false);
+                });
+                $httpBackend.flush(); 
+
             });
-            $httpBackend.flush();
-
         });
-
-    });
+        
 
 });
