@@ -3,7 +3,7 @@
  */
 var expect = require('chai').expect;
 var request = require('supertest');
-var login = require('./../../utils/LoginUtils').login;
+var login = require('../../utils/LoginUtils').login;
 var app = require('../../utils/AppUtils').testApp;
 
 describe('/api/questionnaires', function() {

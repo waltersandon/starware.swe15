@@ -1,6 +1,10 @@
 \documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\setcounter{secnumdepth}{0}
 
 
 %Titolo documento
@@ -65,6 +69,13 @@
 \textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
 \midrule
 \midrule
+1.0.3 & \WS & 2016-05-04  & Inserimento termini BOM e UTF-8 \\
+\midrule
+\midrule
+1.0.2 & \WS & 2016-05-03  & Inserimento indice documento \\
+\midrule
+1.0.1 & \TP & 2016-04-03  & Inserimento termini HTTP e HTTPS \\
+\midrule
 1.0.0 & \TP & 2016-03-01  & Approvazione \\
 \midrule
 0.1.0 & \NDC & 2016-02-29 & Revisione e correzione errori ortografici \\
@@ -83,784 +94,680 @@ bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c
 \end{table}
 
 \newpage
+\tableofcontents
+\newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{A}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
 
-\begin{description}
-\item[Akka] 
-\hfill\\è un toolkit di strumenti per la costruzione di applicazioni con elevata concorrenza di dati che necessitano di un sistema resiliente per l'invio e la ricezione di messaggi.
+\section{A}
 
-\item[Amministratore] 
-\hfill\\è responsabile dell'efficienza e dell'operatività dell'ambiente di sviluppo; si occupa della redazione e attuazione di piani e procedure di gestione della qualità; inoltre gestisce l'archivio della documentazione del progetto.
+\subsection{Akka} 
+è un toolkit di strumenti per la costruzione di applicazioni con elevata concorrenza di dati che necessitano di un sistema resiliente per l' e la ricezione di messaggi.
 
-\item[Analisi]
-\hfill\\è il periodo di preparazione e produzioni di documenti che precede la \RR.
+\subsection{Amministratore} 
+è responsabile dell'efficienza e dell'operatività dell'ambiente di sviluppo; si occupa della redazione e attuazione di piani e procedure di gestione della qualità; inoltre gestisce l'archivio della documentazione del progetto.
 
-\item[Analisi di Dettaglio]
-\hfill\\è il periodo di correzione dei documenti in uscita dalla \RR.
+\subsection{Analisi}
+è il periodo di preparazione e produzioni di documenti che precede la \RR.
 
-\item[Analisi Dinamica]
-\hfill\\ \mgls{attivita} di analisi che si avvale di test automatici.
+\subsection{Analisi di Dettaglio}
+è il periodo di correzione dei documenti in uscita dalla \RR.
 
-\item[Analisi Statica]
-\hfill\\ \mgls{attivita} di analisi che non si avvale di test automatici. Per ulteriori dettagli si veda \PdQ{}.
+\subsection{Analisi Dinamica}
+ \mgls{attivita} di analisi che si avvale di test automatici.
 
-\item[Analista]
-\hfill\\è responsabile delle attività di analisi.Per ulteriori dettagli si veda \PdQ{}.
+\subsection{Analisi Statica}
+ \mgls{attivita} di analisi che non si avvale di test automatici. Per ulteriori dettagli si veda \PdQ{}.
 
-\item[AngularJS]
-\hfill\\è un \mgls{framework} web open source principalmente sviluppato da \mgls{google} che ha come obiettivo di semplificare lo sviluppo e il test di applicazioni web singola pagina, fornendo lato \mgls{client} un' architettura \mgls{mvc}.
+\subsection{Analista}
+è responsabile delle attività di analisi.Per ulteriori dettagli si veda \PdQ{}.
 
-\item[API]
-\hfill\\librerie \mgls{software} disponibili in un certo linguaggio di programmazione.
+\subsection{AngularJS}
+è un \mgls{framework} web open source principalmente sviluppato da \mgls{google} che ha come obiettivo di semplificare lo sviluppo e il test di applicazioni web singola pagina, fornendo lato \mgls{client} un' architettura \mgls{mvc}.
 
-\item[Asana]
-\hfill\\è un \mgls{software} che permette a dei team di monitorare il loro lavoro e tener traccia dei risultati tramite l'assegnazione di \mgls{task} a componenti specifiche del gruppo di lavoro.
+\subsection{API}
+librerie \mgls{software} disponibili in un certo linguaggio di programmazione.
 
-\item[Attività]
-\hfill\\è un insieme di \mgls{task}.
+\subsection{Asana}
+è un \mgls{software} che permette a dei team di monitorare il loro lavoro e tener traccia dei risultati tramite l'assegnazione di \mgls{task} a componenti specifiche del gruppo di lavoro.
 
-\item[AWS]
-\hfill\\è un insieme di servizi di elaborazione remoti, detti anche servizi web, che costituiscono una piattaforma di\mgls{cloud} computing offerto da Amazon. Per maggiori informazioni si veda \href{https://aws.amazon.com/it/}{qui}.
-\end{description}
+\subsection{Attività}
+è un insieme di \mgls{task}.
+
+\subsection{AWS}
+è un insieme di servizi di elaborazione remoti, detti anche servizi web, che costituiscono una piattaforma di\mgls{cloud} computing offerto da Amazon. Per maggiori informazioni si veda \href{https://aws.amazon.com/it/}{qui}.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{B}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{B}
 
-\begin{description}
-\item[Backup]
-\hfill\\si indica la replicazione, su un qualunque supporto di memorizzazione, di materiale informativo archiviato nella memoria di massa, al fine di prevenire la perdita definitiva dei dati in caso di eventi malevoli accidentali o intenzionali.
 
-\item[Baseline]
-\hfill\\ di progetto costituisce il punto di riferimento rispetto al quale calcolare gli scostamenti delle principali variabili implicate nella gestione di un progetto.
+\subsection{Backup}
+si indica la replicazione, su un qualunque supporto di memorizzazione, di materiale informativo archiviato nella memoria di massa, al fine di prevenire la perdita definitiva dei dati in caso di eventi malevoli accidentali o intenzionali.
 
-\item[BLE]
-\hfill\\ Bluetooth Low Energy,  pur mantenendo un range di comunicazione simile a quello classico, fornisce un  consumo energetico dei device notevolmente ridotto.
+\subsection{Baseline}
+ di progetto costituisce il punto di riferimento rispetto al quale calcolare gli scostamenti delle principali variabili implicate nella gestione di un progetto.
 
-\item[Bottom-up]
-\hfill\\è una strategia di elaborazione dell'informazione e di gestione delle conoscenze, riguardanti principalmente il software e, per estensione, altre teorie umanistiche e teorie dei sistemi. In linea generale, esse sono metodologie adoperate per analizzare situazioni problematiche e costruire ipotesi adeguate alla loro soluzione. La riusabilità del codice è uno dei principali benefici di tale approcio. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Progettazione_top-down_e_bottom-up}{qui}.
+\subsection{BLE}
+ Bluetooth Low Energy,  pur mantenendo un range di comunicazione simile a quello classico, fornisce un  consumo energetico dei device notevolmente ridotto.
+ 
+ \subsection{BOM}
+ Il Byte Order Mark (BOM) è una piccola sequenza di byte che viene posizionata all'inizio di un flusso di dati di puro testo (tipicamente un file) per indicarne il tipo di codifica Unicode
 
-\item[Branch]
-\hfill\\ quando si vuole creare un nuovo ramo al \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
+\subsection{Bottom-up}
+è una strategia di elaborazione dell'informazione e di gestione delle conoscenze, riguardanti principalmente il software e, per estensione, altre teorie umanistiche e teorie dei sistemi. In linea generale, esse sono metodologie adoperate per analizzare situazioni problematiche e costruire ipotesi adeguate alla loro soluzione. La riusabilità del codice è uno dei principali benefici di tale approcio. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Progettazione_top-down_e_bottom-up}{qui}.
 
-\item[Browser]
-\hfill\\ è un'applicazione per il recupero, la presentazione e la navigazione di risorse web.
+\subsection{Branch}
+ quando si vuole creare un nuovo ramo al \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
 
-\item[BSON]
-\hfill\\ diminutivo di \mgls{json} binario ed è un formato di interscambio dati utilizzati principalmente per la memorizzazione dei dati e del formato di trasferimento di rete nel database \mgls{mongodb}.
+\subsection{Browser}
+ è un'applicazione per il recupero, la presentazione e la navigazione di risorse web.
 
-\item[Bug]
-\hfill\\ identifica un errore nella scrittura di un programma software che ne causa un comportamento imprevisto o comunque diverso da quello specificato dal produttore.
-\end{description}
+\subsection{BSON}
+ diminutivo di \mgls{json} binario ed è un formato di interscambio dati utilizzati principalmente per la memorizzazione dei dati e del formato di trasferimento di rete nel database \mgls{mongodb}.
+
+\subsection{Bug}
+ identifica un errore nella scrittura di un programma software che ne causa un comportamento imprevisto o comunque diverso da quello specificato dal produttore.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{C}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{C}
 
-\begin{description}
-\item[C]
-\hfill\\ linguaggio di programmazione procedurale, e ciò vuol dire che non esistono classi, oggetti, eventi, ecc. come per esempio nel \mgls{c++}, Java e molti altri linguaggi di più alto livello. Offrendo quindi un livello di programmazione relativamente basso, è per tanto utilizzato in applicazioni che necessitano di prestazioni elevate. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/Linguaggio_C}{qui}.
 
-\item[C++]
-\hfill\\ linguaggio di programmazione orientato agli oggetti, con tipizzazione statica, sviluppato nei primi anni '80 come un miglioramento del linguaggio C. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/C\%2B\%2B}{qui}.
+\subsection{C}
+ linguaggio di programmazione procedurale, e ciò vuol dire che non esistono classi, oggetti, eventi, ecc. come per esempio nel \mgls{c++}, Java e molti altri linguaggi di più alto livello. Offrendo quindi un livello di programmazione relativamente basso, è per tanto utilizzato in applicazioni che necessitano di prestazioni elevate. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/Linguaggio_C}{qui}.
 
-\item[Checkbox]
-\hfill\\ è un controllo grafico con cui l'utente può effettuare selezioni multiple.
+\subsection{C++}
+ linguaggio di programmazione orientato agli oggetti, con tipizzazione statica, sviluppato nei primi anni '80 come un miglioramento del linguaggio C. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/C\%2B\%2B}{qui}.
 
-\item[Client]
-\hfill\\nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un \mgls{server}; si può riferire all'applicazione o all'\mgls{hardware}.
+\subsection{Checkbox}
+ è un controllo grafico con cui l'utente può effettuare selezioni multiple.
 
-\item[Cloud]
-\hfill\\ si indica un sistema di erogazione di risorse informatiche, come l'archiviazione, l'elaborazione o la trasmissione di dati, caratterizzato dalla disponibilità on demand attraverso Internet.
+\subsection{Client}
+nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un \mgls{server}; si può riferire all'applicazione o all'\mgls{hardware}.
 
-\item[Codifica] 
-\hfill\\ è il periodo che intercorre tra \RP\ e la \RQ.
+\subsection{Cloud}
+ si indica un sistema di erogazione di risorse informatiche, come l'archiviazione, l'elaborazione o la trasmissione di dati, caratterizzato dalla disponibilità on demand attraverso Internet.
 
-\item[Collaudo] 
-\hfill\\ controllo e verifica dei requisiti in rapporto a una tabella di caratteristiche singolarmente o universalmente prestabilite.
+\subsection{Codifica} 
+ è il periodo che intercorre tra \RP\ e la \RQ.
 
-\item[Commit] 
-\hfill\\ è la copia di modifiche fatte su file locali verso la \mgls{repository} remota. Esso rappresenta anche un particolare stato della \mgls{repository} nel tempo.
+\subsection{Collaudo} 
+ controllo e verifica dei requisiti in rapporto a una tabella di caratteristiche singolarmente o universalmente prestabilite.
 
-\item[Committente] 
-\hfill\\ colui che assegna un compito. In questo caso è il \Vardanega{}.
+\subsection{Commit} 
+ è la copia di modifiche fatte su file locali verso la \mgls{repository} remota. Esso rappresenta anche un particolare stato della \mgls{repository} nel tempo.
 
-\item[Controller] 
-\hfill\\ è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
+\subsection{Committente} 
+ colui che assegna un compito. In questo caso è il \Vardanega{}.
 
-\item[Cost variance] 
-\hfill\\ indica al management aziendale se il valore del costo realmente maturato è maggiore, uguale o minore rispetto al costo pianificato.
+\subsection{Controller} 
+ è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
 
-\item[Cross-platform] 
-\hfill\\ può essere riferito ad un linguaggio di programmazione, ad un'applicazione software o ad un dispositivo hardware che funziona su più di un sistema.
+\subsection{Cost variance} 
+ indica al management aziendale se il valore del costo realmente maturato è maggiore, uguale o minore rispetto al costo pianificato.
 
-\item[CSS3] 
-\hfill\\ è un linguaggio di programmazione web utilizzato per descrivere l'aspetto e la formattazione di un sito web al browser lato client.
-\end{description}
+\subsection{Cross-platform} 
+ può essere riferito ad un linguaggio di programmazione, ad un'applicazione software o ad un dispositivo hardware che funziona su più di un sistema.
+
+\subsection{CSS3} 
+ è un linguaggio di programmazione web utilizzato per descrivere l'aspetto e la formattazione di un sito web al browser lato client.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{D}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{D}
 
-\begin{description}
-\item[Database] 
-\hfill\\ archivio di dati collegati tra loro attraverso un modello logico, in genere relazionale; permette la gestione e il reperimento di dati in modo veloce ed efficiente.
 
-\item[Deadline] 
-\hfill\\ la deadline di un \mgls{task} è un indicazione dell'urgenza del \mgls{task}; rappresenta un un punto su una linea temporale ideale. Data di scadenza o termine entro il quale deve essere completato un compito assegnato.
+\subsection{Database} 
+ archivio di dati collegati tra loro attraverso un modello logico, in genere relazionale; permette la gestione e il reperimento di dati in modo veloce ed efficiente.
 
-\item[Desktop] 
-\hfill\\ area dello schermo su cui appaiono le icone e le finestre rappresentanti le memorie di massa collegate al computer ed il loro contenuto.
+\subsection{Deadline} 
+ la deadline di un \mgls{task} è un indicazione dell'urgenza del \mgls{task}; rappresenta un un punto su una linea temporale ideale. Data di scadenza o termine entro il quale deve essere completato un compito assegnato.
 
-\item[Document] 
-\hfill\\è un documento in stile \mgls{json} con schema dinamico (\mgls{mongodb} chiama il formato \mgls{bson}), all'interno del quale vengono salvati i dati del database. Paragonabile come concetto ad una tabella di un database relazionale.
+\subsection{Desktop} 
+ area dello schermo su cui appaiono le icone e le finestre rappresentanti le memorie di massa collegate al computer ed il loro contenuto.
 
-\item[Document-oriented] 
-\hfill\\ le basi di dati orientate al documento non memorizzano i dati in tabelle con campi uniformi per ogni record come nei database relazionali, ma ogni record è memorizzato come un documento che possiede determinate caratteristiche.
+\subsection{Document} 
+è un documento in stile \mgls{json} con schema dinamico (\mgls{mongodb} chiama il formato \mgls{bson}), all'interno del quale vengono salvati i dati del database. Paragonabile come concetto ad una tabella di un database relazionale.
 
-\item[DOM] 
-\hfill\\ è lo standard ufficiale del \mgls{w3c} per la rappresentazione di documenti strutturati in maniera da essere neutrali sia per la lingua che per la piattaforma.
+\subsection{Document-oriented} 
+ le basi di dati orientate al documento non memorizzano i dati in tabelle con campi uniformi per ogni record come nei database relazionali, ma ogni record è memorizzato come un documento che possiede determinate caratteristiche.
 
-\item[Draw.io] 
-\hfill\\ é un software gratuito per la creazione di diagrammi di flusso, di processo, \mgls{uml}, e diagrammi di rete. Per maggiori informazioni si veda \href{https://www.draw.io}{qui}.
+\subsection{DOM} 
+ è lo standard ufficiale del \mgls{w3c} per la rappresentazione di documenti strutturati in maniera da essere neutrali sia per la lingua che per la piattaforma.
 
-\item[Driver] 
-\hfill\\ nel contesto dei test di unità è un programma che simula l'utilizzo di altri componenti software in attesa che il vero programma venga sviluppato; in genere viene utilizzato come temporaneo sostituto di un programma che chiama determinate procedure per poter testare le procedure stesse.
+\subsection{Draw.io} 
+ é un software gratuito per la creazione di diagrammi di flusso, di processo, \mgls{uml}, e diagrammi di rete. Per maggiori informazioni si veda \href{https://www.draw.io}{qui}.
 
-\item[Dropbox] 
-\hfill\\ è un software di \mgls{cloud} storage multi piattaforma, che offre un servizio di file hosting e sincronizzazione automatica di file tramite web.
-\end{description}
+\subsection{Driver} 
+ nel contesto dei test di unità è un programma che simula l'utilizzo di altri componenti software in attesa che il vero programma venga sviluppato; in genere viene utilizzato come temporaneo sostituto di un programma che chiama determinate procedure per poter testare le procedure stesse.
+
+\subsection{Dropbox} 
+ è un software di \mgls{cloud} storage multi piattaforma, che offre un servizio di file hosting e sincronizzazione automatica di file tramite web.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{E}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{E}
 
-\begin{description}
-\item[Etichetta] 
-\hfill\\ è un controllo grafico che mostra informazioni testuali all'interno di un form.
 
-\item[Event-driven] 
-\hfill\\ è un paradigma di programmazione dell'informatica, con il quale il flusso del programma è largamente determinato dal verificarsi di eventi esterni. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Programmazione_a_eventi}{qui}.
+\subsection{Etichetta} 
+ è un controllo grafico che mostra informazioni testuali all'interno di un form.
 
-\item[Event-driven architteture] 
-\hfill\\è un framework che gestisce il comportamento attorno alla produzione, la rilevazione e il consumo di eventi, nonchè le risposte che evocano. Un evento è una qualsiasi occorrenza identificabile che ha un significato per l'\mgls{hardware} o per il \mgls{software}. Questo tipo d'architettura  permette di gestire  una grossa mole di informazioni contemporaneamente  in entrata e in uscita quasi in tempo reale.
+\subsection{Event-driven} 
+ è un paradigma di programmazione dell'informatica, con il quale il flusso del programma è largamente determinato dal verificarsi di eventi esterni. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Programmazione_a_eventi}{qui}.
 
-\item[Evento] 
-\hfill\\ \mgls{teamwork}, attraverso il suo calendario, offre la possibilità di impostare eventi in giorni stabiliti dagli utenti. Questi eventi verranno periodicamente segnalati come promemoria a tutte le persone invitate agli stessi.
+\subsection{Event-driven architteture} 
+è un framework che gestisce il comportamento attorno alla produzione, la rilevazione e il consumo di eventi, nonchè le risposte che evocano. Un evento è una qualsiasi occorrenza identificabile che ha un significato per l'\mgls{hardware} o per il \mgls{software}. Questo tipo d'architettura  permette di gestire  una grossa mole di informazioni contemporaneamente  in entrata e in uscita quasi in tempo reale.
 
-\item[Express] 
-\hfill\\è un \mgls{framework} dell'applicazione web \mgls{node.js} flessibile e leggero che fornisce una serie di funzioni avanzate per le applicazioni web e per dispositivi mobili.
-\end{description}
+\subsection{Evento} 
+ \mgls{teamwork}, attraverso il suo calendario, offre la possibilità di impostare eventi in giorni stabiliti dagli utenti. Questi eventi verranno periodicamente segnalati come promemoria a tutte le persone invitate agli stessi.
+
+\subsection{Express} 
+è un \mgls{framework} dell'applicazione web \mgls{node.js} flessibile e leggero che fornisce una serie di funzioni avanzate per le applicazioni web e per dispositivi mobili.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{F}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{F}
 
-\begin{description}
-\item[Framework] 
-\hfill\\ architettura o struttura di supporto su cui un programma può essere creato. In genere è composto da una serie di librerie e strumenti di sviluppo.
 
-\item[Front-end] 
-\hfill\\la parte visibile all'utente e con cui egli può interagire.
-\end{description}
+\subsection{Framework} 
+ architettura o struttura di supporto su cui un programma può essere creato. In genere è composto da una serie di librerie e strumenti di sviluppo.
+
+\subsection{Front-end} 
+la parte visibile all'utente e con cui egli può interagire.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{G}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\subsection{Gantt} 
+ è un diagramma di supporto alla gestione dei progetti.
 
-\begin{description}
-\item[Gantt] 
-\hfill\\ è un diagramma di supporto alla gestione dei progetti.
+\subsection{Git} 
+ è un sistema software di controllo di versione distribuito.
 
-\item[Git] 
-\hfill\\ è un sistema software di controllo di versione distribuito.
+\subsection{Github} 
+ è un servizio che offre gratuitamente l'hosting di un sever per \mgls{git}. Per maggiori informazioni si veda \href{https://github.com}{qui}.
 
-\item[Github] 
-\hfill\\ è un servizio che offre gratuitamente l'hosting di un sever per \mgls{git}. Per maggiori informazioni si veda \href{https://github.com}{qui}.
+\subsection{Google} 
+ azienda statunitense che offre servizi online. Tra la grande quantità di prodotti offerti troviamo il motore di ricerca \mgls{google}, il sistema operativo Android e servizi web quali YouTube, Gmail, Google Maps e altri. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Inc.}{qui}.
 
-\item[Google] 
-\hfill\\ azienda statunitense che offre servizi online. Tra la grande quantità di prodotti offerti troviamo il motore di ricerca \mgls{google}, il sistema operativo Android e servizi web quali YouTube, Gmail, Google Maps e altri. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Inc.}{qui}.
+\subsection{Google Drive} 
+ è un servizio di memorizzazione e sincronizzazione online introdotto da \mgls{google} il 24 aprile 2012. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Drive}{qui}.
 
-\item[Google Drive] 
-\hfill\\ è un servizio di memorizzazione e sincronizzazione online introdotto da \mgls{google} il 24 aprile 2012. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Drive}{qui}.
+\subsection{Gulpease} 
+ è un indice di leggibilità di un testo tarato sulla lingua italiana. Rispetto ad altri ha il vantaggio di utilizzare la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico.
 
-\item[Gulpease] 
-\hfill\\ è un indice di leggibilità di un testo tarato sulla lingua italiana. Rispetto ad altri ha il vantaggio di utilizzare la lunghezza delle parole in lettere anziché in sillabe, semplificandone il calcolo automatico.
-\end{description}
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{H}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{H}
 
-\begin{description}
-\item[Hardware] 
+
+\subsection{Hardware} 
 \hfill Con il termine hardware, in ingegneria elettronica e informatica, si indica la parte fisica di un computer, ovvero tutte quelle parti elettroniche, elettriche, meccaniche, magnetiche, ottiche che ne consentono il funzionamento\\	
 
-\item[Heroku] 
-\hfill\\ è una  delle prime \mgls{cloud} Platform-as-a-Service (PaaS) che supportava solo Java come linguaggio di programmazione, oggi giorno ha aggiunto molti altri linguaggi come \mGls{scala}, Phyton, etc. Per maggiori informazioni si veda \href{https://www.heroku.com}{qui}.
+\subsection{Heroku} 
+ è una  delle prime \mgls{cloud} Platform-as-a-Service (PaaS) che supportava solo Java come linguaggio di programmazione, oggi giorno ha aggiunto molti altri linguaggi come \mGls{scala}, Phyton, etc. Per maggiori informazioni si veda \href{https://www.heroku.com}{qui}.
 
-\item[HTML] 
-\hfill\\ n informatica è il linguaggio di \mgls{markup} solitamente usato per la formattazione e impaginazione di documenti ipertestuali disponibili nel World Wide Web sotto forma di pagine web.
+\subsection{HTML} 
+ n informatica è il linguaggio di \mgls{markup} solitamente usato per la formattazione e impaginazione di documenti ipertestuali disponibili nel World Wide Web sotto forma di pagine web.
 
-\item[HTML5] 
-\hfill\\ linguaggio di markup per la strutturazione delle pagine web, pubblicato come \mgls{w3c} Recommendation da ottobre 2014.
-\end{description}
-\newpage
+\subsection{HTML5} 
+ linguaggio di markup per la strutturazione delle pagine web, pubblicato come \mgls{w3c} Recommendation da ottobre 2014.
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{I}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\subsection{HTTP} 
+ è un protocollo a livello applicativo usato come principale sistema per la trasmissione d'informazioni sul web ovvero in un'architettura tipica client-server.
 
-\begin{description}
-\item[Inspection] 
-\hfill\\ è la lettura mirata di un documento o codice cercando errori specifici.
-
-\item[I/O] 
-\hfill\\si intendono tutte le interfacce messe a disposizione dal sistema operativo ai programmi per effettuare uno scambio di dati o segnali con altri programmi, col computer o con il stesso sistema.
-\end{description}
+\subsection{HTTPS} 
+ è un protocollo per la comunicazione sicura attraverso una rete di computer, il quale è largamente utilizzato su Internet. HTTPS consiste nella comunicazione tramite il protocollo HTTP (HyperText Transfer Protocol) all'interno di una connessione criptata dal Transport Layer Security (TLS) o dal suo predecessore, Secure Sockets Layer (SSL).
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{J}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
-\begin{description}
-\item[Java] 
-\hfill\\ è un linguaggio di programmazione orientato agli oggetti, specificatamente progettato per essere il più possibile indipendente dalla piattaforma di esecuzione. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)}{qui}.
+\section{I}	
 
-\item[JavaScript] 
-\hfill\\ linguaggio di \mgls{scripting} orientato agli oggetti comunemente usato nella programmazione web.
 
-\item[Join] 
-\hfill\\ è una clausola del linguaggio \mgls{sql} che serve a combinare (unire) le tuple di due o più relazioni di un database tramite l'operazione di congiunzione (od unione) dell'algebra relazionale.
+\subsection{Inspection} 
+ è la lettura mirata di un documento o codice cercando errori specifici.
 
-\item[JSON] 
-\hfill\\ acronimo di \mgls{javascript} Object Notation, è un formato adatto all'interscambio di dati fra applicazioni client-server.
-\end{description}
+\subsection{I/O} 
+si intendono tutte le interfacce messe a disposizione dal sistema operativo ai programmi per effettuare uno scambio di dati o segnali con altri programmi, col computer o con il stesso sistema.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{L}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{J}
 
-\begin{description}
-\item[Latex] 
-\hfill\\ è un linguaggio di \mgls{markup} usato per la preparazione di testi basato sul programma di composizione tipografica Latex.
 
-\item[Linux] 
-\hfill\\ è una famiglia di sistemi operativi \mgls{open-source} di tipo Unix-like, rilasciati sotto varie possibili distribuzioni, aventi la caratteristica comune di utilizzare come nucleo il kernel \mgls{linux}.
+\subsection{Java} 
+ è un linguaggio di programmazione orientato agli oggetti, specificatamente progettato per essere il più possibile indipendente dalla piattaforma di esecuzione. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Java_(linguaggio_di_programmazione)}{qui}.
 
-\item[Lista di controllo] 
-\hfill\\ è un elenco di cose da fare per eseguire una determinata \mgls{attivita}.
+\subsection{JavaScript} 
+ linguaggio di \mgls{scripting} orientato agli oggetti comunemente usato nella programmazione web.
 
-\item[Logger] 
-\hfill\\componente che registra dati sull'esecuzione di un programma o una specifica procedura in modo che il programmatore abbia tali informazioni in caso il programma si comporti in modo inaspettato.
-\end{description}
+\subsection{Join} 
+ è una clausola del linguaggio \mgls{sql} che serve a combinare (unire) le tuple di due o più relazioni di un database tramite l'operazione di congiunzione (od unione) dell'algebra relazionale.
+
+\subsection{JSON} 
+ acronimo di \mgls{javascript} Object Notation, è un formato adatto all'interscambio di dati fra applicazioni client-server.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{M}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
-
-\begin{description}
-\item[Mac OS] 
-\hfill\\ il sistema operativo di Apple dedicato dedicati ai personal computer Macintosh, alle workstation, ai \mgls{server} e agli \mgls{smartphone}.
-
-\item[Makefile] 
-\hfill\\ è usata soprattutto per la compilazione di codice sorgente in codice oggetto, unendo e poi linkando il codice oggetto in programmi eseguibili o in librerie.
-
-\item[MapReduce] 
-\hfill\\ è un framework software brevettato e introdotto da \mgls{google} per supportare la computazione distribuita su grandi quantità di dati in cluster di computer.
-
-\item[Markup] 
-\hfill\\ è un insieme di regole che descrivono i meccanismi di rappresentazione (strutturali, semantici o presentazionali) di un testo che, utilizzando convenzioni standardizzate, sono utilizzabili su più supporti.
-
-\item[Merge] 
-\hfill\\ comando \mGls{git} per unire due \mglspl{branch}. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
-
-\item[Middleware] 
-\hfill\\ un insieme di programmi informatici che fungono da intermediari tra diverse applicazioni e componenti \mgls{software},  spesso utilizzati come supporto per sistemi distribuiti complessi.
+\section{L}
 
 
-\item[Milestone] 
-\hfill\\ momento saliente nello sviluppo di un prodotto \mgls{software} per la quale devono essere pronti documenti e/o funzionalità.
+\subsection{Latex} 
+ è un linguaggio di \mgls{markup} usato per la preparazione di testi basato sul programma di composizione tipografica Latex.
 
-\item[Milestone Schedule Variance]
-\hfill\\ Metrica per la valutazione della qualità di processo. Per ulteriori dettagli fare riferimento a \PdQ{}
+\subsection{Linux} 
+ è una famiglia di sistemi operativi \mgls{open-source} di tipo Unix-like, rilasciati sotto varie possibili distribuzioni, aventi la caratteristica comune di utilizzare come nucleo il kernel \mgls{linux}.
 
-\item[Mobile] 
-\hfill\\ abbreviazione di "mobile phone", nel contesto si intende il mercato dei cellulari e \mgls{smartphone} e le tecnologie specifiche per lo sviluppo su di esse.
+\subsection{Lista di controllo} 
+ è un elenco di cose da fare per eseguire una determinata \mgls{attivita}.
 
-\item[Mocha] 
-\hfill\\ Mocha è un framework di test su \mgls{javascript} ricco di funzionalità, in esecuzione su \mgls{node.js} o nel browser , rende test asincroni semplici  e divertenti .I test sono eseguiti in serie , consentendo il reporting flessibile e preciso. Hosted su \mgls{github}
+\subsection{Logger} 
+componente che registra dati sull'esecuzione di un programma o una specifica procedura in modo che il programmatore abbia tali informazioni in caso il programma si comporti in modo inaspettato.
+
+
+\newpage
+
+\section{M}
+
+
+\subsection{Mac OS} 
+ il sistema operativo di Apple dedicato dedicati ai personal computer Macintosh, alle workstation, ai \mgls{server} e agli \mgls{smartphone}.
+
+\subsection{Makefile} 
+ è usata soprattutto per la compilazione di codice sorgente in codice oggetto, unendo e poi linkando il codice oggetto in programmi eseguibili o in librerie.
+
+\subsection{MapReduce} 
+ è un framework software brevettato e introdotto da \mgls{google} per supportare la computazione distribuita su grandi quantità di dati in cluster di computer.
+
+\subsection{Markup} 
+ è un insieme di regole che descrivono i meccanismi di rappresentazione (strutturali, semantici o presentazionali) di un testo che, utilizzando convenzioni standardizzate, sono utilizzabili su più supporti.
+
+\subsection{Merge} 
+ comando \mGls{git} per unire due \mglspl{branch}. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
+
+\subsection{Middleware} 
+ un insieme di programmi informatici che fungono da intermediari tra diverse applicazioni e componenti \mgls{software},  spesso utilizzati come supporto per sistemi distribuiti complessi.
+
+
+\subsection{Milestone} 
+ momento saliente nello sviluppo di un prodotto \mgls{software} per la quale devono essere pronti documenti e/o funzionalità.
+
+\subsection{Milestone Schedule Variance}
+ Metrica per la valutazione della qualità di processo. Per ulteriori dettagli fare riferimento a \PdQ{}
+
+\subsection{Mobile} 
+ abbreviazione di "mobile phone", nel contesto si intende il mercato dei cellulari e \mgls{smartphone} e le tecnologie specifiche per lo sviluppo su di esse.
+
+\subsection{Mocha} 
+ Mocha è un framework di test su \mgls{javascript} ricco di funzionalità, in esecuzione su \mgls{node.js} o nel browser , rende test asincroni semplici  e divertenti .I test sono eseguiti in serie , consentendo il reporting flessibile e preciso. Hosted su \mgls{github}
 \href{https://github.com/mochajs/mocha}{qui}.
 
-\item[Model] 
-\hfill\\ fornisce i metodi per accedere ai dati utili all'applicazione.
+\subsection{Model} 
+ fornisce i metodi per accedere ai dati utili all'applicazione.
 
-\item[Modulo] 
-\hfill\\ è un componente software autonomo e ben identificato, e quindi facilmente riusabile.
+\subsection{Modulo} 
+ è un componente software autonomo e ben identificato, e quindi facilmente riusabile.
 
-\item[MongoDB] 
-\hfill\\ è un sistema gestionale di basi di dati \mgls{nosql} orientato ai documenti, adatto per ambienti che hanno la necessità d'immagazzinare grosse quantità di dati, e dove il linguaggio utilizzato per la gestione dei dati è \mgls{javascript}.
+\subsection{MongoDB} 
+ è un sistema gestionale di basi di dati \mgls{nosql} orientato ai documenti, adatto per ambienti che hanno la necessità d'immagazzinare grosse quantità di dati, e dove il linguaggio utilizzato per la gestione dei dati è \mgls{javascript}.
 
-\item[Mongoose] 
-\hfill\\ è un web server multipiattaforma scritto da Sergey Lyubka, che con poco più 130KB di codice sorgente, risulta essere uno fra i \mgls{server} web più piccoli.
+\subsection{Mongoose} 
+ è un web server multipiattaforma scritto da Sergey Lyubka, che con poco più 130KB di codice sorgente, risulta essere uno fra i \mgls{server} web più piccoli.
 
-\item[MQTT] 
-\hfill\\ è un protocollo di messaggistica leggero posizionato in cima a TCP/IP, disegnato per le situazioni in cui è richiesto un basso impatto e dove la banda è limitata.
+\subsection{MQTT} 
+ è un protocollo di messaggistica leggero posizionato in cima a TCP/IP, disegnato per le situazioni in cui è richiesto un basso impatto e dove la banda è limitata.
 
-\item[Multi-thread] 
-\hfill\\ si intende il processo che porterà un' applicazione, a definire più di un \mgls{thread}, assegnando ad ognuno compiti da eseguire parallelamente.
+\subsection{Multi-thread} 
+ si intende il processo che porterà un' applicazione, a definire più di un \mgls{thread}, assegnando ad ognuno compiti da eseguire parallelamente.
 
-\item[MVC] 
-\hfill\\ è un pattern architetturale molto diffuso nello sviluppo di sistemi \mgls{software}, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.
-\end{description}
+\subsection{MVC} 
+ è un pattern architetturale molto diffuso nello sviluppo di sistemi \mgls{software}, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.
 
-\newpage
-
-\begin{center}
-\hfill\\
-	\LARGE \textbf{N}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
-
-\begin{description}
-
-\item[Namespace] 
-\hfill\\ o spazio dei noi è una collezione di nomi di entità, definite dal \mgls{programmatore}, omogeneamente usate in uno o più file sorgente. Lo scopo dei namespace è quello di evitare confusione ed equivoci nel caso siano necessarie molte entità con nomi simili, fornendo il modo di raggruppare i nomi per categorie.
-
-\item[Node package manager] 
-\hfill\\ rende più facile agli sviluppatori \mgls{javascript} condividere e riutilizzare il codice rendendolo oltremodo facile da aggiornare.
-
-\item[Node.js] 
-\hfill\\ è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
-
-\item[NoSQL] 
-\hfill\\ come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più \mgls{server} dove salvare questi dati e non solamente incrementando la potenza di un singolo \mgls{server}.
-\end{description}
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{O}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{N}
 
-\begin{description}
 
-\item[Open-source] 
-\hfill\\è un gestore di dati destinato per la memorizzazione di informazioni di sistema. Le informazioni sono memorizzate e mantenute come oggetti con caratteristiche comuni.
 
-\item[Open-source] 
-\hfill\\ un \mgls{software} di cui gli autori ovvero i detentori dei diritti rendono pubblico il codice sorgente, favorendone il libero studio e permettendo a programmatori indipendenti di apportarvi modifiche ed estensioni. Questo è realizzato tramite apposite licenze d'uso.
-\end{description}
+\subsection{Namespace} 
+ o spazio dei noi è una collezione di nomi di entità, definite dal \mgls{programmatore}, omogeneamente usate in uno o più file sorgente. Lo scopo dei namespace è quello di evitare confusione ed equivoci nel caso siano necessarie molte entità con nomi simili, fornendo il modo di raggruppare i nomi per categorie.
 
-\newpage
+\subsection{Node package manager} 
+ rende più facile agli sviluppatori \mgls{javascript} condividere e riutilizzare il codice rendendolo oltremodo facile da aggiornare.
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{P}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\subsection{Node.js} 
+ è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
 
-\begin{description}
-\item[Package] 
-\hfill\\è un meccanismo per organizzare classi \mGls{java} in gruppi logici, principalmente allo scopo di definire name space distinti per diversi contesti.
+\subsection{NoSQL} 
+ come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più \mgls{server} dove salvare questi dati e non solamente incrementando la potenza di un singolo \mgls{server}.
 
-\item[PDCA] 
-\hfill\\ acronimo di "Plan-Do-Check-Act" anche chiamato Ciclo di Daming, è un modello per il miglioramento continuo della qualità.
-
-\item[PDF] 
-\hfill\\ è un formato di file basato su un linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare documenti in modo indipendente dall’\mgls{hardware} e dal \mgls{software} utilizzati per generarli o per visualizzarli. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Document_Format}{qui}.
-
-\item[PERT] 
-\hfill\\ è uno strumento volto alla programmazione delle \mgls{attivita}à che compongono il progetto e, più in generale, alla gestione degli aspetti temporali di quest'ultimo.
-
-\item[Piattaforma] 
-\hfill\\ che indica il tipo di \mgls{framework} ed il sistema \mgls{software} di base sul quale i programmi e le applicazioni sono sviluppati e/o eseguiti.
-
-\item[PNG] 
-\hfill\\ abbreviazione di Portable Network Graphics, è un formato di file per memorizzare immagini. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Network_Graphics}{qui}.
-
-\item[PostgreSQL] 
-\hfill\\ e un sistema di gestione di basi di dati \mgls{open-source} usato per applicazioni che richiedono caratteristiche molto complesse.
-
-\item[Progettazione] 
-\hfill\\ è il periodo che intercorre tra la fase di \FAD e la \RP.
-
-\item[Progettista] 
-\hfill\\ è responsabile delle \mgls{attivita} di progettazione.
-
-\item[Programmatore] 
-\hfill\\ è responsabile delle \mgls{attivita} di codifica miranti alla realizzazione del prodotto e delle componenti di ausilio necessarie per l'esecuzione delle prove di verifica e \mgls{validazione}.
-
-\item[Project management] 
-\hfill\\ si intende l'insieme di \mgls{attivita} aziendali, svolte tipicamente da una figura dedicata e specializzata detta \mgls{responsabile}, volte all'analisi, progettazione, pianificazione e realizzazione degli obiettivi di un progetto, gestendolo in tutte le sue caratteristiche e fasi evolutive, nel rispetto di precisi vincoli come i tempi, costi, risorse, scopi, qualità.
-
-\item[ProjectLibre] 
-\hfill\\ è un \mgls{software} di gestione progettuale.
-
-\item[Proponente] 
-\hfill\\ colui che ha proposto al \mgls{committente} un capitolato d'appalto.
-
-\item[Pull] 
-\hfill\\ un comando \mgls{git} per poter ricevere nel locale tutte le modifiche fatte nel \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
-
-\item[Push] 
-\hfill\\ comando \mGls{git} per inviare modifiche di un documento site in un host locale al \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
-\end{description}
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{Q}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{O}
 
-\begin{description}
-\item[Query] 
-\hfill\\indica l'interrogazione da parte di un utente di un database, strutturato tipicamente secondo il modello relazionale, per compiere determinate operazioni sui dati.
-\item[QML] 
-\hfill\\ è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.
 
-\item[Quality assurance] 
-\hfill\\ è l'insieme delle \mgls{attivita} volte a garantire il soddisfacimento degli obiettivi della qualità.
 
-\item[Quizzipedia] 
-\hfill\\ è il nome del prodotto software richiesto dal capitolato d'appalto scelto.
-\end{description}
+\subsection{Open-source} 
+è un gestore di dati destinato per la memorizzazione di informazioni di sistema. Le informazioni sono memorizzate e mantenute come oggetti con caratteristiche comuni.
+
+\subsection{Open-source} 
+ un \mgls{software} di cui gli autori ovvero i detentori dei diritti rendono pubblico il codice sorgente, favorendone il libero studio e permettendo a programmatori indipendenti di apportarvi modifiche ed estensioni. Questo è realizzato tramite apposite licenze d'uso.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{R}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{P}
 
-\begin{description}
+
+\subsection{Package} 
+è un meccanismo per organizzare classi \mGls{java} in gruppi logici, principalmente allo scopo di definire name space distinti per diversi contesti.
+
+\subsection{PDCA} 
+ acronimo di "Plan-Do-Check-Act" anche chiamato Ciclo di Daming, è un modello per il miglioramento continuo della qualità.
+
+\subsection{PDF} 
+ è un formato di file basato su un linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare documenti in modo indipendente dall’\mgls{hardware} e dal \mgls{software} utilizzati per generarli o per visualizzarli. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Document_Format}{qui}.
+
+\subsection{PERT} 
+ è uno strumento volto alla programmazione delle \mgls{attivita}à che compongono il progetto e, più in generale, alla gestione degli aspetti temporali di quest'ultimo.
+
+\subsection{Piattaforma} 
+ che indica il tipo di \mgls{framework} ed il sistema \mgls{software} di base sul quale i programmi e le applicazioni sono sviluppati e/o eseguiti.
+
+\subsection{PNG} 
+ abbreviazione di Portable Network Graphics, è un formato di file per memorizzare immagini. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Network_Graphics}{qui}.
+
+\subsection{PostgreSQL} 
+ e un sistema di gestione di basi di dati \mgls{open-source} usato per applicazioni che richiedono caratteristiche molto complesse.
+
+\subsection{Progettazione} 
+ è il periodo che intercorre tra la fase di \FAD e la \RP.
+
+\subsection{Progettista} 
+ è responsabile delle \mgls{attivita} di progettazione.
+
+\subsection{Programmatore} 
+ è responsabile delle \mgls{attivita} di codifica miranti alla realizzazione del prodotto e delle componenti di ausilio necessarie per l'esecuzione delle prove di verifica e \mgls{validazione}.
+
+\subsection{Project management} 
+ si intende l'insieme di \mgls{attivita} aziendali, svolte tipicamente da una figura dedicata e specializzata detta \mgls{responsabile}, volte all'analisi, progettazione, pianificazione e realizzazione degli obiettivi di un progetto, gestendolo in tutte le sue caratteristiche e fasi evolutive, nel rispetto di precisi vincoli come i tempi, costi, risorse, scopi, qualità.
+
+\subsection{ProjectLibre} 
+ è un \mgls{software} di gestione progettuale.
+
+\subsection{Proponente} 
+ colui che ha proposto al \mgls{committente} un capitolato d'appalto.
+
+\subsection{Pull} 
+ un comando \mgls{git} per poter ricevere nel locale tutte le modifiche fatte nel \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
+
+\subsection{Push} 
+ comando \mGls{git} per inviare modifiche di un documento site in un host locale al \mgls{repository} remoto. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
+
+
+\newpage
+
+\section{Q}
+
+
+\subsection{Query} 
+indica l'interrogazione da parte di un utente di un database, strutturato tipicamente secondo il modello relazionale, per compiere determinate operazioni sui dati.
+\subsection{QML} 
+ è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.
+
+\subsection{Quality assurance} 
+ è l'insieme delle \mgls{attivita} volte a garantire il soddisfacimento degli obiettivi della qualità.
+
+\subsection{Quizzipedia} 
+ è il nome del prodotto software richiesto dal capitolato d'appalto scelto.
+
+
+\newpage
+
+\section{R}
+
+
 	
-\item[Receiver] 
-\hfill\\ricevitore delle richieste.	
+\subsection{Receiver} 
+ricevitore delle richieste.	
 	
-\item[Redattore] 
-\hfill\\colui che redige un documento.
+\subsection{Redattore} 
+colui che redige un documento.
 
-\item[Release] 
-\hfill\\ciascuna nuova versione di un \mgls{software}, messa in commercio o comunque diffusa, contraddistinta da un numero.
+\subsection{Release} 
+ciascuna nuova versione di un \mgls{software}, messa in commercio o comunque diffusa, contraddistinta da un numero.
 
-\item[Rendering] 
-\hfill\\generazione di un'immagine a partire da una descrizione matematica di una scena tridimensionale interpretata da algoritmi che definiscono il colore di ogni punto dell'immagine digitale.
+\subsection{Rendering} 
+generazione di un'immagine a partire da una descrizione matematica di una scena tridimensionale interpretata da algoritmi che definiscono il colore di ogni punto dell'immagine digitale.
 
-\item[Repository] 
-\hfill\\è dove i file sono memorizzati, spesso su un server.
+\subsection{Repository} 
+è dove i file sono memorizzati, spesso su un server.
 
-\item[Request] 
-\hfill\\richiesta fatta da un client ad un \mgls{server}, ad esempio \mgls{http}.
+\subsection{Request} 
+richiesta fatta da un client ad un \mgls{server}, ad esempio \mgls{http}.
 
-\item[Responsabile] 
-\hfill\\è il responsabile della gestione, pianificazione e realizzazione del progetto.
+\subsection{Responsabile} 
+è il responsabile della gestione, pianificazione e realizzazione del progetto.
 
-\item[Responsive] 
-\hfill\\si riferisce ad un design che è ottimizzato per essere visto su un grande insieme di dispositivi sia mobili che \mgls{desktop}.
+\subsection{Responsive} 
+si riferisce ad un design che è ottimizzato per essere visto su un grande insieme di dispositivi sia mobili che \mgls{desktop}.
 
-\item[Revert] 
-\hfill\\per annullare le ultime modifiche effettuate al \mgls{repository}. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
+\subsection{Revert} 
+per annullare le ultime modifiche effettuate al \mgls{repository}. Per maggiori informazioni si veda \href{https://git-scm.com/docs/}{qui}.
 
-\item[Revisione dei requisiti] 
-\hfill\\è una revisione formale che determina l'accesso del gruppo al progetto didattico e la concordanza con il cliente di una visione condivisa del prodotto atteso.
+\subsection{Revisione dei requisiti} 
+è una revisione formale che determina l'accesso del gruppo al progetto didattico e la concordanza con il cliente di una visione condivisa del prodotto atteso.
 
-\item[Revisione di accettazione] 
-\hfill\\è una revisione formale per l'accertamento del soddisfacimento di tutti i requisiti e il completamento del progetto.
+\subsection{Revisione di accettazione} 
+è una revisione formale per l'accertamento del soddisfacimento di tutti i requisiti e il completamento del progetto.
 
-\item[Revisione di progettazione] 
-\hfill\\è una revisione di progresso che accerta la realizzabilità del prodotto e informa il cliente sulle caratteristiche del prodotto.
+\subsection{Revisione di progettazione} 
+è una revisione di progresso che accerta la realizzabilità del prodotto e informa il cliente sulle caratteristiche del prodotto.
 
-\item[Revisione di qualifica] 
-\hfill\\è una revisione di progresso che approva l'esito finale delle verifiche e attiva la fase di \mgls{validazione}.
+\subsection{Revisione di qualifica} 
+è una revisione di progresso che approva l'esito finale delle verifiche e attiva la fase di \mgls{validazione}.
 
-\item[Route] 
-\hfill\\ci si riferisce alla definizione di un URI e a come esso risponde ad una specifica richiesta HTTP di un client.
+\subsection{Route} 
+ci si riferisce alla definizione di un URI e a come esso risponde ad una specifica richiesta HTTP di un client.
 
-\item[Routing] 
-\hfill\\nel campo delle reti di telecomunicazione, è la funzione di un commutatore (centrale telefonica, router, switch) che decide su quale porta o interfaccia inviare un elemento di comunicazione ricevuto (conversazione telefonica, pacchetto dati, cella, flusso di dati).
+\subsection{Routing} 
+nel campo delle reti di telecomunicazione, è la funzione di un commutatore (centrale telefonica, router, switch) che decide su quale porta o interfaccia inviare un elemento di comunicazione ricevuto (conversazione telefonica, pacchetto dati, cella, flusso di dati).
 
-\item[Ruolo] 
-\hfill\\una delle figure professionali che una persona fisica interpreta nel corso del progetto. I ruoli sono: \mgls{responsabile}, \mgls{amministratore}, \mgls{analista}, \mgls{progettista}, \mgls{programmatore} e \mgls{verificatore}.
-\end{description}
+\subsection{Ruolo} 
+una delle figure professionali che una persona fisica interpreta nel corso del progetto. I ruoli sono: \mgls{responsabile}, \mgls{amministratore}, \mgls{analista}, \mgls{progettista}, \mgls{programmatore} e \mgls{verificatore}.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{S}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{S}
 
-\begin{description}
-\item[Scala] 
-\hfill\\è un linguaggio di programmazione di tipo general-purpose multi-paradigma studiato per integrare le caratteristiche e funzionalità dei linguaggi orientati agli oggetti e dei linguaggi funzionali. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scala_(linguaggio_di_programmazione)}{qui}.
 
-\item[Schedule variance] 
-\hfill\\ogni deviazione alle \mgls{baseline} di un progetto misurata confrontando costo preventivato di programma di lavoro con il costo preventivato del lavoro svolto. Indica quindi al cliente se il progetto sta procedendo nei tempi stabiliti.
+\subsection{Scala} 
+è un linguaggio di programmazione di tipo general-purpose multi-paradigma studiato per integrare le caratteristiche e funzionalità dei linguaggi orientati agli oggetti e dei linguaggi funzionali. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scala_(linguaggio_di_programmazione)}{qui}.
 
-\item[Schema] 
-\hfill\\è la struttura o organizzazione logica dei dati in esso contenuti descritta mediante l'uso di un linguaggio formale.
+\subsection{Schedule variance} 
+ogni deviazione alle \mgls{baseline} di un progetto misurata confrontando costo preventivato di programma di lavoro con il costo preventivato del lavoro svolto. Indica quindi al cliente se il progetto sta procedendo nei tempi stabiliti.
 
-\item[Schema-free] 
-\hfill\\si riferiscono a database \mgls{nosql}.
+\subsection{Schema} 
+è la struttura o organizzazione logica dei dati in esso contenuti descritta mediante l'uso di un linguaggio formale.
 
-\item[Schierabile] 
-\hfill\\è la capacità di rilasciare al cliente, con relativa installazione e messa in funzione o esercizio, di una applicazione o di un sistema \mgls{software} tipicamente all'interno di un sistema informatico aziendale.
+\subsection{Schema-free} 
+si riferiscono a database \mgls{nosql}.
 
-\item[Scripting] 
-\hfill\\è un linguaggio di programmazione interpretato destinato in genere a compiti di automazione del sistema operativo o delle applicazioni, o a essere usato all'interno delle pagine web.
+\subsection{Schierabile} 
+è la capacità di rilasciare al cliente, con relativa installazione e messa in funzione o esercizio, di una applicazione o di un sistema \mgls{software} tipicamente all'interno di un sistema informatico aziendale.
 
-\item[Sender] 
-\hfill\\mandante delle richieste.
+\subsection{Scripting} 
+è un linguaggio di programmazione interpretato destinato in genere a compiti di automazione del sistema operativo o delle applicazioni, o a essere usato all'interno delle pagine web.
 
-\item[Server] 
-\hfill\\nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
+\subsection{Sender} 
+mandante delle richieste.
 
-\item[Skype] 
-\hfill\\è un software proprietario freeware di messaggistica istantanea e VoIP. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Skype}{qui}.
+\subsection{Server} 
+nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
 
-\item[Slack] 
-\hfill\\intervallo di tempo entro cui un evento deve avvenire nel rispetto dei vincoli logici e imposti dal reticolo di pianificazione senza compromettere la durata complessiva del progetto.
+\subsection{Skype} 
+è un software proprietario freeware di messaggistica istantanea e VoIP. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Skype}{qui}.
 
-\item[Smathphone] 
-\hfill\\è un telefono cellulare con capacità di calcolo, di memoria e di connessione dati molto più avanzate rispetto ai normali telefoni cellulari.
+\subsection{Slack} 
+intervallo di tempo entro cui un evento deve avvenire nel rispetto dei vincoli logici e imposti dal reticolo di pianificazione senza compromettere la durata complessiva del progetto.
 
-\item[Snipped] 
-\hfill\\frammenti ed esempi di codice sorgente, di solito distribuiti nel pubblico dominio o come freeware, con scopo didattico e di supporto.
+\subsection{Smathphone} 
+è un telefono cellulare con capacità di calcolo, di memoria e di connessione dati molto più avanzate rispetto ai normali telefoni cellulari.
 
-\item[Software] 
-\hfill\\è un termine generico che definisce programmi e procedure utilizzati per far eseguire al computer un determinato compito.
+\subsection{Snipped} 
+frammenti ed esempi di codice sorgente, di solito distribuiti nel pubblico dominio o come freeware, con scopo didattico e di supporto.
 
-\item[Spelling] 
-\hfill\\è l'atto di pronunciare le parole lentamente, separando le singole lettere o le sillabe.
+\subsection{Software} 
+è un termine generico che definisce programmi e procedure utilizzati per far eseguire al computer un determinato compito.
 
-\item[SPICE] 
-\hfill\\ Software Process Improvement Capability
+\subsection{Spelling} 
+è l'atto di pronunciare le parole lentamente, separando le singole lettere o le sillabe.
+
+\subsection{SPICE} 
+ Software Process Improvement Capability
 dEtermination, per dettagli vedi \PdQ
 
-\item[SQL] 
-\hfill\\è un linguaggio standardizzato per database basati sul modello relazionale.
+\subsection{SQL} 
+è un linguaggio standardizzato per database basati sul modello relazionale.
 
-\item[Stakeholder] 
-\hfill\\si indica genericamente un soggetto o un gruppo di soggetti influenti nei confronti di un'iniziativa economica, sia essa un'azienda o un progetto.
+\subsection{Stakeholder} 
+si indica genericamente un soggetto o un gruppo di soggetti influenti nei confronti di un'iniziativa economica, sia essa un'azienda o un progetto.
 
-\item[Stub] 
-\hfill\\nel contesto dei test di unità, sono programmi che simulano l'esecuzione di componenti \mgls{software} per la temporanea sostituzione di essi all'interno di un test \mgls{software} che non riguarda tali componenti.
+\subsection{Stub} 
+nel contesto dei test di unità, sono programmi che simulano l'esecuzione di componenti \mgls{software} per la temporanea sostituzione di essi all'interno di un test \mgls{software} che non riguarda tali componenti.
 
-\item[Subclassing] 
-\hfill\\o sottoclasse è una così detta "classe derivata" che eredita le sue caratteristiche dalla classe o dalle "classi padre". La semantica dell'ereditarietà di classe può cambiare da linguaggio a linguaggio ma comunemente la sottoclasse eredita i campi dati e i metodi della super classe.
+\subsection{Subclassing} 
+o sottoclasse è una così detta "classe derivata" che eredita le sue caratteristiche dalla classe o dalle "classi padre". La semantica dell'ereditarietà di classe può cambiare da linguaggio a linguaggio ma comunemente la sottoclasse eredita i campi dati e i metodi della super classe.
 
-\item[Subtask] 
-\hfill\\è un \mgls{task} compreso all'interno di un altro \mgls{task}. La totalità di tutti i subtasks costituisce un intero \mgls{task}.
+\subsection{Subtask} 
+è un \mgls{task} compreso all'interno di un altro \mgls{task}. La totalità di tutti i subtasks costituisce un intero \mgls{task}.
 
-\item[SVG] 
-\hfill\\è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.
+\subsection{SVG} 
+è un formato per la visualizzazione di oggetti in grafica vettoriale. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Scalable_Vector_Graphics}{qui}.
 
 
-\end{description}
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{T}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
-
-\begin{description}
-\item[Tag] 
-\hfill\\in \mgls{git} è un segnalibro associato ad un particolare \mgls{commit} utilizzato per marcare uno stato della \mgls{repository} per poi facilitarne il ritrovo.
-
-\item[Task] 
-\hfill\\è un compito secondo la definizione dello standard ISO/IEC 12207.
-
-\item[Teamwork] 
-\hfill\\è un software che permette a dei team di monitorare il loro lavoro e tener traccia dei risultati tramite l'assegnazione di \mgls{task} a componenti specifiche del gruppo di lavoro.
-
-\item[Telegram] 
-\hfill\\è un servizio di messaggistica istantanea utilizzato dal gruppo per comunicazioni interne. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Telegram_(software)}{qui}.
-
-\item[Template] 
-\hfill\\traducibile in italiano come modello, indica o un programma o un documento idealizzato come un documento semi compilato cartaceo che ha degli spazi bianchi che saranno successivamente riempiti.
+\section{T}
 
 
-\item[Test Driven Software] 
-\hfill\\ metodologia di sviluppo del \mgls{software} che prevede che la stesura dei test automatici avvenga prima di quella del \mgls{software} che deve essere sottoposto a  test, e che lo sviluppo del \mgls{software} applicativo sia orientato esclusivamente all'obiettivo di passare i test automatici precedentemente predisposti.
+\subsection{Tag} 
+in \mgls{git} è un segnalibro associato ad un particolare \mgls{commit} utilizzato per marcare uno stato della \mgls{repository} per poi facilitarne il ritrovo.
 
-\item[Thread] 
-\hfill\\è una suddivisione di un processo in due o più sottoprocessi, che vengono eseguiti concorrentemente da un processore.
+\subsection{Task} 
+è un compito secondo la definizione dello standard ISO/IEC 12207.
 
-\item[Ticket] 
-\hfill\\rappresenta un compito nell'organizzazione e distribuzione del lavoro all'interno del progetto.
+\subsection{Teamwork} 
+è un software che permette a dei team di monitorare il loro lavoro e tener traccia dei risultati tramite l'assegnazione di \mgls{task} a componenti specifiche del gruppo di lavoro.
 
-\item[Ticketing] 
-\hfill\\procedura con la quale il \RE assegna un \mgls{task}.
+\subsection{Telegram} 
+è un servizio di messaggistica istantanea utilizzato dal gruppo per comunicazioni interne. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Telegram_(software)}{qui}.
 
-\item[TikZ] 
-\hfill\\è un pacchetto \mgls{latex} nato per creare grafici in maniera programmata.
+\subsection{Template} 
+traducibile in italiano come modello, indica o un programma o un documento idealizzato come un documento semi compilato cartaceo che ha degli spazi bianchi che saranno successivamente riempiti.
 
-\item[TikZ-UML] 
-\hfill\\è un'estensione TikZ per gestire diagrammi \mgls{uml} comune: diagrammi delle classi, diagrammi dei casi d'uso, diagrammi di stato-macchina e diagrammi di sequenza.
 
-\item[Tomcat] 
-\hfill\\è un application \mgls{server} nella forma di contenitore servlet \mgls{open-source} sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.
+\subsection{Test Driven Software} 
+ metodologia di sviluppo del \mgls{software} che prevede che la stesura dei test automatici avvenga prima di quella del \mgls{software} che deve essere sottoposto a  test, e che lo sviluppo del \mgls{software} applicativo sia orientato esclusivamente all'obiettivo di passare i test automatici precedentemente predisposti.
 
-\item[Tracy] 
-\hfill\\software \mgls{open-source} per il tracciamento.Per maggiori informazioni si veda \href{http://tracy-tpiga.rhcloud.com/tracy/}{qui}.
-\end{description}
+\subsection{Thread} 
+è una suddivisione di un processo in due o più sottoprocessi, che vengono eseguiti concorrentemente da un processore.
+
+\subsection{Ticket} 
+rappresenta un compito nell'organizzazione e distribuzione del lavoro all'interno del progetto.
+
+\subsection{Ticketing} 
+procedura con la quale il \RE assegna un \mgls{task}.
+
+\subsection{TikZ} 
+è un pacchetto \mgls{latex} nato per creare grafici in maniera programmata.
+
+\subsection{TikZ-UML} 
+è un'estensione TikZ per gestire diagrammi \mgls{uml} comune: diagrammi delle classi, diagrammi dei casi d'uso, diagrammi di stato-macchina e diagrammi di sequenza.
+
+\subsection{Tomcat} 
+è un application \mgls{server} nella forma di contenitore servlet \mgls{open-source} sviluppato dalla Apache Software Foundation. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Apache_Tomcat}{qui}.
+
+\subsection{Tracy} 
+software \mgls{open-source} per il tracciamento.Per maggiori informazioni si veda \href{http://tracy-tpiga.rhcloud.com/tracy/}{qui}.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{U}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{U}
 
-\begin{description}
-\item[UML] 
-\hfill\\è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Unified_Modeling_Language}{qui}.
 
-\item[Underscore] 
-\hfill\\è un carattere che identifica il trattino basso.
-\end{description}
+\subsection{UML} 
+è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Unified_Modeling_Language}{qui}.
+
+\subsection{Underscore} 
+è un carattere che identifica il trattino basso.
+
+\subsection{UTF-8}
+UTF-8 (Unicode Transformation Format, 8 bit) è una codifica dei caratteri Unicode in sequenze di lunghezza variabile di byte.
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{V}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{V}
 
-\begin{description}
-\item[V8 JavaScript Engine] 
-\hfill\\motore JavaScript \mgls{open-source} sviluppato da \mgls{google} e scritto in \mgls{c++} che  può essere eseguito stand-alone esempio in \mgls{server} destinati a supportare il framework Node.js.
 
-\item[Validazione] 
-\hfill\\è il periodo che intercorre tra la \RQ\ e la \RA.
+\subsection{V8 JavaScript Engine} 
+motore JavaScript \mgls{open-source} sviluppato da \mgls{google} e scritto in \mgls{c++} che  può essere eseguito stand-alone esempio in \mgls{server} destinati a supportare il framework Node.js.
 
-\item[Verificatore] 
-\hfill\\è il responsabile dell'attività di verifica.
+\subsection{Validazione} 
+è il periodo che intercorre tra la \RQ\ e la \RA.
 
-\item[Versionamento] 
-\hfill\\è la gestione delle versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.
+\subsection{Verificatore} 
+è il responsabile dell'attività di verifica.
 
-\item[View] 
-\hfill\\si veda vista.
+\subsection{Versionamento} 
+è la gestione delle versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.
 
-\item[Vista] 
-\hfill\\è responsabile della definizione della struttura, il layout e l'aspetto di ciò che l'utente vede sullo schermo. Idealmente, la vista non contiene la logica di business.
+\subsection{View} 
+si veda vista.
 
-\item[Visual Paradigm] 
-\hfill\\strumento di supporto per la creazione di diagrammi \mgls{uml}.
-\end{description}
+\subsection{Vista} 
+è responsabile della definizione della struttura, il layout e l'aspetto di ciò che l'utente vede sullo schermo. Idealmente, la vista non contiene la logica di business.
+
+\subsection{Visual Paradigm} 
+strumento di supporto per la creazione di diagrammi \mgls{uml}.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{W}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{W}
 
-\begin{description}
-\item[W3C] 
-\hfill\\è un'organizzazione non governativa internazionale la cui principale attività  consiste nello stabilire standard tecnici per il World Wide Web inerenti sia a linguaggi di \mgls{markup} che a protocolli di comunicazione.
 
-\item[Walkthrough] 
-\hfill\\consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.
+\subsection{W3C} 
+è un'organizzazione non governativa internazionale la cui principale attività  consiste nello stabilire standard tecnici per il World Wide Web inerenti sia a linguaggi di \mgls{markup} che a protocolli di comunicazione.
 
-\item[Windows] 
-\hfill\\è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai \mgls{server} e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.
-\end{description}
+\subsection{Walkthrough} 
+consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.
+
+\subsection{Windows} 
+è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai \mgls{server} e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.
+
 
 \newpage
 
-\begin{center}
-\hfill\\
-	\LARGE \textbf{X}
-\hfill\\
-\rule[15pt]{30pt}{0.5pt}
-\end{center}
+\section{X}
 
-\begin{description}
-\item[XML] 
-\hfill\\è un meta-linguaggio che fornisce un insieme standard di regole sintattiche per modellare la struttura di documenti e dati. Questo insieme di regole, definiscono le modalità secondo cui è possibile crearsi un proprio linguaggio di  \mgls{markup}.
-\end{description}
+
+\subsection{XML} 
+è un meta-linguaggio che fornisce un insieme standard di regole sintattiche per modellare la struttura di documenti e dati. Questo insieme di regole, definiscono le modalità secondo cui è possibile crearsi un proprio linguaggio di  \mgls{markup}.
+
 
 \end{document}
