@@ -269,6 +269,34 @@ describe('model.service.QuestionService', function () {
 
             });
         });
-    
+    describe("test QuestionService.delete", function () {
+        
+        it("effettua la richiesta corretta per delete della domanda", function () {
+            var question = {
+                id: "questionTest",
+                author: "autorTest",
+                body: "<TF>\nQuesta domanda è da test?\n[T]",
+                tags: ['tagid1', 'tagid2']
+            };
+
+            $httpBackend
+                .whenDELETE(Configuration.remote + 'api/questions/' + question.id, {
+                }).respond(200, 'OK');
+
+            $httpBackend
+                .expectDELETE(Configuration.remote + 'api/questions/' + question.id, {
+                    "Accept":"application/json, text/plain, */*"
+                }).respond(200, 'OK');
+
+            QuestionService.delete(question, function () {
+                expect(true).toBe(true);
+            }, function () {
+                expect(true).toBe(false);
+            });
+            $httpBackend.flush();
+
+        });
+        
+    });
 
 });
