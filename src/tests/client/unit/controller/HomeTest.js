@@ -34,13 +34,18 @@ describe('controller.public.Home', function() {
         });
     });
 
-    it('should have a method to check if the path is active', function() {
-        $cookies.put('connect.sid', "id_sessione");
-        $scope.checkLogged();
-        expect($rootScope.me._id).toBe('id_user');
-        expect($rootScope.me.userName).toBe('mario.rossi');
-        expect($rootScope.me.fullName).toBe('Mario Rossi');
-        expect($rootScope.me.role).toBe('id_ruolo');
-        expect($rootScope.logged).toBe(true);
+    describe('checkLogged', function() {
+
+        it('should have a method to check if the path is active', function() {
+            $cookies.put('connect.sid', "id_sessione");
+            $scope.checkLogged();
+            expect($rootScope.me._id).toBe('id_user');
+            expect($rootScope.me.userName).toBe('mario.rossi');
+            expect($rootScope.me.fullName).toBe('Mario Rossi');
+            expect($rootScope.me.role).toBe('id_ruolo');
+            expect($rootScope.logged).toBe(true);
+        });
+
     });
+
 });
