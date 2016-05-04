@@ -78,7 +78,7 @@ $(function () {
                 });
             };
             this.new = function (question, next, err) {
-                $http.post(Configuration.remote + 'api/questionnaires', {
+                $http.post(Configuration.remote + 'api/questions', {
                     'author': question.author,
                     'body': question.body,
                     'tags': question.tags
