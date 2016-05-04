@@ -1,14 +1,5 @@
 $(function () {
     angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
-            this.delete = function (user, next, err) {
-                $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
-                    console.log(res);
-                    next();
-                }, function error(res) {
-                    console.log(res);
-                    err(res);
-                });
-            };
             this.get = function (fullName, userName, next, err) {
                 $http.get(Configuration.remote + 'api/users?' +
                         'fullName=' + function () {
@@ -68,8 +59,8 @@ $(function () {
                 });
             };
             this.modifyRole = function (user, role, next, err) {
-                $http.post(Configuration.remote + 'api/users/' + user.id, {
-                    role: role.id
+                $http.post(Configuration.remote + 'api/users/' + user._id, {
+                    role: role._id
                 }).then(function success(res) {
                     console.log(res);
                     next();
@@ -80,9 +71,9 @@ $(function () {
             };
             this.signUp = function (fullName, password, userName, next, err) {
                 $http.post(Configuration.remote + 'api/users', {
-                    'fullName': fullName,
-                    'userName': userName,
-                    'password': password
+                    fullName: fullName,
+                    userName: userName,
+                    password: password
                 }).then(function success(res) {
                     console.log(res);
                     next();
@@ -108,6 +99,15 @@ $(function () {
                     'newPassword': newPassword,
                     'oldPassword': oldPassword
                 }).then(function success(res) {
+                    console.log(res);
+                    next();
+                }, function error(res) {
+                    console.log(res);
+                    err(res);
+                });
+            };
+            this.delete = function (user, next, err) {
+                $http.delete(Configuration.remote + 'api/users/' + user._id).then(function success(res) {
                     console.log(res);
                     next();
                 }, function error(res) {
