@@ -1,6 +1,7 @@
 <div ng-controller="controller.student.ExecuteQuestion">
     <div class="container">
-        {{curQuestion}}
+        <div ng-bind-html="preview"></div>
+        <form ng-bind-html="responses"></form>
     </div>
 </div>
 

@@ -17,8 +17,8 @@
 *.DS_Store
 *.texpadtmp
 *.blg
-src/.idea/*
-src/node_modules/mocha
+.idea/*
 src/static/nbproject/
 src/static/prova.html
 .gitignore
+node_modules/

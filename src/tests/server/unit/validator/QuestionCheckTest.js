@@ -3,7 +3,7 @@
  * 164.TU
  */
 var expect = require('chai').expect;
-var testSubject = require('../../../api/validator/QuestionCheck.js');
+var testSubject = require('../../../../api/validator/QuestionCheck.js');
 describe('Testing di QuestionCheck', function() {
     var check = new testSubject();
     describe('check QML', function() {

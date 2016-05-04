@@ -3,7 +3,7 @@
  * 163.TU
  */
 var expect = require('chai').expect;
-var testSubject = require('../../../api/validator/TagCheck.js');
+var testSubject = require('../../../../api/validator/TagCheck.js');
 describe('Testing di TagCheck', function() {
     var check = new testSubject();
     describe('test checkName()', function() {

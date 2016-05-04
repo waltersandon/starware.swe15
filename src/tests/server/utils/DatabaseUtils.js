@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-var Configuration = require('../../api/app/Configuration');
-var Role = require('../../api/data/Role');
-var Question = require('../../api/data/Question');
-var Questionnaire = require('../../api/data/Questionnaire');
-var Tag = require('../../api/data/Tag');
-var User = require('../../api/data/User');
+var Configuration = require('../../../api/app/Configuration');
+var Role = require('../../../api/data/Role');
+var Question = require('../../../api/data/Question');
+var Questionnaire = require('../../../api/data/Questionnaire');
+var Tag = require('../../../api/data/Tag');
+var User = require('../../../api/data/User');
 
 function databaseSetState(objs, onSetState) {
 	var config = new Configuration({ test: true });
