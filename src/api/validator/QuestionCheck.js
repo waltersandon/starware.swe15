@@ -28,53 +28,33 @@ QuestionCheck.prototype.checkTags = function(tags){
  */
 QuestionCheck.prototype.checkQML = function(qml){
 
-
-    this.checkTF = function(qml) {
-        var answers = [];
-        var text = "";
-        qml.split('\n').map(function(row) {
-            if (row.startsWith('[T]')) {
-
-                answers.push({
-                    value: "T"
-                });
-            }
-            else if (row.startsWith('[F]')) {
-                answers.push({
-                    value: "F"
-                });
-            }
-            else text += row;
-        });
-        text.replace("\\[","[");
-        text.replace("\\]","]");
-        if (answers.length == 1){
-            return true;
-        }
-        return false;
-    };
-
     this.checkMultipleChoice = function(qml) {
         var answers = [];
         var text = "";
         var rightAnswer = 0;
         var wrongAnswer = 0;
+        var ansflag = false;
         qml.split('\n').map(function(row) {
-            if (row.startsWith('[]')) {
+            if (row == '[answers]') {
+                ansflag = true;
+            }
+            else if (row.startsWith('[]') && ansflag) {
                 answers.push({
                     text: row.replace("[]", ""),
                     correct: false
                 });
                 wrongAnswer++;
             }
-            else if (row.startsWith('[*]')) {
+            else if (row.startsWith('[*]') && ansflag) {
                 answers.push({
                     text: row.replace("[*]", ""),
                     correct: true
                 });
                 rightAnswer++;
             }
-            else text += row;
+            else if (!ansflag) {
+                text += row;
+            }
         });
         text.replace("\\[","[");
         text.replace("\\]","]");
@@ -85,16 +65,13 @@ QuestionCheck.prototype.checkQML = function(qml){
     };
 
     if(qml.charAt(0) == "<"){
-        this.i = 1;
-        while(qml.charAt(this.i) != ">"){
-            this.i++
-        }
-        this.type = qml.substring(1,this.i);
-        if(this.type == "TF"){
-            return this.checkTF(qml.substring(this.i + 1));
+        this.type = qml.substring(1, qml.indexOf('>'));
+        qml = qml.substring(qml.indexOf('>') + 1);
+        if(this.type == "TF F" || this.type == "TF T"){
+            return true;
         }
         else if(this.type == "MultipleChoice"){
-            return this.checkMultipleChoice(qml.substring(this.i + 1));
+            return this.checkMultipleChoice(qml);
         }
     }
     return false;

@@ -1,6 +1,6 @@
 $(function () {
     angular.module('app.App').controller('controller.public.Home', ['$cookies', '$location', '$rootScope', '$scope', 'model.service.SessionService', 'model.service.UserService', function ($cookies, $location, $rootScope, $scope, SessionService, UserService) {
-            $rootScope.logged = 'wait';
+        $rootScope.logged = 'wait';
             $rootScope.urlPath = function () {
                 return $location.path().split('/');
             };

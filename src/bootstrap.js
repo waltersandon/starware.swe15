@@ -40,10 +40,10 @@ mongoose.connect(config.dbUri, function() {
 		var usr3 = new User ({fullName:'Amilcare Verdi', password: 'password', role: admin._id, userName: "averdi" });
 		var usr4 = new User ({fullName:'Mariuccia Pastafrolla', password: 'password', role: superAdmin._id, userName: "mpastafrolla" });
 
-		var question1 = new Question ({author: usr2._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id,tag1._id]});
- 		var question2 = new Question ({author: usr3._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id]});
-		var question3 = new Question ({author: usr4._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag3._id]});
-		var question4 = new Question ({author: usr3._id, body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", tags: [tag2._id]});
+		var question1 = new Question ({author: usr2._id, body: "<TF T>\nRoma è la capitale d’**Italia**?", tags: [tag2._id,tag1._id]});
+ 		var question2 = new Question ({author: usr3._id, body: "<TF F>\nRoma non è la capitale d’**Italia**?", tags: [tag2._id]});
+		var question3 = new Question ({author: usr4._id, body: "<TF F>\nRoma è la capitale d’**Isdfsd**?", tags: [tag3._id]});
+		var question4 = new Question ({author: usr3._id, body: "<TF T>\nRoma è la capitaldsfsde d’**Italia**?", tags: [tag2._id]});
 
 		var questionnaire1 = new Questionnaire({author: usr2._id, questions: [question1._id,question2._id,question3._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 
