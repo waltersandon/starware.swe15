@@ -27,7 +27,8 @@ module.exports = function(config){
             'static/js/app/*.js',
             'static/js/controller/**/*.js',
             'static/js/model/**/**.js',
-            'tests/client/unit/service/*.js'
+            'tests/client/unit/service/*.js',
+            'tests/client/unit/controller/*.js'
 
         ],
 
