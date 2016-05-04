@@ -1,38 +1,46 @@
 describe('controller.public.Home', function() {
-    var $location, $rootScope,$cookies, $scope, SpyModelServiceSessionService, SpyModelServiceUserService;
-    beforeEach(module('app.App'));
-    beforeEach(module(function($provide) {
-        SpyModelServiceUserService = function () {
-            this.getMe = function () {
-                return "sono mi";
+
+    var $location;
+    var $rootScope;
+    var $scope;
+    var $cookies;
+    var controller;
+    beforeEach(function() {
+        module('app.App', function($provide){
+            var UserService = function () {
+                this.getMe = function(success, fail) {
+                    return success({
+                        _id: 'id_user',
+                        userName: 'mario.rossi',
+                        fullName: 'Mario Rossi',
+                        role: 'id_ruolo'
+                    });
+                };
             };
-            
-        };
-        $provide.value("model.service.UserService'",SpyModelServiceUserService );
-
-    }));
-    beforeEach(inject(function (_$rootScope_, _$controller_, _$location_,_$scope_, _$cookies_ ) {
-        $location = _$location_.$new();
-        $scope = _$scope_.$new();
-        $rootScope = _$rootScope_.$new();
-        $cookies = _$cookies_.$new();
-
-        createController = function() {
-            return $controller('controller.public.Home', {
-                '$scope': $scope,
-                '$rootScope' : $rootScope,
-                '$cookies' : $cookies
+            $provide.service("model.service.UserService", UserService);
+        });
+        inject(function($injector) {
+            $location = $injector.get('$location');
+            $rootScope = $injector.get('$rootScope');
+            $scope = $rootScope.$new();
+            $cookies = $injector.get('$cookies');
+            var $controller = $injector.get('$controller');
+            controller = $controller('controller.public.Home', {
+                $location: $location,
+                $rootScope: $rootScope,
+                $scope: $scope,
+                $cookies: $cookies
             });
-        };
-        
-    }));
+        });
+    });
 
     it('should have a method to check if the path is active', function() {
-        var controller = createController();
         $cookies.put('connect.sid', "id_sessione");
-        controller.$scope.checkLogged();
-        expect(controller.$scope.me).toBe('sono mi');
-       // expect(scope.isActive('/about')).toBe(true);
-       // expect(scope.isActive('/contact')).toBe(false);
+        $scope.checkLogged();
+        expect($rootScope.me._id).toBe('id_user');
+        expect($rootScope.me.userName).toBe('mario.rossi');
+        expect($rootScope.me.fullName).toBe('Mario Rossi');
+        expect($rootScope.me.role).toBe('id_ruolo');
+        expect($rootScope.logged).toBe(true);
     });
 });

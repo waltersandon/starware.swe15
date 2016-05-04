@@ -6,7 +6,7 @@ $(function () {
             };
             $scope.checkLogged = function () {
                 if ($cookies.get('connect.sid')) {
-                    UserService.getMe(function (me) {
+                    UserService.getMe(function(me) {
                         $rootScope.me = me;
                         $rootScope.logged = true;
                     }, function (res) {
