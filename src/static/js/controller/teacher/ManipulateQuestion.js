@@ -44,17 +44,17 @@ $(function () {
                     $scope.question.body = $scope.editor.value();
                     $scope.question.tags = [];
 
-                    async.each($scope.tagsInput.split(/,\s*/), function (tagInput, cll) {
-                        if (tagInput !== '') {
+                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
+                        if (tagInput.trim() !== '') {
                             var find = false;
                             $scope.tags.forEach(function (item) {
-                                if (item.name === tagInput) {
+                                if (item.name === tagInput.trim()) {
                                     $scope.question.tags.push(item.id);
                                     find = true;
                                 }
                             });
                             if (!find) {
-                                TagService.new(new Tag('', '', tagInput), function (res) {
+                                TagService.new(new Tag('', '', tagInput.trim()), function (res) {
                                     $scope.question.tags.push(res._id);
                                     cll();
                                 }, function (res) {
