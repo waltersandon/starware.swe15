@@ -1,7 +1,3 @@
-/**
- * Created by igor on 22/04/16.
- * 164.TU
- */
 var expect = require('chai').expect;
 var testSubject = require('../../../../api/validator/QuestionCheck.js');
 describe('Testing di QuestionCheck', function() {
@@ -11,23 +7,23 @@ describe('Testing di QuestionCheck', function() {
             expect(check.checkQML("<TF> domanda?")).to.equal(false);
         });
         it('deve bloccare QML MultipleChoice senza risposta giusta', function() {
-            expect(check.checkQML("<MultipleChoice> domanda? \n[]Opzione")).to.equal(false);
+            expect(check.checkQML("<MultipleChoice> domanda? \n[answers]\n[]Opzione")).to.equal(false);
         });
         it('deve bloccare QML MultipleChoice senza risposte', function() {
             expect(check.checkQML("<MultipleChoice> domanda?")).to.equal(false);
         });
         it('deve bloccare QML MultipleChoice con due risposte giuste', function() {
-            expect(check.checkQML("<MultipleChoice> domanda?\n[*]OpzioneGiusta\n[*]OpzioneGiusta")).to.equal(false);
+            expect(check.checkQML("<MultipleChoice> domanda?\n[answers]\n[*]OpzioneGiusta\n[*]OpzioneGiusta")).to.equal(false);
         });
         it('deve accettare QML  come corpo della domanda', function() {
-            expect(check.checkQML("<TF> Questo QML è giusto <TF>Roma è la capitale d’**Italia**? [T]?\n[T]")).to.equal(true);
+            expect(check.checkQML("<TF T> Questo QML è giusto <TF>Roma è la capitale d’**Italia**? <TF t>?")).to.equal(true);
         });
         it('deve accettare  QML per domanda vero/falso', function() {
-            expect(check.checkQML("<TF>Roma è la capitale d’**Italia**?\n[T]")).to.equal(true);
+            expect(check.checkQML("<TF T>Roma è la capitale d’**Italia**?")).to.equal(true);
 
         });
         it('deve accettare  QML per domanda a risposta multipla', function() {
-            expect(check.checkQML("<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione")).to.equal(true);
+            expect(check.checkQML("<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione")).to.equal(true);
         });
 
     });
@@ -46,15 +42,3 @@ describe('Testing di QuestionCheck', function() {
         });
     });
 });
-/*
- <TF>
- Roma è la capitale d’**Italia**?
- [T]
-
- <MultipleChoice>
- Qual’è la capitale d’Italia? Qui posso mettere []
- []Padova
- []Venezia
- [*]Roma
- []Napoli
- */
