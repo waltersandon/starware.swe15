@@ -47,7 +47,6 @@ describe('controller.public.Home', function() {
         });
 
     });
-<<<<<<< HEAD
     describe('urlPath', function() {
 
         it('should have a method to check if the path is active', function() {
@@ -56,7 +55,5 @@ describe('controller.public.Home', function() {
         });
 
     });
-=======
->>>>>>> naughty
 
 });
