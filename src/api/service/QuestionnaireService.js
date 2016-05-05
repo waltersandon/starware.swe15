@@ -76,9 +76,9 @@ QuestionnaireService.prototype.new = function(req,res,next){
  */
 QuestionnaireService.prototype.modify = function(req,res,next){
     Questionnaire.findById(req.params.id, function (err, questionnaire) {
+        if (err) return next(err);
         if (questionnaire.author != req.session.user._id)
             return next(401);
-        if (err) return next(err);
         questionnaire.title = req.body.title;
         questionnaire.tags = req.body.tags;
         questionnaire.questions = req.body.questions;

@@ -1,33 +1,58 @@
 $(function () {
-    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule']).factory('model.data.CurrentQuestionnaire', ['model.service.QuestionService', 'model.data.CurrentQuestion', function (QuestionService, CurrentQuestion) {
+    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', function ($q, QuestionService, CurrentQuestion) {
         function CurrentQuestionnaire(questionnaire) {
             this.currentNumber = 0;
             this.questionNumber = questionnaire.questions.length;
 
-            var q = [];
-            questionnaire.questions.forEach(function (item) {
-                QuestionService.getByID(item,function(res){
-                    q.push(new CurrentQuestion(res));
-                }, function(){
-
-                });
-            });
-
-            this.questions = q;
             this.tags = questionnaire.tags;
             this.title = questionnaire.title;
+            this.questions = questionnaire.questions;
         }
+
+        CurrentQuestionnaire.prototype.getCurrentQuestions = function(){
+            var deferred = $q.defer();
+
+            var q = [];
+            async.each(this.questions, function (question, cll) {
+                QuestionService.getByID(question, function (res) {
+                    q.push(new CurrentQuestion(res));
+                    cll();
+                }, function () {
+                    cll();
+                });
+            }, function () {
+                deferred.resolve(q);
+            });
+
+            return deferred.promise;
+        };
 
         CurrentQuestionnaire.prototype.checkAnswers = function () {
             var ret = true;
 
             this.questions.forEach(function (item) {
-                if (item.answer === null) {
+                if (item.selectedAnswer === null) {
                     ret = false;
                 }
             });
             return ret;
         };
+
+        CurrentQuestionnaire.prototype.getResult = function () {
+            var point = 0;
+            var tot = 0;
+
+            this.questions.forEach(function (item) {
+                var result = item.point();
+                console.log(result);
+                if (result.answer !== null) {
+                    point += result.point;
+                    tot += result.tot;
+                }
+            });
+            return "Punteggio: " + point + " / " + tot;
+        };
+
         CurrentQuestionnaire.prototype.getNext = function () {
             if (this.currentNumber < this.questionNumber - 1) {
                 this.currentNumber++;

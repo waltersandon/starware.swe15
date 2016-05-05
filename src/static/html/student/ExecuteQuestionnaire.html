@@ -1,13 +1,12 @@
 <div ng-controller="controller.student.ExecuteQuestionnaire">
     <div class="container">
-        <h2>Esegui questionario</h2>
+        <h2>Esegui {{questionnaire.title}}</h2>
 
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">{{questionnaire.title}}</h3>
+                <h3 class="panel-title">Domanda {{questionnaire.currentNumber + 1}} di {{questionnaire.questionNumber}}</h3>
             </div>
             <div class="panel-body">
-                <h3>Domanda {{questionnaire.currentNumber + 1}} di {{questionnaire.questionNumber}}</h3>
                 <div ng-include="'html/student/ExecuteQuestion.html'"></div>
 
                 <div class="row">
@@ -16,6 +15,7 @@
                             <button type="button" class="btn btn-primary" ng-click="getNext()">Successiva</button>
                     </div>
                 </div>
+                <div><button type="button" class="btn btn-default" ng-click="submit()">Correggi</button></div>
             </div>
         </div>
     </div>

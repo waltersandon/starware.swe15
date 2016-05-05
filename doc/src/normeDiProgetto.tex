@@ -488,7 +488,6 @@ Per aggiungere un attributo ad una classe esistente è necessario eseguire i seg
 
 \subsubsection{Attività di codifica e Testing}
 \subsubsubsection{Codifica}\label{code}
-\TODO{}
 
 Nell'attività di codifica i \PRpl{}, seguendo quanto specificato nella \DP{}, dovranno produrre il codice sorgente del \mgls{software} \prj{}.
 
@@ -501,7 +500,7 @@ Nell'attività di codifica i \PRpl{}, seguendo quanto specificato nella \DP{}, d
 	\item I nomi dei \mgls{package} devono avere l’iniziale maiuscola;
 	\item I nomi delle classi devono avere l’iniziale maiuscola;
 	\item I nomi di variabili e metodi devono avere la prima lettera minuscola, mentre devono essere maiuscole le iniziali delle eventuali altre parole che compongono il nome stesso;
-	%\item I commenti devono essere in italiano.
+	\item I commenti devono essere in italiano.
 \end{itemize}
 
 
@@ -517,10 +516,58 @@ Il codice scritto per in \mgls{javascript} dovrà seguire le seguenti linee guid
 	\item Javascript: Google JavaScript Style Guide \url{https://google.github.io/styleguide/javascriptguide.xml}.
 \end{itemize}
 
+\paragraph{Versionamento del codice}
+La versione del codice dovrà comparire esclusivamente all’interno dell’intestazione del file. Il formato utilizzato per versionare il codice dovrà essere conforme al formato:
+\begin{center}
+	\fileName{X.Y}
+\end{center}
+dove:
+\begin{itemize}
+	\item \textbf{X:} è l’indice di versione principale. Indica la versione di rilascio del documento. Questo valore viene incrementato una volta che il file ha raggiunto una versione stabile. Un nuovo incremento di questo valore comporta un'azzeramento del valore di Y
+	\item \textbf{Y:} è l’indice di modifica parziale. Questo valore viene incrementato in seguito ad una verifica o in seguito a modifiche rilevanti nel file, ad esempio aggiunta o rimozione di statement
+\end{itemize}
+L’avanzamento di versione di un singolo file di codice deve corrispondere al raggiungimento di un obiettivo di stabilità e funzionalità del file stesso. La versione 1.0 deve corrispondere alla prima versione del file completo e stabile. Si considera un file completo e stabile quando tutte le sue funzionalità pubbliche obbligatorie sono state definite e si considerano funzionanti. Sarà la prima versione del file che potrà intraprendere, qualora siano definiti, i test per confermarne l’effettivo funzionamento delle funzionalità create.
 
-\paragraph{Commenti al codice}
-\TODO{}
+\paragraph{Intestazione file di codice}
+Ogni file di codice dovrà avere un’intestazione con indicazione delle seguenti informazioni:
+\begin{itemize}
+	\item \textbf{file:} Campo contenente il nome del file
+	\item \textbf{date:} Campo contenente la data di creazione del file
+	\item \textbf{version:} Campo contenente la versione del codice
+	\item \textbf{author:} Campo contenente il nome e cognome di chi ha creato il file
+	\item \textbf{description:} Campo opzionale nel caso servisse una breve descrizione del file
+\end{itemize}
 
+L'intestazione avrà quindi la seguente struttura:\\\\
+\texttt{/**\\
+	* @file [nome del file]\\
+	* @date [data di creazione (gg/mm/aaaa)]\\
+	* @version [versione]\\
+	* @author [autore]\\
+	*\\
+	* Descrizione del file.\\
+	*/\\
+}
+
+\paragraph{Documentazione del codice}
+Per documentare il codice \mgls{javascript} si farà uso di Jsdoc.
+
+Ogni variabile di classe deve essere documentata quindi prima di ognuna dovrà essere presente un commento contenente:\\\\
+\texttt{/**\\
+	* Descrizione della variabile.\\
+	* @var {tipo} nomeVar\\
+	*/\\
+}
+
+Ogni metodo deve essere documentato attraverso un commento contenente:\\\\
+\texttt{/**\\
+	* Descrizione del metodo.\\
+	* @method nomeMetodo\\
+	* @param {tipo1} param1 breve descrizione del primo parametro.\\
+	* @return {{nomeValore1: tipo1, nomeValore2: tipo2, ...}} breve\\
+	* descrizione dei valori di ritorno della funzione.\\
+	*/\\
+}
 
 \subsubsubsection{Test}\label{test}
 
@@ -556,11 +603,17 @@ Permettendo inoltre la produzione automatica in \LaTeX{} delle tabelle per il tr
 
 \mgls{mocha} è un test framework eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
 \subparagraph{Installazione}
-Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi in terminale bisogna eseguire il commando:\texttt{\$ npm install -g mocha}  
+Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi in terminale bisogna eseguire il commando:
+\begin{center}
+	\texttt{\$ npm install -g mocha}  
+\end{center}
 \subparagraph{Esecuzione}
 Per eseguire i test bisogna eseguire il comando al terminale mocha path/alla/cartella/coi/test con opzione --recursive se si vogliono eseguire tutti i test anche nelle sottocartelle.
-Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src/tests/ e per lanciare tutti i test bisogna eseguire il commando : \texttt{\$ mocha starware.swe15/src/tests/ --recursive
+Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src/tests/ e per lanciare tutti i test bisogna eseguire il commando : 
+\begin{center}
+	\texttt{\$ mocha starware.swe15/src/tests/ --recursive
 }
+\end{center}
 \newpage
 
 \section{Processi di supporto}
