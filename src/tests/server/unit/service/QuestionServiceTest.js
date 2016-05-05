@@ -92,7 +92,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF>\nQuesta domanda verrà eliminata?\n[T]",
+                        body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
                         tags: [tags[0], tags[1]]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -121,7 +121,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF>\nQuesta domanda verrà eliminata?\n[T]",
+                        body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
                         tags: [tags[0]._id, tags[1]._id]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -206,7 +206,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF>\nQuesta domanda verrà aggiunta?\n[F]",
+                        body: "<TF F>\nQuesta domanda verrà aggiunta?\n[F]",
                         tags: []
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -240,7 +240,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -271,7 +271,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -289,7 +289,7 @@ describe('/api/questions', function() {
                         agent.attachCookies(req);
                         req.end(function(err, res) {
                             expect(res).to.have.property('status', 200);
-                            expect(res.body.body).to.eql("<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione");
+                            expect(res.body.body).to.eql("<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione");
                             expect(res.body.tags.length).to.be.eql(1);
                             expect(res.body.tags[0]).to.be.eql(question.tags[0]);
                             done();
@@ -301,13 +301,13 @@ describe('/api/questions', function() {
             });
 
         });
-        it('blocca la modifica della domanda di test  all\'utente autenticato non autore', function (done) {
+        it('blocca la modifica della domanda di test all\'utente autenticato non autore', function (done) {
             login(app, {
                 userName: 'riccardo.cardin',
                 password: 'password.riccardo.cardin'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -342,7 +342,7 @@ describe('/api/questions', function() {
                 req.end(function(err, res) {
                     expect(res).to.have.property('status', 200);
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     var req = request(app).delete('/api/questions/'+question._id);
                     agent.attachCookies(req);
@@ -363,7 +363,7 @@ describe('/api/questions', function() {
                 agent.attachCookies(req);
                 req.end(function(err, res) {
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda \n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     //richiesta di cancellazione
                     var req = request(app).delete('/api/questions/'+question._id);

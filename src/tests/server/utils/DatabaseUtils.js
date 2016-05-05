@@ -85,16 +85,16 @@ function databaseSetup(onSetup) {
 
 	var question1 = new Question ({
 		author: user3._id, 
-		body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", 
+		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
 		tags: [tag2._id,tag1._id]});
  	var question2 = new Question ({
  		author: user3._id, 
- 		body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", 
+ 		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
  		tags: [tag2._id]
  	});
 	var question3 = new Question ({
 		author: user3._id, 
-		body: "<TF>\nRoma è la capitale d’**Italia**?\n[T]", 
+		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
 		tags: [tag3._id]
 	});
 
