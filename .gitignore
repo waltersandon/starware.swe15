@@ -17,7 +17,7 @@
 *.DS_Store
 *.texpadtmp
 *.blg
-src/.idea/*
+**/.idea/
 src/static/nbproject/
 src/static/prova.html
 .gitignore
