@@ -1,4 +1,4 @@
-describe('controller.public.LogIn', function() {
+describe('controller.public.SignUp', function() {
 
     var $location;
     var $rootScope;
@@ -16,6 +16,10 @@ describe('controller.public.LogIn', function() {
                         role: 'id_ruolo'
                     });
                 };
+                this.signUp = function (fullName, password, userName, next, err) {
+                    userName === 'mario.rossi' ?
+                        next() : err({data: {message: 'errore registrazione'}});
+                }
             };
             var Check = function () {
                 this.checkPassword = function (password) {
@@ -24,11 +28,15 @@ describe('controller.public.LogIn', function() {
                 this.checkUserName = function (userName) {
                     return userName.length >= 6 ? {status: false}: {status: true} ;
                 };
-                    
+                this.checkFullName = function (fullName) {
+                    return fullName.length >= 2 ? {status: false}: {status: true} ;
+                };
+
             };
             var SessionService = function () {
                 this.login = function (password, userName, next, err) {
-                    password === 'password' && userName === 'mario.rossi' ? next() : err({data: {message: 'errore password'}});
+                    password === 'password' && userName === 'mario.rossi' ?
+                        next() : err({data: {message: 'errore password'}});
                 };
             };
 
@@ -42,7 +50,7 @@ describe('controller.public.LogIn', function() {
             $scope = $rootScope.$new();
             $cookies = $injector.get('$cookies');
             var $controller = $injector.get('$controller');
-            controller = $controller('controller.public.LogIn', {
+            controller = $controller('controller.public.SignUp', {
                 $location: $location,
                 $rootScope: $rootScope,
                 $scope: $scope,
@@ -56,11 +64,27 @@ describe('controller.public.LogIn', function() {
         it('deve eseguire il controllo sul formato del password', function () {
             $scope.password = 'password';
             expect($scope.checkPassword()).toBe(true);
-            
+
         });
         it('deve eseguire il controllo sul formato del password sbagliato', function () {
             $scope.password = 'pass';
             expect($scope.checkPassword()).toBe(false);
+
+        });
+
+    });
+    describe('checkRepeatPassword', function () {
+
+        it('deve eseguire il controllo sulla ugualianza tra password e repeatPassword', function () {
+            $scope.password = 'password';
+            $scope.repeatPassword = 'password';
+            expect($scope.checkRepeatPassword()).toBe(true);
+
+        });
+        it('deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato', function () {
+            $scope.password = 'password';
+            $scope.repeatPassword = 'drowssa'
+            expect($scope.checkRepeatPassword()).toBe(false);
 
         });
 
@@ -80,12 +104,28 @@ describe('controller.public.LogIn', function() {
 
 
     });
+    describe('checkFullName', function () {
+
+        it('deve eseguire il controllo sul formato del fullName', function () {
+            $scope.fullName = 'Mario Rossi';
+            expect($scope.checkFullName()).toBe(true);
+
+        });
+        it('deve eseguire il controllo sul formato del fullName sbagliato', function () {
+            $scope.fullName = 'm';
+            expect($scope.checkFullName()).toBe(false);
+
+        });
+
+
+    });
     describe('submit', function () {
 
-        it('deve effetuare login con credenziali giusti', function () {
+        it('deve effetuare signUp con credenziali giusti', function () {
             $scope.userName = 'mario.rossi';
             $scope.password = 'password';
-            $scope.submit();
+            $scope.fullName = 'Mario Rossi';
+                $scope.submit();
             expect($scope.logged).toBe(true);
             expect($scope.me).toEqual({
                 _id: 'id_user',
@@ -94,13 +134,15 @@ describe('controller.public.LogIn', function() {
                 role: 'id_ruolo'
             });
         });
+
         it('deve segnalare errore di login con credenziali sbagliati', function () {
-            $scope.userName = 'mario.rossi';
-            $scope.password = 'pass';
+            $scope.userName = 'mario.bianchi';
+            $scope.password = 'password';
+            $scope.fullName = 'Mario Rossi';
             $scope.submit();
             expect($scope.logged).toBe(false);
             expect($scope.error).toBeDefined();
-            expect($scope.error.message).toEqual('errore password');
+            expect($scope.error.message).toEqual('errore registrazione');
         });
 
 
