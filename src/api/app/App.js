@@ -26,9 +26,9 @@ App.prototype.config = function() {
  * Metodo che fa partire il server, non ritorna il controllo finché il server è in funzione
  */
 App.prototype.start = function(){
-    mongoose.connection.on('error', function(err) {
+    mongoose.connection.on('error', (function(err) {
         if (!this.configuration.test) console.error("Error: " + err);
-    });
+    }).bind(this));
     mongoose.connect(this.configuration.dbUri);
     var port = this.app.get('port');
     var ip = this.app.get('ip');
