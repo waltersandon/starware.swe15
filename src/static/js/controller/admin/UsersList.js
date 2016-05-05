@@ -1,11 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.admin.UsersList', ['model.service.RoleService', '$scope', 'model.service.UserService', function (RoleService, $scope, UserService) {
-            $scope.filterByRole = function (roleName) {
-                return $scope.roles.find(function (item) {
-                    return item.name === roleName;
-                })._id;
-            };
-
+    angular.module('app.App').controller('controller.admin.UsersList', ['model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function (RoleService, $rootScope, $scope, UserService) {
             $scope.changeUserRole = function (user) {
                 UserService.modifyRole(user, user.role, function () {
 
@@ -20,6 +14,18 @@ $(function () {
                     }, function (res) {
 
                     });
+                }
+            };
+            $scope.filterByRole = function (roleName) {
+                return $scope.roles.find(function (item) {
+                    return item.name === roleName;
+                }).id;
+            };
+            $scope.filterRoleList = function () {
+                if ($rootScope.me.role === 'superadmin') {
+                    return {name: "!superadmin"};
+                } else {
+                    return ({name: "!superadmin"} && {name: "!admin"});
                 }
             };
             RoleService.get(null, function (roles) {

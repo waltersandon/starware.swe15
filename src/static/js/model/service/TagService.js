@@ -35,35 +35,13 @@ $(function () {
                     err(res);
                 });
             };
-            this.modify = function (tag, next, err) {
-                $http.put(Configuration.remote + 'api/tags/' + tag._id, {
-                    _id: tag._id,
-                    name: tag.name,
-                    description: tag.description
-                }).then(function success(res) {
-                    console.log(res);
-                    next();
-                }, function error(res) {
-                    console.log(res);
-                    err(res);
-                });
-            };
             this.new = function (tag, next, err) {
                 $http.post(Configuration.remote + 'api/tags', {
                     description: tag.description,
                     name: tag.name
                 }).then(function success(res) {
                     console.log(res);
-                    next();
-                }, function error(res) {
-                    console.log(res);
-                    err(res);
-                });
-            };
-            this.delete = function (tag, next, err) {
-                $http.delete(Configuration.remote + 'api/tags/' + tag._id).then(function success(res) {
-                    console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
