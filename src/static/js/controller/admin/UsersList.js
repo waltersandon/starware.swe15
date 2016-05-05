@@ -3,7 +3,7 @@ $(function () {
             $scope.filterByRole = function (roleName) {
                 return $scope.roles.find(function (item) {
                     return item.name === roleName;
-                }).id;
+                })._id;
             };
 
             $scope.changeUserRole = function (user) {
