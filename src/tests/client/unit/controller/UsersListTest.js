@@ -39,6 +39,7 @@ describe('controller.admin.UsersList', function() {
                 };
 
                 this.modifyRole = function(user, role, success, fail) { success(); }
+                this.deleteUser = function(user, success, fail) { success(); }
             };
             $provide.service("model.service.UserService", UserService);
             var RoleService = function () {
