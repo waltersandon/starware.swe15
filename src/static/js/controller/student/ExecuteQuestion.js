@@ -1,9 +1,9 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', function ($location, $rootScope, $scope, $sce) {
+    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', '$interpolate', '$http', function ($location, $rootScope, $scope, $sce, $interpolate, $http) {
         $scope.$watch('currentQuestion', function(){
             if($scope.currentQuestion) {
-                $scope.preview = markdown.toHTML($scope.currentQuestion.body);
-                $scope.responses = $sce.trustAsHtml($scope.currentQuestion.responses);
+                $scope.ris=$scope.currentQuestion.selectedAnswer;
+                $scope.preview = $sce.trustAsHtml($interpolate($scope.currentQuestion.body)($scope));
             }
         });
 
@@ -11,9 +11,17 @@ $(function () {
             console.log(val);
         };
 
-        $scope.$watch('value', function(){
-            console.log("valore", $scope.value);
-            $scope.value = true;
+        $scope.$watch('ris', function(){
+            if($scope.currentQuestion) {
+                $scope.currentQuestion.selectedAnswer = $scope.ris;
+            }
         });
     }]);
 });
+
+
+function foo(res){
+    var scope = angular.element($("#outer")).scope();
+    scope.$apply(function(){
+        scope.ans = res;
+    })}

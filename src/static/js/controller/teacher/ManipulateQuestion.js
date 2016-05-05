@@ -1,49 +1,6 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$scope', 'model.data.Tag', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $scope, Tag, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$scope', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $scope, TagService) {
             $scope.error = new Error();
-
-            $scope.submit = function () {
-                if (QML.parse($scope.editor.value()).status) {
-                    $scope.question.body = $scope.editor.value();
-                    $scope.question.tags = [];
-
-                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
-                        var find = false;
-                        $scope.tags.forEach(function (item) {
-                            if (item.name === tagInput.trim()) {
-                                $scope.question.tags.push(item.id);
-                                find = true;
-                            }
-                        });
-                        if (!find) {
-                            TagService.new(new Tag('', '', tagInput.trim()), function (res) {
-                                $scope.question.tags.push(res._id);
-                                cll();
-                            }, function (res) {
-                                cll();
-                            });
-                        } else {
-                            cll();
-                        }
-                    }, function (err, res) {
-                        if ($scope.edit) {
-                            QuestionService.modify($scope.question, function () {
-                                $location.path('teacher/questions');
-                            }, function (res) {
-
-                            });
-                        } else {
-                            QuestionService.new($scope.question, function () {
-                                $location.path('teacher/questions');
-                            }, function (res) {
-
-                            });
-                        }
-                    });
-                } else {
-                    $scope.error = new Error(QML.parse($scope.editor.value()).message, 'errorQML', true, 'alert-danger');
-                }
-            };
 
             if ($scope.urlPath()[3] === 'new') {
                 $scope.question = new Question();
@@ -74,12 +31,60 @@ $(function () {
                 $scope.editor = new SimpleMDE({
                     element: document.getElementById('editor'),
                     previewRender: function (plainText) {
-                        return QML.parse(plainText).message;
+                        var p = QML.parse(plainText);
+                        return p.status ? p.body + p.answerForm : p.message;
                     },
                     toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview']
                 });
                 $scope.editor.value($scope.question.body);
             }
+
+        }]).controller('controller.teacher.ManipulateQuestion.Form', ['$location', 'util.QML', 'model.service.QuestionService', '$scope', 'model.data.Tag', 'model.service.TagService', function ($location, QML, QuestionService, $scope, Tag, TagService) {
+
+            $scope.submit = function () {
+                if (QML.parse($scope.editor.value()).status) {
+                    $scope.question.body = $scope.editor.value();
+                    $scope.question.tags = [];
+
+                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
+                        if (tagInput !== '') {
+                            var find = false;
+                            $scope.tags.forEach(function (item) {
+                                if (item.name === tagInput.trim()) {
+                                    $scope.question.tags.push(item.id);
+                                    find = true;
+                                }
+                            });
+                            if (!find) {
+                                TagService.new(new Tag('', '', tagInput.trim()), function (res) {
+                                    $scope.question.tags.push(res._id);
+                                    cll();
+                                }, function (res) {
+                                    cll();
+                                });
+                            } else {
+                                cll();
+                            }
+                        }
+                    }, function (err, res) {
+                        if ($scope.edit) {
+                            QuestionService.modify($scope.question, function () {
+                                $location.path('teacher/questions');
+                            }, function (res) {
+
+                            });
+                        } else {
+                            QuestionService.new($scope.question, function () {
+                                $location.path('teacher/questions');
+                            }, function (res) {
+
+                            });
+                        }
+                    });
+                } else {
+                    $scope.error = new Error(QML.parse($scope.editor.value()).message, 'errorQML', true, 'alert-danger');
+                }
+            };
 
             TagService.get('', function (tags) {
                 $scope.tags = tags;
@@ -118,7 +123,7 @@ $(function () {
                     return false;
                 }
             });
-        }]).controller('controller.teacher.ManipulateQuestion.Form', ['$location', '$scope', function ($location, $scope) {
+
             function preventExit(event) {
                 $scope.questionForm.$dirty = $scope.questionForm.$dirty || ($scope.question.body !== $scope.editor.value());
                 if (!$scope.questionForm.$dirty || ($scope.questionForm.$dirty && confirm('Sono state apportate modifiche: uscire senza salvare?'))) {
@@ -127,7 +132,7 @@ $(function () {
                     event.preventDefault();
                 }
             }
-            
+
             $scope.$on('$locationChangeStart', function (event) {
                 preventExit(event);
             });

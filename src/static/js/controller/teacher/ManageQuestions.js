@@ -9,6 +9,9 @@ $(function () {
                     });
                 }
             };
+            $scope.preview = function (body) {
+                return markdown.toHTML(body.split('\n')[1]);
+            };
             QuestionSerivce.get([$rootScope.me.id], null, null, function (questions) {
                 async.each(questions, function (question, cb) {
                     var tags = '';

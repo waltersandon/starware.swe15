@@ -2,7 +2,6 @@
     <div class='row'>
         <div class='col-md-12'>
             <h2>Modifica domanda</h2>
-
             <form ng-controller='controller.teacher.ManipulateQuestion.Form' name='questionForm' ng-submit='submit()'>
                 <div class='form-group'>
                     <label for='tags' class='col-md-2 control-label'>Tags</label>
@@ -18,7 +17,7 @@
                 <div class='form-group'>
                     <div class='col-md-3 col-md-offset-9'>
                         <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
-                        <button type='button' class='btn btn-raised btn-danger' >Cancel</button>
+                        <a href='#/teacher/questions' class='btn btn-raised btn-danger' >Cancel</a>
                     </div>
                 </div>
             </form>

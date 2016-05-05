@@ -26,5 +26,14 @@ $(function () {
             $scope.currentQuestion = $scope.questionnaire.questions[$scope.questionnaire.currentNumber];
             //$location.path('student/questionnaire/' + id + '/' + questionsId[$scope.questionnaire.currentNumber]);
         };
+
+        $scope.submit = function(){
+            if(!$scope.questionnaire.checkAnswers()) {
+                alert("Devi rispondere a tutte le domande");
+            }
+            else{
+                alert($scope.questionnaire.getResult());
+            }
+        }
     }]);
 });
