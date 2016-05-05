@@ -100,7 +100,6 @@ describe('model.service.QuestionnaireService', function () {
         it("effettua la richiesta corretta per put della domanda", function () {
             var questionnaire = {
                 id: "questionnaireTest",
-                author: "TestAuthor",
                 questions: ['testQuestion1','testQuestion2'],
                 tags: ['testTag1','testTag2'],
                 title: "Questionario Test"
@@ -108,7 +107,6 @@ describe('model.service.QuestionnaireService', function () {
 
             $httpBackend
                 .whenPUT(Configuration.remote + 'api/questionnaires/' + questionnaire.id, {
-                    author: questionnaire.author,
                     questions: questionnaire.questions,
                     tags: questionnaire.tags,
                     title: questionnaire.title
@@ -117,7 +115,6 @@ describe('model.service.QuestionnaireService', function () {
 
             $httpBackend
                 .expectPUT(Configuration.remote + 'api/questionnaires/' + questionnaire.id, {
-                    author: questionnaire.author,
                     questions: questionnaire.questions,
                     tags: questionnaire.tags,
                     title: questionnaire.title
