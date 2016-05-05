@@ -8,70 +8,87 @@ $(function () {
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             return {
                                 status: true,
-                                message: markdown(plainText) + '<form>\
+                                type: 'TF',
+                                body: markdown.toHTML(plainText),
+                                answerForm: '<form>\
                                     <div class=\'form-group\'>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'true\'>Vero\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
                                             </label>\
                                         </div>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'false\'>Falso\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\'> Falso\
                                             </label>\
                                         </div>\
                                     </div>\
-                                    </form>'
+                                    </form>',
+                                answers:[{value:true, str:'Vero'},{value:false, str:'Falso'}],
+                                answer: true
                             };
                         case 'TF F':
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             return {
                                 status: true,
-                                message: markdown(plainText) + '<form>\
+                                type: 'TF',
+                                body: markdown.toHTML(plainText),
+                                answerForm: '<form>\
                                     <div class=\'form-group\'>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'false\'>Vero\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\' onchange=\'foo(true)\'> Vero\
                                             </label>\
                                         </div>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'true\'>Falso\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\' onchange=\'foo(false)\'> Falso\
                                             </label>\
                                         </div>\
                                     </div>\
-                                    </form>'
+                                    </form>',
+                                answers:[{value:true, str:'Vero'},{value:false, str:'Falso'}],
+                                answer: false
                             };
                         case 'MultipleChoice':
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             var rightAnswers = 0, wrongAnswers = 0, ansFlag = false;
                             var a = plainText.split('\n');
-                            var res = '';
+                            var txt = '';
+                            var ans = '';
+                            var right;
+                            var choice = [];
+                            var n = 0;//conta le risposte possibili
                             for (var i = 0; i < a.length; i++) {
 
                                 if (a[i] === '[answers]' && !ansFlag) {
                                     ansFlag = true;
-                                    res += '<div class=\'form-group\'>';
+                                    ans += '<div class=\'form-group\'>';
                                 }
 
                                 if (a[i].startsWith('[]') && ansFlag) {
-                                    rightAnswers++;
-                                    var r = markdown(a[i].substr(2));
-                                    res += '<div>\
-                                                <label>\
-                                                    <input type=\'radio\' name=\'ris\' value=\'true\'>' + r.substr(3, r.length - 3) + '\
-                                                </label>\
-                                            </div>';
-                                } else if (a[i].startsWith('[*]') && ansFlag) {
                                     wrongAnswers++;
-                                    var r = markdown(a[i].substr(3));
-                                    res += '<div>\
+                                    var r = markdown.toHTML(a[i].substr(2));
+                                    ans += '<div>\
                                                 <label>\
-                                                    <input type=\'radio\' name=\'ris\' value=\'false\'>' + r.substr(3, r.length - 3) + '\
+                                                    <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
                                                 </label>\
                                             </div>';
+                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    n++;
+                                } else if (a[i].startsWith('[*]') && ansFlag) {
+                                    rightAnswers++;
+                                    var r = markdown.toHTML(a[i].substr(3));
+                                    ans += '<div>\
+                                                <label>\
+                                                    <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
+                                                </label>\
+                                            </div>';
+                                    right = n;
+                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    n++;
                                 } else if (!ansFlag) {
-                                    res += markdown(a[i]);
+                                    txt += markdown.toHTML(a[i]);
                                 }
 
                             }
@@ -92,7 +109,11 @@ $(function () {
 
                             return {
                                 status: true,
-                                message: res + '</div>'
+                                type: 'MultipleChoice',
+                                body: txt,
+                                answerForm: ans + '</div>',
+                                answers: choice,
+                                answer: right
                             };
                         default:
                             return {

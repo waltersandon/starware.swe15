@@ -31,12 +31,28 @@ $(function () {
             var ret = true;
 
             this.questions.forEach(function (item) {
-                if (item.answer === null) {
+                if (item.selectedAnswer === null) {
                     ret = false;
                 }
             });
             return ret;
         };
+
+        CurrentQuestionnaire.prototype.getResult = function () {
+            var point = 0;
+            var tot = 0;
+
+            this.questions.forEach(function (item) {
+                var result = item.point();
+                console.log(result);
+                if (result.answer !== null) {
+                    point += result.point;
+                    tot += result.tot;
+                }
+            });
+            return "Punteggio: " + point + " / " + tot;
+        };
+
         CurrentQuestionnaire.prototype.getNext = function () {
             if (this.currentNumber < this.questionNumber - 1) {
                 this.currentNumber++;

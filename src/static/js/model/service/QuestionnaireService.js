@@ -66,7 +66,6 @@ $(function () {
             };
             this.modify = function (questionnaire, next, err) {
                 $http.put(Configuration.remote + 'api/questionnaires/' + questionnaire.id, {
-                    'author': questionnaire.author,
                     'questions': questionnaire.questions,
                     'tags': questionnaire.tags,
                     'title': questionnaire.title

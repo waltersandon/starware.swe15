@@ -10,7 +10,7 @@ $(function () {
                 $scope.editor = new SimpleMDE({
                     element: document.getElementById('editor'),
                     previewRender: function (plainText) {
-                        return QML.parse(plainText).message;
+                        return QML.parse(plainText).body + QML.parse(plainText).answerForm;
                     },
                     toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'table', 'guide', '|', 'preview'] //finire
                 });

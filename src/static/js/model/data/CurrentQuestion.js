@@ -1,28 +1,30 @@
 $(function () {
-    angular.module('CurrentQuestionModule', ['CurrentTFQuestionModule']).factory('model.data.CurrentQuestion', ['model.data.CurrentTFQuestion', function (CurrentTFQuestion) {
+    angular.module('CurrentQuestionModule', ['CurrentTFQuestionModule']).factory('model.data.CurrentQuestion', ['util.QML', function (QML) {
         function CurrentQuestion(question) {
 
-            this.type = null;
-            this.body = null;
+            var quest = QML.parse(question.body);
 
-            if(question.body.charAt(0) == "<"){
+            this.type = quest.type;
+            this.body = quest.body;
+            this.answers = quest.answers;
+            this.answer = quest.answer.toString();
+            this.selectedAnswer = null;
 
-                this.type = question.body.substring(1, question.body.indexOf('>'));
-                question.body = question.body.substring(question.body.indexOf('>') + 1);
+            }
 
-                if (this.type == "TF T"){
-                    var quest = new CurrentTFQuestion(question, true);
-                } else if (this.type == "TF F") {
-                    var quest = new CurrentTFQuestion(question, false);
+        CurrentQuestion.prototype.point = function(){
+            if (this.type == "TF" || this.type == "MultipleChoice"){
+                if(this.answer == this.selectedAnswer) {
+                    return {point: 1, tot: 1};
                 }
-                if(quest.body){
-                    this.answer = quest.answer;
-                    this.body = quest.body;
-                    this.responses = quest.responses;
-                    this.options = null;
+                else{
+                    return {point:0, tot: 1};
                 }
             }
-        }
+            return null;
+        };
+
+
         return CurrentQuestion;
     }]);
 });
