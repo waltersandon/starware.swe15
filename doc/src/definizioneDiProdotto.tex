@@ -67,9 +67,13 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		1.0.7 & \TP{} & 2016-05-03 & Aggiunte note su sicurezza e autenticazione dell'API REST. \\*
+		1.0.9 & \TODO{} & 2016-05-05 & Rimozione analisi database NoSql in quanto trattato nel capitolo di MongoDB \\*
 		\midrule
-		1.0.6 & \TP{} & 2016-04-28 & All'interno dell'API REST sono stati semplificati i riferimenti ad oggetti di ritorno rimuovendo la notazione \texttt{\{ href: ".." \}} in favore di una semplice stringa contenente l'ID dell'oggetto. \\*
+		1.0.8 & \TODO{} & 2016-05-05 & Aggiunta analisi criticità delle tenologie adottate \\*
+		\midrule
+		1.0.7 & \TP{} & 2016-05-03 & Aggiunte note su sicurezza e autenticazione dell'API REST \\*
+		\midrule
+		1.0.6 & \TP{} & 2016-04-28 & All'interno dell'API REST sono stati semplificati i riferimenti ad oggetti di ritorno rimuovendo la notazione \texttt{\{ href: ".." \}} in favore di una semplice stringa contenente l'ID dell'oggetto \\*
 		\midrule
 		1.0.5 & \TP{} & 2016-04-24 & Il model \texttt{User} ha un attributo \texttt{isActive} che definisce se non è stato cancellato nel sistema \\*
 		\midrule
@@ -197,9 +201,11 @@ L’\mgls{html5} è un linguaggio di \mgls{markup} per strutturare pagine web. V
 	\item permette di definire in maniera semplice la struttura delle pagine web;
 	\item permette una maggiore semantica della pagina web, garantendo così una migliore indicizzazione da parte dei motori di ricerca.
 \end{itemize}
+Inoltre la scelta di \mgls{html5} è stata rafforzata dal fatto che non sono stati rilevati aspetti negativi nell'adozione di questo linguaggio per il progetto. 
 
 \subsubsection{CSS3}\label{css}
 CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’aspetto grafico delle pagine web per l'applicazione qualora non bastassero i costrutti forniti dal \mgls{framework} Bootstrap ( \ref{bootstrap}).
+Il gruppo anche in questo caso non ha trovato svantaggi nell'adottare CSS3 in quanto lo styling della pagina, per separation of concern, non dovrebbe essere fatta ne attraverso l'\mgls{html}, ne attraverso \mgls{javascript}.
 
 \subsubsection{JavaScript}\label{javascript}
 \mgls{javascript} è un linguaggio di \mgls{scripting} interpretato che consente ai \mgls{browser} di eseguire codice rendendo le pagine web dinamiche. Consente di realizzare prodotti \mgls{software} che eseguono sfruttando le capacità di calcolo fornite dai \mgls{browser} degli utenti e quindi, che non necessitano dell’intervento di elaborazione del \mgls{server}. \mgls{javascript} tuttavia introduce anche degli aspetti critici a cui il gruppo dovrà prestare particolare attenzione: come la mancanza di tipizzazione del linguaggio, che potrebbe indurre a commettere errori nel codice e rendere più difficile, oppure gli eventuali problemi di sicurezza per l'utente nel caso venisse eseguito del codice malevolo. I principali motivi della scelta di questo linguaggio sono:
@@ -212,8 +218,8 @@ CSS3 (Cascading Style Sheets) è il linguaggio che verrà utilizzato per l’asp
 
 \mgls{javascript} verrà utilizzato sia per la parte \mgls{client} che \mgls{server}. \mgls{javascript} verrà impiegato per tutte le funzionalità legate allo standard \mgls{html5} che non sono direttamente accessibili dal \mgls{framework} \mgls{angularjs}.
 
-\subsubsection{NoSql}\label{nosql}
-I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente. Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{api} semplici e la possibilità di avere una quantità di dati enormi al loro interno. Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database.
+%\subsubsection{NoSql}\label{nosql}
+%I \mgls{database} \mgls{nosql} nascono con l'idea di superare delle limitazioni implicite nei database \mgls{sql} e sono caratterizzati dal essere non relazionali, distribuiti, \mgls{open-source} e scalabili orizzontalmente. Molto frequentemente altre caratteristiche applicabili a questa tipologia di database sono: l'essere \mgls{schema-free} l'avere \mgls{api} semplici e la possibilità di avere una quantità di dati enormi al loro interno. Le sopracitate caratteristiche e la possibilità di cimentarsi con una tecnologia nuova per il gruppo hanno ci hanno indirizzato verso la scelta di questo tipo di database. 
 
 \subsection{Frameworks}
 
@@ -227,6 +233,11 @@ Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{nod
 	accedere ai \mgls{package} messi a disposizione dalla community.
 	Le applicazioni \mgls{node.js} vengono eseguite su un singolo \mgls{thread}, sebbene \mgls{node.js} utilizzi un modello \mgls{multi-thread} per la gestione degli eventi legati a file e connessioni di rete
 \end{itemize}
+Tuttavia bisogna tenere in considerazione che questo \mgls{framework} presenta anche degli aspetti potenzialmente critici, quali:
+\begin{itemize}
+	\item La relativa immaturità, in quanto anche se la maggior parte delle librerie fondamentali hanno raggiunto la stabilità, l'ecosistema in generale non ha raggiunto ancora un livello ottimo di maturità. Inoltre la facilità di pubblicazione dei propri pacchetti ed il modo in cui il \mgls{node package manager} è strutturato rende difficile il fidarsi degli stessi;
+	\item L'utilizzo di codice \mgls{javascript} che comporta le problematiche citate introdotte dal linguaggio nella sezione \ref{javascript}.
+\end{itemize}
 
 \subsubsection{AngularJS}\label{angularjs}
 \mgls{angularjs} è un \mgls{framework} \mgls{javascript} \mgls{open-source}  inspirato al pattern \mgls{mvc} patrocinato da \mgls{google}. Uno dei vantaggi più grandi che caratterizzano questo \mgls{framework} è la possibilità di integrare e utilizzare molte funzioni utilizzando quasi esclusivamente l’\mgls{html} grazie all’approccio dichiarativo, permettendo di estenderne la sintassi per esprimere le componenti dell’applicazione in maniera chiara e succinta. Le caratteristiche principali che caratterizzano questo \mgls{framework} sono:
@@ -236,27 +247,40 @@ Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{nod
 	\item \textbf{Dependency injection:} permette di descrivere in maniera dichiarativa quali sono le
 	dipendenze che l’applicazione possiede, isolando i comportamenti e le responsabilità dei componenti garantendo un facile rimpiazzo di quest’ultimi. Questo meccanismo favorisce inoltre la testabilità del codice dell’applicazione	
 \end{itemize}
-
+I potenziali rischi rilevati nell'adottare questo \mgls{framework} a cui il gruppo dovrà porre particolare attenzione sono:
+\begin{itemize}
+	\item La curva di apprendimento del linguaggio è relativamente ripida, rendendo l'apprendimento delle funzionalità non base difficile;
+	\item Gli \mglspl{scope} sono facili da usare ma effettuare debugging sugli stessi è complesso;
+	\item L'avvento imminente della versione 2.0 di \mgls{angularjs} rischia introdurre modifiche notevoli alla logica \mgls{front-end} in caso di rinnovamento delle tecnologie.
+\end{itemize}
 \mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la parte algoritmica del \mgls{front-end}.
 
 \subsubsection{Bootstrap}\label{bootstrap}
-Bootstrap è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}. Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
+\mgls{bootstrap} è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}. Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
 
 \begin{itemize}
-	\item permette all’applicativo di essere responsive G applicando facilmente delle regole già pronte;
+	\item permette all’applicativo di essere \mgls{responsive} applicando facilmente delle regole già pronte;
 	\item Le diverse componenti vengono già incorporate direttamente nel \mgls{framework} \mgls{angularjs};
 	\item presenza di una vasta comunità a supporto;
 	\item permette di gestire in modo automatico il \mgls{rendering} delle pagine dell'applicazione per svariati dispositivi (\mgls{smartphone}, tablet, PC).
 \end{itemize}
 
+I potenziali aspetti critici derivanti dall'uso di \mgls{bootstrap} sono:
+\begin{itemize}
+	\item Il codice \mgls{html} generato da \mgls{bootstrap} ha molti tags \texttt{<div>} e rischia di essere altamente annidato confondendo in questo modo la leggibilità del codice;
+	\item \mgls{bootstrap} fa affidamento a classi specifiche assegnate agli elementi della pagina che servono per abilitare determinate funzionalità del \mgls{framework}, tuttavia questo viola uno dei precetti principali della costruzione delle pagine web, cioè che la presentazione debba essere indipendente dai dati.
+\end{itemize}
+
 \subsubsection{Express}\label{express}
-Express è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. Express integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. Express aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
+\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. \mgls{express} integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
+Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
 
 
 \subsection{Librerie}\label{librery}
 \subsubsection{Mongoose}\label{mongoose}
 Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
 La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente.
+Non sono state trovati particolari aspetti critici introdotti dall'utilizzo di \mgls{mongoose}.
 
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
@@ -272,6 +296,15 @@ La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in 
 \end{itemize}
 
 Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo. Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
+
+Tuttavia l'utilizzo di \mgls{mongodb} introduce alcuni aspetti potenzialmente critici:
+\begin{itemize}
+	\item Su \mgls{mongodb} non esiste la possibilità di effettuare \mgls{join} per questa ragione c'è il rischio di aumentare il numero di \mgls{query} da effettuare per ottenere i dati desiderati;
+	\item \mgls{mongodb} non è transazionale quindi non assicura l'integrità dei dati, quindi per l'inserimento e la modifica dei dati bisogna controllare manualmente l'integrità dei dati;
+	\item Quando vengono effettuate operazioni di scrittura sul database, questo imposta un blocco sulle operazioni di scritture e lettura sull'intero database. 
+\end{itemize}
+
+Il gruppo tuttavia ha ritenuto che gli aspetti positivi superassero di molto gli aspetti negativi e che l'utilizzo del \mgls{mean stack} completo sarebbe stato più coerente e documentato invece di scegliere un database \mgls{sql}.
 
 \newpage
 \section{Standard di progetto}
