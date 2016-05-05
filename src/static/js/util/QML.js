@@ -96,14 +96,14 @@ $(function () {
                             if (!ansFlag) {
                                 return {
                                     status: false,
-                                    message: '<strong>Errore: la domanda non contiente <i></i> </strong>'
+                                    message: '<strong>Errore: la domanda non contiente il flag [answers] <i></i> </strong>'
                                 };
                             }
 
                             if (!(rightAnswers === 1 && wrongAnswers > 0)) {
                                 return {
                                     status: false,
-                                    message: '<strong>Errore: la domanda non contiene </strong>'
+                                    message: '<strong>Errore: la domanda non contiene una risponsta giusta o almeno una risposte sbagliata </strong>'
                                 };
                             }
 
