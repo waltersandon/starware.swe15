@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$scope', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$scope', 'model.data.Tag', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $scope, Tag, TagService) {
             $scope.error = new Error();
 
             if ($scope.urlPath()[3] === 'new') {
@@ -39,24 +39,22 @@ $(function () {
                 $scope.editor.value($scope.question.body);
             }
 
-        }]).controller('controller.teacher.ManipulateQuestion.Form', ['$location', 'util.QML', 'model.service.QuestionService', '$scope', 'model.data.Tag', 'model.service.TagService', function ($location, QML, QuestionService, $scope, Tag, TagService) {
-
             $scope.submit = function () {
                 if (QML.parse($scope.editor.value()).status) {
                     $scope.question.body = $scope.editor.value();
                     $scope.question.tags = [];
 
-                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
+                    async.each($scope.tagsInput.split(/,\s*/), function (tagInput, cll) {
                         if (tagInput !== '') {
                             var find = false;
                             $scope.tags.forEach(function (item) {
-                                if (item.name === tagInput.trim()) {
+                                if (item.name === tagInput) {
                                     $scope.question.tags.push(item.id);
                                     find = true;
                                 }
                             });
                             if (!find) {
-                                TagService.new(new Tag('', '', tagInput.trim()), function (res) {
+                                TagService.new(new Tag('', '', tagInput), function (res) {
                                     $scope.question.tags.push(res._id);
                                     cll();
                                 }, function (res) {
@@ -92,53 +90,66 @@ $(function () {
 
             });
 
-            function split(val) {
-                return val.split(/,\s*/);
-            }
-
-            $('#tags').bind('keydown', function (event) { // don't navigate away from the field on tab when selecting an item
+            $('#tags').bind('keydown', function (event) {
                 if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
                     event.preventDefault();
                 }
             }).autocomplete({
                 minLength: 0,
-                source: function (request, response) { // delegate back to autocomplete, but extract the last term
+                source: function (request, response) {
                     response($.ui.autocomplete.filter(function () {
                         var ret = [];
                         $scope.tags.forEach(function (item) {
                             ret.push(item.name);
                         });
                         return ret;
-                    }(), split(request.term).pop()));
+                    }(), request.term.split(/,\s*/).pop()));
                 },
-                focus: function () { // prevent value inserted on focus
+                focus: function () {
                     return false;
                 },
                 select: function (event, ui) {
-                    var terms = split(this.value);
-                    terms.pop(); // remove the current input
-                    terms.push(ui.item.value); // add the selected item
-                    terms.push(''); // add placeholder to get the comma-and-space at the end
+                    var terms = this.value.split(/,\s*/);
+                    terms.pop();
+                    terms.push(ui.item.value);
+                    terms.push('');
                     this.value = terms.join(', ');
                     return false;
                 }
             });
+            $scope.dirty = false;
 
-            function preventExit(event) {
-                $scope.questionForm.$dirty = $scope.questionForm.$dirty || ($scope.question.body !== $scope.editor.value());
-                if (!$scope.questionForm.$dirty || ($scope.questionForm.$dirty && confirm('Sono state apportate modifiche: uscire senza salvare?'))) {
-                    $location.path('teacher/questions');
-                } else {
+            /*$scope.$on('$routeChangeStart', function (event) {
+                console.log('$routeChangeStart');
+                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
                     event.preventDefault();
                 }
-            }
+            });
 
             $scope.$on('$locationChangeStart', function (event) {
-                preventExit(event);
+                console.log('$locationChangeStart');
+                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+                    event.preventDefault();
+                }
             });
-            $(window).bind("beforeunload", function (event) {
-                preventExit(event);
+
+            $(window).on('hashchange', function (event) {
+                console.log('hashchange');
+                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+                    event.preventDefault();
+                }
             });
+
+            $(window).bind('beforeunload', function (event) {
+                console.log('beforeunload');
+                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+                    event.preventDefault();
+                }
+            });*/
         }]);
 });
 

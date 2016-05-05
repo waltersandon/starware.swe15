@@ -1,7 +1,7 @@
 $(function () {
     angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
             this.delete = function (user, next, err) {
-                $http.delete(Configuration.remote + 'api/users/' + user._id).then(function success(res) {
+                $http.delete(Configuration.remote + 'api/users/' + user.id).then(function success(res) {
                     console.log(res);
                     next();
                 }, function error(res) {
@@ -68,8 +68,8 @@ $(function () {
                 });
             };
             this.modifyRole = function (user, role, next, err) {
-                $http.post(Configuration.remote + 'api/users/' + user._id, {
-                    role: role._id
+                $http.post(Configuration.remote + 'api/users/' + user.id, {
+                    role: role
                 }).then(function success(res) {
                     console.log(res);
                     next();
