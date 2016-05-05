@@ -92,14 +92,12 @@ describe('model.service.QuestionService', function () {
             it("effettua la richiesta corretta per put della domanda", function () {
                 var question = {
                     id: "questionTest",
-                    author: "autorTest",
                     body: "<TF>\nQuesta domanda è da test?\n[T]",
                     tags: ['tagid1', 'tagid2']
                 };
 
                 $httpBackend
                     .whenPUT(Configuration.remote + 'api/questions/' + question.id, {
-                        author: question.author,
                         body: question.body,
                         tags: question.tags
 
@@ -107,7 +105,6 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .expectPUT(Configuration.remote + 'api/questions/' + question.id, {
-                        author: question.author,
                         body: question.body,
                         tags: question.tags
                     });

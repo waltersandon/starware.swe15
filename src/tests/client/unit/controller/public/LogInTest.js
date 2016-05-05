@@ -5,10 +5,10 @@ describe('controller.public.LogIn', function() {
     var $scope;
     var $cookies;
     var controller;
-    beforeEach(function() {
-        module('app.App', function($provide){
+    beforeEach(function () {
+        module('app.App', function ($provide) {
             var UserService = function () {
-                this.getMe = function(success, fail) {
+                this.getMe = function (success, fail) {
                     return success({
                         _id: 'id_user',
                         userName: 'mario.rossi',
@@ -18,7 +18,7 @@ describe('controller.public.LogIn', function() {
                 };
             };
             var Check = function () {
-                this.checkPassword = function(success, fail) {
+                this.checkPassword = function (success, fail) {
                     return success({
                         _id: 'id_user',
                         userName: 'mario.rossi',
@@ -26,12 +26,14 @@ describe('controller.public.LogIn', function() {
                         role: 'id_ruolo'
                     });
                 };
-                this.checkUserName = function () {
-                    
+                this.checkUserName = function (userName) {
+                    return userName.length >= 2 ? !$scope.error.status:
+                        new Error('Il <strong>nome completo</strong> deve avere almeno <strong>6</strong> caratteri',
+                            'errorFullName', true, 'alert-warning');
                 };
             };
             var SessionService = function () {
-                this.getMe = function(success, fail) {
+                this.getMe = function (success, fail) {
                     return success({
                         _id: 'id_user',
                         userName: 'mario.rossi',
@@ -40,12 +42,12 @@ describe('controller.public.LogIn', function() {
                     });
                 };
             };
-            
+
             $provide.service("model.service.UserService", UserService);
             $provide.service("util.Check", Check);
             $provide.service("model.service.SessionService", SessionService);
         });
-        inject(function($injector) {
+        inject(function ($injector) {
             $location = $injector.get('$location');
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
@@ -60,18 +62,27 @@ describe('controller.public.LogIn', function() {
         });
     });
 
-    describe('checkPassword', function() {
+    describe('checkPassword', function () {
 
-        it('should have a method to check if the path is active', function() {
-            /*$cookies.put('connect.sid', "id_sessione");
-            $scope.checkLogged();
-            expect($rootScope.me._id).toBe('id_user');
-            expect($rootScope.me.userName).toBe('mario.rossi');
-            expect($rootScope.me.fullName).toBe('Mario Rossi');
-            expect($rootScope.me.role).toBe('id_ruolo');
-            expect($rootScope.logged).toBe(true);
-            */
+        it('should have a method to check if the path is active', function () {
+            
+             expect($rootScope.me._id).toBe('id_user');
+            
         });
+
+    });
+    describe('checkUserName', function () {
+
+        it('should have a method to check if the path is active', function () {
+        });
+
+
+    });
+    describe('submit', function () {
+
+        it('should have a method to check if the path is active', function () {
+        });
+
 
     });
 
