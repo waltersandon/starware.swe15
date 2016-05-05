@@ -1,6 +1,5 @@
 $(function () {
     angular.module('QMLModule', []).service('util.QML', [function () {
-            
             this.parse = function (plainText) {
                 if (plainText.charAt(0) === '<') {
                     switch (plainText.substr(1, plainText.indexOf('>') - 1)) {
@@ -8,16 +7,16 @@ $(function () {
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             return {
                                 status: true,
-                                message: markdown(plainText) + '<form>\
+                                message: markdown.toHTML(plainText) + '<form>\
                                     <div class=\'form-group\'>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'true\'>Vero\
+                                                <input type=\'radio\' name=\'ris\' ng-model=\'ris\' value=\'true\'>Vero\
                                             </label>\
                                         </div>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'false\'>Falso\
+                                                <input type=\'radio\' name=\'ris\' ng-model=\'ris\' value=\'false\'>Falso\
                                             </label>\
                                         </div>\
                                     </div>\
@@ -27,51 +26,51 @@ $(function () {
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             return {
                                 status: true,
-                                message: markdown(plainText) + '<form>\
+                                message: markdown.toHTML(plainText) + '<form>\
                                     <div class=\'form-group\'>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'false\'>Vero\
+                                                <input type=\'radio\' name=\'ris\' ng-model=\'ris\' value=\'false\'>Vero\
                                             </label>\
                                         </div>\
                                         <div>\
                                             <label>\
-                                                <input type=\'radio\' ng-model=\'ris\' value=\'true\'>Falso\
+                                                <input type=\'radio\' name=\'ris\' ng-model=\'ris\' value=\'true\'>Falso\
                                             </label>\
                                         </div>\
                                     </div>\
                                     </form>'
                             };
-                        case 'MultipleChoice':
+                        case 'MC':
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
                             var rightAnswers = 0, wrongAnswers = 0, ansFlag = false;
-                            var a = plainText.split('\n');
                             var res = '';
-                            for (var i = 0; i < a.length; i++) {
+                            for (var row of plainText.split('\n')) {
 
-                                if (a[i] === '[answers]' && !ansFlag) {
+                                if (row === '[answers]' && !ansFlag) {
                                     ansFlag = true;
-                                    res += '<div class=\'form-group\'>';
+                                    res += '<form>\
+                                                <div class=\'form-group\'>';
                                 }
 
-                                if (a[i].startsWith('[]') && ansFlag) {
+                                if (row.startsWith('[]') && ansFlag) {
+                                    var r = markdown.toHTML(row.substr(2));
+                                    res += '<div>\
+                                                <label>\
+                                                    <input type=\'radio\' name=\'ris\' ng-model=\'ris[' + rightAnswers + ']\'>' + r.substr(3, r.length - 3) + '\
+                                                </label>\
+                                            </div>';
                                     rightAnswers++;
-                                    var r = markdown(a[i].substr(2));
+                                } else if (row.startsWith('[*]') && ansFlag) {
+                                    var r = markdown.toHTML(row.substr(3));
                                     res += '<div>\
                                                 <label>\
-                                                    <input type=\'radio\' name=\'ris\' value=\'true\'>' + r.substr(3, r.length - 3) + '\
+                                                    <input type=\'radio\' name=\'ris\' ng-model=\'ris[' + wrongAnswers + ']\'>' + r.substr(3, r.length - 3) + '\
                                                 </label>\
                                             </div>';
-                                } else if (a[i].startsWith('[*]') && ansFlag) {
                                     wrongAnswers++;
-                                    var r = markdown(a[i].substr(3));
-                                    res += '<div>\
-                                                <label>\
-                                                    <input type=\'radio\' name=\'ris\' value=\'false\'>' + r.substr(3, r.length - 3) + '\
-                                                </label>\
-                                            </div>';
                                 } else if (!ansFlag) {
-                                    res += markdown(a[i]);
+                                    res += markdown.toHTML(row);
                                 }
 
                             }
@@ -79,31 +78,38 @@ $(function () {
                             if (!ansFlag) {
                                 return {
                                     status: false,
-                                    message: '<strong>Errore: la domanda non contiente <i></i> </strong>'
+                                    message: '<strong>Errore! </strong> la domanda non contiente il flag <i>[answers]</i> '
                                 };
                             }
 
-                            if (!(rightAnswers === 1 && wrongAnswers > 0)) {
+                            if (rightAnswers !== 1) {
                                 return {
                                     status: false,
-                                    message: '<strong>Errore: la domanda non contiene </strong>'
+                                    message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta o ne contiene più di una'
+                                };
+                            }
+
+                            if (wrongAnswers === 0) {
+                                return {
+                                    status: false,
+                                    message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
                                 };
                             }
 
                             return {
                                 status: true,
-                                message: res + '</div>'
+                                message: res + '</div></form>'
                             };
                         default:
                             return {
                                 status: false,
-                                message: '<strong>Errore: tipo domanda non corretto</strong>'
+                                message: '<strong>Errore! </strong> tipo domanda non corretto'
                             };
                     }
                 } else {
                     return {
                         status: false,
-                        message: '<strong>Errore: tipo domanda non specificato</strong>'
+                        message: '<strong>Errore! </strong> tipo domanda non specificato'
                     };
                 }
             };

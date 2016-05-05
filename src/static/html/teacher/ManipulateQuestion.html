@@ -2,25 +2,34 @@
     <div class='row'>
         <div class='col-md-12'>
             <h2>Modifica domanda</h2>
-            <textarea id='editor'></textarea>
-            <a href='' class='btn btn-raised btn-primary'>Submit</a>
 
-            <form>
+            <form ng-controller='controller.teacher.ManipulateQuestion.Form' name='questionForm' ng-submit='submit()'>
                 <div class='form-group'>
-                    <div>
-                        <label>
-                            <input type='radio' name='ris' ng-model='value' value='true'>Vero
-                        </label>
+                    <label for='tags' class='col-md-2 control-label'>Tags</label>
+                    <div class='col-md-10'>
+                        <input name='tags' type='text' class='form-control' id='tags' placeholder='Tags' required ng-model='tagsInput'>
                     </div>
-                    <div>
-                        <label>
-                            <input type='radio' name='ris' ng-model='value' value='false'>Falso
-                        </label>
+                </div>
+                <div class='form-group'>
+                    <div class='col-md-12'>
+                        <textarea id='editor'></textarea>
+                    </div>
+                </div>
+                <div class='form-group'>
+                    <div class='col-md-3 col-md-offset-9'>
+                        <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
+                        <button type='button' class='btn btn-raised btn-danger' >Cancel</button>
                     </div>
                 </div>
             </form>
-
-
+        </div>
+        <div class='col-md-12'>
+            <div class='alert' ng-class='error.type' ng-show='error.status'>
+                <a ng-click='error.status = false' href='' class='close'>&times;</a>
+                <span ng-bind-html='error.message'></span>
+            </div>
         </div>
     </div>
 </div>
+
+

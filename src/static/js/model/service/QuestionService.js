@@ -66,12 +66,11 @@ $(function () {
             };
             this.modify = function (question, next, err) {
                 $http.put(Configuration.remote + 'api/questions/' + question.id, {
-                    'author': question.author,
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
@@ -79,12 +78,11 @@ $(function () {
             };
             this.new = function (question, next, err) {
                 $http.post(Configuration.remote + 'api/questions', {
-                    'author': question.author,
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);

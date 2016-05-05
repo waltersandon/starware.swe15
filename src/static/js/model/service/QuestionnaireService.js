@@ -66,13 +66,12 @@ $(function () {
             };
             this.modify = function (questionnaire, next, err) {
                 $http.put(Configuration.remote + 'api/questionnaires/' + questionnaire.id, {
-                    'author': questionnaire.author,
                     'questions': questionnaire.questions,
                     'tags': questionnaire.tags,
                     'title': questionnaire.title
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
@@ -80,13 +79,12 @@ $(function () {
             };
             this.new = function (questionnaire, next, err) {
                 $http.post(Configuration.remote + 'api/questionnaires', {
-                    'author': questionnaire.author,
                     'questions': questionnaire.questions,
                     'tags': questionnaire.tags,
                     'title': questionnaire.title
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);

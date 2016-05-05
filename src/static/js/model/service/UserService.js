@@ -1,5 +1,14 @@
 $(function () {
     angular.module('UserServiceModule', ['CurrentUserModule', 'ConfigurationModule', 'RoleServiceModule', 'UserModule']).service('model.service.UserService', ['app.Configuration', 'model.data.CurrentUser', '$http', 'model.service.RoleService', 'model.data.User', function (Configuration, CurrentUser, $http, RoleService, User) {
+            this.delete = function (user, next, err) {
+                $http.delete(Configuration.remote + 'api/users/' + user._id).then(function success(res) {
+                    console.log(res);
+                    next();
+                }, function error(res) {
+                    console.log(res);
+                    err(res);
+                });
+            };
             this.get = function (fullName, userName, next, err) {
                 $http.get(Configuration.remote + 'api/users?' +
                         'fullName=' + function () {
@@ -88,7 +97,7 @@ $(function () {
                     'userName': userName
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
@@ -100,16 +109,7 @@ $(function () {
                     'oldPassword': oldPassword
                 }).then(function success(res) {
                     console.log(res);
-                    next();
-                }, function error(res) {
-                    console.log(res);
-                    err(res);
-                });
-            };
-            this.delete = function (user, next, err) {
-                $http.delete(Configuration.remote + 'api/users/' + user._id).then(function success(res) {
-                    console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);

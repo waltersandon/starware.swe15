@@ -1,5 +1,14 @@
 $(function () {
     angular.module('TagServiceModule', ['ConfigurationModule', 'TagModule']).service('model.service.TagService', ['app.Configuration', '$http', 'model.data.Tag', function (Configuration, $http, Tag) {
+            this.delete = function (tag, next, err) {
+                $http.delete(Configuration.remote + 'api/tags/' + tag._id).then(function success(res) {
+                    console.log(res);
+                    next();
+                }, function error(res) {
+                    console.log(res);
+                    err(res);
+                });
+            };
             this.get = function (keywords, next, err) {
                 $http.get(Configuration.remote + 'api/tags?' +
                         'keywords=' + function () {
@@ -42,7 +51,7 @@ $(function () {
                     description: tag.description
                 }).then(function success(res) {
                     console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
@@ -54,16 +63,7 @@ $(function () {
                     name: tag.name
                 }).then(function success(res) {
                     console.log(res);
-                    next();
-                }, function error(res) {
-                    console.log(res);
-                    err(res);
-                });
-            };
-            this.delete = function (tag, next, err) {
-                $http.delete(Configuration.remote + 'api/tags/' + tag._id).then(function success(res) {
-                    console.log(res);
-                    next();
+                    next(res.data);
                 }, function error(res) {
                     console.log(res);
                     err(res);
