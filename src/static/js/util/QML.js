@@ -74,7 +74,7 @@ $(function () {
                                                     <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
                                                 </label>\
                                             </div>';
-                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    choice.push({value: n, str: r.substr(3, r.length - 7)});
                                     n++;
                                 } else if (a[i].startsWith('[*]') && ansFlag) {
                                     rightAnswers++;
@@ -85,7 +85,7 @@ $(function () {
                                                 </label>\
                                             </div>';
                                     right = n;
-                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    choice.push({value: n, str: r.substr(3, r.length - 7)});
                                     n++;
                                 } else if (!ansFlag) {
                                     txt += markdown.toHTML(a[i]);
