@@ -32,7 +32,7 @@ function Router(auth, error) {
     //Routing user requests
     this.router.get('/users',auth.requireRole('admin'),this.userService.get);
     this.router.get('/users/me',auth.requireRole('student'), this.userService.getMe);
-    this.router.get('/users/:id',auth.requireRole('admin'),this.userService.getByID);
+    this.router.get('/users/:id',auth.requireRole('student'),this.userService.getByID);
     this.router.post('/users',this.userService.new);
     this.router.post('/users/me',auth.requireRole('student'),this.userService.modifyMe);
     this.router.post('/users/:id',auth.requireRole('admin'),this.userService.modify);
