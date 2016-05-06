@@ -1,5 +1,14 @@
 $(function () {
     angular.module('QMLModule', []).service('util.QML', [function () {
+            this.preview = function (body) {
+                var b = body.split('\n'), f = '';
+                b.forEach(function (item) {
+                    if (!item.startsWith('<') && f.trim() === '') {
+                        f = item;
+                    }
+                });
+                return f;
+            };
             this.parse = function (plainText) {
                 if (plainText.charAt(0) === '<') {
                     switch (plainText.substr(1, plainText.indexOf('>') - 1)) {
@@ -44,12 +53,12 @@ $(function () {
                                         </div>\
                                     </div>\
                                     </form>',
-                                answers:[{value:true, str:'Vero'},{value:false, str:'Falso'}],
+                                answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
                                 answer: false
                             };
                         case 'MultipleChoice':
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
-                            var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0;//conta le risposte possibili
+                            var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0; //conta le risposte possibili
                             for (var i = 0; i < a.length; i++) {
 
                                 if (a[i] === '[answers]' && !ansFlag) {

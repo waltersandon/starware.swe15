@@ -1,8 +1,5 @@
 $(function () {
     angular.module('app.App').controller('controller.teacher.SelectQuestion', ['$location', '$q', 'model.service.QuestionService', '$scope', 'model.service.TagService', 'model.service.UserService', function ($location, $q, QuestionService, $scope, TagService, UserService) {
-
-            $scope.myOrderBy = 'body';
-
             $scope.submit = function () {
                 this.authors = function () {
                     var deferred = $q.defer();
@@ -132,7 +129,5 @@ $(function () {
             }, function (res) {
 
             });
-
-
         }]);
 });

@@ -27,30 +27,23 @@
                     <h4>Studente</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "questionnaires" }'><a
-                                href='#/student/questionnaires'>Questionari</a></li>
-                        <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "tags" }'><a
-                                href='#/student/tags'>Argomenti</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "questionnaires" }'><a href='#/student/questionnaires'>Questionari</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'teacher' || me.role.name === 'admin' || me.role.name === 'superadmin'">
                     <h4>Docente</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questions" }'><a
-                                href='#/teacher/questions'>Gestisci domande</a></li>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questionnaires" }'><a
-                                href='#/teacher/questionnaires'>Gestisci questionari</a></li>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "tags" }'><a
-                                href='#/teacher/tags'>Gestisci argomenti</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questions" }'><a href='#/teacher/questions'>Gestisci domande</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questionnaires" }'><a href='#/teacher/questionnaires'>Gestisci questionari</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "tags" }'><a href='#/teacher/tags'>Gestisci argomenti</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'admin' || me.role.name === 'superadmin'">
                     <h4>Amministratore</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "admin" && urlPath()[2] === "userlist" }'><a
-                                href='#/admin/userlist'>Lista utenti</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "admin" && urlPath()[2] === "userlist" }'><a href='#/admin/userlist'>Lista utenti</a></li>
                     </ul>
                 </div>
             </div>

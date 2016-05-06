@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestions', ['$location', 'model.service.QuestionService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QuestionSerivce, $rootScope, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManageQuestions', ['$location', 'util.QML', 'model.service.QuestionService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QML, QuestionSerivce, $rootScope, $scope, TagService) {
             $scope.deleteQuestion = function (question) {
                 if (confirm('Vuoi eliminare la domanda: ' + question.body + '?')) {
                     QuestionSerivce.delete(question, function () {
@@ -9,14 +9,11 @@ $(function () {
                     });
                 }
             };
+            $scope.modifyQuestion = function (question) {
+                $location.path('teacher/questions/modify/' + question.id);
+            };
             $scope.preview = function (body) {
-                var b = body.split('\n'), f;
-                b.forEach(function (item) {
-                    if (!item.startsWith('<')) {
-                        f = item;
-                    }
-                });
-                return markdown.toHTML(f);
+                return QML.preview(body);
             };
             QuestionSerivce.get([$rootScope.me.id], null, null, function (questions) {
                 async.each(questions, function (question, cb) {
@@ -30,7 +27,6 @@ $(function () {
                             cll();
                         });
                     }, function (err, res) {
-
                         question.tags = tags;
                         cb();
                     });

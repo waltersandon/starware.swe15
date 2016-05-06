@@ -1,15 +1,71 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['$location', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.service.TagService', function ($location, QuestionService, Questionnaire, QuestionnaireService, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['model.data.Error', '$location', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', function (Error, $location, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService) {
+            $scope.error = new Error();
             $scope.onSelect = false;
             $scope.removeQuestion = function (question) {
-
+                $scope.questionnaire.questions.splice($scope.questionnaire.questions.indexOf(question), 1);
             };
             $scope.setOnSelect = function (b) {
                 $scope.onSelect = b;
             };
             $scope.addQuestion = function (question) {
-                $scope.questionnaire.push(question.id);
+                $scope.questionnaire.questions.push(question);
                 $scope.onSelect = false;
+            };
+            $scope.submit = function () {
+                console.log('lol');
+                if ($scope.questionnaire.questions.length > 0) {
+                    $scope.questionnaire.tags = [];
+                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
+                        console.log('lol');
+                        if (tagInput.trim() !== '') {
+                            console.log('lol');
+                            var find = false;
+                            $scope.tags.forEach(function (item) {
+                                if (item.name === tagInput.trim()) {
+                                    if ($scope.questionnaire.tags.indexOf(item.id) < 0) {
+                                        $scope.questionnaire.tags.push(item.id);
+                                        find = true;
+                                    }
+                                }
+                            });
+                            if (!find) {
+                                TagService.new(new Tag('', '', tagInput.trim()), function (res) {
+                                    $scope.questionnaire.tags.push(res._id);
+                                    cll();
+                                }, function (res) {
+                                    cll();
+                                });
+                            } else {
+                                cll();
+                            }
+                        } else {
+                            cll();
+                        }
+                    }, function (err, res) {
+                        console.log('lol');
+                        $scope.questionnaire.questions = $scope.questionnaire.questions.map(function (question) {
+                            return question.id;
+                        });
+                        console.log('lol');
+                        if ($scope.edit) {
+                            QuestionnaireService.modify($scope.questionnaire, function () {
+                                $location.path('teacher/questionnaires');
+                            }, function (res) {
+
+                            });
+                        } else {
+                            console.log('lol');
+                            QuestionnaireService.new($scope.questionnaire, function () {
+                                $location.path('teacher/questionnaires');
+                            }, function (res) {
+
+                            });
+                        }
+                    });
+                } else {
+                    $scope.error = new Error('non è stato selezionata alcuna domanda', 'errorQuestions', true, 'alert-danger');
+                }
             };
 
             if ($scope.urlPath()[3] === 'new') {
@@ -19,6 +75,7 @@ $(function () {
                 QuestionnaireService.getByID($scope.urlPath()[4], function (questionnaire) {
                     $scope.questionnaire = questionnaire;
                     $scope.tagsInput = '';
+
                     async.each($scope.questionnaire.tags, function (tag, cll) {
                         TagService.getByID(tag, function (tagComplete) {
                             $scope.tagsInput += tagComplete.name + ', ';
@@ -30,8 +87,24 @@ $(function () {
                         var questions = [];
                         async.each($scope.questionnaire.questions, function (id, cll) {
                             QuestionService.getByID(id, function (question) {
-                                questions.push(question);
-                                cll();
+                                UserService.getByID(question.author, function (author) {
+                                    question.author = author.fullName;
+                                    var tags = [];
+                                    async.each(question.tags, function (idT, cb) {
+                                        TagService.getByID(idT, function (tag) {
+                                            tags.push(tag.name);
+                                            cb();
+                                        }, function (res) {
+                                            cb();
+                                        });
+                                    }, function (err, res) {
+                                        question.tags = tags;
+                                        questions.push(question);
+                                        cll();
+                                    });
+                                }, function (res) {
+                                    cll();
+                                });
                             }, function (res) {
                                 cll();
                             });
@@ -39,16 +112,9 @@ $(function () {
                             $scope.questionnaire.questions = questions;
 
                             $scope.preview = function (body) {
-                                var b = body.split('\n'), f;
-                                b.forEach(function (item) {
-                                    if (!item.startsWith('<')) {
-                                        f = item;
-                                    }
-                                });
-                                return markdown.toHTML(f);
+                                QML.preview(body);
                             };
                         });
-
                         $scope.edit = true;
                     });
                 }, function (res) {
@@ -59,6 +125,8 @@ $(function () {
 
 
             TagService.get('', function (tags) {
+                $scope.tags = tags;
+
                 $('#tags').bind('keydown', function (event) {
                     if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
                         event.preventDefault();

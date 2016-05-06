@@ -46,20 +46,14 @@
                             <th><a href='' ng-click='myOrderBy = "title"'>Titolo</a></th>
                             <th><a href='' ng-click='myOrderBy = "author"'>Autore</a></th>
                             <th>Argomenti</th>
-                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='quest in questList| orderBy : myOrderBy'>
+                        <tr ng-repeat='quest in questList| orderBy : myOrderBy' ng-click='beginQuest(quest.id)'>
                             <td style='vertical-align:middle'>{{quest.title}}</td>
                             <td style='vertical-align:middle'>{{quest.author}}</td>
                             <td style='vertical-align:middle'>
                                 <span ng-repeat='tag in quest.tags'>{{tag}}{{$last ? '' : ', '}}</span>
-                            </td>
-                            <td>
-                                <a href='' ng-click='beginQuest(quest.id)' class='btn'>
-                                    <span class='glyphicon glyphicon-pencil' aria-hidden='true'> Inizia</span>
-                                </a>
                             </td>
                         </tr>
                     </tbody>
