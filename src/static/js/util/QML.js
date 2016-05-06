@@ -30,19 +30,21 @@ $(function () {
                                 status: true,
                                 type: 'TF',
                                 body: markdown.toHTML(plainText),
-                                answerForm: '<div class=\'form-group\'>\
-                                                <div>\
-                                                    <label>\
-                                                        <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\' onchange=\'foo(true)\'> Vero\
-                                                    </label>\
-                                                </div>\
-                                                <div>\
-                                                    <label>\
-                                                        <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\' onchange=\'foo(false)\'> Falso\
-                                                    </label>\
-                                                </div>\
-                                            </div>',
-                                answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
+                                answerForm: '<form>\
+                                    <div class=\'form-group\'>\
+                                        <div>\
+                                            <label>\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
+                                            </label>\
+                                        </div>\
+                                        <div>\
+                                            <label>\
+                                                <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\'> Falso\
+                                            </label>\
+                                        </div>\
+                                    </div>\
+                                    </form>',
+                                answers:[{value:true, str:'Vero'},{value:false, str:'Falso'}],
                                 answer: false
                             };
                         case 'MultipleChoice':
