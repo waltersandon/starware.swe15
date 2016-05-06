@@ -1,43 +1,71 @@
 
 <div ng-controller="controller.teacher.ManipulateQuestionnaire">
-    <div class='row' ng-show='b'>
-        <div class=' col-md-12'>
-            <h2>Modifica questionario</h2>
-            <form name='questionnaireForm' ng-submit='submit()'>
-                <div class='form-group'>
-                    <label for='tags' class='col-md-2 control-label'>Tags</label>
-                    <div class='col-md-10'>
-                        <input name='tags' type='text' class='form-control' id='tags' placeholder='Tags' required ng-model='tagsInput' ng-change='dirty = true'>
-                    </div>
-                </div>
-                <div class='form-group'>
-                    <div class='col-md-12'>
-                        
-                    </div>
-                </div>
-                <div class='form-group'>
-                    <div class='col-md-3 col-md-offset-9'>
-                        <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
-                        <a href='#/teacher/questionnaires' class='btn btn-raised btn-danger' >Cancel</a>
-                    </div>
-                </div>
-            </form>
+    {{questionnaire}}
+    <div ng-hide='onSelect'>
+        <div class='row' >
+            <div class=' col-md-12'>
+                <h2>Modifica questionario {{questionnaire.title}}</h2>
+            </div>
         </div>
-        <div class='col-md-12'>
-            <div class='alert' ng-class='error.type' ng-show='error.status'>
-                <a ng-click='error.status = false' href='' class='close'>&times;</a>
-                <span ng-bind-html='error.message'></span>
+        <div class='row'>
+            <div class=' col-md-12'>
+                <form name='questionnaireForm' ng-submit='submit()'>
+                    <div class='form-group'>
+                        <label for='tags' class='col-md-2 control-label'>Tags</label>
+                        <div class='col-md-10'>
+                            <input name='tags' type='text' class='form-control' id='tags' placeholder='Tags' required ng-model='tagsInput' ng-change='dirty = true'>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-md-12'>
+                            <h3>Domande</h3>
+                            <table class='table table-striped table-hover'>
+                                <thead>
+                                    <tr>
+                                        <th>Corpo</th>
+                                        <th>Autore</th>
+                                        <th>Argomenti</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat='question in questionnaire.questions'>
+                                        <td style='vertical-align:middle' ng-bind-html='preview(question.body)'></td>
+                                        <td style='vertical-align:middle'>{{question.author}}</td>
+                                        <td style='vertical-align:middle'>
+                                            <span ng-repeat='tag in question.tags'>{{tag}}{{$last ? '' : ', '}}</span>
+                                        </td>
+                                        <td style='text-align: center'>
+                                            <a href='#/teacher/questions/modify/{{question.id}}' class='btn'><span class='glyphicon glyphicon-pencil' aria-hidden='true'></span></a>
+                                            <a href='' ng-click='deleteQuestion(question)' class='btn'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-md-1 col-md-offset-5'>
+                            <a href='' ng-click='setOnSelect(true)' class="btn btn-raised btn-primary btn-fab"><i class="material-icons glyphicon glyphicon-plus" aria-hidden='true'></i></a>
+                        </div>
+                    </div>
+                    <div class='form-group'>
+                        <div class='col-md-3 col-md-offset-9'>
+                            <button type='submit' class='btn btn-raised btn-primary'>Submit</button>
+                            <a href='#/teacher/questionnaires' class='btn btn-raised btn-danger' >Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class='col-md-12'>
+                <div class='alert' ng-class='error.type' ng-show='error.status'>
+                    <a ng-click='error.status = false' href='' class='close'>&times;</a>
+                    <span ng-bind-html='error.message'></span>
+                </div>
             </div>
         </div>
     </div>
-    <div ng-hide='b' ng-include="'html/teacher/SelectQuestion.html'"></div>
+    <div ng-show='onSelect'>
+        <div ng-include="'html/teacher/SelectQuestion.html'"></div>
+    </div>
 </div>
-<!--    <div class='row' ng-hide='b' ng-controller="">
-        <div class=' col-md-12'>
-            <h2>Seleziona domanda</h2>
-            
-            
-            
-            
-        </div>
-    </div> -->

@@ -101,16 +101,6 @@ $(function () {
                 });
             };
 
-            $scope.preview = function (body) {
-                var b = body.split('\n'), f;
-                b.forEach(function (item) {
-                    if (!item.startsWith('<')) {
-                        f = item;
-                    }
-                });
-                return markdown.toHTML(f);
-            };
-
             TagService.get('', function (tags) {
                 $('#tagSearch').bind('keydown', function (event) {
                     if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {

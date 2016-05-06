@@ -40,48 +40,52 @@ $(function () {
 
             $scope.submit = function () {
                 if (QML.parse($scope.editor.value()).status) {
-                    $scope.question.body = $scope.editor.value();
-                    $scope.question.tags = [];
+                    if ($scope.tagsInput !== '') {
+                        $scope.question.body = $scope.editor.value();
+                        $scope.question.tags = [];
 
-                    async.each($scope.tagsInput.split(','), function (tagInput, cll) {
-                        if (tagInput.trim() !== '') {
-                            var find = false;
-                            $scope.tags.forEach(function (item) {
-                                if (item.name === tagInput.trim()) {
-                                    if ($scope.question.tags.indexOf(item.id) < 0) {
-                                        $scope.question.tags.push(item.id);
-                                        find = true;
+                        async.each($scope.tagsInput.split(','), function (tagInput, cll) {
+                            if (tagInput.trim() !== '') {
+                                var find = false;
+                                $scope.tags.forEach(function (item) {
+                                    if (item.name === tagInput.trim()) {
+                                        if ($scope.question.tags.indexOf(item.id) < 0) {
+                                            $scope.question.tags.push(item.id);
+                                            find = true;
+                                        }
                                     }
-                                }
-                            });
-                            if (!find) {
-                                TagService.new(new Tag('', '', tagInput.trim()), function (res) {
-                                    $scope.question.tags.push(res._id);
-                                    cll();
-                                }, function (res) {
-                                    cll();
                                 });
+                                if (!find) {
+                                    TagService.new(new Tag('', '', tagInput.trim()), function (res) {
+                                        $scope.question.tags.push(res._id);
+                                        cll();
+                                    }, function (res) {
+                                        cll();
+                                    });
+                                } else {
+                                    cll();
+                                }
                             } else {
                                 cll();
                             }
-                        } else {
-                            cll();
-                        }
-                    }, function (err, res) {
-                        if ($scope.edit) {
-                            QuestionService.modify($scope.question, function () {
-                                $location.path('teacher/questions');
-                            }, function (res) {
+                        }, function (err, res) {
+                            if ($scope.edit) {
+                                QuestionService.modify($scope.question, function () {
+                                    $location.path('teacher/questions');
+                                }, function (res) {
 
-                            });
-                        } else {
-                            QuestionService.new($scope.question, function () {
-                                $location.path('teacher/questions');
-                            }, function (res) {
+                                });
+                            } else {
+                                QuestionService.new($scope.question, function () {
+                                    $location.path('teacher/questions');
+                                }, function (res) {
 
-                            });
-                        }
-                    });
+                                });
+                            }
+                        });
+                    } else {
+                        $scope.error = new Error('non è stato selezionato alcun argomento', 'errorTags', true, 'alert-danger');
+                    }
                 } else {
                     $scope.error = new Error(QML.parse($scope.editor.value()).message, 'errorQML', true, 'alert-danger');
                 }
