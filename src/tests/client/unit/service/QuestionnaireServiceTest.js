@@ -24,7 +24,6 @@ describe('model.service.QuestionnaireService', function () {
 
             $httpBackend
                 .whenPOST(Configuration.remote + 'api/questionnaires', {
-                    author: questionnaire.author,
                     questions: questionnaire.questions,
                     tags: questionnaire.tags,
                     title: questionnaire.title
@@ -33,7 +32,6 @@ describe('model.service.QuestionnaireService', function () {
 
             $httpBackend
                 .expectPOST(Configuration.remote + 'api/questionnaires', {
-                    author: questionnaire.author,
                     questions: questionnaire.questions,
                     tags: questionnaire.tags,
                     title: questionnaire.title
