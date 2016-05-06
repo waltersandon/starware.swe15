@@ -23,7 +23,6 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .whenPOST(Configuration.remote + 'api/questions', {
-                        author: question.author,
                         body: question.body,
                         tags: question.tags
 
@@ -31,7 +30,6 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .expectPOST(Configuration.remote + 'api/questions', {
-                        author: question.author,
                         body: question.body,
                         tags: question.tags
                     });
@@ -59,21 +57,18 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .whenPOST(Configuration.remote + 'api/questions', {
-                        author: question.author,
                         body: question.body,
                         tags: question.tags
                     }).respond(200);
 
                 $httpBackend
                     .whenPOST(Configuration.remote + 'api/questions', {
-                        author: wrongQuestion.author,
                         body: wrongQuestion.body,
                         tags: wrongQuestion.tags
                     }).respond(400);
 
                 $httpBackend
                     .expectPOST(Configuration.remote + 'api/questions', {
-                        author: wrongQuestion.author,
                         body: wrongQuestion.body,
                         tags: wrongQuestion.tags
                     });
