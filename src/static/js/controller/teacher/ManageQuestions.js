@@ -10,22 +10,26 @@ $(function () {
                 }
             };
             $scope.preview = function (body) {
-                return markdown.toHTML(body.split('\n')[1]);
+                var b = body.split('\n'), f;
+                b.forEach(function (item) {
+                    if (!item.startsWith('<')) {
+                        f = item;
+                    }
+                });
+                return markdown.toHTML(f);
             };
             QuestionSerivce.get([$rootScope.me.id], null, null, function (questions) {
                 async.each(questions, function (question, cb) {
-                    var tags = '';
+                    var tags = [];
 
                     async.each(question.tags, function (tag, cll) {
                         TagService.getByID(tag, function (tagComplete) {
-                            tags += tagComplete.name + ', ';
+                            tags.push(tagComplete.name);
                             cll();
                         }, function (res) {
                             cll();
                         });
                     }, function (err, res) {
-                        if (tags.length >= 2)
-                            tags = tags.substr(0, tags.length - 2);
 
                         question.tags = tags;
                         cb();

@@ -27,7 +27,6 @@ $(function () {
             }
 
             function setEditor() {
-                console.log('a');
                 $scope.editor = new SimpleMDE({
                     element: document.getElementById('editor'),
                     previewRender: function (plainText) {
@@ -49,8 +48,10 @@ $(function () {
                             var find = false;
                             $scope.tags.forEach(function (item) {
                                 if (item.name === tagInput.trim()) {
-                                    $scope.question.tags.push(item.id);
-                                    find = true;
+                                    if ($scope.question.tags.indexOf(item.id) < 0) {
+                                        $scope.question.tags.push(item.id);
+                                        find = true;
+                                    }
                                 }
                             });
                             if (!find) {
@@ -63,6 +64,8 @@ $(function () {
                             } else {
                                 cll();
                             }
+                        } else {
+                            cll();
                         }
                     }, function (err, res) {
                         if ($scope.edit) {
@@ -86,70 +89,71 @@ $(function () {
 
             TagService.get('', function (tags) {
                 $scope.tags = tags;
+
+                $('#tags').bind('keydown', function (event) {
+                    if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
+                        event.preventDefault();
+                    }
+                }).autocomplete({
+                    minLength: 0,
+                    source: function (request, response) {
+                        response($.ui.autocomplete.filter(function () {
+                            var ret = [];
+                            $scope.tags.forEach(function (item) {
+                                ret.push(item.name);
+                            });
+                            return ret;
+                        }(), request.term.split(/,\s*/).pop()));
+                    },
+                    focus: function () {
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        var terms = this.value.split(/,\s*/);
+                        terms.pop();
+                        terms.push(ui.item.value);
+                        terms.push('');
+                        this.value = terms.join(', ');
+                        return false;
+                    }
+                });
             }, function (res) {
 
             });
 
-            $('#tags').bind('keydown', function (event) {
-                if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
-                    event.preventDefault();
-                }
-            }).autocomplete({
-                minLength: 0,
-                source: function (request, response) {
-                    response($.ui.autocomplete.filter(function () {
-                        var ret = [];
-                        $scope.tags.forEach(function (item) {
-                            ret.push(item.name);
-                        });
-                        return ret;
-                    }(), request.term.split(/,\s*/).pop()));
-                },
-                focus: function () {
-                    return false;
-                },
-                select: function (event, ui) {
-                    var terms = this.value.split(/,\s*/);
-                    terms.pop();
-                    terms.push(ui.item.value);
-                    terms.push('');
-                    this.value = terms.join(', ');
-                    return false;
-                }
-            });
-            $scope.dirty = false;
-
-            /*$scope.$on('$routeChangeStart', function (event) {
-                console.log('$routeChangeStart');
-                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-                    event.preventDefault();
-                }
-            });
-
-            $scope.$on('$locationChangeStart', function (event) {
-                console.log('$locationChangeStart');
-                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-                    event.preventDefault();
-                }
-            });
-
-            $(window).on('hashchange', function (event) {
-                console.log('hashchange');
-                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-                    event.preventDefault();
-                }
-            });
-
-            $(window).bind('beforeunload', function (event) {
-                console.log('beforeunload');
-                var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-                if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-                    event.preventDefault();
-                }
-            });*/
+            /*$scope.dirty = false;
+             
+             $scope.$on('$routeChangeStart', function (event) {
+             console.log('$routeChangeStart');
+             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+             event.preventDefault();
+             }
+             });
+             
+             $scope.$on('$locationChangeStart', function (event) {
+             console.log('$locationChangeStart');
+             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+             event.preventDefault();
+             }
+             });
+             
+             $(window).on('hashchange', function (event) {
+             console.log('hashchange');
+             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+             event.preventDefault();
+             }
+             });
+             
+             $(window).bind('beforeunload', function (event) {
+             console.log('beforeunload');
+             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
+             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
+             event.preventDefault();
+             }
+             });*/
         }]);
 });
 
