@@ -47,5 +47,13 @@ describe('controller.public.Home', function() {
         });
 
     });
+    describe('urlPath', function() {
+
+        it('should have a method to check if the path is active', function() {
+            $location.path('/path/giusto');
+            expect($scope.urlPath()).toEqual(('/path/giusto').split('/'));
+        });
+
+    });
 
 });

@@ -29,7 +29,7 @@ module.exports = function(config){
             'static/js/model/**/**.js',
             'static/js/util/*.js',
             'tests/client/unit/service/*.js',
-            'tests/client/unit/controller/*.js'
+            'tests/client/unit/controller/**/*.js'
 
         ],
 
