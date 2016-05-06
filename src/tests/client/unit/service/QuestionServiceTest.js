@@ -69,7 +69,6 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .expectPOST(Configuration.remote + 'api/questions', {
-                        author: wrongQuestion.author,
                         body: wrongQuestion.body,
                         tags: wrongQuestion.tags
                     });
