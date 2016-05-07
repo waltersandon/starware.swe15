@@ -26,8 +26,8 @@ function Router(auth, error) {
     this.roleService = new RoleService();
 
     //login & logout
-    this.router.post("/session",this.sessionService.login);
-    this.router.delete("/session",this.sessionService.logout);
+    this.router.post("/session",this.sessionService.new);
+    this.router.delete("/session",this.sessionService.delete);
 
     //Routing user requests
     this.router.get('/users',auth.requireRole('admin'),this.userService.get);
