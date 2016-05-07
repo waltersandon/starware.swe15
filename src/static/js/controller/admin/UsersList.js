@@ -22,13 +22,14 @@ $(function () {
                 }).id;
             };
             $scope.filterRoleList = function () {
-                if ($rootScope.me.role === 'superadmin') {
+                if ($rootScope.me.role.name === 'superadmin') {
                     return {name: "!superadmin"};
                 } else {
-                    return ({name: "!superadmin"} && {name: "!admin"});
+                    return ({name: "!superadmin", name: "!admin"});
                 }
             };
             RoleService.get(null, function (roles) {
+                console.log(roles);
                 roles.forEach(function (item) {
                     switch (item.name) {
                         case 'student':

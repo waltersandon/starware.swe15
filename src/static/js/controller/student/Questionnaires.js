@@ -108,7 +108,7 @@ $(function () {
                 });
             };
 
-            $scope.beginQuest = function (questID) {
+            $scope.executeQuestionnaire = function (questID) {
                 $location.path('student/questionnaire/' + questID);
             };
 

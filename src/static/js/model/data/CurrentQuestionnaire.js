@@ -50,7 +50,7 @@ $(function () {
                     tot += result.tot;
                 }
             });
-            return "Punteggio: " + point + " / " + tot;
+            return {point: point, tot: tot};
         };
 
         CurrentQuestionnaire.prototype.getNext = function () {

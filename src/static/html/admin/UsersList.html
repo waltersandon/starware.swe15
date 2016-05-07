@@ -11,7 +11,7 @@
             <a href='' ng-click='roleFilter = "!" + filterByRole("superadmin")'>Tutti</a> | 
             <a href='' ng-click='roleFilter = filterByRole("student")'>Studenti</a> |
             <a href='' ng-click='roleFilter = filterByRole("teacher")'>Docenti</a>
-            <span ng-show='me.role === "superuser"'> | <a href='' ng-click='roleFilter = filterByRole("admin")'>Amministratori</a> </span>
+            <span ng-show='me.role.name === "superadmin"'> | <a href='' ng-click='roleFilter = filterByRole("admin")'>Amministratori</a> </span>
         </div>
     </div>
     <div class='row'>
