@@ -173,14 +173,14 @@ describe('model.service.UserService', function () {
         it("effettua la richiesta corretta", function () {
 
             var userBefore = {
-                _id: "2",
+                id: "2",
                 userName: "giovanni.bianchi",
                 fullName: "Giovanni bianchi",
                 role: '200'
             };
 
             var userAfter = {
-                _id: "2",
+                id: "2",
                 userName: "giovanni.bianchi",
                 fullName: "Giovanni bianchi",
                 role: '400'
@@ -197,7 +197,7 @@ describe('model.service.UserService', function () {
             $httpBackend
             .expectPOST(Configuration.remote + 'api/users/2', newRole);
 
-            UserService.modifyRole(userBefore, { _id: "400" }, function() {
+            UserService.modifyRole(userBefore, newRole.role, function() {
                 expect(true).toBe(true);
             }, function() {
                 expect(true).toBe(false);
@@ -327,18 +327,18 @@ describe('model.service.UserService', function () {
         it("effettua la richiesta corretta", function () {
 
             var oldUser = {
-                _id: '2',
+                id: '2',
                 fullName: 'Mario Rossi',
                 userName: 'mario.rossi',
                 password: 'hash(password.mario.rossi)'
             };
 
             $httpBackend
-            .whenDELETE(Configuration.remote + 'api/users/' + oldUser._id)
+            .whenDELETE(Configuration.remote + 'api/users/' + oldUser.id)
             .respond(200);
 
             $httpBackend
-            .expectDELETE(Configuration.remote + 'api/users/' + oldUser._id);
+            .expectDELETE(Configuration.remote + 'api/users/' + oldUser.id);
 
             UserService.delete(oldUser, function() {
                 expect(true).toBe(true);

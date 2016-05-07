@@ -3,6 +3,7 @@ $(function () {
             $scope.deleteQuestion = function (question) {
                 if (confirm('Vuoi eliminare la domanda: ' + question.body + '?')) {
                     QuestionSerivce.delete(question, function () {
+                        console.log("HERE");
                         $scope.questions.splice($scope.questions.indexOf(question), 1);
                     }, function (res) {
 
