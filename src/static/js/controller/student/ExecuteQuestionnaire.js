@@ -32,7 +32,8 @@ $(function () {
                 alert("Devi rispondere a tutte le domande");
             }
             else{
-                alert($scope.questionnaire.getResult());
+                var result = $scope.questionnaire.getResult()
+                alert("Punteggio: " + result.point + " / " + result.tot);
             }
         }
     }]);

@@ -49,7 +49,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat='quest in questList| orderBy : myOrderBy' ng-click='beginQuest(quest.id)'>
+                        <tr ng-repeat='quest in questList| orderBy : myOrderBy' ng-click='executeQuestionnaire(quest.id)'>
                             <td style='vertical-align:middle'>{{quest.title}}</td>
                             <td style='vertical-align:middle'>{{quest.author}}</td>
                             <td style='vertical-align:middle'>
