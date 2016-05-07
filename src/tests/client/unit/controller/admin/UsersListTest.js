@@ -7,29 +7,29 @@ describe('controller.admin.UsersList', function() {
     var controller;
     var users = [
         {
-            _id: 'id_user_1',
+            id: 'id_user_1',
             userName: 'mario.rossi',
             fullName: 'Mario Rossi',
             role: 'role_id_1'
         },
         {
-            _id: 'id_user_2',
+            id: 'id_user_2',
             userName: 'giovanni.rossi',
             fullName: 'Giovanni Rossi',
             role: 'role_id_2'
         },
         {
-            _id: 'id_user_3',
+            id: 'id_user_3',
             userName: 'giacomo.rossi',
             fullName: 'Giacomo Rossi',
             role: 'role_id_3'
         }
     ];
     var roles = [
-        { _id: 'role_id_1', name: 'student' },
-        { _id: 'role_id_2', name: 'teacher' },
-        { _id: 'role_id_3', name: 'admin' },
-        { _id: 'role_id_4', name: 'superadmin' }
+        { id: 'role_id_1', name: 'student' },
+        { id: 'role_id_2', name: 'teacher' },
+        { id: 'role_id_3', name: 'admin' },
+        { id: 'role_id_4', name: 'superadmin' }
     ];
     beforeEach(function() {
         module('app.App', function($provide){
@@ -67,6 +67,7 @@ describe('controller.admin.UsersList', function() {
     describe('filterByRole', function() {
 
         it('it should filter the list of roles', function() {
+            $scope.roles = roles;
             var result = $scope.filterByRole('admin');
             expect(result).toBe('role_id_3');
         });
