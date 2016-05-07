@@ -88,8 +88,8 @@
 	\subsection{Scopo}
 	Questo documento è finalizzato ad illustrare le procedure di installazione dell'applicazione \prj{} e di specificare i requisiti minimi per il funzionamento di ques'ultima. Il documento è indirizzato all'amministratore di sistema.
 	\subsection{Descrizione}
-    Il documento include la definizione dettagliata della procedura di installazione. Viene formita la procedura di reperimento dei file necessari, e sono specificati i requisiti minimi perchè l'installazione vada a buon fine.
-    Inoltre vengono formite nel dettaglio sia la sequenza di azioni per l' installazione su server Openshit sia per l'installazione dell'applicativo in locale.
+    Il documento include la definizione dettagliata della procedura di installazione. Viene fornita la procedura di reperimento dei file necessari e sono specificati i requisiti minimi affinché l'installazione vada a buon fine.
+    Inoltre vengono fornite nel dettaglio sia la sequenza di azioni per l' installazione su server \mgls{openshift} sia per l'installazione dell'applicativo in locale.
    
 	
 	\subsection{Descrizione Prodotto}
@@ -102,13 +102,13 @@
 	
 	\subsubsection{Normativi}
 	\begin{itemize}
-		\item
+		\item \TODO{}
 		
 	\end{itemize}
 	
 	\subsubsection{Informativi}
 	\begin{itemize}
-		\item 
+		\item \TODO{}
 	\end{itemize}
 	
 	\newpage
@@ -129,8 +129,8 @@
 	\end{itemize}
 	Per la versione del sistema operativo supportato lato server, si faccia riferimento 
 	\begin{itemize}
-		\item \textbf{Piattaforme supportate da Node.js}: \url{https://nodejs.org/en/download/} 
-		\item \textbf{Piattaforme supportate da MongoDB}: \url{https://www.mongodb.com/download-center}
+		\item \textbf{Piattaforme supportate da \mgls{node.js}}: \url{https://nodejs.org/en/download/} 
+		\item \textbf{Piattaforme supportate da \mgls{mongodb}}: \url{https://www.mongodb.com/download-center}
 	\end{itemize}
 	\paragraph{Supporto esecuzione in locale}
 	Per l'esecuzione in locale  dell'applicazione si garantisce il supporto per:
@@ -146,32 +146,34 @@
 	\subsection{Applicativi di supporto}
 	L'applicazione \prj utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
 	\subsubsection{MongoDB versione 3.2 o superiori}
-	Per l'installazione di MongoDB si faccia riferimento al sito dedicato al download e alla documentazione per l'installazione di MongoDB:
+	Per l'installazione di \mgls{mongodb} si faccia riferimento al sito dedicato al download e alla documentazione per l'installazione di \mgls{mongodb}:
 	\begin{center} \url{https://www.mongodb.com/download-center}
 	\end{center}
 	
 	\subsubsection{Node.js versione 4.4.1 o superiori}
-		Per l'installazione di Node.js si faccia riferimento alla documentazione di Node.js e al sito dedicato al download:
+		Per l'installazione di \mgls{node.js} si faccia riferimento alla documentazione di \mgls{node.js} e al sito dedicato al download:
 		\begin{center} \url{https://nodejs.org/en/download/} 
 		\end{center}
 	
 	\section{Download dell'applicazione}\label{download}
 	Il prodotto è disponibile gratuitamente sotto  licenza GNU GENERAL PUBLIC LICENCE V2. Esso è pubblicato
-	su GitHub e disponibile al seguente indirizzo: \url{https://github.com/lordnikolai/starware.swe15}
+	su \mgls{github} e disponibile al seguente indirizzo: \url{https://github.com/lordnikolai/starware.swe15}
 	E' possibile ottenere il prodotto nei due modi seguenti:
 	\subsection{Clonare la repository con GitHub}
-	E' possibile copiare in locale i file necessari con l'utilizzo di GitHub. 
-	Per eseguire questa procedura è necessario che l'applicativo GitHub sia stato precedentemente installato.
-	1. navigare sul terminale fino alla cartella in cui si desidera installare il prodotto;
-	2. git clone https://github.com/protechunipd/SGAD.git - provvederà al download
-	del prodotto nella cartella corrente.
+	E' possibile copiare in locale i file necessari con l'utilizzo di \mgls{git}. 
+	Per eseguire questa procedura è necessario che l'applicativo \mgls{git} sia stato precedentemente installato.
+	\begin{enumerate}
+		\item navigare sul terminale fino alla cartella in cui si desidera installare il prodotto;
+		\item \texttt{git clone https://github.com/protechunipd/SGAD.git} provvederà al download del prodotto nella cartella corrente. \TODO{che repo è ?}
+	\end{enumerate}
+	
 	\subsection{Download file da browser}
 	Altrimenti sarà possibile scaricare il prodotto tramite browser web accedendo
-	all’indirizzo fornito precedentemente e cliccando su \textbf{\textit{Download ZIP}}.
+	all’indirizzo fornito precedentemente selezionando il link chiamato: \textbf{\textit{Download ZIP}}.
 	
 	\section{Installazione}\label{install}
 	\subsection{Installazione con utilizzo di script}
-	Vengono formiti script appositi per facilitare l'installazione dell'applicativo. 
+	Vengono forniti script appositi per facilitare l'installazione dell'applicativo. 
 	
 		\subsubsection{Installazione ambiente Windows}
 		\begin{itemize}
@@ -180,8 +182,10 @@
 			\item digitare i seguenti comandi:	
 		\end{itemize}	
 		\begin{center}
-				\texttt{chmod win\_setup \\
-					chmod win\_start	}
+				\texttt{>chmod win\_setup \\
+					>chmod win\_start	 \\
+					>./win\_setup} \\
+				\TODO{non so se esistono questi comandi sotto win}
 		\end{center}
 	
 		\subsubsection{Installazione ambiente Unix}
@@ -191,21 +195,9 @@
 		
 		\end{itemize}
 			\begin{center}
-				\texttt{chmod unix\_setup \\
-					chmod unix\_start	}
+				\texttt{\$chmod 755 unix\_setup \\
+					\$chmod 755 unix\_start	 \\
+					\$./unix\_setup }
+					
 			\end{center}
-		
-	\subsection{Installazione manuale}
-	Per eseguire l'installazione manualmente, da riga di comando:
-	\begin{itemize}
-		\item avviare il terminale;
-		\item entrare nella cartella src;
-	\end{itemize}
-			\begin{center} \texttt{npm install \\
-			 mongod\\
-			 node setup.js \\ \TODO{ attualmente bootstrap.js}\\
-			 mongod exit\\
-			 mongo\\
-			 node server.js}\\\end{center}
-	
 \end{document}
