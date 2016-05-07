@@ -110,22 +110,27 @@ describe('model.service.TagService', function () {
         it("effettua la richiesta corretta", function () {
 
             var oldTag = {
-                _id: "2",
+                id: "2",
                 name: "Informatica",
                 description: "Descrizione informatica"
             };
 
-            var newTag = {
-                _id: "2",
+            var newTagUpdate = {
                 name: "Matematica",
                 description: "Descrizione matematica"
             };
 
-            $httpBackend
-            .whenPUT(Configuration.remote + 'api/tags/2', newTag).respond(200);
+            var newTag = {
+                id: oldTag.id,
+                name: newTagUpdate.name,
+                description: newTagUpdate.description
+            };
 
             $httpBackend
-            .expectPUT(Configuration.remote + 'api/tags/2', newTag);
+            .whenPUT(Configuration.remote + 'api/tags/2', newTagUpdate).respond(200);
+
+            $httpBackend
+            .expectPUT(Configuration.remote + 'api/tags/2', newTagUpdate);
 
             TagService.modify(newTag, function() {
                 expect(true).toBe(true);
@@ -171,7 +176,7 @@ describe('model.service.TagService', function () {
         it("effettua la richiesta corretta", function () {
 
             var oldTag = {
-                _id: '2',
+                id: '2',
                 name: "Matematica",
                 description: "Descrizione matematica"
             };
