@@ -4,10 +4,10 @@ $(function () {
                 var b = body.split('\n'), f = '';
                 b.forEach(function (item) {
                     if (!item.startsWith('<') && f.trim() === '') {
-                        f = item;
+                        f = markdown.toHTML(item);
                     }
                 });
-                return f;
+                return f.substr(3, f.length - 7);
             };
             this.parse = function (plainText) {
                 if (plainText.charAt(0) === '<') {

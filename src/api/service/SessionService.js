@@ -13,7 +13,7 @@ function SessionService() {}
  * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
  * per passare il controllo ai successivi middleware.
  */
-SessionService.prototype.login = function(req, res, next){
+SessionService.prototype.new = function(req, res, next){
     var userName = req.body.userName;
     var password = req.body.password;
     if(userName && password){
@@ -38,7 +38,7 @@ SessionService.prototype.login = function(req, res, next){
  * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
  * per passare il controllo ai successivi middleware.
  */
-SessionService.prototype.logout = function(req,res,next){
+SessionService.prototype.delete = function(req,res,next){
     req.session.user = null;
     res.send();
 };

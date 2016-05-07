@@ -26,8 +26,8 @@ function Router(auth, error) {
     this.roleService = new RoleService();
 
     //login & logout
-    this.router.post("/session",this.sessionService.login);
-    this.router.delete("/session",this.sessionService.logout);
+    this.router.post("/session",this.sessionService.new);
+    this.router.delete("/session",this.sessionService.delete);
 
     //Routing user requests
     this.router.get('/users',auth.requireRole('admin'),this.userService.get);
@@ -56,8 +56,8 @@ function Router(auth, error) {
     this.router.get('/tags',auth.requireRole('student'),this.tagService.get);
     this.router.get('/tags/:id',auth.requireRole('student'),this.tagService.getByID);
     this.router.post('/tags',auth.requireRole('teacher'),this.tagService.new);
-    this.router.put('/tags/:id',auth.requireRole('teacher'),this.tagService.modifyTag);
-    this.router.delete('/tags/:id',auth.requireRole('teacher'),this.tagService.deleteTag);
+    this.router.put('/tags/:id',auth.requireRole('teacher'),this.tagService.modify);
+    this.router.delete('/tags/:id',auth.requireRole('teacher'),this.tagService.delete);
 
     //Routing role requests
     this.router.get('/roles',auth.requireRole('admin'),this.roleService.get);

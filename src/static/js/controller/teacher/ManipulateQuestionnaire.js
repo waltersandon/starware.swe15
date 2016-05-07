@@ -112,7 +112,7 @@ $(function () {
                             $scope.questionnaire.questions = questions;
 
                             $scope.preview = function (body) {
-                                QML.preview(body);
+                                return QML.preview(body);
                             };
                         });
                         $scope.edit = true;

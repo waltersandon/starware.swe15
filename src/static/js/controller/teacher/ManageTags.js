@@ -48,7 +48,8 @@ $(function () {
                 TagService.delete($scope.tagList[tagIndex], function () {
                     $scope.tagList.splice(tagIndex,1);
                 }, function (res) {
-
+                    console.log(res);
+                    alert(res.data.message);
                 });
             }
         };

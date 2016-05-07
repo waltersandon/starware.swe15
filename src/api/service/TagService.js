@@ -65,7 +65,7 @@ TagService.prototype.new = function(req, res, next){
  * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
  * per passare il controllo ai successivi middleware.
  */
-TagService.prototype.modifyTag = function(req, res, next) {
+TagService.prototype.modify = function(req, res, next) {
     Tag.findByIdAndUpdate(req.params.id, req.body, function(err) {
         if (err) next(err);
         else {res.send();}
@@ -79,7 +79,7 @@ TagService.prototype.modifyTag = function(req, res, next) {
  * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
  * per passare il controllo ai successivi middleware.
  */
-TagService.prototype.deleteTag = function(req,res,next){
+TagService.prototype.delete = function(req,res,next){
     Tag.findById(req.params.id, function(err, tag) {
         if (err) return next(err);
         Questionnaire.count({ tags: tag._id }, function(err, questionCount) {
@@ -87,7 +87,7 @@ TagService.prototype.deleteTag = function(req,res,next){
             Question.count({ tags: tag._id }, function(err, questionnaireCount) {
                 if (err) return next(err);
                 if (questionCount > 0 || questionnaireCount > 0)
-                    return next(400);
+                    return next({type: 400, message:"Impossibile eliminare l'argomento, perchè è ancora presente in alcune domande o questionari"});
                 tag.remove(function(err) {
                     if (err) return next(err);
                     res.send();
