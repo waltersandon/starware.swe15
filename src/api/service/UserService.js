@@ -103,6 +103,8 @@ UserService.prototype.modify = function(req, res, next){
     Role.findById(req.session.user.role, function(err, userRole) {
         if (err) return next(err);
         if (!userRole) return next(400);
+        if (req.session.user._id === req.params.id)
+            return next(400);
         Role.findById(req.body.role, function(err, newRole) {
             if (err) next(err);
             if (!newRole) return next(400);

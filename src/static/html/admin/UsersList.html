@@ -3,11 +3,19 @@
     <div class='row'>
         <div class='col-md-12'>
             <h2>Lista utenti</h2>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
             Mostra:
             <a href='' ng-click='roleFilter = "!" + filterByRole("superadmin")'>Tutti</a> | 
             <a href='' ng-click='roleFilter = filterByRole("student")'>Studenti</a> |
             <a href='' ng-click='roleFilter = filterByRole("teacher")'>Docenti</a>
             <span ng-show='me.role === "superuser"'> | <a href='' ng-click='roleFilter = filterByRole("admin")'>Amministratori</a> </span>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
             <table class='table table-striped table-hover'>
                 <thead>
                     <tr>
