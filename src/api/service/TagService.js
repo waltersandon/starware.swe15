@@ -87,7 +87,7 @@ TagService.prototype.delete = function(req,res,next){
             Question.count({ tags: tag._id }, function(err, questionnaireCount) {
                 if (err) return next(err);
                 if (questionCount > 0 || questionnaireCount > 0)
-                    return next(400);
+                    return next({type: 400, message:"Impossibile eliminare l'argomento, perchè è ancora presente in alcune domande o questionari"});
                 tag.remove(function(err) {
                     if (err) return next(err);
                     res.send();
