@@ -48,13 +48,11 @@ describe('model.service.QuestionnaireService', function () {
 
         it("rifiuta correttamente post delle domande incorrette", function () {
             var questionnaire = {
-                author: "TestAuthor",
                 questions: ['testQuestion1','testQuestion2'],
                 tags: ['testTag1','testTag2'],
                 title: "Questionario Test"
             };
             var wrongQuestionnaire = {
-                author: "TestAuthor",
                 questions: [],
                 tags: ['testTag1','testTag2'],
                 title: "Questionario Test"

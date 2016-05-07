@@ -341,6 +341,60 @@ describe('/api/users', function() {
             });
         });
 
+        it("non permette il cambio di ruolo a se stessi", function (done) {
+
+            // Effettua l'accesso come amministratore
+            login(app, {
+                userName: 'francesco.ranzato',
+                password: 'password.francesco.ranzato'
+            }, function(agent) {
+
+                // Ottieni la lista di tutti gli utenti
+                var req = request(app).get('/api/users');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    var testUser = res.body.find(function(user) {
+                        return user.userName == 'francesco.ranzato';
+                    });
+
+                    // Ottieni la lista di tutti i ruoli per cercare
+                    // quello da impostare all'utente
+                    var req = request(app).get('/api/roles');
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                        var superAdminRole = res.body.find(function(role) {
+                            return role.name == 'student';
+                        });
+
+                        // Richiedi la modifica del ruolo
+                        var req = request(app).post('/api/users/' + testUser._id).send({
+                            role: superAdminRole._id
+                        });
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(err).to.not.be.ok;
+                            expect(res).to.have.property('status', 400);
+
+                            // Prova ad ottenere l'utente e verifica che il ruolo
+                            // fornito sia quello vecchio
+                            var req = request(app).get('/api/users/' + testUser._id);
+                            agent.attachCookies(req);
+                            req.end(function(err, res) {
+                                expect(err).to.not.be.ok;
+                                expect(res).to.have.property('status', 200);
+                                expect(res.body.role).to.be.eql(testUser.role);
+                                done();
+                            });
+                        });
+                    });
+                });
+            });
+        });
+
     });
 
     describe('DELETE /api/users/:id', function() {

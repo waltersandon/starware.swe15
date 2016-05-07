@@ -42,4 +42,7 @@ body {
 .main {
     padding-top: 20px;
 }
+[ng-click]{
+    cursor: pointer;
+}
 

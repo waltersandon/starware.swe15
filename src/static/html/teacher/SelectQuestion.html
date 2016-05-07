@@ -1,58 +1,72 @@
 
-<div  ng-controller='SelectQuestion as selectCtrl'>
-    <h2>Seleziona domanda</h2>
-    <table class='table table-striped table-hover'>
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Autore</th>
-            <th>Corpo</th>
-            <th>Argomenti</th>
-        </tr>
-        </thead>
-        <tbody>
-        <form action="" ng-submit="search()">
-        <tr>
-            <td>
-            </td>
-            <td>
-                <div class="form-group">
-                    <label for="author"></label>
-                    <input type="text" class="form-control" id="author" ng-model="selectCtrl.author" placeholder="Inserisci autore" >
-                    <!--<button type="button" class="btn btn-primary hidden" ng-click="search()"></button>-->
-                </div>
-            </td>
-            <td>
-                <div class="form-group">
-                    <label for="corpo"></label>
-                    <input type="text" class="form-control" id="corpo" ng-model="selectCtrl.body" placeholder="Inserisci corpo">
-
-                </div>
-            </td>
-            <td>
-                <div class="form-group">
-                    <label for="argomenti"></label>
-                    <input type="text" class="form-control" id="argomenti" ng-model="selectCtrl.keywordQuery" placeholder="Inserisci argomenti">
-                    <button type="submit" style="position: absolute; top: -999999px;"></button>
-                </div>
-            </td>
-        </tr>
-        </form>
-        <tr>
-            <td>1</td>
-            <td>Tullio</td>
-            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</td>
-            <td>SWE, informatica etc.....</td>
-
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>R Cardin</td>
-            <td>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et</td>
-            <td>Java, distribuzione, etc.....</td>
-
-        </tr>
-        </tbody>
-    </table>
+<div ng-controller='controller.teacher.SelectQuestion'>
+    <div class='row'>
+        <div class='col-md-12'>
+            <h2>Seleziona domanda</h2>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='row well text-center'>
+                <form ng-submit='submit()'>
+                    <div class='col-md-10'>
+                        <div class='form-group col-md-4'>
+                            <div class='col-md-10 col-md-offset-1'>
+                                <input ng-model='bodySearch' type='text' class='form-control' id='titleSearch' placeholder='Filtra per corpo'>
+                            </div>
+                        </div>
+                        <div class='form-group col-md-4'>
+                            <div class='col-md-10 col-md-offset-1'>
+                                <input ng-model='authorSearch' type='text' class='form-control' id='authorSearch' placeholder='Filtra per autore'>
+                            </div>
+                        </div>
+                        <div class='form-group col-md-4'>
+                            <div class='col-md-10 col-md-offset-1'>
+                                <input ng-model='tagSearch' type='text' class='form-control' id='tagSearch' placeholder='Filtra per argomenti'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-md-2'>
+                        <div class='form-group'>
+                            <button type='submit' class='btn btn-raised btn-primary'>Cerca</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='table-responsive'>
+                <table class='table table-striped table-hover'>
+                    <thead>
+                        <tr>
+                            <th>Corpo</th>
+                            <th><a href='' ng-click='myOrderBy = "author"'>Autore</a></th>
+                            <th>Argomenti</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat='question in questions| orderBy : myOrderBy' ng-click='addQuestion(question)'>
+                            <td style='vertical-align:middle' ng-bind-html='preview(question.body)'></td>
+                            <td style='vertical-align:middle'>{{question.author}}</td>
+                            <td style='vertical-align:middle'>
+                                <span ng-repeat='tag in question.tags track by $index'>{{tag}}{{$last ? '' : ', '}}</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
+            <div class='col-md-3 col-md-offset-9'>
+                <a href='' ng-click='setOnSelect(false)' class='btn btn-raised btn-danger' >Cancel</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
