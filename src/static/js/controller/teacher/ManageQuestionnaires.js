@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QuestionnaireService, $rootScope, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QML, QuestionnaireService, $rootScope, $scope, TagService) {
             $scope.deleteQuestionnaire = function (questionnaire) {
                 if (confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
                     QuestionnaireService.delete(questionnaire, function () {
@@ -8,6 +8,9 @@ $(function () {
 
                     });
                 }
+            };
+            $scope.preview = function (body) {
+                return QML.preview(body);
             };
             $scope.modifyQuestionnaire = function (questionnaire) {
                 $location.path('teacher/questionnaires/modify/' + questionnaire.id);
