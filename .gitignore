@@ -23,3 +23,7 @@ src/static/prova.html
 .gitignore
 node_modules/
 src/.idea/*
+
+doc/src/definizioneDiProdotto.synctex.gz(busy)
+
+src/starware.swe15.iml

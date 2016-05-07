@@ -1,15 +1,11 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', '$interpolate', '$http', function ($location, $rootScope, $scope, $sce, $interpolate, $http) {
+    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', '$interpolate', function ($location, $rootScope, $scope, $sce, $interpolate) {
         $scope.$watch('currentQuestion', function(){
             if($scope.currentQuestion) {
                 $scope.ris=$scope.currentQuestion.selectedAnswer;
                 $scope.preview = $sce.trustAsHtml($interpolate($scope.currentQuestion.body)($scope));
             }
         });
-
-        $scope.submitResponse = function(val){
-            console.log(val);
-        };
 
         $scope.$watch('ris', function(){
             if($scope.currentQuestion) {
