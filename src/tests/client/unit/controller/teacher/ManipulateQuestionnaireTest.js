@@ -80,6 +80,7 @@ describe('controller.teacher.ManipulateQuestionnaire', function() {
                     var testQuestionnaire = questionnaires.find(function (questionnaire) {
                         return questionnaire.id === id
                     });
+
                     return testQuestionnaire !== undefined ? success(testQuestionnaire) : fail();
                 };
             };
@@ -91,14 +92,16 @@ describe('controller.teacher.ManipulateQuestionnaire', function() {
 
             };
             var QuestionService = function () {
-                this.getByID = function(author, keywords, tags, success, fail) { //TODO
-                    return author[0] === 'id_author_1' ? success(questions) : fail();
-                };
+                this.getByID = function(id, success, fail) {
+
+                    var testQuestion = questions.find(function (question) {
+                        return question.id === id
+                    });
+                    return testQuestion !== undefined ? success(testQuestion) : fail();                };
             };
             var TagService = function () {
                 this.get = function(keywords, success, fail) {
-                    return keywords[0] === 'matematica' ?
-                        success(testTags) : fail();
+                    return success(testTags);
                 };
                 this.getByID = function(id, success, fail) {
                     var testTag = testTags.find(function (tag) {
@@ -123,48 +126,95 @@ describe('controller.teacher.ManipulateQuestionnaire', function() {
             $provide.service("model.service.TagService", TagService);
         });
 
-        inject(function ($injector) {
-            $location = $injector.get('$location');
-            $rootScope = $injector.get('$rootScope');
-            $scope = $rootScope.$new();
-            $cookies = $injector.get('$cookies');
-            var $controller = $injector.get('$controller');
 
-            $cookies.put('connect.sid', "id_sessione");
-            $rootScope.me = loggedUser;
-            $cookies.put('me', $rootScope.me);
-            $rootScope.logged = true;
+    });
+    describe('Modifica del  questionario', function () {
+        beforeEach(function () {
+            inject(function ($injector) {
+                $location = $injector.get('$location');
+                $location.path('teacher/questionnaires/modify/id_questionnaire_1');
+                $rootScope = $injector.get('$rootScope');
+                $scope = $rootScope.$new();
+                $scope.urlPath = function () {
+                    return $location.path().split('/');
+                };
+                $cookies = $injector.get('$cookies');
+                var $controller = $injector.get('$controller');
 
-            controller = $controller('controller.teacher.ManipulateQuestionnaire', {
-                $location: $location,
-                $rootScope: $rootScope,
-                $scope: $scope,
-                $cookies: $cookies
+                $cookies.put('connect.sid', "id_sessione");
+                $rootScope.me = loggedUser;
+                $cookies.put('me', $rootScope.me);
+                $rootScope.logged = true;
+
+                controller = $controller('controller.teacher.ManipulateQuestionnaire', {
+                    $location: $location,
+                    $rootScope: $rootScope,
+                    $scope: $scope,
+                    $cookies: $cookies
+                });
             });
         });
-    });
- /*   describe('modifyQuestionnaire', function () {
-
-        it('deve rendirizzare alla pagina di modifica del questionario', function () {
-            $scope.questionnaires = questionnaires;
-            $scope.modifyQuestionnaire($scope.questionnaires[0]);
+        it('deve modificare il  questionario modificando numero delle domande', function () {
+            expect($scope.questionnaire).toBeDefined();
             expect($location.path()).toBe('/teacher/questionnaires/modify/id_questionnaire_1');
+            expect($scope.questionnaire.questions.length).toEqual(2);
+            $scope.addQuestion(questions[2]);
+            expect($scope.questionnaire.questions.length).toEqual(3);
+            $scope.addQuestion(questions[2]);
+            expect($scope.questionnaire.questions.length).toEqual(4);
+            $scope.removeQuestion(questions[2]);
+            expect($scope.questionnaire.questions.length).toEqual(3);
+            $scope.submit();
+            expect(questionnaires[0].questions.length).toEqual(3);
+            $scope.$apply();
+        });
+
+
+    });
+    describe('Creazione del questionario', function () {
+        beforeEach(function () {
+            inject(function ($injector) {
+                $location = $injector.get('$location');
+                $location.path('teacher/questionnaires/new');
+                $rootScope = $injector.get('$rootScope');
+                $scope = $rootScope.$new();
+                $scope.urlPath = function () {
+                    return $location.path().split('/');
+                };
+                $cookies = $injector.get('$cookies');
+                var $controller = $injector.get('$controller');
+
+                $cookies.put('connect.sid', "id_sessione");
+                $rootScope.me = loggedUser;
+                $cookies.put('me', $rootScope.me);
+                $rootScope.logged = true;
+
+                controller = $controller('controller.teacher.ManipulateQuestionnaire', {
+                    $location: $location,
+                    $rootScope: $rootScope,
+                    $scope: $scope,
+                    $cookies: $cookies
+                });
+            });
+        });
+        it('deve creare il questionnario', function () {
+            $scope.$apply();
+            expect($scope.questionnaire).toBeDefined();
+            expect($location.path()).toBe('/teacher/questionnaires/new');
+            expect($scope.questionnaire.questions.length).toEqual(0);
+            $scope.addQuestion(questions[0]);
+            $scope.addQuestion(questions[1]);
+            $scope.addQuestion(questions[2]);
+            $scope.tagsInput = 'Matematica';
+            $scope.questionnaire.title = "Quiz test ManipulateQuestionnaire";
+            expect($scope.questionnaire.questions.length).toEqual(3);
+            $scope.submit();
+            expect(questionnaires[3].questions.length).toEqual(3);
+            expect(questionnaires[3].title).toEqual("Quiz test ManipulateQuestionnaire");
         });
 
     });
-    describe('deleteQuestionnaire', function () {
 
-        it('deve cancellare questionnario', function () {
-            $scope.questionnaires = questionnaires;
-            expect($scope.questionnaires.length).toBe(3);
-            $scope.deleteQuestionnaire($scope.questionnaires[1]);
-            expect($scope.questionnaires.length).toBe(2);
-            expect($scope.questionnaires[0].id).toBe('id_questionnaire_1');
-            expect($scope.questionnaires[1].id).toBe('id_questionnaire_3');
-        });
-
-    });
-*/
 
 
 

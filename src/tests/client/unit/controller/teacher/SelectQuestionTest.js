@@ -105,7 +105,6 @@ describe('controller.teacher.SelectQuestion', function() {
             $scope.submit();
             $scope.$apply();
             expect($scope.questions.length).toBe(3);
-            alert($scope.questions);
             expect($scope.questions[0].id).toBe('id_question_1');
             expect($scope.questions[1].id).toBe('id_question_2');
             expect($scope.questions[2].id).toBe('id_question_3');
