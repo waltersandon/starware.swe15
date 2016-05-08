@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.SelectQuestion', ['$location', '$q', 'model.service.QuestionService', '$scope', 'model.service.TagService', 'model.service.UserService', function ($location, $q, QuestionService, $scope, TagService, UserService) {
+    angular.module('app.App').controller('controller.teacher.SelectQuestion', ['$q', 'model.service.QuestionService', '$scope', 'model.service.TagService', 'model.service.UserService', function ($q, QuestionService, $scope, TagService, UserService) {
             $scope.submit = function () {
                 this.authors = function () {
                     var deferred = $q.defer();
@@ -67,6 +67,7 @@ $(function () {
                         return a.trim();
                     });
                 }
+
                 $q.all([this.authors(), this.tags()]).then(function (result) {
                     QuestionService.get(result[0], bodys, result[1], function (questions) {
                         async.each(questions, function (question, cb) {
@@ -99,36 +100,40 @@ $(function () {
                 });
             };
 
-            TagService.get('', function (tags) {
-                $('#tagSearch').bind('keydown', function (event) {
-                    if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
-                        event.preventDefault();
-                    }
-                }).autocomplete({
-                    minLength: 0,
-                    source: function (request, response) {
-                        response($.ui.autocomplete.filter(function () {
-                            var ret = [];
-                            tags.forEach(function (item) {
-                                ret.push(item.name);
-                            });
-                            return ret;
-                        }(), request.term.split(/,\s*/).pop()));
-                    },
-                    focus: function () {
-                        return false;
-                    },
-                    select: function (event, ui) {
-                        var terms = this.value.split(/,\s*/);
-                        terms.pop();
-                        terms.push(ui.item.value);
-                        terms.push('');
-                        this.value = terms.join(', ');
-                        return false;
-                    }
-                });
-            }, function (res) {
+            function SelectQuestion() {
+                TagService.get('', function (tags) {
+                    $('#tagSearch').bind('keydown', function (event) {
+                        if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
+                            event.preventDefault();
+                        }
+                    }).autocomplete({
+                        minLength: 0,
+                        source: function (request, response) {
+                            response($.ui.autocomplete.filter(function () {
+                                var ret = [];
+                                tags.forEach(function (item) {
+                                    ret.push(item.name);
+                                });
+                                return ret;
+                            }(), request.term.split(/,\s*/).pop()));
+                        },
+                        focus: function () {
+                            return false;
+                        },
+                        select: function (event, ui) {
+                            var terms = this.value.split(/,\s*/);
+                            terms.pop();
+                            terms.push(ui.item.value);
+                            terms.push('');
+                            this.value = terms.join(', ');
+                            return false;
+                        }
+                    });
+                }, function (res) {
 
-            });
+                });
+            }
+
+            SelectQuestion();
         }]);
 });

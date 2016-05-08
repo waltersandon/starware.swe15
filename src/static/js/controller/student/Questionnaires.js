@@ -3,10 +3,11 @@ $(function () {
             $scope.titleSearch = '';
             $scope.tagSearch = '';
             $scope.authorSearch = '';
-
             $scope.questList = [];
             $scope.myOrderBy = 'title';
-
+            $scope.executeQuestionnaire = function (questID) {
+                $location.path('student/questionnaire/' + questID);
+            };
             $scope.submit = function () {
                 this.authors = function () {
                     var deferred = $q.defer();
@@ -108,43 +109,40 @@ $(function () {
 
                 });
             };
+            function Questionnaires() {
+                TagService.get('', function (tags) {
+                    $('#tagSearch').bind('keydown', function (event) {
+                        if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
+                            event.preventDefault();
+                        }
+                    }).autocomplete({
+                        minLength: 0,
+                        source: function (request, response) {
+                            response($.ui.autocomplete.filter(function () {
+                                var ret = [];
+                                tags.forEach(function (item) {
+                                    ret.push(item.name);
+                                });
+                                return ret;
+                            }(), request.term.split(/,\s*/).pop()));
+                        },
+                        focus: function () {
+                            return false;
+                        },
+                        select: function (event, ui) {
+                            var terms = this.value.split(/,\s*/);
+                            terms.pop();
+                            terms.push(ui.item.value);
+                            terms.push('');
+                            this.value = terms.join(', ');
+                            return false;
+                        }
+                    });
+                }, function (res) {
 
-            $scope.executeQuestionnaire = function (questID) {
-                $location.path('student/questionnaire/' + questID);
-            };
-
-
-            TagService.get('', function (tags) {
-                $('#tagSearch').bind('keydown', function (event) {
-                    if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
-                        event.preventDefault();
-                    }
-                }).autocomplete({
-                    minLength: 0,
-                    source: function (request, response) {
-                        response($.ui.autocomplete.filter(function () {
-                            var ret = [];
-                            tags.forEach(function (item) {
-                                ret.push(item.name);
-                            });
-                            return ret;
-                        }(), request.term.split(/,\s*/).pop()));
-                    },
-                    focus: function () {
-                        return false;
-                    },
-                    select: function (event, ui) {
-                        var terms = this.value.split(/,\s*/);
-                        terms.pop();
-                        terms.push(ui.item.value);
-                        terms.push('');
-                        this.value = terms.join(', ');
-                        return false;
-                    }
                 });
-            }, function (res) {
+            }
 
-            });
-
+            Questionnaires();
         }]);
 });

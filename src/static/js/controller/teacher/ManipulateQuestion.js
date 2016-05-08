@@ -1,40 +1,6 @@
 $(function () {
     angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$rootScope', '$scope', 'model.data.Tag', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $rootScope, $scope, Tag, TagService) {
             $scope.error = new Error();
-
-            if ($scope.urlPath()[3] === 'new') {
-                $scope.question = new Question();
-                $scope.edit = false;
-                setEditor();
-            } else if ($scope.urlPath()[3] === 'modify') {
-                QuestionService.getByID($scope.urlPath()[4], function (question) {
-                    if (question.author === $rootScope.me.id) {
-                        $scope.question = question;
-                        $scope.tagsInput = '';
-                        async.each($scope.question.tags, function (tag, cll) {
-                            TagService.getByID(tag, function (tagComplete) {
-                                $scope.tagsInput += tagComplete.name + ', ';
-                                cll();
-                            }, function (res) {
-                                cll();
-                            });
-                        }, function (err, res) {
-                            $scope.edit = true;
-                            setEditor();
-                        });
-                    } else {
-                        $location.path('teacher/questions');
-                    }
-                }, function (res) {
-                    $location.path('teacher/questions');
-                });
-            }
-
-            function setEditor() {
-                $scope.editor = QML.editor();
-                $scope.editor.value($scope.question.body);
-            }
-
             $scope.submit = function () {
                 if (QML.parse($scope.editor.value()).status) {
                     $scope.question.body = $scope.editor.value();
@@ -83,41 +49,75 @@ $(function () {
                     $scope.error = new Error(QML.parse($scope.editor.value()).message, 'errorQML', true, 'alert-danger');
                 }
             };
-
-            TagService.get('', function (tags) {
-                $scope.tags = tags;
-
-                $('#tags').bind('keydown', function (event) {
-                    if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
-                        event.preventDefault();
-                    }
-                }).autocomplete({
-                    minLength: 0,
-                    source: function (request, response) {
-                        response($.ui.autocomplete.filter(function () {
-                            var ret = [];
-                            $scope.tags.forEach(function (item) {
-                                ret.push(item.name);
+            function buildEditor() {
+                $scope.editor = QML.editor();
+                $scope.editor.value($scope.question.body);
+            }
+            function ManipulateQuestion() {
+                if ($scope.urlPath()[3] === 'new') {
+                    $scope.question = new Question();
+                    $scope.edit = false;
+                    buildEditor();
+                } else if ($scope.urlPath()[3] === 'modify') {
+                    QuestionService.getByID($scope.urlPath()[4], function (question) {
+                        if (question.author === $rootScope.me.id) {
+                            $scope.question = question;
+                            $scope.tagsInput = '';
+                            async.each($scope.question.tags, function (tag, cll) {
+                                TagService.getByID(tag, function (tagComplete) {
+                                    $scope.tagsInput += tagComplete.name + ', ';
+                                    cll();
+                                }, function (res) {
+                                    cll();
+                                });
+                            }, function (err, res) {
+                                $scope.edit = true;
+                                buildEditor();
                             });
-                            return ret;
-                        }(), request.term.split(/,\s*/).pop()));
-                    },
-                    focus: function () {
-                        return false;
-                    },
-                    select: function (event, ui) {
-                        var terms = this.value.split(/,\s*/);
-                        terms.pop();
-                        terms.push(ui.item.value);
-                        terms.push('');
-                        this.value = terms.join(', ');
-                        return false;
-                    }
+                        } else {
+                            $location.path('teacher/questions');
+                        }
+                    }, function (res) {
+                        $location.path('teacher/questions');
+                    });
+                }
+
+                TagService.get('', function (tags) {
+                    $scope.tags = tags;
+
+                    $('#tags').bind('keydown', function (event) {
+                        if (event.keyCode === $.ui.keyCode.TAB && $(this).autocomplete('instance').menu.active) {
+                            event.preventDefault();
+                        }
+                    }).autocomplete({
+                        minLength: 0,
+                        source: function (request, response) {
+                            response($.ui.autocomplete.filter(function () {
+                                var ret = [];
+                                $scope.tags.forEach(function (item) {
+                                    ret.push(item.name);
+                                });
+                                return ret;
+                            }(), request.term.split(/,\s*/).pop()));
+                        },
+                        focus: function () {
+                            return false;
+                        },
+                        select: function (event, ui) {
+                            var terms = this.value.split(/,\s*/);
+                            terms.pop();
+                            terms.push(ui.item.value);
+                            terms.push('');
+                            this.value = terms.join(', ');
+                            return false;
+                        }
+                    });
+                }, function (res) {
+
                 });
-            }, function (res) {
+            }
 
-            });
-
+            ManipulateQuestion();
         }]);
 });
 

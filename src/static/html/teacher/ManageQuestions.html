@@ -21,13 +21,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='question in questions' ng-click='modifyQuestion(question)'>
-                        <td style='vertical-align:middle' ng-bind-html='preview(question.body)'></td>
-                        <td style='vertical-align:middle'>
+                    <tr ng-repeat='question in questions'>
+                        <td style='vertical-align:middle' ng-click='modify(question)' ng-bind-html='preview(question.body)'></td>
+                        <td style='vertical-align:middle' ng-click='modify(question)'>
                             <span ng-repeat='tag in question.tags'>{{tag}}{{$last ? '' : ', '}}</span>
                         </td>
                         <td style='text-align: center'>
-                            <a href='' ng-click='deleteQuestion(question)' class='btn'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>
+                            <a href='' ng-click='remove(question)' class='btn'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></a>
                         </td>
                     </tr>
                 </tbody>
