@@ -66,7 +66,7 @@ describe('controller.admin.UsersList', function() {
 
     describe('filterByRole', function() {
 
-        it('it should filter the list of roles', function() {
+        it('deve filtrare la lista dei ruoli', function() {
             $scope.roles = roles;
             var result = $scope.filterByRole('admin');
             expect(result).toBe('role_id_3');
@@ -76,7 +76,7 @@ describe('controller.admin.UsersList', function() {
 
     describe('changeUserRole', function() {
 
-        it('it should change the role of a user', function() {
+        it('deve cambiare il ruolo di un utente', function() {
             var result = $scope.changeUserRole(users[0], users[1].role, function() {
                 expect(true).toBe(true);
             }, function() {
@@ -88,7 +88,7 @@ describe('controller.admin.UsersList', function() {
 
     describe('deleteUser', function() {
 
-        it('it should remove a user', function() {
+        it('deve rimuovere un utente', function() {
             var result = $scope.deleteUser(users[0], function() {
                 expect(true).toBe(true);
                 var deletedUser = $scope.usersList.find(function(u) {
