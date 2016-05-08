@@ -2,10 +2,8 @@ $(function () {
     angular.module('QuestionnaireServiceModule', ['ConfigurationModule', 'QuestionnaireModule']).service('model.service.QuestionnaireService', ['app.Configuration', '$http', 'model.data.Questionnaire', function (Configuration, $http, Questionnaire) {
             this.delete = function (questionnaire, next, err) {
                 $http.delete(Configuration.remote + 'api/questionnaires/' + questionnaire.id).then(function success(res) {
-                    console.log(res);
                     next();
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -42,7 +40,6 @@ $(function () {
                             return a;
                         }()
                         ).then(function success(res) {
-                    console.log(res);
 
                     var ret = [];
                     res.data.forEach(function (item) {
@@ -51,16 +48,13 @@ $(function () {
 
                     next(ret);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/questionnaires/' + id).then(function success(res) {
-                    console.log(res);
                     next(new Questionnaire(res.data.author, res.data._id, res.data.questions, res.data.tags, res.data.title));
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -70,10 +64,8 @@ $(function () {
                     'tags': questionnaire.tags,
                     'title': questionnaire.title
                 }).then(function success(res) {
-                    console.log(res);
                     next(res.data);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -83,10 +75,8 @@ $(function () {
                     'tags': questionnaire.tags,
                     'title': questionnaire.title
                 }).then(function success(res) {
-                    console.log(res);
                     next(res.data);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };

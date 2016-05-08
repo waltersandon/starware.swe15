@@ -1,7 +1,7 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['util.Check', '$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function (Check, $location, QML, QuestionnaireService, $rootScope, $scope, TagService) {
-            $scope.delete = function (questionnaire) {
-                if (Check.confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
+    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['util.Util', '$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function (Util, $location, QML, QuestionnaireService, $rootScope, $scope, TagService) {
+            $scope.deleteQuestionnaire = function (questionnaire) {
+                if (Util.confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
                     QuestionnaireService.delete(questionnaire, function () {
                         $scope.questionnaires.splice($scope.questionnaires.indexOf(questionnaire), 1);
                     }, function (res) {

@@ -46,7 +46,6 @@ describe('controller.teacher.ManipulateQuestion', function() {
         module('app.App', function ($provide) {
             var QuestionService = function () {
                 this.new = function(quest, success, fail) {
-                    console.log("NEW QUEST: ", quest);
                 };
                 this.getByID = function(id, success, fail) {
                     if (id =='id_question_1')
@@ -55,7 +54,6 @@ describe('controller.teacher.ManipulateQuestion', function() {
                 };
 
                 this.modify = function(quest, success, fail) {
-                    console.log("MODIFY QUEST: ", quest);
                 };
             };
             var TagService = function() {

@@ -2,10 +2,8 @@ $(function () {
     angular.module('TagServiceModule', ['ConfigurationModule', 'TagModule']).service('model.service.TagService', ['app.Configuration', '$http', 'model.data.Tag', function (Configuration, $http, Tag) {
         this.delete = function (tag, next, err) {
             $http.delete(Configuration.remote + 'api/tags/' + tag.id).then(function success(res) {
-                console.log(res);
                 next();
             }, function error(res) {
-                console.log(res);
                 err(res);
             });
         };
@@ -22,7 +20,6 @@ $(function () {
                     return a;
                 }()
             ).then(function success(res) {
-                console.log(res);
 
                 var ret = [];
                 res.data.forEach(function (item) {
@@ -31,16 +28,13 @@ $(function () {
 
                 next(ret);
             }, function error(res) {
-                console.log(res);
                 err(res);
             });
         };
         this.getByID = function (id, next, err) {
             $http.get(Configuration.remote + 'api/tags/' + id).then(function success(res) {
-                console.log(res);
                 next(new Tag(res.data.description, res.data._id, res.data.name));
             }, function error(res) {
-                console.log(res);
                 err(res);
             });
         };
@@ -49,10 +43,8 @@ $(function () {
                 description: tag.description,
                 name: tag.name
             }).then(function success(res) {
-                console.log(res);
                 next(res.data);
             }, function error(res) {
-                console.log(res);
                 err(res);
             });
         };
@@ -61,10 +53,8 @@ $(function () {
                 description: tag.description,
                 name: tag.name
             }).then(function success(res) {
-                console.log(res);
                 next(res.data);
             }, function error(res) {
-                console.log(res);
                 err(res);
             });
         };
