@@ -1,16 +1,13 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QML, QuestionnaireService, $rootScope, $scope, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['util.Check', '$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function (Check, $location, QML, QuestionnaireService, $rootScope, $scope, TagService) {
             $scope.deleteQuestionnaire = function (questionnaire) {
-                if (confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
+                if (Check.confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
                     QuestionnaireService.delete(questionnaire, function () {
                         $scope.questionnaires.splice($scope.questionnaires.indexOf(questionnaire), 1);
                     }, function (res) {
 
                     });
                 }
-            };
-            $scope.preview = function (body) {
-                return QML.preview(body);
             };
             $scope.modifyQuestionnaire = function (questionnaire) {
                 $location.path('teacher/questionnaires/modify/' + questionnaire.id);
@@ -32,6 +29,10 @@ $(function () {
                     });
                 }, function (err, res) {
                     $scope.questionnaires = questionnaires;
+
+                    $scope.preview = function (body) {
+                        return QML.preview(body);
+                    };
                 });
             }, function (res) {
 
