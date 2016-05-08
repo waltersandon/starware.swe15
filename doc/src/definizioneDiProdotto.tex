@@ -67,6 +67,8 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		1.0.10 & \TODO{} & 2016-05-08 & Controllo, ampliamento ed aggiunta diagrammi di sequenza \\*
+		\midrule
 		1.0.9 & \TODO{} & 2016-05-05 & Rimozione analisi database NoSql in quanto trattato nel capitolo di MongoDB \\*
 		\midrule
 		1.0.8 & \TODO{} & 2016-05-05 & Aggiunta analisi criticità delle tenologie adottate \\*
@@ -580,6 +582,25 @@ Di seguito viene presentato il diagramma di sequenza del flusso per la rimozione
 
 Vengono di seguito presentati i diagrammi di sequenza di alcune delle operazioni più significative lato \mgls{client}, ovvero il front-end dell'applicazione.
 
+\subsubsection{Login}
+Di seguito viene presentato il diagramma di sequenza per l'accesso da parte di un ospite dal punto di vista del client. Gli oggetti e attori attivi durante questa interazione sono:
+
+\begin{itemize}
+	\item \textbf{Ospite:} l'utente non autenticato che ha intenzione di effettuare l'accesso
+	\item \textbf{LogInView:} è la pagina che mostra il form per accedere
+	\item \textbf{LogInController:} è il \mgls{controller} dell'applicazione che si occupa di controllare i dati immessi dall'utente e chiamare il servizio per effettuare il login
+	\item \textbf{sessionService:} è l'oggetto che invia la richiesta di login al server
+	\item \textbf{userService:} è l'oggetto che si occupa di comunicare con il server per ottenere i dati dell'utente autenticato
+\end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\myheight, angle=90]{../img/diagrammiSequenza/loginClient.png}
+		\caption{Diagramma sequenza - Login Client}
+	\end{figure}
+\end{center}
+
+\newpage
 \subsubsection{Cambio Informazioni}
 Di seguito viene presentato il diagramma di sequenza del flusso per il cambio di nome utente e nome completo da parte di un utente autenticato presso il sistema. Gli oggetti e attori attivi durante questa interazione sono:
 
