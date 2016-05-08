@@ -4,7 +4,7 @@ module.exports = function(config){
         basePath : '../../',
 
         client: {
-            captureConsole: false
+            captureConsole: true
         },
 
         files : [
@@ -30,7 +30,8 @@ module.exports = function(config){
             'static/js/util/*.js',
             'static/js/util/markdown/lib/markdown.min.js',
             'tests/client/unit/service/*.js',
-            'tests/client/unit/controller/**/*.js'
+            'tests/client/unit/controller/**/*.js',
+            'tests/client/unit/util/*.js'
         ],
 
         autoWatch : true,

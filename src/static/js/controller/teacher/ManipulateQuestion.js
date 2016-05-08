@@ -118,39 +118,6 @@ $(function () {
 
             });
 
-            /*$scope.dirty = false;
-             
-             $scope.$on('$routeChangeStart', function (event) {
-             console.log('$routeChangeStart');
-             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-             event.preventDefault();
-             }
-             });
-             
-             $scope.$on('$locationChangeStart', function (event) {
-             console.log('$locationChangeStart');
-             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-             event.preventDefault();
-             }
-             });
-             
-             $(window).on('hashchange', function (event) {
-             console.log('hashchange');
-             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-             event.preventDefault();
-             }
-             });
-             
-             $(window).bind('beforeunload', function (event) {
-             console.log('beforeunload');
-             var dirty = $scope.dirty || $scope.question.body !== $scope.editor.value();
-             if (dirty && confirm('Sono state apportate modifiche: uscire senza salvare?')) {
-             event.preventDefault();
-             }
-             });*/
         }]);
 });
 
