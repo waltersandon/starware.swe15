@@ -84,6 +84,7 @@ $(function () {
                                     question.author = aut.fullName;
                                     cb();
                                 }, function (res) {
+                                    question.author = '(anonimo)';
                                     cb();
                                 });
                             });
