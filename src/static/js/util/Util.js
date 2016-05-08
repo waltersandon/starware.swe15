@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('UtilModule', []).service('util.Check', [function () {
+    angular.module('UtilModule', []).service('util.Util', [function () {
             this.confirm = function (message) {
                 return confirm(message);
             };
