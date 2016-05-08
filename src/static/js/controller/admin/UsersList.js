@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.admin.UsersList', ['util.Check', 'model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function (Check, RoleService, $rootScope, $scope, UserService) {
+    angular.module('app.App').controller('controller.admin.UsersList', ['util.Util', 'model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function (Util, RoleService, $rootScope, $scope, UserService) {
             $scope.changeUserRole = function (user) {
                 UserService.modifyRole(user, user.role, function () {
 
@@ -8,7 +8,7 @@ $(function () {
                 });
             };
             $scope.deleteUser = function (user) {
-                if (Check.confirm('Vuoi eliminare l\'utente: ' + user.userName + '?')) {
+                if (Util.confirm('Vuoi eliminare l\'utente: ' + user.userName + '?')) {
                     UserService.delete(user, function () {
                         $scope.usersList.splice($scope.usersList.indexOf(user), 1);
                     }, function (res) {
@@ -29,7 +29,6 @@ $(function () {
                 }
             };
             RoleService.get(null, function (roles) {
-                console.log(roles);
                 roles.forEach(function (item) {
                     switch (item.name) {
                         case 'student':

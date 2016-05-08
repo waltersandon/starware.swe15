@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageTags', ['util.Check', '$scope', 'model.service.TagService', 'model.data.Tag', 'util.Util', function (Check, $scope, TagService, Tag, Util) {
+    angular.module('app.App').controller('controller.teacher.ManageTags', ['util.Util', '$scope', 'model.service.TagService', 'model.data.Tag', 'util.Util', function (Util, $scope, TagService, Tag, Util) {
 
             $scope.newName = "";
             $scope.newDescription = "";
@@ -43,11 +43,10 @@ $(function () {
             };
 
             $scope.deleteTag = function (tagIndex) {
-                if (Check.confirm('Vuoi eliminare l\'argomento: ' + $scope.tagList[tagIndex].name + '?')) {
+                if (Util.confirm('Vuoi eliminare l\'argomento: ' + $scope.tagList[tagIndex].name + '?')) {
                     TagService.delete($scope.tagList[tagIndex], function () {
                         $scope.tagList.splice(tagIndex, 1);
                     }, function (res) {
-                        console.log(res);
                         Util.alert(res.data.message);
                     });
                 }

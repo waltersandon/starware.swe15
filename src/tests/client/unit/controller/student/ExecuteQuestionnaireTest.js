@@ -65,6 +65,11 @@ describe('controller.student.ExecuteQuestionnaire', function() {
 					else fail();
 				};
 			};
+            var Util = function() {
+                this.confirm = function(m) { return true; }
+                this.alert = function(m) {}
+            };
+            $provide.service("util.Util", Util);
             $provide.service("model.service.QuestionnaireService", QuestionnaireService);
             $provide.service("model.service.QuestionService", QuestionService);
         });

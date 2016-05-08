@@ -55,7 +55,11 @@ describe('controller.teacher.ManageQuestionnaires', function() {
                     });
                 };
             };
-
+            var Util = function() {
+                this.confirm = function(m) { return true; }
+                this.alert = function(m) {}
+            };
+            $provide.service("util.Util", Util);
             $provide.service("model.service.QuestionnaireService", QuestionnaireService);
             $provide.service("model.service.TagService", TagService);
         });
