@@ -44,7 +44,6 @@ $(function () {
 
             this.questions.forEach(function (item) {
                 var result = item.point();
-                console.log(result);
                 if (result.answer !== null) {
                     point += result.point;
                     tot += result.tot;
