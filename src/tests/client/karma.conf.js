@@ -28,9 +28,9 @@ module.exports = function(config){
             'static/js/controller/**/*.js',
             'static/js/model/**/**.js',
             'static/js/util/*.js',
+            'static/js/util/markdown/lib/markdown.min.js',
             'tests/client/unit/service/*.js',
             'tests/client/unit/controller/**/*.js'
-
         ],
 
         autoWatch : true,
