@@ -4,7 +4,7 @@ module.exports = function(config){
         basePath : '../../',
 
         client: {
-            captureConsole: false
+            captureConsole: true
         },
 
         files : [

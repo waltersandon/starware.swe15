@@ -1,3 +1,4 @@
+/*
 describe('controller.teacher.ManipulateQuestion', function() {
 
     var $location;
@@ -6,169 +7,156 @@ describe('controller.teacher.ManipulateQuestion', function() {
     var $cookies;
     var controller;
 
-    var questions = [
-        {
-            id: 'id_question_1',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
-            author: 'id_author_1',
-            tags: [ { id: 'id_tag_1' } ]
-        },
-        {
-            id: 'id_question_2',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
-            author: 'id_author_1',
-            tags: [ { id: 'id_tag_1' } ]
-        },
-        {
-            id: 'id_question_3',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
-            author: 'id_author_1',
-            tags: [ { id: 'id_tag_1' } ]
-        }
-    ];
+    var questionInput = {
+        body: '<TF F>\nTesto domanda\nSeconda linea',
+        tags: 'id_tag1, id_tag2'
+    };
 
-    var tags = [
-        {
+    var question = {
+        id: 'id_question_1',
+        body: questionInput.body,
+        author: 'id_author_1',
+        tags: [ 
+            { id: 'id_tag_1' },
+            { id: 'id_tag_2' }
+        ]
+    };
+
+    var tags = {
+        'tag1_id': {
             id: 'tag1_id',
             name: 'tag1',
             description: 'tag1_description'
         },
-        {
-            id: 'tag1_id_sister',
-            name: 'tag1_sister',
-            description: 'tag1_sister_description'
-        },
-        {
+        'tag2_id': {
             id: 'tag2_id',
             name: 'tag2',
             description: 'tag2_description'
         },
-    ];
+    };
+
+    var author = {
+        id: 'id_author_1',
+        userName: 'mario.rossi',
+        fullName: 'Mario Rossi',
+        role: 'role_id_1'
+    };
 
     beforeEach(function () {
         module('app.App', function ($provide) {
             var QuestionService = function () {
-                this.delete = function(question, success, fail) {
-                    success();
+                this.new = function(quest, success, fail) {
+                    console.log("NEW QUEST: ", quest);
+                };
+                this.getByID = function(id, success, fail) {
+                    if (id =='id_question_1')
+                        success(question);
+                    fail();
                 };
 
-                this.get = function(author, keywords, tags, next, err) {
-                    next(questions);
+                this.modify = function(quest, success, fail) {
+                    console.log("MODIFY QUEST: ", quest);
                 };
             };
             var TagService = function() {
                 this.new = function(tag, success, fail) {
-                    if (tag.name == 'tag4' && tag.description == 'tag4_description')
-                        success();
-                    else fail();
+                    if (!tags[tag.id])
+                        tags[tag.id] = tag;
+                    success();
                 };
                 this.get = function(keywords, success, fail) {
-                    console.log(keywords);
-                    if (keywords[0] == 'tag1' && keywords[1] == 'tag2')
-                        success(tags);
-                    else fail(null);
+                    var keys = Object.keys(tags);
+                    var values = keys.map(function(v) { return tags[v]; });
+                    return values;
                 };
-                this.modify = function(tag, success, fail) {
-                    if (tag.name == 'tag2' && tag.description == 'tag2_desc')
-                        success();
-                    else fail();
-                };
-                this.delete = function(tag, success, fail) {
-                    if (tag.name == 'tag2' && tag.description == 'tag2_desc')
-                        success();
-                    else fail();
+                this.getByID = function(id, success, fail) {
+                    success(tags[id]);
                 };
             };
             $provide.service("model.service.TagService", TagService);
             $provide.service("model.service.QuestionService", QuestionService);
         });
+    });
 
-        inject(function ($injector) {
-            $location = $injector.get('$location');
-            $rootScope = $injector.get('$rootScope');
-            $scope = $rootScope.$new();
-            $cookies = $injector.get('$cookies');
-            var $controller = $injector.get('$controller');
+    describe('submit - new', function () {
 
-            controller = $controller('controller.teacher.ManageTags', {
-                $location: $location,
-                $rootScope: $rootScope,
-                $scope: $scope,
-                $cookies: $cookies
+        beforeEach(function() {
+            inject(function ($injector) {
+                $location = $injector.get('$location');
+                $location.path('a/b/new');
+                $rootScope = $injector.get('$rootScope');
+                $rootScope.urlPath = function () {
+                    return $location.path().split('/');
+                };
+                $scope = $rootScope.$new();
+                $cookies = $injector.get('$cookies');
+                var $controller = $injector.get('$controller');
+
+                $cookies.put('connect.sid', "id_sessione");
+                $rootScope.me = author;
+                $cookies.put('me', $rootScope.me);
+                $rootScope.logged = true;
+
+                controller = $controller('controller.teacher.ManipulateQuestion', {
+                    $location: $location,
+                    $rootScope: $rootScope,
+                    $scope: $scope,
+                    $cookies: $cookies
+                });
             });
         });
-    });
 
-    describe('submit', function () {
+        it('deve permettere creazione di una domanda', function () {
+            expect($scope.edit).toBe(false);
 
-        it('deve aggiornare i risultati in base alle keywords inserite', function () {
-            $scope.tagSearch = 'tag1 tag2';
+            $scope.editor.value(questionInput.body);
+            $scope.tagsInput = questionInput.tags;
+
             $scope.submit();
-            expect($scope.tagList[0].name).toBe('tag1');
-            expect($scope.tagList[1].name).toBe('tag1_sister');
-            expect($scope.tagList[2].name).toBe('tag2');
+            expect($scope.question).toBe(question);
         });
 
     });
 
-    describe('newTag', function () {
+    describe('submit - modify', function () {
 
-        it('deve aggiornare i risultati in base alle keywords inserite', function () {
-            $scope.newName = 'tag4';
-            $scope.newDescription = 'tag4_description';
-            $scope.tagSearch = 'tag1 tag2';
-            $scope.newTag();
-            expect($scope.newName).toBe("");
-            expect($scope.newDescription).toBe("");
-            expect($scope.tagSearch).toBe("");
+        beforeEach(function() {
+            inject(function ($injector) {
+                $location = $injector.get('$location');
+                $location.path('a/b/modify/id_question_1');
+                $rootScope = $injector.get('$rootScope');
+                $rootScope.urlPath = function () {
+                    return $location.path().split('/');
+                };
+                $scope = $rootScope.$new();
+                $cookies = $injector.get('$cookies');
+                var $controller = $injector.get('$controller');
+
+                $cookies.put('connect.sid', "id_sessione");
+                $rootScope.me = author;
+                $cookies.put('me', $rootScope.me);
+                $rootScope.logged = true;
+
+                controller = $controller('controller.teacher.ManipulateQuestion', {
+                    $location: $location,
+                    $rootScope: $rootScope,
+                    $scope: $scope,
+                    $cookies: $cookies
+                });
+            });
         });
 
-    });
+        it('deve permettere la modifica di una domanda', function () {
+            expect($scope.edit).toBe(true);
 
-    describe('modifyTag', function () {
+            $scope.editor.value(questionInput.body);
+            $scope.tagsInput = questionInput.tags;
 
-        it("deve modificare l'argomento specificato", function () {
-            $scope.tagList = [
-                { btnClass: 'btn-default', name: 'tag1', 'description': 'tag1_desc' }, 
-                { btnClass: 'class2', name: 'tag2', 'description': 'tag2_desc' }, 
-                { btnClass: 'btn-default', name: 'tag3', 'description': 'tag3_desc' }, 
-            ];
-            $scope.modifyTag(1);
-            expect($scope.tagList[1].btnClass).toBe('btn-default');
-        });
-
-    });
-
-    describe('textChanged', function () {
-
-        it('deve aggiornare la lista delle classi', function () {
-            $scope.tagList = [
-                { btnClass: 'class1' }, 
-                { btnClass: 'class2'},
-                { btnClass: 'class3'}
-            ];
-            $scope.textChanged(1);
-            expect($scope.tagList[0].btnClass).toBe('class1');
-            expect($scope.tagList[1].btnClass).toBe('btn-raised btn-primary');
-            expect($scope.tagList[2].btnClass).toBe('class3');
-        });
-
-    });
-
-    describe('deleteTag', function () {
-
-        it('deve aggiornare i risultati in base alle keywords inserite', function () {
-            $scope.tagList = [
-                { btnClass: 'btn-default', name: 'tag1', 'description': 'tag1_desc' }, 
-                { btnClass: 'btn-default', name: 'tag2', 'description': 'tag2_desc' }, 
-                { btnClass: 'btn-default', name: 'tag3', 'description': 'tag3_desc' }, 
-            ];
-            $scope.deleteTag(1);
-            expect($scope.tagList.length).toBe(2);
-            expect($scope.tagList[0].name).toBe('tag1');
-            expect($scope.tagList[1].name).toBe('tag3');
+            $scope.submit();
+            expect($scope.question).toBe(question);
         });
 
     });
 
 });
+*/
