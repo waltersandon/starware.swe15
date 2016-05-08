@@ -94,7 +94,7 @@ describe('controller.admin.UsersList', function() {
                 var deletedUser = $scope.usersList.find(function(u) {
                     u._id == users[0]._id
                 });
-                expect(deleteUser).not.toBeDefined();
+                expect(deletedUser).not.toBeDefined();
             }, function() {
                 expect(true).toBe(false);
             });
