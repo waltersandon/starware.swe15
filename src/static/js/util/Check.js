@@ -22,8 +22,5 @@ $(function () {
             this.checkUserName = function (userName) {
                 return userName.length >= 6 ? new Error() : new Error('<strong>L\'username</strong> deve avere almeno <strong>6</strong> caratteri', 'errorUserName', true, 'alert-warning');
             };
-            this.confirm = function (message) {
-                return confirm(message);
-            };
         }]);
 });
