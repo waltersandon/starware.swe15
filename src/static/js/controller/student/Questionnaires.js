@@ -94,6 +94,7 @@ $(function () {
                                     questionnaire.author = aut.fullName;
                                     cb();
                                 }, function () {
+                                    questionnaire.author = '(anonimo)';
                                     cb();
                                 });
                             });

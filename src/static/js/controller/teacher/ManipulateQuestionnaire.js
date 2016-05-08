@@ -13,13 +13,10 @@ $(function () {
                 $scope.onSelect = false;
             };
             $scope.submit = function () {
-                console.log('lol');
                 if ($scope.questionnaire.questions.length > 0) {
                     $scope.questionnaire.tags = [];
                     async.each($scope.tagsInput.split(','), function (tagInput, cll) {
-                        console.log('lol');
                         if (tagInput.trim() !== '') {
-                            console.log('lol');
                             var find = false;
                             $scope.tags.forEach(function (item) {
                                 if (item.name === tagInput.trim()) {
@@ -43,11 +40,9 @@ $(function () {
                             cll();
                         }
                     }, function (err, res) {
-                        console.log('lol');
                         $scope.questionnaire.questions = $scope.questionnaire.questions.map(function (question) {
                             return question.id;
                         });
-                        console.log('lol');
                         if ($scope.edit) {
                             QuestionnaireService.modify($scope.questionnaire, function () {
                                 $location.path('teacher/questionnaires');
@@ -55,7 +50,6 @@ $(function () {
 
                             });
                         } else {
-                            console.log('lol');
                             QuestionnaireService.new($scope.questionnaire, function () {
                                 $location.path('teacher/questionnaires');
                             }, function (res) {
@@ -89,6 +83,12 @@ $(function () {
                             QuestionService.getByID(id, function (question) {
                                 UserService.getByID(question.author, function (author) {
                                     question.author = author.fullName;
+                                    next();
+                                }, function (res) {
+                                    question.author = '(anonimo)';
+                                    next();
+                                });
+                                function next() {
                                     var tags = [];
                                     async.each(question.tags, function (idT, cb) {
                                         TagService.getByID(idT, function (tag) {
@@ -102,9 +102,7 @@ $(function () {
                                         questions.push(question);
                                         cll();
                                     });
-                                }, function (res) {
-                                    cll();
-                                });
+                                }
                             }, function (res) {
                                 cll();
                             });

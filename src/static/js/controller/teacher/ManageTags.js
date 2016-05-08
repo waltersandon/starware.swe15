@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageTags', ['$location', '$rootScope', '$scope', 'model.service.TagService', 'model.data.Tag', function ($location, $rootScope, $scope, TagService, Tag) {
+    angular.module('app.App').controller('controller.teacher.ManageTags', ['util.Check', '$scope', 'model.service.TagService', 'model.data.Tag', function (Check, $scope, TagService, Tag) {
 
         $scope.newName = "";
         $scope.newDescription = "";
@@ -34,7 +34,7 @@ $(function () {
         };
 
         $scope.modifyTag = function (tagIndex) {
-            if($scope.tagList[tagIndex].btnClass != "btn-default") {
+            if($scope.tagList[tagIndex].btnClass !== "btn-default") {
                 TagService.modify($scope.tagList[tagIndex], function () {
                     $scope.tagList[tagIndex].btnClass = "btn-default";
                 }, function (res) {
@@ -44,7 +44,7 @@ $(function () {
         };
 
         $scope.deleteTag = function (tagIndex) {
-            if (confirm('Vuoi eliminare l\'argomento: ' + $scope.tagList[tagIndex].name + '?')) {
+            if (Check.confirm('Vuoi eliminare l\'argomento: ' + $scope.tagList[tagIndex].name + '?')) {
                 TagService.delete($scope.tagList[tagIndex], function () {
                     $scope.tagList.splice(tagIndex,1);
                 }, function (res) {
