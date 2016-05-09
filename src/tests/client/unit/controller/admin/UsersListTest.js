@@ -41,13 +41,18 @@ describe('controller.admin.UsersList', function() {
                 this.modifyRole = function(user, role, success, fail) { success(); }
                 this.delete = function(user, success, fail) { success(); }
             };
-            $provide.service("model.service.UserService", UserService);
             var RoleService = function () {
                 this.get = function(a, success, fail) {
                     success(roles);
                 };
             };
+            var Util = function() {
+                this.confirm = function(m) { return true; }
+                this.alert = function(m) {}
+            };
+            $provide.service("util.Util", Util);
             $provide.service("model.service.RoleService", RoleService);
+            $provide.service("model.service.UserService", UserService);
         });
         inject(function($injector) {
             $location = $injector.get('$location');

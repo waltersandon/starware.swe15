@@ -10,8 +10,8 @@ $(function () {
                     toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview']
                 });
             };
-            this.preview = function (body) {
-                var b = body.split('\n'), f = '';
+            this.preview = function (plainText) {
+                var b = plainText.split('\n'), f = '';
                 b.forEach(function (item) {
                     if (!item.startsWith('<') && f.trim() === '') {
                         f = markdown.toHTML(item);

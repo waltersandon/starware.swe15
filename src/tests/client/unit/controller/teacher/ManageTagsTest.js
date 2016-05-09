@@ -33,7 +33,6 @@ describe('controller.teacher.ManageTags', function() {
                     else fail();
                 };
                 this.get = function(keywords, success, fail) {
-                    console.log(keywords);
                     if (keywords[0] == 'tag1' && keywords[1] == 'tag2')
                         success(tags);
                     else fail(null);
@@ -49,6 +48,11 @@ describe('controller.teacher.ManageTags', function() {
                     else fail();
                 };
             };
+            var Util = function() {
+                this.confirm = function(m) { return true; }
+                this.alert = function(m) {}
+            };
+            $provide.service("util.Util", Util);
             $provide.service("model.service.TagService", TagService);
         });
 

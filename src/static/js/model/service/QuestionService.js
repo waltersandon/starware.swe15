@@ -2,10 +2,8 @@ $(function () {
     angular.module('QuestionServiceModule', ['ConfigurationModule', 'QuestionModule']).service('model.service.QuestionService', ['app.Configuration', '$http', 'model.data.Question', function (Configuration, $http, Question) {
             this.delete = function (question, next, err) {
                 $http.delete(Configuration.remote + 'api/questions/' + question.id).then(function success(res) {
-                    console.log(res);
                     next();
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -42,7 +40,6 @@ $(function () {
                             return a;
                         }()
                         ).then(function success(res) {
-                    console.log(res);
 
                     var ret = [];
                     res.data.forEach(function (item) {
@@ -51,16 +48,13 @@ $(function () {
 
                     next(ret);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/questions/' + id).then(function success(res) {
-                    console.log(res);
                     next(new Question(res.data.author, res.data.body, res.data._id, res.data.tags));
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -69,10 +63,8 @@ $(function () {
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
-                    console.log(res);
                     next(res.data);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
@@ -81,10 +73,8 @@ $(function () {
                     'body': question.body,
                     'tags': question.tags
                 }).then(function success(res) {
-                    console.log(res);
                     next(res.data);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
