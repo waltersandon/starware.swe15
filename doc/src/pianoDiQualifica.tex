@@ -2105,28 +2105,95 @@
 	Si sono analizzate le classi e i relativi campi dati che non hanno superato i test sopra riportati. Si è trovato tuttavia, che nella quasi totalità dei casi il non superamento del test è dovuto al tipo di linguaggio utilizzato. A questo si deve il fatto che molte classi sono in realtà un raggruppamento di funzionalità, e non rispecchiano completamente il concetto di classe perseguito da un linguaggio OO. Pur decidendo di non considerare completamente gli esiti in questo caso, la metrica sopra valutata non viene eliminata dall'insieme utilizzato per la valutazione del codice. 
 	Questo perché spesso permette di riconoscere cattivi metodi di programmazione.
 	
+	\subsection{Codifica}
+	\subsubsection{Processi}
+	Vengono riportati i valori di \mgls{schedule variance} e \mgls{milestone schedule variance} calcolati. 
+	\TODO{}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
+				\toprule
+				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
+				\midrule
+				\mGls{cost variance} & & \\ \midrule
+				\mgls{milestone schedule variance}  & \\ \midrule
+				\mgls{schedule variance}  &  &  \\ \midrule
+				Cost of poor quality &  &  \\ \midrule
+				Requirement Stability  &  & \\ \bottomrule
+			\end{tabular}	
+		\end{center}
+		\caption{Test Qualità di Processo nella \FC}
+	\end{table}
+
+	
+	\subsubsection{Documenti}
+	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
+		\TODO{}
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+				\toprule
+				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
+				\midrule
+				\AdR &  &   \\ \midrule    
+				\NdP &  &   \\ \midrule
+				\PdP &  &   \\ \midrule
+				\PdQ &  &  \\ \midrule
+				\ST &  &   \\ \midrule
+				\DP &  &   \\ \midrule
+				\MU &   &   \\ \midrule
+				\GL &   &  \\ \midrule \midrule
+				\textbf{Valore medio} & \textbf{}& \textbf{}\\ 
+				\bottomrule
+			\end{tabular}
+		\end{center}
+		\caption{Esito dei test su Indice \mgls{gulpease} nella \FC}
+	\end{table}
+	
+	\subsubsection{Software}
+	Vengono riportati i valori calcolati delle misurazioni sul codice. 
+		\TODO{}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
+					\toprule
+					\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
+					\midrule
+					Complessità ciclomatica &  & \\ \midrule
+					Parametri per metodo &  & \\ \midrule
+					Campi dati per classe  &  &  \\ \midrule
+					Linee di codice per metodo &  &  \\ \midrule
+					Livelli di annidamento &  &  \\ \midrule
+					Instabilità &  &  \\ \midrule
+					Copertura del codice nei test &  & \\ \bottomrule
+				\end{tabular}	
+			\end{center}
+			\caption{Test Qualità del \mgls{software} nella \FC}
+		\end{table}
+	
+	
 	\newpage
 	\section{Dettaglio dell'esito delle revisioni}
 	Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente} a cui si deve sottoporsi. Il \mgls{committente} segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
 	
 	\subsection{\RR{}}
 	\begin{itemize}
-		\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è normata la redazione dei verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate
+		\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è normata la redazione dei verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate 
 		\item \textbf{\AdR{}:} sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento
 		\item \textbf{\NdP{}:} in seguito alla \RR{} si è deciso di migliorare la struttura del documento. In particolare si è ritenuto opportuno renderne la struttura maggiormente conforme allo standard \textit{ISO/IEC 12207}
 		\item \textbf{\PdP{}:} è stata effettuata una revisione della struttura del documento. I contenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inoltre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione
 		\item \textbf{\PdQ{}:} in seguito alle segnalazioni sono stati rivisti i contenuti del documento. In particolare sono state riviste nei contenuti e nell'impostazione generale le sezioni relative alla politica di qualità, qualità di processo e qualità di prodotto. Sono state aggiunte metriche per la qualità di processo ed e si è rivisto il documento rimuovendo le sezioni e i contenuti normativi
-		\item \textbf{\textit{Glossario}:} come da indicazione, si è rivista l'organizzazione del glossario, che è divenuto un documento a se stante
+		\item \textbf{\GL{}:} come da indicazione, si è rivista l'organizzazione del glossario, che è divenuto un documento a se stante
 	\end{itemize}
 	
 	\subsection{\RP{}}
 	\begin{itemize}
-		\item \textbf{Generale}:
-		\item \textbf{\AdR{}:}
-		\item \textbf{\DP{}:}
-	    \item \textbf{\NdP{}:}
-	    \item \textbf{\PdP{}:}
+		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate
+		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardo la struttura e in piccola parte anche nel contenuto di alcuni casi d'uso per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivista la descrizione di UC5.1, separato i casi d'uso per tipologia e rivisto le post condizioni dei casi d'errore.
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi (ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano stati fatti)
+	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
+	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti
 	\end{itemize}
 	
 	\section{Dettaglio esito test}
