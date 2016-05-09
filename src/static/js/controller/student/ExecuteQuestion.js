@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', '$interpolate', function ($location, $rootScope, $scope, $sce, $interpolate) {
+    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$scope', '$sce', '$interpolate', function ($scope, $sce, $interpolate) {
             $scope.$watch('currentQuestion', function () {
                 if ($scope.currentQuestion) {
                     $scope.ris = $scope.currentQuestion.selectedAnswer;
@@ -12,11 +12,5 @@ $(function () {
                     $scope.currentQuestion.selectedAnswer = $scope.ris;
                 }
             });
-            function foo(res) {
-                var scope = angular.element($("#outer")).scope();
-                scope.$apply(function () {
-                    scope.ans = res;
-                });
-            }
         }]);
 });

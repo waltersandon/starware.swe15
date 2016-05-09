@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.Questionnaires', ['$location', '$rootScope', '$scope', '$q', 'model.service.QuestionnaireService', 'model.service.UserService', 'model.service.TagService', function ($location, $rootScope, $scope, $q, QuestionnaireService, UserService, TagService) {
+    angular.module('app.App').controller('controller.student.Questionnaires', ['$location', '$scope', '$q', 'model.service.QuestionnaireService', 'model.service.UserService', 'model.service.TagService', function ($location, $scope, $q, QuestionnaireService, UserService, TagService) {
             $scope.titleSearch = '';
             $scope.tagSearch = '';
             $scope.authorSearch = '';

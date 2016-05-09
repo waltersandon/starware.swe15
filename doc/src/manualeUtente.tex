@@ -61,6 +61,8 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
+			0.0.1 & \WS{} & 2016-05-09 &  Inserimento sezione amministratore e proprietario \\*
+			\midrule
 			0.0.0 & \AB{} & 2016-04-26 &  Creazione documento \\*
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
@@ -234,17 +236,17 @@
 	\section{Studente}\label{studente}
 	Il profilo studente è il profilo  base offerto dal sistema. Ogni utente registrato dispone di tali funzionalità. Tali funzionalità sono:
 	\begin{itemize}
-		\item la possibilità di ricercare questionari in base a piu parametri;
+		\item la possibilità di ricercare questionari in base a più parametri;
 		\item la possibilità di esplorare i questionari presenti nel sistema per argomento;
 		\item la possibilità di eseguire un questionario presente nel sistema.
 	\end{itemize}
 	
-	\subsection{Homepage studente}
-	\subsection{Ricerca questionario}\label{ricerca_questionario}
-	\subsubsection{Pagina di ricerca  di un questionario}
+	\subsection{Funzionalità studente}
+	\subsubsection{Ricerca questionario}\label{ricerca_questionario}
+	\subsubsubsection{Pagina di ricerca  di un questionario}
 	L'accesso alla pagina di ricerca questionari si effettua dal \textbf{menu laterale}. 
 	E' necessario selezionare la voce "\textbf{Ricerca questionario}" nella sezione \textbf{Studente} del menu.
-	\subsubsection{Effettuare una ricerca}
+	\subsubsubsection{Effettuare una ricerca}
 	Una volta entrati nella pagina di ricerca, è possibile inserire i parametri di ricerca nella barra apposita.
 	\begin{comment}
 	inserire immagine barra di ricerca
@@ -255,19 +257,19 @@
 	\begin{comment} inserire immagine e altre informazioni per la ricerca con filtri	\end{comment}
 	\TODO{inserire immagine}
 	
-	\subsection{Esplorazione argomenti}	
+	\subsubsection{Esplorazione argomenti}	
 	
-	\subsubsection{Pagina di esplorazione argomenti} \label{esplorazione_arg}
+	\subsubsubsection{Pagina di esplorazione argomenti} \label{esplorazione_arg}
 	L'accesso alla pagina di esplorazione degli argomenti e si effettua dal \textbf{menu laterale}. 
 	E' necessario selezionare la voce "\textbf{Esplora argomenti}" nella sezione \textbf{Studente} del menu.
-	\subsubsection{Navigare tra gli argomenti}
+	\subsubsubsection{Navigare tra gli argomenti}
 	Dalla pagina di esplorazione degli argomenti è possibile vedere quali argomenti sono disponibili nel sistema. Cliccando su un argomento è possibile vedere i sottoargomenti e i relativi questionari disponibili.
 	
-	\subsection{Esecuzione questionario}
-	\subsubsection{Trovare il questionario}
+	\subsubsection{Esecuzione questionario}
+	\subsubsubsection{Trovare il questionario}
 	Per trovare un questionario da eseguire è possibile effettuare una ricerca, vedi \ref{ricerca_questionario}.
 	Oppure è possibile sceglierlo in base all'argomento, vedi \ref{esplorazione_arg}.
-	\subsection{Eseguire un questionario}
+	\subsubsection{Eseguire un questionario}
 	Una  volta trovato il questionario desiderato, è possibile eseguirlo cliccando sul tasto "esegui" a fianco ad esso.
 	Durante l'esecuzione di un questionario sarà possibile navigare tra le domande presenti con i tasti "precedente" e Wsuccessiva".
 	Una volta terminato di segnare le risposte, cliccando sul tasto "conferma" sarà possibile vedere la soluzione del questionario svolto.
@@ -282,29 +284,29 @@
 			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
 			\item la possibilità di gestire argomenti (aggiungerli, rimuoverli e modificarli)
 		\end{itemize}
-	\subsection{Homepage docente}
+	\subsection{Funzionalità docente}
 	
-    \subsection{Gestione domande}
+    \subsubsection{Gestione domande}
 
     Selezionando la voce "domande" dal menu a lato, sotto la voce "Docente", vengono visualizzate le domande precedentemente create. 
-	\subsubsection{Creazione domanda}
+	\subsubsubsection{Creazione domanda}
 	Per creare una nuova domanda è sufficiente premere il taso in alto a destra nella pagina "gestione domande". 
 	Si aprirà un form apposito per l'inserimento del \mgls{qml} per la descrizione della domanda.
 	Una volta inserito il \mgls{qml}, selezionare il pulsante "crea" in basso a destra.
 	
 	\paragraph{Attenzione !!}Se il \mgls{qml} inserito non è valido, l'applicazione chiederà di correggere il \mgls{qml} inserito e di selezionare nuovamente il pulsante "crea".
-	\subsubsection{Modifica domanda}
+	\subsubsubsection{Modifica domanda}
 	Per modificare una domanda è necessario selezionare la voce "modifica" a fianco della domanda che si desidera modificare. Si aprirà una schermata che permetterà di editare il \mgls{qml} della domanda scelta.
 	Una volta modificata la domanda, premere il pulsante "salva" in basso a destra per confermare le modifiche effettuate. 
 	Se il \mgls{qml} modificato non risulta corretto, il sistema chiederà di correggere il \mgls{qml} inserito prima di salvare nuovamente.
 	
-	\subsubsection{Eliminazione domanda}
+	\subsubsubsection{Eliminazione domanda}
 	Per eliminare una domanda è necessario selezionare la voce "elimina" a fianco della domanda da eliminare. Prima di eliminare la domanda definitivamente il sistema chiederà di confermare nuovamente l'eliminazione.
 	Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", la domanda selezionata verrà eliminata irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verrà interrotto e la domanda non verrà eliminata.
 		
-	\subsection{Gestione argomenti}
+	\subsubsection{Gestione argomenti}
 	Selezionando la voce "argomenti" dal menu a lato, sotto la voce "Docente", vengono visualizzati gli argomenti precedentemente creati.
-		\subsubsection{Creazione argomenti}
+		\subsubsubsection{Creazione argomenti}
 		Per creare un nuovo argomento è necessario selezionare il simbolo "+" in alto a destra, nella pagina "argomenti" del menu "Docente".
 		Si aprirà un apposito form per l'inserimento di un nuovo argomento.
 		Sarà necessario 
@@ -316,30 +318,30 @@
 		
 		Una volta creato un nuovo argomento, questo comparirà nella schermata degli argomenti precedentemente creati.
 		
-		\subsubsection{Modifica argomento}
+		\subsubsubsection{Modifica argomento}
 		Per modificare un argomento è necessario selezionare la voce "modifica" a fianco della domanda che si desidera modificare. Si aprirà una schermata che permetterà di editare l'argomento scelto.
 		Una volta modificato l'argomento, premere il pulsante "salva" in basso a destra per confermare le modifiche effettuate. 
 		
-		\subsubsection{Eliminazione argomento}
+		\subsubsubsection{Eliminazione argomento}
 		Per eliminare un argomento è necessario selezionare la voce "elimina" a fianco del argomento da eliminare. Prima di eliminare un argomento definitivamente, il sistema chiederà di confermare nuovamente l'eliminazione.
 		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", l'argomento selezionato verrà eliminato irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verà interrotto e il argomento non verrà eliminato.
 		Non possono essere eliminati gli argomenti che hanno domande o questionari associati.
 		
-		\subsection{Gestione questionario}
-		\subsubsection{Creazione questionario}
+		\subsubsection{Gestione questionario}
+		\subsubsubsection{Creazione questionario}
 		Per creare un questionario è necessario selezionare "+" in alto a destra della pagina. Si aprirà una schermata che permetterà di inserire il titolo del questionario, di aggiungere le domande e di aggiungere gli argomenti al questionario corrente.
 		Una volta terminata la modifica, selezionare la voce "salva" per creare il nuovo questionario costruito. 
 		Per annullare l'operazione di creazione del questionario selezionare "annulla".
 		
 		Nel caso il questionario creato non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente.
 		
-		\subsubsection{Modifica questionario}
+		\subsubsubsection{Modifica questionario}
 		Per modificare un questionario è necessario selezionare la voce "modifica" a fianco del questionario che si desidera modificare. Si aprirà una schermata che permetterà di editare il titolo del questionario, di aggiungere o rimuovere domande e di aggiungere o rimuovere argomenti dal questionario corrente.
 		Una volta terminata la modifica, selezionare la voce "salva" per rendere permanenti le modifiche effettuate. Per non salvare le modifiche effettuate selezionare "annulla".
 			
 		Nel caso la modifica non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente.
 			
-		\subsubsection{Eliminazione questionario}
+		\subsubsubsection{Eliminazione questionario}
 		Per eliminare un questionario è necessario selezionare la voce "elimina" a fianco del questionario da eliminare. Prima di eliminare un questionario definitivamente, il sistema chiederà di confermare nuovamente l'eliminazione.
 		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando la voce "elimina", il questionario selezionato verrà eliminato irreversibilmente. Cliccando la voce "annulla", il procedimento di eliminazione verrà interrotto e il questionario non verrà eliminato.
 
@@ -352,32 +354,35 @@
 			\item la possibilità di degradare un docente a ruolo di studente;
 			\item la possibilità di rimuovere un docente o uno studente dal sistema.
 		\end{itemize}
-		\paragraph{Accesso alla pagina per la gestione degli utenti}
+		\subsection{Funzionalità docente}
+		
+		\subsubsection{Lista utenti e filtri}
 		Per accedere alla pagina di gestione degli utenti è necessario selezionare la voce "Lista utenti" del menù amministratore.
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.2\linewidth]{../img/screenshot/usersList_menu.png}
 			\caption{}
 			\label{Lista utenti}
 		\end{figure}
-		\subsection{Lista utenti e filtri}
         Dalla schermata "Lista Utenti" è possibile filtrare gli utenti presenti nel sistema per ruolo cliccando sulla relativa opzione del filtro "Mostra".
-		\begin{figure}[h]
+		\begin{figure}[H]
 			
 			\centering
 			\includegraphics[width=1.0\linewidth]{../img/screenshot/usersList_crop.png}
 			\caption{}
 			\label{Lista utenti}
 		\end{figure}
+	
+	\subsubsection{Gestione docenti}
+	Selezionando un utente dalla lista utenti, un amministratore può effettuare alcune operazioni quali  il cambiamento di ruolo di un utente selezionato o la sua eliminazione dal sistema.
 		
-	\subsection{Eliminazione utente}
-	\TODO{}
-	\subsection{Gestione docenti}
-	\TODO{}
-	\subsubsection{Promozione a ruolo docente}
-	\TODO{}
-	\subsubsection{Rimozione da ruolo docente}
-	\TODO{}
+	\subsubsubsection{Eliminazione utente}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla "x" che si trova infondo a destra  in corrispondenza del nome selezionato. Prima di eliminare definitivamente un utente, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando sulla voce "elimina", l'utente selezionato verrà eliminato in maniera irreversibile. Cliccando su "annulla", il procedimento di eliminazione verrà unterrotto e l'utente non verrà eliminato.
+	
+	\subsubsubsection{Promozione a ruolo docente}
+	Dalla lista utenti l'amministratore per promuovere lo studente a docente dovrà cliccare in corrispondenza del ruolo dello studente selezionato. In questo modo comparirà una combobox e tra le varie voci scegliere "docente".
+	\subsubsubsection{Rimozione da ruolo docente}
+	Per pimuove un docente dal suo incarico l'amministratore dovrà cliccare in corrispondenza del ruolo del docente  che si vuole degradare. In questo modo comparirà una combobox e tra le varie voci scegliere su "studente".
 	
 	\section{Proprietario} 
 	Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore.
@@ -387,9 +392,16 @@
 		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
 		\item la possibilità di rimuovere un amministratore dal sistema.
 	\end{itemize}
+	\subsection{Funzionalità proprietario}
 	
 	\subsubsection{Gestione  amministratori}
-	\TODO{}
-
+	Selezionando un utente dalla lista utenti, il proprietario può eseguire tutte le opeazioni descritte nella sezione amministratore con la possibilità di promuovere un qualsiasi utente ad amministratore o eventualmente degradare un amministratore o a docente o a studente.
+	
+	\subsubsubsection{Promozione ad amministratore}
+	Dalla lista utenti il proprietario per promuovere un utente ad amministratore dovrà cliccare in corrispondenza del ruolo che attualmente tale utente riveste. In questo modo comparirà una combobox e scegliere su "amministratore".
+	\subsubsubsection{Rimozione dal ruolo amministratore}
+	Per pimuove un amministratore dal suo incarico il proprietario dovrà cliccare in corrispondenza del ruolo dell'amministratore che si vuole degradare. In questo modo comparirà una combobox e scegliere su "studente" o "docente".
+	\subsubsubsection{Rimozione amministratore}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla "x" che si trova infondo a destra  in corrispondenza dell'amministratore selezionato. Prima di eliminare definitivamente un'amministratore, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando sulla voce "elimina", l'amministratore selezionato verrà eliminato in maniera irreversibile. Cliccando su "annulla", il procedimento di eliminazione verrà unterrotto e l'amministratore non verrà eliminato.
 	
 \end{document}
