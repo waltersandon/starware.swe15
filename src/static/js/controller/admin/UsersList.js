@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.admin.UsersList', ['model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function (RoleService, $rootScope, $scope, UserService) {
+    angular.module('app.App').controller('controller.admin.UsersList', ['util.Util', 'model.service.RoleService', '$rootScope', '$scope', 'model.service.UserService', function (Util, RoleService, $rootScope, $scope, UserService) {
             $scope.changeUserRole = function (user) {
                 UserService.modifyRole(user, user.role, function () {
 
@@ -8,7 +8,7 @@ $(function () {
                 });
             };
             $scope.deleteUser = function (user) {
-                if (confirm('Vuoi eliminare l\'utente: ' + user.userName + '?')) {
+                if (Util.confirm('Vuoi eliminare l\'utente: ' + user.userName + '?')) {
                     UserService.delete(user, function () {
                         $scope.usersList.splice($scope.usersList.indexOf(user), 1);
                     }, function (res) {
@@ -22,10 +22,10 @@ $(function () {
                 }).id;
             };
             $scope.filterRoleList = function () {
-                if ($rootScope.me.role === 'superadmin') {
+                if ($rootScope.me.role.name === 'superadmin') {
                     return {name: "!superadmin"};
                 } else {
-                    return ({name: "!superadmin"} && {name: "!admin"});
+                    return ({name: "!superadmin", name: "!admin"});
                 }
             };
             RoleService.get(null, function (roles) {

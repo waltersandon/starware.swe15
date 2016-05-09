@@ -1,5 +1,24 @@
 $(function () {
     angular.module('QMLModule', []).service('util.QML', [function () {
+            this.editor = function () {
+                return new SimpleMDE({
+                    element: document.getElementById('editor'),
+                    previewRender: function (plainText) {
+                        var p = parse(plainText);
+                        return p.status ? p.body + p.answerForm : p.message;
+                    },
+                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview']
+                });
+            };
+            this.preview = function (plainText) {
+                var b = plainText.split('\n'), f = '';
+                b.forEach(function (item) {
+                    if (!item.startsWith('<') && f.trim() === '') {
+                        f = markdown.toHTML(item);
+                    }
+                });
+                return f.substr(3, f.length - 7);
+            };
             this.parse = function (plainText) {
                 if (plainText.charAt(0) === '<') {
                     switch (plainText.substr(1, plainText.indexOf('>') - 1)) {
@@ -44,12 +63,12 @@ $(function () {
                                         </div>\
                                     </div>\
                                     </form>',
-                                answers:[{value:true, str:'Vero'},{value:false, str:'Falso'}],
+                                answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
                                 answer: false
                             };
                         case 'MultipleChoice':
                             plainText = plainText.substr(plainText.indexOf('\n') + 1);
-                            var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0;//conta le risposte possibili
+                            var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0; //conta le risposte possibili
                             for (var i = 0; i < a.length; i++) {
 
                                 if (a[i] === '[answers]' && !ansFlag) {
@@ -65,7 +84,7 @@ $(function () {
                                                     <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
                                                 </label>\
                                             </div>';
-                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    choice.push({value: n, str: r.substr(3, r.length - 7)});
                                     n++;
                                 } else if (a[i].startsWith('[*]') && ansFlag) {
                                     rightAnswers++;
@@ -76,7 +95,7 @@ $(function () {
                                                 </label>\
                                             </div>';
                                     right = n;
-                                    choice.push({value: n, str: r.substr(3, r.length - 3)});
+                                    choice.push({value: n, str: r.substr(3, r.length - 7)});
                                     n++;
                                 } else if (!ansFlag) {
                                     txt += markdown.toHTML(a[i]);

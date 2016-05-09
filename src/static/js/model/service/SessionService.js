@@ -5,19 +5,15 @@ $(function () {
                     'password': password,
                     'userName': userName
                 }).then(function success(res) {
-                    console.log(res);
                     next();
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
             this.logout = function (next, err) {
                 $http.delete(Configuration.remote + 'api/session').then(function success(res) {
-                    console.log(res);
                     next();
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };

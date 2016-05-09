@@ -13,7 +13,6 @@ $(function () {
                             return a;
                         }()
                         ).then(function success(res) {
-                    console.log(res);
 
                     var ret = [];
                     res.data.forEach(function (item) {
@@ -22,16 +21,13 @@ $(function () {
 
                     next(ret);
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };
             this.getByID = function (id, next, err) {
                 $http.get(Configuration.remote + 'api/roles/' + id).then(function success(res) {
-                    console.log(res);
                     next(new Role(res.data._id, res.data.name));
                 }, function error(res) {
-                    console.log(res);
                     err(res);
                 });
             };

@@ -1,37 +1,44 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', function ($location, QuestionnaireService, $rootScope, $scope, TagService) {
-            $scope.deleteQuestionnaire = function (questionnaire) {
-                if (confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
-                    QuestionnaireSerivce.delete(questionnaire, function () {
+    angular.module('app.App').controller('controller.teacher.ManageQuestionnaires', ['$location', 'util.QML', 'model.service.QuestionnaireService', '$rootScope', '$scope', 'model.service.TagService', 'util.Util', function ($location, QML, QuestionnaireService, $rootScope, $scope, TagService, Util) {
+            $scope.modify = function (questionnaire) {
+                $location.path('teacher/questionnaires/modify/' + questionnaire.id);
+            };
+            $scope.remove = function (questionnaire) {
+                if (Util.confirm('Vuoi eliminare il questionario: ' + questionnaire.title + '?')) {
+                    QuestionnaireService.delete(questionnaire, function () {
                         $scope.questionnaires.splice($scope.questionnaires.indexOf(questionnaire), 1);
                     }, function (res) {
 
                     });
                 }
             };
-            QuestionnaireService.get([$rootScope.me.id], null, null, function (questionnaires) {
-                async.each(questionnaires, function (questionnaire, cb) {
-                    var tags = '';
+            $scope.preview = function (body) {
+                return QML.preview(body);
+            };
+            function ManageQuestionnaires() {
+                QuestionnaireService.get([$rootScope.me.id], null, null, function (questionnaires) {
+                    async.each(questionnaires, function (questionnaire, cb) {
+                        var tags = [];
 
-                    async.each(questionnaire.tags, function (tag, cll) {
-                        TagService.getByID(tag, function (tagComplete) {
-                            tags += tagComplete.name + ', ';
-                            cll();
-                        }, function (res) {
-                            cll();
+                        async.each(questionnaire.tags, function (tag, cll) {
+                            TagService.getByID(tag, function (tagComplete) {
+                                tags.push(tagComplete.name);
+                                cll();
+                            }, function (res) {
+                                cll();
+                            });
+                        }, function (err, res) {
+                            questionnaire.tags = tags;
+                            cb();
                         });
                     }, function (err, res) {
-                        if (tags.length >= 2)
-                            tags = tags.substr(0, tags.length - 2);
-
-                        questionnaire.tags = tags;
-                        cb();
+                        $scope.questionnaires = questionnaires;
                     });
-                }, function (err, res) {
-                    $scope.questionnaires = questionnaires;
-                });
-            }, function (res) {
+                }, function (res) {
 
-            });
+                });
+            }
+
+            ManageQuestionnaires();
         }]);
 });
