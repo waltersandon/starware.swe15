@@ -77,20 +77,20 @@ describe('controller.teacher.ManageTags', function() {
         it('deve aggiornare i risultati in base alle keywords inserite', function () {
             $scope.tagSearch = 'tag1 tag2';
             $scope.submit();
-            expect($scope.tagList[0].name).toBe('tag1');
-            expect($scope.tagList[1].name).toBe('tag1_sister');
-            expect($scope.tagList[2].name).toBe('tag2');
+            expect($scope.tags[0].name).toBe('tag1');
+            expect($scope.tags[1].name).toBe('tag1_sister');
+            expect($scope.tags[2].name).toBe('tag2');
         });
 
     });
 
-    describe('newTag', function () {
+    describe('add', function () {
 
         it('deve aggiornare i risultati in base alle keywords inserite', function () {
             $scope.newName = 'tag4';
             $scope.newDescription = 'tag4_description';
             $scope.tagSearch = 'tag1 tag2';
-            $scope.newTag();
+            $scope.add();
             expect($scope.newName).toBe("");
             expect($scope.newDescription).toBe("");
             expect($scope.tagSearch).toBe("");
@@ -98,48 +98,32 @@ describe('controller.teacher.ManageTags', function() {
 
     });
 
-    describe('modifyTag', function () {
+    describe('modify', function () {
 
         it("deve modificare l'argomento specificato", function () {
-            $scope.tagList = [
+            $scope.tags = [
                 { btnClass: 'btn-default', name: 'tag1', 'description': 'tag1_desc' }, 
                 { btnClass: 'class2', name: 'tag2', 'description': 'tag2_desc' }, 
                 { btnClass: 'btn-default', name: 'tag3', 'description': 'tag3_desc' }, 
             ];
-            $scope.modifyTag(1);
-            expect($scope.tagList[1].btnClass).toBe('btn-default');
+            $scope.modify($scope.tags[1]);
+            expect($scope.tags[1].btnClass).toBe('btn-default');
         });
 
     });
 
-    describe('textChanged', function () {
-
-        it('deve aggiornare la lista delle classi', function () {
-            $scope.tagList = [
-                { btnClass: 'class1' }, 
-                { btnClass: 'class2'},
-                { btnClass: 'class3'}
-            ];
-            $scope.textChanged(1);
-            expect($scope.tagList[0].btnClass).toBe('class1');
-            expect($scope.tagList[1].btnClass).toBe('btn-raised btn-primary');
-            expect($scope.tagList[2].btnClass).toBe('class3');
-        });
-
-    });
-
-    describe('deleteTag', function () {
+    describe('remove', function () {
 
         it('deve aggiornare i risultati in base alle keywords inserite', function () {
-            $scope.tagList = [
+            $scope.tags = [
                 { btnClass: 'btn-default', name: 'tag1', 'description': 'tag1_desc' }, 
                 { btnClass: 'btn-default', name: 'tag2', 'description': 'tag2_desc' }, 
                 { btnClass: 'btn-default', name: 'tag3', 'description': 'tag3_desc' }, 
             ];
-            $scope.deleteTag(1);
-            expect($scope.tagList.length).toBe(2);
-            expect($scope.tagList[0].name).toBe('tag1');
-            expect($scope.tagList[1].name).toBe('tag3');
+            $scope.remove($scope.tags[1]);
+            expect($scope.tags.length).toBe(2);
+            expect($scope.tags[0].name).toBe('tag1');
+            expect($scope.tags[1].name).toBe('tag3');
         });
 
     });

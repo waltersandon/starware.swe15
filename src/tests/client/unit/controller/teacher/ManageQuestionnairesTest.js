@@ -84,21 +84,21 @@ describe('controller.teacher.ManageQuestionnaires', function() {
             });
         });
     });
-    describe('modifyQuestionnaire', function () {
+    describe('modify', function () {
 
         it('deve rendirizzare alla pagina di modifica del questionario', function () {
             $scope.questionnaires = questionnaires;
-            $scope.modifyQuestionnaire($scope.questionnaires[0]);
+            $scope.modify($scope.questionnaires[0]);
             expect($location.path()).toBe('/teacher/questionnaires/modify/id_questionnaire_1');
         });
 
     });
-    describe('deleteQuestionnaire', function () {
+    describe('remove', function () {
 
         it('deve cancellare questionnario', function () {
             $scope.questionnaires = questionnaires;
             expect($scope.questionnaires.length).toBe(3);
-            $scope.deleteQuestionnaire($scope.questionnaires[1]);
+            $scope.remove($scope.questionnaires[1]);
             expect($scope.questionnaires.length).toBe(2);
             expect($scope.questionnaires[0].id).toBe('id_questionnaire_1');
             expect($scope.questionnaires[1].id).toBe('id_questionnaire_3');
