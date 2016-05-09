@@ -530,11 +530,10 @@
 	dove la sigla TI si riferisce a un test di integrazione, [componente] viene sostituito del macro componente di cui si verifica l'integrazione.
 	
 	\paragraph{Test di Unità}
-	Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema	
-	\[ GU.X  \]
-	dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-	\[ [ID Classe][- ...].TU \] 
-	dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-". L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
+L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
+	\[ [ID Classe][ID Metodo].TU \] 
+	dove [ID Classe] rappresenta l'ID della classe testata e ID Metodo rappresenta l'ID del metodo della classe testato.
+	 Nel caso il test coinvolga più metodi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
 	
 	\paragraph{Stato dei test}
 	Per indicare lo stato dei test si usa la seguente notazione:
@@ -1584,8 +1583,8 @@
 		\midrule
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
-	
-	\paragraph{client:model:service}
+\subsection{Test di unità}
+	\subsubsection{\texttt{client:model:service}}
 \begin{center}
 	\begin{longtable}[]{p{0.1\textwidth} p{0.4\textwidth} p{0.5\textwidth}}
 	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} \\ \midrule
@@ -1621,7 +1620,7 @@
 \end{longtable}
 \end{center}
 
-\paragraph{client:controller}
+\subsubsection{\texttt{client:controller}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
 		\midrule
@@ -1667,7 +1666,7 @@
 	\end{longtable}
 \end{center}
 
-\paragraph{clientutil}
+\subsubsection{\texttt{client: util}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
 		\midrule	
@@ -1682,7 +1681,7 @@
 \end{longtable}
 \end{center}
 
-\paragraph{server:service}
+\subsubsection{\texttt{server:service}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
 			\midrule
@@ -1716,7 +1715,7 @@
 	\end{longtable}
 	\end{center}	
 	
-	
+\subsubsection{\texttt{	server:vaiidator}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
 		\midrule		
