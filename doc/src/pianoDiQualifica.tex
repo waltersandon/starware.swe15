@@ -1585,344 +1585,84 @@
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
 	
-	\subsection{Test di unità}\label{test_unita}
-	\paragraph{Gruppo GU.1}
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{client::contoller}, in particolare le classi di \texttt{client::controller::public}, \texttt{client::controller::student}, \texttt{client::controller::teacher} e \texttt{client::controller::admin}.
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item il costruttore deve inizializzare correttamente i campi dati interni alla classe;
-		\item controllo delle chiamate ai servizi;
-		\item controllo della consistenza dei parametri passati ai servizi.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				83.TU & LogIn & client::controller::public\\ \midrule
-				84.TU & SingUp & client::controller::public\\ \midrule
-				159.TU & Menu & client::controller::student\\ \midrule
-				86.TU & Questionnaires & client::controller::student\\ \midrule
-				182.TU & ExecuteQuestionnaire & client::controller::student\\ \midrule
-				183.TU & ExecuteQuestion & client::controller::student\\ \midrule
-				165.TU & Tags & client::controller::student\\ \midrule
-				188.TU & User & client::controller::student\\ \midrule
-				85.TU & Home & client::controller::student\\ \midrule
-				171.TU & ManipulateTag & client::controller::teacher\\ \midrule
-				175.TU & ManipulateQuestion & client::controller::teacher\\ \midrule
-				176.TU & ManipulateQuestionnaire & client::controller::teacher\\ \midrule
-				177.TU & SelectQuestions & client::controller::teacher\\ \midrule
-				178.TU & Menu & client::controller::teacher\\ \midrule
-				184.TU & ManageTags & client::controller::teacher\\ \midrule
-				185.TU & ManageQuestions & client::controller::teacher\\ \midrule
-				186.TU & ManageQuestionnaire & client::controller::teacher\\ \midrule
-				157.TU & UserList & client::controller::admin\\ \midrule
-				158.TU & Menu & client::controller::admin\\ \midrule			
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{client::controller}}
-	\end{table}
-	
-	\paragraph{Gruppo GU.2 }
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{client::model::services}
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item il costruttore deve inizializzare correttamente i campi dati rispetto ai parametri ricevuti;
-		\item controllo dei parametri passati alle \mgls{api} REST;
-		\item correttezza della costruzione degli oggetti in \texttt{client::model::data}.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	%\TODO{non so se usare il monospace per i package}
-	
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				77.TU & SessionService & \texttt{client::model::services}\\ \midrule
-				78.TU & UserService & \texttt{client::model::services}\\ \midrule
-				79.TU & TagService & \texttt{client::model::services}\\ \midrule
-				80.TU & RoleService & \texttt{client::model::services}\\ \midrule
-				81.TU & QuestionServices & \texttt{client::model::services}\\ \midrule
-				82.TU & QuestionnaireServices & \texttt{client::model::services}\\ \midrule
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{client::model::services}}
-	\end{table}
-	
-	\paragraph{Gruppo GU.3}
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{client::model::util}
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item nel caso di funzioni di controllo su stringhe queste rilevino le stringhe scorrette ed accettino quelle conformi ritornando il valore booleano corretto in entrambi i casi;
-		\item i costruttori inizializzino correttamente i campi dati della classe;
-		\item eventuali chiamate a servizi passino  questi parametri consistenti.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	
-	%\TODO{Non so se usare il monospace}
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				179.TU & Check & \texttt{client::model::util}\\ \midrule
-				180.TU & CurrentQuestion & \texttt{client::model::util}\\ \midrule
-				181.TU & CurrentQuestionnaire & \texttt{client::model::util}\\ \midrule
-				
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{client::model::util}}
-	\end{table}
-	
-	\paragraph{Gruppo GU.4}
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{server::services}
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item il costruttore deve inizializzare correttamente i campi dati rispetto ai parametri ricevuti;
-		\item controllo dei parametri passati alle API REST;
-		\item correttezza della costruzione degli oggetti in \texttt{client::model::data}.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	%\TODO{Non so se usare il monospace}
-	
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				14.TU & UserService & \texttt{server::services}\\ \midrule
-				15.TU & QuestionnaireService & \texttt{server::services}\\ \midrule
-				16.TU & QuestionService & \texttt{server::services}\\ \midrule
-				24.TU & TagService & \texttt{server::services}\\ \midrule
-				156.TU & SessionService & \texttt{server::services}\\ \midrule
-				160.TU & RoleService & \texttt{server::services}\\ \midrule			
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{server::services}}
-	\end{table}
-	
-	\paragraph{Gruppo GU.5}
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{server::validator}
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item ogni metodo di controllo devono rilevare oggetti, del tipo trattato, non consistenti;
-		\item ogni metodo di controllo deve accettare un oggetto, del tipo trattati, consistente con il modello.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	%\TODO{Non so se usare il monospace}
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				161.TU & UserCheck & \texttt{server::validator}\\ \midrule
-				162.TU & QuestionnaireCheck & \texttt{server::validator}\\ \midrule
-				163.TU & TagCheck & \texttt{server::validator}\\ \midrule
-				164.TU & QuestionCheck & \texttt{server::validator}\\ \midrule			
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{server::validator}}
-	\end{table}
-	
-	\paragraph{Gruppo GU.6}
-	Tale gruppo di test verifica la correttezza delle classi interne al \mgls{package} \texttt{server::middleware}
-	
-	\subparagraph{Controlli oggetto del test}
-	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
-	
-	\begin{itemize}
-		\item ogni metodo esposto deve trattare correttamente gli oggetti consistenti con il modello ricevuti;
-		\item ogni metodo deve costruire correttamente gli oggetti in \texttt{server::data};
-		\item ogni chiamata a metodi deve essere effettuata con parametri corretti.
-	\end{itemize}
-	
-	\subparagraph{Descrizione Unità}:
-	%\TODO{Non so se usare il monospace}
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.2\textwidth} p{0.4\textwidth} p{0.4\textwidth}}
-				\toprule
-				\textbf{ID}   & \textbf{Unità Test}	& \textbf{\mgls{package}} \\ \midrule
-				\midrule
-				18.TU & Router & \texttt{server::middleware}\\ \midrule
-				19.TU & Authorization & \texttt{server::middleware}\\ \midrule
-				20.TU & Loader & \texttt{server::middleware}\\ \midrule
-				21.TU & ErrorHandler & \texttt{server::middleware}\\ \midrule
-				28.TU & Error & \texttt{server::middleware}\\ \midrule			
-				\bottomrule
-			\end{tabular}
-		\end{center}
-		\caption{Descrizione dei test relativi a \texttt{server::middleware}}
-	\end{table}
+	\paragraph{Client}
+\begin{center}
+	\begin{longtable}[]{p{0.1\textwidth} p{0.4\textwidth} p{0.5\textwidth}}
+	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} \\ \hline
+	& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette \\ \hline
+	& QuestionService.modify() & effettua la richiesta corretta per put della domanda \\ \hline
+	& QuestionService.getByID() & effettua la richiesta dei question per id \\ \hline
+	& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \hline
+	& QuestionService.delete() & effettua la richiesta corretta per delete della domanda \\ \hline
+	& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette \\ \hline
+	& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda \\ \hline
+	& QuestionnaireService.getByID() & effettua la richiesta dei question per id \\ \hline
+	& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \hline
+	& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda \\ \hline
+	& RoleService.get() & effettua la richiesta dei role con keywords \\ \hline
+	& RoleService.getByID & effettua la richiesta dei role per id \\ \hline
+	& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette \\ \hline
+	& SessionService.logout() & effettua la richiesta corretta per la disconnessione \\ \hline
+	& TagService.new() & effettua la richiesta corretta \\ \hline
+	& TagService.modify() & effettua la richiesta corretta \\ \hline
+	& TagService.getByID() & effettua la richiesta corretta \\ \hline
+	& TagService.get() & effettua la richiesta corretta, effettua la richiesta corretta \\ \hline
+	& TagService.delete() & effettua la richiesta corretta \\ \hline
+	& UserService.get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names \\ \hline
+	& UserService.getByID() & effettua la richiesta corretta \\ \hline
+	& UserService.getMe() & effettua la richiesta corretta \\ \hline
+	& UserService.modifyRole() & effettua la richiesta corretta \\ \hline
+	& UserService.signUp() & effettua la richiesta corretta \\ \hline
+	& UserService.updateInformation() & effettua la richiesta corretta \\ \hline
+	& UserService.updatePassword() & effettua la richiesta corretta \\ \hline
+	& UserService.delete() & effettua la richiesta corretta \\ \hline
+	& controller:admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli \\ \hline
+	& controller:admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente \\ \hline
+	& controller:admin: UsersList.deleteUser() & deve rimuovere un utente \\ \hline
+	& controller:public: LogIn.checkLogged() & should have a method to check if the path is active \\ \hline
+	& controller:public: LogIn.urlPath() & should have a method to check if the path is active \\ \hline
+	& controller:public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato \\ \hline
+	& controller:public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato \\ \hline
+	& controller:public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati \\ \hline
+	& controller:public: SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato \\ \hline
+	& controller:public: SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato \\ \hline
+	& controller:public: SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato \\ \hline
+	& controller:public: SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato \\ \hline
+	& controller:public: SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati \\ \hline
+	& controller:student: ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda \\ \hline
+	& controller:student: ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente \\ \hline
+	& controller:student: ExecuteQuestionnaire.submit() & corregge correttamente le risposte \\ \hline
+	& controller:student: Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari \\ \hline
+	& controller:student: Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari \\ \hline
+	& controller:teacher: ManageQuestionnaires.modifyQuestionnaire() & deve rendirizzare alla pagina di modifica del questionario \\ \hline
+	& controller:teacher: ManageQuestionnaires.deleteQuestionnaire() & deve cancellare questionnario \\ \hline
+	& controller:teacher: ManageQuestions.preview() & deve ritornare la prima riga della domanda \\ \hline
+	& controller:teacher: ManageQuestions.modifyQuestion() & deve rendirizzare alla pagina di modifica della domanda \\ \hline
+	& controller:teacher: ManageQuestions.deleteQuestion() & deve correttamente eliminare la domanda selezionata \\ \hline
+	& controller:teacher: ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
+	& controller:teacher: ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
+	& controller:teacher: ManageTags.modifyTag() & deve modificare l'argomento specificato \\ \hline
+	& controller:teacher: ManageTags.textChanged() & deve aggiornare la lista delle classi \\ \hline
+	& controller:teacher: ManageTags.deleteTag() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
+	& controller:teacher: ManipulateQuestionnaire.\TODO\{modifica\} & deve modificare il questionario modificando numero delle domande \\ \hline
+	& controller:teacher: ManipulateQuestionnaire.\TODO\{creazione\} & deve creare il questionnario \\ \hline
+	& controller:teacher: SelectQuestion.submit() & deve inizializzare la lista con delle domande \\ \hline
+	& controller:user: Home.logout() & it should filter the list of roles \\ \hline
+	& controller:user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido \\ \hline
+	& controller:user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido \\ \hline
+	& controller:user: User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio \\ \hline
+	& controller:user: User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali \\ \hline
+	& controller:user: User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo \\ \hline
+	& controller:user: User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo \\ \hline
+	& util: Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri \\ \hline
+	& util: Check.checkPassword() & deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri, deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri \\ \hline
+	& util: Check.checkTitle() & deve segnalare titolo non presente, deve segnalare titolo presente \\ \hline
+	& util: Check.checkUserName() & deve accettare UserName lungo 6 caratteri, deve bloccare UserName lungo 5 caratteri \\ \hline
+	& util: QML.preview() & visualizza preview body \\ \hline
+	& util: QML.parse() & esegue parse della domanda TF F, esegue parse della domanda TF T, esegue parse della domanda MultipleChoice \\ \hline
 
-	\newpage
-	\appendix
-	\section{Standard di qualità}\label{standard}
-	
-	\subsection{Standard ISO/IEC 15504}
-	Lo standard \textit{ISO/IEC 15504} descrive come ogni processo debba essere controllato continuamente con lo scopo di rilevare possibili rischi e debolezze intrinseci che impediscono di raggiungere gli obiettivi prefissati, e di individuare le possibili cause in modo da migliorare l'efficienza di tali processi. I risultati delle singole valutazioni devono essere ripetibili, oggettivi e comparabili in contesti simili affinché contribuiscano al miglioramento effettivo dei processi in esame.
-	
-	Il modello \mgls{spice} definisce 6 possibili livelli di maturità del processo i quali possiedono degli attributi utili per misurarla:
-	
-	\begin{enumerate}
-		\item\textbf{Incomplete process:}il processo non viene attuato o non riesce a raggiungere i	suoi risultati
-		
-		\item\textbf{Performed:} il processo attuato raggiunge i suoi risultati
-		\begin{enumerate}
-			\item\textbf{Process performance attribute:} capacità di un processo di raggiungere gli obiettivi trasformando input identificabili in output identificabili
-		\end{enumerate}
-		
-		\item \textbf{Managed process:} il processo viene eseguito in modo controllato in base a obiettivi definiti
-		\begin{enumerate}
-			\item\textbf{Performance management attribute:} capacità del processo di elaborare un prodotto coerente con gli obiettivi prefissati
-			\item\textbf{ Work product management attribute:} capacità del processo di elaborare un prodotto documentato, controllato e verficato
-		\end{enumerate}
-		
-		\item{Established process:} il processo viene eseguito basandosi su principi dell'ingegneria del \mgls{software}  ed è in grado di raggiungere i risultati prefissati
-		\begin{enumerate}
-			\item\textbf {Process definition attribute: } l'esecuzione del processo si basa su standard di processo per raggiungere i propri obiettivi
-			\item \textbf{Process resource attribute: }capacità del processo di attingere a risorse
-			tecniche e umane appropriate per essere attuato efficacemente
-		\end{enumerate}
-		
-		\item\textbf{Predictable process:} il processo viene eseguito costantemente entro limiti definiti
-		per raggiungere i risultati attesi
-		\begin{enumerate}
-			\item \textbf{ Measurement attribute:} gli obiettivi e le misure di prodotto e di processo vengono usate per garantire il raggiungimento dei traguardi definiti in		supporto ai target aziendali
-			\item\textbf{ Process control attribute:} il processo viene controllato tramite misure di prodotto e processo per effettuare correzioni migliorative al processo stesso
-		\end{enumerate}
-		
-		\item\textbf{Optimizing process:} il processo cambia e si adatta dinamicamente per raggiungere gli obiettivi aziendali
-		\begin{enumerate}
-			\item \textbf{Process change attribute:} i cambiamenti strutturali, di gestione e di esecuzione vengono gestiti in modo controllato per raggiungere i risultati prefissati
-			\item \textbf{Continuous improvement attribute:} le modifiche al processo sono identificate e implementate per garantire il miglioramento continuo nella realizzazione degli obiettivi di business dell'organizzazione
-		\end{enumerate}
-	\end{enumerate}
-	
-	Ogni attributo di processo precedentemente descritto è misurabile e lo standard predispone 4 differenti livelli:
-	
-	\begin{enumerate}
-		\item \textbf{N} non posseduto (0\% - 15\%)
-		\item \textbf{P} parzialmente posseduto (16\% - 50\%)
-		\item \textbf{L} largamente posseduto (51\% - 85\%)
-		\item \textbf{F} completamente posseduto (86\% - 100\%)
-	\end{enumerate}
-	
-	\subsection{Standard ISO/IEC 9126}
-	Lo standard \textit{ISO/IEC 9126} è stato redatto con lo scopo di descrivere gli obiettivi qualitativi di prodotto e delineare delle metriche capaci di misurare il raggiungimento di tali obiettivi. Esso divide i criteri qualitativi in 3 aree diverse:
-	
-	\begin{itemize}
-		\item \textbf{Qualità in uso:} è la qualità del prodotto \mgls{software} dal punto di vista dell'utilizzatore che ne fa uso all'interno di uno specifico sistema e contesto
-		\item \textbf{Qualità esterna:} è la qualità del prodotto \mgls{software} vista dall'esterno nel momento in cui esso viene eseguito e testato in un ambiente di prova
-		\item \textbf{Qualità interna:} è la qualità del prodotto \mgls{software} vista dall'interno, fa quindi riferimento alle caratteristiche implementative del \mgls{software} quali l'architettura e il codice che ne deriva
-	\end{itemize}
-	
-	Non avendo la possibilità di testare la qualità in uso del prodotto \mgls{software} da sviluppare, si è deciso di concentrarsi sulla qualità interna ed esterna. Lo\textit{Standard ISO/IEC 9126} prevede 6 caratteristiche qualitative principali, suddivise in ulteriori sotto caratteristiche che possono essere misurate quantitativamente tramite metriche specifiche:
-	
-	\begin{itemize}
-		\item \textbf{Funzionalità:} capacità del prodotto \mgls{software} di fornire funzioni che rispondano a determinate esigenze
-		\begin{itemize}
-			\item \textbf{Idoneità:} capacità del prodotto \mgls{software} di fornire un insieme appropriato di funzioni per \mgls{attivita} specifiche
-			\item \textbf{Accuratezza:} capacità del prodotto \mgls{software} di fornire risultati corretti o concordati con il grado di precisione necessario
-			\item \textbf{Interoperabilità:} capacità del prodotto \mgls{software} di interagire con uno o più sistemi specifici
-			\item \textbf{Sicurezza:} capacità del prodotto \mgls{software} di proteggere dati e informazioni in modo da impedire l'accesso e la modifica a persone o sistemi non autorizzati e a consentire l'uso di tali dati ai soli autorizzati
-			\item \textbf{Conformità funzionale:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni e prescrizioni in materia di funzionalità
-		\end{itemize}
-		
-		\item \textbf{Affidabilità:} capacità del prodotto \mgls{software} di mantenere un adeguato livello di prestazioni
-		\begin{itemize}
-			\item \textbf{Maturità:} capacità del prodotto \mgls{software} di evitare fallimenti a causa di errori nel \mgls{software} 
-			\item \textbf{Tolleranza agli errori: }capacità del prodotto \mgls{software} di mantenere un adeguato livello di prestazioni in caso di errori \mgls{software} o di violazione alla propria interfaccia
-			\item \textbf{Capacità di recupero:} capacità del prodotto \mgls{software} di ristabilire un adeguato livello di performance e di recuperare i dati interessati in caso di errori
-			\item \textbf{Conformità di affidabilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di affidabilità
-		\end{itemize}
-		
-		\item \textbf{Usabilità:} capacità del \mgls{software} di essere capito, imparato, usato e di essere allettante per l'utente
-		\begin{itemize}
-			\item \textbf{Intelligibilità:} capacità del prodotto \mgls{software} di consentire all'utente di capire se il \mgls{software} è adeguato e come può essere utilizzato per compiti	particolari
-			\item \textbf{Apprendibilità:} capacità del prodotto \mgls{software} di consentire all'utente di imparare le sue applicazioni
-			\item \textbf{Operabilità:} capacità del prodotto \mgls{software} di consentire all'utente di usarlo e controllarlo
-			\item \textbf{Attrattività:} capacità del prodotto \mgls{software} di creare interesse nell'utente
-			\item \textbf{Conformità di usabilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di usabilità
-		\end{itemize}
-		
-		\item \textbf{Efficienza:} capacità del \mgls{software} di fornire prestazioni appropriate in relazione alla quantità di risorse usate
-		\begin{itemize}
-			\item \textbf{Comportamento temporale:} capacità del \mgls{software} di fornire tempi di risposta e di elaborazione adeguati quando svolge le sue funzioni
-			\item \textbf{Utilizzo di risorse:} capacità del prodotto \mgls{software} di utilizzare tipologia e quantità di risorse adeguate durante la sua esecuzione
-			\item \textbf{Conformità di efficienza:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di efficienza
-		\end{itemize}
-		
-		\item \textbf{Manutenibilità:} capacità del prodotto \mgls{software} di essere modificato. Le modifiche comprendono correzioni, miglioramenti o adattamenti del \mgls{software}, cambiamenti ambientali, nelle specifiche o nelle funzionalità
-		\begin{itemize}
-			\item \textbf{Analizzabilità:} capacità del prodotto \mgls{software} di poter essere studiato alla ricerca di carenze e difetti
-			\item \textbf{Modificabilità:} capacità del prodotto \mgls{software} di consentire l'implementazione di una specifica modifica
-			\item \textbf{Stabilità:} capacità del prodotto \mgls{software} di evitare effetti indesiderati causati da una o più modifiche
-			\item \textbf{Testabilità:} capacità del prodotto \mgls{software} di consentire la \mgls{validazione} di una versione modificata del \mgls{software} 
-			\item \textbf{Conformità di manutenibilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di manutenibilità
-		\end{itemize}
-		
-		\item \textbf{Portabilità:} capacità del prodotto \mgls{software} di poter essere trasferito da un ambiente di lavoro ad un altro
-		\begin{itemize}
-			\item \textbf{Adattabilità:} capacità del prodotto \mgls{software} di essere adattato a diversi ambienti senza la necessità di effettuare modifiche diverse da quelle fornite
-			\item \textbf{Installabilità:} capacità del prodotto \mgls{software} di poter essere installato in specifici ambienti
-			\item \textbf{Coesistenza:} capacità del prodotto \mgls{software} di coesistere in ambienti comuni con altri \mgls{software}  indipendenti condividendo risorse comuni
-			\item \textbf{Sostituibilità:} capacità del prodotto \mgls{software} di poter sostituire un \mgls{software} analogo con la stessa finalità e nello stesso ambiente
-			\item \textbf{Conformità di portabilità:} capacità del prodotto \mgls{software} di aderire a standard, convenzioni o regolamentazioni in materia di portabilità
-		\end{itemize}
-	\end{itemize}
-	
-	\newpage
-	\newpage
-	\section{Dettaglio delle verifiche tramite analisi}
-	
-	\subsection{Analisi}
-	\subsubsection{Processi}
-	Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di \FA:
-	
-	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
-				\toprule
-				\textbf{Indice}   & \textbf{Valore Percentuale}	& \textbf{Esito test} \\ \midrule
-				\midrule
-				\mGls{cost variance} &0 &  Superato \\ \midrule
-				\mGls{schedule variance} &0.5 &  Superato\\ \bottomrule
-			\end{tabular}
-		\end{center}
-	\end{table}
+\end{longtable}
+\end{center}
 	
 	\subsubsection{Documenti}
 	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
