@@ -61,6 +61,8 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
+			0.0.1 & \WS{} & 2016-05-09 &  Inserimento sezione amministratore e proprietario \\*
+			\midrule
 			0.0.0 & \AB{} & 2016-04-26 &  Creazione documento \\*
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
@@ -356,29 +358,31 @@
 		
 		\subsubsection{Lista utenti e filtri}
 		Per accedere alla pagina di gestione degli utenti è necessario selezionare la voce "Lista utenti" del menù amministratore.
-		\begin{figure}[h]
+		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.2\linewidth]{../img/screenshot/usersList_menu.png}
 			\caption{}
 			\label{Lista utenti}
 		\end{figure}
         Dalla schermata "Lista Utenti" è possibile filtrare gli utenti presenti nel sistema per ruolo cliccando sulla relativa opzione del filtro "Mostra".
-		\begin{figure}[h]
+		\begin{figure}[H]
 			
 			\centering
 			\includegraphics[width=1.0\linewidth]{../img/screenshot/usersList_crop.png}
 			\caption{}
 			\label{Lista utenti}
 		\end{figure}
+	
+	\subsubsection{Gestione docenti}
+	Selezionando un utente dalla lista utenti, un amministratore può effettuare alcune operazioni quali  il cambiamento di ruolo di un utente selezionato o la sua eliminazione dal sistema.
 		
 	\subsubsubsection{Eliminazione utente}
-	\TODO{}
-	\subsubsubsection{Gestione docenti}
-	\TODO{}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla "x" che si trova infondo a destra  in corrispondenza del nome selezionato. Prima di eliminare definitivamente un utente, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando sulla voce "elimina", l'utente selezionato verrà eliminato in maniera irreversibile. Cliccando su "annulla", il procedimento di eliminazione verrà unterrotto e l'utente non verrà eliminato.
+	
 	\subsubsubsection{Promozione a ruolo docente}
-	\TODO{}
+	Dalla lista utenti l'amministratore per promuovere lo studente a docente dovrà cliccare in corrispondenza del ruolo dello studente selezionato. In questo modo comparirà una combobox e tra le varie voci scegliere "docente".
 	\subsubsubsection{Rimozione da ruolo docente}
-	\TODO{}
+	Per pimuove un docente dal suo incarico l'amministratore dovrà cliccare in corrispondenza del ruolo del docente  che si vuole degradare. In questo modo comparirà una combobox e tra le varie voci scegliere su "studente".
 	
 	\section{Proprietario} 
 	Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore.
@@ -388,9 +392,16 @@
 		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
 		\item la possibilità di rimuovere un amministratore dal sistema.
 	\end{itemize}
+	\subsection{Funzionalità proprietario}
 	
 	\subsubsection{Gestione  amministratori}
-	\TODO{}
-
+	Selezionando un utente dalla lista utenti, il proprietario può eseguire tutte le opeazioni descritte nella sezione amministratore con la possibilità di promuovere un qualsiasi utente ad amministratore o eventualmente degradare un amministratore o a docente o a studente.
+	
+	\subsubsubsection{Promozione ad amministratore}
+	Dalla lista utenti il proprietario per promuovere un utente ad amministratore dovrà cliccare in corrispondenza del ruolo che attualmente tale utente riveste. In questo modo comparirà una combobox e scegliere su "amministratore".
+	\subsubsubsection{Rimozione dal ruolo amministratore}
+	Per pimuove un amministratore dal suo incarico il proprietario dovrà cliccare in corrispondenza del ruolo dell'amministratore che si vuole degradare. In questo modo comparirà una combobox e scegliere su "studente" o "docente".
+	\subsubsubsection{Rimozione amministratore}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla "x" che si trova infondo a destra  in corrispondenza dell'amministratore selezionato. Prima di eliminare definitivamente un'amministratore, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando sulla voce "elimina", l'amministratore selezionato verrà eliminato in maniera irreversibile. Cliccando su "annulla", il procedimento di eliminazione verrà unterrotto e l'amministratore non verrà eliminato.
 	
 \end{document}
