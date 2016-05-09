@@ -8,8 +8,8 @@ describe('login', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
-            element(by.id('inputUsername')).sendKeys("mrossi");
-            element(by.id('inputPassword')).sendKeys("password");
+            element(by.id('inputUsername')).sendKeys("mario.rossi");
+            element(by.id('inputPassword')).sendKeys("password.mario.rossi");
             element(by.buttonText('Submit')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
@@ -21,8 +21,8 @@ describe('login', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
-            element(by.id('inputUsername')).sendKeys("cbianchi");
-            element(by.id('inputPassword')).sendKeys("password");
+            element(by.id('inputUsername')).sendKeys("tullio.vardanega");
+            element(by.id('inputPassword')).sendKeys("password.tullio.vardanega");
             element(by.buttonText('Submit')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
@@ -34,8 +34,8 @@ describe('login', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
-            element(by.id('inputUsername')).sendKeys("averdi");
-            element(by.id('inputPassword')).sendKeys("password");
+            element(by.id('inputUsername')).sendKeys("francesco.ranzato");
+            element(by.id('inputPassword')).sendKeys("password.francesco.ranzato");
             element(by.buttonText('Submit')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {

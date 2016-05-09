@@ -14,10 +14,10 @@ describe('login', function() {
             element(by.id('repeatPassword')).sendKeys("password");
             element(by.buttonText('Submit')).click();
         });
-        browser.getLocationAbsUrl().then(function(url) {
+       /* browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
             element(by.className('glyphicon-off')).click();
-        });
+        });*/
     });
     it('utente deve  deve poter loggarsi con proprio account', function() {
         browser.get('#/login');
@@ -32,6 +32,4 @@ describe('login', function() {
             element(by.className('glyphicon-off')).click();
         });
     });
-
-
 });
