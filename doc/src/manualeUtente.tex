@@ -404,4 +404,59 @@
 	\subsubsubsection{Rimozione amministratore}
 	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla "x" che si trova infondo a destra  in corrispondenza dell'amministratore selezionato. Prima di eliminare definitivamente un'amministratore, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando sulla voce "elimina", l'amministratore selezionato verrà eliminato in maniera irreversibile. Cliccando su "annulla", il procedimento di eliminazione verrà unterrotto e l'amministratore non verrà eliminato.
 	
+	\newpage
+	\appendix
+	
+	\section{Definizione QML}
+	Il QML (Question Markup Language) è il linguaggio per definire la struttura di una domanda. La struttura comincia con la definizione del tipo di domanda e continua con una parte variabile a seconda del tipo.\\
+	\begin{verbatim}
+	<Tipo di domanda>
+	parte variabile
+	\end{verbatim}
+		
+	 I tipi supportati sono:
+	\begin{verbatim}
+		\item Domanda Vero/Falso
+		\item Domanda a scelta multipla
+	\end{verbatim}
+	Per i testi delle domande e delle risposte si utilizza il parsing markdown. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}. In questo modo, per esempio è possibile aggiungere formattazione al testo, tabelle e immagini, queste ultime tramite il comando\\
+	 \texttt{![alt text](https://flic.kr/p/GxRmqq "Immagine1")}\\
+		
+	\subsection{Domanda Vero/Falso}
+	\paragraph{Domanda vera}
+	\begin{verbatim}
+	<TF T>
+	Domanda_in_markdown
+	\end{verbatim}
+	\paragraph{Domanda falsa}
+	\begin{verbatim}
+	<TF F>
+	Domanda_in_markdown
+	\end{verbatim}
+	\paragraph{Esempio}
+	\begin{verbatim}
+	<TF T>
+	Roma e' la capitale d'**Italia**?
+	\end{verbatim}
+	
+	\subsection{Domanda a scelta multipla}
+	\begin{verbatim}
+	<MultipleChoice>
+	Domanda_in_markdown
+	[answers]
+	[]Risposta_sbagliata
+	[*]Risposta_giusta
+	[]Risposta_sbagliata
+	\end{verbatim}
+	\paragraph{Esempio}
+	\begin{verbatim}
+	<MultipleChoice>
+	Qual è la capitale d'**Italia**?
+	[answers]
+	[] Berlino
+	[*] Roma
+	[] Padova
+	\end{verbatim}
+	
+	
 \end{document}
