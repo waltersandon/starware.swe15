@@ -530,11 +530,10 @@
 	dove la sigla TI si riferisce a un test di integrazione, [componente] viene sostituito del macro componente di cui si verifica l'integrazione.
 	
 	\paragraph{Test di Unità}
-	Per facilitare la gestione dei test di unità si è stabilito di suddividerli in gruppi. Ogni gruppo avrà un identificativo univoco secondo lo schema	
-	\[ GU.X  \]
-	dove X è un numero intero progressivo. L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-	\[ [ID Classe][- ...].TU \] 
-	dove [ID Classe] rappresenta l'ID della classe testata. Nel caso il test coinvolga più classi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-". L'id di un test di unità è indipendente dal gruppo di test di appartenenza.
+L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
+	\[ [ID Classe][ID Metodo].TU \] 
+	dove [ID Classe] rappresenta l'ID della classe testata e ID Metodo rappresenta l'ID del metodo della classe testato.
+	 Nel caso il test coinvolga più metodi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
 	
 	\paragraph{Stato dei test}
 	Per indicare lo stato dei test si usa la seguente notazione:
@@ -542,8 +541,8 @@
 	\begin{itemize}
 		\item \textbf{NI:} test non implementato
 		\item \textbf{I:} test implementato
-		\item \textbf{Success:} test implementato superato
-		\item \textbf{Fail:} test implementato non superato
+		\item \textbf{P:} test implementato superato
+		\item \textbf{F:} test implementato non superato
 	\end{itemize}
 		
 \subsection{Test di validazione}\label{test_pianificazione}	
@@ -1580,130 +1579,156 @@
 		\midrule
 		client::controller::teacher & TI.teacher\tabularnewline
 		\midrule
-		client::controller::admin & TI.admin\tabularnewline
+		client:::admin & TI.admin\tabularnewline
 		\midrule
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
-	
-	\paragraph{Client}
+\subsection{Test di unità}
+	\subsubsection{\texttt{client:model:service}}
 \begin{center}
-	\begin{longtable}[]{p{0.1\textwidth} p{0.4\textwidth} p{0.5\textwidth}}
-	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} \\ \hline
-	& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette \\ \hline
-	& QuestionService.modify() & effettua la richiesta corretta per put della domanda \\ \hline
-	& QuestionService.getByID() & effettua la richiesta dei question per id \\ \hline
-	& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \hline
-	& QuestionService.delete() & effettua la richiesta corretta per delete della domanda \\ \hline
-	& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette \\ \hline
-	& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda \\ \hline
-	& QuestionnaireService.getByID() & effettua la richiesta dei question per id \\ \hline
-	& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \hline
-	& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda \\ \hline
-	& RoleService.get() & effettua la richiesta dei role con keywords \\ \hline
-	& RoleService.getByID & effettua la richiesta dei role per id \\ \hline
-	& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette \\ \hline
-	& SessionService.logout() & effettua la richiesta corretta per la disconnessione \\ \hline
-	& TagService.new() & effettua la richiesta corretta \\ \hline
-	& TagService.modify() & effettua la richiesta corretta \\ \hline
-	& TagService.getByID() & effettua la richiesta corretta \\ \hline
-	& TagService.get() & effettua la richiesta corretta, effettua la richiesta corretta \\ \hline
-	& TagService.delete() & effettua la richiesta corretta \\ \hline
-	& UserService.get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names \\ \hline
-	& UserService.getByID() & effettua la richiesta corretta \\ \hline
-	& UserService.getMe() & effettua la richiesta corretta \\ \hline
-	& UserService.modifyRole() & effettua la richiesta corretta \\ \hline
-	& UserService.signUp() & effettua la richiesta corretta \\ \hline
-	& UserService.updateInformation() & effettua la richiesta corretta \\ \hline
-	& UserService.updatePassword() & effettua la richiesta corretta \\ \hline
-	& UserService.delete() & effettua la richiesta corretta \\ \hline
-	& controller:admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli \\ \hline
-	& controller:admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente \\ \hline
-	& controller:admin: UsersList.deleteUser() & deve rimuovere un utente \\ \hline
-	& controller:public: LogIn.checkLogged() & should have a method to check if the path is active \\ \hline
-	& controller:public: LogIn.urlPath() & should have a method to check if the path is active \\ \hline
-	& controller:public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato \\ \hline
-	& controller:public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato \\ \hline
-	& controller:public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati \\ \hline
-	& controller:public: SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato \\ \hline
-	& controller:public: SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato \\ \hline
-	& controller:public: SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato \\ \hline
-	& controller:public: SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato \\ \hline
-	& controller:public: SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati \\ \hline
-	& controller:student: ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda \\ \hline
-	& controller:student: ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente \\ \hline
-	& controller:student: ExecuteQuestionnaire.submit() & corregge correttamente le risposte \\ \hline
-	& controller:student: Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari \\ \hline
-	& controller:student: Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari \\ \hline
-	& controller:teacher: ManageQuestionnaires.modifyQuestionnaire() & deve rendirizzare alla pagina di modifica del questionario \\ \hline
-	& controller:teacher: ManageQuestionnaires.deleteQuestionnaire() & deve cancellare questionnario \\ \hline
-	& controller:teacher: ManageQuestions.preview() & deve ritornare la prima riga della domanda \\ \hline
-	& controller:teacher: ManageQuestions.modifyQuestion() & deve rendirizzare alla pagina di modifica della domanda \\ \hline
-	& controller:teacher: ManageQuestions.deleteQuestion() & deve correttamente eliminare la domanda selezionata \\ \hline
-	& controller:teacher: ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
-	& controller:teacher: ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
-	& controller:teacher: ManageTags.modifyTag() & deve modificare l'argomento specificato \\ \hline
-	& controller:teacher: ManageTags.textChanged() & deve aggiornare la lista delle classi \\ \hline
-	& controller:teacher: ManageTags.deleteTag() & deve aggiornare i risultati in base alle keywords inserite \\ \hline
-	& controller:teacher: ManipulateQuestionnaire.\TODO\{modifica\} & deve modificare il questionario modificando numero delle domande \\ \hline
-	& controller:teacher: ManipulateQuestionnaire.\TODO\{creazione\} & deve creare il questionnario \\ \hline
-	& controller:teacher: SelectQuestion.submit() & deve inizializzare la lista con delle domande \\ \hline
-	& controller:user: Home.logout() & it should filter the list of roles \\ \hline
-	& controller:user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido \\ \hline
-	& controller:user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido \\ \hline
-	& controller:user: User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio \\ \hline
-	& controller:user: User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali \\ \hline
-	& controller:user: User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo \\ \hline
-	& controller:user: User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo \\ \hline
-	& util: Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri \\ \hline
-	& util: Check.checkPassword() & deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri, deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri \\ \hline
-	& util: Check.checkTitle() & deve segnalare titolo non presente, deve segnalare titolo presente \\ \hline
-	& util: Check.checkUserName() & deve accettare UserName lungo 6 caratteri, deve bloccare UserName lungo 5 caratteri \\ \hline
-	& util: QML.preview() & visualizza preview body \\ \hline
-	& util: QML.parse() & esegue parse della domanda TF F, esegue parse della domanda TF T, esegue parse della domanda MultipleChoice \\ \hline
+		\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
+	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
+	81.138.TU& QuestionService.modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
+	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	81.136.TU& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	81.135.TU& QuestionService.delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
+	82.160.TU& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette & P\\ \midrule
+	82.159.TU& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
+	82.157.TU& QuestionnaireService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	82.154.TU& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	82.152.TU& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda & P\\ \midrule
+	80.163.TU& RoleService.get() & effettua la richiesta dei role con keywords & P\\ \midrule
+	80.164.TU& RoleService.getByID & effettua la richiesta dei role per id& P\\ \midrule
+	77.167.TU& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette & P\\ \midrule
+	77.169.TU& SessionService.logout() & effettua la richiesta corretta per la disconnessione & P\\ \midrule
+	79.158.TU& TagService.new() & effettua la richiesta corretta & P\\ \midrule
+	79.155.TU& TagService.modify() & effettua la richiesta corretta & P\\ \midrule
+	79.156.TU& TagService. getByID() & effettua la richiesta corretta & P\\ \midrule
+	79.153.TU& TagService. get() & effettua la richiesta corretta, effettua la richiesta corretta & P\\ \midrule
+	79.151.TU& TagService. delete() & effettua la richiesta corretta& P\\ \midrule
+	78.141.TU& UserService. get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names & R\\ \midrule
+	78.143.TU& UserService .getByID() & effettua la richiesta corretta & P\\ \midrule
+	78.144.TU& UserService. getMe() & effettua la richiesta corretta& P\\ \midrule
+	78.148.TU UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
+	78.145.TU& UserService. signUp() & effettua la richiesta corretta & P\\ \midrule
+	78146.TU& UserService. updateInformation() & effettua la richiesta corretta & R\\ \midrule
+78.147.TU	& UserService. updatePassword() & effettua la richiesta corretta& P\\ \midrule
+	78.205.TU& UserService. delete() & effettua la richiesta corretta& P\\ \midrule
+	
+	
+\end{longtable}
+\end{center}
+
+\subsubsection{\texttt{client:controller}}
+\begin{center}
+	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+		\midrule
+	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
+	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
+	157.85.TU& admin: UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
+	193.193.TU& public: Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
+	193.193.TU& public: Home.urlPath() & should have a method to check if the path is active & P\\ \midrule
+	83.190.TU& public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
+	83.189.TU& public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
+	83.91.TU& public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
+	84.93.TU & public: SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato & P\\ \midrule
+	84.94.TU & public: SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato & P\\ \midrule
+	84.95.TU& public: SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
+	84.191.TU& public: SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato& P \\ \midrule
+	84.96.TU& public: SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati & P\\ \midrule
+	182.109.TU& student: ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda & P\\ \midrule
+	182.110.TU& student: ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente & P\\ \midrule
+	182.111.TU& student: ExecuteQuestionnaire.submit() & corregge correttamente le risposte & P\\ \midrule
+	86.99.TU& student: Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
+	86.98.TU& student: Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
+	186.81.TU& teacher: ManageQuestionnaires.modify() & deve rendirizzare alla pagina di modifica del questionario & P \\ \midrule
+	186.82.TU& teacher: ManageQuestionnaires.remove() & deve cancellare questionnario & P\\ \midrule
+	185.217.TU& teacher: ManageQuestions.preview() & deve ritornare la prima riga della domanda & P\\ \midrule
+	185.77.TU& teacher: ManageQuestions.modify() & deve rendirizzare alla pagina di modifica della domanda & P\\ \midrule
+	185.78.TU& teacher: ManageQuestions.remove() & deve correttamente eliminare la domanda selezionata& P \\ \midrule
+	& teacher: ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite & P\\ \midrule
+	& teacher: ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite& P \\ \midrule
+	184.73.TU& teacher: ManageTags.modify() & deve modificare l'argomento specificato& P \\ \midrule
+	184.72.tu& teacher: ManageTags.textChanged() & deve aggiornare la lista delle classi & P \\ \midrule
+	184.74.TU& teacher: ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
+	176.54.TU& teacher: ManipulateQuestionnaire.removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
+176.79.TU	& teacher: ManipulateQuestionnaire.ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
+	\TODO{da rimuovere}& teacher: SelectQuestion.submit() & deve inizializzare la lista con delle domande  & P\\ \midrule
+	195.& user: Home.logout() & it should filter the list of roles \\ \midrule
+	196.199.TU& user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
+	196.200.TU& user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
+	196.201.TU& user: User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio & P \\ \midrule
+		196.202.TU& user: User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali  & P\\ \midrule
+		196.203.TU& user: User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
+		196.204.TU& user: User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
+		
+	\end{longtable}
+\end{center}
+
+\subsubsection{\texttt{client: util}}
+\begin{center}
+	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+		\midrule	
+		
+	179.126.TU&  Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri & P\\ \midrule
+	179.127.TU&  Check.checkPassword() & deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri, deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri & P \\ \midrule
+	179.128.TU&  Check.checkTitle() & deve segnalare titolo non presente, deve segnalare titolo presente & P \\ \midrule
+	179.127.TU&  Check.checkUserName() & deve accettare UserName lungo 6 caratteri, deve bloccare UserName lungo 5 caratteri  & P\\ \midrule
+	202.214.TU&  QML.preview() & visualizza preview body  & P\\ \midrule
+	202.213.TU&  QML.parse() & esegue parse della domanda TF F, esegue parse della domanda TF T, esegue parse della domanda MultipleChoice  & P\\ \midrule
 
 \end{longtable}
 \end{center}
 
-\paragraph{server}2
+\subsubsection{\texttt{server:service}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-			\hline
-			\textbf{id} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \hline
-			16.19.TU & service: GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \hline
-			16.20.TU & service: GET /api/questions/:id & ritorna la domanda specificata & P \\ \hline
-			16.22.TU & service: POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \hline
-			16.21.TU & service: PUT /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica della domanda di test all'utente autenticato, blocca la modifica della domanda di test all'utente autenticato non autore & P \\ \hline
-			16.23.TU & service: DELETE /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del questionario di test all'utente autenticato, blocca la cancellazione della domanda di test all'utente autenticato non autore, blocca la cancellazione della domanda utilizzata in un questionario all'utente autenticato & P \\ \hline
-			15.15.TU & service: GET /api/questionnaires & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei questionari all'utente autenticato & P \\ \hline
-			15.14.TU & service: GET /api/questionnaires/:id & impedisce l'accesso ad un utente non autenticato, ritorna il questionario per id passato all'utente autenticato & P \\ \hline
-			15.17.TU & service: POST /api/questionnaires & impedisce l'accesso ad un utente non autorizzato, permette la creazione del quiz di test all'utente autenticato & P \\ \hline
-			15.16.TU & service: PUT /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica dela domanda di test all'utente autenticato, non permette la modifica di un questionario non proprio & P \\ \hline
-			15.18.TU & service: DELETE /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione dela domanda di test all'utente autenticato, permette la cancellazione dela domanda di test all'utente autenticato & P \\ \hline
-			160.29.TU & service: GET /api/roles & permette la visualizzazione di tutti i ruoli ad un amministratore, non permette la visualizzazione ad un utente con ruolo inferiore ad amministratore & P \\ \hline
-			160.30.TU & service: GET /api/roles/:id & permette la visualizzazione di un ruolo ad un qualsiasi utente & P \\ \hline
-			156.5.TU & service: POST /api/session & rifiuta credenziali incorrette, effettua l'accesso con credenziali corrette & P \\ \hline
-			156.6.TU & service: DELETE /api/session & effettua la disconnessione correttamente & P \\ \hline
-			24.24.TU & service: GET /api/tags & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei tags all'utente autenticato & P \\ \hline
-			24.25.TU & service: GET /api/tags/:id & impedisce l'accesso ad un utente non autenticato, ritorna il tag per id passato all'utente autenticato & P \\ \hline
-			24.27.TU & service: POST /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la creazione del tag di test all'utente autenticato & P \\ \hline
-			24.26.TU & service: PUT /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la sostituzione del tag di test all'utente autenticato & P \\ \hline
-			24.28.TU & service: DELETE /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del tag di test all'utente autenticato, non deve permettere la cancellazione di un tag usato da una domanda o questionario & P \\ \hline
-			14.9.TU & service: GET /api/users & impedisce l'accesso ad un utente non autenticato, fornisce la lista degli utenti ad un proprietario & P \\ \hline
-			14.8.TU & service: GET /api/users/me & restituiscel'utente autenticato & P \\ \hline
-			14.7.TU & service: GET /api/users/:id & restituisce l'utente specificato ad un proprietario & P \\ \hline
-			14.11.TU & service: POST /api/users & registra un nuovo utente, non registra un utente con nome utente troppo corto, non registra un utente con password troppo corta, non registra un utente con nome completo troppo corto & P \\ \hline
-			14.13.TU & service: POST /api/users/me & deve permettere la modifica dei dati personali1, deve permettere la modifica della password, deve bloccare la modifica della password con password vecchia incorretta & P \\ \hline
-			14.9.TU & service: POST /api/users/:id & permette la modifica di un ruolo, non permette l'impostazione di un ruolo superiore al proprio, non permette il cambio di ruolo a se stessi & P \\ \hline
-			14.12.TU & service: DELETE /api/users/:id & permette la rimozione di un utente & P \\ \hline
-			164. 42.TU & validator: QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \hline
-			162.179.TU & validator: QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \hline
-			162.40.TU & validator: QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \hline
-			162.180.TU & validator: QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \hline
-			162.39.TU & validator: QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \hline
-			163.41.TU & validator: TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \hline
-			161.38.TU & validator: UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \hline
-			161.37.TU & validator: UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \hline
-			161.36TU & validator: UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \hline
+			\midrule
+			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \midrule
+			16.19.TU &  GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \midrule
+			16.20.TU &  GET /api/questions/:id & ritorna la domanda specificata & P \\ \midrule
+			16.22.TU &  POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \midrule
+			16.21.TU &  PUT /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica della domanda di test all'utente autenticato, blocca la modifica della domanda di test all'utente autenticato non autore & P \\ \midrule
+			16.23.TU &  DELETE /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del questionario di test all'utente autenticato, blocca la cancellazione della domanda di test all'utente autenticato non autore, blocca la cancellazione della domanda utilizzata in un questionario all'utente autenticato & P \\ \midrule
+			15.15.TU &  GET /api/questionnaires & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei questionari all'utente autenticato & P \\ \midrule
+			15.14.TU &  GET /api/questionnaires/:id & impedisce l'accesso ad un utente non autenticato, ritorna il questionario per id passato all'utente autenticato & P \\ \midrule
+			15.17.TU &  POST /api/questionnaires & impedisce l'accesso ad un utente non autorizzato, permette la creazione del quiz di test all'utente autenticato & P \\ \midrule
+			15.16.TU &  PUT /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica dela domanda di test all'utente autenticato, non permette la modifica di un questionario non proprio & P \\ \midrule
+			15.18.TU &  DELETE /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione dela domanda di test all'utente autenticato, permette la cancellazione dela domanda di test all'utente autenticato & P \\ \midrule
+			160.29.TU &  GET /api/roles & permette la visualizzazione di tutti i ruoli ad un amministratore, non permette la visualizzazione ad un utente con ruolo inferiore ad amministratore & P \\ \midrule
+			160.30.TU &  GET /api/roles/:id & permette la visualizzazione di un ruolo ad un qualsiasi utente & P \\ \midrule
+			156.5.TU &  POST /api/session & rifiuta credenziali incorrette, effettua l'accesso con credenziali corrette & P \\ \midrule
+			156.6.TU &  DELETE /api/session & effettua la disconnessione correttamente & P \\ \midrule
+			24.24.TU &  GET /api/tags & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei tags all'utente autenticato & P \\ \midrule
+			24.25.TU &  GET /api/tags/:id & impedisce l'accesso ad un utente non autenticato, ritorna il tag per id passato all'utente autenticato & P \\ \midrule
+			24.27.TU &  POST /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la creazione del tag di test all'utente autenticato & P \\ \midrule
+			24.26.TU &  PUT /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la sostituzione del tag di test all'utente autenticato & P \\ \midrule
+			24.28.TU &  DELETE /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del tag di test all'utente autenticato, non deve permettere la cancellazione di un tag usato da una domanda o questionario & P \\ \midrule
+			14.9.TU &  GET /api/users & impedisce l'accesso ad un utente non autenticato, fornisce la lista degli utenti ad un proprietario & P \\ \midrule
+			14.8.TU &  GET /api/users/me & restituiscel'utente autenticato & P \\ \midrule
+			14.7.TU &  GET /api/users/:id & restituisce l'utente specificato ad un proprietario & P \\ \midrule
+			14.11.TU &  POST /api/users & registra un nuovo utente, non registra un utente con nome utente troppo corto, non registra un utente con password troppo corta, non registra un utente con nome completo troppo corto & P \\ \midrule
+			14.13.TU &  POST /api/users/me & deve permettere la modifica dei dati personali1, deve permettere la modifica della password, deve bloccare la modifica della password con password vecchia incorretta & P \\ \midrule
+			14.9.TU &  POST /api/users/:id & permette la modifica di un ruolo, non permette l'impostazione di un ruolo superiore al proprio, non permette il cambio di ruolo a se stessi & P \\ \midrule
+			14.12.TU &  DELETE /api/users/:id & permette la rimozione di un utente & P \\ \midrule
+	\end{longtable}
+	\end{center}	
+	
+\subsubsection{\texttt{	server:vaiidator}}
+\begin{center}
+	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+		\midrule		
+		
+			164. 42.TU & validator: QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \midrule
+			162.179.TU & validator: QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \midrule
+			162.40.TU & validator: QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \midrule
+			162.180.TU & validator: QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \midrule
+			162.39.TU & validator: QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \midrule
+			163.41.TU & validator: TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \midrule
+			161.38.TU & validator: UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \midrule
+			161.37.TU & validator: UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
+			161.36TU & validator: UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
 		
 \end{longtable}
 \end{center}

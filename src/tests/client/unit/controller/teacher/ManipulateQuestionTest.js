@@ -1,4 +1,3 @@
-/*
 describe('controller.teacher.ManipulateQuestion', function() {
 
     var $location;
@@ -9,7 +8,7 @@ describe('controller.teacher.ManipulateQuestion', function() {
 
     var questionInput = {
         body: '<TF F>\nTesto domanda\nSeconda linea',
-        tags: 'id_tag1, id_tag2'
+        tags: 'tag1, tag2'
     };
 
     var question = {
@@ -17,19 +16,19 @@ describe('controller.teacher.ManipulateQuestion', function() {
         body: questionInput.body,
         author: 'id_author_1',
         tags: [ 
-            { id: 'id_tag_1' },
-            { id: 'id_tag_2' }
+            'id_tag1',
+            'id_tag2'
         ]
     };
 
     var tags = {
-        'tag1_id': {
-            id: 'tag1_id',
+        'id_tag1': {
+            id: 'id_tag1',
             name: 'tag1',
             description: 'tag1_description'
         },
-        'tag2_id': {
-            id: 'tag2_id',
+        'id_tag2': {
+            id: 'id_tag2',
             name: 'tag2',
             description: 'tag2_description'
         },
@@ -58,21 +57,36 @@ describe('controller.teacher.ManipulateQuestion', function() {
             };
             var TagService = function() {
                 this.new = function(tag, success, fail) {
-                    if (!tags[tag.id])
-                        tags[tag.id] = tag;
-                    success();
+                    tag._id = 'id_' + tag.name;
+                    if (!tags[tag._id])
+                        tags[tag._id] = tag;
+                    success(tag);
                 };
                 this.get = function(keywords, success, fail) {
                     var keys = Object.keys(tags);
                     var values = keys.map(function(v) { return tags[v]; });
-                    return values;
+                    success(values);
                 };
                 this.getByID = function(id, success, fail) {
                     success(tags[id]);
                 };
             };
+            var Editor = function() {
+                this.editor = function() {
+                    function EditorInner() {
+                        this.text = '';
+                        this.value = function(something) {
+                            if (something) this.text = something;
+                            else return this.text;
+                        };
+                    }
+
+                    return new EditorInner();
+                };
+            };
             $provide.service("model.service.TagService", TagService);
             $provide.service("model.service.QuestionService", QuestionService);
+            $provide.service('util.Editor', Editor);
         });
     });
 
@@ -104,14 +118,16 @@ describe('controller.teacher.ManipulateQuestion', function() {
             });
         });
 
-        it('deve permettere creazione di una domanda', function () {
+        it('deve permettere la creazione di una domanda', function () {
             expect($scope.edit).toBe(false);
 
             $scope.editor.value(questionInput.body);
             $scope.tagsInput = questionInput.tags;
 
             $scope.submit();
-            expect($scope.question).toBe(question);
+            expect($scope.question.body).toBe(question.body);
+            expect($scope.question.tags[0]).toBe(question.tags[0]);
+            expect($scope.question.tags[1]).toBe(question.tags[1]);
         });
 
     });
@@ -144,17 +160,18 @@ describe('controller.teacher.ManipulateQuestion', function() {
             });
         });
 
-        it('deve permettere la modifica di una domanda', function () {
+        it('deve permettere la creazione di una domanda', function () {
             expect($scope.edit).toBe(true);
 
             $scope.editor.value(questionInput.body);
             $scope.tagsInput = questionInput.tags;
 
             $scope.submit();
-            expect($scope.question).toBe(question);
+            expect($scope.question.body).toBe(question.body);
+            expect($scope.question.tags[0]).toBe(question.tags[0]);
+            expect($scope.question.tags[1]).toBe(question.tags[1]);
         });
 
     });
 
 });
-*/
