@@ -1586,35 +1586,35 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di unità}
 	\subsubsection{\texttt{client:model:service}}
 \begin{center}
-	\begin{longtable}[]{p{0.1\textwidth} p{0.4\textwidth} p{0.5\textwidth}}
-	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} \\ \midrule
-	& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette \\ \midrule
-	& QuestionService.modify() & effettua la richiesta corretta per put della domanda \\ \midrule
-	& QuestionService.getByID() & effettua la richiesta dei question per id \\ \midrule
-	& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \midrule
-	& QuestionService.delete() & effettua la richiesta corretta per delete della domanda \\ \midrule
-	& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette \\ \midrule
-	& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda \\ \midrule
-	& QuestionnaireService.getByID() & effettua la richiesta dei question per id \\ \midrule
-	& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota \\ \midrule
-	& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda \\ \midrule
-	& RoleService.get() & effettua la richiesta dei role con keywords \\ \midrule
-	& RoleService.getByID & effettua la richiesta dei role per id \\ \midrule
-	& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette \\ \midrule
-	& SessionService.logout() & effettua la richiesta corretta per la disconnessione \\ \midrule
-	& TagService.new() & effettua la richiesta corretta \\ \midrule
-	& TagService.modify() & effettua la richiesta corretta \\ \midrule
-	& TagService.getByID() & effettua la richiesta corretta \\ \midrule
-	& TagService.get() & effettua la richiesta corretta, effettua la richiesta corretta \\ \midrule
-	& TagService.delete() & effettua la richiesta corretta \\ \midrule
-	& UserService.get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names \\ \midrule
-	& UserService.getByID() & effettua la richiesta corretta \\ \midrule
-	& UserService.getMe() & effettua la richiesta corretta \\ \midrule
-	& UserService.modifyRole() & effettua la richiesta corretta \\ \midrule
-	& UserService.signUp() & effettua la richiesta corretta \\ \midrule
-	& UserService.updateInformation() & effettua la richiesta corretta \\ \midrule
-	& UserService.updatePassword() & effettua la richiesta corretta \\ \midrule
-	& UserService.delete() & effettua la richiesta corretta \\ \midrule
+		\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
+	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
+	81.138.TU& QuestionService.modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
+	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	81.136.TU& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	81.135.TU& QuestionService.delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
+	82.160.TU& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette & P\\ \midrule
+	82.159.TU& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
+	82.157.TU& QuestionnaireService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	82.154.TU& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	82.152.TU& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda & P\\ \midrule
+	80.163.TU& RoleService.get() & effettua la richiesta dei role con keywords & P\\ \midrule
+	80.164.TU& RoleService.getByID & effettua la richiesta dei role per id& P\\ \midrule
+	77.167.TU& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette & P\\ \midrule
+	77.169.TU& SessionService.logout() & effettua la richiesta corretta per la disconnessione & P\\ \midrule
+	79.158.TU& TagService.new() & effettua la richiesta corretta & P\\ \midrule
+	79.155.TU& TagService.modify() & effettua la richiesta corretta & P\\ \midrule
+	79.156.TU& TagService. getByID() & effettua la richiesta corretta & P\\ \midrule
+	79.153.TU& TagService. get() & effettua la richiesta corretta, effettua la richiesta corretta & P\\ \midrule
+	79.151.TU& TagService. delete() & effettua la richiesta corretta& P\\ \midrule
+	78.141.TU& UserService. get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names & R\\ \midrule
+	78.143.TU& UserService .getByID() & effettua la richiesta corretta & P\\ \midrule
+	78.144.TU& UserService. getMe() & effettua la richiesta corretta& P\\ \midrule
+	78.148.TU UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
+	78.145.TU& UserService. signUp() & effettua la richiesta corretta & P\\ \midrule
+	78146.TU& UserService. updateInformation() & effettua la richiesta corretta & R\\ \midrule
+78.147.TU	& UserService. updatePassword() & effettua la richiesta corretta& P\\ \midrule
+	78.205.TU& UserService. delete() & effettua la richiesta corretta& P\\ \midrule
 	
 	
 \end{longtable}
@@ -1627,11 +1627,11 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
 	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
 	157.85.TU& admin: UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
-	& public: LogIn.checkLogged() & should have a method to check if the path is active & P\\ \midrule
-	& public: LogIn.urlPath() & should have a method to check if the path is active & P\\ \midrule
-	& public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
-	& public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
-	& public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
+	193.193.TU& public: Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
+	193.193.TU& public: Home.urlPath() & should have a method to check if the path is active & P\\ \midrule
+	83.190.TU& public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
+	83.189.TU& public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
+	83.91.TU& public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
 	84.93.TU & public: SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato & P\\ \midrule
 	84.94.TU & public: SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato & P\\ \midrule
 	84.95.TU& public: SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
