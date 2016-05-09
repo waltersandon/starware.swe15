@@ -94,22 +94,22 @@ describe('controller.teacher.ManageQuestions', function() {
 
     });
 
-    describe('modifyQuestion', function () {
+    describe('modify', function () {
 
         it('deve rendirizzare alla pagina di modifica della domanda', function () {
             $scope.questions = questions;
-            $scope.modifyQuestion($scope.questions[1]);
+            $scope.modify($scope.questions[1]);
             expect($location.path()).toBe('/teacher/questions/modify/id_question_2');
         });
 
     });
 
-    describe('deleteQuestion', function () {
+    describe('remove', function () {
 
         it('deve correttamente eliminare la domanda selezionata', function () {
             $scope.questions = questions;
             expect($scope.questions.length).toBe(3);
-            $scope.deleteQuestion($scope.questions[1]);
+            $scope.remove($scope.questions[1]);
             expect($scope.questions.length).toBe(2);
             expect($scope.questions[0].id).toBe('id_question_1');
             expect($scope.questions[1].id).toBe('id_question_3');

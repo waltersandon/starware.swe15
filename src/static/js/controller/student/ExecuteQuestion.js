@@ -12,11 +12,5 @@ $(function () {
                     $scope.currentQuestion.selectedAnswer = $scope.ris;
                 }
             });
-            function foo(res) {
-                var scope = angular.element($("#outer")).scope();
-                scope.$apply(function () {
-                    scope.ans = res;
-                });
-            }
         }]);
 });
