@@ -1663,6 +1663,50 @@
 
 \end{longtable}
 \end{center}
+
+\paragraph{server}2
+\begin{center}
+	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+			\hline
+			\textbf{id} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \hline
+			16.19.TU & service: GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \hline
+			16.20.TU & service: GET /api/questions/:id & ritorna la domanda specificata & P \\ \hline
+			16.22.TU & service: POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \hline
+			16.21.TU & service: PUT /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica della domanda di test all'utente autenticato, blocca la modifica della domanda di test all'utente autenticato non autore & P \\ \hline
+			16.23.TU & service: DELETE /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del questionario di test all'utente autenticato, blocca la cancellazione della domanda di test all'utente autenticato non autore, blocca la cancellazione della domanda utilizzata in un questionario all'utente autenticato & P \\ \hline
+			15.15.TU & service: GET /api/questionnaires & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei questionari all'utente autenticato & P \\ \hline
+			15.14.TU & service: GET /api/questionnaires/:id & impedisce l'accesso ad un utente non autenticato, ritorna il questionario per id passato all'utente autenticato & P \\ \hline
+			15.17.TU & service: POST /api/questionnaires & impedisce l'accesso ad un utente non autorizzato, permette la creazione del quiz di test all'utente autenticato & P \\ \hline
+			15.16.TU & service: PUT /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica dela domanda di test all'utente autenticato, non permette la modifica di un questionario non proprio & P \\ \hline
+			15.18.TU & service: DELETE /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione dela domanda di test all'utente autenticato, permette la cancellazione dela domanda di test all'utente autenticato & P \\ \hline
+			160.29.TU & service: GET /api/roles & permette la visualizzazione di tutti i ruoli ad un amministratore, non permette la visualizzazione ad un utente con ruolo inferiore ad amministratore & P \\ \hline
+			160.30.TU & service: GET /api/roles/:id & permette la visualizzazione di un ruolo ad un qualsiasi utente & P \\ \hline
+			156.5.TU & service: POST /api/session & rifiuta credenziali incorrette, effettua l'accesso con credenziali corrette & P \\ \hline
+			156.6.TU & service: DELETE /api/session & effettua la disconnessione correttamente & P \\ \hline
+			24.24.TU & service: GET /api/tags & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei tags all'utente autenticato & P \\ \hline
+			24.25.TU & service: GET /api/tags/:id & impedisce l'accesso ad un utente non autenticato, ritorna il tag per id passato all'utente autenticato & P \\ \hline
+			24.27.TU & service: POST /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la creazione del tag di test all'utente autenticato & P \\ \hline
+			24.26.TU & service: PUT /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la sostituzione del tag di test all'utente autenticato & P \\ \hline
+			24.28.TU & service: DELETE /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del tag di test all'utente autenticato, non deve permettere la cancellazione di un tag usato da una domanda o questionario & P \\ \hline
+			14.9.TU & service: GET /api/users & impedisce l'accesso ad un utente non autenticato, fornisce la lista degli utenti ad un proprietario & P \\ \hline
+			14.8.TU & service: GET /api/users/me & restituiscel'utente autenticato & P \\ \hline
+			14.7.TU & service: GET /api/users/:id & restituisce l'utente specificato ad un proprietario & P \\ \hline
+			14.11.TU & service: POST /api/users & registra un nuovo utente, non registra un utente con nome utente troppo corto, non registra un utente con password troppo corta, non registra un utente con nome completo troppo corto & P \\ \hline
+			14.13.TU & service: POST /api/users/me & deve permettere la modifica dei dati personali1, deve permettere la modifica della password, deve bloccare la modifica della password con password vecchia incorretta & P \\ \hline
+			14.9.TU & service: POST /api/users/:id & permette la modifica di un ruolo, non permette l'impostazione di un ruolo superiore al proprio, non permette il cambio di ruolo a se stessi & P \\ \hline
+			14.12.TU & service: DELETE /api/users/:id & permette la rimozione di un utente & P \\ \hline
+			164. 42.TU & validator: QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \hline
+			162.179.TU & validator: QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \hline
+			162.40.TU & validator: QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \hline
+			162.180.TU & validator: QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \hline
+			162.39.TU & validator: QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \hline
+			163.41.TU & validator: TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \hline
+			161.38.TU & validator: UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \hline
+			161.37.TU & validator: UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \hline
+			161.36TU & validator: UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \hline
+		
+\end{longtable}
+\end{center}
 	
 	\subsubsection{Documenti}
 	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
