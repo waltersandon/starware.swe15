@@ -1,15 +1,5 @@
 $(function () {
     angular.module('QMLModule', []).service('util.QML', [function () {
-            this.editor = function () {
-                return new SimpleMDE({
-                    element: document.getElementById('editor'),
-                    previewRender: function (plainText) {
-                        var p = parse(plainText);
-                        return p.status ? p.body + p.answerForm : p.message;
-                    },
-                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview']
-                });
-            };
             this.preview = function (plainText) {
                 var b = plainText.split('\n'), f = '';
                 b.forEach(function (item) {

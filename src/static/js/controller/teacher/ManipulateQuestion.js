@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$rootScope', '$scope', 'model.data.Tag', 'model.service.TagService', function (Error, $location, QML, Question, QuestionService, $rootScope, $scope, Tag, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['util.Editor', 'model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$rootScope', '$scope', 'model.data.Tag', 'model.service.TagService', function (Editor, Error, $location, QML, Question, QuestionService, $rootScope, $scope, Tag, TagService) {
             $scope.error = new Error();
             $scope.submit = function () {
                 if (QML.parse($scope.editor.value()).status) {
@@ -50,7 +50,7 @@ $(function () {
                 }
             };
             function buildEditor() {
-                $scope.editor = QML.editor();
+                $scope.editor = Editor.editor();
                 $scope.editor.value($scope.question.body);
             }
             function ManipulateQuestion() {

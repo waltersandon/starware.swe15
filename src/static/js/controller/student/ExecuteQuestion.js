@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$location', '$rootScope', '$scope', '$sce', '$interpolate', function ($location, $rootScope, $scope, $sce, $interpolate) {
+    angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$scope', '$sce', '$interpolate', function ($scope, $sce, $interpolate) {
             $scope.$watch('currentQuestion', function () {
                 if ($scope.currentQuestion) {
                     $scope.ris = $scope.currentQuestion.selectedAnswer;
