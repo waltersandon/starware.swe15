@@ -4,7 +4,7 @@
 
 describe('login', function() {
 
-    it('studente deve poter loggarsi', function() {
+    it('studente deve poter loggarsi e sloggarsi', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -14,10 +14,10 @@ describe('login', function() {
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
-            element(by.className('glyphicon-off')).click();
+            element(by.css('[ng-click="logout()"]')).click();
         });
     });
-    it('docente deve poter loggarsi', function() {
+    it('docente deve poter loggarsi e sloggarsi', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -27,10 +27,10 @@ describe('login', function() {
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
-            element(by.className('glyphicon-off')).click();
+            element(by.css('[ng-click="logout()"]')).click();
         });
     });
-    it('admin deve poter loggarsi', function() {
+    it('admin deve poter loggarsi e sloggarsi', function() {
         browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -40,7 +40,7 @@ describe('login', function() {
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
-            element(by.className('glyphicon-off')).click();
+            element(by.css('[ng-click="logout()"]')).click();
         });
     });
 
