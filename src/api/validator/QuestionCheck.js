@@ -7,7 +7,7 @@ function QuestionCheck() {}
 QuestionCheck.prototype.checkTags = function(tags){
 
     //non vuota
-    if (typeof tags === 'undefined' || tags.length == 0){
+    if (typeof tags === 'undefined' || tags.length === 0){
         return false;
     }
     //non duplicati

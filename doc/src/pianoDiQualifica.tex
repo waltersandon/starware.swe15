@@ -412,7 +412,7 @@
 		\item \textbf{Range Ottimale}: $\geq$ 0\%
 	\end{itemize}
 	
-	\subsubsection{Cost of poor quality}
+	\subsubsection{Cost of poor quality (CoPQ)}
 	Indica l'inefficienza di processi non buoni valutando il costo delle \mgls{attivita} di correzione che seguono la verifica.
 	
 	\[CoPQ_{generale}[\%]= \frac{(V*0.25) +S}{V+S}\]
@@ -428,7 +428,7 @@
 		\item \textbf{Range Ottimale}: $\leq$ 10\%
 	\end{itemize}
 	
-	\subsubsection{Requirement stability index}
+	\subsubsection{Requirement stability index (RSI)}
 	Indica quanto variano i requisiti nel tempo.
 	
 	\[RSI[\%]= 1 - \frac{\#requisiti\ aggiunti+\#requisiti\ tolti+\#requisiti\ modificati}{\#requisiti\ totali\ inizialmente}\]
@@ -1590,17 +1590,17 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di unità}
 	\subsubsection{\texttt{client:model:service}}
 \begin{center}
-		\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+		\begin{longtable}[]{p{0.14\textwidth} p{0.325\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
 	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
 	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	81.138.TU& QuestionService.modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
+	81.138.TU& QuestionService. modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
 	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	81.136.TU& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
-	81.135.TU& QuestionService.delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
+	81.136.TU& QuestionService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	81.135.TU& QuestionService. delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
 	82.160.TU& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	82.159.TU& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
-	82.157.TU& QuestionnaireService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	82.154.TU& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	82.159.TU& QuestionnaireService. modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
+	82.157.TU& QuestionnaireService. getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	82.154.TU& QuestionnaireService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
 	82.152.TU& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda & P\\ \midrule
 	80.163.TU& RoleService.get() & effettua la richiesta dei role con keywords & P\\ \midrule
 	80.164.TU& RoleService.getByID & effettua la richiesta dei role per id& P\\ \midrule
@@ -1614,7 +1614,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	78.141.TU& UserService. get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names & R\\ \midrule
 	78.143.TU& UserService .getByID() & effettua la richiesta corretta & P\\ \midrule
 	78.144.TU& UserService. getMe() & effettua la richiesta corretta& P\\ \midrule
-	78.148.TU UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
+	78.148.TU& UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
 	78.145.TU& UserService. signUp() & effettua la richiesta corretta & P\\ \midrule
 	78146.TU& UserService. updateInformation() & effettua la richiesta corretta & R\\ \midrule
 78.147.TU	& UserService. updatePassword() & effettua la richiesta corretta& P\\ \midrule
@@ -1626,7 +1626,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 \subsubsection{\texttt{client:controller}}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\begin{longtable}[]{p{0.175\textwidth} p{0.4\textwidth} p{0.4\textwidth} p{0.025\textwidth}}
 		\midrule
 	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
 	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
@@ -1658,7 +1658,6 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	184.74.TU& teacher: ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
 	176.54.TU& teacher: ManipulateQuestionnaire.removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
 176.79.TU	& teacher: ManipulateQuestionnaire.ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
-	\TODO{da rimuovere}& teacher: SelectQuestion.submit() & deve inizializzare la lista con delle domande  & P\\ \midrule
 	195.& user: Home.logout() & it should filter the list of roles \\ \midrule
 	196.199.TU& user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
 	196.200.TU& user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
@@ -1757,6 +1756,8 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 			\caption{Esito dei test su Indice \mgls{gulpease} in \FA}
 		\end{center}
 	\end{table}
+	
+	
 \section{Dettaglio Analisi}\TODO{modifica titolo}
 	
 	\subsection{Analisi di dettaglio}
@@ -1772,7 +1773,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
 				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
 				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
-				Cost of poor quality & 23\% &  Ottimale \\ \midrule
+				CoPQ & 23\% &  Ottimale \\ \midrule
 				Requirement Stability Index & 81\% & Superato \\ \bottomrule
 			\end{tabular}
 		\end{center}
@@ -1813,7 +1814,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
 				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
-				Cost of poor quality & 40\% & Superato \\ \midrule
+				CoPQ & 40\% & Superato \\ \midrule
 				Requirement Stability Index & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
@@ -1856,7 +1857,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mGls{cost variance} & 0\% & Ottimale\\ \midrule
 				\mgls{milestone schedule variance} &  0\% & Ottimale\\ \midrule
 				\mgls{schedule variance}  & 0\% & Ottimale \\ \midrule
-				Cost of poor quality & 21\% & Ottimale \\ \midrule
+				CoPQ& 21\% & Ottimale \\ \midrule
 				Requirement Stability Index & 91\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
@@ -1944,7 +1945,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
-				\textbf{CopQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				CoPQ documenti & 1\% & Ottimale \\ \midrule
 				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
 				CoPQ codice & 5\% &  Ottimale \\ \midrule
@@ -1956,8 +1957,8 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 	
 	\subsubsection{Documenti}
-	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
-		\TODO{}
+	Vengono riportati,per ogni documento prodotto, i valori dell'indice \mgls{gulpease} calcolati e se  tale indice rientra nei range stimati come accettabili od ottimali :
+	
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
@@ -1971,7 +1972,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\DP & 48 &  Superato \\ \midrule
 				\MU & 40  & Superato \\ \midrule
 				Manuale Installazione &  42 &  Superato \\ \midrule
-				Manuale Sviluppatore \TODO{} &  46 & Superato  \\ \midrule
+				Manuale Sviluppatore  &  46 & Superato  \\ \midrule
 				\GL & 49  & Superato \\ \midrule \midrule
 				
 				\textbf{Valore medio} & \textbf{51.4}& \textbf{Ottimale}\\ 
@@ -1982,24 +1983,35 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\end{table}
 	
 	\subsubsection{Software}
-	Vengono riportati i valori calcolati delle misurazioni sul codice. 
-		\TODO{}
+	Vengono riportati i valori calcolati delle misurazioni sul codice.
+	I valori percentuali indicano la quntità di righe di codice sul torale che rientrano nel range indicato.
+		
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.35\textwidth} p{0.2\textwidth} p{0.15\textwidth}p{0.15\textwidth}}
+				\begin{tabular}{p{0.28\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
 					\midrule
-						\textbf{metrica} & \textbf{\% accettabile} & \textbf{\%ottima} & \textbf{\%non acc} \\ \midrule\midrule
+						\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
 						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
 						\# parametri/metodo & 1,18\% & 98,82\% & 0,00\% \\\midrule
 						complessità ciclomatica & 0,00\% & 100,00\% & 0,00\% \\\midrule
 						\# linee codice/metodo & 0,29\% & 99,71\% & 0,00\% \\\midrule
 						\# livelli annidamento & 0,00\% & 100,00\% & 0,00\% \\\midrule
-						instabiltà &  &  &  \\\midrule
-						copertura da parte dei test &  &  &\\ \midrule
+			
 				\end{tabular}	
 			\end{center}
-			\caption{Test Qualità del \mgls{software} nella \FC}
+			\caption{Test Qualità del \mgls{software} nella \FC (1)}
 		\end{table}
+			\begin{table}[H]
+				\begin{center}
+					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+						\midrule
+						\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
+						instabiltà &  &    \\\midrule
+						copertura da parte dei test & 76.1  & Ottimale \\ \midrule
+					\end{tabular}	
+				\end{center}
+				\caption{Test Qualità del \mgls{software} nella \FC (2)}
+			\end{table}
 	
 	
 	\newpage
