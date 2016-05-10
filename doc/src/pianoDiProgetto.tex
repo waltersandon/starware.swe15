@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.0}
+\newcommand{\versione}{2.0.1}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,6 +63,10 @@
 		\toprule
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		2.0.2 & \TP{} & 2016-05-10 & Aggiunta analisi delle tendenze per ogni periodo \\*
+		\midrule
+		2.0.1 & \TP{} & 2016-05-09 & Corretti minori errori grammaticali \\*
         \midrule
         2.0.0 & \TP{} & 2016-04-08 & Approvazione \\*
    		\midrule
@@ -463,10 +467,9 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FA{}}: Ci sono stati alcuni ritardi per quanto riguarda le attività di verifica, 
                 ma i periodi di \mgls{slack} previsti nella pianificazione hanno permesso di limitarne i danni. \newline
                 \textbf{\FAD{}}: La stima prevista per questo periodo era notevolmente sottovalutata. Ci sono
-                    stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare.
-                    Per questo motivo sono stati rinegoziati i requisiti con il proponente. \newline
+                    stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare. \newline
                 \textbf{\FPA{}}: Grazie anche alla brevità di questo periodo, non si sono riscontrati particolari
-                    rispetto a quanto previsto. \newline
+                    ritardi rispetto a quanto previsto. \newline
                 \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
                     la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
                     e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
@@ -1807,7 +1810,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{center}
 
 \subsubsection{Conclusioni}
-Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e cambi di ruoli non previsti si è riusciti a mantenere le ore totali preventivate. Le ore per i differenti \mglspl{ruolo} sono state effettivamente diverse e hanno portato ad un deficit del bilancio di \euro{}-20.00.
+Attraverso qualche aggiustamento e cambi di ruoli non previsti si è riusciti a mantenere le ore totali preventivate. Le ore per i differenti \mglspl{ruolo} sono state effettivamente diverse e hanno portato ad un deficit del bilancio di \euro{}-20.00.
 
 \subsubsection{Preventivo a finire}
 \label{sec:paf-analisi}
@@ -1880,10 +1883,22 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{center}
 
 \subsubsection{Conclusioni}
-La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate. Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato. Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+320.00.
+
+\par La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate. Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato. Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+320.00. \\
+
+\par Il numero di ore aggiuntivo è stato causato principalmente da una mal interpretazione delle priorità dei requisiti nelle riunioni con il proponente. Ogni membro del gruppo aveva un interpretazione diversa di quello che il proponente intendeva e i verbali non hanno aiutato a fare luce sulle intenzioni del proponente. Questo ha portato alla necessità di un ulteriore riunione per chiarire i dubbi. \\
+
+\par Sarà necessario fare più attenzione alla stesura dei verbali cercando di rimuovere il maggior numero di ambiguità possibile. \\
+
+\subsubsection{Analisi delle tendenze}
+
+\par E' possibile osservare che il gruppo è per lo più in grado di rispettare le scadenze, eventualmente richiedendo, come in questo periodo, di più ore al giorno per poterle soddisfarle. \\
+
+\par Osservando anche solo questo periodo è possibile notare che il gruppo in alcuni casi non rispetta il numero di ore previste per le attività. Questo è causato dall'inesperienza del gruppo nello stimare il numero di ore necessarie per attività che non ha mai portato a termine. \\
 
 \subsubsection{Preventivo a finire}
-La correzione dell'analisi ha permesso di semplificare notevolmente l'architettura e di ridurre il numero di requisiti obbligatori identificati nel periodo precedente. Ci si aspetta quindi una semplificazione della stesura della \ST{} e della \DP{}, sperando che questo comporti una notevole riduzione dei costi nei prossimi due periodi. Il costo totale dell'applicazione si è alzato e attualmente è di \euro{}14 603.00(+300.00).
+
+\par La correzione dell'analisi ha permesso di semplificare notevolmente l'architettura e di ridurre il numero di requisiti obbligatori identificati nel periodo precedente. Ci si aspetta quindi una semplificazione della stesura della \ST{} e della \DP{}, sperando che questo comporti una notevole riduzione dei costi nei prossimi due periodi; Il costo totale dell'applicazione si è alzato e attualmente è di \euro{}14 603.00(+300.00).
 
 \newpage
 
@@ -1953,6 +1968,12 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Conclusioni}
 La rinegoziazione dei requisiti ha permesso una notevole semplificazione della progettazione ad alto livello portando ad una più semplice identificazione e successiva stesura dell'architettura. In totale, per questo periodo, si è riusciti a risparmiare un totale di \euro{}191.00 che ci lasciano comunque in passivo di \euro{}+109.00 rispetto al consuntivo precedente.
+
+\subsubsection{Analisi delle tendenze}
+
+\par Come previsto nel periodo precedente, i costi e il numero di ore impiegate per il completamento di questo periodo sono risultate inferiori a quelle previste. Questo è causato dalla semplificazione del sistema con il consolidamento dei requisiti. \\
+
+\par Anche qui il gruppo ha per lo più rispettato le scadenze e il numero di ore massime fissate per le attività. Il periodo precedente risulta al momento l'unico picco rilevante di costo con l'andamento del progetto. \\
 
 \subsubsection{Preventivo a finire}
 Ci si aspetta che la semplificazione dei requisiti continui, a cascata, a portare notevoli vantaggi nella stesura della \DP{} e della codifica stessa. Il costo totale dell'applicazione si è leggermente abbassato ma è ancora più alto di quanto preventivato inizialmente ed attualmente è di \euro{}14 412.00(+109.00).
@@ -2025,6 +2046,12 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Conclusioni}
 Come previsto la semplificazione dei requisiti ha ridotto i costi della progettazione e relativa verifica. Nonostante anche in questo periodo di siano state più ore di lavoro per il \RE{} rispetto a quanto preventivato, il totale delle ore ha portato ad un deficit di \euro{}-255.00 che sommato riporta il costo totale del progetto di nuovo in attivo di \euro{}146.00.
+
+\subsubsection{Analisi delle tendenze}
+
+\par Con il completamento di questo periodo è possibile notare l'effettivo calo nel costo per periodo. Come previsto, questo periodo e quello precedente hanno effettivamente comportato un calo nel numero di ore impiegate per la progettazione. \\
+
+\par Per quanto riguarda le scadenze, come per il periodo precedente, sono state rispettate. Il periodo di \FA{} risulta sempre più un raro caso causato dall'inesperienza nell'analisi dei requisiti. \\
 
 \subsubsection{Preventivo a finire}
 Si prevedono notevoli semplificazioni anche nel periodo di \FC{}, sarà probabilmente possibile utilizzare il modello incrementale per concentrarsi anche su alcuni requisiti desiderabili o opzionali. Il costo totale dell'applicazione si è abbassato ulteriormente ed ora è minore di quanto preventivato inizialmente e attualmente è di \euro{}14 157.00(-146.00).
