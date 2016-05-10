@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.1}
+\newcommand{\versione}{2.0.3}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,6 +63,8 @@
 		\toprule
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		2.0.3 & \TP{} & 2016-05-15 & Aggiunto riscontri rischi \FC{} \\*
 		\midrule
 		2.0.2 & \TP{} & 2016-05-10 & Aggiunta analisi delle tendenze per ogni periodo \\*
 		\midrule
@@ -284,7 +286,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     applicando le strategie descritte qui sopra. \newline
                 \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
                     complessivamente comportato alcun ritardo significativo. \newline
-                 \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \\
+                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \newline
+           		\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla formazione del gruppo. \\
 			\midrule
 			\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\
 			\bottomrule
@@ -316,7 +319,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     del progetto e degli altri membri. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
                 \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
-                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \\
+                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
+                \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \\
             \midrule
 			\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\
 			\bottomrule
@@ -348,7 +352,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
                 \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
-                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \\
+                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \newline
+                \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \\
             \midrule
 			\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\
 			\bottomrule
@@ -394,7 +399,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     in modo semplice ed efficiente. \newline
 				\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
 					ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
-					minimi. \\
+					minimi. \newline
+				\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \\ 
     		\midrule
             \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
 			\bottomrule
@@ -435,7 +441,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     funzioni principali per poter completare il lavoro. Non si sono quindi verificati ritardi
                     degni di nota. \newline
                 \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
-                	del gruppo e per questo motivo non hanno comportato ritardi. \\
+                	del gruppo e per questo motivo non hanno comportato ritardi. \newline
+               	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \\
     		\midrule
             \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
 			\bottomrule
@@ -473,7 +480,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
                     la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
                     e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
-                    pianificato. \\
+                    pianificato. \newline
+               	\textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \\
             \midrule
             \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\
 			\bottomrule
@@ -507,7 +515,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FAD{}}: Come previsto non ci sono stati particolari problemi dovuti alla rotazione
                     dei ruoli. \newline
                 \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
-                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \\
+                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
+                \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \\
             \midrule
             \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\
 			\bottomrule
@@ -547,7 +556,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FPA{}}: I requisiti sono stati consolidati nei periodi precedenti e non si sono riscontrati
                     altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
                     notevolmente questo periodo. \newline
-                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \\
+                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \newline
+                \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \\
             \midrule
             \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
             	diminuisca in modo lineare con l'avanzamento del progetto. \\
