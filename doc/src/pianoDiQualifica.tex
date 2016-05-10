@@ -63,6 +63,8 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
+			2.0.2 & \AB & 2016-05-10 & Modifica metrica Cost of Poor Quality\\*
+			\midrule
 			2.0.2 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
 			\midrule
 			\midrule
@@ -413,15 +415,17 @@
 	\subsubsection{Cost of poor quality}
 	Indica l'inefficienza di processi non buoni valutando il costo delle \mgls{attivita} di correzione che seguono la verifica.
 	
-	\[Entita\ della\ verifica_{generale}[\%]= \frac{Lavoro\ rifatto}{Lavoro\ totale}\]
-	\[Entita\ della\ verifica_{documenti}[\%]= \frac{Sezioni\ che\ necessitano\ di\ modifiche}{Sezioni\ totali\ verificate}\]
-	\[Entita\ della\ verifica_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
+	\[CoPQ_{generale}[\%]= \frac{(V*0.25) +S}{V+S}\]
+	\[CoPQ_{documenti}[\%]= \frac{(sezV*0.25)+sezE}{sezV+sezE}\]
+	\[CoPQ_{progettazione}[\%]=\frac{(classiV*0.25)+classiE}{classiV+classiE}\]
+	
+	\[CoPQ_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
 	
 	dove KLOC sono migliaia di linee di codice.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\leq$ 50\%
-		\item \textbf{Range Ottimale}: $\leq$ 30\%
+		\item \textbf{Range di Accettazione}: $\leq$ 30\%
+		\item \textbf{Range Ottimale}: $\leq$ 10\%
 	\end{itemize}
 	
 	\subsubsection{Requirement stability index}
@@ -1753,6 +1757,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 			\caption{Esito dei test su Indice \mgls{gulpease} in \FA}
 		\end{center}
 	\end{table}
+\section{Dettaglio Analisi}\TODO{modifica titolo}
 	
 	\subsection{Analisi di dettaglio}
 	\subsubsection{Processi}
@@ -1907,7 +1912,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				Ottimale & 80\% \\ \midrule
 				Accettabile & 5\%  \\ \midrule
 				Non Accettabile  & 15\%  \\ \midrule
-				\bottomrule
+				
 			\end{tabular}
 		\end{center}
 		\caption{Esito dei test su campi dati/classe}
@@ -1924,17 +1929,29 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
-				\toprule
-				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 				\midrule
+				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
-				\mgls{milestone schedule variance}  & \\ \midrule
-				\mgls{schedule variance}  &  &  \\ \midrule
-				Cost of poor quality &  &  \\ \midrule
-				Requirement Stability  &  & \\ \bottomrule
+				\mgls{milestone schedule variance}  &1.5\%& Superato\\ \midrule
+				\mgls{schedule variance} &4.22\% & Superato \\ \midrule 
+				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
-		\caption{Test Qualità di Processo nella \FC}
+		\caption{Esito dei test su metriche per qualità di processo nella \FC}
+	\end{table}
+	\newpage
+		
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+				\textbf{CopQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				CoPQ documenti & 1\% & Ottimale \\ \midrule
+				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
+				CoPQ codice & 5\% &  Ottimale \\ \midrule
+			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
+			\end{tabular}	
+		\end{center}
+			\caption{Esito dei test su CoQP nella \FC}
 	\end{table}
 
 	
@@ -1947,16 +1964,18 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
-				\AdR &  &   \\ \midrule    
-				\NdP &  &   \\ \midrule
-				\PdP &  &   \\ \midrule
-				\PdQ &  &  \\ \midrule
-				\ST &  &   \\ \midrule
-				\DP &  &   \\ \midrule
-				\MU &   &   \\ \midrule
-				\GL &   &  \\ \midrule \midrule
-				\textbf{Valore medio} & \textbf{}& \textbf{}\\ 
-				\bottomrule
+				\AdR & 62 & Ottimale  \\ \midrule    
+				\NdP & 45 & Superato  \\ \midrule
+				\PdP & 55 & Ottimale  \\ \midrule
+				\PdQ & 67 &  Ottimale\\ \midrule
+				\DP & 48 &  Superato \\ \midrule
+				\MU & 40  & Superato \\ \midrule
+				Manuale Installazione &  42 &  Superato \\ \midrule
+				Manuale Sviluppatore \TODO{} &  46 & Superato  \\ \midrule
+				\GL & 49  & Superato \\ \midrule \midrule
+				
+				\textbf{Valore medio} & \textbf{51.4}& \textbf{Ottimale}\\ 
+				\midrule
 			\end{tabular}
 		\end{center}
 		\caption{Esito dei test su Indice \mgls{gulpease} nella \FC}
@@ -1967,17 +1986,16 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\TODO{}
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
-					\toprule
-					\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
+				\begin{tabular}{p{0.35\textwidth} p{0.2\textwidth} p{0.15\textwidth}p{0.15\textwidth}}
 					\midrule
-					Complessità ciclomatica &  & \\ \midrule
-					Parametri per metodo &  & \\ \midrule
-					Campi dati per classe  &  &  \\ \midrule
-					Linee di codice per metodo &  &  \\ \midrule
-					Livelli di annidamento &  &  \\ \midrule
-					Instabilità &  &  \\ \midrule
-					Copertura del codice nei test &  & \\ \bottomrule
+						\textbf{metrica} & \textbf{\% accettabile} & \textbf{\%ottima} & \textbf{\%non acc} \\ \midrule\midrule
+						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
+						\# parametri/metodo & 1,18\% & 98,82\% & 0,00\% \\\midrule
+						complessità ciclomatica & 0,00\% & 100,00\% & 0,00\% \\\midrule
+						\# linee codice/metodo & 0,29\% & 99,71\% & 0,00\% \\\midrule
+						\# livelli annidamento & 0,00\% & 100,00\% & 0,00\% \\\midrule
+						instabiltà &  &  &  \\\midrule
+						copertura da parte dei test &  &  &\\ \midrule
 				\end{tabular}	
 			\end{center}
 			\caption{Test Qualità del \mgls{software} nella \FC}
@@ -2008,8 +2026,6 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti
 	\end{itemize}
 	
-	\section{Dettaglio esito test}
-	\subsection{Dettaglio test unità}
-	\input{testResults.tex}
+
 	
 \end{document}
