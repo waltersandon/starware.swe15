@@ -37,19 +37,24 @@ module.exports = function(config){
         autoWatch : true,
 
         frameworks: ['jasmine'],
-
+        reporters: ['progress', 'coverage'],
         browsers : ['Chrome', /*'Firefox'*/],
 
         plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-jasmine'
+            'karma-jasmine',
+            'karma-coverage'
         ],
 
         junitReporter : {
             outputFile: 'test_out/unit.xml',
             suite: 'unit'
-        }
+        },
+        preprocessors: {
+            '**/*.js': ['coverage']
+        },
+        coverageReporter: { type : 'html', dir : 'coverage/' }
 
     });
 };
