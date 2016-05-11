@@ -52,7 +52,14 @@ module.exports = function(config){
             suite: 'unit'
         },
         preprocessors: {
-            '**/*.js': ['coverage']
+            'static/js/app/*.js': ['coverage'],
+            'static/js/controller/**/*.js':['coverage'],
+            'static/js/model/**/**.js':['coverage'],
+            'static/js/util/*.js':['coverage'],
+            'tests/client/unit/service/*.js':['coverage'],
+            'tests/client/unit/controller/**/*.js':['coverage'],
+            'tests/client/unit/util/*.js':['coverage']
+
         },
         coverageReporter: { type : 'html', dir : 'coverage/' }
 
