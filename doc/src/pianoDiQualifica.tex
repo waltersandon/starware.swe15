@@ -63,8 +63,15 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
-			2.0.2 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			2.0.6 & \AB & 2016-05-11 & Modifica metrica Cost of Poor Quality\\*
 			\midrule
+			2.0.5 & \AB & 2016-05-06 & Inserita risultati misurazione fase \FC \\*
+			\midrule
+			2.0.4 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			\midrule
+			2.0.3 & \AB & 2016-05-05 & Modifica metrica Cost of Poor Quality\\*
+			\midrule
+			2.0.2 & \AB & 2016-05-03 & Integrazione sezione \ref{metriche}\\*
 			\midrule
 				2.0.1 & \AB & 2016-04-27 & Restrutturazione contenuti dopo \RP{}\\*
 			\midrule
@@ -373,15 +380,42 @@
 	La qualità dei processi viene valutata usando le seguenti metriche.
 	
 	\subsubsection{Milestone Schedule Variance (MSV)}
+	\paragraph{MSV formula generale}
+	
 	Indica se le scadenze (\mgls{milestone}) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di \mgls{milestone}.
 	
 	\[MSV [\%] = \frac{SDT - PDT}{PDT}\]
 	
-	Dove  MSV indica \mgls{milestone schedule variance}, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
-	
+	dove: 
 	\begin{itemize}
-		\item \textbf{Primo range di accettazione}: $\geq$ -4.5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item MSV indica \mgls{milestone schedule variance};
+		\item SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati;
+		\item  PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	\end{itemize}
+	
+ 
+    PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	
+	\paragraph{MSV medio per persona}
+	\[MSV medio\_persona [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+		dove:
+		\begin{itemize} 
+		\item\textbf{ msv\_i} è il \mgls{milestone schedule variance} calcolato per il membro i-esimo del gruppo;
+		\item \textbf{n} è il numero di componenti del gruppo.
+	\end{itemize}{}
+	\paragraph{MSV medio per attività di gruppo}
+	\[MSV attività\_gruppo [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+			dove: 
+			\begin{itemize}
+				\item \textbf{msv\_i} è il \mgls{milestone schedule variance} calcolato per una attiivtà completata da più di 1 una persona;
+				\item\textbf{ n} è il numero di attività di guppo completate.
+			
+			\end{itemize}
+	
+	\paragraph{Range di accettazione}
+	\begin{itemize}
+		\item \textbf{Primo range di accettazione}:MSV $\leq$ 4.5\%
+		\item \textbf{Range Ottimale}:MSV $\leq$ 0\%
 	\end{itemize}
 	
 	L'indice \mgls{milestone schedule variance} valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le \mgls{attivita}  in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
@@ -390,12 +424,17 @@
 	Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle \mgls{attivita}. Il calcolo utilizza le ore lavorative quantificate, ma non tiene conto della loro collocazione nel tempo. Pertanto l'utilizzo di tale metrica risulta utile solamente se le misure effettuate con l'utilizzo della metrica \mgls{milestone schedule variance} hanno risultato positivo.
 	
 	\[SV [\%] = \frac{ST - PT}{PT}\]
-	
-	Dove SV indica \mgls{schedule variance} , ST (Spent time) è il valore in giorni delle \mgls{attivita}  realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le \mgls{attivita}. Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
+	dove: 
+	\begin{itemize}
+\item SV indica \mgls{schedule variance} 
+\item ST (Spent time) è il valore in ore delle \mgls{attivita}  realizzate alla data corrente;
+\item PT (Planned time) è il valore dei ore pianificate per svolgere le stesse le \mgls{attivita}.
+\end{itemize}
+ Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:SV $\leq$ -5\%
+		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost Variance (CV)}
@@ -403,28 +442,36 @@
 	
 	\[CV [\%] = \frac{EV - AC}{EV}\]
 	
-	Dove CV indica \mgls{cost variance}, EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente. Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
+	Dove:\begin{itemize}
+		\item CV indica \mgls{cost variance};
+		\item EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente;
+		\item AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente;
+	\end{itemize}  
+	
+	 Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -10\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:CV $\geq$ -10\%
+		\item \textbf{Range Ottimale}:CV $\geq$ 0\%
 	\end{itemize}
 	
-	\subsubsection{Cost of poor quality}
+	\subsubsection{Cost of poor quality (CoPQ)}
 	Indica l'inefficienza di processi non buoni valutando il costo delle \mgls{attivita} di correzione che seguono la verifica.
 	
-	\[Entita\ della\ verifica_{generale}[\%]= \frac{Lavoro\ rifatto}{Lavoro\ totale}\]
-	\[Entita\ della\ verifica_{documenti}[\%]= \frac{Sezioni\ che\ necessitano\ di\ modifiche}{Sezioni\ totali\ verificate}\]
-	\[Entita\ della\ verifica_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
+	\[CoPQ_{generale}[\%]= \frac{(V*0.25) +S}{V+S}\]
+	\[CoPQ_{documenti}[\%]= \frac{(sezV*0.25)+sezE}{sezV+sezE}\]
+	\[CoPQ_{progettazione}[\%]=\frac{(classiV*0.25)+classiE}{classiV+classiE}\]
+	
+	\[CoPQ_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
 	
 	dove KLOC sono migliaia di linee di codice.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\leq$ 50\%
-		\item \textbf{Range Ottimale}: $\leq$ 30\%
+		\item \textbf{Range di Accettazione}: $\leq$ 30\%
+		\item \textbf{Range Ottimale}: $\leq$ 10\%
 	\end{itemize}
 	
-	\subsubsection{Requirement stability index}
+	\subsubsection{Requirement stability index (RSI)}
 	Indica quanto variano i requisiti nel tempo.
 	
 	\[RSI[\%]= 1 - \frac{\#requisiti\ aggiunti+\#requisiti\ tolti+\#requisiti\ modificati}{\#requisiti\ totali\ inizialmente}\]
@@ -495,7 +542,10 @@
 	
 	\[Instabilita=\frac{A_e}{A_a+A_e}\]
 	
-	Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	Dove: \begin{itemize}
+		\item $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso;
+		\item il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	\end{itemize}  
 	
 	\begin{itemize}
 		\item \textbf{Range di Accettazione}:[0-0.9]
@@ -1534,7 +1584,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\subsubsection{Tracciamento TI-componente}
 	\begin{longtable}{l l}
 		\midrule
-		Componente & Test\tabularnewline
+		\textbf{Componente} & \textbf{Test}\tabularnewline
 		\midrule
 		\midrule
 		server & TI.server\tabularnewline
@@ -1586,17 +1636,18 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di unità}
 	\subsubsection{\texttt{client:model:service}}
 \begin{center}
-		\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
+		\begin{longtable}[]{p{0.14\textwidth} p{0.325\textwidth} p{0.5\textwidth} p{0.025\textwidth}}\midrule
+			
+	\textbf{Id} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule\midrule
 	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	81.138.TU& QuestionService.modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
+	81.138.TU& QuestionService. modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
 	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	81.136.TU& QuestionService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
-	81.135.TU& QuestionService.delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
+	81.136.TU& QuestionService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	81.135.TU& QuestionService. delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
 	82.160.TU& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	82.159.TU& QuestionnaireService.modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
-	82.157.TU& QuestionnaireService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	82.154.TU& QuestionnaireService.get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
+	82.159.TU& QuestionnaireService. modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
+	82.157.TU& QuestionnaireService. getByID() & effettua la richiesta dei question per id & P\\ \midrule
+	82.154.TU& QuestionnaireService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
 	82.152.TU& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda & P\\ \midrule
 	80.163.TU& RoleService.get() & effettua la richiesta dei role con keywords & P\\ \midrule
 	80.164.TU& RoleService.getByID & effettua la richiesta dei role per id& P\\ \midrule
@@ -1610,7 +1661,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	78.141.TU& UserService. get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names & R\\ \midrule
 	78.143.TU& UserService .getByID() & effettua la richiesta corretta & P\\ \midrule
 	78.144.TU& UserService. getMe() & effettua la richiesta corretta& P\\ \midrule
-	78.148.TU UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
+	78.148.TU& UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
 	78.145.TU& UserService. signUp() & effettua la richiesta corretta & P\\ \midrule
 	78146.TU& UserService. updateInformation() & effettua la richiesta corretta & R\\ \midrule
 78.147.TU	& UserService. updatePassword() & effettua la richiesta corretta& P\\ \midrule
@@ -1622,9 +1673,10 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 \subsubsection{\texttt{client:controller}}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-		\midrule
-	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
+	\begin{longtable}[]{p{0.175\textwidth} p{0.4\textwidth} p{0.4\textwidth} p{0.025\textwidth}}
+		\midrule\midrule
+	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ 
+	\midrule
 	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
 	157.85.TU& admin: UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
 	193.193.TU& public: Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
@@ -1654,7 +1706,6 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	184.74.TU& teacher: ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
 	176.54.TU& teacher: ManipulateQuestionnaire.removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
 176.79.TU	& teacher: ManipulateQuestionnaire.ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
-	\TODO{da rimuovere}& teacher: SelectQuestion.submit() & deve inizializzare la lista con delle domande  & P\\ \midrule
 	195.& user: Home.logout() & it should filter the list of roles \\ \midrule
 	196.199.TU& user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
 	196.200.TU& user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
@@ -1683,9 +1734,11 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 \subsubsection{\texttt{server:service}}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\begin{longtable}[]{p{0.125\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.05\textwidth}}
 			\midrule
-			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \midrule
+			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\
+			 \midrule
+			 \midrule
 			16.19.TU &  GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \midrule
 			16.20.TU &  GET /api/questions/:id & ritorna la domanda specificata & P \\ \midrule
 			16.22.TU &  POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \midrule
@@ -1754,6 +1807,9 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\end{center}
 	\end{table}
 	
+	
+\section{Dettaglio delle verifiche tramite analisi}\TODO{modifica titolo}
+	
 	\subsection{Analisi di dettaglio}
 	\subsubsection{Processi}
 	Vengono riportati i valori di \mgls{schedule variance} e  \mgls{milestone schedule variance} calcolati. 
@@ -1767,7 +1823,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
 				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
 				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
-				Cost of poor quality & 23\% &  Ottimale \\ \midrule
+				CoPQ & 23\% &  Ottimale \\ \midrule
 				Requirement Stability Index & 81\% & Superato \\ \bottomrule
 			\end{tabular}
 		\end{center}
@@ -1808,7 +1864,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
 				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
-				Cost of poor quality & 40\% & Superato \\ \midrule
+				CoPQ & 40\% & Superato \\ \midrule
 				Requirement Stability Index & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
@@ -1851,7 +1907,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\mGls{cost variance} & 0\% & Ottimale\\ \midrule
 				\mgls{milestone schedule variance} &  0\% & Ottimale\\ \midrule
 				\mgls{schedule variance}  & 0\% & Ottimale \\ \midrule
-				Cost of poor quality & 21\% & Ottimale \\ \midrule
+				CoPQ& 21\% & Ottimale \\ \midrule
 				Requirement Stability Index & 91\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
@@ -1884,7 +1940,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\paragraph{Numero di parametri per metodo}
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth}}
 				\toprule
 				\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 				\midrule
@@ -1907,7 +1963,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				Ottimale & 80\% \\ \midrule
 				Accettabile & 5\%  \\ \midrule
 				Non Accettabile  & 15\%  \\ \midrule
-				\bottomrule
+				
 			\end{tabular}
 		\end{center}
 		\caption{Esito dei test su campi dati/classe}
@@ -1919,69 +1975,116 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	
 	\subsection{Codifica}
 	\subsubsection{Processi}
-	Vengono riportati i valori di \mgls{schedule variance} e \mgls{milestone schedule variance} calcolati. 
-	\TODO{}
+	\paragraph{Report su metriche generali}
+	Vengono riportati i valori calcolti per le metriche generali sulla qualità di processo.
+	
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
-				\toprule
-				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 				\midrule
+				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
-				\mgls{milestone schedule variance}  & \\ \midrule
-				\mgls{schedule variance}  &  &  \\ \midrule
-				Cost of poor quality &  &  \\ \midrule
-				Requirement Stability  &  & \\ \bottomrule
+				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
+				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
-		\caption{Test Qualità di Processo nella \FC}
+		\caption{Esito dei test su metriche per qualità di processo nella \FC}
 	\end{table}
+	\newpage
+	\paragraph{Milestone Schedule Variance}
+	Sono stati analizzati in modo dettagliato i dati relativi al \mGls{milestone schedule variance}. In particolare si sono calcolati i valori medi del	\mgls{milestone schedule variance} sui valori rilevati per ogni persona e i valori medi per le attività di gruppo.
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+				\textbf{MSV dettagliato}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				MSV medio per persona & 2.1\%& Superato\\ \midrule
+				MSV medio per gruppo  & 8.6\%& Non Superato\\ 
+				\midrule
+				MSV formula generale & 3.22\% & Superato \\ \midrule 
+			 			
+			\end{tabular}	
+		\end{center}
+		\caption{Dettaglio 	\mgls{milestone schedule variance}  \FC}
+	\end{table}
+	\subparagraph{Analisi dei risultati}Dai risulatati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvlgono un numero di persone superiore a 4 persone. 
+	Si consiglia pertanto di organizzare il lavoro in sotto-attività che conivolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
+	\paragraph{Cost of Poor Quality}
+	
+	\begin{center}
+	\begin{table}[!h]
+		
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				CoPQ documenti & 1\% & Ottimale \\ \midrule
+				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
+				CoPQ codice & 5\% &  Ottimale \\ \midrule\midrule
+			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
+			\end{tabular}	
+		
+			\caption{Esito dei test su CoQP nella \FC}
+	\end{table}
+\end{center}
+	
+	\subparagraph{Analisi dei risultati}
+	Si segnala un valore critico di CoPQ nell'attività di progettazione. Sebbene il valore medio sia in un intervallo accettabile, grazie ad  attività consolidate come la stesura della documentazione, il valore rilevato per la progettazione richiede attenzione e conseguente analisi preventiva dei rischi, per evitare conseguenze sul prodotto o sui processi.
 
 	
 	\subsubsection{Documenti}
-	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
-		\TODO{}
+	Vengono riportati,per ogni documento prodotto, i valori dell'indice \mgls{gulpease} calcolati e se  tale indice rientra nei range stimati come accettabili od ottimali :
+	
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
-				\AdR &  &   \\ \midrule    
-				\NdP &  &   \\ \midrule
-				\PdP &  &   \\ \midrule
-				\PdQ &  &  \\ \midrule
-				\ST &  &   \\ \midrule
-				\DP &  &   \\ \midrule
-				\MU &   &   \\ \midrule
-				\GL &   &  \\ \midrule \midrule
-				\textbf{Valore medio} & \textbf{}& \textbf{}\\ 
-				\bottomrule
+				\AdR & 62 & Ottimale  \\ \midrule    
+				\NdP & 45 & Superato  \\ \midrule
+				\PdP & 55 & Ottimale  \\ \midrule
+				\PdQ & 67 &  Ottimale\\ \midrule
+				\DP & 48 &  Superato \\ \midrule
+				\MU & 40  & Superato \\ \midrule
+				Manuale Installazione &  42 &  Superato \\ \midrule
+				Manuale Sviluppatore  &  46 & Superato  \\ \midrule
+				\GL & 49  & Superato \\ \midrule \midrule
+				
+				\textbf{Valore medio} & \textbf{51.4}& \textbf{Ottimale}\\ 
+				\midrule
 			\end{tabular}
 		\end{center}
 		\caption{Esito dei test su Indice \mgls{gulpease} nella \FC}
 	\end{table}
 	
 	\subsubsection{Software}
-	Vengono riportati i valori calcolati delle misurazioni sul codice. 
-		\TODO{}
+	Vengono riportati i valori calcolati delle misurazioni sul codice.
+	I valori percentuali indicano la quntità di righe di codice sul torale che rientrano nel range indicato.
+		
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
-					\toprule
-					\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
+				\begin{tabular}{p{0.28\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
 					\midrule
-					Complessità ciclomatica &  & \\ \midrule
-					Parametri per metodo &  & \\ \midrule
-					Campi dati per classe  &  &  \\ \midrule
-					Linee di codice per metodo &  &  \\ \midrule
-					Livelli di annidamento &  &  \\ \midrule
-					Instabilità &  &  \\ \midrule
-					Copertura del codice nei test &  & \\ \bottomrule
+						\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
+						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
+						\# parametri/metodo & 1,18\% & 98,82\% & 0,00\% \\\midrule
+						complessità ciclomatica & 0,00\% & 100,00\% & 0,00\% \\\midrule
+						\# linee codice/metodo & 0,29\% & 99,71\% & 0,00\% \\\midrule
+						\# livelli annidamento & 0,00\% & 100,00\% & 0,00\% \\\midrule
+			
 				\end{tabular}	
 			\end{center}
-			\caption{Test Qualità del \mgls{software} nella \FC}
+			\caption{Test Qualità del \mgls{software} nella \FC (1)}
 		\end{table}
+			\begin{table}[H]
+				\begin{center}
+					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+						\midrule
+						\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
+						instabiltà &  &    \\\midrule
+						copertura da parte dei test & 76.1  & Ottimale \\ \midrule
+					\end{tabular}	
+				\end{center}
+				\caption{Test Qualità del \mgls{software} nella \FC (2)}
+			\end{table}
 	
 	
 	\newpage
@@ -2002,14 +2105,12 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\begin{itemize}
 		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate
 		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardo la struttura e in piccola parte anche nel contenuto di alcuni casi d'uso per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivista la descrizione di UC5.1, separato i casi d'uso per tipologia e rivisto le post condizioni dei casi d'errore.
-		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi (ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano stati fatti)
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi \TODO{ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano state fatte}
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti
 	\end{itemize}
 	
-	\section{Dettaglio esito test}
-	\subsection{Dettaglio test unità}
-	\input{testResults.tex}
+
 	
 \end{document}
