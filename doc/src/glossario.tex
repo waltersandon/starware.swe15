@@ -71,7 +71,7 @@
 		\midrule
 		1.1.0 & \NDC & 2016-05-12 & Verifica nuovi termini \\*
 		\midrule
-		1.0.4 & \WS & 2016-05-10 & Inserimento termini Openshift e cookie \\*
+		1.0.4 & \WS & 2016-05-10 & Inserimento termini Openshift, cookie, cost of poor quality, requirement stability index, complessità ciclomatica e cambiato il termine test driven software in soft driven development\\*
 		\midrule
 		1.0.3 & \WS & 2016-05-04  & Inserimento termini BOM, UTF-8, scope, bootstrap e M.E.A.N. stack \\*
 		\midrule
@@ -84,7 +84,7 @@
 		0.1.0 & \NDC & 2016-02-29 & Revisione e correzione errori ortografici \\*
 		\midrule
 		0.0.3 & \AB & 2016-02-27  & Inserimento termini node package manager, document-oriented, json
-		bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance, test driven software, testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\*
+		bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance,  testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\*
 		\midrule
 		0.0.2 & \WS & 2016-02-25  & Inserimento termini dal vecchio glossario \\*
 		\midrule
@@ -209,12 +209,18 @@ i cookies HTTP sono una sorta di gettone identificativo, usato dai server web pe
 
 \subsection{Committente} 
  colui che assegna un compito. In questo caso è il \Vardanega{}.
+ 
+ \subsection{Complessità ciclomatica}
+ misura la complessità del programma contando il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso. Valori troppo alti implicano una ridotta manutenibilità del codice, valori troppo bassi potrebbero determinare scarsa efficienza dei metodi.
 
 \subsection{Controller} 
  è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
 
 \subsection{Cookie}
 I cookie \mgls{http} sono una sorta di gettone identificativo, usato dai server web per poter riconoscere i \mgls{browser} durante comunicazioni con il protocollo \mgls{http} usato per la navigazione web.
+
+\subsection{Cost of poor quality}
+indica al management aziendale l’inefficienza di processi non buoni valutando il costo delle attivitaG di correzione che seguono la verifica
 
 \subsection{Cost variance} 
  indica al management aziendale se il valore del costo realmente maturato è maggiore, uguale o minore rispetto al costo pianificato.
@@ -567,6 +573,9 @@ generazione di un'immagine a partire da una descrizione matematica di una scena 
 \subsection{Request} 
 richiesta fatta da un client ad un \mgls{server}, ad esempio \mgls{http}.
 
+\subsection{Requirement Stability Index} 
+indica quanto variano i requisiti nel tempo.
+
 \subsection{Responsabile} 
 è il responsabile della gestione, pianificazione e realizzazione del progetto.
 
@@ -694,7 +703,7 @@ in \mgls{git} è un segnalibro associato ad un particolare \mgls{commit} utilizz
 traducibile in italiano come modello, indica o un programma o un documento idealizzato come un documento semi compilato cartaceo che ha degli spazi bianchi che saranno successivamente riempiti.
 
 
-\subsection{Test Driven Software} 
+\subsection{Test Driven Development} 
  metodologia di sviluppo del \mgls{software} che prevede che la stesura dei test automatici avvenga prima di quella del \mgls{software} che deve essere sottoposto a  test, e che lo sviluppo del \mgls{software} applicativo sia orientato esclusivamente all'obiettivo di passare i test automatici precedentemente predisposti.
 
 \subsection{Thread} 
