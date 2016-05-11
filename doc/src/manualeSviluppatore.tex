@@ -61,13 +61,16 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
-			0.0.2 & \AB{} & 2016-11-05 &  Stesura \ref{intro}    \\*
+
+			0.0.3 & \AB{} & 2016-11-05 &  Stesura \ref{intro}    \\*
+
+			\midrule
+			0.0.2 & \AVI{} & 2016-11-05 &  Aggiunta sezione estensione delle funzionalità \\*
+
 			\midrule
 			0.0.1 & \AB{} & 2016-11-05 &  Definizione struttura documento \\*
 			\midrule
 			0.0.0 & \AB{} & 2016-11-05 &  Creazione documento \\*
-			
-			\midrule
 
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
@@ -134,8 +137,60 @@
 	\subsection{Conclusione}\TODO{necessaria??}
 	\newpage
 	\section{Estensione delle funzionalità}
+	Possono essere aggiunte nuove funzionalità alle API del prodotto inserendo nuovi service nella parte di back-end e collegandoli al indirizzandovi correttamente le richieste attraverso il router. È anche possibile aggiungere funzionalità nel front-end aggiungendo nuove pagine rappresentanti view e relativi controller.
+
 	\subsection{Back-end}
+	Nel back-end per l'introduzione di una nuova funzionalità da esporre nelle API devono essere creati:
+	\begin{itemize}
+	\item Una direttiva nella classe \texttt{server::middleware::Router} che permetta di definire il path della richiesta da aggiungere alle API collegandoci i relativi gestori, che saranno elementi del package service.
+	\item Una nuova classe servizio nel package \texttt{server::services} per eseguire le operazioni desiderate. Questa dovrà contenere i metodi in grado di ricevere una richiesta express, quindi con parametri req, res e next, che rappresentano rispettivamente l’oggetto della richiesta, della risposta e della callback per il prossimo \mgls{middleware} nella chain of responsibility che gestisce la richiesta. I servizi in questione si occuperanno di fare le richieste specifiche al database mongodb tramite la libreria \mgls{mongoose}
+	\item eventualmente potrà essere aggiunta una classe nel model, nel caso ci sia la necessità di aggiungere una nuova collezione a mongodb. Per fare ciò si raccomanda di usare la sintassi definita da \mgls{mongoose}.
+	\end{itemize}
 	\subsection{Front-end}
+	Per aggiungere una nuova pagina è necessario aggiungere:
+	\begin{itemize}
+	\item Un file con estensione html del tipo \texttt{NomePagina.html} rappresentante la view. Il file va posizionato nel path \texttt{static/html/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito tutto il codice html e le direttive AngularJS necessarie per creare il template html. In particolare l’elemento principale deve essere un div al quale assegnare attraverso la direttiva AngularJS ng-controller=CtrlNomeController il suo rispettivo controller. Infatti, essendo un template html esso va interamente definito all'interno di semplici tag <div>, in quanto esso rappresenta solo una porzione della pagina e non l'intera pagina html.\\
+	Per ogni view creata è necessario includerla all’interno dello pagina che la contiene, ovvero \texttt{Home.html}, e definire la corrispondente location che la identifica della barra degli indirizzi. Questa pagina contiene un elemento con la direttiva ng-switch che seleziona la pagina da visualizzare in base all’url. All’interno di questo switch aggiungere un elemento del tipo 
+	\begin{verbatim}
+	<div ng-switch-when=’url’>
+		<div ng-include="'html/tipoUtente/ NomePagina.html'"></div>
+	</div>
+	\end{verbatim}
+	\item Un file con estensione js del tipo \texttt{NomeController.js} rappresentante il controller della view. Il file va posizionato nel path \texttt{static/js/controller/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito il controller che verrà aggiunto ai moduli di AngularJS. Inoltre bisogna definire le dipendenze del controller verso librerie esterne e le dipendenze che esso ha verso le classi dei packages model, service e util.\\
+	Per ogni controller creato è necessario includerne il codice nella pagina \texttt{index.html} attraverso il tag 
+	\begin{verbatim}
+	<script src=”js/controller/tipoUtente/NomeController.js”></script>
+	\end{verbatim}
+
+	\end{itemize}
+	In caso di necessità è anche possibile aggiungere classi nei packages model, service, e util rispettivamente per definire nuovi tipi di dato, servizi che si interfacciano con le API e servizi di utilità interni al client.
+
+	\subsection{Estensione del QML}
+	Il QML (Question Markup Language) è il linguaggio con cui vengono definite le domande. È auspicabile che nel tempo si voglia aumentare i tipi di domande supportati dall’applicazione, quindi di seguito si definiscono i passi per effettuare questa operazione.\\
+	Per aggiungere un  nuovo tipo di domanda si deve aggiungere il relativo parser. Le funzioni da estendere sono tre, una sul client e due sul server. Poiché l’applicazione client comunica con quella server solo tramite API REST, nonostante siano entrambe scritte in javascript, non è possibile condividere classi; inoltre lo scopo del parser sul server (cioè validare il linguaggio QML) è diversa da quella del client (renderizzare a video la domanda).
+	\begin{itemize}
+	\item \textbf{Parser sul sever}:\\
+	la classe server::validator::QuestionCheck espone una funzione detta checkQML(String) che restituisce una variabile booleana a seconda se il codice passato in input è QML valido o meno.
+	Questa funzione fa il parsing della prima riga della domanda per recuperare il tipo della domanda, se il tipo è valido chiama la una funzione specializzata per validate una domanda di quello specifico tipo. Per aggiungere un nuovo tipo bisogna aggiungere una funzione che faccia il parsing ad hoc del corpo della domanda restituendo vero/falso in base alla validità del codice, poi bisogna estendere checkQML(String) aggiungendo una chiamata alla suddetta funzione se il tipo della domanda risulta essere quello che si sta aggiungendo.
+	\item \textbf{Parser sul client}:\\
+	la classe client::util::QML espone un metodo parse(String) il cui funzionamento è simile al parser del server, ovvero per prima cosa ricava il tipo di domanda e poi richiama parser specializzati per ogni tipo. La differenza rispetto al server è che non restituisce solo un booleano che ne rappresenta la validità, ma un oggetto json con i seguenti campi:
+	\begin{itemize}
+	\item status: booleano che è vero se la domanda è QML valido, falso altrimenti
+	\item type: stringa che rappresenta il tipo della domanda
+	\item body: codice HTML per visualizzare la domanda a video
+	\item answers: array di possibili risposte
+	\item answer: risposta o risposte esatte
+	\end{itemize}
+	Anche nel client, quindi, bisogna creare una funzione che faccia il parsing ad hoc per restituire un oggetto del tipo specificato, poi bisogna richiamarla dalla funzione parse(String) nel caso in cui il tipo della domanda sia quello desiderato.
+	\item \textbf{Correzione delle risposte sul client}:
+	Una volta Definita come è fatta la domanda bisogna definire come correggerla. Questa operazione è fatta all’interno della classe \texttt{client::model::data::CurrentQuestion}, la quale nel costruttore richiama il metodo parse(String) del punto precedente, recuperando così le risposte giuste e le risposte corrette e memorizzandole rispettivamente nelle variabili\texttt{answers} e \texttt{answer}. Inoltre la classe espone una funzione point() che restituisce un json con i seguenti campi:
+	\begin{itemize}
+	\item point: numero di punti totalizzati dalla domanda
+	\item tot: numero di punti totali che vale la domanda
+	\end{itemize}
+	Questo è il metodo da estendere se si vuole rendere possibile la correzione di un nuovo tipo di domanda e l’oggetto di risposta deve essere creato sulla base dei valori di \texttt{answers} e \texttt{answer}.
+	\end{itemize}
+
 	\newpage
 	\section{Glossario}
 
