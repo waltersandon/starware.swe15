@@ -3,7 +3,8 @@
     <div ng-hide='onSelect'>
         <div class='row' >
             <div class=' col-md-12'>
-                <h2>Modifica questionario</h2>
+                <h2 ng-show='!edit'>Crea questionario</h2>
+                <h2 ng-show='edit'>Modifica questionario</h2>
             </div>
         </div>
         <div class='row'>
@@ -56,6 +57,7 @@
                     <div class='form-group'>
                         <div class='col-md-3 col-md-offset-9'>
                             <button type='submit' class='btn btn-raised btn-primary'>Conferma</button>
+                            <button class='btn btn-raised btn-primary'>Annulla</button>
                         </div>
                     </div>
                 </form>
