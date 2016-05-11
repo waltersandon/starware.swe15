@@ -10,12 +10,12 @@ describe('QuestionCreation', function() {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("tullio.vardanega");
             element(by.id('inputPassword')).sendKeys("password.tullio.vardanega");
-            element(by.buttonText('Submit')).click();
+            element(by.css('[type="submit"]')).click();
         });
     });
     it('docente deve poter creare una domanda', function() {
 
-        element(by.linkText('Gestisci domande')).click();
+        element(by.css('[href="#/teacher/questions"]')).click();
         element(by.css('[href="#/teacher/questions/new/"]')).click();
         browser.waitForAngular();
         browser.executeScript('$("div.CodeMirror-wrap > div").removeAttr("style");');
@@ -25,12 +25,12 @@ describe('QuestionCreation', function() {
         textareas.sendKeys(
             protractor.Key.CONTROL, "a", protractor.Key.NULL,
             "<TF F>\n 2+2=5");
-        element(by.buttonText('Submit')).click();
+        element(by.css('[type="submit"]')).click();
         element(by.css('[ng-click="logout()"]')).click();
     });
     it('docente deve poter modificare una domanda', function() {
 
-            element(by.linkText('Gestisci domande')).click();
+            element(by.css('[href="#/teacher/questions"]')).click();
             element.all(by.css('[ng-click="modify(question)"]')).first().click();
             browser.waitForAngular();
             browser.executeScript('$("div.CodeMirror-wrap > div").removeAttr("style");');
@@ -43,7 +43,7 @@ describe('QuestionCreation', function() {
 
         }
         textareas.sendKeys("<TF F>\n New York è la capitale degli USA? [F]");
-        element(by.buttonText('Submit')).click();
+        element(by.css('[type="submit"]')).click();
         element(by.css('[ng-click="logout()"]')).click();
     });
 

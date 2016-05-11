@@ -12,7 +12,7 @@ describe('login', function() {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("mario.rossi");
             element(by.id('inputPassword')).sendKeys("password.mario.rossi");
-            element(by.buttonText('Submit')).click();
+            element(by.css('[type="submit"]')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
@@ -24,7 +24,7 @@ describe('login', function() {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("tullio.vardanega");
             element(by.id('inputPassword')).sendKeys("password.tullio.vardanega");
-            element(by.buttonText('Submit')).click();
+            element(by.css('[type="submit"]')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
@@ -36,7 +36,7 @@ describe('login', function() {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("francesco.ranzato");
             element(by.id('inputPassword')).sendKeys("password.francesco.ranzato");
-            element(by.buttonText('Submit')).click();
+            element(by.css('[type="submit"]')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/user');
