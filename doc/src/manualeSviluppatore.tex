@@ -1,0 +1,138 @@
+	\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Manuale Sviluppatore}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{11 maggio 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{0.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Informale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+	\begin{titlepage}
+		\begin{center}
+			\intestazione{\titoloDocumento}
+			
+			\begin{table}[h]
+				\begin{center}
+					\begin{tabular}{r | l}
+						\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+						\midrule
+						\textbf{Nome Documento}	&	\titoloDocumento	\\
+						\textbf{Versione}	&	\versione	\\
+						\textbf{Stato}	&	\emph{\stato}	\\
+						\textbf{Uso}	&	\emph{\uso}	\\
+						\textbf{Data Creazione}	&	\dataCreazione	\\
+						\textbf{Data Ultima Modifica}	&	\today	\\
+						\textbf{Redazione}	\\
+						\textbf{Verifica}	&		\\
+						\textbf{Approvazione}	& \AB{} \\
+						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
+						\ 	&	\Vardanega{}	\\
+						\ 	&	\Cardin{}	\\
+						\ 	&	Il \mgls{proponente} \Zucchetti{}	\\
+						
+					\end{tabular}
+				\end{center}
+			\end{table}
+			
+		\end{center}
+	\end{titlepage}
+	\newpage
+	
+	\Large{\textbf{Registro delle modifiche}}\\
+	\normalsize
+	
+	\begin{center}
+		\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+			\midrule
+			0.0.0 & \AB{} & 2016-11-05 &  Creazione documento \\*
+			\midrule
+			0.0.1 & \AB{} & 2016-11-05 &  Definizione struttura documento \\*
+			\midrule
+
+			\bottomrule
+			\caption{\mGls{versionamento}  del documento}
+			\label{tabVers1}
+		\end{longtable}
+	\end{center}
+	
+	\newpage
+	\tableofcontents
+	\newpage
+	\listoftables
+	\listoffigures
+	\newpage
+	
+	
+	\section{Introduzione}	\label{intro}
+	\TODO{}
+	\subsection{Scopo}
+	\TODO{}
+	\subsection{Descrizione}
+\TODO{}
+   
+	
+	\subsection{Descrizione Prodotto}
+	\descrizioneProdotto
+	
+	\subsection{Glossario}
+	\glossarioPrint
+	\TODO{da rivedere è copiata da manuale installazione}
+	\subsection{Comunicazione malfunzionamenti}
+		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o
+		malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email
+		all’indirizzo:
+		\url{starware.swe@gmail.com}
+		Nella mail di segnalazione si dovranno riportare:
+		\begin{itemize}
+			\item sistema operativo utilizzato;
+			\item versione di MongoDB utilizzata;
+			\item versione di Node.js utilizzata;
+			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati;
+		\end{itemize}
+	\subsection{Riferimenti}
+	
+	\subsubsection{Normativi}
+	\begin{itemize}
+		\item \TODO{}
+		
+	\end{itemize}
+	
+	\subsubsection{Informativi}
+	\begin{itemize}
+		\item \TODO{}
+	\end{itemize}
+	
+	\newpage
+	\section{Configurazione dell'ambiente di sviluppo}
+	\subsection{Installazione dell'IDE JetBrain}\TODO{Webstorm o intellij?}
+	\subsection{Download del progetto}
+	\subsection{Installazione delle applicazioni di supporto}
+	\subsubsection{MongoDB}\TODO{specificare versione vedi manuale installazione}
+	\subsubsection{Node.js}\TODO{specificare versione vedi manuale installazione}
+	\subsection{Importare il progetto}
+	\subsection{Conclusione}\TODO{necessaria??}
+	\newpage
+	\section{Estensione delle funzionalità}
+	\subsection{Back-end}
+	\subsection{Front-end}
+	\newpage
+	\section{Glossario}
+
+\end{document}
