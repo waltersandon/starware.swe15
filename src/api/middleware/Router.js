@@ -30,7 +30,7 @@ function Router(auth, error) {
     this.router.delete("/session",this.sessionService.delete);
 
     //Routing user requests
-    this.router.get('/users',auth.requireRole('admin'),this.userService.get);
+    this.router.get('/users',auth.requireRole('student'),this.userService.get);
     this.router.get('/users/me',auth.requireRole('student'), this.userService.getMe);
     this.router.get('/users/:id',auth.requireRole('student'),this.userService.getByID);
     this.router.post('/users',this.userService.new);
