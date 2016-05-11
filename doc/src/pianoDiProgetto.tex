@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.0}
+\newcommand{\versione}{2.0.4}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,6 +63,14 @@
 		\toprule
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		2.0.4 & \TP{} & 2016-05-15 & Aggiunto consuntivo \FC{} \\*
+		\midrule
+		2.0.3 & \TP{} & 2016-05-15 & Aggiunto riscontri rischi \FC{} \\*
+		\midrule
+		2.0.2 & \TP{} & 2016-05-10 & Aggiunta analisi delle tendenze per ogni periodo \\*
+		\midrule
+		2.0.1 & \TP{} & 2016-05-09 & Corretti minori errori grammaticali \\*
         \midrule
         2.0.0 & \TP{} & 2016-04-08 & Approvazione \\*
    		\midrule
@@ -280,7 +288,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     applicando le strategie descritte qui sopra. \newline
                 \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
                     complessivamente comportato alcun ritardo significativo. \newline
-                 \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \\
+                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \newline
+           		\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla formazione del gruppo. \\
 			\midrule
 			\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\
 			\bottomrule
@@ -312,7 +321,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     del progetto e degli altri membri. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
                 \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
-                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \\
+                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
+                \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \\
             \midrule
 			\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\
 			\bottomrule
@@ -344,7 +354,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \newline
                 \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
                 \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
-                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \\
+                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \newline
+                \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \\
             \midrule
 			\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\
 			\bottomrule
@@ -390,7 +401,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     in modo semplice ed efficiente. \newline
 				\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
 					ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
-					minimi. \\
+					minimi. \newline
+				\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \\ 
     		\midrule
             \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
 			\bottomrule
@@ -431,7 +443,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                     funzioni principali per poter completare il lavoro. Non si sono quindi verificati ritardi
                     degni di nota. \newline
                 \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
-                	del gruppo e per questo motivo non hanno comportato ritardi. \\
+                	del gruppo e per questo motivo non hanno comportato ritardi. \newline
+               	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \\
     		\midrule
             \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
 			\bottomrule
@@ -463,14 +476,14 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FA{}}: Ci sono stati alcuni ritardi per quanto riguarda le attività di verifica, 
                 ma i periodi di \mgls{slack} previsti nella pianificazione hanno permesso di limitarne i danni. \newline
                 \textbf{\FAD{}}: La stima prevista per questo periodo era notevolmente sottovalutata. Ci sono
-                    stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare.
-                    Per questo motivo sono stati rinegoziati i requisiti con il proponente. \newline
+                    stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare. \newline
                 \textbf{\FPA{}}: Grazie anche alla brevità di questo periodo, non si sono riscontrati particolari
-                    rispetto a quanto previsto. \newline
+                    ritardi rispetto a quanto previsto. \newline
                 \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
                     la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
                     e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
-                    pianificato. \\
+                    pianificato. \newline
+               	\textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \\
             \midrule
             \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\
 			\bottomrule
@@ -504,7 +517,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FAD{}}: Come previsto non ci sono stati particolari problemi dovuti alla rotazione
                     dei ruoli. \newline
                 \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
-                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \\
+                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
+                \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \\
             \midrule
             \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\
 			\bottomrule
@@ -544,7 +558,8 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 \textbf{\FPA{}}: I requisiti sono stati consolidati nei periodi precedenti e non si sono riscontrati
                     altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
                     notevolmente questo periodo. \newline
-                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \\
+                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \newline
+                \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \\
             \midrule
             \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
             	diminuisca in modo lineare con l'avanzamento del progetto. \\
@@ -1807,7 +1822,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{center}
 
 \subsubsection{Conclusioni}
-Il gruppo ha cercato di rispettare le ore previste con qualche aggiustamento e cambi di ruoli non previsti si è riusciti a mantenere le ore totali preventivate. Le ore per i differenti \mglspl{ruolo} sono state effettivamente diverse e hanno portato ad un deficit del bilancio di \euro{}-20.00.
+Attraverso qualche aggiustamento e cambi di ruoli non previsti si è riusciti a mantenere le ore totali preventivate. Le ore per i differenti \mglspl{ruolo} sono state effettivamente diverse e hanno portato ad un deficit del bilancio di \euro{}-20.00.
 
 \subsubsection{Preventivo a finire}
 \label{sec:paf-analisi}
@@ -1880,10 +1895,22 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \end{center}
 
 \subsubsection{Conclusioni}
-La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate. Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato. Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+320.00.
+
+\par La correzione dei problemi rilevati dalla \RR{} hanno richiesto un maggior numero di ore rispetto a quelle preventivate. Questo non ha portato a ritardi rilevabili in quanto i membri del gruppo hanno lavorato in media un maggior numero di ore al giorno rispetto a quello preventivato. Tale numero aggiuntivo di ore ha riportato ad un incremento del costo per questo periodo pari ad \euro{}+320.00. \\
+
+\par Il numero di ore aggiuntivo è stato causato principalmente da una mal interpretazione delle priorità dei requisiti nelle riunioni con il proponente. Ogni membro del gruppo aveva un interpretazione diversa di quello che il proponente intendeva e i verbali non hanno aiutato a fare luce sulle intenzioni del proponente. Questo ha portato alla necessità di un ulteriore riunione per chiarire i dubbi. \\
+
+\par Sarà necessario fare più attenzione alla stesura dei verbali cercando di rimuovere il maggior numero di ambiguità possibile. \\
+
+\subsubsection{Analisi delle tendenze}
+
+\par E' possibile osservare che il gruppo è per lo più in grado di rispettare le scadenze, eventualmente richiedendo, come in questo periodo, di più ore al giorno per poterle soddisfarle. \\
+
+\par Osservando anche solo questo periodo è possibile notare che il gruppo in alcuni casi non rispetta il numero di ore previste per le attività. Questo è causato dall'inesperienza del gruppo nello stimare il numero di ore necessarie per attività che non ha mai portato a termine. \\
 
 \subsubsection{Preventivo a finire}
-La correzione dell'analisi ha permesso di semplificare notevolmente l'architettura e di ridurre il numero di requisiti obbligatori identificati nel periodo precedente. Ci si aspetta quindi una semplificazione della stesura della \ST{} e della \DP{}, sperando che questo comporti una notevole riduzione dei costi nei prossimi due periodi. Il costo totale dell'applicazione si è alzato e attualmente è di \euro{}14 603.00(+300.00).
+
+\par La correzione dell'analisi ha permesso di semplificare notevolmente l'architettura e di ridurre il numero di requisiti obbligatori identificati nel periodo precedente. Ci si aspetta quindi una semplificazione della stesura della \ST{} e della \DP{}, sperando che questo comporti una notevole riduzione dei costi nei prossimi due periodi; Il costo totale dell'applicazione si è alzato e attualmente è di \euro{}14 603.00(+300.00).
 
 \newpage
 
@@ -1953,6 +1980,12 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Conclusioni}
 La rinegoziazione dei requisiti ha permesso una notevole semplificazione della progettazione ad alto livello portando ad una più semplice identificazione e successiva stesura dell'architettura. In totale, per questo periodo, si è riusciti a risparmiare un totale di \euro{}191.00 che ci lasciano comunque in passivo di \euro{}+109.00 rispetto al consuntivo precedente.
+
+\subsubsection{Analisi delle tendenze}
+
+\par Come previsto nel periodo precedente, i costi e il numero di ore impiegate per il completamento di questo periodo sono risultate inferiori a quelle previste. Questo è causato dalla semplificazione del sistema con il consolidamento dei requisiti. \\
+
+\par Anche qui il gruppo ha per lo più rispettato le scadenze e il numero di ore massime fissate per le attività. Il periodo precedente risulta al momento l'unico picco rilevante di costo con l'andamento del progetto. \\
 
 \subsubsection{Preventivo a finire}
 Ci si aspetta che la semplificazione dei requisiti continui, a cascata, a portare notevoli vantaggi nella stesura della \DP{} e della codifica stessa. Il costo totale dell'applicazione si è leggermente abbassato ma è ancora più alto di quanto preventivato inizialmente ed attualmente è di \euro{}14 412.00(+109.00).
@@ -2026,8 +2059,98 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \subsubsection{Conclusioni}
 Come previsto la semplificazione dei requisiti ha ridotto i costi della progettazione e relativa verifica. Nonostante anche in questo periodo di siano state più ore di lavoro per il \RE{} rispetto a quanto preventivato, il totale delle ore ha portato ad un deficit di \euro{}-255.00 che sommato riporta il costo totale del progetto di nuovo in attivo di \euro{}146.00.
 
+\subsubsection{Analisi delle tendenze}
+
+\par Con il completamento di questo periodo è possibile notare l'effettivo calo nel costo per periodo. Come previsto, questo periodo e quello precedente hanno effettivamente comportato un calo nel numero di ore impiegate per la progettazione. \\
+
+\par Per quanto riguarda le scadenze, come per il periodo precedente, sono state rispettate. Il periodo di \FA{} risulta sempre più un raro caso causato dall'inesperienza nell'analisi dei requisiti. \\
+
 \subsubsection{Preventivo a finire}
 Si prevedono notevoli semplificazioni anche nel periodo di \FC{}, sarà probabilmente possibile utilizzare il modello incrementale per concentrarsi anche su alcuni requisiti desiderabili o opzionali. Il costo totale dell'applicazione si è abbassato ulteriormente ed ora è minore di quanto preventivato inizialmente e attualmente è di \euro{}14 157.00(-146.00).
+
+\newpage
+
+\subsection{Codifica}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} 	& 		& 		& 		& 5(0) 	& 11(-3) 	& 14(+4) 	& 30(+1) \\
+			\midrule
+			\AB{} 	& 		& 		& 3(+3) & 7(+2) & 10(-4) 	& 12(+2) 	& 32(+3) \\
+			\midrule
+			\NDC{} 	& 		& 		& 		& 8(+2) & 13(-1) 	& 8(-1) 	& 29(0) \\
+			\midrule
+			\TP{} 	& 		& 		& 6(-2) & 		& 12(-2) 	& 10(+3) 	& 28(-1) \\
+			\midrule
+			\WS{} 	& 2(-1) & 6(-1) & 		& 		& 10(-3) 	& 7(+1) 	& 25(-4) \\
+			\midrule
+			\AVE{} 	& 5(+2) 	& 		& 		& 6(+1) & 11(-2) 	& 8(0) 		& 30(+1) \\
+			\midrule
+			\AVI{} 	& 		& 		& 		& 7(-1) & 14(+1) 	& 7(-1) 	& 28(-1) \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FC{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule	
+			\RE{} & 7(+1) & 30 & 210.00(+30.00) \\ \midrule
+			\AM{} & 6(-1) & 20 & 120.00(-20.00) \\ \midrule
+			\AN{} & 9(+1) & 25 & 225.00(+25.00) \\ \midrule
+			\PG{} & 33(+4) & 22 & 726.00(+88.00) \\ \midrule
+			\PR{} & 81(-14) & 15 & 1 215.00(-210.00) \\ \midrule
+			\VR{} & 66(+8) & 15 & 990.00(+120.00) \\ \midrule
+			\textbf{Totale effettivo} & \textbf{202} &  & \textbf{3 486} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{203} &  & \textbf{3 453.00} \\ \midrule
+			\textbf{Differenza} & \textbf{-1} &  & \textbf{+33.00} \\ \midrule			
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FC{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FC{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+
+\par Le attività di codifica hanno comportato meno ore di quelle previste grazie alla semplificazione del sistema. Le ore di verifica e codifica dei test hanno invece comportato un numero di ore in più di quelle previste. Anche la stesura dei manuali ha comportato un leggero aumento dei costi rispetto a quello previsto per l'introduzione di un manuale sviluppatore che non era stato inizialmente previsto. \\
+
+\par Il totale delle ore ha portato ad un incremento di \euro{}33.00 che sommato ai consuntivi precedenti porta il costo totale del progetto ad un risparmio di \euro{}113.00. \\
+
+\subsubsection{Analisi delle tendenze}
+
+\par Il costo del periodo di codifica è risultato superiore a quello atteso dalle proiezioni dei periodi precedenti. In particolare la codifica in se del prodotto ha portato meno ore come atteso, ma la scrittura dei test ha comportato più ore di quelle preventivate risultando in un costo superiore. \\
+
+\par Sembra che la riduzione dei costi dovuti alla semplificazione del sistema si sia fermata, mantenendo comunque un andamento positivo grazie all'inerzia dei periodi precedenti. \\
+
+\subsubsection{Preventivo a finire}
+
+\par Questo periodo ha comportato un lungo tempo per la scrittura dei test che dovrebbe semplificare l'effettivo collaudo del periodo successivo. In ogni caso non ci aspettano ne particolari ritardi ne riduzione dei costi, portandoci a completare il prodotto con il prezzo previsto inizialmente. \\
+
+\par Il costo totale dell'applicazione si è alzato leggermente rimanendo comunque inferiore a quanto preventivato inizialmente e attualmente è di \euro{}14 190.00(-113.00).
 
 \newpage
 

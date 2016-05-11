@@ -3,9 +3,11 @@
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
 describe('login', function() {
+    beforeEach(function () {
+        browser.get('#/login');
+    });
 
     it('studente deve poter loggarsi e sloggarsi', function() {
-        browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("mario.rossi");
@@ -18,7 +20,6 @@ describe('login', function() {
         });
     });
     it('docente deve poter loggarsi e sloggarsi', function() {
-        browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("tullio.vardanega");
@@ -31,7 +32,6 @@ describe('login', function() {
         });
     });
     it('admin deve poter loggarsi e sloggarsi', function() {
-        browser.get('#/login');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("francesco.ranzato");
