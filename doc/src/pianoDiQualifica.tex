@@ -63,6 +63,9 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
+			2.0.2 & \AB & 2016-05-10 & Integrazione sezione \ref{metriche}\\*
+			\midrule
+			\midrule
 			2.0.2 & \AB & 2016-05-10 & Modifica metrica Cost of Poor Quality\\*
 			\midrule
 			2.0.2 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
@@ -375,15 +378,42 @@
 	La qualità dei processi viene valutata usando le seguenti metriche.
 	
 	\subsubsection{Milestone Schedule Variance (MSV)}
+	\paragraph{MSV formula generale}
+	
 	Indica se le scadenze (\mgls{milestone}) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di \mgls{milestone}.
 	
 	\[MSV [\%] = \frac{SDT - PDT}{PDT}\]
 	
-	Dove  MSV indica \mgls{milestone schedule variance}, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
-	
+	dove: 
 	\begin{itemize}
-		\item \textbf{Primo range di accettazione}: $\geq$ -4.5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item MSV indica \mgls{milestone schedule variance};
+		\item SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati;
+		\item  PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	\end{itemize}
+	
+ 
+    PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	
+	\paragraph{MSV medio per persona}
+	\[MSV medio\_persona [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+		dove:
+		\begin{itemize} 
+		\item\textbf{ msv\_i} è il \mgls{milestone schedule variance} calcolato per il membro i-esimo del gruppo;
+		\item \textbf{n} è il numero di componenti del gruppo.
+	\end{itemize}{}
+	\paragraph{MSV medio per attività di gruppo}
+	\[MSV attività\_gruppo [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+			dove: 
+			\begin{itemize}
+				\item \textbf{msv\_i} è il \mgls{milestone schedule variance} calcolato per una attiivtà completata da più di 1 una persona;
+				\item\textbf{ n} è il numero di attività di guppo completate.
+			
+			\end{itemize}
+	
+	\paragraph{Range di accettazione}
+	\begin{itemize}
+		\item \textbf{Primo range di accettazione}:MSV $\leq$ 4.5\%
+		\item \textbf{Range Ottimale}:MSV $\leq$ 0\%
 	\end{itemize}
 	
 	L'indice \mgls{milestone schedule variance} valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le \mgls{attivita}  in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
@@ -392,12 +422,17 @@
 	Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle \mgls{attivita}. Il calcolo utilizza le ore lavorative quantificate, ma non tiene conto della loro collocazione nel tempo. Pertanto l'utilizzo di tale metrica risulta utile solamente se le misure effettuate con l'utilizzo della metrica \mgls{milestone schedule variance} hanno risultato positivo.
 	
 	\[SV [\%] = \frac{ST - PT}{PT}\]
-	
-	Dove SV indica \mgls{schedule variance} , ST (Spent time) è il valore in giorni delle \mgls{attivita}  realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le \mgls{attivita}. Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
+	dove: 
+	\begin{itemize}
+\item SV indica \mgls{schedule variance} 
+\item ST (Spent time) è il valore in ore delle \mgls{attivita}  realizzate alla data corrente;
+\item PT (Planned time) è il valore dei ore pianificate per svolgere le stesse le \mgls{attivita}.
+\end{itemize}
+ Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:SV $\leq$ -5\%
+		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost Variance (CV)}
@@ -405,11 +440,17 @@
 	
 	\[CV [\%] = \frac{EV - AC}{EV}\]
 	
-	Dove CV indica \mgls{cost variance}, EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente. Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
+	Dove:\begin{itemize}
+		\item CV indica \mgls{cost variance};
+		\item EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente;
+		\item AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente;
+	\end{itemize}  
+	
+	 Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -10\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:CV $\geq$ -10\%
+		\item \textbf{Range Ottimale}:CV $\geq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost of poor quality (CoPQ)}
@@ -499,7 +540,10 @@
 	
 	\[Instabilita=\frac{A_e}{A_a+A_e}\]
 	
-	Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	Dove: \begin{itemize}
+		\item $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso;
+		\item il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	\end{itemize}  
 	
 	\begin{itemize}
 		\item \textbf{Range di Accettazione}:[0-0.9]
@@ -1758,7 +1802,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\end{table}
 	
 	
-\section{Dettaglio Analisi}\TODO{modifica titolo}
+\section{Dettaglio delle verifiche tramite analisi}\TODO{modifica titolo}
 	
 	\subsection{Analisi di dettaglio}
 	\subsubsection{Processi}
@@ -1925,25 +1969,44 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	
 	\subsection{Codifica}
 	\subsubsection{Processi}
-	Vengono riportati i valori di \mgls{schedule variance} e \mgls{milestone schedule variance} calcolati. 
-	\TODO{}
+	\paragraph{Report su metriche generali}
+	Vengono riportati i valori calcolti per le metriche generali sulla qualità di processo.
+	
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
 				\midrule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
-				\mgls{milestone schedule variance}  &1.5\%& Superato\\ \midrule
-				\mgls{schedule variance} &4.22\% & Superato \\ \midrule 
+				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
 				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
 		\caption{Esito dei test su metriche per qualità di processo nella \FC}
 	\end{table}
 	\newpage
-		
+	\paragraph{Milestone Schedule Variance}
+	Sono stati analizzati in modo dettagliato i dati relativi al \mGls{milestone schedule variance}. In particolare si sono calcolati i valori medi del	\mgls{milestone schedule variance} sui valori rilevati per ogni persona e i valori medi per le attività di gruppo.
 	\begin{table}[H]
 		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+				\textbf{MSV dettagliato}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				MSV medio per persona & 2.1\%& Superato\\ \midrule
+				MSV medio per gruppo  & 8.6\%& Non Superato\\ 
+				\midrule
+				MSV formula generale & 3.22\% & Superato \\ \midrule 
+			 			
+			\end{tabular}	
+		\end{center}
+		\caption{Dettaglio 	\mgls{milestone schedule variance}  \FC}
+	\end{table}
+	\subparagraph{Analisi dei risultati}Dai risulatati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvlgono un numero di persone superiore a 4 persone. 
+	Si consiglia pertanto di organizzare il lavoro in sotto-attività che conivolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
+	\paragraph{Cost of Poor Quality}
+	
+	\begin{center}
+	\begin{table}[!h]
+		
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
 				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				CoPQ documenti & 1\% & Ottimale \\ \midrule
@@ -1951,9 +2014,13 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				CoPQ codice & 5\% &  Ottimale \\ \midrule
 			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
 			\end{tabular}	
-		\end{center}
+		
 			\caption{Esito dei test su CoQP nella \FC}
 	\end{table}
+\end{center}
+	
+	\subparagraph{Analisi dei risultati}
+	Si segnala un valore critico di CoPQ nell'attività di progettazione. Sebbene il valore medio sia in un intervallo accettabile, grazie ad  attività consolidate come la stesura della documentazione, il valore rilevato per la progettazione richiede attenzione e conseguente analisi preventiva dei rischi, per evitare conseguenze sul prodotto o sui processi.
 
 	
 	\subsubsection{Documenti}
