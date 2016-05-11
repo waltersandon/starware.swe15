@@ -2,10 +2,11 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('login', function() {
-
-    it('utente deve poter registrarsi', function() {
+describe('signUp', function() {
+    beforeEach(function () {
         browser.get('#/signup');
+    });
+    it('utente deve poter registrarsi', function() {
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/signup');
             element(by.id('userName')).sendKeys("testUser");
