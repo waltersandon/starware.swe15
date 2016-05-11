@@ -80,7 +80,7 @@ UserService.prototype.new = function(req, res, next) {
         });
         User.find({userName: req.body.userName}).exec(function(err, user){
             if(err) next(err);
-            else if (user.length != 0) next({type: 422, message:"L'username esiste già"});
+            else if (user.length !== 0) next({type: 422, message:"L'username esiste già"});
             else{
                 newUser.save(function(err, user) {
                     if (err) next(err);

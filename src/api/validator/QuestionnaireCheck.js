@@ -8,7 +8,7 @@ function QuestionnaireCheck() {}
 
 QuestionnaireCheck.prototype.checkQuestions = function(questions){
     //non vuota
-    if (typeof questions === 'undefined' || questions.length == 0){
+    if (typeof questions === 'undefined' || questions.length === 0){
         return false;
     }
     //non duplicati
@@ -28,7 +28,7 @@ QuestionnaireCheck.prototype.checkTitle = function(title){
 
 QuestionnaireCheck.prototype.checkTags = function(tags){
     //non vuota
-    if (typeof tags === 'undefined' || tags.length == 0){
+    if (typeof tags === 'undefined' || tags.length === 0){
         return false;
     }
     //non duplicati
