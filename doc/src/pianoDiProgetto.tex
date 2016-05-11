@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.3}
+\newcommand{\versione}{2.0.4}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,6 +63,8 @@
 		\toprule
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		2.0.4 & \TP{} & 2016-05-15 & Aggiunto consuntivo \FC{} \\*
 		\midrule
 		2.0.3 & \TP{} & 2016-05-15 & Aggiunto riscontri rischi \FC{} \\*
 		\midrule
@@ -2065,6 +2067,90 @@ Come previsto la semplificazione dei requisiti ha ridotto i costi della progetta
 
 \subsubsection{Preventivo a finire}
 Si prevedono notevoli semplificazioni anche nel periodo di \FC{}, sarà probabilmente possibile utilizzare il modello incrementale per concentrarsi anche su alcuni requisiti desiderabili o opzionali. Il costo totale dell'applicazione si è abbassato ulteriormente ed ora è minore di quanto preventivato inizialmente e attualmente è di \euro{}14 157.00(-146.00).
+
+\newpage
+
+\subsection{Codifica}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+			\toprule
+			\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} & \textbf{Pg} & \textbf{Pr} & \textbf{Ve} & \textbf{Totale}\\
+			\midrule
+			\midrule
+			\IB{} 	& 		& 		& 		& 5(0) 	& 11(-3) 	& 14(+4) 	& 30(+1) \\
+			\midrule
+			\AB{} 	& 		& 		& 3(+3) & 7(+2) & 10(-4) 	& 12(+2) 	& 32(+3) \\
+			\midrule
+			\NDC{} 	& 		& 		& 		& 8(+2) & 13(-1) 	& 8(-1) 	& 29(0) \\
+			\midrule
+			\TP{} 	& 		& 		& 6(-2) & 		& 12(-2) 	& 10(+3) 	& 28(-1) \\
+			\midrule
+			\WS{} 	& 2(-1) & 6(-1) & 		& 		& 10(-3) 	& 7(+1) 	& 25(-4) \\
+			\midrule
+			\AVE{} 	& 5(+2) 	& 		& 		& 6(+1) & 11(-2) 	& 8(0) 		& 30(+1) \\
+			\midrule
+			\AVI{} 	& 		& 		& 		& 7(-1) & 14(+1) 	& 7(-1) 	& 28(-1) \\
+			\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FC{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule	
+			\RE{} & 7(+1) & 30 & 210.00(+30.00) \\ \midrule
+			\AM{} & 6(-1) & 20 & 120.00(-20.00) \\ \midrule
+			\AN{} & 9(+1) & 25 & 225.00(+25.00) \\ \midrule
+			\PG{} & 33(+4) & 22 & 726.00(+88.00) \\ \midrule
+			\PR{} & 81(-14) & 15 & 1 215.00(-210.00) \\ \midrule
+			\VR{} & 66(+8) & 15 & 990.00(+120.00) \\ \midrule
+			\textbf{Totale effettivo} & \textbf{202} &  & \textbf{3 486} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{203} &  & \textbf{3 453.00} \\ \midrule
+			\textbf{Differenza} & \textbf{-1} &  & \textbf{+33.00} \\ \midrule			
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FC{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FC{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+
+\par Le attività di codifica hanno comportato meno ore di quelle previste grazie alla semplificazione del sistema. Le ore di verifica e codifica dei test hanno invece comportato un numero di ore in più di quelle previste. Anche la stesura dei manuali ha comportato un leggero aumento dei costi rispetto a quello previsto per l'introduzione di un manuale sviluppatore che non era stato inizialmente previsto. \\
+
+\par Il totale delle ore ha portato ad un incremento di \euro{}33.00 che sommato ai consuntivi precedenti porta il costo totale del progetto ad un risparmio di \euro{}113.00. \\
+
+\subsubsection{Analisi delle tendenze}
+
+\par Il costo del periodo di codifica è risultato superiore a quello atteso dalle proiezioni dei periodi precedenti. In particolare la codifica in se del prodotto ha portato meno ore come atteso, ma la scrittura dei test ha comportato più ore di quelle preventivate risultando in un costo superiore. \\
+
+\par Sembra che la riduzione dei costi dovuti alla semplificazione del sistema si sia fermata, mantenendo comunque un andamento positivo grazie all'inerzia dei periodi precedenti. \\
+
+\subsubsection{Preventivo a finire}
+
+\par Questo periodo ha comportato un lungo tempo per la scrittura dei test che dovrebbe semplificare l'effettivo collaudo del periodo successivo. In ogni caso non ci aspettano ne particolari ritardi ne riduzione dei costi, portandoci a completare il prodotto con il prezzo previsto inizialmente. \\
+
+\par Il costo totale dell'applicazione si è alzato leggermente rimanendo comunque inferiore a quanto preventivato inizialmente e attualmente è di \euro{}14 190.00(-113.00).
 
 \newpage
 
