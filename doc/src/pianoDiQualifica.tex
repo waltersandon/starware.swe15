@@ -388,7 +388,7 @@
 	
 	dove: 
 	\begin{itemize}
-		\item MSV indica \mgls{milestone schedule variance};
+		\item MSV indica \MSV;
 		\item SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati;
 		\item  PDT indica il numero di giorni lavorativi consecutivi pianificati.
 	\end{itemize}
@@ -1829,8 +1829,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
 				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
 				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
-				CoPQ & 23\% &  Ottimale \\ \midrule
-				Requirement Stability Index & 81\% & Superato \\ \bottomrule
+				\CoPQ & 23\% &  Ottimale \\ \midrule
+				\mgls{requirement stability index} & 81\% & Superato \\ \bottomrule
 			\end{tabular}
 		\end{center}
 		\caption{Test su Qualità di Processo in \FAD}
@@ -1870,8 +1870,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
 				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
-				CoPQ & 40\% & Superato \\ \midrule
-				Requirement Stability Index & 94\% & Ottimale\\ \bottomrule
+				\CoPQ & 40\% & Superato \\ \midrule
+				\mgls{requirement stability index} & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
 		\caption{Test su Qualità di Processo in \FPA}
@@ -1913,8 +1913,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mGls{cost variance} & 0\% & Ottimale\\ \midrule
 				\mgls{milestone schedule variance} &  0\% & Ottimale\\ \midrule
 				\mgls{schedule variance}  & 0\% & Ottimale \\ \midrule
-				CoPQ& 21\% & Ottimale \\ \midrule
-				Requirement Stability Index & 91\% & Ottimale\\ \bottomrule
+				\CoPQ& 21\% & Ottimale \\ \midrule
+				\mgls{requirement stability index} & 91\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
 		\caption{Test Qualità di Processo in \FPD}
@@ -1991,7 +1991,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
 				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
-				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
+				\mgls{requirement stability index}  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
 		\caption{Esito dei test su metriche per qualità di processo nella \FC}
@@ -2021,10 +2021,10 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
 				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
-				CoPQ documenti & 1\% & Ottimale \\ \midrule
-				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
-				CoPQ codice & 5\% &  Ottimale \\ \midrule\midrule
-			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
+				\CoPQ  documenti & 1\% & Ottimale \\ \midrule
+				\CoPQ  progettazione & 66\% &  Non Superato\\ \midrule
+				\CoPQ  codice & 5\% &  Ottimale \\ \midrule\midrule
+			\textbf{	\CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
 			\end{tabular}	
 		
 			\caption{Esito dei test su CoQP nella \FC}
@@ -2067,12 +2067,12 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.28\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
+				\begin{tabular}{p{0.3\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
 					\midrule
 						\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
 						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
 						\# parametri/metodo & 1,18\% & 98,82\% & 0,00\% \\\midrule
-						complessità ciclomatica & 0,00\% & 100,00\% & 0,00\% \\\midrule
+						\mgls{complessità ciclomatica} & 0,00\% & 100,00\% & 0,00\% \\\midrule
 						\# linee codice/metodo & 0,29\% & 99,71\% & 0,00\% \\\midrule
 						\# livelli annidamento & 0,00\% & 100,00\% & 0,00\% \\\midrule
 			
