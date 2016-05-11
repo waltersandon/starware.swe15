@@ -14,7 +14,7 @@
 \newcommand{\dataCreazione}{23 Febbraio 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.0}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -61,37 +61,39 @@
 \Large{\textbf{Registro delle modifiche}}\\
 \normalsize
 
-\begin{table}[h]
 \begin{center}
-
-\begin{tabular}{p{0.12\textwidth} p{0.25\textwidth} p{0.18\textwidth} p{0.4\textwidth}}
-\toprule
-\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
-\midrule
-\midrule
-1.0.3 & \WS & 2016-05-04  & Inserimento termini BOM, UTF-8, scope, bootstrap e M.E.A.N. stack \\
-\midrule
-\midrule
-1.0.2 & \WS & 2016-05-03  & Inserimento indice documento \\
-\midrule
-1.0.1 & \TP & 2016-04-03  & Inserimento termini HTTP e HTTPS \\
-\midrule
-1.0.0 & \TP & 2016-03-01  & Approvazione \\
-\midrule
-0.1.0 & \NDC & 2016-02-29 & Revisione e correzione errori ortografici \\
-\midrule
-0.0.3 & \AB & 2016-02-27  & Inserimento termini node package manager, document-oriented, json
-bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance, test driven software, testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\
-\midrule
-0.0.2 & \WS & 2016-02-25  & Inserimento termini dal vecchio glossario \\
-\midrule
-0.0.1 & \WS & 2016-02-24  & Creazione documento \\
-\bottomrule
-\end{tabular}
-\caption{Versionamento del documento}
-\label{tabVers1}
+	\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+		\toprule
+		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+		\midrule
+		\midrule
+		2.0.0 & \AVE & 2016-05-12 & Approvazione \\*
+		\midrule
+		1.1.0 & \NDC & 2016-05-12 & Verifica nuovi termini \\*
+		\midrule
+		1.0.4 & \WS & 2016-05-10 & Inserimento termini Openshift e cookie \\*
+		\midrule
+		1.0.3 & \WS & 2016-05-04  & Inserimento termini BOM, UTF-8, scope, bootstrap e M.E.A.N. stack \\*
+		\midrule
+		1.0.2 & \WS & 2016-05-03  & Inserimento indice documento \\*
+		\midrule
+		1.0.1 & \TP & 2016-04-03  & Inserimento termini HTTP e HTTPS \\*
+		\midrule
+		1.0.0 & \TP & 2016-03-01  & Approvazione \\*
+		\midrule
+		0.1.0 & \NDC & 2016-02-29 & Revisione e correzione errori ortografici \\*
+		\midrule
+		0.0.3 & \AB & 2016-02-27  & Inserimento termini node package manager, document-oriented, json
+		bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance, test driven software, testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\*
+		\midrule
+		0.0.2 & \WS & 2016-02-25  & Inserimento termini dal vecchio glossario \\*
+		\midrule
+		0.0.1 & \WS & 2016-02-24  & Creazione documento \\*
+		\bottomrule
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{longtable}
 \end{center}
-\end{table}
 
 \newpage
 \tableofcontents
@@ -192,6 +194,9 @@ nell'architettura client-server il \mgls{client} è il componente che richiede u
 
 \subsection{Cloud}
  si indica un sistema di erogazione di risorse informatiche, come l'archiviazione, l'elaborazione o la trasmissione di dati, caratterizzato dalla disponibilità on demand attraverso Internet.
+
+\subsection{Cookie}
+i cookies HTTP sono una sorta di gettone identificativo, usato dai server web per poter riconoscere i browser durante comunicazioni con il protocollo HTTP usato per la navigazione web.
 
 \subsection{Codifica} 
  è il periodo che intercorre tra \RP\ e la \RQ.
@@ -461,19 +466,18 @@ componente che registra dati sull'esecuzione di un programma o una specifica pro
 
 \section{O}
 
-
-
-\subsection{Open-source} 
+\subsection{ODM} 
 è un gestore di dati destinato per la memorizzazione di informazioni di sistema. Le informazioni sono memorizzate e mantenute come oggetti con caratteristiche comuni.
+
+\subsection{OpenShift}
+OpenShift è un platform as a service (PaaS) prodotto da Red Hat.OpenShift Origin, la versione gratuita ed open source di OpenShift, è il progetto a monte per altre due versioni, ed è disponibile su GitHub. Gli sviluppatori possono usare Git per distribuire le applicazioni web in diverse lingue sulla piattaforma.
 
 \subsection{Open-source} 
  un \mgls{software} di cui gli autori ovvero i detentori dei diritti rendono pubblico il codice sorgente, favorendone il libero studio e permettendo a programmatori indipendenti di apportarvi modifiche ed estensioni. Questo è realizzato tramite apposite licenze d'uso.
 
-
 \newpage
 
 \section{P}
-
 
 \subsection{Package} 
 è un meccanismo per organizzare classi \mGls{java} in gruppi logici, principalmente allo scopo di definire name space distinti per diversi contesti.

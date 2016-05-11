@@ -25,7 +25,7 @@ $(function () {
                 if ($rootScope.me.role.name === 'superadmin') {
                     return {name: "!superadmin"};
                 } else {
-                    return ({name: "!superadmin", name: "!admin"});
+                    return ({name: "!superadmin && !admin"});
                 }
             };
             RoleService.get(null, function (roles) {

@@ -49,15 +49,12 @@ $(function () {
                     $scope.error = new Error(QML.parse($scope.editor.value()).message, 'errorQML', true, 'alert-danger');
                 }
             };
-            function buildEditor() {
-                $scope.editor = Editor.editor();
-                $scope.editor.value($scope.question.body);
-            }
             function ManipulateQuestion() {
                 if ($scope.urlPath()[3] === 'new') {
                     $scope.question = new Question();
                     $scope.edit = false;
-                    buildEditor();
+                    $scope.editor = Editor.editor();
+                    $scope.editor.value($scope.question.body);
                 } else if ($scope.urlPath()[3] === 'modify') {
                     QuestionService.getByID($scope.urlPath()[4], function (question) {
                         if (question.author === $rootScope.me.id) {
@@ -72,7 +69,8 @@ $(function () {
                                 });
                             }, function (err, res) {
                                 $scope.edit = true;
-                                buildEditor();
+                                $scope.editor = Editor.editor();
+                                $scope.editor.value($scope.question.body);
                             });
                         } else {
                             $location.path('teacher/questions');
