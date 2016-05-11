@@ -63,10 +63,9 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
-			2.0.2 & \AB & 2016-05-10 & Modifica metrica Cost of Poor Quality\\*
+			2.0.3 & \AB & 2016-05-10 & Modifica metrica Cost of Poor Quality\\*
 			\midrule
 			2.0.2 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
-			\midrule
 			\midrule
 				2.0.1 & \AB & 2016-04-27 & Restrutturazione contenuti dopo \RP{}\\*
 			\midrule
@@ -1538,7 +1537,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\subsubsection{Tracciamento TI-componente}
 	\begin{longtable}{l l}
 		\midrule
-		Componente & Test\tabularnewline
+		\textbf{Componente} & \textbf{Test}\tabularnewline
 		\midrule
 		\midrule
 		server & TI.server\tabularnewline
@@ -1590,8 +1589,9 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di unità}
 	\subsubsection{\texttt{client:model:service}}
 \begin{center}
-		\begin{longtable}[]{p{0.14\textwidth} p{0.325\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
+		\begin{longtable}[]{p{0.14\textwidth} p{0.325\textwidth} p{0.5\textwidth} p{0.025\textwidth}}\midrule
+			
+	\textbf{Id} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule\midrule
 	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
 	81.138.TU& QuestionService. modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
 	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
@@ -1627,8 +1627,9 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsubsection{\texttt{client:controller}}
 \begin{center}
 	\begin{longtable}[]{p{0.175\textwidth} p{0.4\textwidth} p{0.4\textwidth} p{0.025\textwidth}}
-		\midrule
-	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
+		\midrule\midrule
+	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ 
+	\midrule
 	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
 	157.85.TU& admin: UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
 	193.193.TU& public: Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
@@ -1686,9 +1687,11 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 \subsubsection{\texttt{server:service}}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\begin{longtable}[]{p{0.125\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.05\textwidth}}
 			\midrule
-			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \midrule
+			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\
+			 \midrule
+			 \midrule
 			16.19.TU &  GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \midrule
 			16.20.TU &  GET /api/questions/:id & ritorna la domanda specificata & P \\ \midrule
 			16.22.TU &  POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \midrule
@@ -1890,7 +1893,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\paragraph{Numero di parametri per metodo}
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth}}
 				\toprule
 				\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 				\midrule
@@ -1948,7 +1951,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				CoPQ documenti & 1\% & Ottimale \\ \midrule
 				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
-				CoPQ codice & 5\% &  Ottimale \\ \midrule
+				CoPQ codice & 5\% &  Ottimale \\ \midrule\midrule
 			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
 			\end{tabular}	
 		\end{center}
@@ -2032,7 +2035,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\begin{itemize}
 		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate
 		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardo la struttura e in piccola parte anche nel contenuto di alcuni casi d'uso per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivista la descrizione di UC5.1, separato i casi d'uso per tipologia e rivisto le post condizioni dei casi d'errore.
-		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi (ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano stati fatti)
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi \TODO{ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano state fatte}
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti
