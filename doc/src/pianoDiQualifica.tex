@@ -63,10 +63,15 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
-			2.0.2 & \AB & 2016-05-10 & Modifica metrica Cost of Poor Quality\\*
+			2.0.6 & \AB & 2016-05-11 & Modifica metrica Cost of Poor Quality\\*
 			\midrule
-			2.0.2 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			2.0.5 & \AB & 2016-05-06 & Inserita risultati misurazione fase \FC \\*
 			\midrule
+			2.0.4 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			\midrule
+			2.0.3 & \AB & 2016-05-05 & Modifica metrica Cost of Poor Quality\\*
+			\midrule
+			2.0.2 & \AB & 2016-05-03 & Integrazione sezione \ref{metriche}\\*
 			\midrule
 				2.0.1 & \AB & 2016-04-27 & Restrutturazione contenuti dopo \RP{}\\*
 			\midrule
@@ -375,15 +380,42 @@
 	La qualità dei processi viene valutata usando le seguenti metriche.
 	
 	\subsubsection{Milestone Schedule Variance (MSV)}
+	\paragraph{MSV formula generale}
+	
 	Indica se le scadenze (\mgls{milestone}) stabilite vengono in media rispettate. Lo scopo è quello di valutare l'efficacia della pianificazione preventiva e della gestione dell'organizzazione interna su periodi a lungo termine. Tale metrica si serve del concetto di \mgls{milestone}.
 	
 	\[MSV [\%] = \frac{SDT - PDT}{PDT}\]
 	
-	Dove  MSV indica \mgls{milestone schedule variance}, SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati, PDT indica il numero di giorni lavorativi consecutivi pianificati.
-	
+	dove: 
 	\begin{itemize}
-		\item \textbf{Primo range di accettazione}: $\geq$ -4.5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item MSV indica \mgls{milestone schedule variance};
+		\item SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati;
+		\item  PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	\end{itemize}
+	
+ 
+    PDT indica il numero di giorni lavorativi consecutivi pianificati.
+	
+	\paragraph{MSV medio per persona}
+	\[MSV medio\_persona [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+		dove:
+		\begin{itemize} 
+		\item\textbf{ msv\_i} è il \mgls{milestone schedule variance} calcolato per il membro i-esimo del gruppo;
+		\item \textbf{n} è il numero di componenti del gruppo.
+	\end{itemize}{}
+	\paragraph{MSV medio per attività di gruppo}
+	\[MSV attività\_gruppo [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+			dove: 
+			\begin{itemize}
+				\item \textbf{msv\_i} è il \mgls{milestone schedule variance} calcolato per una attiivtà completata da più di 1 una persona;
+				\item\textbf{ n} è il numero di attività di guppo completate.
+			
+			\end{itemize}
+	
+	\paragraph{Range di accettazione}
+	\begin{itemize}
+		\item \textbf{Primo range di accettazione}:MSV $\leq$ 4.5\%
+		\item \textbf{Range Ottimale}:MSV $\leq$ 0\%
 	\end{itemize}
 	
 	L'indice \mgls{milestone schedule variance} valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le \mgls{attivita}  in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
@@ -392,12 +424,17 @@
 	Indica se si è in linea, in anticipo o in ritardo rispetto alla pianificazione temporale delle \mgls{attivita}. Il calcolo utilizza le ore lavorative quantificate, ma non tiene conto della loro collocazione nel tempo. Pertanto l'utilizzo di tale metrica risulta utile solamente se le misure effettuate con l'utilizzo della metrica \mgls{milestone schedule variance} hanno risultato positivo.
 	
 	\[SV [\%] = \frac{ST - PT}{PT}\]
-	
-	Dove SV indica \mgls{schedule variance} , ST (Spent time) è il valore in giorni delle \mgls{attivita}  realizzate alla data corrente e PT (Planned time) è il valore dei giorni pianificati per svolgere le stesse le \mgls{attivita}. Se $ScheduleVariance > 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
+	dove: 
+	\begin{itemize}
+\item SV indica \mgls{schedule variance} 
+\item ST (Spent time) è il valore in ore delle \mgls{attivita}  realizzate alla data corrente;
+\item PT (Planned time) è il valore dei ore pianificate per svolgere le stesse le \mgls{attivita}.
+\end{itemize}
+ Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -5\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:SV $\leq$ -5\%
+		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost Variance (CV)}
@@ -405,11 +442,17 @@
 	
 	\[CV [\%] = \frac{EV - AC}{EV}\]
 	
-	Dove CV indica \mgls{cost variance}, EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente e AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente. Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
+	Dove:\begin{itemize}
+		\item CV indica \mgls{cost variance};
+		\item EV (Earned Value) è il valore in euro delle \mgls{attivita} realizzate alla data corrente;
+		\item AC (Actual Cost) equivale ai costi effettivamente sostenuti alla data corrente;
+	\end{itemize}  
+	
+	 Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ -10\%
-		\item \textbf{Range Ottimale}: $\geq$ 0\%
+		\item \textbf{Range di Accettazione}:CV $\geq$ -10\%
+		\item \textbf{Range Ottimale}:CV $\geq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost of poor quality (CoPQ)}
@@ -499,7 +542,10 @@
 	
 	\[Instabilita=\frac{A_e}{A_a+A_e}\]
 	
-	Dove $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso, e il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	Dove: \begin{itemize}
+		\item $A_a$ (Accoppiamento afferente) è il numero di classi esterne ad un \mgls{package} che dipendono da classi interne ad esso;
+		\item il $A_e$ (Accoppiamento efferente) è il numero di classi interne al \mgls{package} che dipendono da classi esterne ad esso.
+	\end{itemize}  
 	
 	\begin{itemize}
 		\item \textbf{Range di Accettazione}:[0-0.9]
@@ -526,7 +572,7 @@
 	\paragraph{Test di Sistema}
 	L'identificativo di un test di sistema è attribuito in modo automatico secondo lo schema:
 	\[ TS.[ID req]\]
-	dove la sigla TS si riferisce a un test di sistema, [Id req] viene sostituito dall'identificativo numerico del requisito sul sistema.
+	dove la sigla TS si riferisce a un test di sistema, [ID req] viene sostituito dall'identificativo numerico del requisito sul sistema.
 	 
 	\paragraph{Test di Integrazione}
 	L'identificativo di un test di integrazione è attribuito in modo automatico secondo lo schema:
@@ -1538,7 +1584,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\subsubsection{Tracciamento TI-componente}
 	\begin{longtable}{l l}
 		\midrule
-		Componente & Test\tabularnewline
+		\textbf{Componente} & \textbf{Test}\tabularnewline
 		\midrule
 		\midrule
 		server & TI.server\tabularnewline
@@ -1588,10 +1634,12 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
 \subsection{Test di unità}
-	\subsubsection{\texttt{client:model:service}}
+
+\subsubsection{Package \texttt{client:model:service}: test e tracciamento}
 \begin{center}
-		\begin{longtable}[]{p{0.14\textwidth} p{0.325\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-	\textbf{Id} & \textbf{metodo} & \textbf{descrizione} & P\\ \midrule
+		\begin{longtable}[]{l l p{0.4\textwidth} c}\midrule
+	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+	\midrule
 	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
 	81.138.TU& QuestionService. modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
 	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
@@ -1624,56 +1672,59 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \end{longtable}
 \end{center}
 
-\subsubsection{\texttt{client:controller}}
+\subsubsection{Package \texttt{client:controller}: test e tracciamento}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.4\textwidth} p{0.4\textwidth} p{0.025\textwidth}}
-		\midrule
-	157.188.TU& admin: UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ \midrule
-	157.84.TU& admin: UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
-	157.85.TU& admin: UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
-	193.193.TU& public: Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
-	193.193.TU& public: Home.urlPath() & should have a method to check if the path is active & P\\ \midrule
-	83.190.TU& public: LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
-	83.189.TU& public: LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
-	83.91.TU& public: LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
-	84.93.TU & public: SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato & P\\ \midrule
-	84.94.TU & public: SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato & P\\ \midrule
-	84.95.TU& public: SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
-	84.191.TU& public: SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato& P \\ \midrule
-	84.96.TU& public: SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati & P\\ \midrule
-	182.109.TU& student: ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda & P\\ \midrule
-	182.110.TU& student: ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente & P\\ \midrule
-	182.111.TU& student: ExecuteQuestionnaire.submit() & corregge correttamente le risposte & P\\ \midrule
-	86.99.TU& student: Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
-	86.98.TU& student: Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
-	186.81.TU& teacher: ManageQuestionnaires.modify() & deve rendirizzare alla pagina di modifica del questionario & P \\ \midrule
-	186.82.TU& teacher: ManageQuestionnaires.remove() & deve cancellare questionnario & P\\ \midrule
-	185.217.TU& teacher: ManageQuestions.preview() & deve ritornare la prima riga della domanda & P\\ \midrule
-	185.77.TU& teacher: ManageQuestions.modify() & deve rendirizzare alla pagina di modifica della domanda & P\\ \midrule
-	185.78.TU& teacher: ManageQuestions.remove() & deve correttamente eliminare la domanda selezionata& P \\ \midrule
-	& teacher: ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite & P\\ \midrule
-	& teacher: ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite& P \\ \midrule
-	184.73.TU& teacher: ManageTags.modify() & deve modificare l'argomento specificato& P \\ \midrule
-	184.72.tu& teacher: ManageTags.textChanged() & deve aggiornare la lista delle classi & P \\ \midrule
-	184.74.TU& teacher: ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
-	176.54.TU& teacher: ManipulateQuestionnaire.removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
-176.79.TU	& teacher: ManipulateQuestionnaire.ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
-	195.& user: Home.logout() & it should filter the list of roles \\ \midrule
-	196.199.TU& user: User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
-	196.200.TU& user: User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
-	196.201.TU& user: User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio & P \\ \midrule
-		196.202.TU& user: User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali  & P\\ \midrule
-		196.203.TU& user: User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
-		196.204.TU& user: User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
+	\begin{longtable}[H]{l p{0.45\textwidth} p{0.35\textwidth} c}\midrule
+	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\
+	\midrule
+	\midrule
+	157.188.TU& admin: \newline  UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ 
+	\midrule
+	157.84.TU& admin: \newline  UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
+	157.85.TU& admin: \newline  UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
+	193.193.TU& public: \newline  Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
+	193.193.TU& public: \newline  Home.urlPath() & should have a method to check if the path is active & P\\ \midrule
+	83.190.TU& public: \newline  LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
+	83.189.TU& public: \newline  LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
+	83.91.TU& public: \newline  LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
+	84.93.TU & public: \newline  SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato & P\\ \midrule
+	84.94.TU & public: \newline  SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato & P\\ \midrule
+	84.95.TU& public: \newline  SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
+	84.191.TU& public: \newline  SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato& P \\ \midrule
+	84.96.TU& public: \newline  SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati & P\\ \midrule
+	182.109.TU& student: \newline  ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda & P\\ \midrule
+	182.110.TU& student: \newline  ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente & P\\ \midrule
+	182.111.TU& student: \newline  ExecuteQuestionnaire.submit() & corregge correttamente le risposte & P\\ \midrule
+	86.99.TU& student: \newline  Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
+	86.98.TU& student: \newline  Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
+	186.81.TU& teacher: \newline  ManageQuestionnaires.modify() & deve rendirizzare alla pagina di modifica del questionario & P \\ \midrule
+	186.82.TU& teacher: \newline  ManageQuestionnaires.remove() & deve cancellare questionnario & P\\ \midrule
+	185.217.TU& teacher: \newline  ManageQuestions.preview() & deve ritornare la prima riga della domanda & P\\ \midrule
+	185.77.TU& teacher: \newline  ManageQuestions.modify() & deve rendirizzare alla pagina di modifica della domanda & P\\ \midrule
+	185.78.TU& teacher: \newline  ManageQuestions.remove() & deve correttamente eliminare la domanda selezionata& P \\ \midrule
+	& teacher: \newline  ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite & P\\ \midrule
+	& teacher: \newline  ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite& P \\ \midrule
+	184.73.TU& teacher: \newline  ManageTags.modify() & deve modificare l'argomento specificato& P \\ \midrule
+	184.72.TU& teacher: \newline  ManageTags.textChanged() & deve aggiornare la lista delle classi & P \\ \midrule
+	184.74.TU& teacher: \newline  ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
+	176.54.TU& teacher: \newline  ManipulateQuestionnaire. \newline removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
+176.79.TU	& teacher: \newline  ManipulateQuestionnaire. \newline ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
+	195.195.TU & user: Home.logout() & it should filter the list of roles \\ \midrule
+	196.199.TU& user: \newline  User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
+	196.200.TU& user: \newline  User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
+	196.201.TU& user: \newline  User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio & P \\ \midrule
+		196.202.TU& user: \newline  User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali  & P\\ \midrule
+		196.203.TU& user: \newline  User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
+		196.204.TU& user: \newline  User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
 		
 	\end{longtable}
 \end{center}
 
-\subsubsection{\texttt{client: util}}
+\subsubsection{Package \texttt{client: util}: test e tracciamento}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-		\midrule	
-		
+	\begin{longtable}[]{l l p{0.4\textwidth} c}\midrule
+	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+	\midrule		
 	179.126.TU&  Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri & P\\ \midrule
 	179.127.TU&  Check.checkPassword() & deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri, deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri & P \\ \midrule
 	179.128.TU&  Check.checkTitle() & deve segnalare titolo non presente, deve segnalare titolo presente & P \\ \midrule
@@ -1684,11 +1735,14 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \end{longtable}
 \end{center}
 
-\subsubsection{\texttt{server:service}}
+\subsubsection{Package \texttt{server:service}: test e tracciamento}
+Il package \texttt{server::service} e le relative classi vengono testate tramite le \mgls{api} REST corrispondenti, seguendo le metodologie usualmente utilizzate per il test di classi back-end di questo tipo.
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
+	\begin{longtable}[]{p{0.125\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.05\textwidth}}
 			\midrule
-			\textbf{ID} & \textbf{classe} & \textbf{descrizione} & \textbf{result} \\ \midrule
+			\textbf{ID} & \textbf{Classe} & \textbf{Descrizione} & \textbf{Stato} \\
+			 \midrule
+			 \midrule
 			16.19.TU &  GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \midrule
 			16.20.TU &  GET /api/questions/:id & ritorna la domanda specificata & P \\ \midrule
 			16.22.TU &  POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \midrule
@@ -1718,24 +1772,26 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\end{longtable}
 	\end{center}	
 	
-\subsubsection{\texttt{	server:vaiidator}}
+\subsubsection{Packahe \texttt{server:validator}: test e tracciamento}
 \begin{center}
-	\begin{longtable}[]{p{0.175\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.025\textwidth}}
-		\midrule		
-		
-			164. 42.TU & validator: QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \midrule
-			162.179.TU & validator: QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \midrule
-			162.40.TU & validator: QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \midrule
-			162.180.TU & validator: QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \midrule
-			162.39.TU & validator: QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \midrule
-			163.41.TU & validator: TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \midrule
-			161.38.TU & validator: UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \midrule
-			161.37.TU & validator: UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
-			161.36TU & validator: UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
+		\begin{longtable}[H]{l p{0.45\textwidth} p{0.3\textwidth} c}\midrule
+			\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+			\midrule
+			164. 42.TU & validator: \newline QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \midrule
+			162.179.TU & validator: \newline QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \midrule
+			162.40.TU & validator: \newline QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \midrule
+			162.180.TU & validator: \newline QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \midrule
+			162.39.TU & validator: \newline QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \midrule
+			163.41.TU & validator: \newline TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \midrule
+			161.38.TU & validator: \newline UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \midrule
+			161.37.TU & validator: \newline UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
+			161.36TU & validator: \newline UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
 		
 \end{longtable}
 \end{center}
-	
+
+\section{Dettaglio delle verifiche tramite analisi}
+	\subsection{Analisi}
 	\subsubsection{Documenti}
 	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
 	
@@ -1758,7 +1814,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\end{table}
 	
 	
-\section{Dettaglio Analisi}\TODO{modifica titolo}
+
 	
 	\subsection{Analisi di dettaglio}
 	\subsubsection{Processi}
@@ -1890,7 +1946,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\paragraph{Numero di parametri per metodo}
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth}}
 				\toprule
 				\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 				\midrule
@@ -1925,35 +1981,58 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	
 	\subsection{Codifica}
 	\subsubsection{Processi}
-	Vengono riportati i valori di \mgls{schedule variance} e \mgls{milestone schedule variance} calcolati. 
-	\TODO{}
+	\paragraph{Report su metriche generali}
+	Vengono riportati i valori calcolti per le metriche generali sulla qualità di processo.
+	
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
 				\midrule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
-				\mgls{milestone schedule variance}  &1.5\%& Superato\\ \midrule
-				\mgls{schedule variance} &4.22\% & Superato \\ \midrule 
+				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
 				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
 		\caption{Esito dei test su metriche per qualità di processo nella \FC}
 	\end{table}
 	\newpage
-		
+	\paragraph{Milestone Schedule Variance}
+	Sono stati analizzati in modo dettagliato i dati relativi al \mGls{milestone schedule variance}. In particolare si sono calcolati i valori medi del	\mgls{milestone schedule variance} sui valori rilevati per ogni persona e i valori medi per le attività di gruppo.
 	\begin{table}[H]
 		\begin{center}
+			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+				\textbf{MSV dettagliato}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+				MSV medio per persona & 2.1\%& Superato\\ \midrule
+				MSV medio per gruppo  & 8.6\%& Non Superato\\ 
+				\midrule
+				MSV formula generale & 3.22\% & Superato \\ \midrule 
+			 			
+			\end{tabular}	
+		\end{center}
+		\caption{Dettaglio 	\mgls{milestone schedule variance}  \FC}
+	\end{table}
+	\subparagraph{Analisi dei risultati}Dai risulatati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvlgono un numero di persone superiore a 4 persone. 
+	Si consiglia pertanto di organizzare il lavoro in sotto-attività che conivolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
+	\paragraph{Cost of Poor Quality}
+	
+	\begin{center}
+	\begin{table}[!h]
+		
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
 				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				CoPQ documenti & 1\% & Ottimale \\ \midrule
 				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
-				CoPQ codice & 5\% &  Ottimale \\ \midrule
+				CoPQ codice & 5\% &  Ottimale \\ \midrule\midrule
 			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
 			\end{tabular}	
-		\end{center}
+		
 			\caption{Esito dei test su CoQP nella \FC}
 	\end{table}
+\end{center}
+	
+	\subparagraph{Analisi dei risultati}
+	Si segnala un valore critico di CoPQ nell'attività di progettazione. Sebbene il valore medio sia in un intervallo accettabile, grazie ad  attività consolidate come la stesura della documentazione, il valore rilevato per la progettazione richiede attenzione e conseguente analisi preventiva dei rischi, per evitare conseguenze sul prodotto o sui processi.
 
 	
 	\subsubsection{Documenti}
@@ -2032,10 +2111,10 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\begin{itemize}
 		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate
 		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardo la struttura e in piccola parte anche nel contenuto di alcuni casi d'uso per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivista la descrizione di UC5.1, separato i casi d'uso per tipologia e rivisto le post condizioni dei casi d'errore.
-		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio, corretta l'introduzione ai servizi REST. Modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architerrura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi (ho cercato di riassumere il più possibile per evitare di scrivere un sacco di cose che poi non so se siano stati fatti)
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
-	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti
+	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti.
 	\end{itemize}
 	
 

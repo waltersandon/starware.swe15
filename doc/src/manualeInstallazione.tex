@@ -3,7 +3,7 @@
 \input{../tex/glossario.tex}
 
 %Titolo documento
-\newcommand{\titoloDocumento}{Manuale Ammnistratore}
+\newcommand{\titoloDocumento}{Manuale Installazione}
 
 %Prima data di creazione del documento
 \newcommand{\dataCreazione}{26 aprile 2016}
@@ -12,7 +12,7 @@
 \newcommand{\versione}{0.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Formale}
+\newcommand{\stato}{Informale}
 
 %Uso del documento
 \newcommand{\uso}{Esterno}
@@ -111,16 +111,13 @@
 		\end{itemize}
 	\subsection{Riferimenti}
 	
-	\subsubsection{Normativi}
-	\begin{itemize}
-		\item \TODO{}
-		
-	\end{itemize}
+\subsubsection{Normativi}
+\begin{itemize}
+	\item \NdP\ \textit{v1.2.0};
+	\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
+\end{itemize}	
 	
-	\subsubsection{Informativi}
-	\begin{itemize}
-		\item \TODO{}
-	\end{itemize}
+
 	
 	\newpage
 	\section{Requisiti per l'installazione}\label{requisiti}
@@ -175,7 +172,7 @@
 	Per eseguire questa procedura è necessario che l'applicativo \mgls{git} sia stato precedentemente installato.
 	\begin{enumerate}
 		\item navigare sul terminale fino alla cartella in cui si desidera installare il prodotto;
-		\item \texttt{git clone https://github.com/protechunipd/SGAD.git} provvederà al download del prodotto nella cartella corrente. \TODO{che repo è ?}
+		\item \texttt{git clone https://github.com/lordnikolai/starware.swe15} provvederà al download del prodotto nella cartella corrente. 
 	\end{enumerate}
 	
 	\subsection{Download file da browser}
@@ -190,14 +187,9 @@
 		\begin{itemize}
 			\item avviare il terminale;
 			\item posizionarsi nella cartella src;
-			\item digitare i seguenti comandi:	
+			\item eseguire lo script \texttt{setup\_win}
+			\item eseguire lo script \texttt{start\_win}	
 		\end{itemize}	
-		\begin{center}
-				\texttt{>chmod win\_setup \\
-					>chmod win\_start	 \\
-					>./win\_setup} \\
-				\TODO{non so se esistono questi comandi sotto win}
-		\end{center}
 	
 		\subsubsection{Installazione ambiente Unix}
 		\begin{itemize}
