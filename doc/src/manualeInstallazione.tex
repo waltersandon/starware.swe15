@@ -1,4 +1,4 @@
-	\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
 
@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{26 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.0}
+\newcommand{\versione}{0.0.4}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -61,14 +61,15 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
-			0.0.0 & \AB{} & 2016-04-30 &  Creazione documento \\*
+			0.0.4 & \AB{} & 2016-05-10 & Correzioni grammaticali e indirizzo per la clonazione della repository \\*
 			\midrule
-			0.0.1 & \AB{} & 2016-05-02 &  Definizione struttura documento \\*
+			0.0.3 & \AB{} & 2016-05-04 &  Stesura \ref{requisiti} e \ref{install} \\*
 			\midrule
 			0.0.2 & \AB{} & 2016-05-04 &  Stesura \ref{intro} e \ref{download} \\*
 			\midrule
-		0.0.3 & \AB{} & 2016-05-04 &  Stesura \ref{requisiti} e \ref{install} \\*
-
+			0.0.1 & \AB{} & 2016-05-02 &  Definizione struttura documento \\*
+			\midrule
+			0.0.0 & \AB{} & 2016-04-30 &  Creazione documento \\*
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
 			\label{tabVers1}
@@ -152,7 +153,7 @@
 	Le istruzioni dettagliate per uno specifico sistema operativo sono specificate per ogni procedura illustrata.
 	
 	\subsection{Applicativi di supporto}
-	L'applicazione \prj utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
+	L'applicazione \prj{} utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
 	\subsubsection{MongoDB versione 3.2 o superiori}
 	Per l'installazione di \mgls{mongodb} si faccia riferimento al sito dedicato al download e alla documentazione per l'installazione di \mgls{mongodb}:
 	\begin{center} \url{https://www.mongodb.com/download-center}
@@ -172,7 +173,7 @@
 	Per eseguire questa procedura è necessario che l'applicativo \mgls{git} sia stato precedentemente installato.
 	\begin{enumerate}
 		\item navigare sul terminale fino alla cartella in cui si desidera installare il prodotto;
-		\item \texttt{git clone https://github.com/lordnikolai/starware.swe15} provvederà al download del prodotto nella cartella corrente. 
+		\item \texttt{git clone https://github.com/lordnikolai/starware.swe15.git} provvederà al download del prodotto nella cartella corrente. 
 	\end{enumerate}
 	
 	\subsection{Download file da browser}
