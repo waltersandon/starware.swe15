@@ -1,10 +1,30 @@
 \section{Specifica componenti client}
-È il package che racchiude tutte le parti del front-end. Contiene le componenti che vengono eseguite nel browser da un qualsiasi utente, fornendo loro un’interfaccia grafica per interagire con il sistema.\begin{center}
+È il package che racchiude tutte le parti del front-end. Contiene le componenti che vengono eseguite nel browser da un qualsiasi utente, fornendo loro un’interfaccia grafica per interagire con il sistema.
+Viene fornito di seguito il diagramma dei \mgls{package} ad alto livello.
+\begin{center}
 	\begin{figure}[H]
-		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client.png}
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/architetturaClient.png}
 		\caption{Diagramma package - client}
 	\end{figure}
-\end{center}\subsection{client::view}
+\end{center}
+
+Al fine di rendere il diagramma delle classi del client più leggibile si è deciso di dividerlo, quindi di seguito si può vedere il diagramma delle classi, con le relative relazione, di \texttt{view}, \texttt{controller} e \texttt{util}.
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/viewControllerUtil.png}
+		\caption{Diagramma package - client::view, client::controller, client::util}
+	\end{figure}
+\end{center}
+
+Seguendo si può vedere il diagramma delle classi di \texttt{controller}, \texttt{model} e \texttt{app}.
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controllerModelApp.png}
+		\caption{Diagramma package - client::controller, client::model, client::app}
+	\end{figure}
+\end{center}
+
+\subsection{client::view}
 È il package che contiene tutte le classi che costituiscono la view del client. 
 Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente.\begin{center}
 	\begin{figure}[H]
