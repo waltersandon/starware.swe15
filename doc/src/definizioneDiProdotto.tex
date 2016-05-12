@@ -747,6 +747,13 @@ Oltre a dividere l’applicazione in queste tre componenti, \mgls{mvc} si occupa
 	\item Una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
 
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/mvcStarware.png}
+		\caption{Esempio dell' applicazione di MVC in Quizzipedia}
+	\end{figure}
+\end{center}
+
 Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
 
 \subsubsection{Middleware}
@@ -803,6 +810,13 @@ Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce 
 	\item Quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
 \end{itemize}
 
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/facadeStarware.png}
+		\caption{Esempio dell' applicazione del pattern Facade in Quizzipedia}
+	\end{figure}
+\end{center}
+
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
 Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{receiver} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{receiver} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{receiver} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
@@ -812,6 +826,13 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 	\item Aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il |\mgls{subclassing} per specializzare i gestori;
 	\item Non c’è garanzia che la richiesta venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
 \end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/corStarware.png}
+		\caption{Funzionamento del Chain of responsibility in Quizzipedia}
+	\end{figure}
+\end{center}
 
 %Non utilizzato per ora
 %\subsubsection{Strategy}
