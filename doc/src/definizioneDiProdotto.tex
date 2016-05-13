@@ -91,7 +91,6 @@
 		\midrule
 		1.0.4 & \TP{} & 2016-04-24 & Aggiunta della restituzione della risorsa alla sua creazione nell'API REST \\*
 		\midrule
-		\midrule
 		1.0.3 & \TP{} & 2016-04-24 & Gli ID degli oggetti sono nell'attributo \texttt{\_id} non più in \texttt{id} \\*
 		\midrule
 		1.0.2 & \TP{} & 2016-04-24 & Semplificazione riferimenti ad altri oggetti nell'API REST
@@ -405,7 +404,7 @@ Viene utilizzato per rendere visibili solamente alcune componenti agli altri mod
 \paragraph{Utilizzo}
 Viene utilizzato all’interno della classe \texttt{server::middleware::Loader}, la quale utilizza Facade per nascondere l’esistenza di tutti i middleware all'esterno. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
 
-\subsection{Design Pattern Comportamentali}
+\subsection{Design Pattern comportamentali}
 \subsubsection{Chain of Responsibility}
 
 \paragraph{Scopo}
