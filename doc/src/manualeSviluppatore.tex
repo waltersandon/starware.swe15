@@ -66,22 +66,17 @@
 			\midrule
 			0.1.0 & \TP{} & 2016-05-13 & Verifica \\*
 			\midrule
-			0.0.5 & \AVE{} & 2016-05-12 &  Aggiunta sezioni di configurazione dell'applicatione attraverso IDE   \\*
+			0.0.5 & \AVE{} & 2016-05-12 &  Aggiunta sezioni di configurazione dell'applicazione attraverso IDE   \\*
 			\midrule
-			
-			0.0.4 & \AB{} & 2016-05-11 &  Stesura \ref{app_supporto}    \\*
+			0.0.4 & \AB{} & 2016-05-11 &  Stesura sezione \ref{app_supporto}    \\*
 			\midrule
-
-			0.0.3 & \AB{} & 2016-05-11 &  Stesura \ref{intro}    \\*
-
+			0.0.3 & \AB{} & 2016-05-11 &  Stesura sezione \ref{intro}    \\*
 			\midrule
 			0.0.2 & \AVI{} & 2016-05-11 &  Aggiunta sezione estensione delle funzionalità \\*
-
 			\midrule
 			0.0.1 & \AB{} & 2016-05-11 &  Definizione struttura documento \\*
 			\midrule
 			0.0.0 & \AB{} & 2016-05-11 &  Creazione documento \\*
-
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
 			\label{tabVers1}
@@ -103,7 +98,7 @@
 	Lo scopo del documento è facilitare e illustrare le procedure di configurazione dell'ambiente di lavoro e di illustrare gli applicativi a cui si appoggia l'applicazione \prj{}.Vengono descritti nel dettaglio i punti di estensibilità dell'applicazione con l'intenzione di facilitarne una crescita futura delle funzionalità.
 	
 	\subsection{Descrizione}
-	Le prime sezioni del documento si occupano di descrivere la configurazione degli ambienti di sviluppo e degli strumenti necessari. Tali sezioni sono finalizzate alla menutenzione e correzione di eventuali errori come all'estensione delle funzionalità dell'applicazione. Le sezioni in coda sono invece destinate a facilitare la comprensione dei punti dell'applicazione estensibili, nell'ottica di aggiungere funzionalità al prodotto in un secondo momento rispetto alla sua diffusione.
+	Le prime sezioni del documento si occupano di descrivere la configurazione degli ambienti di sviluppo e degli strumenti necessari. Tali sezioni sono finalizzate alla manutenzione e correzione di eventuali errori come all'estensione delle funzionalità dell'applicazione. Le sezioni in coda sono invece destinate a facilitare la comprensione dei punti dell'applicazione estensibili, nell'ottica di aggiungere funzionalità al prodotto in un secondo momento rispetto alla sua diffusione.
 	
 	\subsection{Descrizione Prodotto}
 	\descrizioneProdotto
@@ -115,7 +110,7 @@
 	\subsection{Riferimenti}
 	\subsubsection{Normativi}
 	\begin{itemize}
-		\item \NdP\ \textit{v1.2.0};
+		\item \NdP\ \textit{v3.0.0};
 		\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
 	\end{itemize}
 		
@@ -130,7 +125,7 @@
 			\item sistema operativo utilizzato;
 			\item versione di MongoDB utilizzata;
 			\item versione di Node.js utilizzata;
-			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati;
+			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati.
 		\end{itemize}
 
 	
@@ -143,7 +138,6 @@
 	Visitare il sito \url{https://www.jetbrains.com/idea/download/} per scaricare l'ultima versione di \mgls{jetbrains} \mgls{idea}.
 	Una volta eseguito il download, bisognerà lanciare l'eseguibile ed installare l'\mgls{ide}.
 	
-	\newpage
 	\subsection{Apertura del progetto}\label{nuovoProgetto}
 	\begin{enumerate}
 		\item Avviare \mgls{jetbrains} \mgls{idea};
@@ -154,11 +148,10 @@
 
 		\begin{center}
 			\begin{figure}[H]
-				\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/newProject.png}
+				\centering \includegraphics[max width=\textwidth]{../img/manualeSviluppatore/newProject.png}
 				\caption{Nuovo progetto}
 			\end{figure}
 		\end{center}
-		\newpage
 
 		\item Inserire \texttt{https://github.com/lordnikolai/starware.swe15} nel campo "Git Repository URL"; 
 		\item Inserire in "Parent Directory" il percordo alla cartella locale che conterrà la cartella della \mgls{repository} che verrà clonata; 
@@ -167,12 +160,10 @@
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
-			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/repo.png}
+			\centering \includegraphics[max width=\textwidth]{../img/manualeSviluppatore/repo.png}
 			\caption{Repository Git}
 		\end{figure}
-	\end{center}
-	\newpage
-	
+	\end{center}	
 	
 	\subsection{Installare il plugin per Node.js}
 	Per poter far funzionare correttamente \mgls{node.js} nell'\mgls{ide} è necessario installare il relativo \mgls{plugin}, seguendo i passi successivi:
@@ -182,7 +173,7 @@
 
 		\begin{center}
 			\begin{figure}[H]
-				\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/settings.png}
+				\centering \includegraphics[max width=\textwidth]{../img/manualeSviluppatore/settings.png}
 				\caption{Settings}
 			\end{figure}
 		\end{center}
@@ -194,7 +185,7 @@
 	\begin{center}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[max width=\myheight, scale=0.7]{../img/manualeSviluppatore/plugin.png}
+			\includegraphics[max width=\textwidth, scale=0.7]{../img/manualeSviluppatore/plugin.png}
 			\caption{Settings}
 		\end{figure}
 	\end{center}
@@ -219,7 +210,7 @@
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
-			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/mongod.png}
+			\centering \includegraphics[max width=\textwidth]{../img/manualeSviluppatore/mongod.png}
 			\caption{Prompt MongoDb}
 		\end{figure}
 	\end{center}
@@ -227,8 +218,7 @@
 	\begin{center}
 		\begin{figure}[H]
 			\centering 
-			\hspace*{-0.06\textwidth}%
-			\includegraphics[max width=\myheight,, scale=0.8]{../img/manualeSviluppatore/mongodRunning.png}
+			\includegraphics[max width=\textwidth]{../img/manualeSviluppatore/mongodRunning.png}
 			\caption{Avvio MongoDb}
 		\end{figure}
 	\end{center}
@@ -242,7 +232,7 @@
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
-			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/runServer.png}
+			\includegraphics[max width=\textwidth]{../img/manualeSviluppatore/runServer.png}
 			\caption{Avvio del server}
 		\end{figure}
 	\end{center}
@@ -286,7 +276,7 @@
 	Per aggiungere un  nuovo tipo di domanda si deve aggiungere il relativo parser. Le funzioni da estendere sono tre, una sul client e due sul \mgls{server}. Poiché l’applicazione client comunica con quella server solo tramite \mgls{api} REST, nonostante siano entrambe scritte in \mgls{javascript}, non è possibile condividere classi; inoltre lo scopo del parser sul server (cioè validare il linguaggio QML) è diversa da quella del client (mostrare a video la domanda).
 	\begin{itemize}
 	\item \textbf{Parser sul sever}:\\
-	la classe \texttt{server::validator::QuestionCheck} espone una funzione detta \texttt{checkQML(String)} che restituisce una variabile booleana a seconda se il codice passato in input è QML valido o meno.
+	la classe \texttt{server::validator::QuestionCheck} espone una funzione detta \\ \texttt{checkQML(String)} che restituisce una variabile booleana a seconda se il codice passato in input è QML valido o meno.
 	Questa funzione fa il parsing della prima riga della domanda per recuperare il tipo della domanda; se il tipo è valido chiama la una funzione specializzata per validare una domanda di quel tipo. Per aggiungere un nuovo tipo bisogna aggiungere una funzione che faccia il parsing ad hoc del corpo della domanda restituendo vero/falso in base alla validità del codice, poi bisogna estendere \texttt{checkQML(String)} aggiungendo una chiamata alla suddetta funzione se il tipo della domanda risulta essere quello che si sta aggiungendo.
 	\item \textbf{Parser sul client}:\\
 	la classe \texttt{client::util::QML} espone un metodo \texttt{parse(String)} il cui funzionamento è simile al parser del server, ovvero per prima cosa ricava il tipo di domanda e poi richiama parser specializzati per ogni tipo. La differenza rispetto al server è che non restituisce solo un booleano che ne rappresenta la validità, ma un oggetto \mgls{json} con i seguenti campi:
