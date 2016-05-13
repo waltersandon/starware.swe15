@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{11 maggio 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.0}
+\newcommand{\versione}{0.0.6}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -61,19 +61,23 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
+			0.0.6 & \TP{} & 2016-05-13 & Verifica \\*
+			\midrule
+			0.0.5 & \AVE{} & 2016-05-12 &  Aggiunta sezioni di configurazione dell'applicatione attraverso IDE   \\*
+			\midrule
 			
-			0.0.4 & \AB{} & 2016-11-05 &  Stesura \ref{app_supporto}    \\*
+			0.0.4 & \AB{} & 2016-05-11 &  Stesura \ref{app_supporto}    \\*
 			\midrule
 
-			0.0.3 & \AB{} & 2016-11-05 &  Stesura \ref{intro}    \\*
+			0.0.3 & \AB{} & 2016-05-11 &  Stesura \ref{intro}    \\*
 
 			\midrule
-			0.0.2 & \AVI{} & 2016-11-05 &  Aggiunta sezione estensione delle funzionalità \\*
+			0.0.2 & \AVI{} & 2016-05-11 &  Aggiunta sezione estensione delle funzionalità \\*
 
 			\midrule
-			0.0.1 & \AB{} & 2016-11-05 &  Definizione struttura documento \\*
+			0.0.1 & \AB{} & 2016-05-11 &  Definizione struttura documento \\*
 			\midrule
-			0.0.0 & \AB{} & 2016-11-05 &  Creazione documento \\*
+			0.0.0 & \AB{} & 2016-05-11 &  Creazione documento \\*
 
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
@@ -103,7 +107,16 @@
 	
 	\subsection{Glossario}
 	\glossarioPrint
-	\TODO{da rivedere è copiata da manuale installazione}
+	%\TODO{da rivedere è copiata da manuale installazione}
+	
+	\subsection{Riferimenti}
+	\subsubsection{Normativi}
+	\begin{itemize}
+		\item \NdP\ \textit{v1.2.0};
+		\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
+	\end{itemize}
+		
+		
 	\subsection{Comunicazione malfunzionamenti}
 		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o
 		malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email
@@ -116,23 +129,76 @@
 			\item versione di Node.js utilizzata;
 			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati;
 		\end{itemize}
-	\subsection{Riferimenti}
-	
-\subsubsection{Normativi}
-\begin{itemize}
-	\item \NdP\ \textit{v1.2.0};
-	\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
-\end{itemize}
-	
 
 	
 	\newpage
 	\section{Configurazione dell'ambiente di sviluppo}
-	\subsection{Installazione dell'IDE JetBrain}\TODO{Webstorm o intellij?}
-	\subsection{Download del progetto}
+	Al fine di poter manutenere e estendere il progetto fornito, si deve garantire agli sviluppatori ed ai manutentori di avere un ambiente di sviluppo funzionante e configurato correttamente.
+	Nelle sezioni successive verrà spiegato come completare correttamente la configurazione del sistema di sviluppo, utilizzando come \mgls{ide} \mgls{jetbrains} \mgls{idea}, tuttavia le medesime procedure valgono anche per \mgls{jetbrains} \mgls{webstorm}.  
+	
+	\subsection{Installazione dell'IDE}
+	Visitare il sito \url{https://www.jetbrains.com/idea/download/} per scaricare l'ultima versione di \mgls{jetbrains} \mgls{idea}.
+	Una volta eseguito il download, bisognerà lanciare l'eseguibile ed installare l'\mgls{ide}.
+	
+	\newpage
+	\subsection{Apertura del progetto}\label{nuovoProgetto}
+	\begin{enumerate}
+		\item Avviare \mgls{jetbrains} \mgls{idea};
+		\item Selezionare "File";
+		\item Selezionare "New";
+		\item Selezionare "Project from Version Control";
+		\item Selezionare "Git";
+
+		\begin{center}
+			\begin{figure}[H]
+				\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/newProject.png}
+				\caption{Nuovo progetto}
+			\end{figure}
+		\end{center}
+		\newpage
+
+		\item Inserire \texttt{https://github.com/lordnikolai/starware.swe15} nel campo "Git Repository URL"; 
+		\item Inserire in "Parent Directory" il percordo alla cartella locale che conterrà la cartella della \mgls{repository} che verrà clonata; 
+		\item Inserire in "Directory Name" il nome desiderato per la cartella nella quale verrà clonata la \mgls{repository};
+		\item Premere il pulsante "Clone".
+	\end{enumerate}
+	\begin{center}
+		\begin{figure}[H]
+			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/repo.png}
+			\caption{Repository Git}
+		\end{figure}
+	\end{center}
+	\newpage
+	
+	
+	\subsection{Installare il plugin per Node.js}
+	Per poter far funzionare correttamente \mgls{node.js} nell'\mgls{ide} è necessario installare il relativo \mgls{plugin}, seguendo i passi successivi:
+	\begin{enumerate}
+		\item Selezionare "File";
+		\item Selezionare "Settings";
+
+		\begin{center}
+			\begin{figure}[H]
+				\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/settings.png}
+				\caption{Settings}
+			\end{figure}
+		\end{center}
+
+		\item Selezionare la voce "Plugins";
+		\item Nel campo di ricerca scrivere "nodejs";
+		\item Installare il \mgls{plugin} di \mgls{node.js}.
+	\end{enumerate}
+	\begin{center}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[max width=\myheight, scale=0.7]{../img/manualeSviluppatore/plugin.png}
+			\caption{Settings}
+		\end{figure}
+	\end{center}
+	
 	\subsection{Applicativi di supporto} \label{app_supporto}
 		
-		L'applicazione \prj utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
+		L'applicazione \prj{} utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
 		\subsubsection{MongoDB versione 3.2 o superiori}
 		Per l'installazione di \mgls{mongodb} si faccia riferimento al sito dedicato al download e alla documentazione per l'installazione di \mgls{mongodb}:
 		\begin{center} \url{https://www.mongodb.com/download-center}
@@ -142,65 +208,102 @@
 		Per l'installazione di \mgls{node.js} si faccia riferimento alla documentazione di \mgls{node.js} e al sito dedicato al download:
 		\begin{center} \url{https://nodejs.org/en/download/} 
 		\end{center}
-	\subsection{Importare il progetto}
-	\subsection{Conclusione}\TODO{necessaria??}
+	\subsection{Avvio database}
+	Il programma dovendo interagire con \mgls{mongodb} necessità che questo sia avviato. Per avviarlo, dopo averlo installato, bisognerà:
+	\begin{enumerate}
+		\item Aprire il prompt dei comandi di \mgls{windows} o la shell nel caso di \mgls{mac os} e \mgls{linux};
+		\item Digitare il comando "mongod";
+	\end{enumerate}
+	\begin{center}
+		\begin{figure}[H]
+			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/mongod.png}
+			\caption{Prompt MongoDb}
+		\end{figure}
+	\end{center}
+	Una volta lanciato il comando \texttt{mongod} si \mgls{mongodb} dovrebbe rispondere con "\textit{waiting for connection on port 27017}" come mostrato nella seguente figura.
+	\begin{center}
+		\begin{figure}[H]
+			\centering 
+			\hspace*{-0.06\textwidth}%
+			\includegraphics[max width=\myheight,, scale=0.8]{../img/manualeSviluppatore/mongodRunning.png}
+			\caption{Avvio MongoDb}
+		\end{figure}
+	\end{center}
+	
+	\subsection{Avvio del server}
+	Per lanciare l'applicazione attraverso \mgls{jetbrains} \mgls{idea} si deve:
+	\begin{enumerate}
+		\item Avere il progetto aperto come spiegato in sezione \ref{nuovoProgetto};
+		\item Selezionare premendo il tasto destro del mouse il file \texttt{scr/server.js};
+		\item Selezionare l'opzione "Run server.js".
+	\end{enumerate}
+	\begin{center}
+		\begin{figure}[H]
+			\centering \includegraphics[max width=\myheight]{../img/manualeSviluppatore/runServer.png}
+			\caption{Avvio del server}
+		\end{figure}
+	\end{center}
+		
+	\subsection{Conclusione}
+	Completate le sopracitate operazioni sarà possibile modificare e testare l'applicazione localmente sul computer personale.
+	Una volta avviato il database e il server \mgls{node.js} sarà possibile accedere all'applicazione inserendo il seguente indirizzo nel proprio \mgls{browser} \url{http://localhost:3000}.
+	
 	\newpage
 	\section{Estensione delle funzionalità}
-	Possono essere aggiunte nuove funzionalità alle API del prodotto inserendo nuovi service nella parte di back-end e collegandoli al indirizzandovi correttamente le richieste attraverso il router. È anche possibile aggiungere funzionalità nel front-end aggiungendo nuove pagine rappresentanti view e relativi controller.
+	Possono essere aggiunte nuove funzionalità alle \mgls{api} del prodotto inserendo nuovi service nella parte di \mgls{back-end} e indirizzandovi correttamente le richieste attraverso il router. È anche possibile aggiungere funzionalità al \mgls{front-end} aggiungendo nuove pagine con relative \mgls{view} e \mgls{controller}.
 
 	\subsection{Back-end}
-	Nel back-end per l'introduzione di una nuova funzionalità da esporre nelle API devono essere creati:
+	Nel \mgls{back-end} per l'introduzione di una nuova funzionalità da esporre nelle \mgls{api} devono essere creati:
 	\begin{itemize}
-	\item Una direttiva nella classe \texttt{server::middleware::Router} che permetta di definire il path della richiesta da aggiungere alle API collegandoci i relativi gestori, che saranno elementi del package service.
-	\item Una nuova classe servizio nel package \texttt{server::services} per eseguire le operazioni desiderate. Questa dovrà contenere i metodi in grado di ricevere una richiesta express, quindi con parametri req, res e next, che rappresentano rispettivamente l’oggetto della richiesta, della risposta e della callback per il prossimo \mgls{middleware} nella chain of responsibility che gestisce la richiesta. I servizi in questione si occuperanno di fare le richieste specifiche al database mongodb tramite la libreria \mgls{mongoose}
-	\item eventualmente potrà essere aggiunta una classe nel model, nel caso ci sia la necessità di aggiungere una nuova collezione a mongodb. Per fare ciò si raccomanda di usare la sintassi definita da \mgls{mongoose}.
+	\item una direttiva nella classe \texttt{server::middleware::Router} per definire il percorso da aggiungere alle \mgls{api} collegandoci il gestore della richiesta ed eventuali \mgls{middleware};
+	\item una nuova classe nel package \texttt{server::services} per eseguire le operazioni desiderate. Questa dovrà contenere i metodi in grado di ricevere una richiesta \mgls{express}, quindi con parametri \texttt{req}, \texttt{res} e \texttt{next}, che rappresentano rispettivamente l’oggetto della richiesta, della risposta e della callback per il prossimo \mgls{middleware} nella chain of responsibility che gestisce la richiesta. I servizi in questione si occuperanno di fare le richieste specifiche al database mongodb tramite la libreria \mgls{mongoose};
+	\item eventualmente potrà essere aggiunta una classe nel package \texttt{server::data}, nel caso ci sia la necessità di aggiungere una nuova collezione al database; per fare ciò si raccomanda di usare la sintassi definita dalla documentazione della libreria \mgls{mongoose}.
 	\end{itemize}
 	\subsection{Front-end}
 	Per aggiungere una nuova pagina è necessario aggiungere:
 	\begin{itemize}
-	\item Un file con estensione html del tipo \texttt{NomePagina.html} rappresentante la view. Il file va posizionato nel path \texttt{static/html/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito tutto il codice html e le direttive AngularJS necessarie per creare il template html. In particolare l’elemento principale deve essere un div al quale assegnare attraverso la direttiva AngularJS ng-controller=CtrlNomeController il suo rispettivo controller. Infatti, essendo un template html esso va interamente definito all'interno di semplici tag <div>, in quanto esso rappresenta solo una porzione della pagina e non l'intera pagina html.\\
-	Per ogni view creata è necessario includerla all’interno dello pagina che la contiene, ovvero \texttt{Home.html}, e definire la corrispondente location che la identifica della barra degli indirizzi. Questa pagina contiene un elemento con la direttiva ng-switch che seleziona la pagina da visualizzare in base all’url. All’interno di questo switch aggiungere un elemento del tipo 
+	\item un file con estensione \texttt{.html} rappresentante la view. Il file va posizionato nel path \texttt{static/html/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito tutto il codice \mgls{html} e le direttive \mgls{angularjs} necessarie per creare il template \mgls{html}. In particolare l’elemento principale deve essere un \texttt{div} al quale assegnare attraverso la direttiva \mgls{angularjs} \texttt{ng-controller=CtrlNomeController} il suo rispettivo controller. Infatti, essendo un template \mgls{html} esso va interamente definito all'interno di semplici tag \texttt{<div>}, in quanto esso rappresenta solo una porzione della pagina e non l'intera pagina \mgls{html}.\\
+	Ogni view creata deve essere inclusa nella pagina \texttt{Home.html}; questa pagina contiene un elemento con la direttiva \texttt{ng-switch} che seleziona la pagina da visualizzare in base all’url. All’interno di questo switch è necessario aggiungere un elemento del tipo 
 	\begin{verbatim}
 	<div ng-switch-when=’url’>
 		<div ng-include="'html/tipoUtente/ NomePagina.html'"></div>
 	</div>
 	\end{verbatim}
-	\item Un file con estensione js del tipo \texttt{NomeController.js} rappresentante il controller della view. Il file va posizionato nel path \texttt{static/js/controller/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito il controller che verrà aggiunto ai moduli di AngularJS. Inoltre bisogna definire le dipendenze del controller verso librerie esterne e le dipendenze che esso ha verso le classi dei packages model, service e util.\\
+	\item un file con estensione \texttt{.js} del tipo \texttt{NomeController.js} rappresentante il controller della view. Il file va posizionato nel path \texttt{static/js/controller/tipoUtente} dove tipoUtente può essere studente, docente o admin a seconda dell’utilizzatore della pagina. In questo file va definito il controller che verrà aggiunto ai moduli di \mgls{angularjs}. Inoltre bisogna definire le dipendenze del controller verso librerie esterne e le dipendenze che esso ha verso le classi dei packages \texttt{model}, \texttt{service} e \texttt{util}.\\
 	Per ogni controller creato è necessario includerne il codice nella pagina \texttt{index.html} attraverso il tag 
 	\begin{verbatim}
 	<script src=”js/controller/tipoUtente/NomeController.js”></script>
 	\end{verbatim}
 
 	\end{itemize}
-	In caso di necessità è anche possibile aggiungere classi nei packages model, service, e util rispettivamente per definire nuovi tipi di dato, servizi che si interfacciano con le API e servizi di utilità interni al client.
+	In caso di necessità è anche possibile aggiungere classi nei packages \texttt{model}, \texttt{service}, e \texttt{util} rispettivamente per definire nuovi tipi di dato, servizi che si interfacciano con le \mgls{api} e servizi di utilità interni al \mgls{client}.
 
 	\subsection{Estensione del QML}
-	Il QML (Question Markup Language) è il linguaggio con cui vengono definite le domande. È auspicabile che nel tempo si voglia aumentare i tipi di domande supportati dall’applicazione, quindi di seguito si definiscono i passi per effettuare questa operazione.\\
-	Per aggiungere un  nuovo tipo di domanda si deve aggiungere il relativo parser. Le funzioni da estendere sono tre, una sul client e due sul server. Poiché l’applicazione client comunica con quella server solo tramite API REST, nonostante siano entrambe scritte in javascript, non è possibile condividere classi; inoltre lo scopo del parser sul server (cioè validare il linguaggio QML) è diversa da quella del client (renderizzare a video la domanda).
+	Il QML (Question Markup Language) è il linguaggio con cui vengono definite le domande. È auspicabile che nel tempo si voglia aumentare i tipi di domande supportati dall’applicazione, quindi di seguito si definiscono i passi per effettuare tale operazione.\\
+	Per aggiungere un  nuovo tipo di domanda si deve aggiungere il relativo parser. Le funzioni da estendere sono tre, una sul client e due sul \mgls{server}. Poiché l’applicazione client comunica con quella server solo tramite \mgls{api} REST, nonostante siano entrambe scritte in \mgls{javascript}, non è possibile condividere classi; inoltre lo scopo del parser sul server (cioè validare il linguaggio QML) è diversa da quella del client (mostrare a video la domanda).
 	\begin{itemize}
 	\item \textbf{Parser sul sever}:\\
-	la classe server::validator::QuestionCheck espone una funzione detta checkQML(String) che restituisce una variabile booleana a seconda se il codice passato in input è QML valido o meno.
-	Questa funzione fa il parsing della prima riga della domanda per recuperare il tipo della domanda, se il tipo è valido chiama la una funzione specializzata per validate una domanda di quello specifico tipo. Per aggiungere un nuovo tipo bisogna aggiungere una funzione che faccia il parsing ad hoc del corpo della domanda restituendo vero/falso in base alla validità del codice, poi bisogna estendere checkQML(String) aggiungendo una chiamata alla suddetta funzione se il tipo della domanda risulta essere quello che si sta aggiungendo.
+	la classe \texttt{server::validator::QuestionCheck} espone una funzione detta \texttt{checkQML(String)} che restituisce una variabile booleana a seconda se il codice passato in input è QML valido o meno.
+	Questa funzione fa il parsing della prima riga della domanda per recuperare il tipo della domanda; se il tipo è valido chiama la una funzione specializzata per validare una domanda di quel tipo. Per aggiungere un nuovo tipo bisogna aggiungere una funzione che faccia il parsing ad hoc del corpo della domanda restituendo vero/falso in base alla validità del codice, poi bisogna estendere \texttt{checkQML(String)} aggiungendo una chiamata alla suddetta funzione se il tipo della domanda risulta essere quello che si sta aggiungendo.
 	\item \textbf{Parser sul client}:\\
-	la classe client::util::QML espone un metodo parse(String) il cui funzionamento è simile al parser del server, ovvero per prima cosa ricava il tipo di domanda e poi richiama parser specializzati per ogni tipo. La differenza rispetto al server è che non restituisce solo un booleano che ne rappresenta la validità, ma un oggetto json con i seguenti campi:
+	la classe \texttt{client::util::QML} espone un metodo \texttt{parse(String)} il cui funzionamento è simile al parser del server, ovvero per prima cosa ricava il tipo di domanda e poi richiama parser specializzati per ogni tipo. La differenza rispetto al server è che non restituisce solo un booleano che ne rappresenta la validità, ma un oggetto \mgls{json} con i seguenti campi:
 	\begin{itemize}
-	\item status: booleano che è vero se la domanda è QML valido, falso altrimenti
-	\item type: stringa che rappresenta il tipo della domanda
-	\item body: codice HTML per visualizzare la domanda a video
-	\item answers: array di possibili risposte
-	\item answer: risposta o risposte esatte
+	\item \texttt{status}: booleano che è vero se la domanda è QML valido, falso altrimenti
+	\item \texttt{type}: stringa che rappresenta il tipo della domanda
+	\item \texttt{body}: codice \mgls{html} per visualizzare la domanda a video
+	\item \texttt{answers}: array di possibili risposte
+	\item \texttt{answer}: risposta o risposte esatte
 	\end{itemize}
-	Anche nel client, quindi, bisogna creare una funzione che faccia il parsing ad hoc per restituire un oggetto del tipo specificato, poi bisogna richiamarla dalla funzione parse(String) nel caso in cui il tipo della domanda sia quello desiderato.
+	Anche nel \texttt{client}, quindi, bisogna creare una funzione che faccia il parsing ad hoc per restituire un oggetto del tipo specificato, poi bisogna richiamarla dalla funzione \texttt{parse(String)} nel caso in cui il tipo della domanda sia quello desiderato.
 	\item \textbf{Correzione delle risposte sul client}:
-	Una volta Definita come è fatta la domanda bisogna definire come correggerla. Questa operazione è fatta all’interno della classe \texttt{client::model::data::CurrentQuestion}, la quale nel costruttore richiama il metodo parse(String) del punto precedente, recuperando così le risposte giuste e le risposte corrette e memorizzandole rispettivamente nelle variabili\texttt{answers} e \texttt{answer}. Inoltre la classe espone una funzione point() che restituisce un json con i seguenti campi:
+	Una volta definita come è fatta la domanda bisogna definire come correggerla. Questa operazione è fatta all’interno della classe \texttt{client::model::data::CurrentQuestion}, la quale nel costruttore richiama il metodo \texttt{parse(String)} del punto precedente, recuperando così le risposte giuste e le risposte corrette e memorizzandole rispettivamente nelle variabili\texttt{answers} e \texttt{answer}. Inoltre la classe espone una funzione \texttt{point()} che restituisce un oggetto \mgls{json} con i seguenti campi:
 	\begin{itemize}
-	\item point: numero di punti totalizzati dalla domanda
-	\item tot: numero di punti totali che vale la domanda
+	\item \texttt{point}: numero di punti totalizzati dalla domanda
+	\item \texttt{tot}: numero di punti totali che vale la domanda
 	\end{itemize}
 	Questo è il metodo da estendere se si vuole rendere possibile la correzione di un nuovo tipo di domanda e l’oggetto di risposta deve essere creato sulla base dei valori di \texttt{answers} e \texttt{answer}.
 	\end{itemize}
 
 	\newpage
-	\section{Glossario}
 
 \end{document}
