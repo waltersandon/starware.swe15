@@ -345,7 +345,14 @@ Gli strumenti da adottare e le procedure da seguire per utilizzarli correttament
 \newpage
 \section{Panoramica dell'architettura}
 Nella seguente figura viene illustrata l'architettura che si è scelto di adottare per sviluppare l'applicazione \prj{}.
-Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{server} trattandoli come entità totalmente separate, dove la comunicazione tra le parti avviene attraverso le \mgls{api} \mgls{rest} trasmettendo risposte \mgls{json}.
+Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{server} trattandoli come entità totalmente separate, dove la comunicazione tra le parti avviene attraverso le \mgls{api} \mgls{rest} trasmettendo richieste e risposte \mgls{http} e oggetti \mgls{json}.
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[max width=\textwidth]{../img/diagrammiClassi/clientServerGeneral.png}
+		\caption{Architettura generale}
+	\end{figure}
+\end{center}
 
 \newpage
 %Specifica componenti server
