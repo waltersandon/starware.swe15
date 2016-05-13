@@ -1260,23 +1260,17 @@
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
 			\umlusecase[x=5, y=0, fill=white, width=4cm, name=43]{\textbf{UC18.1:} Inserimento domanda}
 			\umlassoc{Docente}{43}
-			\umlusecase[x=15, y=-15.75, fill=white, width=4cm, name=143]{\textbf{UC18.1.4:} Errore argomento mancante}
-			\umlextend[name=ext-143-43]{143}{43}
-			\umlnote[x=23, y=-15.75, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-143-43-1}{Non è stato selezionato almeno un argomento}
-			\umlusecase[x=15, y=-11, fill=white, width=4cm, name=142]{\textbf{UC18.1.3:} Errore QML non valido}
-			\umlextend[name=ext-142-43]{142}{43}
-			\umlnote[x=23, y=-11, fill=white, width=4cm, geometry=|-|, arm=-1.75cm]{ext-142-43-1}{Il QML non è valido}
-			\umlusecase[x=15, y=-6.5, fill=white, width=4cm, name=153]{\textbf{UC18.9:} Inserimento domanda a risposta aperta}
+			\umlusecase[x=15, y=-11.25, fill=white, width=4cm, name=153]{\textbf{UC18.9:} Inserimento domanda a risposta aperta}
 			\umlinherit{153}{43}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=152]{\textbf{UC18.8:} Inserimento domanda con l'associazione di parole}
+			\umlusecase[x=15, y=-6.75, fill=white, width=4cm, name=152]{\textbf{UC18.8:} Inserimento domanda con l'associazione di parole}
 			\umlinherit{152}{43}
-			\umlusecase[x=15, y=2.5, fill=white, width=4cm, name=151]{\textbf{UC18.7:} Inserimento domanda di tipo testo con parole omesse}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=151]{\textbf{UC18.7:} Inserimento domanda di tipo testo con parole omesse}
 			\umlinherit{151}{43}
-			\umlusecase[x=15, y=7, fill=white, width=4cm, name=150]{\textbf{UC18.6:} Inserimento domanda a risposta multipla}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=150]{\textbf{UC18.6:} Inserimento domanda a risposta multipla}
 			\umlinherit{150}{43}
-			\umlusecase[x=15, y=11.5, fill=white, width=4cm, name=149]{\textbf{UC18.5:} Inserimento domanda a scelta multipla}
+			\umlusecase[x=15, y=6.75, fill=white, width=4cm, name=149]{\textbf{UC18.5:} Inserimento domanda a scelta multipla}
 			\umlinherit{149}{43}
-			\umlusecase[x=15, y=16, fill=white, width=4cm, name=148]{\textbf{UC18.4:} Inserimento domanda di tipo vero/falso}
+			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=148]{\textbf{UC18.4:} Inserimento domanda di tipo vero/falso}
 			\umlinherit{148}{43}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -1294,12 +1288,6 @@
 		\item Il docente compone la domanda in QML  (\hyperlink{UC18.1.2}{UC18.1.2});
 		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC18.1.5}{UC18.1.5});
 		\item Il docente conferma la creazione della domanda;
-		
-	\end{enumerate}
-	\item[Estensioni:]
-	\begin{enumerate}
-		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore	 (\hyperlink{UC18.1.3}{UC18.1.3});
-		\item Se non è stato selezionato nessun argomento viene visualizzato un messaggio di errore (\hyperlink{UC18.1.4}{UC18.1.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una nuova domanda.
@@ -1432,27 +1420,6 @@
 	\caption{\textbf{UC18.2}: Modifica domanda}
 	\label{UC18.2}
 \end{figure}
-
-\begin{figure}[H]
-	\centering
-	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Docente}
-		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=46]{\textbf{UC18.2:} Modifica domanda}
-			\umlassoc{Docente}{46}
-			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=215]{\textbf{UC18.2.5:} Errore argomento mancante}
-			\umlextend[name=ext-215-46]{215}{46}
-			\umlnote[x=23, y=-2.25, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-215-46-1}{Non è stato selezionato alcun argomento
-			}
-			\umlusecase[x=15, y=2.5, fill=white, width=4cm, name=213]{\textbf{UC18.2.4:} Errore modifica QML non valido}
-			\umlextend[name=ext-213-46]{213}{46}
-			\umlnote[x=23, y=2.5, fill=white, width=4cm, geometry=|-|, arm=-1.75cm]{ext-213-46-1}{Il QML non è valido
-			}
-		\end{umlsystem}
-	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.2}: Modifica domanda}
-	\label{UC18.2}
-\end{figure}
 \begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente effettua delle modifiche ad una domanda 
@@ -1468,16 +1435,27 @@
 		\item Conferma delle modifiche;
 		
 	\end{enumerate}
-	\item[Estensioni:]
-	\begin{enumerate}
-		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC18.2.4}{UC18.2.4});
-		\item Se la domanda non ha alcun argomento associato viene visualizzato un messaggio di errore (\hyperlink{UC18.2.5}{UC18.2.5});
-		
-	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata modificata.
 \end{description}
 \hypertarget{UC18.2.1}{}
-\subsection{Caso d'uso UC18.2.1: Selezione argomenti modifica domanda}\begin{description}
+\subsection{Caso d'uso UC18.2.1: Selezione argomenti modifica domanda}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Docente}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=163]{\textbf{UC18.2.1:} Selezione argomenti modifica domanda}
+			\umlassoc{Docente}{163}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=215]{\textbf{UC18.2.5:} Errore argomento mancante}
+			\umlextend[name=ext-215-163]{215}{163}
+			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-215-163-1}{Non è stato selezionato alcun argomento
+			}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC18.2.1}: Selezione argomenti modifica domanda}
+	\label{UC18.2.1}
+\end{figure}
+\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente seleziona gli argomenti corrispondenti alla domanda selezionata
 	\item[Precondizione:] Il docente sta modificando una domanda
@@ -1486,6 +1464,11 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente seleziona gli argomenti della domanda;
+		
+	\end{enumerate}
+	\item[Estensioni:]
+	\begin{enumerate}
+		\item Se la domanda non ha alcun argomento associato viene visualizzato un messaggio di errore	 (\hyperlink{UC18.2.5}{UC18.2.5});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha definito gli argomenti per classificare la domanda.
@@ -1499,7 +1482,11 @@
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
 			\umlusecase[x=5, y=0, fill=white, width=4cm, name=164]{\textbf{UC18.2.2:} Scrittura domanda in QML della domanda da modificare}
 			\umlassoc{Docente}{164}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=165]{\textbf{UC18.2.3:} Modifica domanda da interfaccia grafica}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=213]{\textbf{UC18.2.4:} Errore modifica QML non valido}
+			\umlextend[name=ext-213-164]{213}{164}
+			\umlnote[x=23, y=-2.25, fill=white, width=4cm, geometry=|-|, arm=-1.75cm]{ext-213-164-1}{Il QML non è valido
+			}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=165]{\textbf{UC18.2.3:} Modifica domanda da interfaccia grafica}
 			\umlinherit{165}{164}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -1514,6 +1501,11 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente compone la domanda in QML;
+		
+	\end{enumerate}
+	\item[Estensioni:]
+	\begin{enumerate}
+		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC18.2.4}{UC18.2.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata scritta in linguaggio QML.
