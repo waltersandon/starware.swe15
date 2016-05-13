@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.0}
+\newcommand{\versione}{3.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -37,9 +37,9 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	&	\TP	\\
-\textbf{Verifica}	&	\AVI	\\
-\textbf{Approvazione}	&	\AB	\\
+\textbf{Redazione}	&	\IB	\\
+\textbf{Verifica}	&	\WS	\\
+\textbf{Approvazione}	&	\AVE	\\
 \textbf{Lista Distribuzione}	&	\nomeGruppo	\\
 
 \end{tabular}
@@ -59,11 +59,15 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		3.0.3 & \IB{} & 2016-05-02 & Aggiunta sezioni sulla codifica [Aggiunta sez. \ref{code}]\\*
+		3.0.0 & \AVE{} & 2016-05-11 & Approvazione\\*
 		\midrule
-		3.0.2 & \IB{} & 2016-05-02 & Aggiunta style guide per il codice ai riferimenti informativi\\*
+		2.1.0 & \WS{} & 2016-05-10 & Verifica\\*
 		\midrule
-		3.0.1 & \IB{} & 2016-05-02 & Aggiunto paragrafo di mocha, strumento per testing del codice [aggiunta sez. \ref{strumentoTest}]\\*
+		2.0.3 & \IB{} & 2016-05-02 & Aggiunta sezioni sulla codifica [Aggiunta sez. \ref{code}]\\*
+		\midrule
+		2.0.2 & \IB{} & 2016-05-02 & Aggiunta style guide per il codice ai riferimenti informativi\\*
+		\midrule
+		2.0.1 & \IB{} & 2016-05-02 & Aggiunto paragrafo di mocha, strumento per testing del codice [aggiunta sez. \ref{strumentoTest}]\\*
 		\midrule
 		2.0.0 & \AB{} & 2016-02-29 & Approvazione\\*
 		\midrule
@@ -564,8 +568,8 @@ Ogni metodo deve essere documentato attraverso un commento contenente:\\\\
 	* Descrizione del metodo.\\
 	* @method nomeMetodo\\
 	* @param {tipo1} param1 breve descrizione del primo parametro.\\
-	* @return {{nomeValore1: tipo1, nomeValore2: tipo2, ...}} breve\\
-	* descrizione dei valori di ritorno della funzione.\\
+	* @return {{nomeValore1: tipo1, nomeValore2: tipo2, ...}} \\
+	* breve descrizione dei valori di ritorno della funzione.\\
 	*/\\
 }
 
@@ -597,13 +601,13 @@ La specifica di un test di validazione consta nella definizione di una sequenza 
 
 \paragraph{Tracy}\label{tracciamentoTest}
 
-\mgls{tracy} permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
+Permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
 Permettendo inoltre la produzione automatica in \LaTeX{} delle tabelle per il tracciamento dei test.
 \paragraph{Mocha}\label{strumentoTest}
 
-\mgls{mocha} è un test framework eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
+È un framework di test eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
 \subparagraph{Installazione}
-Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi in terminale bisogna eseguire il commando:
+Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
 \begin{center}
 	\texttt{\$ npm install -g mocha}  
 \end{center}
@@ -1063,42 +1067,43 @@ Metodo di gestione del problema:
 	\item \textbf{Correzione immediata:} il \VR{} provvede autonomamente alla correzione dell'errore, segnalando la modifica effettuata tramite sistema di \mgls{versionamento}, indicando un messaggio di \mgls{commit} esaustivo (per approfondimenti si rimanda alla sezione \ref{versionamento} sulle norme di \mgls{versionamento})
 \end{itemize}
 
-\begin{table}[H]
-	\begin{tabular}{p{0.2\textwidth} p{0.35\textwidth} p{0.15\textwidth} p{0.2\textwidth}}
+\newpage
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.35\textwidth} p{0.15\textwidth} p{0.2\textwidth}}
 		\toprule
 		\textbf{Ambito}	&	\textbf{Problema}	&	\textbf{Urgenza}	&	\textbf{Azione}\\
 		\midrule
 		\midrule
-		Processi & Ritardo di 3 giorni & Alta & Ticket \\
+		Processi & Ritardo di 3 giorni & Alta & Ticket \\*
 		\midrule
-		& Errore di progettazione & Alta & Ticket \\
+		& Errore di progettazione & Alta & Ticket \\*
 		\midrule
-		& Errore in requisiti e use case & Alta & Ticket \\
-		\midrule
-		\midrule
-		Software & Malfunzionamento di uno strumento di lavoro & Alta & Ticket \\
+		& Errore in requisiti e use case & Alta & Ticket \\*
 		\midrule
 		\midrule
-		Documentazione & Errore di compilazione & Alta & Ticket \\
+		Software & Malfunzionamento di uno strumento di lavoro & Alta & Ticket \\*
 		\midrule
-		& Errore concettuale & Alta & Ticket \\
 		\midrule
-		& Errore in tabelle o immagini & Media & Ticket \\\\
+		Documentazione & Errore di compilazione & Alta & Ticket \\*
 		\midrule
-		& \mgls{gulpease} fuori fase & Media & Ticket \\
+		& Errore concettuale & Alta & Ticket \\*
 		\midrule
-		& Errore ortografico & Media & Correzione immediata \\
+		& Errore in tabelle o immagini & Media & Ticket \\*
 		\midrule
-		& Termine non in glossario & Bassa & Ticket \\
+		& \mgls{gulpease} fuori fase & Media & Ticket \\*
 		\midrule
-		& Norma stilistica non rispettata & Bassa & Correzione immediata \\
+		& Errore ortografico & Media & Correzione immediata \\*
 		\midrule
-		& Errore di formattazione & Bassa & Ticket \\
+		& Termine non in glossario & Bassa & Ticket \\*
+		\midrule
+		& Norma stilistica non rispettata & Bassa & Correzione immediata \\*
+		\midrule
+		& Errore di formattazione & Bassa & Ticket \\*
 		\bottomrule
-	\end{tabular}
-	\caption{Classificazione dei problemi}
-	\label{tabCalssificazioneProb}
-\end{table}
+		\caption{Classificazione dei problemi}
+		\label{tabCalssificazioneProb}
+	\end{longtable}
+\end{center}
 
 \begin{center}
 	\begin{figure}[H]

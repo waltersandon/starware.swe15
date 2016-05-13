@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.0}
+\newcommand{\versione}{3.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,13 +63,17 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
-			2.0.6 & \AB & 2016-05-11 & Modifica metrica Cost of Poor Quality\\*
+			2.1.1 & \AB & 2016-05-13 & Correzioni errori ortografici o formattazione\\*
 			\midrule
-			2.0.5 & \AB & 2016-05-06 & Inserita risultati misurazione fase \FC \\*
+			2.1.0 & \AB & 2016-05-13 & Verifica\\*
 			\midrule
-			2.0.4 & \WS & 2016-05-06 & Inserita la sezione Codifica nel dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			2.0.6 & \AB & 2016-05-11 & Inserimento resoconto finale di \FC\\*
 			\midrule
-			2.0.3 & \AB & 2016-05-05 & Modifica metrica Cost of Poor Quality\\*
+			2.0.5 & \AB & 2016-05-06 & Modifica metrica \mgls{milestone schedule variance} \\*
+			\midrule
+			2.0.4 & \WS & 2016-05-06 & Inserita sezione \FC in dettaglio delle verifiche tramite analisi e descritto l'esito della \RP\\*
+			\midrule
+			2.0.3 & \AB & 2016-05-05 & Modifica metrica \mgls{cost of poor quality}\\*
 			\midrule
 			2.0.2 & \AB & 2016-05-03 & Integrazione sezione \ref{metriche}\\*
 			\midrule
@@ -85,7 +89,7 @@
 			\midrule
 			1.0.18 & \TP & 2016-03-15 & Revisione termini glossario \\*
 			\midrule
-			1.0.17 & \TP & 2016-03-15 & Aggiunta \ref{test_integrazione}, \ref{test_unita}.\\*
+			1.0.17 & \TP & 2016-03-15 & Aggiunte le sezioni \ref{test_integrazione}, \ref{test_unita}.\\*
 			\midrule
 			1.0.16 & \TP & 2016-03-15 & Revisione dettagli sezione \ref{test}\\*
 			\midrule
@@ -149,10 +153,12 @@
 	\section{Introduzione}	\label{intro}
 	
 	\subsection{Scopo}
-	Lo scopo del documento è quello di documentare il piano per il perseguimento della qualità adottato. Illustra la strategia di qualità perseguita e l'aderenza agli standard per la qualità di prodotto e per la qualità di processo nel dettaglio. 
+	Lo scopo del documento è quello di illustrare il piano per il perseguimento della qualità adottato per il progetto \prj{}. Vengono chiarite la strategia di qualità perseguita secondo l'aderenza a standard di la qualità e le metodologie di misurazioni relative alla qualità.
 	
 	\subsection{Descrizione}
-	Il documento presenterà  le strategie di verifica adottate da \nomeGruppo{} volte al perseguimento costante di  qualità per il progetto \prjL{}. In particolare si farà riferimento allo standard \textit{ISO/IEC 9003:2004} per la qualità di processo e allo standard \textit{ISO/IEC 9126} per la qualità di prodotto. Nel seguito verranno illustrati i punti selezionati da tali standard che si è ritenuto di mettere in evidenza nella valutazione della qualità.
+	Il documento presenterà in dettaglio il piano di perseguimento della qualità e le metodologie di verifica adottate da \nomeGruppo{} per il progetto \prj{}. \\
+	Sono specificate le metriche adatte alla misurazione dei risultati di qualità ottenuti e il resoconto delle misurazioni effettuate. 
+	Vengono definiti, in un'apposita sezione, i test per il prodotto \mgls{software} e i relativi risultati.
 	
 	\subsection{Descrizione Prodotto}
 	\descrizioneProdotto
@@ -164,13 +170,13 @@
 	
 	\subsubsection{Normativi}
 	\begin{itemize}
-		\item \NdP\ \textit{v1.2.0};
+		\item \NdP\ \textit{v3.0.0};
 		\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
 	\end{itemize}
 	
 	\subsubsection{Informativi}
 	\begin{itemize}
-		\item \PdP\ \textit{v1.2.0};
+		\item \PdP\ \textit{v3.0.0};
 		\item Slide per l'insegnamento di Ingegneria del Software modulo A: \url{http://www.math.unipd.it/~tullio/IS-1/2015/};
 		\item Standard \textit{ISO/IEC 90003:2004} \url{http://www.praxiom.com/iso-90003.htm};
 		\item Standard \textit{ISO/IEC 15504} \url{https://en.wikipedia.org/wiki/ISO/IEC_15504}
@@ -333,26 +339,26 @@
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=0.9\linewidth]{../img/v-model}
-			\caption[V Model]{}
+			\caption[Modello a V per collaudo del \mgls{software}]{}
 			\label{fig:v-model}
 		\end{figure}
 		
 	Sono definibili 5 tipi diversi di test: test di unità, test di integrazione, test di sistema, test di regressione e test di accettazione o validazione.
 	
 	\paragraph{Test di unità}
-	Consiste nella verifica di ogni singola unità del prodotto \mgls{software} tramite l'utilizzo di \mgls{stub}, \mgls{driver} e \mgls{logger}. Per unità si intende la più piccola quantità di \mgls{software} che è utile verificare singolarmente e che viene prodotta da un singolo programmatore. Ogni requisito includerà i relativi test di unità allegati nel rispettivo caso d'uso.
+	Consiste nella verifica di ogni singola unità del prodotto \mgls{software} tramite l'utilizzo di \mgls{stub}, \mgls{driver} e \mgls{logger}. Per unità si intende la più piccola quantità di \mgls{software} che è utile verificare singolarmente e che viene prodotta da un singolo programmatore. Ogni test di unità deve essere collegato in modo chiaro alla classe e al metodo testato, grazie all'attività di tracciamento.
 	
 	\paragraph{Test di integrazione}
 	Rispecchia il primo livello della suddivisione modulare del \mgls{software} e si basa sulla correttezza dei test di unità per la diminuzione dei costi di verifica. Verranno pertanto verificati solamente le interazioni tra le varie unità \mgls{software}.
 	
 	\paragraph{Test di sistema}
-	Consiste nella validazione del prodotto giunto a versione definitiva. La correttezza del sistema e dei relativi test è garantita per costruzione dalla struttura gerarchica della suddivisione del \mgls{software}.
-	
+	Consiste nella validazione del prodotto giunto a versione definitiva. La correttezza del sistema e dei relativi test è garantita per costruzione dalla struttura gerarchica della suddivisione del \mgls{software}. Il tracciamento dei test di sistema deve rendere chiaro il collegamento tra test di sistema e relativi requisiti del prodotto, alla cui verifica è finalizzato il test.
 	\paragraph{Test di regressione}
 	Consiste nella trattazione di casi in cui alcune componenti abbiano subito modifiche. Il controllo deve assicurare che non ci siano cambiamenti esterni alle componenti modificate, per garantire l'integrità del prodotto finale modificato.
 	
 	\paragraph{Test di validazione}
 	E' il collaudo del prodotto \mgls{software} che viene eseguito in presenza del \mgls{proponente}. Se tale collaudo viene superato positivamente si può procedere al rilascio ufficiale del prodotto sviluppato. 
+	Ogni test di validazione deve mantenere il collegamento, tramite tracciamento, al relativo caso d'uso verificato.
 	
 	\subsubsection{Strategia di analisi}
 	La struttura del sistema di \mgls{collaudo} o analisi deve essere conforme alla struttura del sistema. Tale caratteristica è essenziale per il garantire il funzionamento dell'intero apparato di test. L'esecuzione dei test deve seguire l'ordine cronologico seguente:
@@ -388,7 +394,7 @@
 	
 	dove: 
 	\begin{itemize}
-		\item MSV indica \mgls{milestone schedule variance};
+		\item MSV indica \MSV;
 		\item SDT (Spent Day Time) indica il numero di giorni lavorativi effettivamente utilizzati;
 		\item  PDT indica il numero di giorni lavorativi consecutivi pianificati.
 	\end{itemize}
@@ -404,7 +410,7 @@
 		\item \textbf{n} è il numero di componenti del gruppo.
 	\end{itemize}{}
 	\paragraph{MSV medio per attività di gruppo}
-	\[MSV attività\_gruppo [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
+	\[MSV attivit\acute{a}\_gruppo [\%] = \frac{\sum_{i=0}^n msv_i}{n}\]
 			dove: 
 			\begin{itemize}
 				\item \textbf{msv\_i} è il \mgls{milestone schedule variance} calcolato per una attiivtà completata da più di 1 una persona;
@@ -414,8 +420,8 @@
 	
 	\paragraph{Range di accettazione}
 	\begin{itemize}
-		\item \textbf{Primo range di accettazione}:MSV $\leq$ 4.5\%
-		\item \textbf{Range Ottimale}:MSV $\leq$ 0\%
+		\item \textbf{Primo range di accettazione}: MSV $\leq$ 4.5\%
+		\item \textbf{Range Ottimale}: MSV $\leq$ 0\%
 	\end{itemize}
 	
 	L'indice \mgls{milestone schedule variance} valuta l'efficacia della pianificazione a lungo termine e l'affidabilità delle stime relative ai tempi stimati per le \mgls{attivita}  in fase di pianificazione temporale. Tale metrica non valuta la capacità produttiva durante le ore lavorative stimate, ma l'organizzazione del lavoro rispetto al periodo stimato durante la pianificazione.
@@ -433,7 +439,7 @@
  Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}:SV $\leq$ -5\%
+		\item \textbf{Range di Accettazione}: SV $\leq$ -5\%
 		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
@@ -451,24 +457,37 @@
 	 Se $CV > 0$ significa che i costi sono entro il budget stabilito, se invece è negativo significa che si sta sforando il budget.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}:CV $\geq$ -10\%
-		\item \textbf{Range Ottimale}:CV $\geq$ 0\%
+		\item \textbf{Range di Accettazione}: CV $\geq$ -10\%
+		\item \textbf{Range Ottimale}: CV $\geq$ 0\%
 	\end{itemize}
 	
 	\subsubsection{Cost of poor quality (CoPQ)}
-	Indica l'inefficienza di processi non buoni valutando il costo delle \mgls{attivita} di correzione che seguono la verifica.
-	
-	\[CoPQ_{generale}[\%]= \frac{(V*0.25) +S}{V+S}\]
-	\[CoPQ_{documenti}[\%]= \frac{(sezV*0.25)+sezE}{sezV+sezE}\]
-	\[CoPQ_{progettazione}[\%]=\frac{(classiV*0.25)+classiE}{classiV+classiE}\]
-	
-	\[CoPQ_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
-	
-	dove KLOC sono migliaia di linee di codice.
-	
+	Indica l'inefficienza di processi  valutando il costo delle \mgls{attivita} di verifica e l'impatto degli errori non rilevati in fase di verifica  e approvazione sulle \mgls{attivita} successive.
+	\paragraph{CoPQ documenti}
+	\[CoPQ_{documenti}[\%]= \frac{(sezV*0.25)+sezE}{sezTOT}\]
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\leq$ 30\%
-		\item \textbf{Range Ottimale}: $\leq$ 10\%
+		\item sezV indica il numero di sezioni modificate durante la verifica;
+		\item sezE indica sezioni con errori modificate dopo l'approvazione.
+		\item sezTOT è il numero di sezioni totali.
+	\end{itemize}
+		\paragraph{CoPQ progettazione}
+	\[CoPQ_{progettazione}[\%]=\frac{(classiV*0.25)+classiE}{classiTOT}\]
+	\begin{itemize}
+		\item classiV indica il numero di classi modificate in verifica;
+		\item classiE indica il numero di classi modificate dopo l'approvazione.
+		\item classiTOT indica il numero di classi totali.
+	\end{itemize}
+		\paragraph{CoPQ software}
+	\[CoPQ_{software}[\%]= \frac{\mgls{bug}\ trovati}{KLOC\ verificate}\]
+	dove KLOC sono migliaia di linee di codice.
+		\paragraph{CoPQ generale}
+	\[CoPQ_{generale}[\%]= \frac{\sum_{i=1}^3 CoPQ_i}{3}\]
+	 viene calcolato come la media dei valori di CoPQ di documenti, progettazione e \mgls{software} definiti  sopra.
+	
+	\paragraph{Range di accettazione}
+	\begin{itemize}
+		\item \textbf{Range di Accettazione}: CoPQ $\leq$ 30\%
+		\item \textbf{Range Ottimale}:CoPQ $\leq$ 10\%
 	\end{itemize}
 	
 	\subsubsection{Requirement stability index (RSI)}
@@ -477,8 +496,8 @@
 	\[RSI[\%]= 1 - \frac{\#requisiti\ aggiunti+\#requisiti\ tolti+\#requisiti\ modificati}{\#requisiti\ totali\ inizialmente}\]
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: $\geq$ 80\%
-		\item \textbf{Range Ottimale}: $\geq$ 90\%
+		\item \textbf{Range di Accettazione}: RSI $\geq$ 80\%
+		\item \textbf{Range Ottimale}: RSI $\geq$ 90\%
 	\end{itemize}
 	
 	\subsection{Metriche per i documenti}\label{metriche_doc}
@@ -581,7 +600,7 @@
 	
 	\paragraph{Test di Unità}
 L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-	\[ [ID Classe][ID Metodo].TU \] 
+	\[ [ID Classe].[ID Metodo].TU \] 
 	dove [ID Classe] rappresenta l'ID della classe testata e ID Metodo rappresenta l'ID del metodo della classe testato.
 	 Nel caso il test coinvolga più metodi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
 	
@@ -781,71 +800,70 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\caption{Tabella test validazione / requisiti} \tabularnewline
 	\end{longtable}
 	\subsection{Test di sistema}\label{test_sistema}
-	
-	\begin{longtable}{l p{10cm} l l}
+
+\begin{longtable}{l p{10cm} l l}
+\midrule
+\textbf{ID} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Requisito} \tabularnewline
+\midrule
+		TS7.5 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML riesca a descrivere in maniera efficace tutte le caratteristiche previste per un questionario e le relative domande & P& \hypertarget{R-3F7.5}{R-3F7.5}\tabularnewline
 		\midrule
-		\textbf{ID} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Requisito} \tabularnewline
+		TS7.5.1 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML permetta di definire il testo di una domanda e delle relative risposte attraverso una sintassi univoca & P& \hypertarget{R-3F7.5.1}{R-3F7.5.1}\tabularnewline
 		\midrule
+		TS7.5.1.2 & Viene verificato che il QML permetta l'inserimento di immagini & NI & \hypertarget{R-3F7.5.1.2}{R-3F7.5.1.2}\tabularnewline
 		\midrule
-		TS7.5 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML riesca a descrivere in maniera efficace tutte le caratteristiche previste per un questionario e le relative domande & NI& \hypertarget{R-3F7.5}{R-3F7.5}\tabularnewline
+		TS7.5.1.6 & Viene verificato che il QML permetta di definire vari tipi di domanda & NI & \hypertarget{R-3F7.5.1.6}{R-3F7.5.1.6}\tabularnewline
 		\midrule
-		TS7.5.1 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML permetta di definire il testo di una domanda e delle relative risposte attraverso una sintassi univoca & NI& \hypertarget{R-3F7.5.1}{R-3F7.5.1}\tabularnewline
+		TS7.5.3 & Viene verificato che le domande in QML possano essere scritte e modificate da un docente & P& \hypertarget{R-3F7.5.3}{R-3F7.5.3}\tabularnewline
 		\midrule
-		TS7.5.1.2 & Viene verificato che il QML permetta l'inserimento di immagini & NI& \hypertarget{R-3F7.5.1.2}{R-3F7.5.1.2}\tabularnewline
-		\midrule
-		TS7.5.1.6 & Viene verificato che il QML permetta di definire vari tipi di domanda & NI& \hypertarget{R-3F7.5.1.6}{R-3F7.5.1.6}\tabularnewline
-		\midrule
-		TS7.5.3 & Viene verificato che le domande in QML possano essere scritte e modificate da un docente & NI& \hypertarget{R-3F7.5.3}{R-3F7.5.3}\tabularnewline
-		\midrule
-		TS7.5.5 & Viene verificato che Il QML possa gestire risposte vero/falso, risposte a scelta multipla, possa contenere testi e immagini	 & NI& \hypertarget{R-3F7.5.5}{R-3F7.5.5}\tabularnewline
+		TS7.5.5 & Viene verificato che Il QML possa gestire risposte vero/falso, risposte a scelta multipla, possa contenere testi e immagini	 & NI & \hypertarget{R-3F7.5.5}{R-3F7.5.5}\tabularnewline
 		\midrule
 		TS7.7 & Viene verificato che un docente possa costruire un nuovo questionario utilizzando le domande presenti nel sistema e che non sia possibile creare un questionario che non contenga domande o argomenti
-		& NI& \hypertarget{R-3F7.7}{R-3F7.7}\tabularnewline
+		& P& \hypertarget{R-3F7.7}{R-3F7.7}\tabularnewline
 		\midrule
-		TS7.11 & Viene verificato che sia possibile per un docente eseguire le operazioni di inserimento, modifica e rimozione di una domanda e che tutti i casi non corretti vengano segnalati & NI& \hypertarget{R-3F7.11}{R-3F7.11}\tabularnewline
+		TS7.11 & Viene verificato che sia possibile per un docente eseguire le operazioni di inserimento, modifica e rimozione di una domanda e che tutti i casi non corretti vengano segnalati & P& \hypertarget{R-3F7.11}{R-3F7.11}\tabularnewline
 		\midrule
-		TS7.11.1.2.1 & Viene verificato che il sistema sia in grado di verificare l'inserimento di QML valido e, in caso contrario, segnalare un errore & NI& \hypertarget{R-3F7.11.1.2.1}{R-3F7.11.1.2.1}\tabularnewline
+		TS7.11.1.2.1 & Viene verificato che il sistema sia in grado di verificare l'inserimento di QML valido e, in caso contrario, segnalare un errore & NI & \hypertarget{R-3F7.11.1.2.1}{R-3F7.11.1.2.1}\tabularnewline
 		\midrule
-		TS7.11.1.2.2 & Viene verificato che il docente possa inserire domande di tipo vero/falso	 & NI& \hypertarget{R-3F7.11.1.2.2}{R-3F7.11.1.2.2}\tabularnewline
+		TS7.11.1.2.2 & Viene verificato che il docente possa inserire domande di tipo vero/falso	 & P& \hypertarget{R-3F7.11.1.2.2}{R-3F7.11.1.2.2}\tabularnewline
 		\midrule
-		TS7.11.1.2.4 & Viene verificato che il docente possa inserire domande di tipo scelta multipla & NI& \hypertarget{R-1F7.11.1.2.4}{R-1F7.11.1.2.4}\tabularnewline
+		TS7.11.1.2.4 & Viene verificato che il docente possa inserire domande di tipo scelta multipla & NI & \hypertarget{R-1F7.11.1.2.4}{R-1F7.11.1.2.4}\tabularnewline
 		\midrule
-		TS7.12 & Viene verificato che sia possibile per un docente modificare un questionario che ha precedentemente creato & NI& \hypertarget{R-3F7.12}{R-3F7.12}\tabularnewline
+		TS7.12 & Viene verificato che sia possibile per un docente modificare un questionario che ha precedentemente creato & NI & \hypertarget{R-3F7.12}{R-3F7.12}\tabularnewline
 		\midrule
-		TS7.13 & Viene verificato che sia possibile per un docente eliminare un questionario che ha precedentemente creato & NI& \hypertarget{R-3F7.13}{R-3F7.13}\tabularnewline
+		TS7.13 & Viene verificato che sia possibile per un docente eliminare un questionario che ha precedentemente creato & NI & \hypertarget{R-3F7.13}{R-3F7.13}\tabularnewline
 		\midrule
-		TS8 & Viene verificato che il sistema possa gestire l'accesso e la registrazione di ogni tipo di utente previsto & NI& \hypertarget{R-3F8}{R-3F8}\tabularnewline
+		TS8 & Viene verificato che il sistema possa gestire l'accesso e la registrazione di ogni tipo di utente previsto & P& \hypertarget{R-3F8}{R-3F8}\tabularnewline
 		\midrule
-		TS9 & Viene verificato che sia possibile per ogni tipo di utente registrarsi presso il sistema & NI& \hypertarget{R-3F9}{R-3F9}\tabularnewline
+		TS9 & Viene verificato che sia possibile per ogni tipo di utente registrarsi presso il sistema & NI & \hypertarget{R-3F9}{R-3F9}\tabularnewline
 		\midrule
-		TS9.1 & Viene verificato che il sistema consenta le funzionalità utente solo se possiede un proprietario & NI& \hypertarget{R-3F9.1}{R-3F9.1}\tabularnewline
+		TS9.1 & Viene verificato che il sistema consenta le funzionalità utente solo se possiede un proprietario & NI & \hypertarget{R-3F9.1}{R-3F9.1}\tabularnewline
 		\midrule
-		TS9.2 & I sotto-requisiti sono verificati. Viene verificato che sia possibile per un utente registrarsi presso il sistema con una password e le proprie informazioni personali & NI& \hypertarget{R-3F9.2}{R-3F9.2}\tabularnewline
+		TS9.2 & I sotto-requisiti sono verificati. Viene verificato che sia possibile per un utente registrarsi presso il sistema con una password e le proprie informazioni personali & P& \hypertarget{R-3F9.2}{R-3F9.2}\tabularnewline
 		\midrule
-		TS9.2.1 & Viene verificato che il sistema segnali un errore se non vengono inseriti tutti i campi necessari alla registrazione di un utente & NI& \hypertarget{R-3F9.2.1}{R-3F9.2.1}\tabularnewline
+		TS9.2.1 & Viene verificato che il sistema segnali un errore se non vengono inseriti tutti i campi necessari alla registrazione di un utente & NI & \hypertarget{R-3F9.2.1}{R-3F9.2.1}\tabularnewline
 		\midrule
-		TS11 & Viene verificato che il sistema gestisca correttamente tutte le funzionalità di un amministratore & NI& \hypertarget{R-3F11}{R-3F11}\tabularnewline
+		TS11 & Viene verificato che il sistema gestisca correttamente tutte le funzionalità di un amministratore & P& \hypertarget{R-3F11}{R-3F11}\tabularnewline
 		\midrule
-		TS13 & Viene verificato che il sistema consenta ad un utente di modificare le proprie informazioni personali presenti nel sistema & NI& \hypertarget{R-3F13}{R-3F13}\tabularnewline
+		TS13 & Viene verificato che il sistema consenta ad un utente di modificare le proprie informazioni personali presenti nel sistema & P& \hypertarget{R-3F13}{R-3F13}\tabularnewline
 		\midrule
-		TS14 & Viene verificato che, per ogni tipo di utente, il sistema gestisca correttamente la ricerca di un questionario da parte di un utente & NI& \hypertarget{R-3F14}{R-3F14}\tabularnewline
+		TS14 & Viene verificato che, per ogni tipo di utente, il sistema gestisca correttamente la ricerca di un questionario da parte di un utente & NI & \hypertarget{R-3F14}{R-3F14}\tabularnewline
 		\midrule
-		TS16 & Viene verificato che un utente sia in grado di rispondere alle domande di un questionario & NI& \hypertarget{R-3F16}{R-3F16}\tabularnewline
+		TS16 & Viene verificato che un utente sia in grado di rispondere alle domande di un questionario & P& \hypertarget{R-3F16}{R-3F16}\tabularnewline
 		\midrule
-		TS17 & Viene verificato che per un qualsiasi tipo di utente autenticato presso il sistema sia possibile effettuare correttamente il log-out  & NI& \hypertarget{R-3F17}{R-3F17}\tabularnewline
+		TS17 & Viene verificato che per un qualsiasi tipo di utente autenticato presso il sistema sia possibile effettuare correttamente il log-out  & P& \hypertarget{R-3F17}{R-3F17}\tabularnewline
 		\midrule
-		TS18 & Viene verificato che il sistema consenta e gestisca correttamente tutte le azioni previste per il proprietario & NI& \hypertarget{R-3F18}{R-3F18}\tabularnewline
+		TS18 & Viene verificato che il sistema consenta e gestisca correttamente tutte le azioni previste per il proprietario & NI & \hypertarget{R-3F18}{R-3F18}\tabularnewline
 		\midrule
-		TS19 & Viene verificato che per un docente sia possibile effettuare correttamente la ricerca di una domanda presente nel sistema & NI& \hypertarget{R-3F19}{R-3F19}\tabularnewline
+		TS19 & Viene verificato che per un docente sia possibile effettuare correttamente la ricerca di una domanda presente nel sistema & P& \hypertarget{R-3F19}{R-3F19}\tabularnewline
 		\midrule
-		TS22 & Viene verificato che sia possibile per un docente, amministratore e proprietario la gestione degli argomenti presenti nel sistema & NI& \hypertarget{R-3F22}{R-3F22}\tabularnewline
+		TS22 & Viene verificato che sia possibile per un docente, amministratore e proprietario la gestione degli argomenti presenti nel sistema & NI & \hypertarget{R-3F22}{R-3F22}\tabularnewline
 		\midrule
-		TS29 & Viene verificato che il sistema consenta ad un docente di visualizzare una domanda & NI& \hypertarget{R-3F29}{R-3F29}\tabularnewline
+		TS29 & Viene verificato che il sistema consenta ad un docente di visualizzare una domanda & P& \hypertarget{R-3F29}{R-3F29}\tabularnewline
 		\midrule
-		TS30 & Viene verificato che il sistema consenta ad un docente di visualizzare un questionario & NI& \hypertarget{R-3F30}{R-3F30}\tabularnewline
-		\midrule
+		TS30 & Viene verificato che il sistema consenta ad un docente di visualizzare un questionario & NI & \hypertarget{R-3F30}{R-3F30}\tabularnewline 	\midrule 
 		\caption{Tabella di tracciamento test di sistema / requisiti} \tabularnewline
 	\end{longtable}
+	
 	\subsubsection{Tracciamento TS-Requisito}
 	\begin{longtable}{r l l}
 		\midrule
@@ -1541,43 +1559,43 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\textbf{ID} & \textbf{Descrizione} & \textbf{Componente} & \textbf{Stato} \tabularnewline
 		\midrule
 		\midrule
-		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & NI\tabularnewline
+		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & P\tabularnewline
 		\midrule
-		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & NI\tabularnewline
+		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & NI\tabularnewline
+		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & NI\tabularnewline
+		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & P\tabularnewline
 		\midrule
-		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & NI\tabularnewline
+		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & P\tabularnewline
 		\midrule
-		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & NI\tabularnewline
+		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & P\tabularnewline
 		\midrule
-		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & NI\tabularnewline
+		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & P\tabularnewline
 		\midrule
-		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & NI\tabularnewline
+		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & P\tabularnewline
 		\midrule
-		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & NI\tabularnewline
+		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & P\tabularnewline
 		\midrule
-		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & NI\tabularnewline
+		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & NI\tabularnewline
+		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & NI\tabularnewline
+		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & NI\tabularnewline
+		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & P\tabularnewline
 		\midrule
-		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & NI\tabularnewline
+		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & NI\tabularnewline
+		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & NI\tabularnewline
+		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & NI\tabularnewline
+		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & P\tabularnewline
 		\midrule
-		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & NI\tabularnewline
+		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & P\tabularnewline
 		\midrule
-		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & NI\tabularnewline
+		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & P\tabularnewline
 		\midrule
 		\caption{Tabella test di integrazione} \tabularnewline
 	\end{longtable}
@@ -1633,7 +1651,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\midrule
 		\caption{Tabella componente / test di integrazione} \tabularnewline
 	\end{longtable}
-\subsection{Test di unità}
+\subsection{Test di unità}\label{test_unita}
 
 \subsubsection{Package \texttt{client:model:service}: test e tracciamento}
 \begin{center}
@@ -1682,8 +1700,8 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\midrule
 	157.84.TU& admin: \newline  UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
 	157.85.TU& admin: \newline  UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
-	193.193.TU& public: \newline  Home.checkLogged() & should have a method to check if the path is active & P\\ \midrule
-	193.193.TU& public: \newline  Home.urlPath() & should have a method to check if the path is active & P\\ \midrule
+	193.193.TU& public: \newline  Home.checkLogged() & deve controllare che il l'operazione sia corretta& P\\ \midrule
+	193.193.TU& public: \newline  Home.urlPath() & deve controlare che il percorso sia corretto & P\\ \midrule
 	83.190.TU& public: \newline  LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
 	83.189.TU& public: \newline  LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
 	83.91.TU& public: \newline  LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
@@ -1709,7 +1727,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	184.74.TU& teacher: \newline  ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
 	176.54.TU& teacher: \newline  ManipulateQuestionnaire. \newline removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
 176.79.TU	& teacher: \newline  ManipulateQuestionnaire. \newline ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
-	195.195.TU & user: Home.logout() & it should filter the list of roles \\ \midrule
+	195.195.TU & user: Home.logout() & deve filtrare gli utenti in base ai ruoli\\ \midrule
 	196.199.TU& user: \newline  User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
 	196.200.TU& user: \newline  User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
 	196.201.TU& user: \newline  User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio & P \\ \midrule
@@ -1722,7 +1740,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 
 \subsubsection{Package \texttt{client: util}: test e tracciamento}
 \begin{center}
-	\begin{longtable}[]{l l p{0.4\textwidth} c}\midrule
+	\begin{longtable}[H]{l p{0.3\textwidth} p{0.45\textwidth} c}\midrule
 	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
 	\midrule		
 	179.126.TU&  Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri & P\\ \midrule
@@ -1789,8 +1807,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		
 \end{longtable}
 \end{center}
-
-\section{Dettaglio delle verifiche tramite analisi}
+\appendix
+\section{Resoconto delle attività di verifica}
 	\subsection{Analisi}
 	\subsubsection{Documenti}
 	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
@@ -1829,8 +1847,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
 				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
 				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
-				CoPQ & 23\% &  Ottimale \\ \midrule
-				Requirement Stability Index & 81\% & Superato \\ \bottomrule
+				\CoPQ & 23\% &  Ottimale \\ \midrule
+				\mgls{requirement stability index} & 81\% & Superato \\ \bottomrule
 			\end{tabular}
 		\end{center}
 		\caption{Test su Qualità di Processo in \FAD}
@@ -1870,8 +1888,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
 				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
-				CoPQ & 40\% & Superato \\ \midrule
-				Requirement Stability Index & 94\% & Ottimale\\ \bottomrule
+				\CoPQ & 40\% & Superato \\ \midrule
+				\mgls{requirement stability index} & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
 		\caption{Test su Qualità di Processo in \FPA}
@@ -1913,8 +1931,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\mGls{cost variance} & 0\% & Ottimale\\ \midrule
 				\mgls{milestone schedule variance} &  0\% & Ottimale\\ \midrule
 				\mgls{schedule variance}  & 0\% & Ottimale \\ \midrule
-				CoPQ& 21\% & Ottimale \\ \midrule
-				Requirement Stability Index & 91\% & Ottimale\\ \bottomrule
+				\CoPQ& 21\% & Ottimale \\ \midrule
+				\mgls{requirement stability index} & 91\% & Ottimale\\ \bottomrule
 			\end{tabular}	
 		\end{center}
 		\caption{Test Qualità di Processo in \FPD}
@@ -1991,7 +2009,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
 				\mGls{cost variance} & & \\ \midrule
 				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
-				Requirement Stability  & 100\% & Ottimale \\ \midrule \midrule
+				\mgls{requirement stability index}  & 100\% & Ottimale \\ \midrule \midrule
 			\end{tabular}	
 		\end{center}
 		\caption{Esito dei test su metriche per qualità di processo nella \FC}
@@ -2019,12 +2037,12 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	\begin{center}
 	\begin{table}[!h]
 		
-			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+			\begin{tabular}{p{0.5\textwidth} p{0.1\textwidth} p{0.3\textwidth}}		\midrule
 				\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
-				CoPQ documenti & 1\% & Ottimale \\ \midrule
-				CoPQ progettazione & 66\% &  Non Superato\\ \midrule
-				CoPQ codice & 5\% &  Ottimale \\ \midrule\midrule
-			\textbf{	CoPQ medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
+				\CoPQ{}   documenti & 1\% & Ottimale \\ \midrule
+				\CoPQ{}  progettazione & 66\% &  Non Superato\\ \midrule
+				\CoPQ{} codice & 5\% &  Ottimale \\ \midrule\midrule
+			\textbf{	\CoPQ{} medio} & \textbf{24\%} & \textbf{Superato}  \\ \midrule 				
 			\end{tabular}	
 		
 			\caption{Esito dei test su CoQP nella \FC}
@@ -2067,12 +2085,12 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.28\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
+				\begin{tabular}{p{0.3\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
 					\midrule
 						\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
 						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
 						\# parametri/metodo & 1,18\% & 98,82\% & 0,00\% \\\midrule
-						complessità ciclomatica & 0,00\% & 100,00\% & 0,00\% \\\midrule
+						\mgls{complessità ciclomatica} & 0,00\% & 100,00\% & 0,00\% \\\midrule
 						\# linee codice/metodo & 0,29\% & 99,71\% & 0,00\% \\\midrule
 						\# livelli annidamento & 0,00\% & 100,00\% & 0,00\% \\\midrule
 			
@@ -2085,8 +2103,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
 						\midrule
 						\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
-						instabiltà &  &    \\\midrule
-						copertura da parte dei test & 76.1  & Ottimale \\ \midrule
+						Instabiltà & 0.20  &  Ottimale  \\\midrule
+						Copertura da parte dei test & 76.1  & Ottimale \\ \midrule
 					\end{tabular}	
 				\end{center}
 				\caption{Test Qualità del \mgls{software} nella \FC (2)}
@@ -2095,22 +2113,22 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\newpage
 	\section{Dettaglio dell'esito delle revisioni}
-	Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente} a cui si deve sottoporsi. Il \mgls{committente} segnalerà le problematiche trovate fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto,quindi sarà possibile correggere delle problematiche indicate. Dopo le opportune correzioni, si potrà procedere su una base verificata e corretta.
+	Nello sviluppo del progetto ci saranno quattro revisioni del \mgls{committente}. In tali occasioni, egli segnalerà le problematiche rilevate, fornendo un giudizio globale dell'andamento del progetto ed una dettagliata valutazione per ciascun documento. Rendendo noti i problemi e le criticità del lavoro svolto, sarà possibile correggere le problematiche indicate. Pertanto, dopo opportune correzioni, si potrà procedere su una base verificata e corretta.
 	
 	\subsection{\RR{}}
 	\begin{itemize}
-		\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è normata la redazione dei verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate 
-		\item \textbf{\AdR{}:} sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento
-		\item \textbf{\NdP{}:} in seguito alla \RR{} si è deciso di migliorare la struttura del documento. In particolare si è ritenuto opportuno renderne la struttura maggiormente conforme allo standard \textit{ISO/IEC 12207}
-		\item \textbf{\PdP{}:} è stata effettuata una revisione della struttura del documento. I contenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inoltre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione
-		\item \textbf{\PdQ{}:} in seguito alle segnalazioni sono stati rivisti i contenuti del documento. In particolare sono state riviste nei contenuti e nell'impostazione generale le sezioni relative alla politica di qualità, qualità di processo e qualità di prodotto. Sono state aggiunte metriche per la qualità di processo ed e si è rivisto il documento rimuovendo le sezioni e i contenuti normativi
-		\item \textbf{\GL{}:} come da indicazione, si è rivista l'organizzazione del glossario, che è divenuto un documento a se stante
+		\item \textbf{Generale:} si sono riviste le norme relative al registro delle modifiche, per migliorare la gestione dei documenti. Si è normata la redazione dei verbali e il formato di questi ultimi. Sono state redatte inoltre le restanti modifiche indicate.
+		\item \textbf{\AdR{}:} sono stati corretti i diagrammi indicati, e si è migliorata l'automazione di questi ultimi per ridurre il numero di errori presenti nel documento.
+		\item \textbf{\NdP{}:} in seguito alla \RR{} si è deciso di migliorare la struttura del documento. In particolare si è ritenuto opportuno renderne la struttura maggiormente conforme allo standard \textit{ISO/IEC 12207}.
+		\item \textbf{\PdP{}:} è stata effettuata una revisione della struttura del documento. I contenuti sono stati riorganizzati, raggruppandoli per scopo, come indicato. E' stata inoltre rivista e incrementata la sezione relativa ai rischi e si sono aggiunte revisioni interne alla pianificazione.
+		\item \textbf{\PdQ{}:} in seguito alle segnalazioni sono stati rivisti i contenuti del documento. In particolare sono state riviste nei contenuti e nell'impostazione generale le sezioni relative alla politica di qualità, qualità di processo e qualità di prodotto. Sono state aggiunte metriche per la qualità di processo ed e si è rivisto il documento rimuovendo le sezioni e i contenuti normativi.
+		\item \textbf{\GL{}:} come da indicazione, si è rivista l'organizzazione del glossario, che è divenuto un documento a se stante.
 	\end{itemize}
 	
 	\subsection{\RP{}}
 	\begin{itemize}
-		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate
-		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardo la struttura e in piccola parte anche nel contenuto di alcuni casi d'uso per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivista la descrizione di UC5.1, separato i casi d'uso per tipologia e rivisto le post condizioni dei casi d'errore.
+		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP{}  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate.
+		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardanti la struttura e, in minor parte, il contenuto. Alcuni casi d'uso sono stati modificati per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivisto la descrizione di UC5.1, separato i casi d'uso per tipologia e le post condizioni dei casi d'errore.
 		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".

@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{2.0.4}
+\newcommand{\versione}{3.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -38,10 +38,10 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	& \AB{} \\
-\ 	& \TP{} \\
+\textbf{Redazione}	& \AVE{} \\
+\ 	& \WS{} \\
 \textbf{Verifica}	&	\NDC{}	\\
-\textbf{Approvazione}	& \TP{} \\
+\textbf{Approvazione}	& \AVE{} \\
 \textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 \ 	&	\Vardanega{}	\\
 \ 	&	\Cardin{}	\\
@@ -64,13 +64,17 @@
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		2.0.4 & \TP{} & 2016-05-15 & Aggiunto consuntivo \FC{} \\*
+		3.0.0 & \AVE{} & 2016-05-15 & Approvazione \\*
 		\midrule
-		2.0.3 & \TP{} & 2016-05-15 & Aggiunto riscontri rischi \FC{} \\*
+		2.1.0 & \NDC{} & 2016-05-13 & Verifica \\*
 		\midrule
-		2.0.2 & \TP{} & 2016-05-10 & Aggiunta analisi delle tendenze per ogni periodo \\*
+		2.0.4 & \WS{} & 2016-05-13 & Aggiunto consuntivo \FC{} \\*
 		\midrule
-		2.0.1 & \TP{} & 2016-05-09 & Corretti minori errori grammaticali \\*
+		2.0.3 & \AVE{} & 2016-05-12 & Aggiunto riscontri rischi \FC{} \\*
+		\midrule
+		2.0.2 & \AVE{} & 2016-05-10 & Aggiunta analisi delle tendenze per ogni periodo \\*
+		\midrule
+		2.0.1 & \WS{} & 2016-05-09 & Corretti minori errori grammaticali \\*
         \midrule
         2.0.0 & \TP{} & 2016-04-08 & Approvazione \\*
    		\midrule
@@ -147,6 +151,7 @@
 \tableofcontents
 \newpage
 \listoftables
+\newpage
 \listoffigures
 \newpage
 
@@ -201,8 +206,13 @@ Si divide lo sviluppo del progetto in 4 periodi:
 \begin{itemize}
 	\item Capitolato d’Appalto \prjL: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5.pdf};
 	\item Vincoli di organigramma e dettagli tecnico-economici: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/PD01b.html};
-	\item \NdP: \textit{NormeDiProgetto\_v2.0.0}. 
-	\item \PdQ: \textit{PianoDiQualifica\_v2.0.0}
+	\item \NdP: \textit{NormeDiProgetto\_v3.0.0}. 
+	\item \PdQ: \textit{PianoDiQualifica\_v3.0.0}
+\end{itemize}
+
+\subsubsection{Informativi}
+\begin{itemize}
+	\item Slide del corso di Ingegneria del software 2015/16 : \url{http://www.math.unipd.it/~tullio/IS-1/2015}.
 \end{itemize}
 
 \subsection{Ciclo di sviluppo}
@@ -262,312 +272,300 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 
 \subsection{Rischi di gruppo}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\
-			\midrule
-			\textbf{Probabilità} & Media \\
-			\midrule
-			\textbf{Gravità} & Media \\
-			\midrule
-			\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\
-			\midrule
-			\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\
-			\midrule
-			\textbf{Riscontro} & 
-                \textbf{\FA{}}: Ci sono stati casi di assenze per impegni personali che sono state 
-                    risolte come descritto qui sopra. Il totale delle ore perse a causa di questi avvenimenti 
-                    non ha portato ritardi significativi. \newline
-                \textbf{\FAD{}}: Come nel periodo precedente ci sono stati alcuni casi in cui alcuni membri
-                    hanno avuto impegni personali, ma questi non hanno rappresentato alcuni ritardo significativo
-                    applicando le strategie descritte qui sopra. \newline
-                \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
-                    complessivamente comportato alcun ritardo significativo. \newline
-                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \newline
-           		\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla formazione del gruppo. \\
-			\midrule
-			\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\
-			\bottomrule
-		\end{tabular}
-		\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
-	\end{center}
-\end{table}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Molti dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\
-			\midrule
-			\textbf{Probabilità} & Bassa \\
-			\midrule
-			\textbf{Gravità} & Alta \\
-			\midrule
-			\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante tutta la durata del progetto per capire dove stia nascendo un dissidio fra uno o più membri. \\
-			\midrule
-			\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\
-			\midrule
-			\textbf{Riscontro} & 
-                \textbf{\FA{}}: Fino ad ora non ci sono stati affatto dissidi tra i membri del gruppo, 
-                    che hanno invece mantenuto un rapporto rispettoso nei confronti 
-                    del progetto e degli altri membri. \newline
-                \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
-                \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
-                \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
-                \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \\
-            \midrule
-			\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\
-			\bottomrule
-		\end{tabular}
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Problemi personali dei membri del gruppo} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} & Ciascun componente del gruppo ha impegni personali e necessità proprie. Questo implica la possibilità che qualche componente del gruppo non sia disponibile in certi momenti. \\*
+		\midrule
+		\textbf{Probabilità} & Media \\*
+		\midrule
+		\textbf{Gravità} & Media \\*
+		\midrule
+		\textbf{Pianificazione} & I membri del team si impegneranno ad avvisare prontamente il \PM{} in vista di impegni personali. L’uso di calendari di gruppo permetterà al responsabile di avere una visione complessiva delle indisponibilità.  \\*
+		\midrule
+		\textbf{Mitigazione} & Il \PM{} consultando il calendario di gruppo cercherà di distribuire gli incarichi tenendo presente le assenze segnalate del team. Per indisponibilità improvvise il responsabile eseguirà una nuova pianificazione del periodo corrente. \\*
+		\midrule
+		\textbf{Riscontro} & 
+            \textbf{\FA{}}: Ci sono stati casi di assenze per impegni personali che sono state 
+                risolte come descritto qui sopra. Il totale delle ore perse a causa di questi avvenimenti 
+                non ha portato ritardi significativi. \newline
+            \textbf{\FAD{}}: Come nel periodo precedente ci sono stati alcuni casi in cui alcuni membri
+                hanno avuto impegni personali, ma questi non hanno rappresentato alcuni ritardo significativo
+                applicando le strategie descritte qui sopra. \newline
+            \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
+                complessivamente comportato alcun ritardo significativo. \newline
+            \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \newline
+          		\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla formazione del gruppo. \\*
+		\midrule
+		\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\*
+		\bottomrule
+		\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
+	\end{longtable}
+\end{center}
+
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Dissidi tra i membri del gruppo} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} & Il gruppo è composto da individui eterogenei e con principi diversi. Molti dei componenti sono inoltre alla prima esperienza in un gruppo numeroso. Tali fattori potrebbero causare problemi di collaborazione con conseguente appesantimento del carico di lavoro e la nascita di un clima lavorativo non proficuo. \\*
+		\midrule
+		\textbf{Probabilità} & Bassa \\*
+		\midrule
+		\textbf{Gravità} & Alta \\*
+		\midrule
+		\textbf{Pianificazione} & Il \PM{} deve monitorare lo stato di collaborazione fra i vari componenti del gruppo durante tutta la durata del progetto per capire dove stia nascendo un dissidio fra uno o più membri. \\*
+		\midrule
+		\textbf{Mitigazione} & Si cercherà sempre di riportare la sintonia all’interno del gruppo tale che l’ambiente di lavoro sia il meno stressante possibile. Nel caso di forti contrasti, il \PM{} dovrà mediare l’incontro tra i membri in conflitto. \\*
+		\midrule
+		\textbf{Riscontro} & 
+            \textbf{\FA{}}: Fino ad ora non ci sono stati affatto dissidi tra i membri del gruppo, 
+                che hanno invece mantenuto un rapporto rispettoso nei confronti 
+                del progetto e degli altri membri. \newline
+            \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
+            \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
+            \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
+            \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \\*
+        \midrule
+		\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\*
+		\bottomrule
 		\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
 
 \subsection{Rischi tecnologici}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Guasti hardware} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\
-			\midrule
-			\textbf{Probabilità} & Bassa \\
-			\midrule
-			\textbf{Gravità} & Bassa \\
-			\midrule
-			\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \mgls{backup} frequenti, ricordarsi di fare il \mgls{push} sulla \mgls{repository}. \\
-			\midrule
-			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\
-			\midrule
-			\textbf{Riscontro} & 
-                \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \newline
-                \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
-                \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
-                \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \newline
-                \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \\
-            \midrule
-			\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\
-			\bottomrule
-		\end{tabular}
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Guasti hardware} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} &  Ogni componente del gruppo è provvisto di un computer, il rischio è un guasto ad uno o più computer. \\*
+		\midrule
+		\textbf{Probabilità} & Bassa \\*
+		\midrule
+		\textbf{Gravità} & Bassa \\*
+		\midrule
+		\textbf{Pianificazione} & Ogni membro del gruppo avrà cura della propria attrezzatura; ne verificherà inoltre giornalmente il completo funzionamento. Effettuare \mgls{backup} frequenti, ricordarsi di fare il \mgls{push} sulla \mgls{repository}. \\*
+		\midrule
+		\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità del proprio computer. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\*
+		\midrule
+		\textbf{Riscontro} & 
+            \textbf{\FA{}}: Non sono stati rilevati guasti hardware. \newline
+            \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
+            \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
+            \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \newline
+            \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \\*
+        \midrule
+		\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\*
+		\bottomrule
 		\caption{Guasti hardware - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} &  Ogni componente \mgls{software} utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\
-			\midrule
-			\textbf{Probabilità} & Media \\
-			\midrule
-			\textbf{Gravità} & Media \\
-			\midrule
-			\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti \mgls{software} correttamente e come specificato nelle \NdP{}. Effettuare \mgls{backup} frequenti, ricordarsi di fare il \mgls{push} sulla  \mgls{repository}.\\
-			\midrule
-			\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti \mgls{software}. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\
-			\midrule
-            \textbf{Riscontro} & 
-                \textbf{\FA{}}: E' stato rilevato un malfunzionamento \mgls{software} per quanto riguarda 
-                    \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. 
-                    Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile 
-                    ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. 
-                    In ogni caso erano stati previsti \mgls{backup} della base di dati che avrebbero permesso il 
-                    ripristino del database con la perdita solo dei dati più recenti. \newline
-                \textbf{\FAD{}}: Si sono riscontrati lievi problemi con la gestione della \mgls{repository} git;
-                    In particolare in alcuni casi i membri del gruppo hanno effettuato modifiche a \mgls{branch}
-                    non corrette. In ogni caso sono stati effettuati \mgls{backup} e si sono corretti
-                    i problemi in breve tempo. 
-                    Inoltre è stato rilevato un \mgls{bug} di \mgls{tracy} che causava, alla rimozione di un requisito,
-                    la rimozione dei casi d'uso associati ad esso. \newline
-                \textbf{\FPA{}}: Il software \mgls{draw.io} ha rappresentato iniziali ritardi in quanto difficile
-                    da usare per la generazione dei diagrammi delle classi per la stesura della \ST{} interna.
-                    Si è deciso di utilizzare un nuovo programma che ci ha permesso di recuperare il tempo
-                    perso grazie alla sua interfaccia intuitiva e la possibilità di esportare porzioni di diagrammi
-                    in modo semplice ed efficiente. \newline
-				\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
-					ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
-					minimi. \newline
-				\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \\ 
-    		\midrule
-            \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\
-			\bottomrule
-		\end{tabular}
+
+\begin{center}
+\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+	\toprule
+	\textbf{Nome rischio} & \textbf{Malfunzionamenti software} \\*
+	\midrule
+	\midrule
+	\textbf{Descrizione} &  Ogni componente \mgls{software} utilizzata (applicazioni e librerie) può essere soggetta a malfunzionamento. \\*
+	\midrule
+	\textbf{Probabilità} & Media \\*
+	\midrule
+	\textbf{Gravità} & Media \\*
+	\midrule
+	\textbf{Pianificazione} & Ogni membro del gruppo dovrà attenersi a rispettare a utilizzare le componenti \mgls{software} correttamente e come specificato nelle \NdP{}. Effettuare \mgls{backup} frequenti, ricordarsi di fare il \mgls{push} sulla  \mgls{repository}.\\*
+	\midrule
+	\textbf{Mitigazione} & Provvedere ad un immediato ripristino delle funzionalità delle componenti \mgls{software}. In caso di perdita di dati effettuare il recupero tramite \mgls{backup} e \mgls{repository}. Utilizzo dei computer dei laboratori informatici. \\*
+	\midrule
+    \textbf{Riscontro} & 
+        \textbf{\FA{}}: E' stato rilevato un malfunzionamento \mgls{software} per quanto riguarda 
+            \mgls{tracy} che causava l'impossibilità di vedere la pagina dei requisiti. 
+            Dopo circa un'ora utilizzata per la rilevazione del problema esatto, è stato possibile 
+            ripristinare la base di dati ad uno stato consistente senza la perdita di alcuni tipo di dato. 
+            In ogni caso erano stati previsti \mgls{backup} della base di dati che avrebbero permesso il 
+            ripristino del database con la perdita solo dei dati più recenti. \newline
+        \textbf{\FAD{}}: Si sono riscontrati lievi problemi con la gestione della \mgls{repository} git;
+            In particolare in alcuni casi i membri del gruppo hanno effettuato modifiche a \mgls{branch}
+            non corrette. In ogni caso sono stati effettuati \mgls{backup} e si sono corretti
+            i problemi in breve tempo. 
+            Inoltre è stato rilevato un \mgls{bug} di \mgls{tracy} che causava, alla rimozione di un requisito,
+            la rimozione dei casi d'uso associati ad esso. \newline
+        \textbf{\FPA{}}: Il software \mgls{draw.io} ha rappresentato iniziali ritardi in quanto difficile
+            da usare per la generazione dei diagrammi delle classi per la stesura della \ST{} interna.
+            Si è deciso di utilizzare un nuovo programma che ci ha permesso di recuperare il tempo
+            perso grazie alla sua interfaccia intuitiva e la possibilità di esportare porzioni di diagrammi
+            in modo semplice ed efficiente. \newline
+		\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
+			ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
+			minimi. \newline
+		\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \\* 
+  		\midrule
+	    \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\*
+		\bottomrule
 		\caption{Malfunzionamenti \mgls{software} - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti \mgls{software} che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
-			essere apprese. \\
-			\midrule
-			\textbf{Probabilità} & Alta \\
-			\midrule
-			\textbf{Gravità} & Alta \\
-			\midrule
-			\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\
-			\midrule
-			\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\
-			\midrule
-            \textbf{Riscontro} & 
-                \textbf{\FA{}}: Sono stati previsti periodi nei quali i membri si sono impegnati allo studio 
-                    delle tecnologie che sarebbero poi state utilizzate, come \mgls{latex}, \mgls{git}, \mgls{github}, 
-                    \mgls{teamwork} e \mgls{tracy}. Di queste tecnologie solo l'inesperienza con \mgls{git} ha portato a 
-                    leggeri ritardi con la pianificazione che sono stati prontamente risolti condividendo le conoscenze 
-                    apprese e colmando le lacune di alcuni membri. \newline
-                \textbf{\FAD{}}: Essendo un periodo principalmente di correzione di errori rilevati dalla \RR{},
-                    non si sono riscontrati problemi particolari in questo campo. \newline
-                \textbf{\FPA{}}: La scelta di un nuovo programma, invece che \mgls{draw.io}, per la creazione
-                    dei diagrammi delle classi ha ovviamente portato ad un iniziale ritardo per l'inesperienza 
-                    nell'utilizzo di tale programma, ma i membri del gruppo hanno velocemente appreso le
-                    funzioni principali per poter completare il lavoro. Non si sono quindi verificati ritardi
-                    degni di nota. \newline
-                \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
-                	del gruppo e per questo motivo non hanno comportato ritardi. \newline
-               	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \\
-    		\midrule
-            \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\
-			\bottomrule
-		\end{tabular}
-		\caption{Inesperienza tecnologica - Analisi dei rischi}
-	\end{center}
-\end{table}
+\begin{center}
+\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+	\toprule
+	\textbf{Nome rischio} & \textbf{Inesperienza tecnologica} \\*
+	\midrule
+	\midrule
+	\textbf{Descrizione} & È richiesto l’utilizzo di molti strumenti \mgls{software} che nessun componente del gruppo ha mai utilizzato. Alcune conoscenze richieste richiedono tempo per
+	essere apprese. \\*
+	\midrule
+	\textbf{Probabilità} & Alta \\*
+	\midrule
+	\textbf{Gravità} & Alta \\*
+	\midrule
+	\textbf{Pianificazione} & Ogni componente del gruppo si impegna a studiare in maniera autonoma il materiale richiesto per poter affrontare in modo ottimale il progetto. Il \PM{} ha il compito di verificare il grado di conoscenza di ciascun componente, relativo alle tecnologie adottate. Se necessario il \PM{} stenderà un piano di studi per i vari componenti, così che nei momenti di minor carico lavorativo sia possibile acquisiste le conoscenze richieste, prima che siano necessarie. \\*
+	\midrule
+	\textbf{Mitigazione} & Poiché è prevista una rotazione dei ruoli se un membro trova difficoltà nell'utilizzo di una particolare tecnologia altri membri del gruppo potranno provvedere alla mancanza. Inoltre i membri del gruppo potranno rendersi disponibili ad aiutare quelli in difficoltà. \\*
+	\midrule
+    \textbf{Riscontro} & 
+        \textbf{\FA{}}: Sono stati previsti periodi nei quali i membri si sono impegnati allo studio 
+            delle tecnologie che sarebbero poi state utilizzate, come \mgls{latex}, \mgls{git}, \mgls{github}, 
+            \mgls{teamwork} e \mgls{tracy}. Di queste tecnologie solo l'inesperienza con \mgls{git} ha portato a 
+            leggeri ritardi con la pianificazione che sono stati prontamente risolti condividendo le conoscenze 
+            apprese e colmando le lacune di alcuni membri. \newline
+        \textbf{\FAD{}}: Essendo un periodo principalmente di correzione di errori rilevati dalla \RR{},
+            non si sono riscontrati problemi particolari in questo campo. \newline
+        \textbf{\FPA{}}: La scelta di un nuovo programma, invece che \mgls{draw.io}, per la creazione
+            dei diagrammi delle classi ha ovviamente portato ad un iniziale ritardo per l'inesperienza 
+            nell'utilizzo di tale programma, ma i membri del gruppo hanno velocemente appreso le
+            funzioni principali per poter completare il lavoro. Non si sono quindi verificati ritardi
+            degni di nota. \newline
+        \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
+              	del gruppo e per questo motivo non hanno comportato ritardi. \newline
+             	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \\**
+	  		\midrule
+	    \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\**
+		\bottomrule
+		\caption{Versionamento del documento}
+	\end{longtable}
+\end{center}
+
 
 \subsection{Rischi organizzativi}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\
-			\midrule
-			\textbf{Probabilità} & Alta \\
-			\midrule
-			\textbf{Gravità} & Alta \\
-			\midrule
-			\textbf{Pianificazione} & Si deve controllare lo stato dei \mgls{ticket} periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicarvi con un tempo di \mgls{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\
-			\midrule
-			\textbf{Mitigazione} & Utilizzare il tempo di tempo di \mgls{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \mgls{task} in modo che il ritardo sia minimo. \\
-			\midrule
-			\textbf{Riscontro} & 
-                \textbf{\FA{}}: Ci sono stati alcuni ritardi per quanto riguarda le attività di verifica, 
-                ma i periodi di \mgls{slack} previsti nella pianificazione hanno permesso di limitarne i danni. \newline
-                \textbf{\FAD{}}: La stima prevista per questo periodo era notevolmente sottovalutata. Ci sono
-                    stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare. \newline
-                \textbf{\FPA{}}: Grazie anche alla brevità di questo periodo, non si sono riscontrati particolari
-                    ritardi rispetto a quanto previsto. \newline
-                \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
-                    la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
-                    e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
-                    pianificato. \newline
-               	\textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \\
-            \midrule
-            \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\
-			\bottomrule
-		\end{tabular}
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Valutazione tempi e costi} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} & L’approccio al metodo di lavoro risulta nuovo e sono richieste capacità di pianificazione e di analisi che il gruppo non possiede a causa dell’inesperienza. Durante la pianificazione è possibile che i tempi, per l’esecuzione di alcune attività, vengano calcolati in modo errato. In particolare, una sottostima dei tempi provoca un aumento dei costi con conseguente ritardo nella consegna dei materiali previsti. \\*
+		\midrule
+		\textbf{Probabilità} & Alta \\*
+		\midrule
+		\textbf{Gravità} & Alta \\*
+		\midrule
+		\textbf{Pianificazione} & Si deve controllare lo stato dei \mgls{ticket} periodicamente, in modo da verificare eventuali ritardi nello sviluppo delle attività. Per evitare di sottostimare il tempo necessario per completare le attività, è opportuno dimensionare il tempo da dedicarvi con un tempo di \mgls{slack} sufficientemente grande, in modo che un ritardo non incida in maniera negativa sullo sviluppo del progetto. \\*
+		\midrule
+		\textbf{Mitigazione} & Utilizzare il tempo di tempo di \mgls{slack} per svolgere l'attività. Se questo non bastasse il \PM{} deve provvedere a riorganizzare le attività tra i membri e a riassegnare \mgls{task} in modo che il ritardo sia minimo. \\*
+		\midrule
+		\textbf{Riscontro} & 
+            \textbf{\FA{}}: Ci sono stati alcuni ritardi per quanto riguarda le attività di verifica, 
+            ma i periodi di \mgls{slack} previsti nella pianificazione hanno permesso di limitarne i danni. \newline
+            \textbf{\FAD{}}: La stima prevista per questo periodo era notevolmente sottovalutata. Ci sono
+                stati notevoli ritardi causati principalmente dalla notevole mole di correzioni da effettuare. \newline
+            \textbf{\FPA{}}: Grazie anche alla brevità di questo periodo, non si sono riscontrati particolari
+                ritardi rispetto a quanto previsto. \newline
+            \textbf{\FPD{}}: La rinegoziazione dei requisiti ha aiutato notevolmente a semplificare
+                la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
+                e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
+                pianificato. \newline
+              	\textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \\*
+        \midrule
+        \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\*
+		\bottomrule
 		\caption{Valutazione tempi e costi - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai 
-                componenti del gruppo a causa del cambio di competenze e di responsabilità 
-                associati al diverso ruolo da ricoprire. \\
-			\midrule
-			\textbf{Probabilità} & Bassa \\
-			\midrule
-			\textbf{Gravità} & Media \\
-			\midrule
-			\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\
-			\midrule
-			\textbf{Mitigazione} & Utilizzare il tempo di \mgls{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\
-            \midrule
-            \textbf{Riscontro} & 
-                \textbf{\FA{}}: Non ci sono stati particolari ritardi poiché i membri si sono documentati 
-                    e/o hanno chiesto consiglio ai membri che avevano già esperienza per il ruolo richiesto. \newline
-                \textbf{\FAD{}}: Come previsto non ci sono stati particolari problemi dovuti alla rotazione
-                    dei ruoli. \newline
-                \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
-                \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
-                \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \\
-            \midrule
-            \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\
-			\bottomrule
-		\end{tabular}
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Rotazione dei ruoli} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} & La rotazione dei ruoli prevista può creare difficoltà ai 
+            componenti del gruppo a causa del cambio di competenze e di responsabilità 
+            associati al diverso ruolo da ricoprire. \\*
+		\midrule
+		\textbf{Probabilità} & Bassa \\*
+		\midrule
+		\textbf{Gravità} & Media \\*
+		\midrule
+		\textbf{Pianificazione} &  La rotazione dei ruoli, essendo prestabilita, dà la possibilità ai componenti del gruppo di sapere preventivamente il ruolo successivo che dovranno ricoprire e di studiare la documentazione già prodotta. \\*
+		\midrule
+		\textbf{Mitigazione} & Utilizzare il tempo di \mgls{slack} per svolgere l'attività di studio preliminare o chiedere consiglio al membro che ha coperto il ruolo precedentemente. \\*
+        \midrule
+        \textbf{Riscontro} & 
+            \textbf{\FA{}}: Non ci sono stati particolari ritardi poiché i membri si sono documentati 
+                e/o hanno chiesto consiglio ai membri che avevano già esperienza per il ruolo richiesto. \newline
+            \textbf{\FAD{}}: Come previsto non ci sono stati particolari problemi dovuti alla rotazione
+                dei ruoli. \newline
+            \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
+            \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
+            \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \\*
+        \midrule
+        \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\*
+		\bottomrule
 		\caption{Rotazione dei ruoli - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
 
 \subsection{Rischi dei requisiti}
 
-\begin{table}[H]
-	\begin{center}
-		\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
-			\toprule
-			\textbf{Nome rischio} & \textbf{Comprensione errata dei requisiti} \\
-			\midrule
-			\midrule
-			\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR{}, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\
-			\midrule
-			\textbf{Probabilità} & Media \\
-			\midrule
-			\textbf{Gravità} & Alta \\
-			\midrule
-			\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\
-			\midrule
-			\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\
-            \midrule
-            \textbf{Riscontro} & 
-                \textbf{\FA{}}: I requisiti sono stati discussi con il proponente che ne ha confermato la 
-                    validità. \newline
-                \textbf{\FAD{}}: Alcuni requisiti definiti come obbligatori erano in realtà opzionali.
-                    Questo è stato confermato con il proponente e il committente, e gli errori sono stati corretti.
-                    La correzione di una di queste priorità ci ha permesso di semplificare notevolmente
-                    il sistema di autenticazione. Inoltre molti requisiti come la gestione delle statistiche
-                    e il salvataggio delle risposte degli studenti che ricoprivano una gran parte del progetto
-                    complessivo sono risultati requisiti opzionali. \newline
-                \textbf{\FPA{}}: I requisiti sono stati consolidati nei periodi precedenti e non si sono riscontrati
-                    altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
-                    notevolmente questo periodo. \newline
-                \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \newline
-                \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \\
-            \midrule
-            \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
-            	diminuisca in modo lineare con l'avanzamento del progetto. \\
-			\bottomrule
-		\end{tabular}
+\begin{center}
+	\begin{longtable}[H]{p{0.2\textwidth} p{0.8\textwidth}}
+		\toprule
+		\textbf{Nome rischio} & \textbf{Comprensione errata dei requisiti} \\*
+		\midrule
+		\midrule
+		\textbf{Descrizione} & Data l’inesperienza dei componenti del gruppo nell’\AdR{}, è possibile un’errata comprensione dei requisiti comportando un’offerta non conforme alle richieste. \\*
+		\midrule
+		\textbf{Probabilità} & Media \\*
+		\midrule
+		\textbf{Gravità} & Alta \\*
+		\midrule
+		\textbf{Pianificazione} &  Sarà necessario effettuare degli incontri con il \mgls{proponente} in modo da poter definire con chiarezza ogni requisito necessario al corretto sviluppo del progetto. Sarà inoltre indispensabile correggere eventuali errori o imprecisioni indicati dal \mgls{committente} all’esito di ogni revisione. Le analisi redatte subiranno un miglioramento incrementale permettendo di ottenere un’analisi affidabile. \\*
+		\midrule
+		\textbf{Mitigazione} & Correggere tempestivamente ogni errore e imprecisione che il \mgls{committente} individua alle revisioni. \\*
+        \midrule
+        \textbf{Riscontro} & 
+            \textbf{\FA{}}: I requisiti sono stati discussi con il proponente che ne ha confermato la 
+                validità. \newline
+            \textbf{\FAD{}}: Alcuni requisiti definiti come obbligatori erano in realtà opzionali.
+                Questo è stato confermato con il proponente e il committente, e gli errori sono stati corretti.
+                La correzione di una di queste priorità ci ha permesso di semplificare notevolmente
+                il sistema di autenticazione. Inoltre molti requisiti come la gestione delle statistiche
+                e il salvataggio delle risposte degli studenti che ricoprivano una gran parte del progetto
+                complessivo sono risultati requisiti opzionali. \newline
+            \textbf{\FPA{}}: I requisiti sono stati consolidati nei periodi precedenti e non si sono riscontrati
+                altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
+                notevolmente questo periodo. \newline
+            \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \newline
+            \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \\*
+        \midrule
+        \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
+           	diminuisca in modo lineare con l'avanzamento del progetto. \\*
+		\bottomrule
 		\caption{Comprensione errata dei requisiti - Analisi dei rischi}
-	\end{center}
-\end{table}
+	\end{longtable}
+\end{center}
+
 
 \newpage
 \section{Pianificazione}
@@ -598,44 +596,44 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\begin{center}
 		\begin{tabular}{p{0.08\textwidth} p{0.4\textwidth} p{0.2\textwidth} p{0.1\textwidth}}
 			\toprule
-			\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\
+			\textbf{ID}	&	\textbf{Attività}	&	\textbf{Ruolo}	&	\textbf{Ore}\\*
 			\midrule
 			\midrule
-			\textbf{AN1} & \textbf{\NdP{}} &  &  \\
+			\textbf{AN1} & \textbf{\NdP{}} &  &  \\*
 			\midrule
-			AN1.1 & Stesura & \AM{} & 20 \\
+			AN1.1 & Stesura & \AM{} & 20 \\*
 			\midrule
-			AN1.2 & Verifica & \VR{} & 8 \\
+			AN1.2 & Verifica & \VR{} & 8 \\*
 			\midrule
-			\textbf{AN2} & \textbf{\SdF{}} & & \\
+			\textbf{AN2} & \textbf{\SdF{}} & & \\*
 			\midrule
-			AN2.1 & Stesura & \AN{} & 8 \\
+			AN2.1 & Stesura & \AN{} & 8 \\*
 			\midrule
-			AN2.2 & Verifica & \VR{} & 2 \\
+			AN2.2 & Verifica & \VR{} & 2 \\*
 			\midrule
-			\textbf{AN3} & \textbf{\AdR{}} & &  \\
+			\textbf{AN3} & \textbf{\AdR{}} & &  \\*
 			\midrule
-			AN3.1 & Stesura & \AN{} & 48 \\
+			AN3.1 & Stesura & \AN{} & 48 \\*
 			\midrule
-			AN3.2 & Verifica & \VR{} & 16 \\
+			AN3.2 & Verifica & \VR{} & 16 \\*
 			\midrule
-			\textbf{AN4} & \textbf{\PdP{}} & &  \\
+			\textbf{AN4} & \textbf{\PdP{}} & &  \\*
 			\midrule
-			AN4.1 & Stesura & \RE{} \newline \AM{} & 6 \newline 10 \\
+			AN4.1 & Stesura & \RE{} \newline \AM{} & 6 \newline 10 \\*
 			\midrule
-			AN4.2 & Verifica & \VR{} & 6 \\
+			AN4.2 & Verifica & \VR{} & 6 \\*
 			\midrule
-			\textbf{AN5} & \textbf{\PdQ{}} & & \\
+			\textbf{AN5} & \textbf{\PdQ{}} & & \\*
 			\midrule
-			AN5.1 & Stesura & \RE{} \newline \AM{} \newline \AN{} & 6 \newline 8 \newline 8 \\
+			AN5.1 & Stesura & \RE{} \newline \AM{} \newline \AN{} & 6 \newline 8 \newline 8 \\*
 			\midrule
-			AN5.2 & Verifica & \VR{} & 8 \\
+			AN5.2 & Verifica & \VR{} & 8 \\*
 			\midrule
-			\textbf{AN6} & \textbf{Glossario} & & \\
+			\textbf{AN6} & \textbf{Glossario} & & \\*
 			\midrule
-			AN6.1 & Stesura & \VR{} & 5 \\
+			AN6.1 & Stesura & \VR{} & 5 \\*
 			\midrule
-			AN6.2 & Verifica & \VR{} & 2 \\
+			AN6.2 & Verifica & \VR{} & 2 \\*
 			\bottomrule
 		\end{tabular}
 		\caption{Ripartizione delle risorse - \FA{}}
@@ -714,6 +712,7 @@ Le attività svolte sono:
 		La strategia di verifica deve essere aggiornata in base alle nuove richieste
 \end{itemize}
 
+\newpage
 \subsubsection{Ripartizione delle risorse}
 Nella tabella seguente è riportata la ripartizione delle ore tra le varie attività previste.
 
@@ -743,6 +742,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\end{center}
 \end{table}
 
+\newpage
 \subsubsection{Diagramma di Gantt}
 \label{gantt analisi di dettaglio}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
@@ -824,6 +824,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\end{center}
 \end{table}
 
+\newpage
 \subsubsection{Diagramma di Gantt}\label{gantt progettazione}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
 
@@ -899,6 +900,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\end{center}
 \end{table}
 
+\newpage
 \subsubsection{Diagramma di Gantt}
 \label{gantt progettazione di dettaglio}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
@@ -1004,6 +1006,7 @@ Nella tabella seguente è riportata la ripartizione delle ore tra le varie attiv
 	\end{center}
 \end{table}
 
+\newpage
 \subsubsection{Diagramma di Gantt}
 Nel seguente diagramma di \mgls{gantt} vengono riportate le varie attività previste, le loro dipendenze e la loro schedulazione.
 
@@ -1904,7 +1907,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Analisi delle tendenze}
 
-\par E' possibile osservare che il gruppo è per lo più in grado di rispettare le scadenze, eventualmente richiedendo, come in questo periodo, di più ore al giorno per poterle soddisfarle. \\
+\par E' possibile osservare che il gruppo è per lo più in grado di rispettare le scadenze, eventualmente richiedendo, come in questo periodo, più ore al giorno per poterle soddisfarle. \\
 
 \par Osservando anche solo questo periodo è possibile notare che il gruppo in alcuni casi non rispetta il numero di ore previste per le attività. Questo è causato dall'inesperienza del gruppo nello stimare il numero di ore necessarie per attività che non ha mai portato a termine. \\
 
@@ -2063,7 +2066,7 @@ Come previsto la semplificazione dei requisiti ha ridotto i costi della progetta
 
 \par Con il completamento di questo periodo è possibile notare l'effettivo calo nel costo per periodo. Come previsto, questo periodo e quello precedente hanno effettivamente comportato un calo nel numero di ore impiegate per la progettazione. \\
 
-\par Per quanto riguarda le scadenze, come per il periodo precedente, sono state rispettate. Il periodo di \FA{} risulta sempre più un raro caso causato dall'inesperienza nell'analisi dei requisiti. \\
+\par Per quanto riguarda le scadenze, come per il periodo precedente, sono state rispettate. Retrospettivamente si può dunque affermare che il non rispetto delle scadenze durante periodo di \FA{} era  il risultato di inesperienza nell'analisi dei requisiti e non di cattiva organizzazione. \\
 
 \subsubsection{Preventivo a finire}
 Si prevedono notevoli semplificazioni anche nel periodo di \FC{}, sarà probabilmente possibile utilizzare il modello incrementale per concentrarsi anche su alcuni requisiti desiderabili o opzionali. Il costo totale dell'applicazione si è abbassato ulteriormente ed ora è minore di quanto preventivato inizialmente e attualmente è di \euro{}14 157.00(-146.00).
@@ -2095,7 +2098,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 			\midrule
 			\AVE{} 	& 5(+2) 	& 		& 		& 6(+1) & 11(-2) 	& 8(0) 		& 30(+1) \\
 			\midrule
-			\AVI{} 	& 		& 		& 		& 7(-1) & 14(+1) 	& 7(-1) 	& 28(-1) \\
+			\AVI{} 	&&&& 7(-1) & 14(+1) 	& 7(-1) 	& 28(-1) \\
 			\bottomrule
 		\end{tabular}
 		\caption{Rotazione dei ruoli effettive - \FC{}}
@@ -2129,7 +2132,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \begin{center}
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=\textwidth]{../img/diagrammaBarreProgettazioneDiDettaglioConsuntivo.png}
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreCodificaConsuntivo.png}
 		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FC{}}
 	\end{figure}
 \end{center}
@@ -2148,7 +2151,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Preventivo a finire}
 
-\par Questo periodo ha comportato un lungo tempo per la scrittura dei test che dovrebbe semplificare l'effettivo collaudo del periodo successivo. In ogni caso non ci aspettano ne particolari ritardi ne riduzione dei costi, portandoci a completare il prodotto con il prezzo previsto inizialmente. \\
+\par In questo periodo è stato speso molto tempo per la scrittura dei test che dovrebbe semplificare l'effettivo collaudo del periodo successivo. In ogni caso non ci aspettano ne particolari ritardi ne riduzione dei costi, portandoci a completare il prodotto entro il prezzo e la data previsti inizialmente. \\
 
 \par Il costo totale dell'applicazione si è alzato leggermente rimanendo comunque inferiore a quanto preventivato inizialmente e attualmente è di \euro{}14 190.00(-113.00).
 

@@ -71,7 +71,10 @@
 		\midrule
 		1.1.0 & \NDC & 2016-05-12 & Verifica nuovi termini \\*
 		\midrule
-		1.0.4 & \WS & 2016-05-10 & Inserimento termini Openshift e cookie \\*
+		1.0.6 & \WS & 2016-05-11  & Inserimento termini shell, plugin, IDE, IDEA, JetBrains e WebStorm,\\*
+		1.0.5 & \TP{} & 2016-05-11 & Inserimento termine back end e migliorata descrizione front end \\*
+		\midrule
+		1.0.4 & \WS & 2016-05-10 & Inserimento termini Openshift, cookie, cost of poor quality, requirement stability index, complessità ciclomatica e cambiato il termine test driven software in soft driven development\\*
 		\midrule
 		1.0.3 & \WS & 2016-05-04  & Inserimento termini BOM, UTF-8, scope, bootstrap e M.E.A.N. stack \\*
 		\midrule
@@ -84,7 +87,7 @@
 		0.1.0 & \NDC & 2016-02-29 & Revisione e correzione errori ortografici \\*
 		\midrule
 		0.0.3 & \AB & 2016-02-27  & Inserimento termini node package manager, document-oriented, json
-		bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance, test driven software, testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\*
+		bson, join, mapreduce, query, mongoose, api, snippet, odm, schema-free, sql, w3c, markup, angularjs, scripting, rendering, mvc,  vista, routing, middleware, view, front-end, dom, model, visual paradigm, tikz-uml, tikz, Document, html, route, request, schema, facebook, username, design pattern, analisi statica, analisi dinamica, milestone schedule variance,  testing, spice, hardware, controller, subclassing, namespace, sender, receiver \\*
 		\midrule
 		0.0.2 & \WS & 2016-02-25  & Inserimento termini dal vecchio glossario \\*
 		\midrule
@@ -174,11 +177,16 @@ si indica la replicazione, su un qualunque supporto di memorizzazione, di materi
 \subsection{Bug}
  identifica un errore nella scrittura di un programma software che ne causa un comportamento imprevisto o comunque diverso da quello specificato dal produttore.
 
+<<<<<<< HEAD
+=======
+\subsection{Back-end}
+il back end è la parte che elabora i dati generati dal front end.
 
+
+>>>>>>> d4ef2f7874168d482bd699a7d4e35eea786f43a0
 \newpage
 
 \section{C}
-
 
 \subsection{C}
  linguaggio di programmazione procedurale, e ciò vuol dire che non esistono classi, oggetti, eventi, ecc. come per esempio nel \mgls{c++}, Java e molti altri linguaggi di più alto livello. Offrendo quindi un livello di programmazione relativamente basso, è per tanto utilizzato in applicazioni che necessitano di prestazioni elevate. Per maggiori informazioni si veda \href{https://it.wikiversity.org/wiki/Linguaggio_C}{qui}.
@@ -209,12 +217,18 @@ i cookies HTTP sono una sorta di gettone identificativo, usato dai server web pe
 
 \subsection{Committente} 
  colui che assegna un compito. In questo caso è il \Vardanega{}.
+ 
+ \subsection{Complessità ciclomatica}
+ misura la complessità del programma contando il numero di cammini linearmente indipendenti attraverso il grafo di controllo di flusso. Valori troppo alti implicano una ridotta manutenibilità del codice, valori troppo bassi potrebbero determinare scarsa efficienza dei metodi.
 
 \subsection{Controller} 
  è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
 
 \subsection{Cookie}
 I cookie \mgls{http} sono una sorta di gettone identificativo, usato dai server web per poter riconoscere i \mgls{browser} durante comunicazioni con il protocollo \mgls{http} usato per la navigazione web.
+
+\subsection{Cost of poor quality}
+indica al management aziendale l’inefficienza di processi non buoni valutando il costo delle attivitaG di correzione che seguono la verifica
 
 \subsection{Cost variance} 
  indica al management aziendale se il valore del costo realmente maturato è maggiore, uguale o minore rispetto al costo pianificato.
@@ -289,8 +303,7 @@ I cookie \mgls{http} sono una sorta di gettone identificativo, usato dai server 
  architettura o struttura di supporto su cui un programma può essere creato. In genere è composto da una serie di librerie e strumenti di sviluppo.
 
 \subsection{Front-end} 
-la parte visibile all'utente e con cui egli può interagire.
-
+il front end è la parte di un sistema software che gestisce l'interazione con l'utente o con sistemi esterni che producono dati di ingresso.
 
 \newpage
 
@@ -341,6 +354,12 @@ con il termine hardware, in ingegneria elettronica e informatica, si indica la p
 \section{I}	
 
 
+\subsection{IDE}
+in lingua inglese Integrated Development Environment ovvero IDE, anche integrated design environment o integrated debugging environment, rispettivamente ambiente integrato di progettazione e ambiente integrato di debugging. E' un software che, in fase di programmazione, aiuta i programmatori nello sviluppo del codice sorgente di un programma.
+
+\subsection{IDEA}
+IntelliJ IDEA è un ambiente di sviluppo integrato (IDE) per il linguaggio di programmazione Java.
+
 \subsection{Inspection} 
  è la lettura mirata di un documento o codice cercando errori specifici.
 
@@ -358,6 +377,9 @@ si intendono tutte le interfacce messe a disposizione dal sistema operativo ai p
 
 \subsection{JavaScript} 
  linguaggio di \mgls{scripting} orientato agli oggetti comunemente usato nella programmazione web.
+ 
+ \subsection{JetBrains}
+ex IntelliJ è un'azienda di sviluppo software ceca nata nel 2000 i cui strumenti hanno come mercato gli sviluppatori software e i project manager.
 
 \subsection{Join} 
  è una clausola del linguaggio \mgls{sql} che serve a combinare (unire) le tuple di due o più relazioni di un database tramite l'operazione di congiunzione (od unione) dell'algebra relazionale.
@@ -495,6 +517,9 @@ OpenShift è un platform as a service (PaaS) prodotto da Red Hat.OpenShift Origi
 \subsection{Piattaforma} 
  che indica il tipo di \mgls{framework} ed il sistema \mgls{software} di base sul quale i programmi e le applicazioni sono sviluppati e/o eseguiti.
 
+\subsection{Plugin}
+è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie. Ad esempio, un plugin per un software di grafica permette l'utilizzo di nuove funzioni non presenti nel software principale.
+
 \subsection{PNG} 
  abbreviazione di Portable Network Graphics, è un formato di file per memorizzare immagini. Per ulteriori informazioni si veda \href{http://it.wikipedia.org/wiki/Portable_Network_Graphics}{qui}.
 
@@ -567,6 +592,9 @@ generazione di un'immagine a partire da una descrizione matematica di una scena 
 \subsection{Request} 
 richiesta fatta da un client ad un \mgls{server}, ad esempio \mgls{http}.
 
+\subsection{Requirement Stability Index} 
+indica quanto variano i requisiti nel tempo.
+
 \subsection{Responsabile} 
 è il responsabile della gestione, pianificazione e realizzazione del progetto.
 
@@ -629,6 +657,9 @@ mandante delle richieste.
 
 \subsection{Server} 
 nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
+
+\subsection{Shell}
+la shell è la parte di un sistema operativo che permette agli utenti di interagire con il sistema stesso, impartendo comandi e richiedendo l'avvio di altri programmi.
 
 \subsection{Skype} 
 è un software proprietario freeware di messaggistica istantanea e VoIP. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Skype}{qui}.
@@ -694,7 +725,7 @@ in \mgls{git} è un segnalibro associato ad un particolare \mgls{commit} utilizz
 traducibile in italiano come modello, indica o un programma o un documento idealizzato come un documento semi compilato cartaceo che ha degli spazi bianchi che saranno successivamente riempiti.
 
 
-\subsection{Test Driven Software} 
+\subsection{Test Driven Development} 
  metodologia di sviluppo del \mgls{software} che prevede che la stesura dei test automatici avvenga prima di quella del \mgls{software} che deve essere sottoposto a  test, e che lo sviluppo del \mgls{software} applicativo sia orientato esclusivamente all'obiettivo di passare i test automatici precedentemente predisposti.
 
 \subsection{Thread} 
@@ -770,6 +801,9 @@ strumento di supporto per la creazione di diagrammi \mgls{uml}.
 
 \subsection{Walkthrough} 
 consiste nella lettura di un documento o codice cercando errori ed anomalie senza un'idea precisa di quali tipi di errori sarà possibile trovare.
+
+\subsection{WebStorm}
+IntelliJ Webstorm è un ambiente di sviluppo integrato (IDE) per lo sviluppo Web.
 
 \subsection{Windows} 
 è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai \mgls{server} e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.

@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{01 Marzo 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.7}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -67,6 +67,16 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		2.0.0 & \AVE & 2016-05-14 & Approvazione \\*
+		\midrule
+		1.1.1 & \WS & 2016-05-14 & Verifica \\*
+		\midrule
+		1.1.0 & \NDC & 2016-05-13 & Verifica \\*
+		\midrule
+		1.0.11 & \TODO{} & 2016-05-11 &  \\*
+		\midrule
+		1.0.11 & \TODO{} & 2016-05-10 &  \\*
+		\midrule
 		1.0.10 & \TODO{} & 2016-05-08 & Controllo, ampliamento ed aggiunta diagrammi di sequenza \\*
 		\midrule
 		1.0.9 & \TODO{} & 2016-05-05 & Rimozione analisi database NoSql in quanto trattato nel capitolo di MongoDB \\*
@@ -80,7 +90,6 @@
 		1.0.5 & \TP{} & 2016-04-24 & Il model \texttt{User} ha un attributo \texttt{isActive} che definisce se non è stato cancellato nel sistema \\*
 		\midrule
 		1.0.4 & \TP{} & 2016-04-24 & Aggiunta della restituzione della risorsa alla sua creazione nell'API REST \\*
-		\midrule
 		\midrule
 		1.0.3 & \TP{} & 2016-04-24 & Gli ID degli oggetti sono nell'attributo \texttt{\_id} non più in \texttt{id} \\*
 		\midrule
@@ -174,8 +183,8 @@ Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del
 
 \subsubsection{Normativi}
 \begin{itemize}
-    \item \NdP{}: \textit{NormeDiProgetto\_v2.0.0};
-    \item \AdR{}: \textit{AnalisiDeiRequisiti\_v2.0.0};
+    \item \NdP{}: \textit{NormeDiProgetto\_v3.0.0};
+    \item \AdR{}: \textit{AnalisiDeiRequisiti\_v3.0.0};
 \end{itemize}
 
 \subsubsection{Informativi}
@@ -328,7 +337,18 @@ Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzar
 Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione  del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
+\section{Panoramica dell'architettura}
+Nella seguente figura viene illustrata l'architettura che si è scelto di adottare per sviluppare l'applicazione \prj{}.
+Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{server} trattandoli come entità totalmente separate, dove la comunicazione tra le parti avviene attraverso \mgls{api} \mgls{rest} facendo richieste \mgls{http} e ricevendo come risposte oggetti \mgls{json}.
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[max width=\textwidth]{../img/diagrammiClassi/clientServerGeneral.png}
+		\caption{Architettura generale}
+	\end{figure}
+\end{center}
 
+\newpage
 % Definizione api REST
 \section{API REST}
 \input{../tex/definizioneDiProdotto/apiRest.tex}
@@ -390,7 +410,7 @@ Viene utilizzato per rendere visibili solamente alcune componenti agli altri mod
 \paragraph{Utilizzo}
 Viene utilizzato all’interno della classe \texttt{server::middleware::Loader}, la quale utilizza Facade per nascondere l’esistenza di tutti i middleware all'esterno. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all’oggetto appropriato.
 
-\subsection{Design Pattern Comportamentali}
+\subsection{Design Pattern comportamentali}
 \subsubsection{Chain of Responsibility}
 
 \paragraph{Scopo}
@@ -747,6 +767,13 @@ Oltre a dividere l’applicazione in queste tre componenti, \mgls{mvc} si occupa
 	\item Una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
 
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/mvcStarware.png}
+		\caption{Esempio dell' applicazione di MVC in Quizzipedia}
+	\end{figure}
+\end{center}
+
 Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
 
 \subsubsection{Middleware}
@@ -803,6 +830,13 @@ Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce 
 	\item Quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
 \end{itemize}
 
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/facadeStarware.png}
+		\caption{Esempio dell' applicazione del pattern Facade in Quizzipedia}
+	\end{figure}
+\end{center}
+
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}
 Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{receiver} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{receiver} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{receiver} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
@@ -812,6 +846,13 @@ L’utilizzo di questo pattern comporta una serie di conseguenze:
 	\item Aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il |\mgls{subclassing} per specializzare i gestori;
 	\item Non c’è garanzia che la richiesta venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
 \end{itemize}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/corStarware.png}
+		\caption{Funzionamento del Chain of responsibility in Quizzipedia}
+	\end{figure}
+\end{center}
 
 %Non utilizzato per ora
 %\subsubsection{Strategy}

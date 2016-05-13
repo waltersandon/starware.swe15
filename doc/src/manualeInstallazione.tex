@@ -1,4 +1,4 @@
-	\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
 
@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{26 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{0.0.0}
+\newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Informale}
@@ -37,9 +37,9 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione}	\\
-						\textbf{Verifica}	&		\\
-						\textbf{Approvazione}	& \AB{} \\
+						\textbf{Redazione} & \AB \\
+						\textbf{Verifica}	&	\TP	\\
+						\textbf{Approvazione}	& \AVE{} \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
 						\ 	&	\Cardin{}	\\
@@ -61,14 +61,20 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
-			0.0.0 & \AB{} & 2016-04-30 &  Creazione documento \\*
+			\midrule
+			1.0.0 & \AVE{} & 2016-05-13 & Approvazione \\*
+			\midrule
+			0.1.0 & \TP{} & 2016-05-13 & Verifica \\*
+			\midrule
+			0.0.4 & \AB{} & 2016-05-10 & Correzioni grammaticali e indirizzo per la clonazione della repository \\*
+			\midrule
+			0.0.3 & \AB{} & 2016-05-04 &  Stesura sezioni \ref{requisiti} e \ref{install} \\*
+			\midrule
+			0.0.2 & \AB{} & 2016-05-04 &  Stesura sezioni \ref{intro} e \ref{download} \\*
 			\midrule
 			0.0.1 & \AB{} & 2016-05-02 &  Definizione struttura documento \\*
 			\midrule
-			0.0.2 & \AB{} & 2016-05-04 &  Stesura \ref{intro} e \ref{download} \\*
-			\midrule
-		0.0.3 & \AB{} & 2016-05-04 &  Stesura \ref{requisiti} e \ref{install} \\*
-
+			0.0.0 & \AB{} & 2016-04-30 &  Creazione documento \\*
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
 			\label{tabVers1}
@@ -77,9 +83,9 @@
 	
 	\newpage
 	\tableofcontents
-	\newpage
+	%\newpage
 	\listoftables
-	\listoffigures
+	%\listoffigures
 	\newpage
 	
 	
@@ -98,26 +104,27 @@
 	\subsection{Glossario}
 	\glossarioPrint
 	\subsection{Comunicazione malfunzionamenti}
-		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o
-		malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email
-		all’indirizzo:
+		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email 		all’indirizzo:
 		\url{starware.swe@gmail.com}
 		Nella mail di segnalazione si dovranno riportare:
 		\begin{itemize}
 			\item sistema operativo utilizzato;
 			\item versione di MongoDB utilizzata;
 			\item versione di Node.js utilizzata;
-			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati;
+			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati.
 		\end{itemize}
 	\subsection{Riferimenti}
 	
-\subsubsection{Normativi}
-\begin{itemize}
-	\item \NdP\ \textit{v1.2.0};
-	\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
-\end{itemize}	
-	
-
+	\subsubsection{Normativi}
+	\begin{itemize}
+		\item \NdP\ \textit{v3.0.0};
+		\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
+	\end{itemize}	
+	\subsubsection{Informativi}
+	\begin{itemize}
+		\item \mgls{node.js}: \url{https://nodejs.org};
+		\item \mgls{mongodb}: \url{https://www.mongodb.com}.
+	\end{itemize}	
 	
 	\newpage
 	\section{Requisiti per l'installazione}\label{requisiti}
@@ -131,15 +138,12 @@
 	\subsubsection{Sistema operativo}
 	\paragraph{Supporto lato server}L'applicazione \prj{} è supportata nei seguenti ambienti lato server:
 	\begin{itemize}
-		\item Windows 
-		\item MacOs
-		\item Linux
+		\item Windows;
+		\item MacOs;
+		\item Linux.
 	\end{itemize}
-	Per la versione del sistema operativo supportato lato server, si faccia riferimento 
-	\begin{itemize}
-		\item \textbf{Piattaforme supportate da \mgls{node.js}}: \url{https://nodejs.org}  
-		\item \textbf{Piattaforme supportate da \mgls{mongodb}}: \url{https://www.mongodb.com}
-	\end{itemize}
+	Per la versione del sistema operativo supportato lato server, si faccia vedano i  riferimenti informativi.
+
 	\paragraph{Supporto esecuzione in locale}
 	Per l'esecuzione in locale  dell'applicazione si garantisce il supporto per:
 		\begin{itemize}
@@ -152,7 +156,7 @@
 	Le istruzioni dettagliate per uno specifico sistema operativo sono specificate per ogni procedura illustrata.
 	
 	\subsection{Applicativi di supporto}
-	L'applicazione \prj utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
+	L'applicazione \prj{} utilizza le seguenti applicazioni, pertanto per un corretto utilizzo è necessario che siano correttamente installate.
 	\subsubsection{MongoDB versione 3.2 o superiori}
 	Per l'installazione di \mgls{mongodb} si faccia riferimento al sito dedicato al download e alla documentazione per l'installazione di \mgls{mongodb}:
 	\begin{center} \url{https://www.mongodb.com/download-center}
@@ -163,22 +167,23 @@
 		\begin{center} \url{https://nodejs.org/en/download/} 
 		\end{center}
 	
+	\newpage
 	\section{Download dell'applicazione}\label{download}
-	Il prodotto è disponibile gratuitamente sotto  licenza GNU GENERAL PUBLIC LICENCE V2. Esso è pubblicato
-	su \mgls{github} e disponibile al seguente indirizzo: \url{https://github.com/lordnikolai/starware.swe15}
+	Il prodotto è disponibile gratuitamente sotto  licenza \licenza. Esso è pubblicato su \mgls{github} e disponibile al seguente indirizzo: \url{https://github.com/lordnikolai/starware.swe15}
 	E' possibile ottenere il prodotto nei due modi seguenti:
 	\subsection{Clonare la repository con GitHub}
 	E' possibile copiare in locale i file necessari con l'utilizzo di \mgls{git}. 
 	Per eseguire questa procedura è necessario che l'applicativo \mgls{git} sia stato precedentemente installato.
 	\begin{enumerate}
 		\item navigare sul terminale fino alla cartella in cui si desidera installare il prodotto;
-		\item \texttt{git clone https://github.com/lordnikolai/starware.swe15} provvederà al download del prodotto nella cartella corrente. 
+		\item \texttt{git clone https://github.com/lordnikolai/starware.swe15.git} provvederà al download del prodotto nella cartella corrente. 
 	\end{enumerate}
 	
 	\subsection{Download file da browser}
 	Altrimenti sarà possibile scaricare il prodotto tramite browser web accedendo
 	all’indirizzo fornito precedentemente selezionando il link chiamato: \textbf{\textit{Download ZIP}}.
 	
+	\newpage
 	\section{Installazione}\label{install}
 	\subsection{Installazione con utilizzo di script}
 	Vengono forniti script appositi per facilitare l'installazione dell'applicativo. 
@@ -187,20 +192,18 @@
 		\begin{itemize}
 			\item avviare il terminale;
 			\item posizionarsi nella cartella src;
-			\item eseguire lo script \texttt{setup\_win}
-			\item eseguire lo script \texttt{start\_win}	
+			\item eseguire lo script \texttt{setup\_win};
+			\item eseguire lo script \texttt{start\_win}.	
 		\end{itemize}	
 	
 		\subsubsection{Installazione ambiente Unix}
 		\begin{itemize}
 			\item avviare il terminale;
 			\item posizionarsi nella cartella src;
-		
+			\item eseguire i seguenti comandi:\\
+			\texttt{\$chmod 755 unix\_setup \\
+			\$chmod 755 unix\_start	 \\
+			\$./unix\_setup }
 		\end{itemize}
-			\begin{center}
-				\texttt{\$chmod 755 unix\_setup \\
-					\$chmod 755 unix\_start	 \\
-					\$./unix\_setup }
-					
-			\end{center}
+
 \end{document}
