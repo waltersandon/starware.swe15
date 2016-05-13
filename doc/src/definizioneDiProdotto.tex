@@ -337,15 +337,9 @@ Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzar
 Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione  del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
 
 \newpage
-
-% Definizione api REST
-\section{API REST}
-\input{../tex/definizioneDiProdotto/apiRest.tex}
-
-\newpage
 \section{Panoramica dell'architettura}
 Nella seguente figura viene illustrata l'architettura che si è scelto di adottare per sviluppare l'applicazione \prj{}.
-Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{server} trattandoli come entità totalmente separate, dove la comunicazione tra le parti avviene attraverso le \mgls{api} \mgls{rest} trasmettendo richieste e risposte \mgls{http} e oggetti \mgls{json}.
+Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{server} trattandoli come entità totalmente separate, dove la comunicazione tra le parti avviene attraverso \mgls{api} \mgls{rest} facendo richieste \mgls{http} e ricevendo come risposte oggetti \mgls{json}.
 \begin{center}
 	\begin{figure}[H]
 		\centering
@@ -353,6 +347,11 @@ Si è scelto di disaccoppiare il più possibile il  \mgls{client} dal \mgls{serv
 		\caption{Architettura generale}
 	\end{figure}
 \end{center}
+
+\newpage
+% Definizione api REST
+\section{API REST}
+\input{../tex/definizioneDiProdotto/apiRest.tex}
 
 \newpage
 %Specifica componenti server
