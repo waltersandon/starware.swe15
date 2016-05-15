@@ -439,7 +439,7 @@
  Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: SV $\leq$ -5\%
+		\item \textbf{Range di Accettazione}: SV $\leq$ 5\%
 		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
@@ -1554,50 +1554,50 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\caption{Tabella requisiti / test di sistema} \tabularnewline
 	\end{longtable}
 	\subsection{Test di integrazione}\label{test_integrazione}
-	\TODO{sistemare gli id}
+
 
 	\begin{longtable}{l p{8cm} l l}
 		\midrule
 		\textbf{ID} & \textbf{Descrizione} & \textbf{Componente} & \textbf{Stato} \tabularnewline
 		\midrule
 		\midrule
-		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & P\tabularnewline
+		TI.1 & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & P\tabularnewline
 		\midrule
-		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & P\tabularnewline
+		TI.2 & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & P\tabularnewline
+		TI.5.1 & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & P\tabularnewline
+		TI.5.2 & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & P\tabularnewline
 		\midrule
-		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & P\tabularnewline
+		TI.8 & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & P\tabularnewline
 		\midrule
-		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & P\tabularnewline
+		TI.9 & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & P\tabularnewline
 		\midrule
-		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & P\tabularnewline
+		TI.10 & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & P\tabularnewline
 		\midrule
-		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & P\tabularnewline
+		TI.11 & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & P\tabularnewline
 		\midrule
-		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & P\tabularnewline
+		TI.6 & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & P\tabularnewline
 		\midrule
-		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & P\tabularnewline
+		TI.13 & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & P\tabularnewline
+		TI.15 & Viene verificato che student riceva le risposte attese dal package model::util & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & P\tabularnewline
+		TI.16 & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & P\tabularnewline
+		TI.17 & Viene verificato che admin riceva le risposte attese dal package model::data & admin & P\tabularnewline
 		\midrule
-		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & P\tabularnewline
+		TI.27 & Viene verificato che public inoltri le richieste corrette al package model & public & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & P\tabularnewline
+		TI.28 & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & P\tabularnewline
+		TI.29 & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & P\tabularnewline
+		TI.30 & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & P\tabularnewline
 		\midrule
-		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & P\tabularnewline
+		TI.53 & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & P\tabularnewline
 		\midrule
-		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & P\tabularnewline
+		TI.54 & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & P\tabularnewline
 		\midrule
 		\caption{Tabella test di integrazione} \tabularnewline
 	\end{longtable}
@@ -1845,9 +1845,21 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 \appendix
 \section{Resoconto delle attività di verifica}
 	\subsection{Analisi}
-	\subsubsection{Documenti}
-	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
-	
+	\subsubsection{Processi}
+	Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di \FA:
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+					\toprule
+					\textbf{Indice}   & \textbf{Valore }	& \textbf{Esito test} \\ \midrule
+					\midrule
+					\mGls{cost variance} &0\%&  Ottimale \\ \midrule
+					\mGls{schedule variance} &0.5\% &  Superato\\ \bottomrule
+				\end{tabular}
+			\end{center}
+		\end{table}
+		\subsubsection{Documenti}
+		Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
@@ -1880,8 +1892,8 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito} \\ \midrule
 				\midrule
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
-				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
-				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
+				\mgls{schedule variance}  &167\% &  Non Superato\\ \midrule
+				\mGls{cost variance} & -157\% &  Non superato \\ \midrule
 				\CoPQ & 23\% &  Ottimale \\ \midrule
 				\mgls{requirement stability index} & 81\% & Superato \\ \bottomrule
 			\end{tabular}
@@ -1920,9 +1932,9 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 				\toprule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 				\midrule
-				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
+				\mGls{cost variance} &-12\% &  Non Superato \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
-				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
+				\mgls{schedule variance}  & 12\% & Non Superato\\ \midrule
 				\CoPQ & 40\% & Superato \\ \midrule
 				\mgls{requirement stability index} & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
@@ -2042,8 +2054,8 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
 				\midrule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
-				\mGls{cost variance} & \TODO{} & \TODO{} \\ \midrule
-				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
+				\mGls{cost variance} & -0.5\% & Superato \\ \midrule
+				\mgls{schedule variance}  &0.95\%& Superato\\ 
 				\midrule
 				\mgls{requirement stability index}  & 100\% & Ottimale \\
 				\bottomrule
