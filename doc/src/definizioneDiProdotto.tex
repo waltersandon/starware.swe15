@@ -251,6 +251,9 @@ Tuttavia bisogna tenere in considerazione che questo \mgls{framework} presenta a
 	\item l'utilizzo di codice \mgls{javascript} che comporta le problematiche citate introdotte dal linguaggio nella sezione \ref{javascript}.
 \end{itemize}
 
+Tuttavia gli aspetti positivi hanno fatto propendere il gruppo ad adottare questo \mgls{framework}, quindi
+\mgls{node.js} verrà quindi impiegato per la realizzazione del \mgls{server} di \prj{}.
+
 \subsubsubsection{Integrazione nel sistema}
 \TODO{}
 
@@ -292,32 +295,33 @@ I potenziali aspetti critici derivanti dall'uso di \mgls{bootstrap} sono:
 \TODO{}
 
 \subsubsection{Express}\label{express}
-\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. \mgls{express} integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}. Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
+\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server.
 
 \subsubsubsection{Integrazione nel sistema}
-\TODO{}
+\mgls{express} viene installato come un modulo di \mgls{node.js} e lo integra, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}. \mgls{express},oltre che per il \mgls{routing} delle richieste e risposte, verrà utilizzato per definire l'ordine dei \mgls{middleware} nella \textit{chain of responsability} (vedere sezione Descrizione Design Pattern \ref{descrizioneDesignPattern}) ed in fine per restituire al \mgls{client} le risposte \mgls{http} con gli eventuali errori riscontrati dal \mgls{server}. Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
 
 \subsection{Librerie}\label{librery}
 \subsubsection{Mongoose}\label{mongoose}
 Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti. La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente. Non sono state trovati particolari aspetti critici introdotti dall'utilizzo di \mgls{mongoose}.
+
+\subsubsubsection{Integrazione nel sistema}
+\mgls{mongoose} viene installato come un modulo \mgls{node.js} e viene utilizzato nel \mgls{server} di \prj{} per definire il modello che i dati dovranno avere per essere salvati nel \mgls{database}. Questa libreria è particolarmente utile in quanto permette di lanciare automaticamente delle funzioni \mgls{javascript}, costruite ad-hoc, per verificare che i dati rispettino tutte le caratteristiche desiderate. 
 
 \subsubsection{Async.js}\label{asyncjs}
 
 \subsubsubsection{Integrazione nel sistema}
 \TODO{}
 
-
 \subsubsection{SimpleMDE markdown editor}\label{simpleMDE}
-SimpleMDE markdown editor è una libreria che provvede a fornire un editor \mgls{markdown} semplice da usare e comodo per gli utenti. Si integra perfettamente con \mgls{javascript} e permette di avere un editor \mgls{WYSIWYG}
-
-A simple, beautiful, and embeddable JavaScript Markdown editor. Delightful editing for beginners and experts alike. Features built-in autosaving and spell checking.
-
-A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. SimpleMDE is one of the first editors to feature both built-in autosaving and spell checking.
-
-WYSIWYG editors that produce HTML are often complex and buggy. Markdown solves this problem in many ways, plus Markdown can be rendered natively on more platforms than HTML. However, Markdown is not a syntax that an average user will be familiar with, nor is it visually clear while editing. In otherwords, for an unfamiliar user, the syntax they write will make little sense until they click the preview button. SimpleMDE has been designed to bridge this gap for non-technical users who are less familiar with or just learning Markdown syntax.
+SimpleMDE markdown editor è una libreria che provvede a fornire un editor \mgls{markdown} semplice da usare e comodo per gli utenti. Si integra perfettamente con \mgls{javascript} e permette di avere un editor \mgls{WYSIWYG}.
 
 \subsubsubsection{Integrazione nel sistema}
-\TODO{}
+%A simple, beautiful, and embeddable JavaScript Markdown editor. Delightful editing for beginners and experts alike. Features built-in autosaving and spell checking.
+
+%A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. SimpleMDE is one of the first editors to feature both built-in autosaving and spell checking.
+
+%WYSIWYG editors that produce HTML are often complex and buggy. Markdown solves this problem in many ways, plus Markdown can be rendered natively on more platforms than HTML. However, Markdown is not a syntax that an average user will be familiar with, nor is it visually clear while editing. In otherwords, for an unfamiliar user, the syntax they write will make little sense until they click the preview button. SimpleMDE has been designed to bridge this gap for non-technical users who are less familiar with or just learning Markdown syntax.
+
 
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
@@ -774,7 +778,7 @@ Di seguito viene presentato il diagramma di sequenza per la rimozione di un ques
 \newpage
 \appendix
 
-\section{Descrizione Design Pattern}
+\section{Descrizione Design Pattern}\label{descrizioneDesignPattern}
 \subsection{Design Pattern Architetturali}
 \subsubsection{MVC}
 Model-View-Controller (\mgls{mvc}) è un \mgls{design pattern} per l’implementazione di interfacce utente. Esso divide un’applicazione \mgls{software} in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il \mgls{model} è il modulo che contiene i dati. Una \mgls{view} può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici \mgls{view} della stessa informazione. La terza parte, il \mgls{controller}, si occupa di accettare degli input e di convertirli in comandi per il \mgls{model} o per la \mgls{view}.
