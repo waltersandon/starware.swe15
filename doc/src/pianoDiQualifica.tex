@@ -242,7 +242,7 @@
 	\end{enumerate}
 	Come modello per la valutazione dei processi e miglioramento continuo si raccomanda di fare riferimento a \textit{ISO/IEC 15504}.
 	In particolare provvedimenti concreti saranno specificati in \NdP{}. 
-	Inolre le scadenze imposte per le revisioni periodiche viene valutata, tenendo  conto dell'analisi dei rischi, nel documento \PdP{}.
+	Inoltre le scadenze imposte per le revisioni periodiche viene valutata, tenendo  conto dell'analisi dei rischi, nel documento \PdP{}.
 
 	
 	\subsection{Qualità di prodotto}
@@ -285,7 +285,7 @@
 	\newpage
 	\section{Metodologie e strumenti di gestione} \label{gest_qual}
 	
-	La gestione della qualità sfutta metodi e strumenti per attuare un piano per la  persecuzione della qualità. 
+	La gestione della qualità sfrutta metodi e strumenti per attuare un piano per la  persecuzione della qualità. 
 	 La corrente sezione analizza le linee guida nella scelta delle metodologie e strumenti di concretizzazione del sistema qualità sopra descritto. Le scelte concrete, prese seguendo tali linee guida, vengono descritte dei documenti \PdP{} e \NdP{}.
 	
 	\subsection{Pianificazione strategica e temporale}
@@ -1683,16 +1683,16 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	167.TU& SessionService&login()   & P\\ \midrule
 	169.TU& SessionService &logout()   & P\\ \midrule
 	158.TU& TagService &new()  & P\\ \midrule
-	155.TU& TagService&modify()   P\\ \midrule
+	155.TU& TagService&modify() & P\\ \midrule
 	156.TU& TagService & getByID()   & P\\ \midrule
 	153.TU& TagService &get()  & P\\ \midrule
 	151.TU& TagService & delete()  & P\\ \midrule
-	141.TU& UserService &get()  & R\\ \midrule
+	141.TU& UserService &get()  & P\\ \midrule
 	143.TU& UserService  &getByID()  & P\\ \midrule
 	144.TU& UserService& getMe() & P\\ \midrule
 	148.TU& UserService & modifyRole()   & P\\ \midrule
 	145.TU& UserService &signUp()  & P\\ \midrule
-	146.TU& UserService & updateInformation()  & R\\ \midrule
+	146.TU& UserService & updateInformation()  & P\\ \midrule
    147.TU& UserService & updatePassword()  & P\\ \midrule
 	205.TU& UserService& delete()  & P\\ \midrule
 	
@@ -1704,7 +1704,7 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
 
 \begin{itemize}
-	\item il costruttore deve inizializzare correttamente i campi dati interni alla classe;
+	\item il costruttore deve inizializare correttamente i campi dati interni alla classe;
 	\item controllo delle chiamate ai servizi;
 	\item controllo della consistenza dei parametri passati ai servizi.
 \end{itemize}
@@ -1758,7 +1758,7 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	
 	\begin{itemize}
 		\item nel caso di funzioni di controllo su stringhe queste rilevino le stringhe scorrette ed accettino quelle conformi ritornando il valore booleano corretto in entrambi i casi;
-		\item i costruttori inizializzino correttamente i campi dati della classe;
+		\item i costruttori inizializino correttamente i campi dati della classe;
 		\item eventuali chiamate a servizi passino  questi parametri consistenti.
 	\end{itemize}
 \begin{center}
@@ -1775,13 +1775,13 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 \end{longtable}
 \end{center}
 
-\subsubsection{Package \texttt{server:service}: test e tracciamento}
+\subsubsection{Package \texttt{server::service}: test e tracciamento}
 Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
 
 \begin{itemize}
-	\item il costruttore deve inizializzare correttamente i campi dati rispetto ai parametri ricevuti;
-	\item controllo dei parametri passati alle API REST;
-	\item correttezza della costruzione degli oggetti in \texttt{client::model::data}.
+	\item il costruttore deve inizializare correttamente i campi dati rispetto ai parametri ricevuti;
+	\item controllo dei parametri passati alle \mgls{api} REST;
+	\item controllo della risposta \mgls{http} generata.
 \end{itemize}
 
 \begin{center}
@@ -1819,12 +1819,12 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	\end{longtable}
 	\end{center}	
 	
-\subsubsection{Packahe \texttt{server:validator}: test e tracciamento}
+\subsubsection{Packahe \texttt{server::validator}: test e tracciamento}
 	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
 	
 	\begin{itemize}
-		\item ogni metodo di controllo devono rilevare oggetti, del tipo trattato, non consistenti;
-		\item ogni metodo di controllo deve accettare un oggetto, del tipo trattati, consistente con il modello.
+		\item ogni metodo di controllo deve rilevare oggetti, del tipo trattato, non consistenti;
+		\item ogni metodo di controllo deve accettare un oggetto, del tipo trattato, consistente con il modello.
 	\end{itemize}
 \begin{center}
 		\begin{longtable}[H]{l p{0.45\textwidth} p{0.3\textwidth} c}\midrule
@@ -2079,8 +2079,8 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 		\end{center}
 		\caption{Dettaglio 	\mgls{milestone schedule variance}  \FC}
 	\end{table}
-	\subparagraph{Analisi dei risultati}Dai risulatati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvlgono un numero di persone superiore a 4 persone. 
-	Si consiglia pertanto di organizzare il lavoro in sotto-attività che conivolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
+	\subparagraph{Analisi dei risultati} Dai risultati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvolgono un numero di persone superiore a 4 persone. 
+	Si consiglia pertanto di organizzare il lavoro in sotto-attività che coinvolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
 	\paragraph{Cost of Poor Quality}
 	
 	\begin{center}
@@ -2130,7 +2130,7 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	
 	\subsubsection{Software}
 	Vengono riportati i valori calcolati delle misurazioni sul codice.
-	I valori percentuali indicano la quntità di righe di codice sul torale che rientrano nel range indicato.
+	I valori percentuali indicano la quantità di righe di codice sul totale che rientrano nel range indicato.
 		
 		\begin{table}[H]
 			\begin{center}
@@ -2178,7 +2178,7 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	\begin{itemize}
 		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP{}  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate.
 		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardanti la struttura e, in minor parte, il contenuto. Alcuni casi d'uso sono stati modificati per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivisto la descrizione di UC5.1, separato i casi d'uso per tipologia e le post condizioni dei casi d'errore.
-		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornano JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti.
