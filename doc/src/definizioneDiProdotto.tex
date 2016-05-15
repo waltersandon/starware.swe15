@@ -25,7 +25,6 @@
 \begin{titlepage}
 	\begin{center}
 		\intestazione{\titoloDocumento}
-		
 		\begin{table}[h]
 			\begin{center}
 				\begin{tabular}{r | l}
@@ -38,22 +37,18 @@
 					\textbf{Data Creazione} & \dataCreazione \\
 					\textbf{Data Ultima Modifica} & \today \\
 					\textbf{Redazione} & Tutto il gruppo \nomeGruppo \\
-					\textbf{Verifica} & \AB\\
-					\  &  \WS\\
+					\textbf{Verifica} & \TP\\
 					\  &  \AVE\\
 					\  &  \AVI\\
-					\  &  \IB\\
 					\  &  \NDC\\
-                    \textbf{Approvazione} &  \TP{}\\
+                    \textbf{Approvazione} &  \AVE{}\\
 					\textbf{Lista Distribuzione} & \nomeGruppo \\
 					\  & \Vardanega \\
 					\  & \Cardin \\
-					\  & Il proponente \Zucchetti \\
-					
+					\  & Il proponente \Zucchetti \\	
 				\end{tabular}
 			\end{center}
 		\end{table}
-		
 	\end{center}
 \end{titlepage}
 
@@ -69,9 +64,13 @@
 		\midrule
 		2.0.0 & \AVE & 2016-05-14 & Approvazione \\*
 		\midrule
-		1.1.1 & \WS & 2016-05-14 & Verifica \\*
+		1.1.3 & \NDC & 2016-05-14 & Verifica \\*
 		\midrule
-		1.1.0 & \NDC & 2016-05-13 & Verifica \\*
+		1.1.2 & \AVE & 2016-05-13 & Verifica \\*
+		\midrule
+		1.1.1 & \TP & 2016-05-12 & Verifica \\*
+		\midrule
+		1.1.0 & \AVI & 2016-05-12 & Verifica \\*
 		\midrule
 		1.0.11 & \TODO{} & 2016-05-11 &  \\*
 		\midrule
@@ -183,20 +182,22 @@ Il documento presenterà le tecnologie e gli standard scelti per il sviluppo del
 
 \subsubsection{Normativi}
 \begin{itemize}
-    \item \NdP{}: \textit{NormeDiProgetto\_v3.0.0};
-    \item \AdR{}: \textit{AnalisiDeiRequisiti\_v3.0.0};
+    \item \NdP: \NdPv;
+    \item \AdR: \AdRv.
 \end{itemize}
 
 \subsubsection{Informativi}
 \begin{itemize}
-    \item \textbf{Specifica HTML5} \url{https://www.w3.org/TR/html5/};
-    \item \textbf{Specifica CSS3} \url{https://www.w3.org/TR/css3-roadmap/};
-    \item \textbf{Documentazione Node.js} \url{https://nodejs.org/en/docs/};
-    \item \textbf{Documentazione Express} \url{http://expressjs.com/en/guide/routing.html};
-    \item \textbf{Documentazione MongoDB} \url{https://docs.mongodb.org/manual/?_ga=1.2705776.192504053.1456951655};
-    \item \textbf{Documentazione Mongoose} \url{http://mongoosejs.com/docs/guide.html};
-    \item \textbf{Documentazione Angularjs} \url{https://docs.angularjs.org/api};
-    \item \textbf{Documentazione Bootstrap} \url{http://getbootstrap.com/css/}.
+    \item \textbf{Specifica \mgls{html5}}: \url{https://www.w3.org/TR/html5};
+    \item \textbf{Specifica \mgls{css3}}: \url{https://www.w3.org/TR/css3-roadmap};
+    \item \textbf{Documentazione \mgls{node.js}}: \url{https://nodejs.org/en/docs};
+    \item \textbf{Documentazione \mgls{express}}: \url{http://expressjs.com/en/guide/routing.html};
+    \item \textbf{Documentazione \mgls{mongodb}}: \url{https://docs.mongodb.org/manual};
+    \item \textbf{Documentazione \mgls{mongoose}}: \url{http://mongoosejs.com/docs/guide.html};
+    \item \textbf{Documentazione \mgls{angularjs}}: \url{https://docs.angularjs.org/api};
+    \item \textbf{Documentazione \mgls{bootstrap}}: \url{http://getbootstrap.com/css};
+    \item \textbf{Documentazione async.js}: \url{https://github.com/caolan/async};
+    \item \textbf{Documentazione SimpleMDE markdown editor}: \url{https://github.com/NextStepWebs/simplemde-markdown-editor}
 \end{itemize}
 
 \newpage
@@ -246,9 +247,15 @@ Le principali caratteristiche che hanno fatto propendere il gruppo per \mgls{nod
 \end{itemize}
 Tuttavia bisogna tenere in considerazione che questo \mgls{framework} presenta anche degli aspetti potenzialmente critici, quali:
 \begin{itemize}
-	\item La relativa immaturità, in quanto anche se la maggior parte delle librerie fondamentali hanno raggiunto la stabilità, l'ecosistema in generale non ha raggiunto ancora un livello ottimo di maturità. Inoltre la facilità di pubblicazione dei propri pacchetti ed il modo in cui il \mgls{node package manager} è strutturato rende difficile il fidarsi degli stessi;
-	\item L'utilizzo di codice \mgls{javascript} che comporta le problematiche citate introdotte dal linguaggio nella sezione \ref{javascript}.
+	\item la relativa immaturità, in quanto anche se la maggior parte delle librerie fondamentali hanno raggiunto la stabilità, l'ecosistema in generale non ha raggiunto ancora un livello ottimo di maturità. Inoltre la facilità di pubblicazione dei propri pacchetti ed il modo in cui il \mgls{node package manager} è strutturato rende difficile il fidarsi degli stessi;
+	\item l'utilizzo di codice \mgls{javascript} che comporta le problematiche citate introdotte dal linguaggio nella sezione \ref{javascript}.
 \end{itemize}
+
+Tuttavia gli aspetti positivi hanno fatto propendere il gruppo ad adottare questo \mgls{framework}, quindi
+\mgls{node.js} verrà quindi impiegato per la realizzazione del \mgls{server} di \prj{}.
+
+\subsubsubsection{Integrazione nel sistema}
+\TODO{}
 
 \subsubsection{AngularJS}\label{angularjs}
 \mgls{angularjs} è un \mgls{framework} \mgls{javascript} \mgls{open-source}  inspirato al pattern \mgls{mvc} patrocinato da \mgls{google}. Uno dei vantaggi più grandi che caratterizzano questo \mgls{framework} è la possibilità di integrare e utilizzare molte funzioni utilizzando quasi esclusivamente l’\mgls{html} grazie all’approccio dichiarativo, permettendo di estenderne la sintassi per esprimere le componenti dell’applicazione in maniera chiara e succinta. Le caratteristiche principali che caratterizzano questo \mgls{framework} sono:
@@ -260,11 +267,14 @@ Tuttavia bisogna tenere in considerazione che questo \mgls{framework} presenta a
 \end{itemize}
 I potenziali rischi rilevati nell'adottare questo \mgls{framework} a cui il gruppo dovrà porre particolare attenzione sono:
 \begin{itemize}
-	\item La curva di apprendimento del linguaggio è relativamente ripida, rendendo l'apprendimento delle funzionalità non base difficile;
-	\item Gli \mglspl{scope} sono facili da usare ma effettuare debugging sugli stessi è complesso;
-	\item L'avvento imminente della versione 2.0 di \mgls{angularjs} rischia introdurre modifiche notevoli alla logica \mgls{front-end} in caso di rinnovamento delle tecnologie.
+	\item la curva di apprendimento del linguaggio è relativamente ripida, rendendo l'apprendimento delle funzionalità non base difficile;
+	\item gli \mglspl{scope} sono facili da usare ma effettuare debugging sugli stessi è complesso;
+	\item l'avvento imminente della versione 2.0 di \mgls{angularjs} rischia introdurre modifiche notevoli alla logica \mgls{front-end} in caso di rinnovamento delle tecnologie.
 \end{itemize}
-\mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la parte algoritmica del \mgls{front-end}.
+\mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la business logic del \mgls{front-end}.
+
+\subsubsubsection{Integrazione nel sistema}
+\TODO{}
 
 \subsubsection{Bootstrap}\label{bootstrap}
 \mgls{bootstrap} è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}. Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
@@ -275,27 +285,46 @@ I potenziali rischi rilevati nell'adottare questo \mgls{framework} a cui il grup
 	\item presenza di una vasta comunità a supporto;
 	\item permette di gestire in modo automatico il \mgls{rendering} delle pagine dell'applicazione per svariati dispositivi (\mgls{smartphone}, tablet, PC).
 \end{itemize}
-
 I potenziali aspetti critici derivanti dall'uso di \mgls{bootstrap} sono:
 \begin{itemize}
-	\item Il codice \mgls{html} generato da \mgls{bootstrap} ha molti tags \texttt{<div>} e rischia di essere altamente annidato confondendo in questo modo la leggibilità del codice;
+	\item il codice \mgls{html} generato da \mgls{bootstrap} ha molti tags \texttt{<div>} e rischia di essere altamente annidato confondendo in questo modo la leggibilità del codice;
 	\item \mgls{bootstrap} fa affidamento a classi specifiche assegnate agli elementi della pagina che servono per abilitare determinate funzionalità del \mgls{framework}, tuttavia questo viola uno dei precetti principali della costruzione delle pagine web, cioè che la presentazione debba essere indipendente dai dati.
 \end{itemize}
 
-\subsubsection{Express}\label{express}
-\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzale le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server. \mgls{express} integra \mgls{node.js}, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}.
-Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
+\subsubsubsection{Integrazione nel sistema}
+\TODO{}
 
+\subsubsection{Express}\label{express}
+\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzare le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server.
+
+\subsubsubsection{Integrazione nel sistema}
+\mgls{express} viene installato come un modulo di \mgls{node.js} e lo integra, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}. \mgls{express},oltre che per il \mgls{routing} delle richieste e risposte, verrà utilizzato per definire l'ordine dei \mgls{middleware} nella \textit{chain of responsability} (vedere sezione Descrizione Design Pattern \ref{descrizioneDesignPattern}) ed in fine per restituire al \mgls{client} le risposte \mgls{http} con gli eventuali errori riscontrati dal \mgls{server}. Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
 
 \subsection{Librerie}\label{librery}
 \subsubsection{Mongoose}\label{mongoose}
-Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti.
-La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente.
-Non sono state trovati particolari aspetti critici introdotti dall'utilizzo di \mgls{mongoose}.
+Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente il più diffuso \mgls{odm}. Questa libreria permette di definire degli schemi per modellare i dati del database, imponendo una certa struttura per la creazione di nuovi \mgls{Document}. Inoltre, fornisce molti strumenti utili per la validazione dei dati, per la definizione di \mgls{query} e per il cast dei tipi predefiniti. La documentazione di \mgls{mongoose} è ben fornita e descrive le \mgls{api} in maniera esaustiva, fornendo degli \mgls{snippet} del codice sorgente. Non sono state trovati particolari aspetti critici introdotti dall'utilizzo di \mgls{mongoose}.
+
+\subsubsubsection{Integrazione nel sistema}
+\mgls{mongoose} viene installato come un modulo \mgls{node.js} e viene utilizzato nel \mgls{server} di \prj{} per definire il modello che i dati dovranno avere per essere salvati nel \mgls{database}. Questa libreria è particolarmente utile in quanto permette di lanciare automaticamente delle funzioni \mgls{javascript}, costruite ad-hoc, per verificare che i dati rispettino tutte le caratteristiche desiderate. 
+
+\subsubsection{Async.js}\label{asyncjs}
+
+\subsubsubsection{Integrazione nel sistema}
+\TODO{}
+
+\subsubsection{SimpleMDE markdown editor}\label{simpleMDE}
+SimpleMDE markdown editor è una libreria che provvede a fornire un editor \mgls{markdown} semplice da usare e comodo per gli utenti. Si integra perfettamente con \mgls{javascript} e permette di avere un editor \mgls{WYSIWYG}.
+
+\subsubsubsection{Integrazione nel sistema}
+%A simple, beautiful, and embeddable JavaScript Markdown editor. Delightful editing for beginners and experts alike. Features built-in autosaving and spell checking.
+
+%A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. SimpleMDE is one of the first editors to feature both built-in autosaving and spell checking.
+
+%WYSIWYG editors that produce HTML are often complex and buggy. Markdown solves this problem in many ways, plus Markdown can be rendered natively on more platforms than HTML. However, Markdown is not a syntax that an average user will be familiar with, nor is it visually clear while editing. In otherwords, for an unfamiliar user, the syntax they write will make little sense until they click the preview button. SimpleMDE has been designed to bridge this gap for non-technical users who are less familiar with or just learning Markdown syntax.
+
 
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
-%copiata dagli stakeholders
 \mgls{mongodb} è un database \mgls{nosql} \mgls{open-source} scalabile e altamente performante di tipo \mgls{document-oriented}, in cui i dati sono archiviati sotto forma di documenti in stile \mgls{json} con schemi dinamici che \mgls{mongodb} chiama \mgls{bson}, secondo una struttura semplice e potente. I principali vantaggi derivati dal suo utilizzo sono:
 
 \begin{itemize}
@@ -306,35 +335,28 @@ Non sono state trovati particolari aspetti critici introdotti dall'utilizzo di \
 	\item \textbf{Flessibilità:} tipi di dato più flessibili
 \end{itemize}
 
-Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo. Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare.
-
-Tuttavia l'utilizzo di \mgls{mongodb} introduce alcuni aspetti potenzialmente critici:
+Altre funzionalità comprendono la possibilità di creare delle \mgls{query} ad hoc, l’Auto-Sharding, ovvero la capacità di scalare orizzontalmente e di aggiungere nuove macchine al database operativo. Inoltre, \mgls{mongodb} supporta la definizione di collection con una dimensione fissata. Questo particolare tipo di collection mantiene l’ordine di inserimento e, una volta raggiunta la dimensione massima prefissata, si comporta come una lista circolare. Tuttavia l'utilizzo di \mgls{mongodb} introduce alcuni aspetti potenzialmente critici:
 \begin{itemize}
-	\item Su \mgls{mongodb} non esiste la possibilità di effettuare \mgls{join} per questa ragione c'è il rischio di aumentare il numero di \mgls{query} da effettuare per ottenere i dati desiderati;
+	\item su \mgls{mongodb} non esiste la possibilità di effettuare \mgls{join} per questa ragione c'è il rischio di aumentare il numero di \mgls{query} da effettuare per ottenere i dati desiderati;
 	\item \mgls{mongodb} non è transazionale quindi non assicura l'integrità dei dati, quindi per l'inserimento e la modifica dei dati bisogna controllare manualmente l'integrità dei dati;
-	\item Quando vengono effettuate operazioni di scrittura sul database, questo imposta un blocco sulle operazioni di scritture e lettura sull'intero database. 
+	\item quando vengono effettuate operazioni di scrittura sul database, questo imposta un blocco sulle operazioni di scritture e lettura sull'intero database. 
 \end{itemize}
-
 Il gruppo tuttavia ha ritenuto che gli aspetti positivi superassero di molto gli aspetti negativi e che l'utilizzo del \mgls{mean stack} completo sarebbe stato più coerente e documentato invece di scegliere un database \mgls{sql}.
+
+\subsubsubsection{Integrazione nel sistema}
+\TODO{}
 
 \newpage
 \section{Standard di progetto}
 
-% Ciò che segue è da aggiungere nel periodo di codifica
-% \subsection{Documentazione del codice}
-% Gli standard relativi alla documentazione del codice sono specificati 
-% nelle \textit{\NdP\_v3.0.0}.
-
-% Ciò che segue è da aggiungere nel periodo di codifica
-% \subsection{Documentazione del codice}
-% Gli standard relativi alla documentazione del codice sono specificati 
-% nelle \textit{\NdP\_v3.0.0}.
-
 \subsection{Denominazione di entità e relazioni}
-Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano le \textit{\NdP\_v2.0.0}.
+Entità e relazioni devono avere nomi chiari e concisi. È preferibile utilizzare sostantivi per le entità e verbi per le relazioni. Per ulteriori informazioni si vedano le \NdPv.
+
+\subsection{Documentazione del codice}
+Gli standard relativi alla documentazione del codice sono specificati in \NdPv.
 
 \subsection{Strumenti di lavoro}
-Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione  del prodotto software sono definiti nelle \textit{\NdP\_v2.0.0}.
+Gli strumenti da adottare e le procedure da seguire per utilizzarli correttamente durante la realizzazione  del prodotto software sono definiti in \NdPv.
 
 \newpage
 \section{Panoramica dell'architettura}
@@ -420,10 +442,10 @@ Viene utilizzato per far sì che un oggetto a cui viene effettuata una richiesta
 \mgls{express} usa chain of responsibility per la gestione dei middleware e del routing. Come già accennato è particolarmente legato al pattern Middleware. Viene utilizzato nella nostra architettura all’interno del package \texttt{server::middleware}. La classe \texttt{server::middleware::Router} gestisce la richiesta scorrendo tutta la lista delle sottoclassi e richiamando il metodo \texttt{next} finché una di queste non può soddisfarla. Nel gergo del framework Express i middleware corrispondono agli oggetti ConcreteHandler del design pattern. Sebbene il comportamento e lo scopo sia quasi identico, l’implementazione di Express presenta alcune differenze:
 
 \begin{itemize}
-	\item I middleware di Express possono essere classi con un metodo \texttt{handle} o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in \mgls{node.js}. Nel progetto sarà utilizzata principalmente la seconda versione.
-	\item Il \mgls{design pattern} prevede che l’oggetto \texttt{Handler} abbia un riferimento \texttt{successor} all’\texttt{Handler} successivo. \mgls{express} invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di \mgls{express} il quale passerà il controllo al successivo middleware.
-	\item \mgls{express} divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti \texttt{try-catch}, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono.
-	\item Ogni middleware di \mgls{express} deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
+	\item i middleware di Express possono essere classi con un metodo \texttt{handle} o semplici funzioni, in pieno accordo con lo stile funzionale utilizzato dalla grande maggioranza delle librerie e delle applicazioni scritte in \mgls{node.js}. Nel progetto sarà utilizzata principalmente la seconda versione
+	\item il \mgls{design pattern} prevede che l’oggetto \texttt{Handler} abbia un riferimento \texttt{successor} all’\texttt{Handler} successivo. \mgls{express} invece passa al metodo di esecuzione del middleware una callback. Il middleware, eseguendo la callback, passa nuovamente il controllo all’oggetto del server di \mgls{express} il quale passerà il controllo al successivo middleware
+	\item \mgls{express} divide i middleware in due gruppi: i middleware standard e i middleware di gestione degli errori, si distinguono per il numero di parametri che possono gestire (3 e 4, rispettivamente). Ogni middleware può decidere se passare il controllo al prossimo middleware standard o se passare il controllo al prossimo middleware di gestione degli errori (passandogli anche l’errore da gestire). Questa funzionalità serve per permettere la gestione di errori senza utilizzare i costrutti \texttt{try-catch}, tipici dei linguaggi imperativi ma inefficaci quando si utilizza lo stile di programmazione asincrono
+	\item ogni middleware di \mgls{express} deve essere invocato con i seguenti parametri: l’eventuale errore da gestire (se è un middleware di gestione degli errori), l’oggetto della richiesta, l’oggetto della risposta, la callback da utilizzare per passare il controllo al successivo middleware. L’ordine è rilevante.
 \end{itemize}
 
 \newpage
@@ -756,15 +778,15 @@ Di seguito viene presentato il diagramma di sequenza per la rimozione di un ques
 \newpage
 \appendix
 
-\section{Descrizione Design Pattern}
+\section{Descrizione Design Pattern}\label{descrizioneDesignPattern}
 \subsection{Design Pattern Architetturali}
 \subsubsection{MVC}
-Model-View-Controller (\mgls{mvc}) è un \mgls{design pattern} per l’implementazione di interfacce utente. Esso divide un’applicazione \mgls{software} in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il \mgls{model} è il modulo che contiene i dati. Una \mgls{view} può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici \mgls{view} della stessa informazione. La terza parte, il \mgls{controller}, si occupa di accettare degli input e di convertirli in comandi per il \mgls{model} o per la \mgls{view}.\\
+Model-View-Controller (\mgls{mvc}) è un \mgls{design pattern} per l’implementazione di interfacce utente. Esso divide un’applicazione \mgls{software} in tre parti interconnesse, in modo da separare nettamente la rappresentazione interna dei dati dal modo in cui essa viene presentata all’utente. Il \mgls{model} è il modulo che contiene i dati. Una \mgls{view} può essere qualsiasi output dell’informazione, come ad esempio un testo o un diagramma. Si possono avere molteplici \mgls{view} della stessa informazione. La terza parte, il \mgls{controller}, si occupa di accettare degli input e di convertirli in comandi per il \mgls{model} o per la \mgls{view}.
 Oltre a dividere l’applicazione in queste tre componenti, \mgls{mvc} si occupa anche di definire le interazioni tra esse:
 \begin{itemize}
-	\item Un \mgls{controller} gestisce gli input che vengono generati dalla \mgls{view} e può inviare comandi al \mgls{model} per aggiornare il suo stato. Inoltre seleziona quale view deve essere eseguita e visualizzata;
-	\item Un \mgls{model} quando cambia il suo stato interno notifica le \mgls{view} associate. Questo permette alle \mgls{view} di cambiare la loro presentazione;
-	\item Una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
+	\item un \mgls{controller} gestisce gli input che vengono generati dalla \mgls{view} e può inviare comandi al \mgls{model} per aggiornare il suo stato. Inoltre seleziona quale view deve essere eseguita e visualizzata;
+	\item un \mgls{model} quando cambia il suo stato interno notifica le \mgls{view} associate. Questo permette alle \mgls{view} di cambiare la loro presentazione;
+	\item una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
 
 \begin{center}
@@ -779,11 +801,11 @@ Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è s
 \subsubsection{Middleware}
 Il Middleware è uno strato \mgls{software} che si interpone tra l’applicazione \mgls{software} e uno strato di servizi per semplificarne le comunicazioni e la gestione di input/output. Viene solitamente utilizzato in applicazioni distribuite e facilita l’interoperabilità, fornendo servizi che permettono la comunicazione tra applicazioni di sistemi operativi diversi. Può accedere che il Middleware fornisca dei servizi abitualmente attribuibili a un sistema operativo. I servizi Middleware forniscono un set di interfacce che permetto a un’applicazione di:
 \begin{itemize}
-	\item Localizzare facilmente applicazioni o servizi in una rete;
-	\item Filtrare dati per renderli user-friendly oppure anonimizzarli per renderli pubblicabili, proteggendone la privacy;
-	\item Essere indipendente dai servizi di rete;
-	\item Essere affidabile e sempre disponibile;
-	\item Aggiungere attributi complementari.
+	\item localizzare facilmente applicazioni o servizi in una rete;
+	\item filtrare dati per renderli user-friendly oppure anonimizzarli per renderli pubblicabili, proteggendone la privacy;
+	\item essere indipendente dai servizi di rete;
+	\item essere affidabile e sempre disponibile;
+	\item aggiungere attributi complementari.
 \end{itemize}
 Si tratta quindi di funzionalità leggermente più specializzate da quelle normalmente offerte da un sistema operativo. L’avvento del web ha avuto una forte ripercussione sulla diffusione dei \mgls{software} di Middleware. Essi hanno infatti permesso l’accesso sicuro da remoto a \mgls{database} locali. I tipi di Middleware sono:
 \begin{itemize}
@@ -825,9 +847,9 @@ L’utilizzo di questo \mgls{design pattern} comporta una serie di conseguenze:
 \subsubsection{Facade}
 Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce presenti in un sottosistema. Facade definisce un’interfaccia di alto livello che rende il sottosistema più semplice da utilizzare. Suddividere un sistema in sottosistemi aiuta a ridurne la complessità. Può essere utilizzato nei seguenti casi:
 \begin{itemize}
-	\item Quando si vuole fornire un’interfaccia semplice a un sottosistema complesso. La complessità dei sottosistemi tende ad aumentare con la loro evoluzione. Molti pattern, quando applicati, portano a un aumento nel numero di classi piccole. Ciò rende il sottosistema maggiormente riusabile e semplice da personalizzare, ma di utilizzo più difficile per i \mgls{client} che non richiedono alcuna personalizzazione. Un Facade può fornire una vista semplice di base su un sottosistema che si rivela essere sufficiente per la maggior parte dei \mgls{client}. Soltanto i \mgls{client} che richiedono una personalizzazione maggiore dovranno guardare dietro la facciata;
-	\item Nei casi in cui sono molte le dipendenze fra i \mgls{client} e le classi che implementano un’astrazione. Introducendo un Facade si disaccoppia il sottosistema dai \mgls{client} e dagli altri sottosistemi, promuovendo quindi la portabilità e l’indipendenza di sottosistemi;
-	\item Quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
+	\item quando si vuole fornire un’interfaccia semplice a un sottosistema complesso. La complessità dei sottosistemi tende ad aumentare con la loro evoluzione. Molti pattern, quando applicati, portano a un aumento nel numero di classi piccole. Ciò rende il sottosistema maggiormente riusabile e semplice da personalizzare, ma di utilizzo più difficile per i \mgls{client} che non richiedono alcuna personalizzazione. Un Facade può fornire una vista semplice di base su un sottosistema che si rivela essere sufficiente per la maggior parte dei \mgls{client}. Soltanto i \mgls{client} che richiedono una personalizzazione maggiore dovranno guardare dietro la facciata;
+	\item nei casi in cui sono molte le dipendenze fra i \mgls{client} e le classi che implementano un’astrazione. Introducendo un Facade si disaccoppia il sottosistema dai \mgls{client} e dagli altri sottosistemi, promuovendo quindi la portabilità e l’indipendenza di sottosistemi;
+	\item quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
 \end{itemize}
 
 \begin{center}
@@ -842,9 +864,9 @@ Questo pattern fornisce un’interfaccia unificata per un insieme di interfacce 
 Il Chain of Responsibility è un pattern comportamentale che permette di separare i \mgls{sender} dai \mgls{receiver} delle richieste. La richiesta attraversa una catena di oggetti per essere intercettata solo quando raggiunge il proprio gestore. Viene utilizzato quando non è possibile determinare staticamente il \mgls{receiver} oppure l’insieme di oggetti gestori cambia dinamicamente a runtime. Le richieste vengono dette implicite poiché il \mgls{sender} non ha alcuna conoscenza sull’identità del ricevente. Per permettere alla richiesta di attraversare la catena e per rimanere implicita, ogni \mgls{receiver} condivide un interfaccia comune per gestire le richieste ed accedere al proprio successore. La gerarchia che vorrà inviare richieste dovrà avere una superclasse che dichiara un metodo handler generico. La specializzazione di tale metodo avviene tramite overriding nelle sottoclassi opportune.\\
 L’utilizzo di questo pattern comporta una serie di conseguenze:
 \begin{itemize}
-	\item Ridotto accoppiamento: gli oggetti non sono a conoscenza di chi gestirà la richiesta ma sanno solo che verrà gestita in modo appropriato. Inoltre non bisognerà manutenere i riferimenti a tutti i possibili riceventi;
-	\item Aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il |\mgls{subclassing} per specializzare i gestori;
-	\item Non c’è garanzia che la richiesta venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
+	\item ridotto accoppiamento: gli oggetti non sono a conoscenza di chi gestirà la richiesta ma sanno solo che verrà gestita in modo appropriato. Inoltre non bisognerà manutenere i riferimenti a tutti i possibili riceventi;
+	\item aggiunge flessibilità nell’assegnamento delle responsabilità degli oggetti: è possible distribuire le responsabilità tra gli oggetti a runtime modificandone la gerarchia. Staticamente è possibile usare il |\mgls{subclassing} per specializzare i gestori;
+	\item non c’è garanzia che la richiesta venga gestita, questo può avvenire quando la catena non è stata costruita in modo rigoroso.
 \end{itemize}
 
 \begin{center}
