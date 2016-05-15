@@ -617,7 +617,7 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di validazione}\label{test_pianificazione}	
 	\begin{longtable}{r l p{10cm} l l}
 		\midrule
-		\multicolumn{2}{c}{\textbf{\textit{ID}}} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato}\tabularnewline
+		\multicolumn{2}{c}{\textbf{ID}} & \textbf{Descrizione} & \textbf{Requisito} & \textbf{Stato}\tabularnewline
 		\midrule
 		\midrule
 		& TV1 & Verifica che l'ospite sia in grado di effettuare la registrazione presso il sistema attraverso i seguenti passi:
@@ -801,9 +801,10 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 	\end{longtable}
 	\subsection{Test di sistema}\label{test_sistema}
 
-\begin{longtable}{l p{10cm} l l}
+\begin{longtable}{l p{9cm} l l}
 \midrule
 \textbf{ID} & \textbf{Descrizione} & \textbf{Stato} & \textbf{Requisito} \tabularnewline
+\midrule
 \midrule
 		TS7.5 & I sotto-requisiti obbligatori sono verificati e viene verificato che il QML riesca a descrivere in maniera efficace tutte le caratteristiche previste per un questionario e le relative domande & P& \hypertarget{R-3F7.5}{R-3F7.5}\tabularnewline
 		\midrule
@@ -1815,7 +1816,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice Gulpease}	& \textbf{Esito test} \\ \midrule
 				\midrule
@@ -1840,7 +1841,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito} \\ \midrule
 				\midrule
@@ -1859,7 +1860,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
@@ -1900,7 +1901,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
@@ -1942,7 +1943,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
@@ -1964,13 +1965,13 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	\paragraph{Numero di parametri per metodo}
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth}}
+			\begin{tabular}{p{0.6\textwidth} l}
 				\toprule
 				\textbf{Range}   & \textbf{\% metodi nel Range}	 \\ \midrule
 				\midrule
 				Ottimale & 98\% \\ \midrule
 				Accettabile & 2\%  \\ \midrule
-				Non Accettabile  & 0\%  \\ \midrule
+				Non Accettabile  & 0\%  \\
 				\bottomrule
 			\end{tabular}
 		\end{center}
@@ -1980,14 +1981,14 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	\paragraph{Numero di campi dati per classe}
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.6\textwidth} p{0.4\textwidth} }
+			\begin{tabular}{p{0.6\textwidth} l}
 				\toprule
 				\textbf{Range}   & \textbf{\% metodi nel Range}	\\ \midrule
 				\midrule
 				Ottimale & 80\% \\ \midrule
 				Accettabile & 15\%  \\ \midrule
-				Non Accettabile  & 5\%  \\ \midrule
-				
+				Non Accettabile  & 5\%  \\
+				\bottomrule
 			\end{tabular}
 		\end{center}
 		\caption{Esito dei test su campi dati/classe}
@@ -2007,9 +2008,11 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
 				\midrule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
-				\mGls{cost variance} & & \\ \midrule
+				\mGls{cost variance} & \TODO{} & \TODO{} \\ \midrule
 				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
-				\mgls{requirement stability index}  & 100\% & Ottimale \\ \midrule \midrule
+				\midrule
+				\mgls{requirement stability index}  & 100\% & Ottimale \\
+				\bottomrule
 			\end{tabular}	
 		\end{center}
 		\caption{Esito dei test su metriche per qualità di processo nella \FC}
@@ -2058,7 +2061,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\begin{table}[H]
 		\begin{center}
-			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 				\toprule
 				\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
 				\midrule
@@ -2085,7 +2088,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		
 		\begin{table}[H]
 			\begin{center}
-				\begin{tabular}{p{0.3\textwidth} p{0.24\textwidth} p{0.24\textwidth}p{0.24\textwidth}}
+				\begin{tabular}{p{0.3\textwidth} l l l}
 					\midrule
 						\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
 						\# campi dati/ classe & 52,70\% & 28,38\% & 17,72\% \\\midrule
@@ -2100,7 +2103,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		\end{table}
 			\begin{table}[H]
 				\begin{center}
-					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+					\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
 						\midrule
 						\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
 						Instabiltà & 0.20  &  Ottimale  \\\midrule
