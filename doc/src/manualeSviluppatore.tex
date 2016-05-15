@@ -1,4 +1,4 @@
-	\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
 
@@ -12,10 +12,10 @@
 \newcommand{\versione}{1.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
-\newcommand{\stato}{Informale}
+\newcommand{\stato}{Formale}
 
 %Uso del documento
-\newcommand{\uso}{Esterno}
+\newcommand{\uso}{Interno}
 
 \rhead{\titoloDocumento}
 \lfoot{Versione: \versione}
@@ -110,7 +110,7 @@
 	\subsection{Riferimenti}
 	\subsubsection{Normativi}
 	\begin{itemize}
-		\item \NdP\ \textit{v3.0.0};
+		\item \NdPv\;
 		\item Capitolato d'appalto C5: \url{http://www.math.unipd.it/~tullio/IS-1/2015/Progetto/C5p.pdf}.
 	\end{itemize}
 	\subsubsection{Informativi}
@@ -133,7 +133,6 @@
 			\item versione di Node.js utilizzata;
 			\item descrizione dettagliata del problema riscontrato e relativi errori visualizzati.
 		\end{itemize}
-
 	
 	\newpage
 	\section{Configurazione dell'ambiente di sviluppo}
@@ -147,10 +146,10 @@
 	\subsection{Apertura del progetto}\label{nuovoProgetto}
 	\begin{enumerate}
 		\item Avviare \mgls{jetbrains} \mgls{idea};
-		\item Selezionare "File";
-		\item Selezionare "New";
-		\item Selezionare "Project from Version Control";
-		\item Selezionare "Git";
+		\item Selezionare \textbf{File};
+		\item Selezionare \textbf{New};
+		\item Selezionare \textbf{Project from Version Control};
+		\item Selezionare \textbf{Git};
 
 		\begin{center}
 			\begin{figure}[H]
@@ -159,10 +158,10 @@
 			\end{figure}
 		\end{center}
 
-		\item Inserire \texttt{https://github.com/lordnikolai/starware.swe15} nel campo "Git Repository URL"; 
-		\item Inserire in "Parent Directory" il percordo alla cartella locale che conterrà la cartella della \mgls{repository} che verrà clonata; 
-		\item Inserire in "Directory Name" il nome desiderato per la cartella nella quale verrà clonata la \mgls{repository};
-		\item Premere il pulsante "Clone".
+		\item Inserire \texttt{https://github.com/lordnikolai/starware.swe15} nel campo \textbf{Git Repository URL}; 
+		\item Inserire in \textbf{Parent Directory} il percordo alla cartella locale che conterrà la cartella della \mgls{repository} che verrà clonata; 
+		\item Inserire in \textbf{Directory Name} il nome desiderato per la cartella nella quale verrà clonata la \mgls{repository};
+		\item Premere il pulsante \textbf{Clone}.
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
@@ -174,8 +173,8 @@
 	\subsection{Installare il plugin per Node.js}
 	Per poter far funzionare correttamente \mgls{node.js} nell'\mgls{ide} è necessario installare il relativo \mgls{plugin}, seguendo i passi successivi:
 	\begin{enumerate}
-		\item Selezionare "File";
-		\item Selezionare "Settings";
+		\item selezionare \textbf{File};
+		\item selezionare \textbf{Settings};
 
 		\begin{center}
 			\begin{figure}[H]
@@ -184,15 +183,15 @@
 			\end{figure}
 		\end{center}
 
-		\item Selezionare la voce "Plugins";
-		\item Nel campo di ricerca scrivere "nodejs";
-		\item Installare il \mgls{plugin} di \mgls{node.js}.
+		\item selezionare la voce \textbf{Plugins};
+		\item nel campo di ricerca scrivere \texttt{nodejs};
+		\item installare il \mgls{plugin} di \mgls{node.js}.
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[max width=\textwidth, scale=0.7]{../img/manualeSviluppatore/plugin.png}
-			\caption{Settings}
+			\includegraphics[max width=\textwidth]{../img/manualeSviluppatore/plugin.png}
+			\caption{Node.js plugin}
 		\end{figure}
 	\end{center}
 	
@@ -212,7 +211,7 @@
 	Il programma dovendo interagire con \mgls{mongodb} necessità che questo sia avviato. Per avviarlo, dopo averlo installato, bisognerà:
 	\begin{enumerate}
 		\item Aprire il prompt dei comandi di \mgls{windows} o la shell nel caso di \mgls{mac os} e \mgls{linux};
-		\item Digitare il comando "mongod";
+		\item Digitare il comando \textbf{mongod};
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
@@ -220,7 +219,7 @@
 			\caption{Prompt MongoDb}
 		\end{figure}
 	\end{center}
-	Una volta lanciato il comando \texttt{mongod} si \mgls{mongodb} dovrebbe rispondere con "\textit{waiting for connection on port 27017}" come mostrato nella seguente figura.
+	Una volta lanciato il comando \texttt{mongod} si \mgls{mongodb} dovrebbe rispondere con \textit{waiting for connection on port 27017} come mostrato nella seguente figura.
 	\begin{center}
 		\begin{figure}[H]
 			\centering 
@@ -234,7 +233,7 @@
 	\begin{enumerate}
 		\item Avere il progetto aperto come spiegato in sezione \ref{nuovoProgetto};
 		\item Selezionare premendo il tasto destro del mouse il file \texttt{scr/server.js};
-		\item Selezionare l'opzione "Run server.js".
+		\item Selezionare l'opzione \textbf{Run server.js}.
 	\end{enumerate}
 	\begin{center}
 		\begin{figure}[H]
