@@ -274,7 +274,7 @@ I potenziali rischi rilevati nell'adottare questo \mgls{framework} a cui il grup
 \mgls{angularjs} verrà impiegato sia per la creazione dell’interfaccia grafica sia per la business logic del \mgls{front-end}.
 
 \subsubsubsection{Integrazione nel sistema}
-\TODO{}
+Il \mgls{framework} \mgls{angularjs} verrà utilizzato per costruire tutto il  \mgls{front-end}. Tutta l'interfaccia utente è costruita con il modello \mgls{mvc} e \mgls{angularjs} fornisce metodi e funzionalità per costruire questo tipo di interfacce. Infatti tutte le classi in \texttt{client::controller} sono costruite attraverso i metodi che \mgls{angularjs} fornisce per istanziare controllers. Inoltre \mgls{angularjs} permette la creazione di servizi (i quali vengono istanziati come singleton e attraverso dependency injection richiamati dove serve) e di factories (le quali permettono di costruire oggetti e attraverso dependency injection che vengano richiamati dove serve). I servizi verranno utilizzati per la realizzazione di tutti i componenti in \texttt{client::model::service} e \texttt{client::util}. Le factories verranno utilizzare per la realizzazione di tutti i componenti in \texttt{client::model:data}.
 
 \subsubsection{Bootstrap}\label{bootstrap}
 \mgls{bootstrap} è un insieme di elementi grafici, scritti in \mgls{javascript} e \mgls{css3}, che viene utilizzato per dare all'applicazione una grafica moderna e \mgls{responsive}. Bootstrap è stato scelto in quanto risponde a molte esigenze del gruppo:
@@ -292,10 +292,10 @@ I potenziali aspetti critici derivanti dall'uso di \mgls{bootstrap} sono:
 \end{itemize}
 
 \subsubsubsection{Integrazione nel sistema}
-\TODO{}
+Verranno utilizzate le classi CSS fornite da \mgls{bootstrap} per la composizione di ogni pagina del \mgls{front-end} del nostro sistema. Quindi tutti i componenti in \texttt{client::view} utilizzeranno \mgls{bootstrap}.
 
 \subsubsection{Express}\label{express}
-\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzare le applicazioni web create con \mgls{node.js} secondo l'architettura \mgls{mvc} sul lato server.
+\mgls{express} è un \mgls{framework} minimale che aiuta ad organizzare le applicazioni web create con \mgls{node.js}.
 
 \subsubsubsection{Integrazione nel sistema}
 \mgls{express} viene installato come un modulo di \mgls{node.js} e lo integra, fornendo una migliore implementazione del sistema di \mgls{routing}, incrementando le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi \mgls{middleware}, ed agevolando la realizzazione delle \mglspl{vista}. \mgls{express} aiuta l'utente a gestire le \mgls{route}, le \mgls{request} e le \mgls{view}. \mgls{express},oltre che per il \mgls{routing} delle richieste e risposte, verrà utilizzato per definire l'ordine dei \mgls{middleware} nella \textit{chain of responsability} (vedere sezione Descrizione Design Pattern \ref{descrizioneDesignPattern}) ed in fine per restituire al \mgls{client} le risposte \mgls{http} con gli eventuali errori riscontrati dal \mgls{server}. Dato che \mgls{express} integra le funzionalità di \mgls{node.js} gli aspetti potenzialmente critici sono gli stessi elencati nella sezione \ref{node.js}.
@@ -308,22 +308,16 @@ Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente i
 \mgls{mongoose} viene installato come un modulo \mgls{node.js} e viene utilizzato nel \mgls{server} di \prj{} per definire il modello che i dati dovranno avere per essere salvati nel \mgls{database}. Questa libreria è particolarmente utile in quanto permette di lanciare automaticamente delle funzioni \mgls{javascript}, costruite ad-hoc, per verificare che i dati rispettino tutte le caratteristiche desiderate. 
 
 \subsubsection{Async.js}\label{asyncjs}
-Async è un modulo di utilità che fornisce funzioni per lavorare in modo asincrono con \mgls{javascript}. Questo modulo è stato originariamente sviluppato per funzionare con \mgls{node.js} ed è installabile attraverso il \mgls{node package manager}, inoltre è utilizzabile direttamente tramite \mgls{browser}.
-Async fornisce circa una settantina di funzionalità (map, reduce, filter, parallel, series, waterfall, ...). Tutte queste funzionalità per funzionare correttamente devono essere utilizzate assumendo di seguire le convenzioni di \mgls{node.js} (es. bisogna fornire una singola callback come ultimo argomento della funziona asincrona).
+Async è un modulo di utilità che fornisce funzioni per lavorare in modo asincrono con \mgls{javascript}. Questo modulo è stato originariamente sviluppato per funzionare con \mgls{node.js} ed è installabile attraverso il \mgls{node package manager}, inoltre è utilizzabile direttamente tramite \mgls{browser}. Async fornisce circa una settantina di funzionalità (\texttt{map, reduce, filter, parallel, series, waterfall, ...}). Tutte queste funzionalità per funzionare correttamente devono essere utilizzate assumendo di seguire le convenzioni di \mgls{node.js} (es. bisogna fornire una singola callback come ultimo argomento della funziona asincrona).
 
 \subsubsubsection{Integrazione nel sistema}
 Viene utilizzato nella parte \mgls{client} per svolgere alcune operazioni che richiedono l'esecuzione di richieste asincrone come l'utilizzo delle \mgls{api} \mgls{rest}.
 
 \subsubsection{SimpleMDE markdown editor}\label{simpleMDE}
-SimpleMDE markdown editor è una libreria che provvede a fornire un editor \mgls{markdown} semplice da usare e comodo per gli utenti. Si integra perfettamente con \mgls{javascript} e permette di avere un editor \mgls{wysiwyg}.
+SimpleMDE markdown editor è una libreria che provvede a fornire un editor \mgls{markdown} semplice da usare e comodo per gli utenti. Si integra perfettamente con \mgls{javascript} e permette di costruire un editor \mgls{wysiwyg} che permette agli utenti meno esperti di familiarizzare con il linguaggio \mgls{markdown} attraverso un'interfaccia grafica e degli shortcuts.
 
 \subsubsubsection{Integrazione nel sistema}
-%A simple, beautiful, and embeddable JavaScript Markdown editor. Delightful editing for beginners and experts alike. Features built-in autosaving and spell checking.
-
-%A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. SimpleMDE is one of the first editors to feature both built-in autosaving and spell checking.
-
-%WYSIWYG editors that produce HTML are often complex and buggy. Markdown solves this problem in many ways, plus Markdown can be rendered natively on more platforms than HTML. However, Markdown is not a syntax that an average user will be familiar with, nor is it visually clear while editing. In otherwords, for an unfamiliar user, the syntax they write will make little sense until they click the preview button. SimpleMDE has been designed to bridge this gap for non-technical users who are less familiar with or just learning Markdown syntax.
-
+SimpleMDE markdown editor viene utilizzato per costruire l'editor che permette ai docenti di scrivere le domande in \mgls{qml}. L'editor inoltre permette la visualizzazione di un'anteprima di quello che verrà poi visualizzato dagli studenti.
 
 \subsection{Database}
 \subsubsection{MongoDB}\label{mongodb}
