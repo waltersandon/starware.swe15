@@ -308,7 +308,8 @@ Per questo progetto è stato scelto di utilizzare \mgls{mongoose}, attualmente i
 \mgls{mongoose} viene installato come un modulo \mgls{node.js} e viene utilizzato nel \mgls{server} di \prj{} per definire il modello che i dati dovranno avere per essere salvati nel \mgls{database}. Questa libreria è particolarmente utile in quanto permette di lanciare automaticamente delle funzioni \mgls{javascript}, costruite ad-hoc, per verificare che i dati rispettino tutte le caratteristiche desiderate. 
 
 \subsubsection{Async.js}\label{asyncjs}
-Async è un modulo di utilità che fornisce funzioni per lavorare in modo asincrono con \mgls{javascript}. Questo modulo è stato originariamente sviluppato per funzionare con \mgls{node.js} ed è installabile attraverso il \mgls{node package manager} ed è utilizzabile direttamente da \mgls{browser}.
+Async è un modulo di utilità che fornisce funzioni per lavorare in modo asincrono con \mgls{javascript}. Questo modulo è stato originariamente sviluppato per funzionare con \mgls{node.js} ed è installabile attraverso il \mgls{node package manager}, inoltre è utilizzabile direttamente tramite \mgls{browser}.
+Async fornisce circa una settantina di funzionalità (map, reduce, filter, parallel, series, waterfall, ...). Tutte queste funzionalità per funzionare correttamente devono essere utilizzate assumendo di seguire le convenzioni di \mgls{node.js} (es. bisogna fornire una singola callback come ultimo argomento della funziona asincrona).
 
 \subsubsubsection{Integrazione nel sistema}
 Viene utilizzato nella parte \mgls{client} per svolgere alcune operazioni che richiedono l'esecuzione di richieste asincrone come l'utilizzo delle \mgls{api} \mgls{rest}.
