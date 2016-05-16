@@ -242,7 +242,7 @@
 	\end{enumerate}
 	Come modello per la valutazione dei processi e miglioramento continuo si raccomanda di fare riferimento a \textit{ISO/IEC 15504}.
 	In particolare provvedimenti concreti saranno specificati in \NdP{}. 
-	Inolre le scadenze imposte per le revisioni periodiche viene valutata, tenendo  conto dell'analisi dei rischi, nel documento \PdP{}.
+	Inoltre le scadenze imposte per le revisioni periodiche viene valutata, tenendo  conto dell'analisi dei rischi, nel documento \PdP{}.
 
 	
 	\subsection{Qualità di prodotto}
@@ -285,7 +285,7 @@
 	\newpage
 	\section{Metodologie e strumenti di gestione} \label{gest_qual}
 	
-	La gestione della qualità sfutta metodi e strumenti per attuare un piano per la  persecuzione della qualità. 
+	La gestione della qualità sfrutta metodi e strumenti per attuare un piano per la  persecuzione della qualità. 
 	 La corrente sezione analizza le linee guida nella scelta delle metodologie e strumenti di concretizzazione del sistema qualità sopra descritto. Le scelte concrete, prese seguendo tali linee guida, vengono descritte dei documenti \PdP{} e \NdP{}.
 	
 	\subsection{Pianificazione strategica e temporale}
@@ -439,7 +439,7 @@
  Se $SV < 0$ significa che il progetto sta producendo con maggior velocità rispetto a quanto pianificato, viceversa se negativo.
 	
 	\begin{itemize}
-		\item \textbf{Range di Accettazione}: SV $\leq$ -5\%
+		\item \textbf{Range di Accettazione}: SV $\leq$ 5\%
 		\item \textbf{Range Ottimale}: SV $\leq$ 0\%
 	\end{itemize}
 	
@@ -600,8 +600,8 @@
 	
 	\paragraph{Test di Unità}
 L'identificazione dei test sarà invece definita tramite un identificativo proprio del test di unità, in particolare
-	\[ [ID Classe].[ID Metodo].TU \] 
-	dove [ID Classe] rappresenta l'ID della classe testata e ID Metodo rappresenta l'ID del metodo della classe testato.
+	\[ TU.[ID Metodo] \] 
+	dove ID Metodo rappresenta l'ID del metodo della classe testato.
 	 Nel caso il test coinvolga più metodi (sconsigliato), si possono concatenare i vari ID separati dal carattere "-".
 	
 	\paragraph{Stato dei test}
@@ -1554,50 +1554,50 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 		\caption{Tabella requisiti / test di sistema} \tabularnewline
 	\end{longtable}
 	\subsection{Test di integrazione}\label{test_integrazione}
-	\TODO{sistemare gli id}
+
 
 	\begin{longtable}{l p{8cm} l l}
 		\midrule
 		\textbf{ID} & \textbf{Descrizione} & \textbf{Componente} & \textbf{Stato} \tabularnewline
 		\midrule
 		\midrule
-		TI.server & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & P\tabularnewline
+		TI.1 & Viene verificato che il server risponda correttamente alle richieste del client ed inoltre che il test di integrazione finale per data, validator, service, middelware, app e express sia corretto & server & P\tabularnewline
 		\midrule
-		TI.app & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & P\tabularnewline
+		TI.2 & Viene verificato che  l'integrazione tra app e express sia corretta e app istanzi correttamente il package middleware & app & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & P\tabularnewline
+		TI.5.1 & Viene verificato che middleware venga instanziato correttamente da app, che tutte le richieste tra middleware e service ricevano le risposte attese e che middle si integri correttamente con express  & middleware & P\tabularnewline
 		\midrule
-		TI.middleware & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & P\tabularnewline
+		TI.5.2 & Viene verificato che service operi correttamente su data, sollevando eventuali errori ritornando cosi il controllo a middleware & middleware & P\tabularnewline
 		\midrule
-		TI.client & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & P\tabularnewline
+		TI.8 & Viene verificato che il client riceva le risposte attese dal server ed inoltre che il test di integrazione finale tra controller, model, service e view sia corretto & client & P\tabularnewline
 		\midrule
-		TI.view & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & P\tabularnewline
+		TI.9 & Viene verificato che view riceva le risposte attese da model, viene inoltre verificato che l'integrazione tra i package view::admin, view::public, view::student, view::teacher sia corretta & view & P\tabularnewline
 		\midrule
-		TI.model & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & P\tabularnewline
+		TI.10 & Viene verificato che l'integrazione tra i package model::date, model::service, model::util sia corretta & model & P\tabularnewline
 		\midrule
-		TI.controller & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & P\tabularnewline
+		TI.11 & Viene verificato che il controller riceva le richieste attese dal package view ed inoltri le risposte corrette al package model, inoltre viene verificato che l'integrazione tra i package controller::admin, controller::public, controller::student, controller::teacher sia corretta & controller & P\tabularnewline
 		\midrule
-		TI.data & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & P\tabularnewline
+		TI.6 & Viene verificato che il data risponda correttamente alle richieste dei packages view e controller & data & P\tabularnewline
 		\midrule
-		TI.service & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & P\tabularnewline
+		TI.13 & Viene verificato che service ricevale risposte attese dal package model::data e che risponda correttamente alle richieste del package contoller & service & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package model::util & student & P\tabularnewline
+		TI.15 & Viene verificato che student riceva le risposte attese dal package model::util & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & P\tabularnewline
+		TI.16 & Viene verificato che teacher riceva le risposte attese dal package model::data & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package model::data & admin & P\tabularnewline
+		TI.17 & Viene verificato che admin riceva le risposte attese dal package model::data & admin & P\tabularnewline
 		\midrule
-		TI.public & Viene verificato che public inoltri le richieste corrette al package model & public & P\tabularnewline
+		TI.27 & Viene verificato che public inoltri le richieste corrette al package model & public & P\tabularnewline
 		\midrule
-		TI.student & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & P\tabularnewline
+		TI.28 & Viene verificato che student riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & student & P\tabularnewline
 		\midrule
-		TI.teacher & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & P\tabularnewline
+		TI.29 & Viene verificato che teacher riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & teacher & P\tabularnewline
 		\midrule
-		TI.admin & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & P\tabularnewline
+		TI.30 & Viene verificato che admin riceva le risposte attese dal package controller::public ed inoltri le richieste corrette al package model & admin & P\tabularnewline
 		\midrule
-		TI.validator & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & P\tabularnewline
+		TI.53 & Viene verificato che validator risponda in maniera corretta ad ogni richiesta di validazione di dati usati da service & validator & P\tabularnewline
 		\midrule
-		TI.util & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & P\tabularnewline
+		TI.54 & Viene verificato che util riceva le risposte attese dal package model::data e che risponda correttamente alle richieste del package controller e view & util & P\tabularnewline
 		\midrule
 		\caption{Tabella test di integrazione} \tabularnewline
 	\end{longtable}
@@ -1656,165 +1656,209 @@ L'identificazione dei test sarà invece definita tramite un identificativo propr
 \subsection{Test di unità}\label{test_unita}
 
 \subsubsection{Package \texttt{client:model:service}: test e tracciamento}
+Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
+
+\begin{itemize}
+	\item il costruttore deve inizializzare correttamente i campi dati rispetto ai parametri ricevuti;
+	\item controllo dei parametri passati alle \mgls{api} REST;
+	\item correttezza della costruzione degli oggetti in \texttt{client::model::data}.
+\end{itemize}
+
 \begin{center}
 		\begin{longtable}[]{l l p{0.4\textwidth} c}\midrule
-	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+	\textbf{ID} & \textbf{Classe} & \textbf{Metodo} & \textbf{Stato}\\ \midrule
 	\midrule
-	81.139.TU& QuestionService.new() & effettua la richiesta corretta per post della domanda, rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	81.138.TU& QuestionService. modify() & effettua la richiesta corretta per put della domanda & P\\ \midrule
-	81.137.TU& QuestionService.getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	81.136.TU& QuestionService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
-	81.135.TU& QuestionService. delete() & effettua la richiesta corretta per delete della domanda& P\\ \midrule
-	82.160.TU& QuestionnaireService.new() & rifiuta correttamente post delle domande incorrette & P\\ \midrule
-	82.159.TU& QuestionnaireService. modify() & effettua la richiesta corretta per put della domanda, effettua la richiesta corretta per post della domanda & P\\ \midrule
-	82.157.TU& QuestionnaireService. getByID() & effettua la richiesta dei question per id & P\\ \midrule
-	82.154.TU& QuestionnaireService. get() & effettua la richiesta dei questions con author, keywords, tags, gestisce correttamente risposta vuota & P\\ \midrule
-	82.152.TU& QuestionnaireService.delete() & effettua la richiesta corretta per delete della domanda & P\\ \midrule
-	80.163.TU& RoleService.get() & effettua la richiesta dei role con keywords & P\\ \midrule
-	80.164.TU& RoleService.getByID & effettua la richiesta dei role per id& P\\ \midrule
-	77.167.TU& SessionService.login() & effettua la richiesta corretta per l'accesso,rifiuta correttamente credenziali incorrette & P\\ \midrule
-	77.169.TU& SessionService.logout() & effettua la richiesta corretta per la disconnessione & P\\ \midrule
-	79.158.TU& TagService.new() & effettua la richiesta corretta & P\\ \midrule
-	79.155.TU& TagService.modify() & effettua la richiesta corretta & P\\ \midrule
-	79.156.TU& TagService. getByID() & effettua la richiesta corretta & P\\ \midrule
-	79.153.TU& TagService. get() & effettua la richiesta corretta, effettua la richiesta corretta & P\\ \midrule
-	79.151.TU& TagService. delete() & effettua la richiesta corretta& P\\ \midrule
-	78.141.TU& UserService. get() & effettua la richiesta corretta,effettua la richiesta corretta con user name,effettua la richiesta corretta con full names e user names & R\\ \midrule
-	78.143.TU& UserService .getByID() & effettua la richiesta corretta & P\\ \midrule
-	78.144.TU& UserService. getMe() & effettua la richiesta corretta& P\\ \midrule
-	78.148.TU& UserService. modifyRole() & effettua la richiesta corretta & P\\ \midrule
-	78.145.TU& UserService. signUp() & effettua la richiesta corretta & P\\ \midrule
-	78146.TU& UserService. updateInformation() & effettua la richiesta corretta & R\\ \midrule
-78.147.TU	& UserService. updatePassword() & effettua la richiesta corretta& P\\ \midrule
-	78.205.TU& UserService. delete() & effettua la richiesta corretta& P\\ \midrule
+	TU.139 & QuestionService & new() & P\\ \midrule
+	TU.138 & QuestionService & modify()   & P\\ \midrule
+	TU.137 & QuestionService& getByID()   & P\\ \midrule
+	TU.136 & QuestionService& get()  & P\\ \midrule
+	TU.135 & QuestionService& delete() & P\\ \midrule
+	TU.160 & QuestionnaireService&new()   & P\\ \midrule
+	TU.159 & QuestionnaireService& modify()   & P\\ \midrule
+	TU.157 & QuestionnaireService& getByID()  & P\\ \midrule
+	TU.154 & QuestionnaireService& get()   & P\\ \midrule
+	TU.152 & QuestionnaireService &delete()   & P\\ \midrule
+	TU.163 & RoleService & get()   & P\\ \midrule
+	TU.164 & RoleService &getByID & P\\ \midrule
+	TU.167 & SessionService&login()   & P\\ \midrule
+	TU.169 & SessionService &logout()   & P\\ \midrule
+	TU.158 & TagService &new()  & P\\ \midrule
+	TU.155 & TagService&modify() & P\\ \midrule
+	TU.156 & TagService & getByID()   & P\\ \midrule
+	TU.153 & TagService &get()  & P\\ \midrule
+	TU.151 & TagService & delete()  & P\\ \midrule
+	TU.141 & UserService &get()  & P\\ \midrule
+	TU.143 & UserService  &getByID()  & P\\ \midrule
+	TU.144 & UserService& getMe() & P\\ \midrule
+	TU.148 & UserService & modifyRole()   & P\\ \midrule
+	TU.145 & UserService &signUp()  & P\\ \midrule
+	TU.146 & UserService & updateInformation()  & P\\ \midrule
+   TU.147 & UserService & updatePassword()  & P\\ \midrule
+	TU.205 & UserService& delete()  & P\\ \midrule
 	
 	
 \end{longtable}
 \end{center}
 
 \subsubsection{Package \texttt{client:controller}: test e tracciamento}
+Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
+
+\begin{itemize}
+	\item il costruttore deve inizializare correttamente i campi dati interni alla classe;
+	\item controllo delle chiamate ai servizi;
+	\item controllo della consistenza dei parametri passati ai servizi.
+\end{itemize}
 \begin{center}
-	\begin{longtable}[H]{l p{0.45\textwidth} p{0.35\textwidth} c}\midrule
-	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\
+	\begin{longtable}[H]{l p{0.1\textwidth}p{0.30\textwidth} p{0.25\textwidth} c}\midrule
+	\textbf{ID} & \textbf{Package} & \textbf{Classe} & \textbf{Metodo} & \textbf{Stato}\\
 	\midrule
 	\midrule
-	157.188.TU& admin: \newline  UsersList.filterByRole() & deve filtrare la lista dei ruoli& P \\ 
-	\midrule
-	157.84.TU& admin: \newline  UsersList.changeUserRole() & deve cambiare il ruolo di un utente & P\\ \midrule
-	157.85.TU& admin: \newline  UsersList.deleteUser() & deve rimuovere un utente & P\\ \midrule
-	193.193.TU& public: \newline  Home.checkLogged() & deve controllare che il l'operazione sia corretta& P\\ \midrule
-	193.193.TU& public: \newline  Home.urlPath() & deve controlare che il percorso sia corretto & P\\ \midrule
-	83.190.TU& public: \newline  LogIn.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato& P \\ \midrule
-	83.189.TU& public: \newline  LogIn.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
-	83.91.TU& public: \newline  LogIn.submit() & deve effetuare login con credenziali giusti, deve segnalare errore di login con credenziali sbagliati& P \\ \midrule
-	84.93.TU & public: \newline  SignUp.checkPassword() & deve eseguire il controllo sul formato del password, deve eseguire il controllo sul formato del password sbagliato & P\\ \midrule
-	84.94.TU & public: \newline  SignUp.checkRepeatPassword() & deve eseguire il controllo sulla ugualianza tra password e repeatPassword, deve eseguire il controllo sulla ugualianza tra password e repeatPassword sbagliato & P\\ \midrule
-	84.95.TU& public: \newline  SignUp.checkUserName() & deve eseguire il controllo sul formato del userName, deve eseguire il controllo sul formato del userName sbagliato & P\\ \midrule
-	84.191.TU& public: \newline  SignUp.checkFullName() & deve eseguire il controllo sul formato del fullName, deve eseguire il controllo sul formato del fullName sbagliato& P \\ \midrule
-	84.96.TU& public: \newline  SignUp.submit() & deve effetuare signUp con credenziali giusti, deve segnalare errore di login con credenziali sbagliati & P\\ \midrule
-	182.109.TU& student: \newline  ExecuteQuestionnaire.getNext() & ottiene correttamente la prossima domanda & P\\ \midrule
-	182.110.TU& student: \newline  ExecuteQuestionnaire.getPrevious() & ottiene correttamente la domanda precendente & P\\ \midrule
-	182.111.TU& student: \newline  ExecuteQuestionnaire.submit() & corregge correttamente le risposte & P\\ \midrule
-	86.99.TU& student: \newline  Questionnaires.submit() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
-	86.98.TU& student: \newline  Questionnaires.executeQuestionnaire() & dovrebbe filtrare e mostrare la lista dei questionari & P \\ \midrule
-	186.81.TU& teacher: \newline  ManageQuestionnaires.modify() & deve rendirizzare alla pagina di modifica del questionario & P \\ \midrule
-	186.82.TU& teacher: \newline  ManageQuestionnaires.remove() & deve cancellare questionnario & P\\ \midrule
-	185.217.TU& teacher: \newline  ManageQuestions.preview() & deve ritornare la prima riga della domanda & P\\ \midrule
-	185.77.TU& teacher: \newline  ManageQuestions.modify() & deve rendirizzare alla pagina di modifica della domanda & P\\ \midrule
-	185.78.TU& teacher: \newline  ManageQuestions.remove() & deve correttamente eliminare la domanda selezionata& P \\ \midrule
-	& teacher: \newline  ManageTags.submit() & deve aggiornare i risultati in base alle keywords inserite & P\\ \midrule
-	& teacher: \newline  ManageTags.newTag() & deve aggiornare i risultati in base alle keywords inserite& P \\ \midrule
-	184.73.TU& teacher: \newline  ManageTags.modify() & deve modificare l'argomento specificato& P \\ \midrule
-	184.72.TU& teacher: \newline  ManageTags.textChanged() & deve aggiornare la lista delle classi & P \\ \midrule
-	184.74.TU& teacher: \newline  ManageTags.delete() & deve aggiornare i risultati in base alle keywords inserite & P \\ \midrule
-	176.54.TU& teacher: \newline  ManipulateQuestionnaire. \newline removeQuestion() & deve modificare il questionario modificando numero delle domande  & P\\ \midrule
-176.79.TU	& teacher: \newline  ManipulateQuestionnaire. \newline ManipulateQuestionnaire() & deve creare il questionnario  & P\\ \midrule
-	195.195.TU & user: Home.logout() & deve filtrare gli utenti in base ai ruoli\\ \midrule
-	196.199.TU& user: \newline  User.checkFullName() & deve rilevare un nome completo non valido, non deve dare errori con nome completo valido  & P\\ \midrule
-	196.200.TU& user: \newline  User.checkPassword() & deve rilevare una password non valida, non deve dare errori con password valido  & P\\ \midrule
-	196.201.TU& user: \newline  User.checkUserName() & deve rilevare un nome utente non valido, non deve dare errori con nome utente valdio & P \\ \midrule
-		196.202.TU& user: \newline  User.checkRepeatPassword() & deve rilevare password diverse, non deve dare errori con password uguali  & P\\ \midrule
-		196.203.TU& user: \newline  User.submitInformation() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
-		196.204.TU& user: \newline  User.submitPassword() & deve rilevare errori in aggiornamento, non deve dare errori se l'aggiornamento ha successo  & P\\ \midrule
+	TU.188& admin &  UsersList& filterByRole()  & P \\ \midrule
+	TU.84& admin &  UsersList&changeUserRole()   & P\\ \midrule
+	TU.85& admin &  UsersList&deleteUser()   & P\\ \midrule
+	TU.193& public &  Home&checkLogged()  & P\\ \midrule
+	TU.194& public &  Home&urlPath()  & P\\ \midrule
+	TU.190& public &  LogIn&checkPassword() & P \\ \midrule
+	TU.189& public &  LogIn&checkUserName()  & P\\ \midrule
+	TU.91& public &  LogIn&submit()  & P \\ \midrule
+	TU.93 & public &  SignUp&checkPassword()   & P\\ \midrule
+	TU.94 & public &  SignUp&checkRepeatPassword()   & P\\ \midrule
+	TU.95& public &  SignUp&checkUserName()   & P\\ \midrule
+	TU.191& public &  SignUp&checkFullName()  & P \\ \midrule
+	TU.96& public&  SignUp&submit()  & P\\ \midrule
+	TU.109& student &  ExecuteQuestionnaire&getNext()  & P\\ \midrule
+	TU.110& student&  ExecuteQuestionnaire&getPrevious() & \\ \midrule
+	TU.111& student &  ExecuteQuestionnaire&submit()  & P\\ \midrule
+	TU.99& student &  Questionnaires&submit()  & P \\ \midrule
+	TU.98& student:&  Questionnaires&executeQuestionnaire()  & P \\ \midrule
+	TU.81& teacher &  ManageQuestionnaires&modify()  & P \\ \midrule
+	TU.82& teacher &  ManageQuestionnaires&remove()   & P\\ \midrule
+	TU.217& teacher &  ManageQuestions&preview()   & P\\ \midrule
+	TU.77& teacher &  ManageQuestions&modify()   & P\\ \midrule
+	TU.78& teacher &  ManageQuestionsv.remove()  & P \\ \midrule
+	TU.218	& teacher &  ManageTags&submit()   & P\\ \midrule
+	TU.72& teacher &  ManageTags& add()  & P \\ \midrule
+	TU.73& teacher &  ManageTags&modify()  & P \\ \midrule
+	TU.74& teacher &  ManageTags&delete()   & P \\ \midrule
+	TU.54& teacher &  ManipulateQuestionnaire& removeQuestion()    & P\\ \midrule
+	TU.79	& teacher& ManipulateQuestionnaire. & ManipulateQuestionnaire()    & P\\ \midrule
+	TU.195 & user& Home&logout() & P\\ \midrule
+	TU.199& user&   User&checkFullName()   & P\\ \midrule
+	TU.201& user&  User&checkUserName()   & P \\ \midrule
+	TU.202& user:  & User&.checkRepeatPassword()   & P\\ \midrule
+	TU.203& user:   &User&.submitInformation()   & P\\ \midrule
+	TU.204& user:  &User&submitPassword()    & P\\ \midrule
 		
 	\end{longtable}
 \end{center}
 
 \subsubsection{Package \texttt{client: util}: test e tracciamento}
+	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
+	
+	\begin{itemize}
+		\item nel caso di funzioni di controllo su stringhe queste rilevino le stringhe scorrette ed accettino quelle conformi ritornando il valore booleano corretto in entrambi i casi;
+		\item i costruttori inizializino correttamente i campi dati della classe;
+		\item eventuali chiamate a servizi passino  questi parametri consistenti.
+	\end{itemize}
 \begin{center}
 	\begin{longtable}[H]{l p{0.3\textwidth} p{0.45\textwidth} c}\midrule
-	\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+	\textbf{ID} & \textbf{Classe} & \textbf{Metodo} & \textbf{Stato}\\ \midrule
 	\midrule		
-	179.126.TU&  Check.checkFullName() & deve accettare fullName lungo 3 caratteri, deve bloccare fullName lungo 1 caratteri & P\\ \midrule
-	179.127.TU&  Check.checkPassword() & deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri, deve accettare password lungo 6 caratteri, deve bloccare password lungo 5 caratteri & P \\ \midrule
-	179.128.TU&  Check.checkTitle() & deve segnalare titolo non presente, deve segnalare titolo presente & P \\ \midrule
-	179.127.TU&  Check.checkUserName() & deve accettare UserName lungo 6 caratteri, deve bloccare UserName lungo 5 caratteri  & P\\ \midrule
-	202.214.TU&  QML.preview() & visualizza preview body  & P\\ \midrule
-	202.213.TU&  QML.parse() & esegue parse della domanda TF F, esegue parse della domanda TF T, esegue parse della domanda MultipleChoice  & P\\ \midrule
+	TU.126&  Checkcheck&FullName()   & P\\ \midrule
+	TU.127&  Check&checkPassword() & P \\ \midrule
+	TU.128&  Check&checkTitle() &P \\ \midrule
+	TU.127&  Check&checkUserName()  & P\\ \midrule
+	TU.214&  QML&preview()  & P\\ \midrule
+	TU.213&  QML&parse()   & P\\ \midrule
 
 \end{longtable}
 \end{center}
 
-\subsubsection{Package \texttt{server:service}: test e tracciamento}
-Il package \texttt{server::service} e le relative classi vengono testate tramite le \mgls{api} REST corrispondenti, seguendo le metodologie usualmente utilizzate per il test di classi back-end di questo tipo.
+\subsubsection{Package \texttt{server::service}: test e tracciamento}
+Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
+
+\begin{itemize}
+	\item il costruttore deve inizializare correttamente i campi dati rispetto ai parametri ricevuti;
+	\item controllo dei parametri passati alle \mgls{api} REST;
+	\item controllo della risposta \mgls{http} generata.
+\end{itemize}
+
 \begin{center}
 	\begin{longtable}[]{p{0.125\textwidth} p{0.3\textwidth} p{0.5\textwidth} p{0.05\textwidth}}
 			\midrule
 			\textbf{ID} & \textbf{Classe} & \textbf{Descrizione} & \textbf{Stato} \\
 			 \midrule
 			 \midrule
-			16.19.TU &  GET /api/questions & impedisce l'accesso ad un utente non autenticato,ritorna la lista delle domande all'utente autenticato & P \\ \midrule
-			16.20.TU &  GET /api/questions/:id & ritorna la domanda specificata & P \\ \midrule
-			16.22.TU &  POST /api/questions & non permette la creazione di una domanda ad un utente con ruolo inferiore a docente, crea la domanda specificata, non crea una domanda con QML invalido, non crea una domanda senza tag & P \\ \midrule
-			16.21.TU &  PUT /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica della domanda di test all'utente autenticato, blocca la modifica della domanda di test all'utente autenticato non autore & P \\ \midrule
-			16.23.TU &  DELETE /api/questions/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del questionario di test all'utente autenticato, blocca la cancellazione della domanda di test all'utente autenticato non autore, blocca la cancellazione della domanda utilizzata in un questionario all'utente autenticato & P \\ \midrule
-			15.15.TU &  GET /api/questionnaires & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei questionari all'utente autenticato & P \\ \midrule
-			15.14.TU &  GET /api/questionnaires/:id & impedisce l'accesso ad un utente non autenticato, ritorna il questionario per id passato all'utente autenticato & P \\ \midrule
-			15.17.TU &  POST /api/questionnaires & impedisce l'accesso ad un utente non autorizzato, permette la creazione del quiz di test all'utente autenticato & P \\ \midrule
-			15.16.TU &  PUT /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la modifica dela domanda di test all'utente autenticato, non permette la modifica di un questionario non proprio & P \\ \midrule
-			15.18.TU &  DELETE /api/questionnaires/:id & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione dela domanda di test all'utente autenticato, permette la cancellazione dela domanda di test all'utente autenticato & P \\ \midrule
-			160.29.TU &  GET /api/roles & permette la visualizzazione di tutti i ruoli ad un amministratore, non permette la visualizzazione ad un utente con ruolo inferiore ad amministratore & P \\ \midrule
-			160.30.TU &  GET /api/roles/:id & permette la visualizzazione di un ruolo ad un qualsiasi utente & P \\ \midrule
-			156.5.TU &  POST /api/session & rifiuta credenziali incorrette, effettua l'accesso con credenziali corrette & P \\ \midrule
-			156.6.TU &  DELETE /api/session & effettua la disconnessione correttamente & P \\ \midrule
-			24.24.TU &  GET /api/tags & impedisce l'accesso ad un utente non autenticato, ritorna la lista dei tags all'utente autenticato & P \\ \midrule
-			24.25.TU &  GET /api/tags/:id & impedisce l'accesso ad un utente non autenticato, ritorna il tag per id passato all'utente autenticato & P \\ \midrule
-			24.27.TU &  POST /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la creazione del tag di test all'utente autenticato & P \\ \midrule
-			24.26.TU &  PUT /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la sostituzione del tag di test all'utente autenticato & P \\ \midrule
-			24.28.TU &  DELETE /api/tags & impedisce l'accesso ad un utente non autorizzato, permette la cancellazione del tag di test all'utente autenticato, non deve permettere la cancellazione di un tag usato da una domanda o questionario & P \\ \midrule
-			14.9.TU &  GET /api/users & impedisce l'accesso ad un utente non autenticato, fornisce la lista degli utenti ad un proprietario & P \\ \midrule
-			14.8.TU &  GET /api/users/me & restituiscel'utente autenticato & P \\ \midrule
-			14.7.TU &  GET /api/users/:id & restituisce l'utente specificato ad un proprietario & P \\ \midrule
-			14.11.TU &  POST /api/users & registra un nuovo utente, non registra un utente con nome utente troppo corto, non registra un utente con password troppo corta, non registra un utente con nome completo troppo corto & P \\ \midrule
-			14.13.TU &  POST /api/users/me & deve permettere la modifica dei dati personali1, deve permettere la modifica della password, deve bloccare la modifica della password con password vecchia incorretta & P \\ \midrule
-			14.9.TU &  POST /api/users/:id & permette la modifica di un ruolo, non permette l'impostazione di un ruolo superiore al proprio, non permette il cambio di ruolo a se stessi & P \\ \midrule
-			14.12.TU &  DELETE /api/users/:id & permette la rimozione di un utente & P \\ \midrule
+			TU.19 & QuestionService &get() & P \\ \midrule
+			TU.20 & QuestionService & getByID()& P \\ \midrule
+			TU.22 & QuestionService & new()  & P \\ \midrule
+			TU.21 & QuestionService & modify()  & P \\ \midrule
+			TU.23 & QuestionService&delete()  & P \\ \midrule
+			TU.15 & QuestionnaireService &get() & P \\ \midrule
+			TU.14 & QuestionnaireService &getByID() & P \\ \midrule
+			TU.17 & QuestionnaireService& new() & P \\ \midrule
+			TU.16 & QuestionnaireService& modify() & P \\ \midrule
+			TU.18 & QuestionnaireService &delete()  & P \\ \midrule
+			TU.29 &RoleService &get()  & P \\ \midrule
+			TU.130 & RoleService &getByID()  & P \\ \midrule
+			TU.5 & SessionService & new()  & P \\ \midrule
+			TU.6 & TagService & delete()  & P \\ \midrule
+			TU.24 & TagServiceTagService & get()  & P \\ \midrule
+			TU.25 & TagService &getByID()  & P \\ \midrule
+			TU.27 & TagService &new()  & P \\ \midrule
+			TU.26 &  TagService &modify() & P \\ \midrule
+			TU.28 & TagService &delete() & P \\ \midrule
+			TU.9 & UserService & get()  & P \\ \midrule
+			TU.8 & UserService &  getMe()  & P \\ \midrule
+			TU.7 &  UserService&getByID()   & P \\ \midrule
+			TU.11 & UserService &new() & P \\ \midrule
+			TU.13 & UserService &modifyMe() & P \\ \midrule
+			TU.9 & UserService & modify()  & P \\ \midrule
+			TU.12 & UserService &delete()  & P \\ \midrule
 	\end{longtable}
 	\end{center}	
 	
-\subsubsection{Packahe \texttt{server:validator}: test e tracciamento}
+\subsubsection{Packahe \texttt{server::validator}: test e tracciamento}
+	Per ogni unità \mgls{software} qui definita, devono essere verificati i seguenti punti:
+	
+	\begin{itemize}
+		\item ogni metodo di controllo deve rilevare oggetti, del tipo trattato, non consistenti;
+		\item ogni metodo di controllo deve accettare un oggetto, del tipo trattato, consistente con il modello.
+	\end{itemize}
 \begin{center}
 		\begin{longtable}[H]{l p{0.45\textwidth} p{0.3\textwidth} c}\midrule
-			\textbf{ID} & \textbf{Metodo} & \textbf{Descrizione} & \textbf{Stato}\\ \midrule
+			\textbf{ID} & \textbf{Classe} & \textbf{Metodo} & \textbf{Stato}\\ \midrule
 			\midrule
-			164. 42.TU & validator: \newline QuestionCheck.checkQML() & deve bloccare QML TF senza risposta0 mspasseddeve bloccare QML MultipleChoice senza risposta giusta, deve bloccare QML MultipleChoice senza risposte, deve bloccare QML MultipleChoice con due risposte giuste, deve accettare QML come corpo della domanda, deve accettare QML per domanda vero/falso, deve accettare QML per domanda a risposta multipla & P \\ \midrule
-			162.179.TU & validator: \newline QuestionCheck.checkTags() & deve bloccare domande con la lista dei tag vuote, deve bloccare domande con la lista dei tag duplicati, deve accettare domande con la lista dei tag distinti & P \\ \midrule
-			162.40.TU & validator: \newline QuestionnaireCheck.checkTitile() & deve bloccare il titolo vuoto, deve accettare il titolo non vuoto & P \\ \midrule
-			162.180.TU & validator: \newline QuestionnaireCheck.checkTags() & deve bloccare la lista dei tag vuota, deve accettare la lista dei tag non vuota & P \\ \midrule
-			162.39.TU & validator: \newline QuestionnaireCheck.checkQuestions() & deve bloccare passata lista vuota, deve bloccare passata lista con domande doppie, deve accettare passata lista corretta & P \\ \midrule
-			163.41.TU & validator: \newline TagCheck.checkName() & deve bloccare name vuoto, deve accettare name non vuoto & P \\ \midrule
-			161.38.TU & validator: \newline UserCheck.checkFullName() & deve bloccare i full name di lungezza 1 carattere, deve accettare i full name di lungezza 3 caratteri & P \\ \midrule
-			161.37.TU & validator: \newline UserCheck.checkPassword() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
-			161.36TU & validator: \newline UserCheck.username() & deve accettare password di lungezza 6 caratteri, deve accettare password di lungezza 8 caratteri, deve bloccare password di lungezza 2 caratteri & P \\ \midrule
+			TU.42 &  QuestionCheck&checkQML() & P \\ \midrule
+			TU.179 &  QuestionCheck&checkTags()  & P \\ \midrule
+			TU.40 &  QuestionnaireCheck&checkTitile()  & P \\ \midrule
+			TU.180 &  QuestionnaireCheck&checkTags()  & P \\ \midrule
+			TU.39 &  QuestionnaireCheck&checkQuestions()  & P \\ \midrule
+			TU.41 & TagCheck&checkName()  & P \\ \midrule
+			TU.38 &  UserCheck&checkFullName() & P \\ \midrule
+			TU.37 &   UserCheck&checkPassword()  & P \\ \midrule
+			TU.36 &  UserCheck&username() &  P \\ \midrule
 		
 \end{longtable}
 \end{center}
 \appendix
 \section{Resoconto delle attività di verifica}
 	\subsection{Analisi}
-	\subsubsection{Documenti}
-	Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
-	
+	\subsubsection{Processi}
+	Vengono riportati i valori di \mgls{schedule variance} e \mgls{cost variance} calcolati e se rientrano nel range di accettazione per il processo di \FA:
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.3\textwidth}}
+					\toprule
+					\textbf{Indice}   & \textbf{Valore }	& \textbf{Esito test} \\ \midrule
+					\midrule
+					\mGls{cost variance} &0\%&  Ottimale \\ \midrule
+					\mGls{schedule variance} &0.5\% &  Superato\\ \bottomrule
+				\end{tabular}
+			\end{center}
+		\end{table}
+		\subsubsection{Documenti}
+		Vengono riportati i valori dell'indice \mgls{gulpease} calcolati e se rientra nel range di accettazione per ogni documento prodotto:
 	\begin{table}[H]
 		\begin{center}
 			\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
@@ -1847,8 +1891,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito} \\ \midrule
 				\midrule
 				\mgls{milestone schedule variance} & 80\% & Non Superato\\ \midrule
-				\mgls{schedule variance}  & -167\% &  Non Superato\\ \midrule
-				\mGls{cost variance} & 157\% &  Non superato \\ \midrule
+				\mgls{schedule variance}  &167\% &  Non Superato\\ \midrule
+				\mGls{cost variance} & -157\% &  Non superato \\ \midrule
 				\CoPQ & 23\% &  Ottimale \\ \midrule
 				\mgls{requirement stability index} & 81\% & Superato \\ \bottomrule
 			\end{tabular}
@@ -1887,9 +1931,9 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 				\toprule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule
 				\midrule
-				\mGls{cost variance} & 12\% &  Ottimale \\ \midrule
+				\mGls{cost variance} &-12\% &  Non Superato \\ \midrule
 				\mgls{milestone schedule variance} & 4\% & Superato\\ \midrule
-				\mgls{schedule variance}  & 12\% & Ottimale\\ \midrule
+				\mgls{schedule variance}  & 12\% & Non Superato\\ \midrule
 				\CoPQ & 40\% & Superato \\ \midrule
 				\mgls{requirement stability index} & 94\% & Ottimale\\ \bottomrule
 			\end{tabular}	
@@ -2009,8 +2053,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 			\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
 				\midrule
 				\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
-				\mGls{cost variance} & \TODO{} & \TODO{} \\ \midrule
-				\mgls{milestone schedule variance}  &1.5\%& Superato\\ 
+				\mGls{cost variance} & -0.5\% & Superato \\ \midrule
+				\mgls{schedule variance}  &0.95\%& Superato\\ 
 				\midrule
 				\mgls{requirement stability index}  & 100\% & Ottimale \\
 				\bottomrule
@@ -2034,8 +2078,8 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 		\end{center}
 		\caption{Dettaglio 	\mgls{milestone schedule variance}  \FC}
 	\end{table}
-	\subparagraph{Analisi dei risultati}Dai risulatati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvlgono un numero di persone superiore a 4 persone. 
-	Si consiglia pertanto di organizzare il lavoro in sotto-attività che conivolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
+	\subparagraph{Analisi dei risultati} Dai risultati emerge che la media per persona è vicino al valore complessivo riportato nella tabella precedente. Il valore medio calcolato sulle attività di gruppo è invece critico. In particolare, il valore elevato per le attività di gruppo è causato dal ritardo per attività che coinvolgono un numero di persone superiore a 4 persone. 
+	Si consiglia pertanto di organizzare il lavoro in sotto-attività che coinvolgano un numero massimo di 4 persone, per evitare ritardi sulla pianificazione.
 	\paragraph{Cost of Poor Quality}
 	
 	\begin{center}
@@ -2085,7 +2129,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	
 	\subsubsection{Software}
 	Vengono riportati i valori calcolati delle misurazioni sul codice.
-	I valori percentuali indicano la quntità di righe di codice sul torale che rientrano nel range indicato.
+	I valori percentuali indicano la quantità di righe di codice sul totale che rientrano nel range indicato.
 		
 		\begin{table}[H]
 			\begin{center}
@@ -2133,7 +2177,7 @@ Il package \texttt{server::service} e le relative classi vengono testate tramite
 	\begin{itemize}
 		\item \textbf{Generale}: si sono rivisti i diagrammi delle classi nella \DP{}  per migliorare la comprensione nella lettura dell'architettura scelta. Si sono fatte inoltre tutte le modifiche indicate.
 		\item \textbf{\AdR{}:} in questo documento sono state fatte delle modifiche  riguardanti la struttura e, in minor parte, il contenuto. Alcuni casi d'uso sono stati modificati per adattarsi  alle segnalazioni fatte dal \mgls{proponente} dopo la \RP. In particolare abbiamo disambiguato le funzionalità di UC5.6 rispetto al prodotto, rivisto la descrizione di UC5.1, separato i casi d'uso per tipologia e le post condizioni dei casi d'errore.
-		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornamo JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
+		\item \textbf{\DP{}:} l'analisi delle tecnologie è stata rivista ponendo l'attenzione anche ai fattori di rischio. E' stata corretta l'introduzione ai servizi REST. Sono stati modificati alcuni diagrammi delle classi che ritornano JSON e inseriti nuovi diagrammi che descrivono più ad alto livello l'architettura. Corretta la gestione dei messaggi d'errore della password e corretta la rappresentazione delle classi.
 	    \item \textbf{\PdP{}:} migliorato il consuntivo di periodo e il corrispondente preventivo a finire.
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti.
