@@ -7,12 +7,15 @@ $(function () {
                 this.answers = quest.answers;
                 this.answer = quest.answer.toString();
                 this.selectedAnswer = null;
+                this.right = false;
             }
             CurrentQuestion.prototype.point = function () {
                 if (this.type === 'TF' || this.type === 'MultipleChoice') {
                     if (this.answer === this.selectedAnswer) {
+                        this.right = true;
                         return {point: 1, tot: 1};
                     } else {
+                        this.right = false;
                         return {point: 0, tot: 1};
                     }
                 }

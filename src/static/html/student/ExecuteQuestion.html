@@ -1,5 +1,10 @@
 <div id="outer" ng-controller="controller.student.ExecuteQuestion">
     <div ng-bind-html="preview"></div>
+    <div class="row" ng-show='result.status'>
+        <div class='alert col-md-4 col-md-offset-4' ng-class='currentQuestion.right === true ? "alert-success" : "alert-danger"'>
+            <strong>{{currentQuestion.right === true ? "Corretta" : "Errata"}}</strong>
+        </div>
+    </div>
     <div ng-show="currentQuestion.type === 'TF' || currentQuestion.type === 'MultipleChoice'">
         <div class='form-group'>
             <div ng-repeat="ans in currentQuestion.answers">

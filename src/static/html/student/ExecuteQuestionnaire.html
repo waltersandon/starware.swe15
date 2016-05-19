@@ -4,6 +4,9 @@
             <h2>Esegui {{questionnaire.title}}</h2>
         </div>
     </div>
+    <div class='alert' ng-class='result.type' ng-show='result.status'>
+        <strong>Punteggio: </strong><span ng-bind-html='result.message'></span>
+    </div>
     <div class="row">
         <div class='col-md-12'>
             <div class="panel panel-default">

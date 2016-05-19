@@ -8,7 +8,7 @@
     </div>
     <div class='row'>
         <div class='col-md-12'>
-            <form name='questionForm' ng-submit='submit()'>
+            <form name='questionForm'>
                 <div class='form-group'>
                     <label for='tags' class='col-md-2 control-label'>Tags</label>
                     <div class='col-md-10'>
@@ -22,8 +22,8 @@
                 </div>
                 <div class='form-group'>
                     <div class='col-md-3 col-md-offset-9'>
-                        <button type='submit' class='btn btn-raised btn-primary'>Conferma</button>
-                        <button class='btn btn-raised btn-danger'>Annulla</button>
+                        <button type='submit' class='btn btn-raised btn-primary' ng-click='submit()'>Conferma</button>
+                        <button class='btn btn-raised btn-danger' ng-click='cancel()'>Annulla</button>
                     </div>
                 </div>
             </form>
