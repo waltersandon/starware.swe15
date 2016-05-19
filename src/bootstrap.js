@@ -42,8 +42,8 @@ mongoose.connect(config.dbUri, function() {
 
 		var question1 = new Question ({author: usr2._id, body: "<TF T>\nRoma è la capitale d’**Italia**?", tags: [tag2._id,tag1._id]});
  		var question2 = new Question ({author: usr3._id, body: "<TF F>\nRoma non è la capitale d’**Italia**?", tags: [tag2._id]});
-		var question3 = new Question ({author: usr4._id, body: "<TF F>\nRoma è la capitale d’**Italia**?", tags: [tag3._id]});
-		var question4 = new Question ({author: usr3._id, body: "<TF T>\nRoma è la capitaldsfsde d’**Italia**?", tags: [tag2._id]});
+		var question3 = new Question ({author: usr4._id, body: "<MultipleChoice>\nQuanto fa 3 + 5?\n[answers]\n[] 7\n[*] 8\n[] 9", tags: [tag3._id]});
+		var question4 = new Question ({author: usr3._id, body: "<MultipleChoice>\nQuale di questi numeri è primo?\n[answers]\n[] 15\n[*] 2\n[] 21", tags: [tag2._id]});
 
 		var questionnaire1 = new Questionnaire({author: usr2._id, questions: [question1._id,question2._id,question3._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 
