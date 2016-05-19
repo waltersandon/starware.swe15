@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('CurrentQuestionModule', ['CurrentTFQuestionModule']).factory('model.data.CurrentQuestion', ['util.QML', function (QML) {
+    angular.module('CurrentQuestionModule', []).factory('model.data.CurrentQuestion', ['util.QML', function (QML) {
             function CurrentQuestion(question) {
                 var quest = QML.parse(question.body);
                 this.type = quest.type;
