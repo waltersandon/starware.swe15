@@ -9,7 +9,7 @@
         <div class='form-group'>
             <div ng-repeat="ans in currentQuestion.answers">
                 <label>
-                    <input type='radio' name='Question' ng-model='$parent.ris' value='{{ans.value}}' > {{ans.str}}
+                    <input type='radio' name='Question' ng-model='$parent.ris' value='{{ans.value}}'> <span ng-bind-html="ans.str"></span>
                 </label>
             </div>
         </div>
