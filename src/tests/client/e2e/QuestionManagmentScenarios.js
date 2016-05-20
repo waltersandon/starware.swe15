@@ -5,7 +5,11 @@
 
 describe('QuestionCreation', function() {
     beforeEach(function () {
-        browser.get('#/login');
+        browser.get('/index.html');
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url).toEqual('');
+            element(by.css('[href="#/login"]')).click();
+        });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("tullio.vardanega");
@@ -31,18 +35,17 @@ describe('QuestionCreation', function() {
     it('docente deve poter modificare una domanda', function() {
 
             element(by.css('[href="#/teacher/questions"]')).click();
-            element.all(by.css('[ng-click="modify(question)"]')).first().click();
+            element.all(by.css('[ng-click="modify(question)"]')).last().click();
             browser.waitForAngular();
             browser.executeScript('$("div.CodeMirror-wrap > div").removeAttr("style");');
             var textareas = browser.findElement(by.css('[autocorrect="off"]'));
-                element(by.id('tags')).sendKeys("Matematica");
-                browser.waitForAngular();
+        element(by.id('tags')).clear().sendKeys("Geografia");
         textareas.sendKeys("");
-        for(var i = 0; i < 50; i++){
+        for(var i = 0; i < 14; i++){
             browser.actions().sendKeys(protractor.Key.DELETE).perform();
 
         }
-        textareas.sendKeys("<TF F>\n New York è la capitale degli USA? [F]");
+        textareas.sendKeys("<TF T>\nRoma è la capitale d'Italia");
         element(by.css('[type="submit"]')).click();
         element(by.css('[ng-click="logout()"]')).click();
     });

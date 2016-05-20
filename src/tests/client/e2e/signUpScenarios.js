@@ -2,11 +2,16 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
+
 describe('signUp', function() {
     beforeEach(function () {
-        browser.get('#/signup');
+        browser.get('/index.html');
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url).toEqual('');
+        });
     });
     it('utente deve poter registrarsi', function() {
+        element(by.css('[href="#/signup"]')).click();
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/signup');
             element(by.id('userName')).sendKeys("testUser");
@@ -21,7 +26,7 @@ describe('signUp', function() {
         });
     });
     it('utente deve  deve poter loggarsi con proprio account', function() {
-        browser.get('#/login');
+        element(by.css('[href="#/login"]')).click();
         browser.getLocationAbsUrl().then(function (url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("testUser");

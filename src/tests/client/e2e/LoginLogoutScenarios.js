@@ -4,7 +4,11 @@
 
 describe('login', function() {
     beforeEach(function () {
-        browser.get('#/login');
+        browser.get('/index.html');
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url).toEqual('');
+            element(by.css('[href="#/login"]')).click();
+        });
     });
 
     it('studente deve poter loggarsi e sloggarsi', function() {

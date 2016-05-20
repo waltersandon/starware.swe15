@@ -1,10 +1,27 @@
 'use strict';
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
+/* codice per rallentare il test
+var origFn = browser.driver.controlFlow().execute;
 
+browser.driver.controlFlow().execute = function() {
+    var args = arguments;
+
+    // queue 100ms wait
+    origFn.call(browser.driver.controlFlow(), function() {
+        return protractor.promise.delayed(200);
+    });
+
+    return origFn.apply(browser.driver.controlFlow(), args);
+};
+*/
 describe('Admin UserList', function() {
     beforeEach(function () {
-        browser.get('#/login');
+        browser.get('/index.html');
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url).toEqual('');
+            element(by.css('[href="#/login"]')).click();
+        });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("francesco.ranzato");
