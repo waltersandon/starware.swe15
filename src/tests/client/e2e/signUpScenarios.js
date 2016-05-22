@@ -21,7 +21,6 @@ describe('signUp', function() {
             element(by.css('[type="submit"]')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
-            expect(url).toEqual('/user');
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
@@ -34,7 +33,6 @@ describe('signUp', function() {
             element(by.css('[type="submit"]')).click();
         });
         browser.getLocationAbsUrl().then(function (url) {
-            expect(url).toEqual('/user');
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
