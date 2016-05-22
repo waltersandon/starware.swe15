@@ -1,3 +1,5 @@
+const DEFAULT_TIMEOUT_INTERVAL = 3000000;
+
 exports.config = {
     allScriptsTimeout: 11000,
 
@@ -16,6 +18,6 @@ exports.config = {
     framework: 'jasmine',
 
     jasmineNodeOpts: {
-        defaultTimeoutInterval: 30000
+        defaultTimeoutInterval: DEFAULT_TIMEOUT_INTERVAL
     }
 };

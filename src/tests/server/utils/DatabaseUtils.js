@@ -85,23 +85,25 @@ function databaseSetup(onSetup) {
 
 	var question1 = new Question ({
 		author: user3._id, 
-		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
+		body: "<TF F>\nJavascript è un linguaggio compilato",
 		tags: [tag2._id,tag1._id]});
  	var question2 = new Question ({
  		author: user3._id, 
- 		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
- 		tags: [tag2._id]
+ 		body: "<TF T>\nOpen Close principle è uno dei principi SOLID?",
+ 		tags: [tag4._id]
  	});
 	var question3 = new Question ({
 		author: user3._id, 
-		body: "<TF T>\nRoma è la capitale d’**Italia**?\n[T]", 
-		tags: [tag3._id]
+		body: "<TF T>\n####La seguente formula è corretta?####" +
+        "\n![equation](http://www.sciweavers.org/tex2img.php?eq=e%5E%7Bi%20%20%5Cvarphi%20%7D%20%3D%20sin%28%5Cvarphi%" +
+        "29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])",
+		tags: [tag1._id]
 	});
 
 	var questionnaire1 = new Questionnaire({
 		author: user3._id, 
 		questions: [question1._id,question2._id,question3._id], 
-		tags: [tag1._id,tag2._id,tag3._id], 
+		tags: [tag1._id,tag2._id,tag4._id],
 		title: "Quiz 1"
 	});
 
