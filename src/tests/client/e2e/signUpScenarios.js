@@ -19,8 +19,8 @@ describe('signUp', function() {
             element(by.id('password')).sendKeys("password");
             element(by.id('repeatPassword')).sendKeys("password");
             element(by.css('[type="submit"]')).click();
-        });
-        browser.getLocationAbsUrl().then(function(url) {
+        //});
+        //browser.getLocationAbsUrl().then(function(url) {
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
@@ -31,8 +31,8 @@ describe('signUp', function() {
             element(by.id('inputUsername')).sendKeys("testUser");
             element(by.id('inputPassword')).sendKeys("password");
             element(by.css('[type="submit"]')).click();
-        });
-        browser.getLocationAbsUrl().then(function (url) {
+        //});
+       // browser.getLocationAbsUrl().then(function (url) {
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
