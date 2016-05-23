@@ -112,7 +112,6 @@ $(function () {
                         terms.push(ui.item.value);
                         terms.push('');
                         this.value = terms.join(', ');
-                        alert(this.value);
                         $scope.tagsInput = this.value;/* problema */
                         return false;
                     }
