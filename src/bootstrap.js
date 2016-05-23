@@ -58,8 +58,8 @@ mongoose.connect(config.dbUri, function() {
         var question9 = new Question ({author: usr5._id, body: "<MultipleChoice>\nQuale di questi non è uno dei principi SOLID?\n[answers]\n" +
         "[] Single Responsibility principle\n" +
         "[] Open Close principle\n" +
-        "[*] La pizza\[" +
-        "] Liskov Substitution principle", tags: [tag2._id,tag4._id]});
+        "[*] La pizza\n" +
+        "[] Liskov Substitution principle", tags: [tag2._id,tag4._id]});
 
 		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id,question3._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 
