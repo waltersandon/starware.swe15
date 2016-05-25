@@ -2,7 +2,7 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('Admin delete user', function() {
+describe('Admin userlist', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
@@ -22,9 +22,9 @@ describe('Admin delete user', function() {
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
-    it('admin deve poter eliminare un utente  di ruolo inferiore al proprio ', function() {
+    it('admin sia in grado di visualizzare la lista degli utenti,' +
+        ' eventualmente specificando parametri per il filtraggio del risultati ', function() {
         element(by.css('[href="#/admin/userlist"]')).click();
-        var deleteUser = element.all(by.css('[ng-click="deleteUser(user)"]')).last().click();
-        browser.switchTo().alert().accept();
+        //TODO
     });
 });
