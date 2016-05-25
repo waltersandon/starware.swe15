@@ -6,6 +6,17 @@
         </div>
     </div>
     <div class='row'>
+        <div class='col-md-12'>
+            <div class='row well text-center'>
+                <div class='col-md-12'>
+                    <div class='form-group col-md-10 col-md-offset-2'>
+                        <input ng-model='bodySearch' type='text' class='form-control' id='bodySearch' placeholder='Filtra per corpo'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
         <div class='col-md-1 col-md-offset-10'>
             <a href='#/teacher/questions/new/' class="btn btn-raised btn-primary btn-fab"><i class="material-icons glyphicon glyphicon-plus" aria-hidden='true'></i></a>
         </div>
@@ -21,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='question in questions'>
+                    <tr ng-repeat='question in questions| filter: {body: bodySearch}'>
                         <td style='vertical-align:middle' ng-click='modify(question)' ng-bind-html='preview(question.body)'></td>
                         <td style='vertical-align:middle' ng-click='modify(question)'>
                             <span ng-repeat='tag in question.tags'>{{tag}}{{$last ? '' : ', '}}</span>

@@ -7,6 +7,22 @@
     </div>
     <div class='row'>
         <div class='col-md-12'>
+            <div class='row well text-center'>
+                <div class='form-group col-md-6'>
+                    <div class='col-md-10 col-md-offset-1'>
+                        <input ng-model='titleSearch' type='text' class='form-control' id='titleSearch' placeholder='Filtra per titolo'>
+                    </div>
+                </div>
+                <div class='form-group col-md-6'>
+                    <div class='col-md-10 col-md-offset-1'>
+                        <input ng-model='authorSearch' type='text' class='form-control' id='authorSearch' placeholder='Filtra per autore'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-md-12'>
             Mostra:
             <a href='' ng-click='roleFilter = ["student", "teacher"]'>Tutti</a> |
             <a href='' ng-click='roleFilter = ["student"]'>Studenti</a> |
@@ -32,7 +48,7 @@
                         <td style='vertical-align: middle'>
                             <div class='form-group' style='margin: 0; padding: 0;'>
                                 <select class='form-control' ng-model='user.role' ng-change='changeUserRole(user)'>
-                                    <option ng-repeat='role in roles | filter : filterRoleList()' value='{{role.id}}'>{{role.viewName}}</option>
+                                    <option ng-repeat='role in roles| filter : filterRoleList()' value='{{role.id}}'>{{role.viewName}}</option>
                                 </select>
                             </div>
                         </td>
