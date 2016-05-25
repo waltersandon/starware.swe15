@@ -16,6 +16,12 @@ describe('QuestionnaireCreation', function() {
             element(by.css('[type="submit"]')).click();
         });
     });
+    afterEach(function () {
+        browser.getLocationAbsUrl().then(function(url) {
+            expect(url).toEqual('/teacher/questionnaires/new/');
+            element(by.css('[ng-click="logout()"]')).click();
+        });
+    });
     it('docente deve poter creare una nuovo questionario', function() {
 
         element(by.css('[ href="#/teacher/questionnaires"]')).click();
@@ -33,6 +39,5 @@ describe('QuestionnaireCreation', function() {
         element(by.buttonText('Cerca')).click();
         element.all(by.css('[ng-click="addQuestion(question)"]')).last().click();
         element(by.css('[ng-submit="submit()"]')).submit();
-        element(by.css('[ng-click="logout()"]')).click();
     });
 });

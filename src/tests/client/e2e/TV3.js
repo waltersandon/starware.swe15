@@ -16,6 +16,9 @@ describe('Execute Questionnaire', function() {
             element(by.css('[type="submit"]')).click();
         });
     });
+    afterEach(function () {
+            element(by.css('[ng-click="logout()"]')).click();
+    });
 
     it('studente deve poter eseguire un questionario', function () {
 
@@ -41,10 +44,9 @@ describe('Execute Questionnaire', function() {
 
 
         element(by.css('[ng-click="submit()"]')).click();
+        browser.switchTo().alert().accept();
         for(var i = 0; i < 3; i++){
             element(by.css('[ng-click="getNext()"]')).click();
         }
-        //browser.switchTo().alert().accept();
-        element(by.css('[ng-click="logout()"]')).click();
     });
 });
