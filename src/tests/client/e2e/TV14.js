@@ -2,7 +2,7 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('Admin UserList', function() {
+describe('Admin change role', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
@@ -22,7 +22,7 @@ describe('Admin UserList', function() {
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
-    it('docente deve poter creare una nuovo questionario', function() {
+    it('admin deve poter cambiare il ruolo di un utente di ruolo inferiore al proprio ', function() {
         element(by.css('[href="#/admin/userlist"]')).click();
         var select = element.all(by.model('user.role')).last().click();
         select.$$('[ng-repeat="role in roles| filter : filterRoleList()"]').first().click();

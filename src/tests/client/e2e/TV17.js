@@ -2,7 +2,7 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('login', function() {
+describe('logout', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
