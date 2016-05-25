@@ -8,13 +8,11 @@
     <div class='row'>
         <div class='col-md-12'>
             <div class='row well text-center'>
-                <form ng-submit='submit()'>
-                    <div class='col-md-12'>
-                        <div class='form-group col-md-10 col-md-offset-2'>
-                            <input ng-model='titleSearch' type='text' class='form-control' id='titleSearch' placeholder='Filtra per titolo'>
-                        </div>
+                <div class='col-md-12'>
+                    <div class='form-group col-md-10 col-md-offset-2'>
+                        <input ng-model='titleSearch' type='text' class='form-control' id='titleSearch' placeholder='Filtra per titolo'>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -34,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='questionnaire in questionnaires | filter: {title: titleSearch}'>
+                    <tr ng-repeat='questionnaire in questionnaires| filter: {title: titleSearch}'>
                         <td style='vertical-align:middle' ng-click='modify(questionnaire)'>{{questionnaire.title}}</td>
                         <td style='vertical-align:middle' ng-click='modify(questionnaire)'>
                             <span ng-repeat='tag in questionnaire.tags'>{{tag}}{{$last ? '' : ', '}}</span>

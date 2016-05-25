@@ -8,13 +8,11 @@
     <div class='row'>
         <div class='col-md-12'>
             <div class='row well text-center'>
-                <form ng-submit='submit()'>
-                    <div class='col-md-12'>
-                        <div class='form-group col-md-10 col-md-offset-2'>
-                            <input ng-model='bodySearch' type='text' class='form-control' id='bodySearch' placeholder='Filtra per corpo'>
-                        </div>
+                <div class='col-md-12'>
+                    <div class='form-group col-md-10 col-md-offset-2'>
+                        <input ng-model='bodySearch' type='text' class='form-control' id='bodySearch' placeholder='Filtra per corpo'>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -34,7 +32,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat='question in questions | filter: {body: bodySearch}'>
+                    <tr ng-repeat='question in questions| filter: {body: bodySearch}'>
                         <td style='vertical-align:middle' ng-click='modify(question)' ng-bind-html='preview(question.body)'></td>
                         <td style='vertical-align:middle' ng-click='modify(question)'>
                             <span ng-repeat='tag in question.tags'>{{tag}}{{$last ? '' : ', '}}</span>
