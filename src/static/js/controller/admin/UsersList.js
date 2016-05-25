@@ -18,7 +18,7 @@ $(function () {
         };
         $scope.filterByRole = function (user) {
             if(user) {
-                if($rootScope.me.role.name === "superadmin"){
+                if($rootScope.me.role.name === "superadmin" && $scope.roleFilter.length > 1){
                     $scope.roleFilter.push("admin");
                 }
                 var name = $scope.roles.find(function (item) {
