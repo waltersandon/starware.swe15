@@ -1,5 +1,6 @@
 var superagent = require('superagent');
 var request = require('supertest');
+var expect = require('chai').expect;
 
 exports.login = function (app, theAccount, done) {
     var agent = superagent.agent();
@@ -10,6 +11,7 @@ exports.login = function (app, theAccount, done) {
             if (err) {
                 throw err;
             }
+            expect(res).to.have.property('status', 200);
             agent.saveCookies(res);
             done(agent);
         });

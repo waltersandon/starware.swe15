@@ -8,11 +8,11 @@ var QuestionSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true 
+        required: [true, 'Autore domanda mancante']
     },
     body: {
         type: String,
-        required: true,
+        required: [true, 'Corpo domanda mancante'],
         validate: {
             validator: check.checkQML,
             message: 'Errore QML'
@@ -21,7 +21,7 @@ var QuestionSchema = new mongoose.Schema({
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',
-        required: true
+        required: [true, 'Argomenti domanda mancanti']
     }]
 });
 
