@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['model.data.Error', '$location', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', function (Error, $location, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['$timeout', 'model.data.Error', '$location', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', function ($timeout, Error, $location, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService) {
         $scope.error = new Error();
         $scope.onSelect = false;
         $scope.addQuestion = function (question) {
@@ -151,6 +151,9 @@ $(function () {
                         terms.push(ui.item.value);
                         terms.push('');
                         this.value = terms.join(', ');
+                        $timeout(function () {
+                            $scope.tagsInput = $("#tags").val();
+                        }, 10);
                         return false;
                     }
                 });

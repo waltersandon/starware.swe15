@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var RoleSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        unique: true,
+        required: [true, "Nome ruolo mancante"]
     }
 });
 

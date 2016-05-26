@@ -71,22 +71,16 @@ UserService.prototype.getMe = function(req, res, next){
  */
 UserService.prototype.new = function(req, res, next) {
     Role.findOne({ name: 'student' }).exec(function(err, role)  {
-        if (err) next(400);
+        if (err) return next(400);
         var newUser = new User({
             fullName: req.body.fullName,
             userName: req.body.userName,
             password: req.body.password,
             role: role._id
         });
-        User.find({userName: req.body.userName}).exec(function(err, user){
-            if(err) next(err);
-            else if (user.length !== 0) next({type: 422, message:"L'username esiste già"});
-            else{
-                newUser.save(function(err, user) {
-                    if (err) next(err);
-                    else {res.send();}
-                });
-            }
+        newUser.save(function(err, user) {
+            if (err) next(err);
+            else {res.send();}
         });
     });
 };

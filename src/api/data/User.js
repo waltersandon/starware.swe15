@@ -7,15 +7,24 @@ var check = new UserCheck();
 var UserSchema = new mongoose.Schema({
     fullName: {
         type: String,
-        required: true,
+        required: [true, "Nome completo mancante"],
         validate: {
             validator: check.checkFullName,
             message: 'Nome completo incorretto'
         }
     },
+    userName: {
+        type: String,
+        required: [true, "Nome utente mancante"],
+        unique: true,
+        validate: {
+            validator: check.checkUserName,
+            message: 'Nome utente incorretto'
+        }
+    },
     password: {
         type: String,
-        required: true,
+        required: [true, "Password mancante"],
         validate: {
             validator: check.checkPassword,
             message: 'Password troppo corta'
@@ -25,15 +34,6 @@ var UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Role',
         required: true
-    },
-    userName: {
-        type: String,
-        unique: true,
-        required: true,
-        validate: {
-            validator: check.checkUserName,
-            message: 'Nome utente incorretto'
-        }
     },
     isActive: {
         type: Boolean,
