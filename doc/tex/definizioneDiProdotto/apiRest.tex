@@ -7,11 +7,6 @@
     	\par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo \texttt{\_id} della risorsa. 
     	
     	\par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
-    	
-    \subsection{Attributi opzionali}
-    
-    	\par Nel caso un attributo possa essere omesso nella richiesta e/o risposta, verrà identificato con "(opzionale)" di fianco
-    		al tipo dell'attributo.
 
     \subsubsection{Errori}
 
@@ -377,7 +372,6 @@
     {
         "_id": ref,
         "body": string,
-        "explanation": string (opzionale),
         "author": ref
         "tags": [ref]
     }
@@ -408,7 +402,6 @@
 {
     "_id": ref,
     "body": string,
-    "explanation": string (opzionale),
     "author": ref
     "tags": [ref]
 }
@@ -436,7 +429,6 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "explanation": string (opzionale),
     "tags": [ref]
 }
                         \end{lstlisting}
@@ -446,7 +438,6 @@
 {
 	"_id": ref,
     "body": string,
-    "explanation": string (opzionale),
     "author": ref,
     "tags": [ref]
 }
@@ -474,7 +465,6 @@
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "body": string,
-    "explanation": string (opzionale),
     "tags": [ref]
 }
                         \end{lstlisting}
@@ -711,7 +701,7 @@
                     \textbf{Metodo} & \texttt{GET} \\ \midrule
                     \textbf{Parametri} & \\ \midrule
                     \textbf{Descrizione} & Visualizzazione argomento specifico \\ \midrule
-                    \textbf{Permessi} & Ospite    "explanation": string (opzionale), \\ \midrule
+                    \textbf{Permessi} & Ospite, \\ \midrule
                     \textbf{Richiesta JSON} & \\ \midrule
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]

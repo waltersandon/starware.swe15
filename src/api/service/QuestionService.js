@@ -80,7 +80,6 @@ QuestionService.prototype.modify = function(req,res,next){
         if (question.author != req.session.user._id)
             return next(401);
         question.body = req.body.body;
-        question.explanation = req.body.explanation;
         question.tags = req.body.tags;
         question.save(function(err) {
             if (err) return next(err);
