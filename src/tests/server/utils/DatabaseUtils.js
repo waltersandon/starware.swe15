@@ -86,10 +86,12 @@ function databaseSetup(onSetup) {
 	var question1 = new Question ({
 		author: user3._id, 
 		body: "<TF F>\nJavascript è un linguaggio compilato",
+        explanation: "L'attributo 'compilato' e 'interpretato' non si riferisce al linguaggio!",
 		tags: [tag2._id,tag1._id]});
  	var question2 = new Question ({
  		author: user3._id, 
  		body: "<TF T>\nOpen Close principle è uno dei principi SOLID?",
+        explanation: "Si, è la 'O' dell'acronimo",
  		tags: [tag4._id]
  	});
 	var question3 = new Question ({
