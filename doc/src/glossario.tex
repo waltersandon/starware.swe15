@@ -4,8 +4,8 @@
 \usepackage{titlesec}
 \titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
 \titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
-\setcounter{secnumdepth}{0}
-
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Glossario}
@@ -145,7 +145,7 @@ librerie \mgls{software} disponibili in un certo linguaggio di programmazione.
 
 \newpage
 
-\section{B}
+\section{B}\label{gloss-b}
 
 \subsection{Back-end}
 il back end è la parte che elabora i dati generati dal front end.
