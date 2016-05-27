@@ -6,12 +6,15 @@ var app = require('../../utils/AppUtils').testApp;
 describe('/api/questionnaires', function() {
 
     describe('GET /api/questionnaires', function() {
-        it('impedisce l\'accesso ad un utente non autenticato', function (done) {
+        it('permette l\'accesso ad un utente non autenticato', function (done) {
             request(app)
                 .get('/api/questionnaires')
                 .end(function(err, res) {
                     expect(err).to.not.be.ok;
-                    expect(res).to.have.property('status', 401);
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.find(function (questionnaire) {
+                        return questionnaire.title === "Quiz 1";
+                    }).title).to.eql("Quiz 1");
                     done();
                 });
         });
@@ -23,39 +26,31 @@ describe('/api/questionnaires', function() {
                 var req = request(app).get('/api/questionnaires');
                 agent.attachCookies(req);
                 req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
-
                     expect(res.body.find(function (questionnaire) {
                         return questionnaire.title === "Quiz 1";
                     }).title).to.eql("Quiz 1");
-
                     done();
                 });
             });
         });
     });
     describe('GET /api/questionnaires/:id', function() {
-        it('impedisce l\'accesso ad un utente non autenticato', function (done) {
-            login(app, {
-                userName: 'mario.rossi',
-                password: 'password.mario.rossi'
-            }, function(agent) {
-                var req = request(app).get('/api/questionnaires');
-                agent.attachCookies(req);
-                req.end(function(err, res) {
-                    expect(res).to.have.property('status', 200);
-
-                    var id = res.body.find(function (questionnaire) {
-                        return questionnaire.title === "Quiz 1";
-                    })._id;
-                    request(app)
-                        .get('/api/questionnaires/'+id)
-                        .end(function(err, res) {
-                            expect(err).to.not.be.ok;
-                            expect(res).to.have.property('status', 401);
-                            done();
-                        });
+        it('permette l\'accesso ad un utente non autenticato', function (done) {
+            request(app).get('/api/questionnaires').end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                var id = res.body.find(function (questionnaire) {
+                    return questionnaire.title === "Quiz 1";
+                })._id;
+                request(app)
+                    .get('/api/questionnaires/'+id)
+                    .end(function(err, res) {
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body.title).to.eql("Quiz 1");
                 });
+                done();
             });
         });
         it('ritorna il questionario per id passato all\'utente autenticato', function (done) {
@@ -66,6 +61,7 @@ describe('/api/questionnaires', function() {
                 var req = request(app).get('/api/questionnaires');
                 agent.attachCookies(req);
                 req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     var id = res.body.find(function (questionnaire) {
                         return questionnaire.title === "Quiz 1";

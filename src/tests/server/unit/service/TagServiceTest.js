@@ -10,12 +10,29 @@ describe('/api/questionnaires', function() {
 
     describe('GET /api/tags', function() {
 
-        it('impedisce l\'accesso ad un utente non autenticato', function (done) {
+        it('permette l\'accesso ad un utente non autenticato', function (done) {
             request(app)
                 .get('/api/tags')
                 .end(function(err, res) {
                     expect(err).to.not.be.ok;
-                    expect(res).to.have.property('status', 401);
+                    expect(res).to.have.property('status', 200);
+
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "Matematica";
+                    }).name).to.eql("Matematica");
+
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "Informatica";
+                    }).name).to.eql("Informatica");
+
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "Italiano";
+                    }).name).to.eql("Italiano");
+
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "SWE";
+                    }).name).to.eql("SWE");
+
                     done();
                 });
         });
@@ -28,6 +45,7 @@ describe('/api/questionnaires', function() {
                 var req = request(app).get('/api/tags');
                 agent.attachCookies(req);
                 req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
 
                     expect(res.body.find(function (tag) {
@@ -53,28 +71,24 @@ describe('/api/questionnaires', function() {
 
     });
     describe('GET /api/tags/:id', function() {
-        it('impedisce l\'accesso ad un utente non autenticato', function (done) {
-            login(app, {
-                userName: 'mario.rossi',
-                password: 'password.mario.rossi'
-            }, function(agent) {
-                var req = request(app).get('/api/tags');
-                agent.attachCookies(req);
-                req.end(function(err, res) {
-                    expect(res).to.have.property('status', 200);
-
-                    var id = res.body.find(function (tag) {
-                        return tag.name === "Matematica";
-                    })._id;
-                    request(app)
+        it('permette l\'accesso ad un utente non autenticato', function (done) {
+            request(app)
+                    .get('/api/tags')
+                    .end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                var id = res.body.find(function (tag) {
+                    return tag.name === "Matematica";
+                })._id;
+                request(app)
                         .get('/api/tags/'+id)
                         .end(function(err, res) {
-                            expect(err).to.not.be.ok;
-                            expect(res).to.have.property('status', 401);
-                            done();
-                        });
-                    });
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body.name).to.eql("Matematica");
                 });
+                done();
+            });
         });
         it('ritorna il tag per id passato all\'utente autenticato', function (done) {
             login(app, {

@@ -8,12 +8,20 @@ describe('/api/questions', function() {
 
     describe('GET /api/questions', function() {
 
-        it("impedisce l'accesso ad un utente non autenticato", function (done) {
+        it("permette l'accesso ad un utente non autenticato", function (done) {
             request(app)
                 .get('/api/questions')
                 .end(function(err, res) {
                     expect(err).to.not.be.ok;
-                    expect(res).to.have.property('status', 401);
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.be.instanceof(Array);
+                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body[0]).to.have.property('_id');
+                    expect(res.body[0]).to.have.property('body');
+                    expect(res.body[0]).to.have.property('explanation');
+                    expect(res.body[0]).to.have.property('author');
+                    expect(res.body[0]).to.have.property('tags');
+                    expect(res.body[0].tags).to.be.instanceof(Array);
                     done();
                 });
         });
@@ -32,6 +40,7 @@ describe('/api/questions', function() {
                     expect(res.body.length).to.be.equal(3);
                     expect(res.body[0]).to.have.property('_id');
                     expect(res.body[0]).to.have.property('body');
+                    expect(res.body[0]).to.have.property('explanation');
                     expect(res.body[0]).to.have.property('author');
                     expect(res.body[0]).to.have.property('tags');
                     expect(res.body[0].tags).to.be.instanceof(Array);
@@ -43,6 +52,31 @@ describe('/api/questions', function() {
     });
 
     describe('GET /api/questions/:id', function() {
+
+        it("permette l'accesso ad un utente non autenticato", function (done) {
+            request(app)
+                    .get('/api/questions')
+                    .end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(1);
+
+                var question = res.body[0];
+                request(app)
+                        .get('/api/questions/'+question._id)
+                        .end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.have.property('_id');
+                    expect(res.body).to.have.property('body');
+                    expect(res.body).to.have.property('explanation');
+                    expect(res.body).to.have.property('author');
+                    expect(res.body).to.have.property('tags');
+                });
+                done();
+            });
+        });
 
         it("ritorna la domanda specificata", function (done) {
             login(app, {
@@ -65,6 +99,7 @@ describe('/api/questions', function() {
                         expect(res).to.have.property('status', 200);
                         expect(res.body).to.have.property('_id');
                         expect(res.body).to.have.property('body');
+                        expect(res.body).to.have.property('explanation');
                         expect(res.body).to.have.property('author');
                         expect(res.body).to.have.property('tags');
                     });
@@ -93,6 +128,7 @@ describe('/api/questions', function() {
 
                     var newQuestion = {
                         body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
+                        explanation: "Si, decisamente",
                         tags: [tags[0], tags[1]]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -122,6 +158,7 @@ describe('/api/questions', function() {
 
                     var newQuestion = {
                         body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
+                        explanation: "Spiegazione risposta domanda",
                         tags: [tags[0]._id, tags[1]._id]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -141,6 +178,52 @@ describe('/api/questions', function() {
                             });
                             expect(maybeQuestion).to.have.property('_id');
                             expect(maybeQuestion).to.have.property('body', newQuestion.body);
+                            expect(maybeQuestion).to.have.property('explanation', newQuestion.explanation);
+                            expect(maybeQuestion).to.have.property('author');
+                            expect(maybeQuestion).to.have.property('tags');
+                            done();
+                        });
+                    });
+                });
+            });
+        });
+
+        it("crea la domanda specificata anche senza spiegazione", function (done) {
+            login(app, {
+                userName: 'tullio.vardanega',
+                password: 'password.tullio.vardanega'
+            }, function(agent) {
+                var req = request(app).get('/api/tags');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.be.instanceof(Array);
+                    expect(res.body.length).to.be.above(2);
+                    var tags = res.body;
+
+                    var newQuestion = {
+                        body: "<TF F>\nAnche questa domanda verrà eliminata?",
+                        tags: [tags[0]._id]
+                    };
+                    var req = request(app).post('/api/questions').send(newQuestion);
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+
+                        var req = request(app).get('/api/questions');
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(err).to.not.be.ok;
+                            expect(res).to.have.property('status', 200);
+                            expect(res.body).to.be.instanceof(Array);
+                            var maybeQuestion = res.body.find(function(q) {
+                                return q.body == newQuestion.body;
+                            });
+                            expect(maybeQuestion).to.have.property('_id');
+                            expect(maybeQuestion).to.have.property('body', newQuestion.body);
+                            expect(maybeQuestion).not.to.have.property('explanation');
                             expect(maybeQuestion).to.have.property('author');
                             expect(maybeQuestion).to.have.property('tags');
                             done();
@@ -166,6 +249,7 @@ describe('/api/questions', function() {
 
                     var newQuestion = {
                         body: "QML non valido",
+                        explanation: "Spiegazione risposta domanda",
                         tags: [tags[0]._id, tags[1]._id]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -207,6 +291,7 @@ describe('/api/questions', function() {
 
                     var newQuestion = {
                         body: "<TF F>\nQuesta domanda verrà aggiunta?\n[F]",
+                        explanation: "Spiegazione risposta domanda",
                         tags: []
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -240,7 +325,8 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    explanation: "Spiegazione risposta domanda",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -265,13 +351,14 @@ describe('/api/questions', function() {
                 });
             });
         });
-        it('permette la modifica della domanda di test  all\'utente autenticato', function (done) {
+        it('permette la modifica della domanda di test all\'utente autenticato', function (done) {
             login(app, {
                 userName: 'tullio.vardanega',
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    explanation: "Spiegazione risposta domanda modificata",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -289,7 +376,8 @@ describe('/api/questions', function() {
                         agent.attachCookies(req);
                         req.end(function(err, res) {
                             expect(res).to.have.property('status', 200);
-                            expect(res.body.body).to.eql("<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione");
+                            expect(res.body.body).to.eql(newQuestion.body);
+                            expect(res.body.explanation).to.eql(newQuestion.explanation);
                             expect(res.body.tags.length).to.be.eql(1);
                             expect(res.body.tags[0]).to.be.eql(question.tags[0]);
                             done();
@@ -307,7 +395,8 @@ describe('/api/questions', function() {
                 password: 'password.riccardo.cardin'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    explanation: "Spiegazione risposta domanda modificata",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -323,7 +412,6 @@ describe('/api/questions', function() {
                         expect(res).to.have.property('status', 401);
                             done();
                     });
-
 
                 });
             });

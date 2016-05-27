@@ -18,6 +18,10 @@ var QuestionSchema = new mongoose.Schema({
             message: 'Errore QML'
         }
     },
+    explanation: {
+        type: String,
+        required: false
+    },
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',

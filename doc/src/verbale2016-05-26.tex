@@ -1,0 +1,133 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Verbale 2016-05-26}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{26 Maggio 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{1.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\intestazione{\titoloDocumento}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \AVE{} \\
+\textbf{Presenti interni} & \AVE{}, \NDC{}, \IB{}\\
+\textbf{Presenti esterni} & Gregorio Piccoli \\
+\textbf{Verifica} &  \IB{}\\
+\textbf{Approvazione} & \NDC{} \\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+			\toprule
+			\textbf{Versione} & \textbf{Autore} & \textbf{Data} & \textbf{Descrizione}\\
+			\midrule
+			\midrule
+			 1.0.0 & \NDC{} & 2016-05-28 & Approvazione\\
+			 \midrule
+			 0.1.0 & \IB{} & 2016-05-27 & Verifica\\
+            \midrule
+			0.0.1 & \AVE{} & 2016-05-26 & Creazione e stesura documento \\
+			\bottomrule
+		\end{tabular}
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{center}
+\end{table}
+\newpage
+
+\tableofcontents
+\listoftables
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo}
+Lo scopo del documento è di tracciare il lavoro svolto con le domande poste e le decisioni prese durante o a seguito della riunione del \dataCreazione.
+
+\subsection{Descrizione}
+Il documento presenterà la lista delle domande poste e delle risposte ricevute. Seguirà successivamente la lista delle decisioni prese a seguito di tali risposte.
+
+\subsection{Descrizione Prodotto}
+\descrizioneProdotto
+
+\subsection{Glossario}
+\glossarioPrint
+
+\newpage
+
+
+\section{Domande \& risposte}
+
+    \begin{description}[style=nextline]
+        \item[Per quanto riguarda i requisiti desiderabili è preferibile concentrarci sull'estensione del linguaggio \mgls{qml} oppure sulla gestione delle statistiche?]
+	        Potete concentrarvi sull'estensione del \mgls{qml}.
+        \item[Avendo visto il sistema per la scrittura delle domande per i questionari e le carateristiche del linguaggio \mgls{qml}, avreste dei suggerimenti o delle richieste per migliorare questa sezioni ?]
+            Il sistema scelto per l'inserimento è molto bello e il design della pagina rispetta la nostra richiesta di utilizzo del material design. Delle possibili migliorie potrebbero essere:
+            \begin{itemize}
+            	\item fornire un pulsante di aiuto nell'editor che rimandi ad una guida al linguaggio di \mgls{markup};
+            	\item fornire un pulsante di aiuto con una guida al linguaggio \mgls{qml} che avete sviluppato o, ancora meglio, attraverso una serie di bottoni drop-down fornire dei \mgls{template} delle varie tipologie di domande e stamparle sull'editor così da facilitare un utente inesperto nella scrittura del linguaggio;
+            	\item potreste "rilassare" il parser \mgls{qml} che avete sviluppato in modo tale da accettare spazi e tabulazioni all'interno delle parentesi quadre, utilizzate nella definizione delle risposte alle domande, in modo da facilitare l'indentazione delle stesse e quindi rendere più chiara la scrittura del \mgls{qml};
+            	\item Un altro possibile suggerimento è quello di utilizzare tipologie di parentesi diverse a seconda delle domande, per esempio definire le risposte alle domande a scelta multipla potreste utilizzare le parentesi quadre, mentre per quelle a risposta multipla potreste utilizzare le parentesi tonde. 	
+            \end{itemize}
+        \item[Basandosi su quanto mostrato nella nostra applicazione avreste altri suggerimenti per migliorarla ?]
+        Per poter attrarre maggiormente gli utenti potreste rendere disponibile lo svolgimento dei questionari anche a tutti gli utenti, anche a quelli non registrati o non autenticati. In questo modo di faciliterebbe l'utilizzo e la diffusione dell'applicazione.
+        
+    \end{description}
+
+\section{Decisioni}
+
+Sono state quindi presi i seguenti provvedimenti in questa riunione:
+
+\begin{itemize}
+    \item rendere lo svolgimento dei questionari pubblico e quindi disponibile senza la necessità di registrarsi o di autenticarsi all'applicazione;
+    \item nello sviluppo dei requisiti desiderabili il gruppo di concentrerà sull'estensione del \mgls{qml} con altri tipi di domande;
+    \item fornire nell'editor per la scrittura delle domande, strumenti per aiutare l'utente a scrivere in \mgls{qml}. Verranno aggiunti dei pulsanti per inserire nell'editor esempi delle varie tipologie di domande scritte in \mgls{qml} ed inoltre verrà fornito tramite link una guida per la scrittura del testo delle domande in formato \mgls{markdown};
+    \item permettere l'inserimento di spazi e tabulazione nella definizione delle risposte in \mgls{qml} con il fine di migliorarle la leggibilità;
+    \item utilizzare diverse tipologie di parentesi in base alle diverse tipologie di domande. \TODO{}
+    
+\end{itemize}
+
+\end{document}
