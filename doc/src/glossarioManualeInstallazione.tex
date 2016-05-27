@@ -1,0 +1,142 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\setcounter{secnumdepth}{1}
+
+
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Glossario Manuale Installazione}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{27 Maggio 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{1.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\intestazione{\titoloDocumento}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \WS\\ & \TP\\
+\textbf{Verifica} &  \NDC\\
+\textbf{Approvazione} &  \WS\\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{center}
+	\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+		\toprule
+		0.0.1 & \WS & 2016-05-27  & Creazione documento ed inserimento termini \\*
+		\bottomrule
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{longtable}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{G}
+
+\subsection{Git} 
+è un sistema software di controllo di versione distribuito.
+
+\subsection{Github} 
+è un servizio che offre gratuitamente l'hosting di un sever per \mgls{git}. Per maggiori informazioni si veda \href{https://github.com}{qui}.
+
+\newpage
+
+\section{H}
+
+\subsection{Hardware} 
+con il termine hardware, in ingegneria elettronica e informatica, si indica la parte fisica di un computer, ovvero tutte quelle parti elettroniche, elettriche, meccaniche, magnetiche, ottiche che ne consentono il funzionamento.	
+
+\newpage
+
+\section{M}
+
+\subsection{MongoDB} 
+è un sistema gestionale di basi di dati \mgls{nosql} orientato ai documenti, adatto per ambienti che hanno la necessità d'immagazzinare grosse quantità di dati, e dove il linguaggio utilizzato per la gestione dei dati è \mgls{javascript}.
+
+\newpage
+
+\section{N}
+
+\subsection{Node.js} 
+è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
+
+\newpage
+
+\section{O}
+
+\subsection{OpenShift}
+OpenShift è un platform as a service (PaaS) prodotto da Red Hat.OpenShift Origin, la versione gratuita ed open source di OpenShift, è il progetto a monte per altre due versioni, ed è disponibile su GitHub. Gli sviluppatori possono usare Git per distribuire le applicazioni web in diverse lingue sulla piattaforma.
+
+\newpage
+\section{P}
+
+\subsection{Proponente} 
+colui che ha proposto al \mgls{committente} un capitolato d'appalto.
+
+\newpage
+
+\section{Q}
+
+\subsection{QML} 
+è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.
+
+\newpage
+
+\section{S}
+
+\subsection{Software} 
+è un termine generico che definisce programmi e procedure utilizzati per far eseguire al computer un determinato compito.
+
+\newpage
+
+\section{V}
+
+\subsection{Versionamento} 
+è la gestione delle versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.
+
+\end{document}
