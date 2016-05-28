@@ -15,16 +15,19 @@
                 </div>
                 <div class="panel-body">
                     <div ng-include="'html/student/ExecuteQuestion.html'"></div>
-
                     <div class="row">
                         <div class="text-center">
                             <button type="button" class="btn btn-default" ng-click="getPrevious()">Precedente</button>
                             <button type="button" class="btn btn-primary" ng-click="getNext()">Successiva</button>
                         </div>
                     </div>
-                    <div><button type="button" class="btn btn-default" ng-click="submit()">Correggi</button></div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class='col-md-12 text-center'>
+            <button type="button" class="btn btn-primary" ng-disabled="!questionnaire.checkAnswers() || !edit" ng-click="submit()">Correggi</button>
         </div>
     </div>
 </div>

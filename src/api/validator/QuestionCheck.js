@@ -1,3 +1,6 @@
+
+var QML = require('../../static/js/util/SharedQML');
+
 /**
  * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Question
  * @constructor
@@ -13,7 +16,7 @@ QuestionCheck.prototype.checkTags = function(tags){
     //non duplicati
     this.sorted_arr = tags.slice().sort();
     for (this.i = 0; this.i < tags.length - 1; this.i++) {
-        if (this.sorted_arr[this.i + 1] == this.sorted_arr[this.i]) {
+        if (this.sorted_arr[this.i + 1] === this.sorted_arr[this.i]) {
             return false;
         }
     }
@@ -28,7 +31,9 @@ QuestionCheck.prototype.checkTags = function(tags){
  */
 QuestionCheck.prototype.checkQML = function(qml){
 
-    this.checkMultipleChoice = function(qml) {
+    return QML.parse(qml).status;
+
+    /*this.checkMultipleChoice = function(qml) {
         var answers = [];
         var text = "";
         var rightAnswer = 0;
@@ -74,7 +79,7 @@ QuestionCheck.prototype.checkQML = function(qml){
             return this.checkMultipleChoice(qml);
         }
     }
-    return false;
+    return false;*/
 
 };
 

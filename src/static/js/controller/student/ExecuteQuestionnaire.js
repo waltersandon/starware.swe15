@@ -2,6 +2,7 @@ $(function () {
     angular.module('app.App').controller('controller.student.ExecuteQuestionnaire', ['$scope', '$q', 'model.service.QuestionnaireService', 'model.data.CurrentQuestionnaire', 'util.Util', 'model.data.Error', function ($scope, $q, QuestionnaireService, CurrentQuestionnaire, Util, Msg) {
 
             $scope.result = new Msg();
+            $scope.edit = true;
 
             $scope.getNext = function () {
                 $scope.questionnaire.getNext();
@@ -12,13 +13,10 @@ $(function () {
                 $scope.currentQuestion = $scope.questionnaire.questions[$scope.questionnaire.currentNumber];
             };
             $scope.submit = function () {
-                if (!$scope.questionnaire.checkAnswers()) {
-                    Util.alert("Devi rispondere a tutte le domande");
-                } else {
-                    if (Util.confirm("Confermare la sottomissione del questionario?")) {
-                        var result = $scope.questionnaire.getResult();
-                        $scope.result = new Msg(result.point + " / " + result.tot, 'result', true, 'alert-info');
-                    }
+                if (Util.confirm("Confermare la sottomissione del questionario?")) {
+                    var result = $scope.questionnaire.getResult();
+                    $scope.result = new Msg(result.point + " / " + result.tot, 'result', true, 'alert-info');
+                    $scope.edit = false;
                 }
             };
             function ExecuteQuestionnaire() {
