@@ -1,6 +1,7 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['$timeout', 'util.Editor', 'model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$rootScope', '$scope', 'model.data.Tag', 'model.service.TagService', function ($timeout, Editor, Error, $location, QML, Question, QuestionService, $rootScope, $scope, Tag, TagService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestion', ['$timeout', 'util.Editor', 'model.data.Error', '$location', 'util.QML', 'model.data.Question', 'model.service.QuestionService', '$rootScope', '$scope', 'model.data.Tag', 'model.service.TagService', 'util.Util', function ($timeout, Editor, Error, $location, QML, Question, QuestionService, $rootScope, $scope, Tag, TagService, Util) {
         $scope.error = new Error();
+
         $scope.submit = function () {
             if (QML.parse($scope.editor.value()).status) {
                 $scope.question.body = $scope.editor.value();
@@ -51,7 +52,10 @@ $(function () {
         };
 
         $scope.cancel = function(){
-            $location.path('teacher/questions');
+            if (Util.confirm('Vuoi annullare le modifiche della domanda corrente?')) {
+                $location.path('teacher/questions');
+            }
+
         };
 
         function ManipulateQuestion() {
