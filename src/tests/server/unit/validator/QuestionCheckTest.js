@@ -6,14 +6,14 @@ describe('Testing di QuestionCheck', function() {
         it('deve bloccare QML TF senza risposta', function() {
             expect(check.checkQML("<TF> domanda?")).to.equal(false);
         });
-        it('deve bloccare QML MultipleChoice senza risposta giusta', function() {
-            expect(check.checkQML("<MultipleChoice> domanda? \n[answers]\n[]Opzione")).to.equal(false);
+        it('deve bloccare QML MC senza risposta giusta', function() {
+            expect(check.checkQML("<MC> domanda? \n[answers]\n[]Opzione")).to.equal(false);
         });
-        it('deve bloccare QML MultipleChoice senza risposte', function() {
-            expect(check.checkQML("<MultipleChoice> domanda?")).to.equal(false);
+        it('deve bloccare QML MC senza risposte', function() {
+            expect(check.checkQML("<MC> domanda?")).to.equal(false);
         });
-        it('deve bloccare QML MultipleChoice con due risposte giuste', function() {
-            expect(check.checkQML("<MultipleChoice> domanda?\n[answers]\n[*]OpzioneGiusta\n[*]OpzioneGiusta")).to.equal(false);
+        it('deve bloccare QML MC con due risposte giuste', function() {
+            expect(check.checkQML("<MC> domanda?\n[answers]\n[*]OpzioneGiusta\n[*]OpzioneGiusta")).to.equal(false);
         });
         it('deve accettare QML  come corpo della domanda', function() {
             expect(check.checkQML("<TF T> Questo QML è giusto <TF>Roma è la capitale d’**Italia**? <TF t>?")).to.equal(true);
@@ -23,7 +23,7 @@ describe('Testing di QuestionCheck', function() {
 
         });
         it('deve accettare  QML per domanda a risposta multipla', function() {
-            expect(check.checkQML("<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione")).to.equal(true);
+            expect(check.checkQML("<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione")).to.equal(true);
         });
 
     });

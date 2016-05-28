@@ -6,7 +6,7 @@ var check = new TagCheck();
 var TagSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true,
+        required: [true, "Nome argomento mancante"],
         unique: true,
         validate: {
             validator: check.checkName,
@@ -15,7 +15,7 @@ var TagSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: false
+        required: [false, "Descrizione argomento mancante"]
     }
 });
 

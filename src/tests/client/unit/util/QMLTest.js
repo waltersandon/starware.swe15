@@ -15,7 +15,7 @@ describe('util.QML', function() {
         },
         {
             id: 'id_question_3',
-            body: '<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione',
+            body: '<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione',
             author: 'id_author_1',
             tags: [ { id: 'id_tag_1' } ]
         }
@@ -57,11 +57,11 @@ describe('util.QML', function() {
             expect(risposta.answer).toBe(true);
             expect(risposta.answers).toEqual([{value: true, str: 'Vero'}, {value: false, str: 'Falso'}])
         });
-        it('esegue parse della domanda MultipleChoice', function () {
+        it('esegue parse della domanda MC', function () {
             var risposta = QMLModule.parse(questions[2].body);
             expect(risposta).toBeDefined();
             expect(risposta.status).toBe(true);
-            expect(risposta.type).toBe('MultipleChoice');
+            expect(risposta.type).toBe('MC');
             expect(risposta.answer).toBe(2);
         });
 

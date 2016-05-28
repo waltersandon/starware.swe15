@@ -10,7 +10,7 @@ var check = new QuestionnaireCheck();
 var QuestionnaireSchema = new mongoose.Schema({
     title: {
         type: String,
-        required: true,
+        required: [true, 'Titolo questionario mancante'],
         validate: {
             validator: check.checkTitle,
             message: 'Titolo non corretto'
@@ -19,17 +19,17 @@ var QuestionnaireSchema = new mongoose.Schema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        required: [true, 'Autore questionario non specificato']
     },
     questions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question',
-        required: true
+        required: [true, 'Domande questionario mancanti']
     }],
     tags: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Tag',
-        required: true
+        required: [true, 'Argomenti questionario mancanti']
     }]
 });
 

@@ -8,12 +8,19 @@ describe('/api/questions', function() {
 
     describe('GET /api/questions', function() {
 
-        it("impedisce l'accesso ad un utente non autenticato", function (done) {
+        it("permette l'accesso ad un utente non autenticato", function (done) {
             request(app)
                 .get('/api/questions')
                 .end(function(err, res) {
                     expect(err).to.not.be.ok;
-                    expect(res).to.have.property('status', 401);
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.be.instanceof(Array);
+                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body[0]).to.have.property('_id');
+                    expect(res.body[0]).to.have.property('body');
+                    expect(res.body[0]).to.have.property('author');
+                    expect(res.body[0]).to.have.property('tags');
+                    expect(res.body[0].tags).to.be.instanceof(Array);
                     done();
                 });
         });
@@ -43,6 +50,30 @@ describe('/api/questions', function() {
     });
 
     describe('GET /api/questions/:id', function() {
+
+        it("permette l'accesso ad un utente non autenticato", function (done) {
+            request(app)
+                    .get('/api/questions')
+                    .end(function(err, res) {
+                expect(err).to.not.be.ok;
+                expect(res).to.have.property('status', 200);
+                expect(res.body).to.be.instanceof(Array);
+                expect(res.body.length).to.be.above(1);
+
+                var question = res.body[0];
+                request(app)
+                        .get('/api/questions/'+question._id)
+                        .end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.have.property('_id');
+                    expect(res.body).to.have.property('body');
+                    expect(res.body).to.have.property('author');
+                    expect(res.body).to.have.property('tags');
+                });
+                done();
+            });
+        });
 
         it("ritorna la domanda specificata", function (done) {
             login(app, {
@@ -240,7 +271,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -265,13 +296,13 @@ describe('/api/questions', function() {
                 });
             });
         });
-        it('permette la modifica della domanda di test  all\'utente autenticato', function (done) {
+        it('permette la modifica della domanda di test all\'utente autenticato', function (done) {
             login(app, {
                 userName: 'tullio.vardanega',
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -289,7 +320,7 @@ describe('/api/questions', function() {
                         agent.attachCookies(req);
                         req.end(function(err, res) {
                             expect(res).to.have.property('status', 200);
-                            expect(res.body.body).to.eql("<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione");
+                            expect(res.body.body).to.eql(newQuestion.body);
                             expect(res.body.tags.length).to.be.eql(1);
                             expect(res.body.tags[0]).to.be.eql(question.tags[0]);
                             done();
@@ -307,7 +338,7 @@ describe('/api/questions', function() {
                 password: 'password.riccardo.cardin'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione" ,
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -323,7 +354,6 @@ describe('/api/questions', function() {
                         expect(res).to.have.property('status', 401);
                             done();
                     });
-
 
                 });
             });
@@ -342,7 +372,7 @@ describe('/api/questions', function() {
                 req.end(function(err, res) {
                     expect(res).to.have.property('status', 200);
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     var req = request(app).delete('/api/questions/'+question._id);
                     agent.attachCookies(req);
@@ -363,7 +393,7 @@ describe('/api/questions', function() {
                 agent.attachCookies(req);
                 req.end(function(err, res) {
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     //richiesta di cancellazione
                     var req = request(app).delete('/api/questions/'+question._id);

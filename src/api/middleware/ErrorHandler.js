@@ -22,6 +22,13 @@ ErrorHandler.prototype.handler = function(err, req, res, next) {
     	res.status(err).json({
             message: messages[err] || 'Errore sconosciuto'
         });
+    } else if (err.name == 'MongoError' && err.code === 11000) {
+        // Duplicates error
+        var regex = /([a-zA-Z0-9]+)_[0-9]+ dup key/;
+        var key = err.message.match(regex)[1];
+        res.status(400).json({
+            message: "Attributo '" + key + "' con tale valore già esistente"
+        });
     } else if (err.message && err.type) {
         res.status(err.type).json({
             message: err.message
