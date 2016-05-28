@@ -63,10 +63,24 @@
             <div class='col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 main'>
                 <div ng-switch on='urlPath()[1]'>
                     <div ng-switch-when='login' >
-                        <div ng-include="'html/public/LogIn.html'"></div>
+                        <div ng-switch on='logged'>
+                            <div ng-switch-when='true'>
+                                <div ng-include="'html/user/Welcome.html'"></div>
+                            </div>
+                            <div ng-switch-when='false'>
+                                <div ng-include="'html/public/LogIn.html'"></div>
+                            </div>
+                        </div>
                     </div>
                     <div ng-switch-when='signup'>
-                        <div ng-include="'html/public/SignUp.html'"></div>
+                        <div ng-switch on='logged'>
+                            <div ng-switch-when='true'>
+                                <div ng-include="'html/user/Welcome.html'"></div>
+                            </div>
+                            <div ng-switch-when='false'>
+                                <div ng-include="'html/public/SignUp.html'"></div>
+                            </div>
+                        </div>
                     </div>
                     <div ng-switch-when='user'>
                         <div ng-switch on='urlPath()[2]'>
@@ -124,6 +138,9 @@
                             </div>
                             <div ng-switch-when='tags'>
                                 <div ng-include="'html/teacher/ManageTags.html'"></div>
+                            </div>
+                            <div ng-switch-when='guide'>
+                                <div ng-include="'html/teacher/Guide.html'"></div>
                             </div>
                             <div ng-switch-default>
                                 <div ng-include="'html/user/Welcome.html'"></div>

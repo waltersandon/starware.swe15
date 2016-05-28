@@ -11,7 +11,7 @@ $(function () {
                         {
                             name: "custom",
                             action: function (editor) {
-                                alert('lol');
+                                window.open('#/user/Welcome.html', '_blank');
                             },
                             className: "fa fa-star",
                             title: "Custom Button"
