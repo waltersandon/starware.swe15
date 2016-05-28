@@ -14,15 +14,15 @@
             <div id='navbar' class='navbar-collapse collapse'>
                 <div ng-switch on='logged' class="">
                     <ul  ng-switch-when='true' class='nav navbar-nav navbar-right'>
-                        <li><a href='' ng-click="changePath('user/user')"><span class="glyphicon glyphicon-cog"
+                        <li><a href='' ng-click="changePath('user/user')" id="profile"><span class="glyphicon glyphicon-cog"
                                                                                 aria-hidden="true"></span></a></li>
                         <li><a href='' ng-click='logout()'><span class="glyphicon glyphicon-off"
                                                                  aria-hidden="true"></span></a>
                         </li>
                     </ul>
                     <ul ng-switch-when='false' class='nav navbar-nav navbar-right'>
-                        <li><a href='' ng-click="changePath('login')">Login</a></li>
-                        <li><a href='' ng-click="changePath('signup')">Registrati</a></li>
+                        <li><a href='' ng-click="changePath('login')" id="login">Login</a></li>
+                        <li><a href='' ng-click="changePath('signup')" id="signup">Registrati</a></li>
                     </ul>
                 </div>
             </div>

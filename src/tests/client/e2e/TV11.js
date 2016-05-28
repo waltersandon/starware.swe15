@@ -7,7 +7,7 @@ describe('TagModify', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -24,6 +24,13 @@ describe('TagModify', function() {
     });
     it('docente deve poter modificare un argomento', function() {
         element(by.css('[href="#/teacher/tags"]')).click();
-        //TODO
+        var tag = element.all(by.css('[ng-repeat="tag in tags| orderBy : myOrderBy"]')).last();
+        var tagName = tag.$$('[ng-model="tag.name"]').first().clear();
+        var tagDescription = tag.$$('[ng-model="tag.description"]').first().clear();
+        var tagModify = tag.$$('[ng-click="modify(tag)"]').first();
+
+        tagName.sendKeys("Argomento dopo modify");
+        tagDescription.sendKeys("Questo argomento è stato cambiato con test automatico");
+        tagModify.click();
     });
 });

@@ -7,7 +7,7 @@ describe('Questionnaire inspection', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -25,6 +25,18 @@ describe('Questionnaire inspection', function() {
     it('docente sia in grado di visualizzare un questionario', function() {
 
         element(by.css('[ href="#/teacher/questionnaires"]')).click();
-        //TODO
+        var questionnaireList = element.all(by.repeater("questionnaire in questionnaires"));
+        questionnaireList.first().click();
+
+        var title = element(by.id("title"));
+        expect(title.getText()).toBeDefined();
+
+        var tags = element(by.id("tags"));
+        expect(tags.getText()).toBeDefined();
+
+        var questions = element.all(by.repeater("question in questionnaire.questions"));
+        expect(questions.count()).toBeGreaterThan(0);
+
+        element(by.buttonText('Conferma')).click();
     });
 });

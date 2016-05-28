@@ -15,7 +15,7 @@
 
  return origFn.apply(browser.driver.controlFlow(), args);
  };
- */
+*/
 
 describe('signUp', function() {
     beforeEach(function () {
@@ -31,7 +31,7 @@ describe('signUp', function() {
         });
     });
     it('utente deve poter registrarsi', function() {
-        element(by.css('[href="#/signup"]')).click();
+        element(by.id('signup')).click();
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/signup');
             element(by.id('userName')).sendKeys("testUser");
@@ -42,7 +42,7 @@ describe('signUp', function() {
         });
     });
     it('utente deve  deve poter loggarsi con proprio account', function() {
-        element(by.css('[href="#/login"]')).click();
+        element(by.id('login')).click();
         browser.getLocationAbsUrl().then(function (url) {
             expect(url).toEqual('/login');
             element(by.id('inputUsername')).sendKeys("testUser");

@@ -7,7 +7,7 @@ describe('TagDelete', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -24,7 +24,8 @@ describe('TagDelete', function() {
     });
     it('docente deve poter eliminare un  argomento', function() {
         element(by.css('[href="#/teacher/tags"]')).click();
-
-        //TODO
+        var tag = element.all(by.css('[ng-repeat="tag in tags| orderBy : myOrderBy"]')).last();
+        tag.$$('[ng-click="remove(tag)"]').first().click();
+        browser.switchTo().alert().accept();
     });
 });
