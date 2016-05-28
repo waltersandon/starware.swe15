@@ -7,7 +7,15 @@ $(function () {
                         var p = QML.parse(plainText);
                         return p.status ? p.body + p.answerForm : p.message;
                     },
-                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview']
+                    toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image', 'guide', '|', 'preview', 'guide', '|',
+                        {
+                            name: "custom",
+                            action: function (editor) {
+                                alert('lol');
+                            },
+                            className: "fa fa-star",
+                            title: "Custom Button"
+                        }]
                 });
             };
         }]);
