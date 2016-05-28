@@ -1,0 +1,292 @@
+\documentclass[12pt,a4paper]{article}
+\input{../style/stile.sty}
+\input{../tex/glossario.tex}
+\usepackage{titlesec}
+\titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
+\titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+
+
+
+%Titolo documento
+\newcommand{\titoloDocumento}{Glossario Manuale Sviluppatore}
+
+%Prima data di creazione del documento
+\newcommand{\dataCreazione}{27 Maggio 2016}
+
+%Inserite la versione attuale del documento
+\newcommand{\versione}{1.0.0}
+
+%Stato in cui si trova il documento: Formale solo all'atto di consegna
+\newcommand{\stato}{Formale}
+
+%Uso del documento
+\newcommand{\uso}{Esterno}
+
+\rhead{\titoloDocumento}
+\lfoot{Versione: \versione}
+\title{\titoloDocumento}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\intestazione{\titoloDocumento}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{r | l}
+\multicolumn{2}{c}{\textbf{Informazioni sul documento}}\\
+\midrule
+\textbf{Nome Documento} & \titoloDocumento \\
+\textbf{Versione} & \versione \\
+\textbf{Stato} & \emph{\stato} \\
+\textbf{Uso} & \emph{\uso} \\
+\textbf{Data Creazione} & \dataCreazione \\
+\textbf{Data Ultima Modifica} & \today \\
+\textbf{Redazione} & \WS\\ & \TP\\
+\textbf{Verifica} &  \NDC\\
+\textbf{Approvazione} &  \WS\\
+\textbf{Lista Distribuzione} & \nomeGruppo \\
+\  & \Vardanega \\
+\  & \Cardin \\
+\  & Il proponente \Zucchetti \\
+
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{center}
+\end{titlepage}
+\newpage
+
+\Large{\textbf{Registro delle modifiche}}\\
+\normalsize
+
+\begin{center}
+	\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
+		\toprule
+		0.0.1 & \WS & 2016-05-27  & Creazione documento ed inserimento termini \\*
+		\bottomrule
+		\caption{Versionamento del documento}
+		\label{tabVers1}
+	\end{longtable}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+
+
+\section{A}
+
+\subsection{API}
+librerie \mgls{software} disponibili in un certo linguaggio di programmazione.
+
+\subsection{AngularJS}
+è un \mgls{framework} web open source principalmente sviluppato da \mgls{google} che ha come obiettivo di semplificare lo sviluppo e il test di applicazioni web singola pagina, fornendo lato \mgls{client} un' architettura \mgls{mvc}.
+
+\newpage
+
+\section{B}
+
+\subsection{Back-end}
+il back end è la parte che elabora i dati generati dal front end.
+
+\subsection{Browser}
+è un'applicazione per il recupero, la presentazione e la navigazione di risorse web.
+
+\newpage
+\section{C}
+
+\subsection{Client}
+nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un \mgls{server}; si può riferire all'applicazione o all'\mgls{hardware}.
+
+\subsection{Committente} 
+colui che assegna un compito. In questo caso è il \Vardanega{}.
+
+\subsection{Controller} 
+è un componente del pattern \mgls{mvc}. che ha il compito di mandare comandi al \mgls{model} per modificarne lo stato ed inoltre controlla costantemente la sua \mgls{view} associata per verificare se vi sono stati input o comandi dall'utente.
+
+\newpage
+
+\section{E}
+
+\subsection{Express} 
+è un \mgls{framework} dell'applicazione web \mgls{node.js} flessibile e leggero che fornisce una serie di funzioni avanzate per le applicazioni web e per dispositivi mobili.
+
+\subsection{Event-driven} 
+è un paradigma di programmazione dell'informatica, con il quale il flusso del programma è largamente determinato dal verificarsi di eventi esterni. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Programmazione_a_eventi}{qui}.
+
+\newpage
+
+\section{F}
+
+\subsection{Framework} 
+architettura o struttura di supporto su cui un programma può essere creato. In genere è composto da una serie di librerie e strumenti di sviluppo.
+
+\subsection{Front-end} 
+il front end è la parte di un sistema software che gestisce l'interazione con l'utente o con sistemi esterni che producono dati di ingresso.
+
+\newpage
+
+\section{G}
+
+\subsection{Git} 
+è un sistema software di controllo di versione distribuito.
+
+\subsection{Github} 
+è un servizio che offre gratuitamente l'hosting di un sever per \mgls{git}. Per maggiori informazioni si veda \href{https://github.com}{qui}.
+
+\subsection{Google} 
+azienda statunitense che offre servizi online. Tra la grande quantità di prodotti offerti troviamo il motore di ricerca \mgls{google}, il sistema operativo Android e servizi web quali YouTube, Gmail, Google Maps e altri. Per maggiori informazioni si veda \href{https://it.wikipedia.org/wiki/Google_Inc.}{qui}.
+
+\newpage
+
+\section{H}
+
+\subsection{Hardware} 
+con il termine hardware, in ingegneria elettronica e informatica, si indica la parte fisica di un computer, ovvero tutte quelle parti elettroniche, elettriche, meccaniche, magnetiche, ottiche che ne consentono il funzionamento.	
+
+\subsection{HTML} 
+in informatica è il linguaggio di \mgls{markup} solitamente usato per la formattazione e impaginazione di documenti ipertestuali disponibili nel World Wide Web sotto forma di pagine web.
+\newpage
+
+\section{I}
+
+\subsection{IDE}
+in lingua inglese Integrated Development Environment ovvero IDE, anche integrated design environment o integrated debugging environment, rispettivamente ambiente integrato di progettazione e ambiente integrato di debugging. E' un software che, in fase di programmazione, aiuta i programmatori nello sviluppo del codice sorgente di un programma.
+
+\subsection{IDEA}
+IntelliJ IDEA è un ambiente di sviluppo integrato (IDE) per il linguaggio di programmazione Java.
+
+\newpage
+
+\section{J}
+
+\subsection{JavaScript} 
+linguaggio di \mgls{scripting} orientato agli oggetti comunemente usato nella programmazione web.
+
+ \subsection{JetBrains}
+f ex IntelliJ è un'azienda di sviluppo software ceca nata nel 2000 i cui strumenti hanno come mercato gli sviluppatori software e i project manager.
+
+\subsection{JSON} 
+acronimo di \mgls{javascript} Object Notation, è un formato adatto all'interscambio di dati fra applicazioni client-server.
+
+\newpage
+
+
+\section{L}
+
+\subsection{Linux} 
+è una famiglia di sistemi operativi \mgls{open-source} di tipo Unix-like, rilasciati sotto varie possibili distribuzioni, aventi la caratteristica comune di utilizzare come nucleo il kernel \mgls{linux}.
+
+\newpage
+
+\section{M}
+
+\subsection{Mac OS} 
+il sistema operativo di Apple dedicato dedicati ai personal computer Macintosh, alle workstation, ai \mgls{server} e agli \mgls{smartphone}.
+
+\subsection{Markup} 
+è un insieme di regole che descrivono i meccanismi di rappresentazione (strutturali, semantici o presentazionali) di un testo che, utilizzando convenzioni standardizzate, sono utilizzabili su più supporti.
+
+\subsection{Middleware} 
+un insieme di programmi informatici che fungono da intermediari tra diverse applicazioni e componenti \mgls{software},  spesso utilizzati come supporto per sistemi distribuiti complessi.
+
+\subsection{Model} 
+fornisce i metodi per accedere ai dati utili all'applicazione.
+
+\subsection{MongoDB} 
+è un sistema gestionale di basi di dati \mgls{nosql} orientato ai documenti, adatto per ambienti che hanno la necessità d'immagazzinare grosse quantità di dati, e dove il linguaggio utilizzato per la gestione dei dati è \mgls{javascript}.
+
+\subsection{Mongoose} 
+è un web server multipiattaforma scritto da Sergey Lyubka, che con poco più 130KB di codice sorgente, risulta essere uno fra i \mgls{server} web più piccoli.
+
+\subsection{MVC} 
+è un pattern architetturale molto diffuso nello sviluppo di sistemi \mgls{software}, in particolare nell'ambito della programmazione orientata agli oggetti, in grado di separare la logica di presentazione dei dati dalla logica di business.
+
+
+\newpage
+
+\section{N}
+
+\subsection{Node.js} 
+è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
+
+\subsection{NoSQL} 
+come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più \mgls{server} dove salvare questi dati e non solamente incrementando la potenza di un singolo \mgls{server}.
+
+\newpage
+
+\section{O}
+
+\subsection{OpenShift}
+OpenShift è un platform as a service (PaaS) prodotto da Red Hat.OpenShift Origin, la versione gratuita ed open source di OpenShift, è il progetto a monte per altre due versioni, ed è disponibile su GitHub. Gli sviluppatori possono usare Git per distribuire le applicazioni web in diverse lingue sulla piattaforma.
+
+\subsection{Open-source} 
+un \mgls{software} di cui gli autori ovvero i detentori dei diritti rendono pubblico il codice sorgente, favorendone il libero studio e permettendo a programmatori indipendenti di apportarvi modifiche ed estensioni. Questo è realizzato tramite apposite licenze d'uso.
+
+\newpage
+\section{P}
+
+\subsection{Plugin}
+è un programma non autonomo che interagisce con un altro programma per ampliarne o estenderne le funzionalità originarie. Ad esempio, un plugin per un software di grafica permette l'utilizzo di nuove funzioni non presenti nel software principale.
+
+\subsection{Proponente} 
+colui che ha proposto al \mgls{committente} un capitolato d'appalto.
+
+\newpage
+
+\section{Q}
+
+\subsection{QML} 
+è un "Domain Specific Language" richiesto dal capitolato d'appalto per la definizione delle domande all'interno del sistema.
+
+\newpage
+
+\section{R}
+
+\subsection{Repository} 
+è dove i file sono memorizzati, spesso su un server.
+
+\newpage
+\section{S}
+
+\subsection{Server} 
+nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
+
+\subsection{Smathphone} 
+è un telefono cellulare con capacità di calcolo, di memoria e di connessione dati molto più avanzate rispetto ai normali telefoni cellulari.
+
+\subsection{Software} 
+è un termine generico che definisce programmi e procedure utilizzati per far eseguire al computer un determinato compito.
+
+\subsection{SQL} 
+è un linguaggio standardizzato per database basati sul modello relazionale.
+
+\newpage
+
+\section{V}
+
+\subsection{Versionamento} 
+è la gestione delle versioni multiple di un insieme di informazioni. Per maggiori informazioni si veda \href{http://it. wikipedia.org/wiki/Controllo_versione}{qui}.
+
+\subsection{View} 
+si veda vista.
+
+\subsection{Vista} 
+è responsabile della definizione della struttura, il layout e l'aspetto di ciò che l'utente vede sullo schermo. Idealmente, la vista non contiene la logica di business.
+
+\newpage
+
+\section{W}
+
+\subsection{WebStorm}
+IntelliJ Webstorm è un ambiente di sviluppo integrato (IDE) per lo sviluppo Web.
+
+\subsection{Windows} 
+è una famiglia di ambienti operativi e sistemi operativi dedicati ai personal computer, alle workstation, ai \mgls{server} e agli \mgls{smartphone}. Il sistema operativo si chiama così per via della sua interfaccia di programmazione di un'applicazione a finestre.
+
+
+\end{document}
