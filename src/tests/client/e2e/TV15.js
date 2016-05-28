@@ -7,7 +7,7 @@ describe('change profile', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -18,12 +18,16 @@ describe('change profile', function() {
     });
     afterEach(function () {
         browser.getLocationAbsUrl().then(function(url) {
-            expect(url).toEqual('/user');
+            expect(url).toEqual('/user/user');
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
     it('utente sia in grado di aggiornare i propri dati personali ', function() {
-        //TODO
+        element(by.id('profile')).click();
+        element(by.id('userName')).clear().sendKeys("cbianchi");
+        element(by.id('fullname')).clear().sendKeys("Carlo Leone Bianchi");
+        var form = element(by.css('[ng-submit="checkUserName() && checkFullName() && submitInformation()"]')); 
+        form.submit();
     });
 
 });

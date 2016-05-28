@@ -7,7 +7,7 @@ describe('TagCreation', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -24,6 +24,12 @@ describe('TagCreation', function() {
     });
     it('docente deve poter creare un nuovo argomento', function() {
         element(by.css('[href="#/teacher/tags"]')).click();
-        //TODO
+
+        element(by.css('[ng-model="newName"]')).clear().sendKeys("Argomento di Test");
+
+        element(by.css('[ng-model="newDescription"]')).clear().sendKeys("Questo argomento è stato" +
+            " creato tramite test automatico");
+
+        element(by.css('[ng-click="add()"]')).click();
     });
 });

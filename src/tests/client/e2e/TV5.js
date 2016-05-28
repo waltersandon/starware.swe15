@@ -3,12 +3,12 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('QuestionModify', function() {
+describe('Question Modify', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -21,6 +21,7 @@ describe('QuestionModify', function() {
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/teacher/questions');
             element(by.css('[ng-click="logout()"]')).click();
+           // browser.switchTo().alert().accept();
         });
     });
     it('docente deve poter modificare una domanda', function() {
@@ -38,6 +39,7 @@ describe('QuestionModify', function() {
         }
         textareas.sendKeys("<TF T>\nRoma è la capitale d'Italia");
         element(by.css('[type="submit"]')).click();
+        browser.waitForAngular();
     });
 
 

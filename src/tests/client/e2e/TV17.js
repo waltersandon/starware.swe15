@@ -7,7 +7,7 @@ describe('logout', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
     });
     it('studente deve poter  sloggarsi', function() {

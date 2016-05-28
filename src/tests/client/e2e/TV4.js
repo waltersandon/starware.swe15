@@ -3,12 +3,12 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('QuestionCreation', function() {
+describe('Question Creation', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -36,5 +36,6 @@ describe('QuestionCreation', function() {
             protractor.Key.CONTROL, "a", protractor.Key.NULL,
             "<TF F>\n 2+2=5");
         element(by.css('[type="submit"]')).click();
+        browser.waitForAngular();
     });
 });

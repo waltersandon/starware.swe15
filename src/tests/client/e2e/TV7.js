@@ -2,12 +2,12 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('QuestionnaireCreation', function() {
+describe('Questionnaire Creation', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -18,7 +18,7 @@ describe('QuestionnaireCreation', function() {
     });
     afterEach(function () {
         browser.getLocationAbsUrl().then(function(url) {
-            expect(url).toEqual('/teacher/questionnaires/new/');
+            expect(url).toEqual('/teacher/questionnaires');
             element(by.css('[ng-click="logout()"]')).click();
         });
     });
@@ -36,8 +36,8 @@ describe('QuestionnaireCreation', function() {
         element(by.css('[ng-click="setOnSelect(true)"]')).click();
         element(by.id('authorSearch')).clear().sendKeys("Tullio Vardanega");
         element(by.id('tagSearch')).clear().sendKeys("Informatica");
-        element(by.buttonText('Cerca')).click();
-        element.all(by.css('[ng-click="addQuestion(question)"]')).last().click();
         element(by.css('[ng-submit="submit()"]')).submit();
+        element.all(by.css('[ng-click="addQuestion(question)"]')).last().click();
+        element(by.buttonText('Conferma')).click();
     });
 });
