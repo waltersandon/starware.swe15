@@ -8,9 +8,10 @@ $(function () {
                 this.answer = quest.answer.toString();
                 this.selectedAnswer = null;
                 this.right = false;
+                this.explanation = quest.explanation;
             }
             CurrentQuestion.prototype.point = function () {
-                if (this.type === 'TF' || this.type === 'MultipleChoice') {
+                if (this.type === 'TF' || this.type === 'MC') {
                     if (this.answer === this.selectedAnswer) {
                         this.right = true;
                         return {point: 1, tot: 1};

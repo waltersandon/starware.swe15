@@ -2,15 +2,16 @@
     <div class="row" ng-show='result.status'>
         <div class='alert col-md-12' ng-class='currentQuestion.right === true ? "alert-success" : "alert-danger"'>
             <strong>{{currentQuestion.right === true ? "Corretta" : "Errata"}}</strong>
+            <span ng-bind-html="currentQuestion.explanation"></span>
         </div>
     </div>
     <div ng-bind-html="preview"></div>
-    <div ng-show="currentQuestion.type === 'TF' || currentQuestion.type === 'MultipleChoice'">
+    <div ng-show="currentQuestion.type === 'TF' || currentQuestion.type === 'MC'">
         <div class='form-group'>
             <fieldset ng-disabled="!edit">
                 <div ng-repeat="ans in currentQuestion.answers">
                     <label>
-                        <input type='radio' name='Question' ng-model='$parent.ris' value='{{ans.value}}'> <span ng-bind-html="ans.str"></span>
+                        <input type='radio' name='Question' ng-model='$parent.ris' value='{{ans.value}}'><span ng-bind-html="ans.str"></span>
                     </label>
                 </div>
             </fieldset>

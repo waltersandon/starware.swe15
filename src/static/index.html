@@ -42,6 +42,8 @@
         <script src="https://cdn.jsdelivr.net/editor/0.1.0/editor.js"></script>
         <script src="https://cdn.jsdelivr.net/editor/0.1.0/marked.js"></script>-->
 
+        <link rel="stylesheet" href="js/util/codemirror/codemirror.css">
+        <script src="js/util/codemirror/codemirror.js"></script>
         <link rel="stylesheet" href="http://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
         <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
@@ -105,7 +107,8 @@
     </head>
 
     <body ng-app='app.App' ng-controller='controller.public.Home'>
-        <div ng-switch on='logged'>
+    <div ng-include="'html/user/Home.html'"></div>
+        <!--<div ng-switch on='logged'>
             <div ng-switch-when='true'>
                 <div ng-include="'html/user/Home.html'"></div>
             </div>
@@ -122,6 +125,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </body>
 </html>

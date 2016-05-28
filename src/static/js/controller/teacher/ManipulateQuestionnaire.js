@@ -1,16 +1,26 @@
 $(function () {
-    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['$timeout', 'model.data.Error', '$location', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', function ($timeout, Error, $location, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService) {
+    angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['$timeout', 'model.data.Error', '$location', '$rootScope', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', 'util.Util', function ($timeout, Error, $location, $rootScope, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService, Util) {
         $scope.error = new Error();
         $scope.onSelect = false;
+        $rootScope.dirt = false;
+
+        $scope.textChanged = function(){
+            $rootScope.dirt = true;
+        };
+
         $scope.addQuestion = function (question) {
             $scope.questionnaire.questions.push(question);
             $scope.onSelect = false;
+            $rootScope.dirt = true;
         };
         $scope.preview = function (body) {
             return QML.preview(body);
         };
         $scope.removeQuestion = function (question) {
-            $scope.questionnaire.questions.splice($scope.questionnaire.questions.indexOf(question), 1);
+            if(Util.confirm('Sei sicuro di voler rimuovere la domanda dal questionario?')){
+                $scope.questionnaire.questions.splice($scope.questionnaire.questions.indexOf(question), 1);
+                $rootScope.dirt = true;
+            }
         };
         $scope.setOnSelect = function (b) {
             $scope.onSelect = b;
@@ -63,10 +73,6 @@ $(function () {
             } else {
                 $scope.error = new Error('non è stato selezionata alcuna domanda', 'errorQuestions', true, 'alert-danger');
             }
-        };
-
-        $scope.cancel = function(){
-            $location.path('teacher/questionnaires');
         };
 
         function ManipulateQuestionnaire() {

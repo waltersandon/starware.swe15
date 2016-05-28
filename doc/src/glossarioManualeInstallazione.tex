@@ -4,7 +4,8 @@
 \usepackage{titlesec}
 \titleformat{\section}[block]{\Large\bfseries\filcenter}{}{1em}{}
 \titleformat{\subsection}[hang]{\bfseries}{}{1em}{}
-\setcounter{secnumdepth}{1}
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
 
 
 
@@ -76,6 +77,16 @@
 \tableofcontents
 \newpage
 
+\section{C}
+
+\subsection{Client}
+nell'architettura client-server il \mgls{client} è il componente che richiede un qualsiasi servizio ad un \mgls{server}; si può riferire all'applicazione o all'\mgls{hardware}.
+
+\subsection{Committente} 
+colui che assegna un compito. In questo caso è il \Vardanega{}.
+
+\newpage
+
 \section{G}
 
 \subsection{Git} 
@@ -93,6 +104,14 @@ con il termine hardware, in ingegneria elettronica e informatica, si indica la p
 
 \newpage
 
+\section{J}
+
+
+\subsection{JavaScript} 
+linguaggio di \mgls{scripting} orientato agli oggetti comunemente usato nella programmazione web.
+
+\newpage
+
 \section{M}
 
 \subsection{MongoDB} 
@@ -105,6 +124,9 @@ con il termine hardware, in ingegneria elettronica e informatica, si indica la p
 \subsection{Node.js} 
 è una piattaforma lato \mgls{server} avvolto attorno al linguaggio \mgls{javascript} per la creazione di applicazioni scalabili, utilizzando un modello \mgls{event-driven}. Ovvero si eseguono azioni solo al verificarsi di un evento.
 
+
+\subsection{NoSQL} 
+come dice anche il termine questi database non sono basati su \mgls{sql}. Sono performanti nel caso sia necessario salvare una grande quantità di dati, magari usando la scalabilità orizzontale, quando cioè si utilizzano più \mgls{server} dove salvare questi dati e non solamente incrementando la potenza di un singolo \mgls{server}.
 \newpage
 
 \section{O}
@@ -128,6 +150,12 @@ colui che ha proposto al \mgls{committente} un capitolato d'appalto.
 \newpage
 
 \section{S}
+
+\subsection{Server} 
+nell'architettura client-server il server è un componente che fornisce un servizio ad un insieme di \mgls{client}; si può riferire all'applicazione o all'\mgls{hardware}.
+
+\subsection{SQL} 
+è un linguaggio standardizzato per database basati sul modello relazionale.
 
 \subsection{Software} 
 è un termine generico che definisce programmi e procedure utilizzati per far eseguire al computer un determinato compito.

@@ -271,7 +271,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -302,7 +302,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -338,7 +338,7 @@ describe('/api/questions', function() {
                 password: 'password.riccardo.cardin'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
+                    body: "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -372,7 +372,7 @@ describe('/api/questions', function() {
                 req.end(function(err, res) {
                     expect(res).to.have.property('status', 200);
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     var req = request(app).delete('/api/questions/'+question._id);
                     agent.attachCookies(req);
@@ -393,7 +393,7 @@ describe('/api/questions', function() {
                 agent.attachCookies(req);
                 req.end(function(err, res) {
                     var question = res.body.find(function (question) {
-                        return question.body === "<MultipleChoice>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
+                        return question.body === "<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione";
                     });
                     //richiesta di cancellazione
                     var req = request(app).delete('/api/questions/'+question._id);

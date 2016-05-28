@@ -12,11 +12,19 @@
                 <a class='navbar-brand' href='#/'>Quizzipedia</a>
             </div>
             <div id='navbar' class='navbar-collapse collapse'>
-                <ul class='nav navbar-nav navbar-right'>
-                    <li><a href='#/user/user'><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-                    <li><a href='' ng-click='logout()'><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
-                    </li>
-                </ul>
+                <div ng-switch on='logged' class="">
+                    <ul  ng-switch-when='true' class='nav navbar-nav navbar-right'>
+                        <li><a href='' ng-click="changePath('user/user')"><span class="glyphicon glyphicon-cog"
+                                                                                aria-hidden="true"></span></a></li>
+                        <li><a href='' ng-click='logout()'><span class="glyphicon glyphicon-off"
+                                                                 aria-hidden="true"></span></a>
+                        </li>
+                    </ul>
+                    <ul ng-switch-when='false' class='nav navbar-nav navbar-right'>
+                        <li><a href='' ng-click="changePath('login')">Login</a></li>
+                        <li><a href='' ng-click="changePath('signup')">Registrati</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>
@@ -27,28 +35,53 @@
                     <h4>Studente</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "questionnaires" }'><a href='#/student/questionnaires'>Questionari</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "questionnaires" }'><a
+                                href='#/student/questionnaires'>Questionari</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'teacher' || me.role.name === 'admin' || me.role.name === 'superadmin'">
                     <h4>Docente</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questions" }'><a href='#/teacher/questions'>Gestisci domande</a></li>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questionnaires" }'><a href='#/teacher/questionnaires'>Gestisci questionari</a></li>
-                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "tags" }'><a href='#/teacher/tags'>Gestisci argomenti</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questions" }'><a
+                                href='#/teacher/questions'>Gestisci domande</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questionnaires" }'><a
+                                href='#/teacher/questionnaires'>Gestisci questionari</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "tags" }'><a
+                                href='#/teacher/tags'>Gestisci argomenti</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'admin' || me.role.name === 'superadmin'">
                     <h4>Amministratore</h4>
                     <hr>
                     <ul class='nav nav-sidebar'>
-                        <li ng-class='{ active : urlPath()[1] === "admin" && urlPath()[2] === "userlist" }'><a href='#/admin/userlist'>Lista utenti</a></li>
+                        <li ng-class='{ active : urlPath()[1] === "admin" && urlPath()[2] === "userlist" }'><a
+                                href='#/admin/userlist'>Lista utenti</a></li>
                     </ul>
                 </div>
             </div>
             <div class='col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 main'>
                 <div ng-switch on='urlPath()[1]'>
+                    <div ng-switch-when='login' >
+                        <div ng-switch on='logged'>
+                            <div ng-switch-when='true'>
+                                <div ng-include="'html/user/Welcome.html'"></div>
+                            </div>
+                            <div ng-switch-when='false'>
+                                <div ng-include="'html/public/LogIn.html'"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-switch-when='signup'>
+                        <div ng-switch on='logged'>
+                            <div ng-switch-when='true'>
+                                <div ng-include="'html/user/Welcome.html'"></div>
+                            </div>
+                            <div ng-switch-when='false'>
+                                <div ng-include="'html/public/SignUp.html'"></div>
+                            </div>
+                        </div>
+                    </div>
                     <div ng-switch-when='user'>
                         <div ng-switch on='urlPath()[2]'>
                             <div ng-switch-when='user'>
@@ -105,6 +138,9 @@
                             </div>
                             <div ng-switch-when='tags'>
                                 <div ng-include="'html/teacher/ManageTags.html'"></div>
+                            </div>
+                            <div ng-switch-when='guide'>
+                                <div ng-include="'html/teacher/Guide.html'"></div>
                             </div>
                             <div ng-switch-default>
                                 <div ng-include="'html/user/Welcome.html'"></div>
