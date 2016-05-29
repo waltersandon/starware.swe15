@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 novembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{3.0.0}
+\newcommand{\versione}{4.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -58,6 +58,12 @@
 		\toprule
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		4.0.0 & \AVI{} & 2016-05-29 & Approvazione\\*
+		\midrule
+		3.1.0 & \TP{} & 2016-05-29 & Verifica\\*
+		\midrule
+		3.0.1 & \AVE{} & 2016-05-28 & Aggiunta sezioni sugli strumenti di test [Aggiunta sez. \ref{jasmine},\ref{protractor}]\\*
 		\midrule
 		3.0.0 & \AVE{} & 2016-05-11 & Approvazione\\*
 		\midrule
@@ -605,9 +611,9 @@ La specifica di un test di validazione consta nella definizione di una sequenza 
 
 Permette di descrivere e tracciare i test di unità, integrazione, sistema e validazione, assegnando identificativi univoci e permettendo di definirne la descrizione e le relazioni con classi, componenti o requisiti, a seconda della tipologia di test. È così possibile tracciare i test di unità alle classi, i test di integrazione ai vari componenti o macro componenti e i test di sistema e validazione ai requisiti.
 Permettendo inoltre la produzione automatica in \LaTeX{} delle tabelle per il tracciamento dei test.
-\paragraph{Mocha}\label{strumentoTest}
 
-È un framework di test eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
+\paragraph{Mocha}\label{strumentoTest}
+È un \mgls{framework} di test eseguito su \mgls{node.js}, supporta il lavoro con i browser, test asincroni, resoconti della copertura del prodotto con i test, e uso dei vari librerie di asserzioni.
 \subparagraph{Installazione}
 Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
 \begin{center}
@@ -620,6 +626,13 @@ Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src
 	\texttt{\$ mocha starware.swe15/src/tests/ --recursive
 }
 \end{center}
+
+\paragraph{Jasmine} \label{jasmine}
+Jasmine, come Mocha \ref{strumentoTest}, è un \mgls{framework} di test per \mgls{javascript} che supporta il lavoro con i \mgls{browser}, test asincroni, resoconti della copertura del prodotto con i test. E' particolarmente adatto per testare i siti web, i progetti \mgls{node.js} e qualunque ambiente su cui possono essere eseguiti \mgls{javascript}. Data la possibilità di eseguire i test su svariati \mgls{browser} (Safari, Chrome, Firefox, e Internet Explorer) risulta essere particolarmente adatto allo sviluppo dei test per il \mgls{front-end} dell'applicazione.
+
+\paragraph{Protractor} \label{protractor}
+\mgls{protractor}  è un \mgls{framework} utilizzato per i test di sistema e validazione dell'applicazione sviluppata in \mgls{angularjs}. \mgls{protractor} permette di testare l'applicazione attraverso browser reali, interagendo come farebbe un utente vero.
+Questo permette di elevare il grado di automazione dei test controllando tutti i possibili scenari di utilizzo dell'applicazione sviluppata.
 \newpage
 
 \section{Processi di supporto}
