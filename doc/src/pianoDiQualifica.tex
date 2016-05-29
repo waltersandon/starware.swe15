@@ -580,6 +580,7 @@
 	\end{itemize}
 	
 	\newpage
+	\appendix
 	
 	\section{Test del prodotto software}\label{test}
 	\subsection{Notazione}
@@ -1841,7 +1842,6 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 		
 \end{longtable}
 \end{center}
-\appendix
 \section{Resoconto delle attività di verifica}
 	\subsection{Analisi}
 	\subsubsection{Processi}
@@ -2158,6 +2158,187 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 				\caption{Test Qualità del \mgls{software} nella \FC (2)}
 			\end{table}
 	
+		\subsection{Validazione}
+		\subsubsection{Processi}
+		\paragraph{Report su metriche generali}
+		Vengono riportati i valori calcolti per le metriche generali sulla qualità di processo.
+		
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}
+					\midrule
+					\textbf{Indice}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+					\mGls{cost variance} & \% & \\ \midrule
+					\mgls{schedule variance}  & \%& \\ 
+					\midrule
+					\mgls{requirement stability index}  & \% &  \\
+					\bottomrule
+				\end{tabular}	
+			\end{center}
+			\caption{Esito dei test su metriche per qualità di processo nella \FV}
+		\end{table}
+		\newpage
+		\paragraph{Milestone Schedule Variance}
+		Sono stati analizzati in modo dettagliato i dati relativi al \mGls{milestone schedule variance}. In particolare si sono calcolati i valori medi del	\mgls{milestone schedule variance} sui valori rilevati per ogni persona e i valori medi per le attività di gruppo.
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.2\textwidth} p{0.3\textwidth}}		\midrule
+					\textbf{MSV dettagliato}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+					MSV medio per persona & \%& \\ \midrule
+					MSV medio per gruppo  & \%& \\ 
+					\midrule
+					MSV formula generale & \% &  \\ \midrule 
+					
+				\end{tabular}	
+			\end{center}
+			\caption{Dettaglio 	\mgls{milestone schedule variance} in fase   \FV}
+		\end{table}
+		\subparagraph{Analisi dei risultati} \TODO{analisi dei risultati}
+		\paragraph{Cost of Poor Quality}
+		
+		\begin{center}
+			\begin{table}[!h]
+				
+				\begin{tabular}{p{0.5\textwidth} p{0.1\textwidth} p{0.3\textwidth}}		\midrule
+					\textbf{CoPQ}   & \textbf{Valore}	& \textbf{Esito test} \\ \midrule  \midrule
+					\CoPQ{}   documenti & \% &  \\ \midrule
+					\CoPQ{}  progettazione & \% & \\ \midrule
+					\CoPQ{} codice & \% &   \\ \midrule\midrule
+					\textbf{	\CoPQ{} medio} & \textbf{\%} & \textbf{}  \\ \midrule 				
+				\end{tabular}	
+				
+				\caption{Esito dei test su CoQP dela  fase di \FV{}}
+			\end{table}
+		\end{center}
+		
+		\subparagraph{Analisi dei risultati} \TODO{analisi dei risultati}
+		
+		
+		\subsubsection{Documenti}
+		Vengono riportati,per ogni documento prodotto, i valori dell'indice \mgls{gulpease} calcolati e se  tale indice rientra nei range stimati come accettabili od ottimali :
+		
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
+					\toprule
+					\textbf{Documento}   & \textbf{Indice \mgls{gulpease}}	& \textbf{Esito test} \\ \midrule
+					\midrule
+					\AdR &  &   \\ \midrule    
+					\NdP & &   \\ \midrule
+					\PdP & &   \\ \midrule
+					\PdQ & &  \\ \midrule
+					\DP & &   \\ \midrule
+					\MU &  &  \\ \midrule
+					Manuale Installazione &   &   \\ \midrule
+					Manuale Sviluppatore  &  &   \\ \midrule
+					\GL &   &  \\ \midrule \midrule
+					
+					\textbf{Valore medio} & \textbf{}& \textbf{}\\ 
+					\midrule
+				\end{tabular}
+			\end{center}
+			\caption{Esito dei test su Indice \mgls{gulpease} nella fase di \FV{}}
+		\end{table}
+		
+		\subsubsection{Software}
+		Vengono riportati i valori calcolati delle misurazioni sul codice.
+		I valori percentuali indicano la quantità di righe di codice sul totale che rientrano nel range indicato.
+		
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.3\textwidth} l l l}
+					\midrule
+					\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
+					\# campi dati/ classe & \% & \% & \% \\\midrule
+					\# parametri/metodo &\% & \% & \% \\\midrule
+					\mgls{complessità ciclomatica} & \% & \% & \% \\\midrule
+					\# linee codice/metodo & \% & \% & \% \\\midrule
+					\# livelli annidamento & \% & \% & \% \\\midrule
+					
+				\end{tabular}	
+			\end{center}
+			\caption{Test Qualità del \mgls{software} nella fase di \FV (1)}
+		\end{table}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.4\textwidth} p{0.3\textwidth} p{0.2\textwidth}}
+					\midrule
+					\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
+					Instabiltà & &    \\\midrule
+					Copertura da parte dei test &   & Ottimale \\ \midrule
+				\end{tabular}	
+			\end{center}
+			\caption{Test Qualità del \mgls{software} nella fase di \FV (2)}
+		\end{table}
+		
+		
+		\newpage
+		\section{Riepilogo dei risultati di qualià}
+		\subsection{Sintesi qualità di processo}\TODO{completare fase  \FV}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.2\textwidth}l l l l ll}
+					\midrule
+					\textbf{Metrica} & \textbf{FA}  & \textbf{FAD}& \textbf{FPA} & \textbf{FPD}  & \textbf{ FC } & \textbf{ FV } \\ \midrule\midrule
+					
+					SV&0.5\%[Acc]& 167\% [NA] & 12\% [NA]& 0\% [Ott] & 0.95\% [Acc] & \% [] \\\midrule
+					CV &0\% [Ott]&-157\% [NA] & -12\% [NA]& 0\% [Ott] & -0.5\% [Acc] & \% \\\midrule
+					MSV &--& 80\%&[NA]  4\% [Acc]& 0\% [Ott] & 3.22\% [Acc] & \% \\\midrule
+					CoPQ &--& 23\% & 40\% & 21\% & 24\% & \% \\\midrule
+					RSI &--& 81\% & 94\% & 91\% & 100\% & \% \\\midrule\midrule
+					
+				\end{tabular}	
+			\end{center}
+			\caption{Riepilogo misure qualità di processo}
+		\end{table}
+		\subsection{Sintesi analisi qualità di prodotto}
+		\subsubsection{Analisi statica su documentazione}\TODO{completare fase  \FV}
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.2\textwidth}l l l l ll}
+					\midrule
+					\textbf{Metrica} & \textbf{FA}  & \textbf{FAD}& \textbf{FPA} & \textbf{FPD}  & \textbf{ FC } & \textbf{ FV } \\ \midrule\midrule
+					Gulpease &51.6 [Ott]& 51.6 [Ott]& 51.7 [Ott]& 53.5 [Ott]& 51.4 [Ott] &  \\\midrule
+					
+				\end{tabular}	
+			\end{center}
+			\caption{Riepilogo su misure qualità documentazione}
+		\end{table}
+		
+		
+		\subsubsection{Analisi statica su prodotto software}\TODO{completare fase  \FV}	
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.3\textwidth}l l l l ll}
+					\midrule	\textbf{Metrica} &   \textbf{FPD}  & \textbf{ FC } & \textbf{ FV } \\ \midrule\midrule
+					
+					Campi dati/classe  & 95\% & 82.28\% & \% \\\midrule
+					Parametri/metodo  & 100\% &  100\% & \% \\\midrule
+					Instabilità  & -- & 0.20 & \% \\\midrule
+					Compl.Ciclomatica  & -- & 100\% & \% \\\midrule
+					Copertura Test  & -- & 76.1\% & \% \\\midrule
+					\# linee codice/metodo & -- & -- & 100\% & \% \\\midrule
+					Annidamento  & -- & 100\% & \% \\\bottomrule
+				\end{tabular}	
+			\end{center}
+			\caption{Riepilogo sullo stato dei test del prodotto \mgls{software}}
+		\end{table}
+		\subsubsection{Sintesi analisi dinamica su prodotto software}\TODO{completare fase  \FV}
+		
+		\begin{table}[H]
+			\begin{center}
+				\begin{tabular}{p{0.3\textwidth}l l l l}
+					\midrule
+					\textbf{Categoria} & \textbf{NI} & \textbf{I} & \textbf{ P}  & \textbf{ F}\\ \midrule\midrule
+					\textbf{Test di unità}& 0\% & 0\% & 100\%  & 0\% \\\midrule
+					\textbf{Test di integrazione} &0\% & 0\% & 100\% & 0\% \\\midrule
+				\textbf{	Test di sistema}& 100\% & \% & \% & \% \\\midrule
+				\textbf{	Test di validazione} & 100\% & \% & \% & \% \\\midrule
+					
+				\end{tabular}	
+			\end{center}
+			\caption{Riepilogo sullo stato dei test del prodotto \mgls{software}}
+		\end{table}
 	
 	\newpage
 	\section{Dettaglio dell'esito delle revisioni}
@@ -2182,6 +2363,18 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 	    \item \textbf{\PdQ{}:} le sezioni segnalate sono state riviste nei contenuti e nella struttura. Il termine "test driven software" è stato corretto in "test driven development".
 	    \item \textbf{\GL{}:} è stato inserito un indice in cui ogni sezione ha un riferimento a tutti i propri contenuti.
 	\end{itemize}
+	
+		\subsection{\RP{}}
+		\begin{itemize}
+			\item \textbf{Generale}: 
+			\item \textbf{\AdR{}:} 
+			\item \textbf{\DP{}:} 
+			\item \textbf{\PdP{}:} 
+			\item \textbf{\PdQ{}:} E' stata inserita una sezione di riepilogo sui risultati di analisi statica e dinamica. 
+			\item \textbf{\GL{}:} 
+			\item \textbf{\MU{}:} Sono state inserite maggiori informazioni per l'utente relative all'interfaccia QML e maggiori informazioni relative al linguaggio Markdown. La sezione relativa ai test è stata spostata in appendice.
+			\item \textbf{\textit{Manuale sviluppatore}:} 
+		\end{itemize}
 	
 
 	
