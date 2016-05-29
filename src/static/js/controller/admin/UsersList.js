@@ -21,12 +21,12 @@ $(function () {
                 if($rootScope.me.role.name === "superadmin" && $scope.roleFilter.length > 1){
                     $scope.roleFilter.push("admin");
                 }
-                var name = $scope.roles.find(function (item) {
+                var roleName = $scope.roles.find(function (item) {
                     return item.id === user.role;
                 }).name;
-                return ($scope.roleFilter.indexOf(name) !== -1);
-            }
-            else{
+                
+                return ($scope.roleFilter.indexOf(roleName) !== -1) && (new RegExp($scope.userNameSearch, 'i')).test(user.userName) && (new RegExp($scope.fullNameSearch, 'i')).test(user.fullName);
+            } else {
                 return false;
             }
         };

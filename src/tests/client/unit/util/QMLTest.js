@@ -15,7 +15,7 @@ describe('util.QML', function() {
         },
         {
             id: 'id_question_3',
-            body: '<MC>Domanda\n[answers]\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione',
+            body: '<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione',
             author: 'id_author_1',
             tags: [ { id: 'id_tag_1' } ]
         }
