@@ -63,7 +63,7 @@
 		\midrule
 		3.1.0 & \TP{} & 2016-05-29 & Verifica\\*
 		\midrule
-		3.0.1 & \AVE{} & 2016-05-28 & Aggiunta sezioni sugli strumenti di test [Aggiunta sez. \ref{jasmine},\ref{protractor}]\\*
+		3.0.1 & \AVE{} & 2016-05-28 & Aggiunta sezioni sugli strumenti di test [Aggiunta sez. \ref{jasmine},\ref{karma},\ref{protractor}]\\*
 		\midrule
 		3.0.0 & \AVE{} & 2016-05-11 & Approvazione\\*
 		\midrule
@@ -623,16 +623,55 @@ Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm),
 Per eseguire i test bisogna eseguire il comando al terminale mocha path/alla/cartella/coi/test con opzione --recursive se si vogliono eseguire tutti i test anche nelle sottocartelle.
 Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src/tests/ e per lanciare tutti i test bisogna eseguire il commando : 
 \begin{center}
-	\texttt{\$ mocha starware.swe15/src/tests/ --recursive
+	\texttt{\$ mocha starware.swe15/src/tests/server --recursive
 }
 \end{center}
 
 \paragraph{Jasmine} \label{jasmine}
 Jasmine, come Mocha \ref{strumentoTest}, è un \mgls{framework} di test per \mgls{javascript} che supporta il lavoro con i \mgls{browser}, test asincroni, resoconti della copertura del prodotto con i test. E' particolarmente adatto per testare i siti web, i progetti \mgls{node.js} e qualunque ambiente su cui possono essere eseguiti \mgls{javascript}. Data la possibilità di eseguire i test su svariati \mgls{browser} (Safari, Chrome, Firefox, e Internet Explorer) risulta essere particolarmente adatto allo sviluppo dei test per il \mgls{front-end} dell'applicazione.
-
+\subparagraph{Installazione}
+Per installare jasmine si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
+\begin{center}
+	\texttt{\$ npm install -g jasmine}  
+\end{center}
+\subparagraph{Esecuzione}
+Per eseguire i test jasmine ha bisogno del test runner, nel nostro caso Karma.
+\begin{center}
+\texttt{\$ karma start tests/client/karma.conf.js}  
+\end{center}
+\paragraph{Karma} \label{karma}
+Karma è un test runner che può lavorare con diversi \mgls{framework} di test per \mgls{javascript} che supporta il lavoro con i \mgls{browser}, test asincroni, resoconti della copertura del prodotto con i test. E' particolarmente adatto per testare i siti web, i progetti \mgls{node.js} e qualunque ambiente su cui possono essere eseguiti \mgls{javascript}. Data la possibilità di eseguire i test in ambiente dei svariati \mgls{browser} (Safari, Chrome, Firefox, e Internet Explorer) risulta essere particolarmente adatto alla esecuzione dei test per il \mgls{front-end} dell'applicazione.
+\subparagraph{Installazione}
+Per installare jasmine si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
+\begin{center}
+	\texttt{\$ npm install -g karma}  
+\end{center}
+\subparagraph{Esecuzione}
+Per eseguire i test bisogna eseguire una serie dei comandi al terminale trovandosi nella cartella starware.swe15/src: \begin{center}
+\texttt{\$ karma start tests/client/karma.conf.js}  
+\end{center}
 \paragraph{Protractor} \label{protractor}
 \mgls{protractor}  è un \mgls{framework} utilizzato per i test di sistema e validazione dell'applicazione sviluppata in \mgls{angularjs}. \mgls{protractor} permette di testare l'applicazione attraverso browser reali, interagendo come farebbe un utente vero.
 Questo permette di elevare il grado di automazione dei test controllando tutti i possibili scenari di utilizzo dell'applicazione sviluppata.
+\subparagraph{Installazione}
+Per installare \mgls{protractor} si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
+\begin{center}
+	\texttt{\$ npm install -g protractor}
+\end{center}
+\begin{center}
+	\texttt{\$ npm install -g webdriver-manager}  
+\end{center}
+\subparagraph{Esecuzione}
+Per eseguire i test bisogna eseguire una serie dei comandi al terminale trovandosi nella cartella starware.swe15/src: 
+\begin{center}
+	\texttt{\$ webdriver-manager update}
+\end{center}
+\begin{center}
+	\texttt{\$ webdriver-manager start}
+\end{center}
+\begin{center}
+	\texttt{\$ protractor tests/client/protractor-conf.js}
+\end{center}
 \newpage
 
 \section{Processi di supporto}
