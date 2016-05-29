@@ -90,7 +90,7 @@ var QML = function () {
         exp = extractExplanation(plainText);
         plainText = exp.plainText;
         exp = exp.explanation;
-        
+
         var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0; //conta le risposte possibili
         for (var i = 0; i < a.length; i++) {
 
@@ -158,14 +158,72 @@ var QML = function () {
         }
     }
 
-    function myTrim(txt) {
-        while (txt.startsWith(' ') || txt.startsWith('\t')) {
-            txt = txt.substr(1);
+    function multipleAnswers(plainText) {
+        plainText = plainText.substr(plainText.indexOf('\n') + 1);
+        exp = extractExplanation(plainText);
+        plainText = exp.plainText;
+        exp = exp.explanation;
+
+        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right = [], choice = [], n = 0; //conta le risposte possibili
+        for (var i = 0; i < a.length; i++) {
+
+            if (/^(\t|\s)*\[answers\](\t|\s)*$/.test(a[i]) && !ansFlag) {
+                ansFlag = true;
+                ans += '<div class=\'form-group\'>';
+            }
+
+            if (/^(\t|\s)*\[(\t|\s)*\]/.test(a[i]) && ansFlag) {
+                wrongAnswers++;
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
+                ans += '<div>\
+                            <label>\
+                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
+                            </label>\
+                        </div>';
+                choice.push({value: n, str: r.substr(3, r.length - 7)});
+                n++;
+            } else if (/^(\t|\s)*\[(\t|\s)*\*(\t|\s)*\]/.test(a[i]) && ansFlag) {
+                rightAnswers++;
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
+                ans += '<div>\
+                            <label>\
+                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
+                            </label>\
+                        </div>';
+                right.push(n);
+                choice.push({value: n, str: r.substr(3, r.length - 7)});
+                n++;
+            } else if (!ansFlag) {
+                txt += markdown.toHTML(a[i]);
+            }
         }
-        while (txt.endsWith(' ') || txt.endsWith('\t')) {
-            txt = txt.substr(0, txt.length - 1);
+
+        if (!ansFlag) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la domanda non contiente il flag <i>[answers]</i> oppure è posizionato in maniera errata'
+            };
+        } else if (rightAnswers < 1) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
+            };
+        } else if (wrongAnswers === 0) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
+            };
+        } else {
+            return {
+                status: true,
+                type: 'MA',
+                body: txt,
+                answerForm: ans + '</div>',
+                answers: choice,
+                answer: right,
+                explanation: exp
+            };
         }
-        return txt;
     }
 
     this.parse = function (plainText) {
@@ -181,6 +239,8 @@ var QML = function () {
                     return trueFalseF(plainText);
                 case 'MC':
                     return multipleChoice(plainText);
+                case 'MA':
+                    return multipleAnswers(plainText);
                 default:
                     return {
                         status: false,
