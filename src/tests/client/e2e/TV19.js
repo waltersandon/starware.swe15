@@ -7,7 +7,7 @@ describe('tag list', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -25,6 +25,8 @@ describe('tag list', function() {
     it('docente sia in grado di visualizzare la lista degli argomenti,' +
         ' eventualmente specificando parametri per il filtraggio del risultati', function() {
         element(by.css('[href="#/teacher/tags"]')).click();
-        //TODO
+        var tagList = element.all(by.repeater("tag in tags"));
+        expect(tagList.count()).toBeGreaterThan(0);
+
     });
 });

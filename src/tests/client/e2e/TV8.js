@@ -2,12 +2,12 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('QuestionnaireCreation', function() {
+describe('Questionnaire Modify', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -25,6 +25,12 @@ describe('QuestionnaireCreation', function() {
     it('docente deve poter  modificare un proprio questionario', function() {
 
         element(by.css('[ href="#/teacher/questionnaires"]')).click();
-        //TODO
+        element(by.id("titleSearch")).clear().sendKeys("Questionnario Test");
+        element(by.repeater("questionnaire in questionnaires")).click();
+        element(by.id("title")).clear().sendKeys("Questionnario Test Dopo Modifica");
+        element(by.id("tags")).clear().sendKeys("Informatica");
+        element.all(by.css('[ng-click="removeQuestion(question)"]')).last().click();
+        browser.switchTo().alert().accept();
+        element(by.buttonText("Conferma")).click();
     });
 });

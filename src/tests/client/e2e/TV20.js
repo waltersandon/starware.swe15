@@ -3,12 +3,12 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('QuestionCreation', function() {
+describe('Question List', function() {
     beforeEach(function () {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -27,6 +27,8 @@ describe('QuestionCreation', function() {
         ' eventualmente specificando parametri per il filtraggio del risultati', function() {
 
         element(by.css('[href="#/teacher/questions"]')).click();
-        //TODO
+        var questionList = element.all(by.repeater("question in questions"));
+        expect(questionList.count()).toBeGreaterThan(0);
+
     });
 });

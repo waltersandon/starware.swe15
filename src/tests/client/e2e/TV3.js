@@ -7,7 +7,7 @@ describe('Execute Questionnaire', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -18,6 +18,7 @@ describe('Execute Questionnaire', function() {
     });
     afterEach(function () {
             element(by.css('[ng-click="logout()"]')).click();
+            browser.switchTo().alert().accept();
     });
 
     it('studente deve poter eseguire un questionario', function () {
@@ -33,8 +34,7 @@ describe('Execute Questionnaire', function() {
         element(by.css('[value="false"]')).click();
         element(by.css('[ng-click="getNext()"]')).click();
 
-        element(by.css('[ng-click="submit()"]')).click();
-        browser.switchTo().alert().accept();
+        
 
         element(by.css('[value="true"]')).click();
         element(by.css('[ng-click="getNext()"]')).click();
@@ -48,5 +48,6 @@ describe('Execute Questionnaire', function() {
         for(var i = 0; i < 3; i++){
             element(by.css('[ng-click="getNext()"]')).click();
         }
+        browser.waitForAngular();
     });
 });

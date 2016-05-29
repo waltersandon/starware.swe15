@@ -7,7 +7,7 @@ describe('Admin userlist', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -25,6 +25,8 @@ describe('Admin userlist', function() {
     it('admin sia in grado di visualizzare la lista degli utenti,' +
         ' eventualmente specificando parametri per il filtraggio del risultati ', function() {
         element(by.css('[href="#/admin/userlist"]')).click();
+        var userList = element.all(by.repeater("user in usersList"));
+        expect(userList.count()).toBeGreaterThan(0);
         //TODO
     });
 });

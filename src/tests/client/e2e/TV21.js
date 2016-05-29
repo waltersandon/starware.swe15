@@ -7,7 +7,7 @@ describe(' Questionnaires list', function() {
         browser.get('/index.html');
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('');
-            element(by.css('[href="#/login"]')).click();
+            element(by.id('login')).click();
         });
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/login');
@@ -25,6 +25,8 @@ describe(' Questionnaires list', function() {
 
 
         element(by.css('[href="#/student/questionnaires"]')).click();
-        //TODO
+        element(by.buttonText("Cerca")).click();
+        var questionnaireList = element.all(by.repeater("quest in questList"));
+        expect(questionnaireList.count()).toBeGreaterThan(0);
     });
 });
