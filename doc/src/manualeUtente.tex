@@ -542,8 +542,38 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	\end{verbatim}
 	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}. In questo modo, per esempio è possibile aggiungere formattazione al testo, tabelle e immagini, queste ultime tramite il comando\\
 	 \texttt{![alt text](https://flic.kr/p/GxRmqq "Immagine1")}\\
-		
-	\subsection{Domanda Vero/Falso}
+	 
+	\subsection{Interfaccia per l'inserimento del QML}
+	L'interfaccia che permette di inserire la definizione di una domanda in QML offre, oltre all'apposita area per l'inserimento del codice, alcuni funzionalità di supporto, per facilitare l'operazione di inserimento.
+	\subsubsection{Errori e anteprima della domanda}
+	\paragraph{Tasto anteprima} permette di visualizzare l'anteprima della domanda inserita ed eventualmente segnala errori nel codice QML inserito.
+	\subsubsection{Inserimento veloce di Markdown}
+	\paragraph{Testo corsivo} permette di trasformare il testo selezionato in testo\textit{ corsivo.} 
+	Per fare cio, selezionare il testo desiderto, premete il pulsante "I";
+	\paragraph{Testo grassetto} permette di trasformare il testo selezionato in testo \textbf{grassetto}. 
+	Per fare cio, selezionare il testo desiderato, premete il pulsante "B";
+	\paragraph{Elenco ordinato} permette l'inserimento del markdown per la visualizzazione del testo come elenco ordinato. 
+	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
+	\paragraph{Elenco non ordinato}permette l'inserimento del markdown per la visualizzazione del testo come elenco non ordinato. 
+	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
+
+	\paragraph{Inserimento immagine}\TODO{controllare}
+	Facilita l'inserimento di un'immagine nel testo della domanda. Premere il tasto ed inserire il link dell'immagine.
+	\paragraph{Inserimento link}\TODO{controllare}
+		Facilita l'inserimento di un link nel testo della domanda. Premere il tasto ed inserire il link scelto.
+   \subsubsection{Aiuto per l'utente}
+	\paragraph{Tasto aiuto}
+	Fornisce informazioni utili all'utente sul QML e sulle sue funzionalità, in caso di bisogno.
+	\begin{figure}[H]	
+		\centering
+		\includegraphics[width=\linewidth]{../img/screenshot/modificaDomanda.png}
+		\caption{Interfaccia inserimento QML}
+		\label{Interfaccia inserimento QML}
+	\end{figure}
+	
+	
+	\subsection{Tipi di domanda}	
+	\subsubsection{Domanda Vero/Falso}
 	\paragraph{Domanda vera}
 	\begin{verbatim}
 	<TF T>
@@ -560,7 +590,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	Roma e' la capitale d'**Italia**?
 	\end{verbatim}
 	
-	\subsection{Domanda a scelta multipla}
+	\subsubsection{Domanda a scelta multipla}
 	\begin{verbatim}
 	<MultipleChoice>
 	Domanda_in_markdown
