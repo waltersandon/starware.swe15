@@ -1,5 +1,5 @@
 \section{Specifica componenti client}
-È il package che racchiude tutte le parti del front-end. Contiene le componenti che vengono eseguite nel browser da un qualsiasi utente, fornendo loro un’interfaccia grafica per interagire con il sistema.
+È il package che racchiude tutte le parti del front-end. Contiene le componenti che vengono eseguite nel browser da un qualsiasi utente, fornendo loro un'interfaccia grafica per interagire con il sistema.
 Viene fornito di seguito il diagramma dei \mgls{package} ad alto livello.
 \begin{center}
 	\begin{figure}[H]
@@ -32,7 +32,7 @@ Ogni componente si occupa della visualizzazione di una particolare porzione dell
 		\caption{Diagramma package - client::view}
 	\end{figure}
 \end{center}\subsubsection{client::view::public}
-È il package che contiene tutte le classi che costituiscono la view della porzione publica di client. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente non autenticato.\begin{center}
+È il package che contiene tutte le classi che costituiscono la view della porzione pubblica di client. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente non autenticato.\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/public.png}
 		\caption{Diagramma package - client::view::public}
@@ -233,7 +233,7 @@ La classe view che si occupa della visualizzazione della lista dei propri questi
 	\caption{Diagramma classe - client::view::admin::UsersList}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione della lista degli utenti.Consente di applicare un filtro ai risultari tra FullName, Role, UserName per la selezione di un utente per la gestione delle sue informazioni.
+La classe che si occupa della visualizzazione della lista degli utenti.Consente di applicare un filtro ai risultati tra FullName, Role, UserName per la selezione di un utente per la gestione delle sue informazioni.
 \end{description}
 
 \vspace{0.5cm}
@@ -930,16 +930,16 @@ Questa classe fornisce al client i servizi relativi  alle credenziali accesso di
 		\item configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 	\end{itemize}
 	
-	\item login(password : String, userName : String, next : Function, err : Function) : void $\rightarrow$ provedde ad effettuare l'accesso presso il server\begin{itemize}
+	\item login(password : String, userName : String, next : Function, err : Function) : void $\rightarrow$ provvede ad effettuare l'accesso presso il server\begin{itemize}
 		\item password $\rightarrow$ contiene la password inserita dall'utente
 		\item userName $\rightarrow$ contiene l'username inserito dall'utente
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item logout(next : Function, err : Function) : void $\rightarrow$ chiude la sessione dell'utente\begin{itemize}
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1002,54 +1002,54 @@ Questa classe fornisce al client i servizi relativi al profilo
 	\item get(fullName : String[], userName : String[], next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una lista di utenti sul server filtrate in base ai parametri\begin{itemize}
 		\item fullName $\rightarrow$ contiene il nome del utente da ricercare 
 		\item userName $\rightarrow$ contiene il username dell'utente da ricercare 
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getByID(id : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna un utente dal server per ID\begin{itemize}
 		\item id $\rightarrow$ contiene id dell'utente da ricercare 
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getMe(next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna l'utente corrente\begin{itemize}
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item signUp(fullName : String, password : String, userName : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST crea un nuovo utente sul server\begin{itemize}
 		\item fullName $\rightarrow$ contiene il nome del nuovo utente
 		\item password $\rightarrow$ contiene la password del nuovo utente
 		\item userName $\rightarrow$ contiene il username del nuovo utente
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item updateInformation(fullName : String, userName : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica le informazioni di profilo dell'utente corrente sul server\begin{itemize}
 		\item fullName $\rightarrow$ contiene il nuovo nome dell'utente
 		\item userName $\rightarrow$ contiene il nuovo username dell'utente
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item updatePassword(newPassword : String, oldPassword : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica la password dell'utente corrente sul server\begin{itemize}
 		\item newPassword $\rightarrow$ contiene il nuovo password dell'utente
 		\item oldPassword $\rightarrow$ contiene la vecchia password dell'utente
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item modifyRole(user : User, role : Role, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica il ruolo dell'utente corrente sul server\begin{itemize}
 		\item user $\rightarrow$ contiene l'utente il cui ruolo deve essere cambiato
 		\item role $\rightarrow$ contiene il nuovo ruolo dell'utente
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item delete(user : User, next : Function, err : Function) : void $\rightarrow$ tramite API REST elimina un utente sul server\begin{itemize}
 		\item user $\rightarrow$ 
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1106,32 +1106,32 @@ Questa classe fornisce al client i servizi relativi alla modifica, cancellazione
 	
 	\item delete(tag : Tag, next : Function, err : Function) : void $\rightarrow$ tramite API REST elimina un argomento sul server\begin{itemize}
 		\item tag $\rightarrow$ contiene l'argomento da eliminare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item get(keywords : String[], next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una lista di argomenti sul server filtrate in base ai parametri\begin{itemize}
 		\item keywords $\rightarrow$ contiene la lista di parole chiave per ricercare gli argomenti
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getByID(id : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna un argomento dal server per ID\begin{itemize}
 		\item id $\rightarrow$ contiene id dell'argomento da ricercare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item modify(tag : Tag, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica un argomento sul server\begin{itemize}
 		\item tag $\rightarrow$ contiene l'argomento da modificare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item new(tag : Tag, next : Function, err : Function) : void $\rightarrow$ tramite API REST crea un nuovo argomento sul server\begin{itemize}
 		\item tag $\rightarrow$ contiene il nuovo argomento da creare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1178,14 +1178,14 @@ Questa classe fornisce al client i servizi necessari per la gestione dei ruoli
 	
 	\item get(keywords : String[], next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una lista dei ruoli sul server filtrate in base ai parametri\begin{itemize}
 		\item keywords $\rightarrow$ contiene la lista di parole chiave per ricercare il ruolo
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getByID(id : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna un ruolo dal server per ID\begin{itemize}
 		\item id $\rightarrow$ contiene id del ruolo da ricercare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1236,34 +1236,34 @@ Questa classe fornisce al client i servizi necessari alla gestione delle domande
 	
 	\item delete(question : Question, next : Function, err : Function) : void $\rightarrow$ tramite API REST elimina una domanda sul server\begin{itemize}
 		\item question $\rightarrow$ contiene la domanda da eliminare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item get(author : String[], keywords : String[], tags : String[], next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una lista delle domande sul server filtrate in base ai parametri\begin{itemize}
 		\item author $\rightarrow$ contiene il nome dell'autore della domanda da ricercare 
 		\item keywords $\rightarrow$ contiene la lista di parole chiave per ricercare una domanda
 		\item tags $\rightarrow$ contiene la lista degli argomenti per ricercare una domanda
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getByID(id : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una domanda dal server per ID\begin{itemize}
 		\item id $\rightarrow$ ID della Question
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item modify(question : Question, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica una domanda sul server\begin{itemize}
 		\item question $\rightarrow$ contiene la domanda da modificare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item new(question : Question, next : Function, err : Function) : void $\rightarrow$ tramite API REST crea una nuova domanda sul server\begin{itemize}
 		\item question $\rightarrow$ contiene la nuova domanda da creare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1314,34 +1314,34 @@ Questa classe fornisce al client i servizi necessari alla gestione dei questiona
 	
 	\item delete(questionnaire : Questionnaire, next : Function, err : Function) : void $\rightarrow$ tramite API REST elimina un questionario sul server\begin{itemize}
 		\item questionnaire $\rightarrow$ contiene il questionario da eliminare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item get (author : String[], tags  : String[], title : String[], next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna una lista di questionari sul server filtrate in base ai parametri\begin{itemize}
 		\item author $\rightarrow$ contiene il nome dell'autore del questionario da ricercare
 		\item tags  $\rightarrow$ contiene la lista degli argomenti per ricercare un questionario
 		\item title $\rightarrow$ contiene il titolo del questionario da ricercare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item getByID(id : String, next : Function, err : Function) : void $\rightarrow$ tramite API REST ritorna un questionario dal server per ID\begin{itemize}
 		\item id $\rightarrow$ contiene id del questionario da ricercare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item modify(questionnaire : Questionnaire, next : Function, err : Function) : void $\rightarrow$ tramite API REST modifica un questionario sul server\begin{itemize}
 		\item questionnaire $\rightarrow$ contiene il questionario da modificare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 	\item new(questionnaire : Questionnaire, next : Function, err : Function) : void $\rightarrow$ tramite API REST crea un nuovo questionario sul server\begin{itemize}
 		\item questionnaire $\rightarrow$ contiene il nuovo questionario da creare
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di successo
-		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chimama in caso di errore
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
 	\end{itemize}
 	
 \end{itemize}
@@ -1351,7 +1351,7 @@ Questa classe fornisce al client i servizi necessari alla gestione dei questiona
 \vspace{0.5cm}
 \subsection{client::controller}
 È il package che contiene le componenti che contengono i
-controller dell’applicazione e che incapsulano le funzionalità di two-way data binding tra le View e il Model. In esse è contenuta la logica applicativa riguardante le diverse pagine HTML.\begin{center}
+controller dell'applicazione e che incapsulano le funzionalità di two-way data binding tra le View e il Model. In esse è contenuta la logica applicativa riguardante le diverse pagine HTML.\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller.png}
 		\caption{Diagramma package - client::controller}
@@ -1377,7 +1377,7 @@ controller dell’applicazione e che incapsulano le funzionalità di two-way dat
 \item[Descrizione] \hfill \\
 Classe che gestisce le operazioni e la logica applicativa riguardante la pagina di autenticazione sul client
 \item[Utilizzo] \hfill \\
-Viene utilizzata per generare la pagina di autenticazione all’applicazione. Prima della creazione della view viene effettuato un controllo sull’esistenza di una sessione utente. In caso positivo il controller si occuperà di visualizzare la home dell'utente loggato, altrimenti si procederà alla pagina di Login predefinita.
+Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prima della creazione della view viene effettuato un controllo sull'esistenza di una sessione utente. In caso positivo il controller si occuperà di visualizzare la home dell'utente loggato, altrimenti si procederà alla pagina di Login predefinita.
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1395,7 +1395,7 @@ Viene utilizzata per generare la pagina di autenticazione all’applicazione. Pr
 \vspace{-7mm}
 \begin{itemize}
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\item check : Check $\rightarrow$ campo dati che rappresenta un oggetto Check
@@ -1414,7 +1414,7 @@ Viene utilizzata per generare la pagina di autenticazione all’applicazione. Pr
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\end{itemize}
@@ -1454,7 +1454,7 @@ Viene utilizzata per generare la pagina di autenticazione all’applicazione. Pr
 \item[Descrizione] \hfill \\
 Classe che gestisce le operazioni e la logica applicativa riguardante la pagina di Registrazione sul client
 \item[Utilizzo] \hfill \\
-Deve visualizzare campi per l’inserimento della mail, password, nome e cognome. Deve poter gestire l'eventuale caso di errore se la mail dello studente è già presente nel sistema. Inoltre deve poter gestire il caso in cui di la password dello studente non rispetta i parametri prestabiliti 
+Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. Deve poter gestire l'eventuale caso di errore se la mail dello studente è già presente nel sistema. Inoltre deve poter gestire il caso in cui di la password dello studente non rispetta i parametri prestabiliti 
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1472,7 +1472,7 @@ Deve visualizzare campi per l’inserimento della mail, password, nome e cognome
 \vspace{-7mm}
 \begin{itemize}
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
@@ -1493,7 +1493,7 @@ Deve visualizzare campi per l’inserimento della mail, password, nome e cognome
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\end{itemize}
@@ -1557,7 +1557,7 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 \end{itemize}
 
@@ -1565,7 +1565,7 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 \vspace{-7mm}
 \begin{itemize}
 	\item Home(rootScope : Object, cookies : Object, scope : Object, location : Object, userService : UserService) $\rightarrow$ costruttore della classe\begin{itemize}
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
@@ -1632,7 +1632,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 	\item Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, tagService : TagService) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item tagService $\rightarrow$ campo dati che rappresenta un oggetto TagService 
 	\end{itemize}
@@ -1715,7 +1715,7 @@ Viene chiamata quando uno studente comincia a rispondere ad un questionario. Lo 
 	\item ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, edit : boolean) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item edit $\rightarrow$ indica se esecuzione del questionario è in modalità read-only. Ovvero se variabile è true allora si possono cambiare le risposte alle domande, altrimenti si può solo visualizzare il questionario senza poter cambiare le risposte già selezionate 
 	\end{itemize}
@@ -1762,7 +1762,7 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 	\item ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, scope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item currentQuestion $\rightarrow$ contiene la domanda corrente da eseguire 
 		\item edit $\rightarrow$ true - si può modificare, false - no 
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\end{itemize}
 	
@@ -1821,7 +1821,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 \vspace{-7mm}
 \begin{itemize}
 	\item question : Question  $\rightarrow$ oggetto che rappresenta una singola domanda
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
@@ -1829,7 +1829,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 	\item qml : QML $\rightarrow$ campo dati che rappresenta un oggetto QML
 	\item error : Error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\item edit : boolean $\rightarrow$ indica se la domanda corrente è nuova o se si sta modificando una già creata
-	\item editor : SimpleMDE $\rightarrow$ oggetto che rappreseta l'editor per manipolare la domanda
+	\item editor : SimpleMDE $\rightarrow$ oggetto che rappresenta l'editor per manipolare la domanda
 	\item tagsInput : String $\rightarrow$ rappresenta il campo tagsInput nella View
 	\item tags : Tag [] $\rightarrow$ argomenti che compaiono nei suggerimenti
 	\item editorBuilder : Editor $\rightarrow$ campo dati che rappresenta un oggetto Editor
@@ -1842,7 +1842,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 		\item question $\rightarrow$ contiene il riferimento verso il modello delle domande 
 		\item questionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\end{itemize}
 	
 	\item submit() : void $\rightarrow$ dopo aver controllato la validità del titolo, tags e QML inseriti, invia i dati al servizio che si occupa di inserire la domanda nel sistema
@@ -1857,7 +1857,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 	\item getTags() : Tag [] $\rightarrow$ metodo getter
 	\item getTagsInput() : String $\rightarrow$ metodo getter
 	\item setEditor(editor : SimpleMDE) : void $\rightarrow$ metodo setter\begin{itemize}
-		\item editor $\rightarrow$ oggetto che rappreseta l'editor per manipolare la domanda
+		\item editor $\rightarrow$ oggetto che rappresenta l'editor per manipolare la domanda
 	\end{itemize}
 	
 	\item setEdit(edit : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
@@ -1920,7 +1920,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \begin{itemize}
 	\item questionnaire : Questionnaire $\rightarrow$ oggetto che rappresenta un questionario
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item edit : boolean $\rightarrow$ indica se il questionario corrente è nuovo o se si sta modificando uno già creato
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
@@ -1941,7 +1941,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item questionnaire $\rightarrow$ contiene il riferimento al modello degli questionari 
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\end{itemize}
 	
 	\item addQuestion(question : Question) : void $\rightarrow$ aggiunge la domanda passata come parametro al questionario d'istanza\begin{itemize}
@@ -2034,7 +2034,7 @@ Viene chiamata quando in fase di costruzione di un questionario si ha la necessi
 \begin{itemize}
 	\item SelectQuestion(questionService : QuestionService, rootScope : Object, scope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\end{itemize}
 	
@@ -2108,7 +2108,7 @@ Viene richiamata quando un docente vuole creare un nuovo argomento o modificarne
 \vspace{-7mm}
 \begin{itemize}
 	\item ManageTags(rootScope : Object, scope : Object, tagService : TagService) $\rightarrow$ costruttore della classe\begin{itemize}
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item tagService $\rightarrow$ campo dati che rappresenta un oggetto TagService 
 	\end{itemize}
@@ -2180,7 +2180,7 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 \vspace{-7mm}
 \begin{itemize}
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item util : Util $\rightarrow$ campo dati che rappresenta un oggetto Util
@@ -2195,7 +2195,7 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 	\item ManageQuestions(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\end{itemize}
 	
 	\item modify(question : Question) : void $\rightarrow$ modifica la domanda passata per parametro\begin{itemize}
@@ -2250,7 +2250,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \vspace{-7mm}
 \begin{itemize}
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
@@ -2265,7 +2265,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 	\item ManageQuestionnaires(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\end{itemize}
 	
 	\item modify(questionnaire : Questionnaire) : void $\rightarrow$ modifica il questionario passato come parametro\begin{itemize}
@@ -2421,7 +2421,7 @@ Classe che si occupa della gestione della home page di un utente generico regist
 \begin{itemize}
 	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 \end{itemize}
@@ -2432,7 +2432,7 @@ Classe che si occupa della gestione della home page di un utente generico regist
 	\item logout() : void $\rightarrow$ esegue il logout dell'utente che è autenticato distruggendo i cookies di sessione
 	\item Logout(scope : Object, rootScope : Object, sessionService : SessionService, cookies : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 	\end{itemize}
@@ -2471,7 +2471,7 @@ Classe per la gestione del profilo di un'utente generico registrato
 \begin{itemize}
 	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item check : Check $\rightarrow$ campo dati che rappresenta un oggetto Check
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\item errorPassword : Error $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sulla password
 	\item errorInformation : Error $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sui dati inseriti
@@ -2489,7 +2489,7 @@ Classe per la gestione del profilo di un'utente generico registrato
 \begin{itemize}
 	\item User(check : Check, rootScope : Object, scope : Object, userService : UserService) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item check $\rightarrow$ campo dati che rappresenta un oggetto Check
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\end{itemize}
