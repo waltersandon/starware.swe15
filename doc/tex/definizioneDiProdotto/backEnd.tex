@@ -152,9 +152,9 @@ Viene utilizzata per definire le configurazioni dell'applicazione, passando un o
 \subsection{server::express}
 Express è un framework minimale, basato sul design pattern architetturale MVC per creare applicazioni web con Node.js. Express offre funzionalità che semplificano e aumentano le potenzialità di Node.js, fornendo una migliore implementazione del sistema di routing, incrementando
 le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi middleware, ed agevolando la realizzazione delle viste.
-Express non limita l’utente nella scelta del linguaggio di templating, lo aiuta a gestire le route, le request e le view\begin{center}
+Express non limita l'utente nella scelta del linguaggio di templating, lo aiuta a gestire le route, le request e le view\begin{center}
 	\begin{figure}[H]
-		%\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/express.png}
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/expressApp.png}
 		\caption{Diagramma package - server::express}
 	\end{figure}
 \end{center}\subsection{server::middleware}
@@ -175,7 +175,7 @@ Package che si occupa di ricevere richieste, richiamare il servizio adatto e res
 \item[Descrizione] \hfill \\
 Classe che si occupa di instradare le richieste verso le relative richieste
 \item[Utilizzo] \hfill \\
-Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
+Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l'opportuno servizio
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -230,7 +230,7 @@ Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’
 	\caption{Diagramma classe - server::middleware::Authorization}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa dell’autorizzazione delle richieste
+Classe che si occupa dell'autorizzazione delle richieste
 \item[Utilizzo] \hfill \\
 Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Relazioni con altre classi] \hfill \\
@@ -243,7 +243,7 @@ Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item requireRole(name : String) : Function $\rightarrow$ metodo che verifica che l’utente autenticato sia almeno di ruolo specificato, richiamando il successivo middleware in caso affermativo, rispondendo con un errore altrimenti\begin{itemize}
+	\item requireRole(name : String) : Function $\rightarrow$ metodo che verifica che l'utente autenticato sia almeno di ruolo specificato, richiamando il successivo middleware in caso affermativo, rispondendo con un errore altrimenti\begin{itemize}
 		\item name $\rightarrow$ il nome del ruolo minimo richiesto
 	\end{itemize}
 	
@@ -265,7 +265,7 @@ Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Descrizione] \hfill \\
 Classe utilizzata per istanziare tutti i middleware dell'applicazione
 \item[Utilizzo] \hfill \\
-Viene utilizzato per istanziare in modo nascosto all’applicazione tutti i middleware presenti nel componente server::middleware
+Viene utilizzato per istanziare in modo nascosto all'applicazione tutti i middleware presenti nel componente server::middleware
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -323,7 +323,7 @@ Questo middleware viene utilizzato per ultimo nella catena di gestione delle ric
 	\item handler(req : Request, res : Response, next : Function, err : Error) : void $\rightarrow$ metodo che gestisce l'errore generato dalla richiesta e da la relativa risposta con il codice dell'errore al client\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire	
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione	
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione	
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione	
 		\item err $\rightarrow$ questo parametro rappresenta l'oggetto  dell'errore
 	\end{itemize}
 	
@@ -642,43 +642,43 @@ Fornisce i dati personali degli utenti a chi ne ha il permesso di accesso ed ese
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente l'utente specifico identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item getMe(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che restituisce al client un Json con i dati relativi all'utente loggato\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista degli utenti attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo utente al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica i dati dell'utente specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina un utente dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item modifyMe(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica i dati dell'utente connesso al sistema se presente\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item UserService() $\rightarrow$ costruttore della classe
@@ -713,31 +713,31 @@ Offre metodi per restituire questionari. Permette inoltre ad un docente di effet
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente il questionario specifico richiesto identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client una lista di questionari attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo questionario al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica un questionario specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che cancella un questionario specifico dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item QuestionnaireService() $\rightarrow$ costruttore della classe
@@ -772,31 +772,31 @@ Offre metodi per restituire le domande. Permette inoltre ad un docente di effett
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client una lista di domande attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente la domanda specifica identificata nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge una nuova domanda al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica una domanda specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina una domanda selezionata dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item QuestionService() $\rightarrow$ costruttore della classe
@@ -831,31 +831,31 @@ Offre metodi per restituire gli argomenti presenti. Permette inoltre ad un docen
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista degli argomenti attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente l'argomento specifico identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo argomento al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica un argomento specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina un argomento specifico dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item TagService() $\rightarrow$ costruttore della classe
@@ -890,13 +890,13 @@ Viene utilizzata per gestire il login e logout dell'utente
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che crea una sessione con una volta che l'utente effettua l'accesso all'applicazione\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina la sessione dell'utente dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item SessionService() $\rightarrow$ costruttore della classe
@@ -931,13 +931,13 @@ Viene utilizzata per fornire un punto d'accesso per l'elenco di tutti i ruoli de
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista di tutti i ruoli assumibili dagli utenti dell'applicazione attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente il ruolo specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
 	\end{itemize}
 	
 	\item RoleService() $\rightarrow$ costruttore della classe
