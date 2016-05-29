@@ -35,7 +35,7 @@ var QML = function () {
         plainText = plainText.substr(plainText.indexOf('\n') + 1);
         exp = extractExplanation(plainText);
         plainText = exp.plainText;
-        exp =  exp.explanation;
+        exp = exp.explanation;
         return {
             status: true,
             type: 'TF',
@@ -62,7 +62,7 @@ var QML = function () {
         plainText = plainText.substr(plainText.indexOf('\n') + 1);
         exp = extractExplanation(plainText);
         plainText = exp.plainText;
-        exp =  exp.explanation;
+        exp = exp.explanation;
         return {
             status: true,
             type: 'TF',
@@ -89,18 +89,19 @@ var QML = function () {
         plainText = plainText.substr(plainText.indexOf('\n') + 1);
         exp = extractExplanation(plainText);
         plainText = exp.plainText;
-        exp =  exp.explanation;
+        exp = exp.explanation;
+        
         var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0; //conta le risposte possibili
         for (var i = 0; i < a.length; i++) {
 
-            if (a[i] === '[answers]' && !ansFlag) {
+            if (/^(\t|\s)*\[answers\](\t|\s)*$/.test(a[i]) && !ansFlag) {
                 ansFlag = true;
                 ans += '<div class=\'form-group\'>';
             }
 
-            if (a[i].startsWith('[]') && ansFlag) {
+            if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) && ansFlag) {
                 wrongAnswers++;
-                var r = markdown.toHTML(a[i].substr(2));
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
                 ans += '<div>\
                             <label>\
                                 <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
@@ -108,9 +109,9 @@ var QML = function () {
                         </div>';
                 choice.push({value: n, str: r.substr(3, r.length - 7)});
                 n++;
-            } else if (a[i].startsWith('[*]') && ansFlag) {
+            } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i]) && ansFlag) {
                 rightAnswers++;
-                var r = markdown.toHTML(a[i].substr(3));
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
                 ans += '<div>\
                             <label>\
                                 <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
@@ -129,35 +130,46 @@ var QML = function () {
                 status: false,
                 message: '<strong>Errore! </strong> la domanda non contiente il flag <i>[answers]</i> oppure è posizionato in maniera errata'
             };
-        }
-
-        if (rightAnswers !== 1) {
+        } else if (rightAnswers > 1) {
             return {
                 status: false,
-                message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta o ne contiene più di una'
+                message: '<strong>Errore! </strong> la domanda contiene più di una risposta giusta'
             };
-        }
-
-        if (wrongAnswers === 0) {
+        } else if (rightAnswers < 1) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
+            };
+        } else if (wrongAnswers === 0) {
             return {
                 status: false,
                 message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
             };
+        } else {
+            return {
+                status: true,
+                type: 'MC',
+                body: txt,
+                answerForm: ans + '</div>',
+                answers: choice,
+                answer: right,
+                explanation: exp
+            };
         }
+    }
 
-        return {
-            status: true,
-            type: 'MC',
-            body: txt,
-            answerForm: ans + '</div>',
-            answers: choice,
-            answer: right,
-            explanation: exp
-        };
+    function myTrim(txt) {
+        while (txt.startsWith(' ') || txt.startsWith('\t')) {
+            txt = txt.substr(1);
+        }
+        while (txt.endsWith(' ') || txt.endsWith('\t')) {
+            txt = txt.substr(0, txt.length - 1);
+        }
+        return txt;
     }
 
     this.parse = function (plainText) {
-        while (plainText.charAt(0) === ' ' || plainText.charAt(0) === '\n') {
+        while (plainText.charAt(0) === ' ' || plainText.charAt(0) === '\n' || plainText.charAt(0) === '\t') {
             plainText = plainText.substr(1);
         }
 
