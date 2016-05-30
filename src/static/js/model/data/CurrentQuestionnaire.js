@@ -29,9 +29,8 @@ $(function () {
 
         CurrentQuestionnaire.prototype.checkAnswers = function () {
             var ret = true;
-
             this.questions.forEach(function (item) {
-                if (item.selectedAnswer === null) {
+                if (item.selectedAnswer === null || (item.selectedAnswer instanceof Array && item.selectedAnswer.length === 0)) {
                     ret = false;
                 }
             });
