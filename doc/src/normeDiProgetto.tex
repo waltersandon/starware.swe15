@@ -37,8 +37,8 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	&	\IB	\\
-\textbf{Verifica}	&	\WS	\\
+\textbf{Redazione}	&	\AVE	\\
+\textbf{Verifica}	&	\TP	\\
 \textbf{Approvazione}	&	\AVE	\\
 \textbf{Lista Distribuzione}	&	\nomeGruppo	\\
 
@@ -63,7 +63,7 @@
 		\midrule
 		3.1.0 & \TP{} & 2016-05-29 & Verifica\\*
 		\midrule
-		3.0.1 & \AVE{} & 2016-05-28 & Aggiunta sezioni sugli strumenti di test [Aggiunta sez. \ref{jasmine},\ref{karma},\ref{protractor}]\\*
+		3.0.1 & \AVE{} & 2016-05-28 & Aggiunta sezioni sugli strumenti di test [Aggiunta sez. \ref{jasmine},\ref{protractor}]\\*
 		\midrule
 		3.0.0 & \AVE{} & 2016-05-11 & Approvazione\\*
 		\midrule
@@ -620,7 +620,7 @@ Per installare \mgls{mocha} si ha bisogno del \mgls{node package manager} (npm),
 	\texttt{\$ npm install -g mocha}  
 \end{center}
 \subparagraph{Esecuzione}
-Per eseguire i test bisogna eseguire il comando al terminale mocha path/alla/cartella/coi/test con opzione --recursive se si vogliono eseguire tutti i test anche nelle sottocartelle.
+Per eseguire i test bisogna eseguire il comando dal terminale mocha path/alla/cartella/coi/test con opzione --recursive se si vogliono eseguire tutti i test anche nelle sottocartelle.
 Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src/tests/ e per lanciare tutti i test bisogna eseguire il commando : 
 \begin{center}
 	\texttt{\$ mocha starware.swe15/src/tests/server --recursive
@@ -628,7 +628,7 @@ Quindi nel nostro caso tutti i test si trovano nella cartella starware.swe15/src
 \end{center}
 
 \paragraph{Jasmine} \label{jasmine}
-Jasmine, come Mocha (sezione \ref{strumentoTest}), è un \mgls{framework} di test per \mgls{javascript} che supporta il lavoro con i \mgls{browser}, test asincroni, resoconti della copertura del prodotto con i test. E' particolarmente adatto per testare i siti web, i progetti \mgls{node.js} e qualunque ambiente su cui possono essere eseguiti \mgls{javascript}. Data la possibilità di eseguire i test su svariati \mgls{browser} (Safari, Chrome, Firefox, e Internet Explorer) risulta essere particolarmente adatto allo sviluppo dei test per il \mgls{front-end} dell'applicazione.
+come Mocha (sezione \ref{strumentoTest}), è un \mgls{framework} di test per \mgls{javascript}, che non ha bisogno di intromettersi nell'\mgls{ide} o nell'applicazione stessa. Uno dei punti di forza di Jasmine è la facilità di lettura e scrittura dei test e risulta essere particolarmente adatto per testare i siti web, i progetti \mgls{node.js} e qualunque ambiente su cui possono essere eseguiti \mgls{javascript}. Data la possibilità di eseguire i test su svariati \mgls{browser} (Safari, Chrome, Firefox, e Internet Explorer) risulta essere particolarmente adatto allo sviluppo dei test per il \mgls{front-end} dell'applicazione.
 \subparagraph{Installazione Jasmine}
 Per installare \mgls{jasmine} si ha bisogno del \mgls{node package manager} (npm), quindi da terminale bisogna eseguire il commando:
 \begin{center}
