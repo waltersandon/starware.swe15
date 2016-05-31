@@ -5,9 +5,11 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Ospite}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-2, fill=white, width=4cm, name=192]{\textbf{UC1.2:} Inserimento password}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=216]{\textbf{UC1.5:} Recupero password}
+			\umlassoc{Ospite}{216}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=192]{\textbf{UC1.2:} Inserimento password}
 			\umlassoc{Ospite}{192}
-			\umlusecase[x=5, y=2, fill=white, width=4cm, name=191]{\textbf{UC1.1:} Inserimento username}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=191]{\textbf{UC1.1:} Inserimento username}
 			\umlassoc{Ospite}{191}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -23,6 +25,7 @@
 	\begin{enumerate}
 		\item L'ospite inserisce l'username (\hyperlink{UC1.1}{UC1.1});
 		\item L'ospite inserisce la password (\hyperlink{UC1.2}{UC1.2});
+		\item L'utente richiede il recupero della password (\hyperlink{UC1.5}{UC1.5});
 		
 	\end{enumerate}
 	\item[Postcondizione:] L’ospite è autenticato nel sistema.
@@ -124,6 +127,60 @@
 		
 	\end{enumerate}
 	\item[Postcondizione:] L'utente non viene autenticato e viene visualizzato un messaggio d'errore.
+\end{description}
+\hypertarget{UC1.5}{}
+\subsection{Caso d'uso UC1.5: Recupero password}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Ospite}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=216]{\textbf{UC1.5:} Recupero password}
+			\umlassoc{Ospite}{216}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=217]{\textbf{UC1.6:} Errore mail per recupero password non presente}
+			\umlextend[name=ext-217-216]{217}{216}
+			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-217-216-1}{L'ospite non ricorda la password
+			}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC1.5}: Recupero password}
+	\label{UC1.5}
+\end{figure}
+\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite non ricorda la password di accesso al sistema e inizia la procedura di recupero password
+	\item[Precondizione:] L'ospite non ricorda la password
+	;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite inserisce la mail registrata nel sistema sulla quale riceve la nuova password;
+		\item L'ospite conferma la procedura;
+		
+	\end{enumerate}
+	\item[Estensioni:]
+	\begin{enumerate}
+		\item Se la mail inserita dall'ospite non è presente nel sistema, viene visualizzato un messaggio d'errore (\hyperlink{UC1.6}{UC1.6});
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha ricevuto una mail con la nuova password
+	.
+\end{description}
+\hypertarget{UC1.6}{}
+\subsection{Caso d'uso UC1.6: Errore mail per recupero password non presente}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite inserisce una mail per il recupero password che non è presente nel sistema
+	
+	\item[Precondizione:] L'ospite non ricorda la password
+	;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite ha sbagliato ad inserire la sua mail nella procedura di recupero password e il sistema mostra un messaggio d'errore;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Non viene inviata la mail per il recupero della password e viene visualizzato un messaggio di errore
+	.
 \end{description}
 \hypertarget{UC2}{}
 \subsection{Caso d'uso UC2: Registrazione}
@@ -323,70 +380,350 @@
 	\item[Postcondizione:] Non viene registrato l'utente e viene visualizzato un messaggio d'errore.
 \end{description}
 \hypertarget{UC3}{}
-\subsection{Caso d'uso UC3: Recupero password}
+\subsection{Caso d'uso UC3: Esegui questionario}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Ospite}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=209]{\textbf{UC3:} Recupero password}
-			\umlassoc{Ospite}{209}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=210]{\textbf{UC3.1:} Errore mail per recupero password non presente}
-			\umlextend[name=ext-210-209]{210}{209}
-			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-210-209-1}{L'ospite non ricorda la password}
+			\umlusecase[x=5, y=-6.25, fill=white, width=4cm, name=132]{\textbf{UC3.3:} Conferma questionario}
+			\umlassoc{Ospite}{132}
+			\umlusecase[x=5, y=-2, fill=white, width=4cm, name=205]{\textbf{UC3.11:} Visualizza valutazione questionario}
+			\umlassoc{Ospite}{205}
+			\umlusecase[x=5, y=2.25, fill=white, width=4cm, name=160]{\textbf{UC3.10:} Feedback questionario}
+			\umlassoc{Ospite}{160}
+			\umlusecase[x=5, y=6.25, fill=white, width=4cm, name=124]{\textbf{UC3.1:} Rispondi domanda}
+			\umlassoc{Ospite}{124}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC3}: Recupero password}
+	\caption{\textbf{UC3}: Esegui questionario}
 	\label{UC3}
 \end{figure}
 \begin{description}
 	\item[Attori:] Ospite;
-	\item[Scopo e descrizione:] L'ospite non ricorda la password di accesso al sistema e inizia la procedura di recupero password 
-	\item[Precondizione:] L'ospite non ricorda la password;
+	\item[Scopo e descrizione:] L'ospite effettua un questionario
+	\item[Precondizione:] L'ospite ha scelto e selezionato il questionario da eseguire;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item L'ospite inserisce la mail registrata nel sistema sulla quale ricevere la nuova password;
-		\item L'ospite conferma la procedura;
+		\item L'ospite risponde ad una domanda (\hyperlink{UC3.1}{UC3.1});
+		\item L'ospite può andare alla domanda successiva;
+		\item L'ospite può andare alla domanda precedente;
+		\item L'ospite conferma il questionario (\hyperlink{UC3.3}{UC3.3});
+		\item L'ospite visualizza la valutazione per il questionario (\hyperlink{UC3.11}{UC3.11});
+		\item Lo studente può lasciare un feedback (\hyperlink{UC3.10}{UC3.10});
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il questionario è stato compilato e vengono visualizzati i risultati.
+\end{description}
+\hypertarget{UC3.1}{}
+\subsection{Caso d'uso UC3.1: Rispondi domanda}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Ospite}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=124]{\textbf{UC3.1:} Rispondi domanda}
+			\umlassoc{Ospite}{124}
+			\umlusecase[x=15, y=-11, fill=white, width=4cm, name=159]{\textbf{UC3.9:} Rispondi domanda a risposta aperta}
+			\umlinherit{159}{124}
+			\umlusecase[x=15, y=-6.5, fill=white, width=4cm, name=158]{\textbf{UC3.8:} Rispondi domanda con associazione di parole}
+			\umlinherit{158}{124}
+			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=157]{\textbf{UC3.7:} Rispondi domanda di tipo testo con parole omesse}
+			\umlinherit{157}{124}
+			\umlusecase[x=15, y=2.5, fill=white, width=4cm, name=156]{\textbf{UC3.6:} Rispondi domanda a risposta multipla}
+			\umlinherit{156}{124}
+			\umlusecase[x=15, y=7, fill=white, width=4cm, name=155]{\textbf{UC3.5:} Rispondi domanda a scelta multipla}
+			\umlinherit{155}{124}
+			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=154]{\textbf{UC3.4:} Rispondi domanda vero/falso}
+			\umlinherit{154}{124}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC3.1}: Rispondi domanda}
+	\label{UC3.1}
+\end{figure}
+\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite riporta la risposta alla domanda corrente
+	\item[Precondizione:] L'ospite ha iniziato l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite seleziona la risposta che ritiene esatta con le modalità previste dal tipo di domanda;
+		\item Lo studente può lasciare un feedback per dire che la domanda gli piace oppure per segnalare un errore (\hyperlink{UC3.10}{UC3.10});
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda.
+\end{description}
+\hypertarget{UC3.2}{}
+\subsection{Caso d'uso UC3.2: Errore domanda non risposta}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] Il sistema non permette all'ospite di terminare un questionario in cui non tutte le domande hanno una risposta.
+	\item[Precondizione:] L'ospite non ha riposto ad alcune domande nel momento in cui conferma il questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item Viene visualizzato un messaggio di errore;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il questionario non viene terminato.
+\end{description}
+\hypertarget{UC3.3}{}
+\subsection{Caso d'uso UC3.3: Conferma questionario}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Ospite}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=132]{\textbf{UC3.3:} Conferma questionario}
+			\umlassoc{Ospite}{132}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=125]{\textbf{UC3.2:} Errore domanda non risposta}
+			\umlextend[name=ext-125-132]{125}{132}
+			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2.5cm]{ext-125-132-1}{L'ospite non ha riposto ad alcune domande nel momento in cui conferma il questionario}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC3.3}: Conferma questionario}
+	\label{UC3.3}
+\end{figure}
+\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite conferma il questionario eseguito
+	\item[Precondizione:] L'ospite è autenticato nel sistema;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite conferma il questionario;
 		
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se la mail inserita dall'ospite non è presente nel sistema viene visualizzato un messaggio d'errore (\hyperlink{UC3.1}{UC3.1});
+		\item Se quando l'ospite conferma il questionario ci sono domande non risposte viene visualizzato un errore (\hyperlink{UC3.2}{UC3.2});
 		
 	\end{enumerate}
-	\item[Postcondizione:] L'ospite ha ricevuto una mail con la nuova password.
+	\item[Postcondizione:] Il questionario viene confermato.
 \end{description}
-\hypertarget{UC3.1}{}
-\subsection{Caso d'uso UC3.1: Errore mail per recupero password non presente}\begin{description}
+\hypertarget{UC3.4}{}
+\subsection{Caso d'uso UC3.4: Rispondi domanda vero/falso}\begin{description}
 	\item[Attori:] Ospite;
-	\item[Scopo e descrizione:] L'ospite inserisce una mail per il recupero password che non è presente nel sistema
-	\item[Precondizione:] L'ospite non ricorda la password;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda di tipo vero/falso
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item L'ospite inserisce una mail per il recupero password che non è presente nel sistema;
+		\item L'ospite seleziona vero o falso;
 		
 	\end{enumerate}
-	\item[Postcondizione:] Non viene inviata la mail per il recupero della password e viene visualizzato un messaggio di errore.
+	\item[Postcondizione:] L'ospite ha risposto alla domanda di tipo vero/falso.
+\end{description}
+\hypertarget{UC3.5}{}
+\subsection{Caso d'uso UC3.5: Rispondi domanda a scelta multipla}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda a scelta multipla
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite seleziona la risposta che ritiene corretta;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda a scelta multipla.
+\end{description}
+\hypertarget{UC3.6}{}
+\subsection{Caso d'uso UC3.6: Rispondi domanda a risposta multipla}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda a risposta multipla
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite e seleziona la o le risposte che ritiene corrette;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda a risposta multipla.
+\end{description}
+\hypertarget{UC3.7}{}
+\subsection{Caso d'uso UC3.7: Rispondi domanda di tipo testo con parole omesse}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda di tipo testo con parole omesse
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite riempie il testo con parole omesse scegliendole da una lista;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda di tipo testo con parole omesse.
+\end{description}
+\hypertarget{UC3.8}{}
+\subsection{Caso d'uso UC3.8: Rispondi domanda con associazione di parole}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda con associazione di parole
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite e seleziona le associazioni di parole che ritiene corrette;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda con associazione di parole.
+\end{description}
+\hypertarget{UC3.9}{}
+\subsection{Caso d'uso UC3.9: Rispondi domanda a risposta aperta}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda a risposta aperta
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite inserisce la risposta come testo;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda a risposta aperta.
+\end{description}
+\hypertarget{UC3.10}{}
+\subsection{Caso d'uso UC3.10: Feedback questionario}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite lascia un feedback positivo al questionario
+	\item[Precondizione:] L'ospite ha completato il questionario e vede i suoi risultati;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite può lasciare un feedback al questionario;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il feedback dell'ospite viene memorizzato per il questionario svolto .
+\end{description}
+\hypertarget{UC3.11}{}
+\subsection{Caso d'uso UC3.11: Visualizza valutazione questionario}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite visualizza la valutazione del questionario eseguito
+	\item[Precondizione:] L'ospite ha eseguito e confermato il questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite visualizza la valutazione del questionario eseguito;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite visualizza la valutazione del questionario eseguito.
 \end{description}
 \hypertarget{UC4}{}
-\subsection{Caso d'uso UC4: Gestione profilo}
+\subsection{Caso d'uso UC4: Ricerca questionario}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Ospite}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=17]{\textbf{UC4:} Ricerca questionario}
+			\umlassoc{Ospite}{17}
+			\umlusecase[x=15, y=-8, fill=white, width=4cm, name=22]{\textbf{UC9:} Ricerca questionario per difficoltà}
+			\umlinherit{22}{17}
+			\umlusecase[x=15, y=-3.75, fill=white, width=4cm, name=21]{\textbf{UC8:} Ricerca questionario per docente}
+			\umlinherit{21}{17}
+			\umlusecase[x=15, y=0.25, fill=white, width=4cm, name=20]{\textbf{UC7:} Ricerca questionario per argomento}
+			\umlinherit{20}{17}
+			\umlusecase[x=15, y=4.25, fill=white, width=4cm, name=19]{\textbf{UC6:} Ricerca questionario per classe}
+			\umlinherit{19}{17}
+			\umlusecase[x=15, y=8.25, fill=white, width=4cm, name=18]{\textbf{UC5:} Ricerca questionario per titolo}
+			\umlinherit{18}{17}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC4}: Ricerca questionario}
+	\label{UC4}
+\end{figure}
+\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite ricerca un questionario
+	\item[Precondizione:] L'ospite è nella sezione di ricerca dei questionari;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite inserisce i dati per la ricerca;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari che soddisfano la ricerca.
+\end{description}
+\hypertarget{UC5}{}
+\subsection{Caso d'uso UC5: Ricerca questionario per titolo}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite ricerca un questionario per titolo
+	\item[Precondizione:] L'ospite è nella sezione di ricerca dei questionari;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite inserisce il titolo del questionario che vuole cercare;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari il cui titolo corrisponde al titolo ricercato.
+\end{description}
+\hypertarget{UC6}{}
+\subsection{Caso d'uso UC6: Ricerca questionario per classe}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] Lo studente ricerca il questionario per classe
+	\item[Precondizione:] Lo studente è autenticato presso il sistema;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item Lo studente seleziona la classe di cui vuole visualizzare i questionari;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari la cui classe corrisponde alla classe ricercata.
+\end{description}
+\hypertarget{UC7}{}
+\subsection{Caso d'uso UC7: Ricerca questionario per argomento}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite ricerca questionario per argomento
+	\item[Precondizione:] L'ospite è nella sezione di ricerca dei questionari;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite seleziona gli argomento di cui vuole visualizzare i questionari;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari i cui argomenti corrispondono agli argomenti ricercati.
+\end{description}
+\hypertarget{UC8}{}
+\subsection{Caso d'uso UC8: Ricerca questionario per docente}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite ricerca questionario per docente
+	\item[Precondizione:] L'ospite è nella sezione di ricerca dei questionari;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite inserisce il nome del docente di cui vuole cercare i questionari;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari il cui docente corrisponde al docente ricercato.
+\end{description}
+\hypertarget{UC9}{}
+\subsection{Caso d'uso UC9: Ricerca questionario per difficoltà}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] Lo studente ricerca un questionario per difficoltà
+	\item[Precondizione:] Lo studente è autenticato presso il sistema;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item Lo studente inserisce un limite inferiore e superiore di difficoltà di cui vuole cercare questionari;
+		
+	\end{enumerate}
+	\item[Postcondizione:] Il sistema mostra la lista dei questionari la cui difficoltà corrisponde alla difficoltà ricercata.
+\end{description}
+\hypertarget{UC10}{}
+\subsection{Caso d'uso UC10: Gestione profilo}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=195]{\textbf{UC4.3:} Modifica password}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=195]{\textbf{UC10.3:} Modifica password}
 			\umlassoc{Studente}{195}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=175]{\textbf{UC4.2:} Modifica username}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=175]{\textbf{UC10.2:} Modifica username}
 			\umlassoc{Studente}{175}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=41]{\textbf{UC4.1:} Modifica nome completo}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=41]{\textbf{UC10.1:} Modifica nome completo}
 			\umlassoc{Studente}{41}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4}: Gestione profilo}
-	\label{UC4}
+	\caption{\textbf{UC10}: Gestione profilo}
+	\label{UC10}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -396,30 +733,30 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Lo studente visualizza le proprie informazioni personali;
-		\item Lo studente può modificare il proprio nome completo (\hyperlink{UC4.1}{UC4.1});
-		\item Lo studente può modificare il proprio username	 (\hyperlink{UC4.2}{UC4.2});
-		\item Lo studente può modificare la propria password (\hyperlink{UC4.3}{UC4.3});
+		\item Lo studente può modificare il proprio nome completo (\hyperlink{UC10.1}{UC10.1});
+		\item Lo studente può modificare il proprio username	 (\hyperlink{UC10.2}{UC10.2});
+		\item Lo studente può modificare la propria password (\hyperlink{UC10.3}{UC10.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha apportato le modifiche al profilo dello studente.
 \end{description}
-\hypertarget{UC4.1}{}
-\subsection{Caso d'uso UC4.1: Modifica nome completo}
+\hypertarget{UC10.1}{}
+\subsection{Caso d'uso UC10.1: Modifica nome completo}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=41]{\textbf{UC4.1:} Modifica nome completo}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=41]{\textbf{UC10.1:} Modifica nome completo}
 			\umlassoc{Studente}{41}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=197]{\textbf{UC4.5:} Errore nome completo troppo corto}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=197]{\textbf{UC10.5:} Errore nome completo troppo corto}
 			\umlextend[name=ext-197-41]{197}{41}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-197-41-1}{Il nome completo inserito dallo studente è troppo corto
 			}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4.1}: Modifica nome completo}
-	\label{UC4.1}
+	\caption{\textbf{UC10.1}: Modifica nome completo}
+	\label{UC10.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -433,30 +770,30 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il nome completo è troppo corto viene visualizzato un errore (\hyperlink{UC4.5}{UC4.5});
+		\item Se il nome completo è troppo corto viene visualizzato un errore (\hyperlink{UC10.5}{UC10.5});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha modificato il proprio nome completo.
 \end{description}
-\hypertarget{UC4.2}{}
-\subsection{Caso d'uso UC4.2: Modifica username}
+\hypertarget{UC10.2}{}
+\subsection{Caso d'uso UC10.2: Modifica username}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=175]{\textbf{UC4.2:} Modifica username}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=175]{\textbf{UC10.2:} Modifica username}
 			\umlassoc{Studente}{175}
-			\umlusecase[x=15, y=-2.5, fill=white, width=4cm, name=198]{\textbf{UC4.6:} Errore username già utilizzato}
+			\umlusecase[x=15, y=-2.5, fill=white, width=4cm, name=198]{\textbf{UC10.6:} Errore username già utilizzato}
 			\umlextend[name=ext-198-175]{198}{175}
 			\umlnote[x=23, y=-2.5, fill=white, width=4cm, geometry=|-|, arm=-2.25cm]{ext-198-175-1}{Lo studente ha inserito un username già utilizzato da qualche altro utente}
-			\umlusecase[x=15, y=2.75, fill=white, width=4cm, name=196]{\textbf{UC4.4:} Errore username troppo corto}
+			\umlusecase[x=15, y=2.75, fill=white, width=4cm, name=196]{\textbf{UC10.4:} Errore username troppo corto}
 			\umlextend[name=ext-196-175]{196}{175}
 			\umlnote[x=23, y=2.75, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-196-175-1}{L'username inserito dallo studente è troppo corto}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4.2}: Modifica username}
-	\label{UC4.2}
+	\caption{\textbf{UC10.2}: Modifica username}
+	\label{UC10.2}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -470,27 +807,27 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se l'username è troppo corto viene visualizzato un errore (\hyperlink{UC4.4}{UC4.4});
-		\item Se l'username è già stato utilizzato viene visualizzato un errore (\hyperlink{UC4.6}{UC4.6});
+		\item Se l'username è troppo corto viene visualizzato un errore (\hyperlink{UC10.4}{UC10.4});
+		\item Se l'username è già stato utilizzato viene visualizzato un errore (\hyperlink{UC10.6}{UC10.6});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha modificato il proprio username.
 \end{description}
-\hypertarget{UC4.3}{}
-\subsection{Caso d'uso UC4.3: Modifica password}
+\hypertarget{UC10.3}{}
+\subsection{Caso d'uso UC10.3: Modifica password}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-2, fill=white, width=4cm, name=212]{\textbf{UC4.3.3:} Inserimento nuova password}
+			\umlusecase[x=5, y=-2, fill=white, width=4cm, name=212]{\textbf{UC10.3.3:} Inserimento nuova password}
 			\umlassoc{Studente}{212}
-			\umlusecase[x=5, y=2, fill=white, width=4cm, name=207]{\textbf{UC4.3.1:} Inserimento vecchia password}
+			\umlusecase[x=5, y=2, fill=white, width=4cm, name=207]{\textbf{UC10.3.1:} Inserimento vecchia password}
 			\umlassoc{Studente}{207}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4.3}: Modifica password}
-	\label{UC4.3}
+	\caption{\textbf{UC10.3}: Modifica password}
+	\label{UC10.3}
 \end{figure}
 
 \begin{figure}[H]
@@ -498,16 +835,16 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=195]{\textbf{UC4.3:} Modifica password}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=195]{\textbf{UC10.3:} Modifica password}
 			\umlassoc{Studente}{195}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=199]{\textbf{UC4.7:} Errore password troppo corta}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=199]{\textbf{UC10.7:} Errore password troppo corta}
 			\umlextend[name=ext-199-195]{199}{195}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-199-195-1}{La password inserita dallo studente è troppo corta
 			}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4.3}: Modifica password}
-	\label{UC4.3}
+	\caption{\textbf{UC10.3}: Modifica password}
+	\label{UC10.3}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -517,34 +854,34 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Lo studente inserisce la vecchia password (\hyperlink{UC4.3.1}{UC4.3.1});
-		\item Lo studente inserisce la nuova password per effettuare l'autenticazione nel sistema (\hyperlink{UC4.3.3}{UC4.3.3});
+		\item Lo studente inserisce la vecchia password (\hyperlink{UC10.3.1}{UC10.3.1});
+		\item Lo studente inserisce la nuova password per effettuare l'autenticazione nel sistema (\hyperlink{UC10.3.3}{UC10.3.3});
 		\item Lo studente modifica la propria password che deve contenere almeno 8 caratteri;
 		
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se la password è troppo corta viene visualizzato un errore	 (\hyperlink{UC4.7}{UC4.7});
+		\item Se la password è troppo corta viene visualizzato un errore	 (\hyperlink{UC10.7}{UC10.7});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha modificato il proprio nome completo.
 \end{description}
-\hypertarget{UC4.3.1}{}
-\subsection{Caso d'uso UC4.3.1: Inserimento vecchia password}
+\hypertarget{UC10.3.1}{}
+\subsection{Caso d'uso UC10.3.1: Inserimento vecchia password}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=207]{\textbf{UC4.3.1:} Inserimento vecchia password}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=207]{\textbf{UC10.3.1:} Inserimento vecchia password}
 			\umlassoc{Studente}{207}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=208]{\textbf{UC4.3.2:} Errore password non corrispondente}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=208]{\textbf{UC10.3.2:} Errore password non corrispondente}
 			\umlextend[name=ext-208-207]{208}{207}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-208-207-1}{Lo studente ha inserito la sua vecchia password ma è errata}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC4.3.1}: Inserimento vecchia password}
-	\label{UC4.3.1}
+	\caption{\textbf{UC10.3.1}: Inserimento vecchia password}
+	\label{UC10.3.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -558,13 +895,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se alla richiesta di inserimento della vecchia password essa non corrisponde con quella presente nel sistema viene visualizzato un messaggio d'errore (\hyperlink{UC4.3.2}{UC4.3.2});
+		\item Se alla richiesta di inserimento della vecchia password essa non corrisponde con quella presente nel sistema viene visualizzato un messaggio d'errore (\hyperlink{UC10.3.2}{UC10.3.2});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha inserito la sua vecchia password corretta.
 \end{description}
-\hypertarget{UC4.3.2}{}
-\subsection{Caso d'uso UC4.3.2: Errore password non corrispondente}\begin{description}
+\hypertarget{UC10.3.2}{}
+\subsection{Caso d'uso UC10.3.2: Errore password non corrispondente}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] La vecchia password inserita dallo studente non è corretta
 	\item[Precondizione:] Lo studente ha inserito la sua vecchia password ma è errata;
@@ -577,8 +914,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] La password non viene modificata e viene visualizzato un messaggio d'errore.
 \end{description}
-\hypertarget{UC4.3.3}{}
-\subsection{Caso d'uso UC4.3.3: Inserimento nuova password}\begin{description}
+\hypertarget{UC10.3.3}{}
+\subsection{Caso d'uso UC10.3.3: Inserimento nuova password}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente ha inserito la nuova password
 	\item[Precondizione:] Lo studente è autenticato nel sistema;
@@ -590,8 +927,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha inserito la sua nuova password.
 \end{description}
-\hypertarget{UC4.4}{}
-\subsection{Caso d'uso UC4.4: Errore username troppo corto}\begin{description}
+\hypertarget{UC10.4}{}
+\subsection{Caso d'uso UC10.4: Errore username troppo corto}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Viene visualizzato un messaggio d'errore nel caso in cui lo studente inserisca uno username inferiore ai 6 caratteri
 	\item[Precondizione:] L'username inserito dallo studente è troppo corto;
@@ -603,8 +940,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Non viene modificato l'username dell'utente e viene visualizzato un messaggio d'errore.
 \end{description}
-\hypertarget{UC4.5}{}
-\subsection{Caso d'uso UC4.5: Errore nome completo troppo corto}\begin{description}
+\hypertarget{UC10.5}{}
+\subsection{Caso d'uso UC10.5: Errore nome completo troppo corto}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Viene visualizzato un messaggio di errore nel caso il nome completo sia inferiore ai 2 caratteri
 	
@@ -619,8 +956,8 @@
 	\item[Postcondizione:] Non viene modificato il nome e viene visualizzato un errore
 	.
 \end{description}
-\hypertarget{UC4.6}{}
-\subsection{Caso d'uso UC4.6: Errore username già utilizzato}\begin{description}
+\hypertarget{UC10.6}{}
+\subsection{Caso d'uso UC10.6: Errore username già utilizzato}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Viene visualizzato un messaggio d'errore nel caso in cui lo studente inserisca un username già utilizzato da qualche altro utente
 	\item[Precondizione:] Lo studente ha inserito un username già utilizzato da qualche altro utente;
@@ -632,8 +969,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Non viene modificato l'username e viene visualizzato un messaggio d'errore.
 \end{description}
-\hypertarget{UC4.7}{}
-\subsection{Caso d'uso UC4.7: Errore password troppo corta}\begin{description}
+\hypertarget{UC10.7}{}
+\subsection{Caso d'uso UC10.7: Errore password troppo corta}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Viene visualizzato un messaggio d'errore nel caso in cui lo studente inserisca una password inferiore agli 8 caratteri
 	
@@ -648,8 +985,8 @@
 	\item[Postcondizione:] Non viene modificata la password e viene visualizzato un messaggio d'errore
 	.
 \end{description}
-\hypertarget{UC5}{}
-\subsection{Caso d'uso UC5: Logout}\begin{description}
+\hypertarget{UC11}{}
+\subsection{Caso d'uso UC11: Logout}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente effettua il logout
 	\item[Precondizione:] Lo studente è autenticato nel sistema;
@@ -661,246 +998,19 @@
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente non è più autenticato nel sistema.
 \end{description}
-\hypertarget{UC6}{}
-\subsection{Caso d'uso UC6: Esegui questionario}
+\hypertarget{UC12}{}
+\subsection{Caso d'uso UC12: Iscrizione ad una classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-6.25, fill=white, width=4cm, name=132]{\textbf{UC6.3:} Conferma questionario}
-			\umlassoc{Studente}{132}
-			\umlusecase[x=5, y=-2, fill=white, width=4cm, name=205]{\textbf{UC6.11:} Visualizza valutazione questionario}
-			\umlassoc{Studente}{205}
-			\umlusecase[x=5, y=2.25, fill=white, width=4cm, name=160]{\textbf{UC6.10:} Feedback questionario}
-			\umlassoc{Studente}{160}
-			\umlusecase[x=5, y=6.25, fill=white, width=4cm, name=124]{\textbf{UC6.1:} Rispondi domanda}
-			\umlassoc{Studente}{124}
-		\end{umlsystem}
-	\end{resizedtikzpicture}
-	\caption{\textbf{UC6}: Esegui questionario}
-	\label{UC6}
-\end{figure}
-\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente effettua un questionario
-	\item[Precondizione:] Lo studente è autenticato nel sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente risponde ad una domanda (\hyperlink{UC6.1}{UC6.1});
-		\item Lo studente può andare alla domanda successiva;
-		\item Lo studente può andare alla domanda precedente;
-		\item Lo studente conferma il questionario (\hyperlink{UC6.3}{UC6.3});
-		\item Lo studente visualizza la valutazione per il questionario (\hyperlink{UC6.11}{UC6.11});
-		\item Lo studente può lasciare un feedback (\hyperlink{UC6.10}{UC6.10});
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il questionario è stato compilato e vengono visualizzati i risultati.
-\end{description}
-\hypertarget{UC6.1}{}
-\subsection{Caso d'uso UC6.1: Rispondi domanda}
-\begin{figure}[H]
-	\centering
-	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Studente}
-		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=124]{\textbf{UC6.1:} Rispondi domanda}
-			\umlassoc{Studente}{124}
-			\umlusecase[x=15, y=-11, fill=white, width=4cm, name=159]{\textbf{UC6.9:} Rispondi domanda a risposta aperta}
-			\umlinherit{159}{124}
-			\umlusecase[x=15, y=-6.5, fill=white, width=4cm, name=158]{\textbf{UC6.8:} Rispondi domanda con associazione di parole}
-			\umlinherit{158}{124}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=157]{\textbf{UC6.7:} Rispondi domanda di tipo testo con parole omesse}
-			\umlinherit{157}{124}
-			\umlusecase[x=15, y=2.5, fill=white, width=4cm, name=156]{\textbf{UC6.6:} Rispondi domanda a risposta multipla}
-			\umlinherit{156}{124}
-			\umlusecase[x=15, y=7, fill=white, width=4cm, name=155]{\textbf{UC6.5:} Rispondi domanda a scelta multipla}
-			\umlinherit{155}{124}
-			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=154]{\textbf{UC6.4:} Rispondi domanda vero/falso}
-			\umlinherit{154}{124}
-		\end{umlsystem}
-	\end{resizedtikzpicture}
-	\caption{\textbf{UC6.1}: Rispondi domanda}
-	\label{UC6.1}
-\end{figure}
-\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente riporta la risposta alla domanda corrente
-	\item[Precondizione:] Lo studente ha iniziato l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente seleziona la risposta che ritiene esatta con le modalità previste dal tipo di domanda;
-		\item Lo studente può lasciare un feedback per dire che la domanda gli piace oppure per segnalare un errore (\hyperlink{UC6.10}{UC6.10});
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda.
-\end{description}
-\hypertarget{UC6.2}{}
-\subsection{Caso d'uso UC6.2: Errore domanda non risposta}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Il sistema non permette allo studente di terminare un questionario in cui non tutte le domande hanno una risposta.
-	\item[Precondizione:] Lo studente non ha riposto ad alcune domande nel momento in cui conferma il questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Viene visualizzato un messaggio di errore;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il questionario non viene terminato.
-\end{description}
-\hypertarget{UC6.3}{}
-\subsection{Caso d'uso UC6.3: Conferma questionario}
-\begin{figure}[H]
-	\centering
-	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Studente}
-		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=132]{\textbf{UC6.3:} Conferma questionario}
-			\umlassoc{Studente}{132}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=125]{\textbf{UC6.2:} Errore domanda non risposta}
-			\umlextend[name=ext-125-132]{125}{132}
-			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2.5cm]{ext-125-132-1}{Lo studente non ha riposto ad alcune domande nel momento in cui conferma il questionario}
-		\end{umlsystem}
-	\end{resizedtikzpicture}
-	\caption{\textbf{UC6.3}: Conferma questionario}
-	\label{UC6.3}
-\end{figure}
-\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente conferma il questionario eseguito
-	\item[Precondizione:] Lo studente è autenticato nel sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente conferma il questionario;
-		
-	\end{enumerate}
-	\item[Estensioni:]
-	\begin{enumerate}
-		\item Se quando lo studente conferma il questionario ci sono domande non risposte viene visualizzato un errore (\hyperlink{UC6.2}{UC6.2});
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il questionario viene confermato.
-\end{description}
-\hypertarget{UC6.4}{}
-\subsection{Caso d'uso UC6.4: Rispondi domanda vero/falso}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda di tipo vero/falso
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente seleziona vero o falso;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda di tipo vero/falso.
-\end{description}
-\hypertarget{UC6.5}{}
-\subsection{Caso d'uso UC6.5: Rispondi domanda a scelta multipla}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda a scelta multipla
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente seleziona la risposta che ritiene corretta;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda a scelta multipla.
-\end{description}
-\hypertarget{UC6.6}{}
-\subsection{Caso d'uso UC6.6: Rispondi domanda a risposta multipla}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda a risposta multipla
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente e seleziona la o le risposte che ritiene corrette;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda a risposta multipla.
-\end{description}
-\hypertarget{UC6.7}{}
-\subsection{Caso d'uso UC6.7: Rispondi domanda di tipo testo con parole omesse}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda di tipo testo con parole omesse
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente riempie il testo con parole omesse scegliendole da una lista;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda di tipo testo con parole omesse.
-\end{description}
-\hypertarget{UC6.8}{}
-\subsection{Caso d'uso UC6.8: Rispondi domanda con associazione di parole}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda con associazione di parole
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente e seleziona le associazioni di parole che ritiene corrette;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda con associazione di parole.
-\end{description}
-\hypertarget{UC6.9}{}
-\subsection{Caso d'uso UC6.9: Rispondi domanda a risposta aperta}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente risponde ad una domanda a risposta aperta
-	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente inserisce la risposta come testo;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente ha risposto alla domanda a risposta aperta.
-\end{description}
-\hypertarget{UC6.10}{}
-\subsection{Caso d'uso UC6.10: Feedback questionario}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente lascia un feedback positivo al questionario
-	\item[Precondizione:] Lo studente ha completato il questionario e vede i suoi risultati;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente può lasciare un feedback positivo al questionario;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il feedback dello studente viene memorizzato per il questionario svolto .
-\end{description}
-\hypertarget{UC6.11}{}
-\subsection{Caso d'uso UC6.11: Visualizza valutazione questionario}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente visualizza la valutazione del questionario eseguito
-	\item[Precondizione:] Lo studente ha eseguito e confermato il questionario;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente visualizza la valutazione del questionario eseguito;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Lo studente visualizza la valutazione del questionario eseguito.
-\end{description}
-\hypertarget{UC7}{}
-\subsection{Caso d'uso UC7: Iscrizione ad una classe}
-\begin{figure}[H]
-	\centering
-	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Studente}
-		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=97]{\textbf{UC7.1:} Inserisci password classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=97]{\textbf{UC12.1:} Inserisci password classe}
 			\umlassoc{Studente}{97}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC7}: Iscrizione ad una classe}
-	\label{UC7}
+	\caption{\textbf{UC12}: Iscrizione ad una classe}
+	\label{UC12}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -909,29 +1019,29 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Lo studente cerca una classe (\hyperlink{UC15}{UC15});
-		\item Lo studente inserisce la password (che gli deve essere già stata consegnata personalmente dal docente della classe) per iscriversi alla classe (\hyperlink{UC7.1}{UC7.1});
+		\item Lo studente cerca una classe (\hyperlink{UC14}{UC14});
+		\item Lo studente inserisce la password (che gli deve essere già stata consegnata personalmente dal docente della classe) per iscriversi alla classe (\hyperlink{UC12.1}{UC12.1});
 		\item Lo studente conferma l'iscrizione alla classe;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente si è iscritto alla classe desiderata.
 \end{description}
-\hypertarget{UC7.1}{}
-\subsection{Caso d'uso UC7.1: Inserisci password classe}
+\hypertarget{UC12.1}{}
+\subsection{Caso d'uso UC12.1: Inserisci password classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=97]{\textbf{UC7.1:} Inserisci password classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=97]{\textbf{UC12.1:} Inserisci password classe}
 			\umlassoc{Studente}{97}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=98]{\textbf{UC7.2:} Errore password classe}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=98]{\textbf{UC12.2:} Errore password classe}
 			\umlextend[name=ext-98-97]{98}{97}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2.25cm]{ext-98-97-1}{Lo studente ha inserito una password errata per iscriversi alla classe}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC7.1}: Inserisci password classe}
-	\label{UC7.1}
+	\caption{\textbf{UC12.1}: Inserisci password classe}
+	\label{UC12.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -945,13 +1055,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se la password inserita non è corretta viene visualizzato un messaggio di errore (\hyperlink{UC7.2}{UC7.2});
+		\item Se la password inserita non è corretta viene visualizzato un messaggio di errore (\hyperlink{UC12.2}{UC12.2});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha inserito la password per iscriversi alla classe.
 \end{description}
-\hypertarget{UC7.2}{}
-\subsection{Caso d'uso UC7.2: Errore password classe}\begin{description}
+\hypertarget{UC12.2}{}
+\subsection{Caso d'uso UC12.2: Errore password classe}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Il sistema avverte lo studente che ha inserito una password errata per l'iscrizione alla classe
 	\item[Precondizione:] Lo studente ha inserito una password errata per iscriversi alla classe;
@@ -963,23 +1073,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente non viene iscritto alla classe.
 \end{description}
-\hypertarget{UC8}{}
-\subsection{Caso d'uso UC8: Visualizza storico studente}
+\hypertarget{UC13}{}
+\subsection{Caso d'uso UC13: Visualizza storico studente}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=139]{\textbf{UC8.3:} Visualizza sommario statistiche studente}
+			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=139]{\textbf{UC13.3:} Visualizza sommario statistiche studente}
 			\umlassoc{Studente}{139}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=138]{\textbf{UC8.2:} Visualizza statistiche questionari studente}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=138]{\textbf{UC13.2:} Visualizza statistiche questionari studente}
 			\umlassoc{Studente}{138}
-			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=136]{\textbf{UC8.1:} Visualizza statistiche domande studente}
+			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=136]{\textbf{UC13.1:} Visualizza statistiche domande studente}
 			\umlassoc{Studente}{136}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC8}: Visualizza storico studente}
-	\label{UC8}
+	\caption{\textbf{UC13}: Visualizza storico studente}
+	\label{UC13}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -988,22 +1098,22 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Lo studente può visualizzare le sue risposte e le statistiche generali relative alle domande eseguite (\hyperlink{UC8.1}{UC8.1});
-		\item Lo studente può visualizzare le sue risposte e le statistiche generali relative ai questionari eseguiti (\hyperlink{UC8.2}{UC8.2});
-		\item Lo studente può visualizzare un sommario delle proprie statistiche (\hyperlink{UC8.3}{UC8.3});
+		\item Lo studente può visualizzare le sue risposte e le statistiche generali relative alle domande eseguite (\hyperlink{UC13.1}{UC13.1});
+		\item Lo studente può visualizzare le sue risposte e le statistiche generali relative ai questionari eseguiti (\hyperlink{UC13.2}{UC13.2});
+		\item Lo studente può visualizzare un sommario delle proprie statistiche (\hyperlink{UC13.3}{UC13.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha visualizzato le sue risposte e le statistiche generali relative ai test eseguiti.
 \end{description}
-\hypertarget{UC8.1}{}
-\subsection{Caso d'uso UC8.1: Visualizza statistiche domande studente}\begin{description}
+\hypertarget{UC13.1}{}
+\subsection{Caso d'uso UC13.1: Visualizza statistiche domande studente}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente visualizza la percentuale delle proprie risposte corrette e le statistiche generali della domanda
 	\item[Precondizione:] Lo studente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Lo studente cerca una domanda tra quelle che ha eseguito in passato (\hyperlink{UC26}{UC26});
+		\item Lo studente cerca una domanda tra quelle che ha eseguito in passato (\hyperlink{UC25}{UC25});
 		\item Lo studente seleziona la domanda per visualizzarne le risposte date e le statistiche generali;
 		\item Lo studente visualizza le risposte già date in passato alla domanda selezionata;
 		\item Lo studente visualizza la difficoltà della domanda calcolata come funzione delle risposte date da tutti gli utenti;
@@ -1011,25 +1121,25 @@
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha visualizzato i risultati e le statistiche relative alle domande desiderate.
 \end{description}
-\hypertarget{UC8.2}{}
-\subsection{Caso d'uso UC8.2: Visualizza statistiche questionari studente}\begin{description}
+\hypertarget{UC13.2}{}
+\subsection{Caso d'uso UC13.2: Visualizza statistiche questionari studente}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente visualizza i punteggi che ha ottenuto nel questionario e le statistiche generali dello stesso
 	\item[Precondizione:] Lo studente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Lo studente cerca un questionario tra quelli che ha eseguito in passato (\hyperlink{UC9}{UC9});
+		\item Lo studente cerca un questionario tra quelli che ha eseguito in passato (\hyperlink{UC4}{UC4});
 		\item Lo studente seleziona il questionario per visualizzarne le risposte date e le statistiche generali;
-		\item Lo studente può vedere le statistiche di ogni singola domanda del questionario selezionato (\hyperlink{UC8.1}{UC8.1});
+		\item Lo studente può vedere le statistiche di ogni singola domanda del questionario selezionato (\hyperlink{UC13.1}{UC13.1});
 		\item Lo studente vede le proprie risposte al questionario e il punteggio totale;
 		\item Lo studente vede la difficoltà del questionario calcolata come funzione delle risposte date da tutti gli utenti;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha visualizzato i risultati e le statistiche relative ai questionari desiderati.
 \end{description}
-\hypertarget{UC8.3}{}
-\subsection{Caso d'uso UC8.3: Visualizza sommario statistiche studente}\begin{description}
+\hypertarget{UC13.3}{}
+\subsection{Caso d'uso UC13.3: Visualizza sommario statistiche studente}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente visualizza il totale delle risposte corrette sul totale delle risposte date e la media dei punteggi su tutti i questionari
 	\item[Precondizione:] Lo studente è autenticato presso il sistema;
@@ -1045,124 +1155,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Lo studente ha visualizzato i risultati e le statistiche relative alle domande desiderate.
 \end{description}
-\hypertarget{UC9}{}
-\subsection{Caso d'uso UC9: Ricerca questionario}
-\begin{figure}[H]
-	\centering
-	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Studente}
-		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=17]{\textbf{UC9:} Ricerca questionario}
-			\umlassoc{Studente}{17}
-			\umlusecase[x=15, y=-8, fill=white, width=4cm, name=22]{\textbf{UC14:} Ricerca questionario per difficoltà}
-			\umlinherit{22}{17}
-			\umlusecase[x=15, y=-3.75, fill=white, width=4cm, name=21]{\textbf{UC13:} Ricerca questionario per docente}
-			\umlinherit{21}{17}
-			\umlusecase[x=15, y=0.25, fill=white, width=4cm, name=20]{\textbf{UC12:} Ricerca questionario per argomento}
-			\umlinherit{20}{17}
-			\umlusecase[x=15, y=4.25, fill=white, width=4cm, name=19]{\textbf{UC11:} Ricerca questionario per classe}
-			\umlinherit{19}{17}
-			\umlusecase[x=15, y=8.25, fill=white, width=4cm, name=18]{\textbf{UC10:} Ricerca questionario per titolo}
-			\umlinherit{18}{17}
-		\end{umlsystem}
-	\end{resizedtikzpicture}
-	\caption{\textbf{UC9}: Ricerca questionario}
-	\label{UC9}
-\end{figure}
-\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca un questionario
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente inserisce i dati per la ricerca;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari che soddisfano la ricerca.
-\end{description}
-\hypertarget{UC10}{}
-\subsection{Caso d'uso UC10: Ricerca questionario per titolo}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca un questionario per titolo
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente inserisce il titolo del questionario che vuole cercare;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari il cui titolo corrisponde al titolo ricercato.
-\end{description}
-\hypertarget{UC11}{}
-\subsection{Caso d'uso UC11: Ricerca questionario per classe}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca il questionario per classe
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente seleziona la classe di cui vuole visualizzare i questionari;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari la cui classe corrisponde alla classe ricercata.
-\end{description}
-\hypertarget{UC12}{}
-\subsection{Caso d'uso UC12: Ricerca questionario per argomento}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca questionario per argomento
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente seleziona gli argomento di cui vuole visualizzare i questionari;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari i cui argomenti corrispondono agli argomenti ricercati.
-\end{description}
-\hypertarget{UC13}{}
-\subsection{Caso d'uso UC13: Ricerca questionario per docente}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca questionario per docente
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente inserisce il nome del docente di cui vuole cercare i questionari;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari il cui docente corrisponde al docente ricercato.
-\end{description}
 \hypertarget{UC14}{}
-\subsection{Caso d'uso UC14: Ricerca questionario per difficoltà}\begin{description}
-	\item[Attori:] Studente;
-	\item[Scopo e descrizione:] Lo studente ricerca un questionario per difficoltà
-	\item[Precondizione:] Lo studente è autenticato presso il sistema;
-	
-	\item[Flusso principale degli eventi:] \ 
-	\begin{enumerate}
-		\item Lo studente inserisce un limite inferiore e superiore di difficoltà di cui vuole cercare questionari;
-		
-	\end{enumerate}
-	\item[Postcondizione:] Il sistema mostra la lista dei questionari la cui difficoltà corrisponde alla difficoltà ricercata.
-\end{description}
-\hypertarget{UC15}{}
-\subsection{Caso d'uso UC15: Ricerca classe}
+\subsection{Caso d'uso UC14: Ricerca classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Studente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=28]{\textbf{UC15:} Ricerca classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=28]{\textbf{UC14:} Ricerca classe}
 			\umlassoc{Studente}{28}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=30]{\textbf{UC17:} Ricerca classe per argomento}
+			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=30]{\textbf{UC16:} Ricerca classe per argomento}
 			\umlinherit{30}{28}
-			\umlusecase[x=15, y=2, fill=white, width=4cm, name=29]{\textbf{UC16:} Ricerca classe per docente}
+			\umlusecase[x=15, y=2, fill=white, width=4cm, name=29]{\textbf{UC15:} Ricerca classe per docente}
 			\umlinherit{29}{28}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC15}: Ricerca classe}
-	\label{UC15}
+	\caption{\textbf{UC14}: Ricerca classe}
+	\label{UC14}
 \end{figure}
 \begin{description}
 	\item[Attori:] Studente;
@@ -1176,8 +1185,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle classi che soddisfano la ricerca.
 \end{description}
-\hypertarget{UC16}{}
-\subsection{Caso d'uso UC16: Ricerca classe per docente}\begin{description}
+\hypertarget{UC15}{}
+\subsection{Caso d'uso UC15: Ricerca classe per docente}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente ricerca una classe per docente
 	\item[Precondizione:] Lo studente è autenticato presso il sistema;
@@ -1189,8 +1198,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle classi che soddisfano la ricerca in base al docente selezionato.
 \end{description}
-\hypertarget{UC17}{}
-\subsection{Caso d'uso UC17: Ricerca classe per argomento}\begin{description}
+\hypertarget{UC16}{}
+\subsection{Caso d'uso UC16: Ricerca classe per argomento}\begin{description}
 	\item[Attori:] Studente;
 	\item[Scopo e descrizione:] Lo studente ricerca una classe per argomento
 	\item[Precondizione:] Lo studente è autenticato presso il sistema;
@@ -1202,23 +1211,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle classi che soddisfano la ricerca in base agli argomenti selezionati.
 \end{description}
-\hypertarget{UC18}{}
-\subsection{Caso d'uso UC18: Gestione domande}
+\hypertarget{UC17}{}
+\subsection{Caso d'uso UC17: Gestione domande}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=50]{\textbf{UC18.3:} Elimina domanda}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=50]{\textbf{UC17.3:} Elimina domanda}
 			\umlassoc{Docente}{50}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=46]{\textbf{UC18.2:} Modifica domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=46]{\textbf{UC17.2:} Modifica domanda}
 			\umlassoc{Docente}{46}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=43]{\textbf{UC18.1:} Inserimento domanda}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=43]{\textbf{UC17.1:} Inserimento domanda}
 			\umlassoc{Docente}{43}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18}: Gestione domande}
-	\label{UC18}
+	\caption{\textbf{UC17}: Gestione domande}
+	\label{UC17}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1227,30 +1236,30 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente può creare una nuova domanda (\hyperlink{UC18.1}{UC18.1});
-		\item Il docente può modificare una domanda (\hyperlink{UC18.2}{UC18.2});
-		\item Il docente può eliminare una domanda (\hyperlink{UC18.3}{UC18.3});
+		\item Il docente può creare una nuova domanda (\hyperlink{UC17.1}{UC17.1});
+		\item Il docente può modificare una domanda (\hyperlink{UC17.2}{UC17.2});
+		\item Il docente può eliminare una domanda (\hyperlink{UC17.3}{UC17.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire sulle domande.
 \end{description}
-\hypertarget{UC18.1}{}
-\subsection{Caso d'uso UC18.1: Inserimento domanda}
+\hypertarget{UC17.1}{}
+\subsection{Caso d'uso UC17.1: Inserimento domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=162]{\textbf{UC18.1.5:} Scrittura nuova domanda da interfaccia grafica}
+			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=162]{\textbf{UC17.1.5:} Scrittura nuova domanda da interfaccia grafica}
 			\umlassoc{Docente}{162}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC18.1.2:} Scrittura domanda in QML della nuova domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura domanda in QML della nuova domanda}
 			\umlassoc{Docente}{114}
-			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=112]{\textbf{UC18.1.1:} Selezione argomenti nuova domanda}
+			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=112]{\textbf{UC17.1.1:} Selezione argomenti nuova domanda}
 			\umlassoc{Docente}{112}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.1}: Inserimento domanda}
-	\label{UC18.1}
+	\caption{\textbf{UC17.1}: Inserimento domanda}
+	\label{UC17.1}
 \end{figure}
 
 \begin{figure}[H]
@@ -1258,24 +1267,24 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=43]{\textbf{UC18.1:} Inserimento domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=43]{\textbf{UC17.1:} Inserimento domanda}
 			\umlassoc{Docente}{43}
-			\umlusecase[x=15, y=-11.25, fill=white, width=4cm, name=153]{\textbf{UC18.9:} Inserimento domanda a risposta aperta}
+			\umlusecase[x=15, y=-11.25, fill=white, width=4cm, name=153]{\textbf{UC17.9:} Inserimento domanda a risposta aperta}
 			\umlinherit{153}{43}
-			\umlusecase[x=15, y=-6.75, fill=white, width=4cm, name=152]{\textbf{UC18.8:} Inserimento domanda con l'associazione di parole}
+			\umlusecase[x=15, y=-6.75, fill=white, width=4cm, name=152]{\textbf{UC17.8:} Inserimento domanda con l'associazione di parole}
 			\umlinherit{152}{43}
-			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=151]{\textbf{UC18.7:} Inserimento domanda di tipo testo con parole omesse}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=151]{\textbf{UC17.7:} Inserimento domanda di tipo testo con parole omesse}
 			\umlinherit{151}{43}
-			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=150]{\textbf{UC18.6:} Inserimento domanda a risposta multipla}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=150]{\textbf{UC17.6:} Inserimento domanda a risposta multipla}
 			\umlinherit{150}{43}
-			\umlusecase[x=15, y=6.75, fill=white, width=4cm, name=149]{\textbf{UC18.5:} Inserimento domanda a scelta multipla}
+			\umlusecase[x=15, y=6.75, fill=white, width=4cm, name=149]{\textbf{UC17.5:} Inserimento domanda a scelta multipla}
 			\umlinherit{149}{43}
-			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=148]{\textbf{UC18.4:} Inserimento domanda di tipo vero/falso}
+			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=148]{\textbf{UC17.4:} Inserimento domanda di tipo vero/falso}
 			\umlinherit{148}{43}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.1}: Inserimento domanda}
-	\label{UC18.1}
+	\caption{\textbf{UC17.1}: Inserimento domanda}
+	\label{UC17.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1284,30 +1293,30 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda in QML  (\hyperlink{UC18.1.2}{UC18.1.2});
-		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC18.1.5}{UC18.1.5});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda in QML  (\hyperlink{UC17.1.2}{UC17.1.2});
+		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC17.1.5}{UC17.1.5});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una nuova domanda.
 \end{description}
-\hypertarget{UC18.1.1}{}
-\subsection{Caso d'uso UC18.1.1: Selezione argomenti nuova domanda}
+\hypertarget{UC17.1.1}{}
+\subsection{Caso d'uso UC17.1.1: Selezione argomenti nuova domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=112]{\textbf{UC18.1.1:} Selezione argomenti nuova domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=112]{\textbf{UC17.1.1:} Selezione argomenti nuova domanda}
 			\umlassoc{Docente}{112}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=143]{\textbf{UC18.1.4:} Errore argomento mancante}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=143]{\textbf{UC17.1.4:} Errore argomento mancante}
 			\umlextend[name=ext-143-112]{143}{112}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-143-112-1}{Non è stato selezionato almeno un argomento}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.1.1}: Selezione argomenti nuova domanda}
-	\label{UC18.1.1}
+	\caption{\textbf{UC17.1.1}: Selezione argomenti nuova domanda}
+	\label{UC17.1.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1321,30 +1330,30 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se non è stato selezionato nessun argomento viene visualizzato un messaggio di errore (\hyperlink{UC18.1.4}{UC18.1.4});
+		\item Se non è stato selezionato nessun argomento viene visualizzato un messaggio di errore (\hyperlink{UC17.1.4}{UC17.1.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha definito gli argomenti per classificare la domanda
 	.
 \end{description}
-\hypertarget{UC18.1.2}{}
-\subsection{Caso d'uso UC18.1.2: Scrittura domanda in QML della nuova domanda}
+\hypertarget{UC17.1.2}{}
+\subsection{Caso d'uso UC17.1.2: Scrittura domanda in QML della nuova domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC18.1.2:} Scrittura domanda in QML della nuova domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura domanda in QML della nuova domanda}
 			\umlassoc{Docente}{114}
-			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=142]{\textbf{UC18.1.3:} Errore QML non valido}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=142]{\textbf{UC17.1.3:} Errore QML non valido}
 			\umlextend[name=ext-142-114]{142}{114}
 			\umlnote[x=23, y=-2.25, fill=white, width=4cm, geometry=|-|, arm=-1.75cm]{ext-142-114-1}{Il QML non è valido}
-			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=162]{\textbf{UC18.1.5:} Scrittura nuova domanda da interfaccia grafica}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=162]{\textbf{UC17.1.5:} Scrittura nuova domanda da interfaccia grafica}
 			\umlinherit{162}{114}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.1.2}: Scrittura domanda in QML della nuova domanda}
-	\label{UC18.1.2}
+	\caption{\textbf{UC17.1.2}: Scrittura domanda in QML della nuova domanda}
+	\label{UC17.1.2}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1358,13 +1367,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC18.1.3}{UC18.1.3});
+		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC17.1.3}{UC17.1.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata scritta in linguaggio QML.
 \end{description}
-\hypertarget{UC18.1.3}{}
-\subsection{Caso d'uso UC18.1.3: Errore QML non valido}\begin{description}
+\hypertarget{UC17.1.3}{}
+\subsection{Caso d'uso UC17.1.3: Errore QML non valido}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente di uno o più errori nel codice QML inserito
 	\item[Precondizione:] Il QML non è valido;
@@ -1376,8 +1385,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Non viene inserita la domanda.
 \end{description}
-\hypertarget{UC18.1.4}{}
-\subsection{Caso d'uso UC18.1.4: Errore argomento mancante}\begin{description}
+\hypertarget{UC17.1.4}{}
+\subsection{Caso d'uso UC17.1.4: Errore argomento mancante}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente che deve essere inserito almeno un argomento
 	\item[Precondizione:] Non è stato selezionato almeno un argomento;
@@ -1389,8 +1398,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Non viene inserita la domanda.
 \end{description}
-\hypertarget{UC18.1.5}{}
-\subsection{Caso d'uso UC18.1.5: Scrittura nuova domanda da interfaccia grafica}\begin{description}
+\hypertarget{UC17.1.5}{}
+\subsection{Caso d'uso UC17.1.5: Scrittura nuova domanda da interfaccia grafica}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente compone la domanda attraverso un interfaccia grafica
 	\item[Precondizione:] Il docente sta creando una nuova domanda;
@@ -1402,23 +1411,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata composta attraverso l'interfaccia grafica.
 \end{description}
-\hypertarget{UC18.2}{}
-\subsection{Caso d'uso UC18.2: Modifica domanda}
+\hypertarget{UC17.2}{}
+\subsection{Caso d'uso UC17.2: Modifica domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.75, fill=white, width=4cm, name=165]{\textbf{UC18.2.3:} Modifica domanda da interfaccia grafica}
+			\umlusecase[x=5, y=-4.75, fill=white, width=4cm, name=165]{\textbf{UC17.2.3:} Modifica domanda da interfaccia grafica}
 			\umlassoc{Docente}{165}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=164]{\textbf{UC18.2.2:} Scrittura domanda in QML della domanda da modificare}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=164]{\textbf{UC17.2.2:} Scrittura domanda in QML della domanda da modificare}
 			\umlassoc{Docente}{164}
-			\umlusecase[x=5, y=4.75, fill=white, width=4cm, name=163]{\textbf{UC18.2.1:} Selezione argomenti modifica domanda}
+			\umlusecase[x=5, y=4.75, fill=white, width=4cm, name=163]{\textbf{UC17.2.1:} Selezione argomenti modifica domanda}
 			\umlassoc{Docente}{163}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.2}: Modifica domanda}
-	\label{UC18.2}
+	\caption{\textbf{UC17.2}: Modifica domanda}
+	\label{UC17.2}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1427,33 +1436,33 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca della domanda da modificare (\hyperlink{UC26}{UC26});
+		\item Ricerca della domanda da modificare (\hyperlink{UC25}{UC25});
 		\item Selezione della domanda da modificare;
-		\item Il docente seleziona gli argomenti della domanda	 (\hyperlink{UC18.2.1}{UC18.2.1});
-		\item Il docente modifica la domanda in QML	 (\hyperlink{UC18.2.2}{UC18.2.2});
-		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC18.2.3}{UC18.2.3});
+		\item Il docente seleziona gli argomenti della domanda	 (\hyperlink{UC17.2.1}{UC17.2.1});
+		\item Il docente modifica la domanda in QML	 (\hyperlink{UC17.2.2}{UC17.2.2});
+		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC17.2.3}{UC17.2.3});
 		\item Conferma delle modifiche;
 		
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata modificata.
 \end{description}
-\hypertarget{UC18.2.1}{}
-\subsection{Caso d'uso UC18.2.1: Selezione argomenti modifica domanda}
+\hypertarget{UC17.2.1}{}
+\subsection{Caso d'uso UC17.2.1: Selezione argomenti modifica domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=163]{\textbf{UC18.2.1:} Selezione argomenti modifica domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=163]{\textbf{UC17.2.1:} Selezione argomenti modifica domanda}
 			\umlassoc{Docente}{163}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=215]{\textbf{UC18.2.5:} Errore argomento mancante}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=215]{\textbf{UC17.2.5:} Errore argomento mancante}
 			\umlextend[name=ext-215-163]{215}{163}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-215-163-1}{Non è stato selezionato alcun argomento
 			}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.2.1}: Selezione argomenti modifica domanda}
-	\label{UC18.2.1}
+	\caption{\textbf{UC17.2.1}: Selezione argomenti modifica domanda}
+	\label{UC17.2.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1468,30 +1477,30 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se la domanda non ha alcun argomento associato viene visualizzato un messaggio di errore	 (\hyperlink{UC18.2.5}{UC18.2.5});
+		\item Se la domanda non ha alcun argomento associato viene visualizzato un messaggio di errore	 (\hyperlink{UC17.2.5}{UC17.2.5});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha definito gli argomenti per classificare la domanda.
 \end{description}
-\hypertarget{UC18.2.2}{}
-\subsection{Caso d'uso UC18.2.2: Scrittura domanda in QML della domanda da modificare}
+\hypertarget{UC17.2.2}{}
+\subsection{Caso d'uso UC17.2.2: Scrittura domanda in QML della domanda da modificare}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=164]{\textbf{UC18.2.2:} Scrittura domanda in QML della domanda da modificare}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=164]{\textbf{UC17.2.2:} Scrittura domanda in QML della domanda da modificare}
 			\umlassoc{Docente}{164}
-			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=213]{\textbf{UC18.2.4:} Errore modifica QML non valido}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=213]{\textbf{UC17.2.4:} Errore modifica QML non valido}
 			\umlextend[name=ext-213-164]{213}{164}
 			\umlnote[x=23, y=-2.25, fill=white, width=4cm, geometry=|-|, arm=-1.75cm]{ext-213-164-1}{Il QML non è valido
 			}
-			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=165]{\textbf{UC18.2.3:} Modifica domanda da interfaccia grafica}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=165]{\textbf{UC17.2.3:} Modifica domanda da interfaccia grafica}
 			\umlinherit{165}{164}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.2.2}: Scrittura domanda in QML della domanda da modificare}
-	\label{UC18.2.2}
+	\caption{\textbf{UC17.2.2}: Scrittura domanda in QML della domanda da modificare}
+	\label{UC17.2.2}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1505,13 +1514,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC18.2.4}{UC18.2.4});
+		\item Se il codice QML inserito non è valido viene visualizzato un messaggio di errore (\hyperlink{UC17.2.4}{UC17.2.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata scritta in linguaggio QML.
 \end{description}
-\hypertarget{UC18.2.3}{}
-\subsection{Caso d'uso UC18.2.3: Modifica domanda da interfaccia grafica}\begin{description}
+\hypertarget{UC17.2.3}{}
+\subsection{Caso d'uso UC17.2.3: Modifica domanda da interfaccia grafica}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente modifica la domanda attraverso un interfaccia grafica
 	
@@ -1525,8 +1534,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata modificata attraverso l'interfaccia grafica.
 \end{description}
-\hypertarget{UC18.2.4}{}
-\subsection{Caso d'uso UC18.2.4: Errore modifica QML non valido}\begin{description}
+\hypertarget{UC17.2.4}{}
+\subsection{Caso d'uso UC17.2.4: Errore modifica QML non valido}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente di uno o più errori nel codice QML inserito
 	
@@ -1541,8 +1550,8 @@
 	\item[Postcondizione:] Non viene modificata la domanda
 	.
 \end{description}
-\hypertarget{UC18.2.5}{}
-\subsection{Caso d'uso UC18.2.5: Errore argomento mancante}\begin{description}
+\hypertarget{UC17.2.5}{}
+\subsection{Caso d'uso UC17.2.5: Errore argomento mancante}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente che deve essere inserito almeno un argomento
 	
@@ -1557,22 +1566,22 @@
 	\item[Postcondizione:] Non viene modificata la domanda
 	.
 \end{description}
-\hypertarget{UC18.3}{}
-\subsection{Caso d'uso UC18.3: Elimina domanda}
+\hypertarget{UC17.3}{}
+\subsection{Caso d'uso UC17.3: Elimina domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=50]{\textbf{UC18.3:} Elimina domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=50]{\textbf{UC17.3:} Elimina domanda}
 			\umlassoc{Docente}{50}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=206]{\textbf{UC18.11:} Errore eliminazione domanda utilizzata}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=206]{\textbf{UC17.11:} Errore eliminazione domanda utilizzata}
 			\umlextend[name=ext-206-50]{206}{50}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2.25cm]{ext-206-50-1}{Il docente tenta di eliminare una domanda utilizzata da almeno un questionario}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC18.3}: Elimina domanda}
-	\label{UC18.3}
+	\caption{\textbf{UC17.3}: Elimina domanda}
+	\label{UC17.3}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1581,110 +1590,110 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca della domanda da eliminare (\hyperlink{UC26}{UC26});
+		\item Ricerca della domanda da eliminare (\hyperlink{UC25}{UC25});
 		\item Selezione della domanda da eliminare;
 		\item Conferma per l'eliminazione della domanda	;
 		
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il docente tenta di eliminare una domanda utilizzata da almeno un questionario viene mostrato un messaggio di errore (\hyperlink{UC18.11}{UC18.11});
+		\item Se il docente tenta di eliminare una domanda utilizzata da almeno un questionario viene mostrato un messaggio di errore (\hyperlink{UC17.11}{UC17.11});
 		
 	\end{enumerate}
 	\item[Postcondizione:] La domanda è stata eliminata.
 \end{description}
-\hypertarget{UC18.4}{}
-\subsection{Caso d'uso UC18.4: Inserimento domanda di tipo vero/falso}\begin{description}
+\hypertarget{UC17.4}{}
+\subsection{Caso d'uso UC17.4: Inserimento domanda di tipo vero/falso}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda di tipo vero/falso
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda vero/falso in QML specificando la risposta esatta (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda vero/falso in QML specificando la risposta esatta (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una nuova domanda di tipo vero/falso.
 \end{description}
-\hypertarget{UC18.5}{}
-\subsection{Caso d'uso UC18.5: Inserimento domanda a scelta multipla}\begin{description}
+\hypertarget{UC17.5}{}
+\subsection{Caso d'uso UC17.5: Inserimento domanda a scelta multipla}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda a scelta multipla
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda a scelta multipla in QML specificando testo della domanda, risposte possibili e risposta corretta (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda a scelta multipla in QML specificando testo della domanda, risposte possibili e risposta corretta (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una nuova domanda a scelta multipla.
 \end{description}
-\hypertarget{UC18.6}{}
-\subsection{Caso d'uso UC18.6: Inserimento domanda a risposta multipla}\begin{description}
+\hypertarget{UC17.6}{}
+\subsection{Caso d'uso UC17.6: Inserimento domanda a risposta multipla}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda a risposta multipla
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda a risposta multipla in QML specificando il testo della domanda, risposte possibili e risposta/e esatte (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda a risposta multipla in QML specificando il testo della domanda, risposte possibili e risposta/e esatte (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una nuova domanda a risposta multipla.
 \end{description}
-\hypertarget{UC18.7}{}
-\subsection{Caso d'uso UC18.7: Inserimento domanda di tipo testo con parole omesse}\begin{description}
+\hypertarget{UC17.7}{}
+\subsection{Caso d'uso UC17.7: Inserimento domanda di tipo testo con parole omesse}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda di tipo testo con parole omesse
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone il testo della domanda in QML specificando quali parole possano essere scelte e dove vadano messe  (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone il testo della domanda in QML specificando quali parole possano essere scelte e dove vadano messe  (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata creata una domanda di tipo testo con parole omesse.
 \end{description}
-\hypertarget{UC18.8}{}
-\subsection{Caso d'uso UC18.8: Inserimento domanda con l'associazione di parole}\begin{description}
+\hypertarget{UC17.8}{}
+\subsection{Caso d'uso UC17.8: Inserimento domanda con l'associazione di parole}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda con associazione di parole
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda in QML specificando le parole che possono essere combinate e le giuste combinazioni (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda in QML specificando le parole che possono essere combinate e le giuste combinazioni (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Stata inserita una domanda con associazione di parole.
 \end{description}
-\hypertarget{UC18.9}{}
-\subsection{Caso d'uso UC18.9: Inserimento domanda a risposta aperta}\begin{description}
+\hypertarget{UC17.9}{}
+\subsection{Caso d'uso UC17.9: Inserimento domanda a risposta aperta}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda a risposta aperta
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC18.1.1}{UC18.1.1});
-		\item Il docente compone la domanda in QML specificando il testo della domanda (ma non la risposta) (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti della domanda (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda in QML specificando il testo della domanda (ma non la risposta) (\hyperlink{UC17.1.2}{UC17.1.2});
 		\item Il docente conferma la creazione della domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata inserita una domanda a risposta aperta.
 \end{description}
-\hypertarget{UC18.10}{}
-\subsection{Caso d'uso UC18.10: Visualizza domanda}\begin{description}
+\hypertarget{UC17.10}{}
+\subsection{Caso d'uso UC17.10: Visualizza domanda}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza una domanda
 	\item[Precondizione:] Il docente è autenticato nel sistema
@@ -1692,14 +1701,14 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca della domanda da visualizzare (\hyperlink{UC26}{UC26});
+		\item Ricerca della domanda da visualizzare (\hyperlink{UC25}{UC25});
 		\item Selezione della domanda da visualizzare;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente visualizza una domanda.
 \end{description}
-\hypertarget{UC18.11}{}
-\subsection{Caso d'uso UC18.11: Errore eliminazione domanda utilizzata}\begin{description}
+\hypertarget{UC17.11}{}
+\subsection{Caso d'uso UC17.11: Errore eliminazione domanda utilizzata}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Viene mostrato un errore nel caso in cui il docente tenti di eliminare una domanda utilizzata da almeno un questionario
 	\item[Precondizione:] Il docente tenta di eliminare una domanda utilizzata da almeno un questionario;
@@ -1711,23 +1720,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Non viene eliminata la domanda e viene mostrato un messaggio di errore.
 \end{description}
-\hypertarget{UC19}{}
-\subsection{Caso d'uso UC19: Gestione questionari}
+\hypertarget{UC18}{}
+\subsection{Caso d'uso UC18: Gestione questionari}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=48]{\textbf{UC19.3:} Elimina questionario}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=48]{\textbf{UC18.3:} Elimina questionario}
 			\umlassoc{Docente}{48}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=47]{\textbf{UC19.2:} Modifica questionario}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=47]{\textbf{UC18.2:} Modifica questionario}
 			\umlassoc{Docente}{47}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=42]{\textbf{UC19.1:} Inserisci questionario}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=42]{\textbf{UC18.1:} Inserisci questionario}
 			\umlassoc{Docente}{42}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC19}: Gestione questionari}
-	\label{UC19}
+	\caption{\textbf{UC18}: Gestione questionari}
+	\label{UC18}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1736,30 +1745,30 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente può creare un nuovo questionario (\hyperlink{UC19.1}{UC19.1});
-		\item Il docente può modificare un questionario (\hyperlink{UC19.2}{UC19.2});
-		\item Il docente può eliminare un questionario (\hyperlink{UC19.3}{UC19.3});
+		\item Il docente può creare un nuovo questionario (\hyperlink{UC18.1}{UC18.1});
+		\item Il docente può modificare un questionario (\hyperlink{UC18.2}{UC18.2});
+		\item Il docente può eliminare un questionario (\hyperlink{UC18.3}{UC18.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire su un questionario.
 \end{description}
-\hypertarget{UC19.1}{}
-\subsection{Caso d'uso UC19.1: Inserisci questionario}
+\hypertarget{UC18.1}{}
+\subsection{Caso d'uso UC18.1: Inserisci questionario}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=118]{\textbf{UC19.1.3:} Seleziona argomenti del nuovo questionario}
+			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=118]{\textbf{UC18.1.3:} Seleziona argomenti del nuovo questionario}
 			\umlassoc{Docente}{118}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=93]{\textbf{UC19.1.2:} Elimina domanda da un nuovo questionario}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=93]{\textbf{UC18.1.2:} Elimina domanda da un nuovo questionario}
 			\umlassoc{Docente}{93}
-			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=91]{\textbf{UC19.1.1:} Aggiungi domanda in un nuovo questionario }
+			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=91]{\textbf{UC18.1.1:} Aggiungi domanda in un nuovo questionario }
 			\umlassoc{Docente}{91}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC19.1}: Inserisci questionario}
-	\label{UC19.1}
+	\caption{\textbf{UC18.1}: Inserisci questionario}
+	\label{UC18.1}
 \end{figure}
 
 \begin{figure}[H]
@@ -1767,15 +1776,15 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=42]{\textbf{UC19.1:} Inserisci questionario}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=42]{\textbf{UC18.1:} Inserisci questionario}
 			\umlassoc{Docente}{42}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=144]{\textbf{UC19.4:} Errore questionario vuoto}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=144]{\textbf{UC18.4:} Errore questionario vuoto}
 			\umlextend[name=ext-144-42]{144}{42}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-144-42-1}{Il questionario selezionato non ha domande}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC19.1}: Inserisci questionario}
-	\label{UC19.1}
+	\caption{\textbf{UC18.1}: Inserisci questionario}
+	\label{UC18.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1784,37 +1793,37 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente può aggiungere domande al questionario (\hyperlink{UC19.1.1}{UC19.1.1});
-		\item Il docente può togliere domande precedentemente aggiunte al questionario (\hyperlink{UC19.1.2}{UC19.1.2});
-		\item Il docente seleziona gli argomenti del questionario (\hyperlink{UC19.1.3}{UC19.1.3});
+		\item Il docente può aggiungere domande al questionario (\hyperlink{UC18.1.1}{UC18.1.1});
+		\item Il docente può togliere domande precedentemente aggiunte al questionario (\hyperlink{UC18.1.2}{UC18.1.2});
+		\item Il docente seleziona gli argomenti del questionario (\hyperlink{UC18.1.3}{UC18.1.3});
 		\item Il docente aggiunge il titolo del questionario;
 		\item Il docente conferma la creazione del questionario;
 		
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il questionario non ha domande viene visualizzato un messaggio d'errore (\hyperlink{UC19.4}{UC19.4});
+		\item Se il questionario non ha domande viene visualizzato un messaggio d'errore (\hyperlink{UC18.4}{UC18.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato creato un nuovo questionario.
 \end{description}
-\hypertarget{UC19.1.1}{}
-\subsection{Caso d'uso UC19.1.1: Aggiungi domanda in un nuovo questionario }\begin{description}
+\hypertarget{UC18.1.1}{}
+\subsection{Caso d'uso UC18.1.1: Aggiungi domanda in un nuovo questionario }\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente ricerca e seleziona una domanda da inserire in un nuovo questionario
 	\item[Precondizione:] Il docente sta creando un nuovo questionario;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Viene ricercata un domanda (\hyperlink{UC26}{UC26});
+		\item Viene ricercata un domanda (\hyperlink{UC25}{UC25});
 		\item Selezione della domanda;
 		\item Conferma inserimento domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata aggiunta una domanda al nuovo questionario.
 \end{description}
-\hypertarget{UC19.1.2}{}
-\subsection{Caso d'uso UC19.1.2: Elimina domanda da un nuovo questionario}\begin{description}
+\hypertarget{UC18.1.2}{}
+\subsection{Caso d'uso UC18.1.2: Elimina domanda da un nuovo questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente elimina una domanda da un nuovo questionario
 	\item[Precondizione:] Il docente sta creando un nuovo questionario e ha selezionato una domanda da eliminare;
@@ -1826,8 +1835,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] È stato eliminata la domanda dal nuovo questionario.
 \end{description}
-\hypertarget{UC19.1.3}{}
-\subsection{Caso d'uso UC19.1.3: Seleziona argomenti del nuovo questionario}\begin{description}
+\hypertarget{UC18.1.3}{}
+\subsection{Caso d'uso UC18.1.3: Seleziona argomenti del nuovo questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente seleziona gli argomenti relativi al nuovo questionario 
 	\item[Precondizione:] Il docente sta creando un nuovo questionario;
@@ -1840,23 +1849,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha selezionato gli argomenti del nuovo questionario.
 \end{description}
-\hypertarget{UC19.2}{}
-\subsection{Caso d'uso UC19.2: Modifica questionario}
+\hypertarget{UC18.2}{}
+\subsection{Caso d'uso UC18.2: Modifica questionario}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=168]{\textbf{UC19.2.3:} Selezione argomenti modifica questionario}
+			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=168]{\textbf{UC18.2.3:} Selezione argomenti modifica questionario}
 			\umlassoc{Docente}{168}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=167]{\textbf{UC19.2.2:} Elimina domanda da un questionario da  modificare}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=167]{\textbf{UC18.2.2:} Elimina domanda da un questionario da  modificare}
 			\umlassoc{Docente}{167}
-			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=166]{\textbf{UC19.2.1:} Aggiungi domanda in un questionario}
+			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=166]{\textbf{UC18.2.1:} Aggiungi domanda in un questionario}
 			\umlassoc{Docente}{166}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC19.2}: Modifica questionario}
-	\label{UC19.2}
+	\caption{\textbf{UC18.2}: Modifica questionario}
+	\label{UC18.2}
 \end{figure}
 
 \begin{figure}[H]
@@ -1864,15 +1873,15 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=47]{\textbf{UC19.2:} Modifica questionario}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=47]{\textbf{UC18.2:} Modifica questionario}
 			\umlassoc{Docente}{47}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=144]{\textbf{UC19.4:} Errore questionario vuoto}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=144]{\textbf{UC18.4:} Errore questionario vuoto}
 			\umlextend[name=ext-144-47]{144}{47}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-144-47-1}{Il questionario selezionato non ha domande}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC19.2}: Modifica questionario}
-	\label{UC19.2}
+	\caption{\textbf{UC18.2}: Modifica questionario}
+	\label{UC18.2}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -1881,38 +1890,38 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca del questionario da modificare (\hyperlink{UC9}{UC9});
+		\item Ricerca del questionario da modificare (\hyperlink{UC4}{UC4});
 		\item Selezione del questionario da modificare;
-		\item Il docente può aggiungere domande al questionario (\hyperlink{UC19.2.1}{UC19.2.1});
-		\item Il docente può togliere domande precedentemente aggiunte al questionario (\hyperlink{UC19.2.2}{UC19.2.2});
-		\item Il docente può modificare gli argomenti del questionario (\hyperlink{UC19.2.3}{UC19.2.3});
+		\item Il docente può aggiungere domande al questionario (\hyperlink{UC18.2.1}{UC18.2.1});
+		\item Il docente può togliere domande precedentemente aggiunte al questionario (\hyperlink{UC18.2.2}{UC18.2.2});
+		\item Il docente può modificare gli argomenti del questionario (\hyperlink{UC18.2.3}{UC18.2.3});
 		\item Il docente conferma la modifica del questionario;
 		
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il questionario non ha domande viene visualizzato un messaggio d'errore (\hyperlink{UC19.4}{UC19.4});
+		\item Se il questionario non ha domande viene visualizzato un messaggio d'errore (\hyperlink{UC18.4}{UC18.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato modificato il questionario.
 \end{description}
-\hypertarget{UC19.2.1}{}
-\subsection{Caso d'uso UC19.2.1: Aggiungi domanda in un questionario}\begin{description}
+\hypertarget{UC18.2.1}{}
+\subsection{Caso d'uso UC18.2.1: Aggiungi domanda in un questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente inserisce una domanda da un questionario da modificare
 	\item[Precondizione:] Il docente ha selezionato un questionario da modificare e una domanda da inserire;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Viene ricercata una domanda (\hyperlink{UC26}{UC26});
+		\item Viene ricercata una domanda (\hyperlink{UC25}{UC25});
 		\item Selezione della domanda	;
 		\item Conferma inserimento domanda;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata aggiunta una domanda al questionario.
 \end{description}
-\hypertarget{UC19.2.2}{}
-\subsection{Caso d'uso UC19.2.2: Elimina domanda da un questionario da  modificare}\begin{description}
+\hypertarget{UC18.2.2}{}
+\subsection{Caso d'uso UC18.2.2: Elimina domanda da un questionario da  modificare}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente elimina una domanda da un questionario da modificare
 	\item[Precondizione:] Il docente ha selezionato un questionario da modificare e una domanda da eliminare;
@@ -1924,8 +1933,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] È stato eliminata la domanda questionario da modificare.
 \end{description}
-\hypertarget{UC19.2.3}{}
-\subsection{Caso d'uso UC19.2.3: Selezione argomenti modifica questionario}\begin{description}
+\hypertarget{UC18.2.3}{}
+\subsection{Caso d'uso UC18.2.3: Selezione argomenti modifica questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente seleziona gli argomenti corrispondenti al questionario selezionato
 	\item[Precondizione:] Il docente sta modificando un questionario;
@@ -1938,23 +1947,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha definito gli argomenti per classificare il questionario.
 \end{description}
-\hypertarget{UC19.3}{}
-\subsection{Caso d'uso UC19.3: Elimina questionario}\begin{description}
+\hypertarget{UC18.3}{}
+\subsection{Caso d'uso UC18.3: Elimina questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente rimuove un questionario dal sistema
 	\item[Precondizione:] Il docente è autenticato nel sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca il questionario da eliminare (\hyperlink{UC9}{UC9});
+		\item Ricerca il questionario da eliminare (\hyperlink{UC4}{UC4});
 		\item Selezione del questionario da eliminare;
 		\item Il docente conferma l'eliminazione;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato eliminato il questionario.
 \end{description}
-\hypertarget{UC19.4}{}
-\subsection{Caso d'uso UC19.4: Errore questionario vuoto}\begin{description}
+\hypertarget{UC18.4}{}
+\subsection{Caso d'uso UC18.4: Errore questionario vuoto}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente che nel questionario deve essere presente almeno una domanda
 	\item[Precondizione:] Il questionario selezionato non ha domande;
@@ -1966,8 +1975,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il questionario non viene inserito nel sistema.
 \end{description}
-\hypertarget{UC19.5}{}
-\subsection{Caso d'uso UC19.5: Visualizza questionario}\begin{description}
+\hypertarget{UC18.5}{}
+\subsection{Caso d'uso UC18.5: Visualizza questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza un questionario
 	\item[Precondizione:] Il docente è autenticato nel sistema
@@ -1975,29 +1984,29 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Ricerca del questionario da visualizzare	 (\hyperlink{UC9}{UC9});
+		\item Ricerca del questionario da visualizzare	 (\hyperlink{UC4}{UC4});
 		\item Selezione del questionario da visualizzare	;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato un questionario.
 \end{description}
-\hypertarget{UC20}{}
-\subsection{Caso d'uso UC20: Gestione classi}
+\hypertarget{UC19}{}
+\subsection{Caso d'uso UC19: Gestione classi}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=49]{\textbf{UC20.3:} Elimina classe}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=49]{\textbf{UC19.3:} Elimina classe}
 			\umlassoc{Docente}{49}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=45]{\textbf{UC20.2:} Modifica classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=45]{\textbf{UC19.2:} Modifica classe}
 			\umlassoc{Docente}{45}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=44]{\textbf{UC20.1:} Inserisci classe}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=44]{\textbf{UC19.1:} Inserisci classe}
 			\umlassoc{Docente}{44}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC20}: Gestione classi}
-	\label{UC20}
+	\caption{\textbf{UC19}: Gestione classi}
+	\label{UC19}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2006,30 +2015,30 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente può creare una nuova classe (\hyperlink{UC20.1}{UC20.1});
-		\item Il docente può modificare una classe (\hyperlink{UC20.2}{UC20.2});
-		\item Il docente può eliminare una classe (\hyperlink{UC20.3}{UC20.3});
+		\item Il docente può creare una nuova classe (\hyperlink{UC19.1}{UC19.1});
+		\item Il docente può modificare una classe (\hyperlink{UC19.2}{UC19.2});
+		\item Il docente può eliminare una classe (\hyperlink{UC19.3}{UC19.3});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire sulla classe.
 \end{description}
-\hypertarget{UC20.1}{}
-\subsection{Caso d'uso UC20.1: Inserisci classe}
+\hypertarget{UC19.1}{}
+\subsection{Caso d'uso UC19.1: Inserisci classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=95]{\textbf{UC20.1.3:} Inserisci password classe}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=95]{\textbf{UC19.1.3:} Inserisci password classe}
 			\umlassoc{Docente}{95}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=94]{\textbf{UC20.1.2:} Inserisci argomenti classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=94]{\textbf{UC19.1.2:} Inserisci argomenti classe}
 			\umlassoc{Docente}{94}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=90]{\textbf{UC20.1.1:} Inserisci nome classe}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=90]{\textbf{UC19.1.1:} Inserisci nome classe}
 			\umlassoc{Docente}{90}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC20.1}: Inserisci classe}
-	\label{UC20.1}
+	\caption{\textbf{UC19.1}: Inserisci classe}
+	\label{UC19.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2038,30 +2047,30 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Viene inserito il nome della classe (\hyperlink{UC20.1.1}{UC20.1.1});
-		\item Vengono inseriti gli argomenti della classe (\hyperlink{UC20.1.2}{UC20.1.2});
-		\item Viene inserita la password della classe (\hyperlink{UC20.1.3}{UC20.1.3});
+		\item Viene inserito il nome della classe (\hyperlink{UC19.1.1}{UC19.1.1});
+		\item Vengono inseriti gli argomenti della classe (\hyperlink{UC19.1.2}{UC19.1.2});
+		\item Viene inserita la password della classe (\hyperlink{UC19.1.3}{UC19.1.3});
 		\item Viene confermato l'inserimento della classe;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato creata una nuova classe.
 \end{description}
-\hypertarget{UC20.1.1}{}
-\subsection{Caso d'uso UC20.1.1: Inserisci nome classe}
+\hypertarget{UC19.1.1}{}
+\subsection{Caso d'uso UC19.1.1: Inserisci nome classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=90]{\textbf{UC20.1.1:} Inserisci nome classe}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=90]{\textbf{UC19.1.1:} Inserisci nome classe}
 			\umlassoc{Docente}{90}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=92]{\textbf{UC20.4:} Errore nome classe già presente}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=92]{\textbf{UC19.4:} Errore nome classe già presente}
 			\umlextend[name=ext-92-90]{92}{90}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-92-90-1}{Il nome della classe è già presente nel sistema}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC20.1.1}: Inserisci nome classe}
-	\label{UC20.1.1}
+	\caption{\textbf{UC19.1.1}: Inserisci nome classe}
+	\label{UC19.1.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2075,13 +2084,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se il nome della classe è già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC20.4}{UC20.4});
+		\item Se il nome della classe è già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC19.4}{UC19.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha inserito il nome della classe.
 \end{description}
-\hypertarget{UC20.1.2}{}
-\subsection{Caso d'uso UC20.1.2: Inserisci argomenti classe}\begin{description}
+\hypertarget{UC19.1.2}{}
+\subsection{Caso d'uso UC19.1.2: Inserisci argomenti classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente specifica di quali argomenti tratta la classe selezionata
 	\item[Precondizione:] Il docente ha selezionato una classe;
@@ -2093,8 +2102,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha inserito gli argomenti della classe.
 \end{description}
-\hypertarget{UC20.1.3}{}
-\subsection{Caso d'uso UC20.1.3: Inserisci password classe}\begin{description}
+\hypertarget{UC19.1.3}{}
+\subsection{Caso d'uso UC19.1.3: Inserisci password classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente specifica la password che verrà fornita poi agli studenti in classe o per altre vie per poter accedere alla classe
 	\item[Precondizione:] Il docente ha selezionato una classe;
@@ -2106,8 +2115,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha inserito la password per accedere alla classe.
 \end{description}
-\hypertarget{UC20.2}{}
-\subsection{Caso d'uso UC20.2: Modifica classe}\begin{description}
+\hypertarget{UC19.2}{}
+\subsection{Caso d'uso UC19.2: Modifica classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente modifica degli attributi o dei dati legati alla classe scelta
 	\item[Precondizione:] Il docente è autenticato nel sistema, è presente nel sistema la classe da modificare;
@@ -2115,16 +2124,16 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Viene selezionata una delle proprie classi da modificare;
-		\item Può venire modificato il nome (\hyperlink{UC20.1.1}{UC20.1.1});
-		\item Possono venire modificati gli argomenti (\hyperlink{UC20.1.2}{UC20.1.2});
-		\item Può venire modificata la password (\hyperlink{UC20.1.3}{UC20.1.3});
+		\item Può venire modificato il nome (\hyperlink{UC19.1.1}{UC19.1.1});
+		\item Possono venire modificati gli argomenti (\hyperlink{UC19.1.2}{UC19.1.2});
+		\item Può venire modificata la password (\hyperlink{UC19.1.3}{UC19.1.3});
 		\item Viene confermata la modifica;
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stata modificata la classe.
 \end{description}
-\hypertarget{UC20.3}{}
-\subsection{Caso d'uso UC20.3: Elimina classe}\begin{description}
+\hypertarget{UC19.3}{}
+\subsection{Caso d'uso UC19.3: Elimina classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente rimuove dal sistema una classe da lui creata 
 	\item[Precondizione:] Il docente è autenticato nel sistema, è presente nel sistema la classe da eliminare;
@@ -2138,8 +2147,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] È stata eliminata la classe.
 \end{description}
-\hypertarget{UC20.4}{}
-\subsection{Caso d'uso UC20.4: Errore nome classe già presente}\begin{description}
+\hypertarget{UC19.4}{}
+\subsection{Caso d'uso UC19.4: Errore nome classe già presente}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Viene visualizzato un errore nel caso il nome della classe che si sta tentando di inserire esiste già
 	\item[Precondizione:] Il nome della classe è già presente nel sistema;
@@ -2151,23 +2160,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] La classe non viene inserita nel sistema.
 \end{description}
-\hypertarget{UC21}{}
-\subsection{Caso d'uso UC21: Gestione argomenti}
+\hypertarget{UC20}{}
+\subsection{Caso d'uso UC20: Gestione argomenti}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=146]{\textbf{UC21.4:} Eliminazione argomento}
+			\umlusecase[x=5, y=-4, fill=white, width=4cm, name=146]{\textbf{UC20.4:} Eliminazione argomento}
 			\umlassoc{Docente}{146}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=141]{\textbf{UC21.3:} Modifica argomento}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=141]{\textbf{UC20.3:} Modifica argomento}
 			\umlassoc{Docente}{141}
-			\umlusecase[x=5, y=4, fill=white, width=4cm, name=137]{\textbf{UC21.1:} Crea argomento}
+			\umlusecase[x=5, y=4, fill=white, width=4cm, name=137]{\textbf{UC20.1:} Crea argomento}
 			\umlassoc{Docente}{137}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC21}: Gestione argomenti}
-	\label{UC21}
+	\caption{\textbf{UC20}: Gestione argomenti}
+	\label{UC20}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2177,29 +2186,29 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente può esplorare gli argomenti;
-		\item Il docente può creare un argomento (\hyperlink{UC21.1}{UC21.1});
-		\item Il docente può modificare un argomento (\hyperlink{UC21.3}{UC21.3});
-		\item Il docente può eliminare un argomento (\hyperlink{UC21.4}{UC21.4});
+		\item Il docente può creare un argomento (\hyperlink{UC20.1}{UC20.1});
+		\item Il docente può modificare un argomento (\hyperlink{UC20.3}{UC20.3});
+		\item Il docente può eliminare un argomento (\hyperlink{UC20.4}{UC20.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha ottenuto le informazioni sulle operazioni che il docente desidera eseguire su un argomento.
 \end{description}
-\hypertarget{UC21.1}{}
-\subsection{Caso d'uso UC21.1: Crea argomento}
+\hypertarget{UC20.1}{}
+\subsection{Caso d'uso UC20.1: Crea argomento}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=137]{\textbf{UC21.1:} Crea argomento}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=137]{\textbf{UC20.1:} Crea argomento}
 			\umlassoc{Docente}{137}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=140]{\textbf{UC21.2:} Errore argomento già presente nel sistema}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=140]{\textbf{UC20.2:} Errore argomento già presente nel sistema}
 			\umlextend[name=ext-140-137]{140}{137}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-140-137-1}{L'argomento è già presente nel sistema}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC21.1}: Crea argomento}
-	\label{UC21.1}
+	\caption{\textbf{UC20.1}: Crea argomento}
+	\label{UC20.1}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2214,13 +2223,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se l'argomento è già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC21.2}{UC21.2});
+		\item Se l'argomento è già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC20.2}{UC20.2});
 		
 	\end{enumerate}
 	\item[Postcondizione:] L'argomento inserito è ora presente tra gli argomenti del sistema.
 \end{description}
-\hypertarget{UC21.2}{}
-\subsection{Caso d'uso UC21.2: Errore argomento già presente nel sistema}\begin{description}
+\hypertarget{UC20.2}{}
+\subsection{Caso d'uso UC20.2: Errore argomento già presente nel sistema}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente che non è possibile inserire un argomento già presente
 	\item[Precondizione:] L'argomento è già presente nel sistema;
@@ -2232,22 +2241,22 @@
 	\end{enumerate}
 	\item[Postcondizione:] L'argomento non viene inserito nel sistema.
 \end{description}
-\hypertarget{UC21.3}{}
-\subsection{Caso d'uso UC21.3: Modifica argomento}
+\hypertarget{UC20.3}{}
+\subsection{Caso d'uso UC20.3: Modifica argomento}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=141]{\textbf{UC21.3:} Modifica argomento}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=141]{\textbf{UC20.3:} Modifica argomento}
 			\umlassoc{Docente}{141}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=140]{\textbf{UC21.2:} Errore argomento già presente nel sistema}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=140]{\textbf{UC20.2:} Errore argomento già presente nel sistema}
 			\umlextend[name=ext-140-141]{140}{141}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-140-141-1}{L'argomento è già presente nel sistema}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC21.3}: Modifica argomento}
-	\label{UC21.3}
+	\caption{\textbf{UC20.3}: Modifica argomento}
+	\label{UC20.3}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2263,27 +2272,27 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se l'argomento già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC21.2}{UC21.2});
+		\item Se l'argomento già presente nel sistema viene visualizzato un messaggio di errore (\hyperlink{UC20.2}{UC20.2});
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato modificato un argomento.
 \end{description}
-\hypertarget{UC21.4}{}
-\subsection{Caso d'uso UC21.4: Eliminazione argomento}
+\hypertarget{UC20.4}{}
+\subsection{Caso d'uso UC20.4: Eliminazione argomento}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=146]{\textbf{UC21.4:} Eliminazione argomento}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=146]{\textbf{UC20.4:} Eliminazione argomento}
 			\umlassoc{Docente}{146}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=147]{\textbf{UC21.5:} Errore l'argomento ha domande o questionari}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=147]{\textbf{UC20.5:} Errore l'argomento ha domande o questionari}
 			\umlextend[name=ext-147-146]{147}{146}
 			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-147-146-1}{L'argomento ha domande o questionari al suo interno}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC21.4}: Eliminazione argomento}
-	\label{UC21.4}
+	\caption{\textbf{UC20.4}: Eliminazione argomento}
+	\label{UC20.4}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2298,13 +2307,13 @@
 	\end{enumerate}
 	\item[Estensioni:]
 	\begin{enumerate}
-		\item Se l'argomento ha domande o questionari viene visualizzato un messaggio d'errore (\hyperlink{UC21.5}{UC21.5});
+		\item Se l'argomento ha domande o questionari viene visualizzato un messaggio d'errore (\hyperlink{UC20.5}{UC20.5});
 		
 	\end{enumerate}
 	\item[Postcondizione:] È stato eliminato un argomento.
 \end{description}
-\hypertarget{UC21.5}{}
-\subsection{Caso d'uso UC21.5: Errore l'argomento ha domande o questionari}\begin{description}
+\hypertarget{UC20.5}{}
+\subsection{Caso d'uso UC20.5: Errore l'argomento ha domande o questionari}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il sistema avvisa il docente che non può essere eliminato un argomento di cui esistano ancora domande o questionari
 	\item[Precondizione:] L'argomento ha domande o questionari al suo interno;
@@ -2316,25 +2325,25 @@
 	\end{enumerate}
 	\item[Postcondizione:] L'argomento non viene eliminato.
 \end{description}
-\hypertarget{UC22}{}
-\subsection{Caso d'uso UC22: Visualizza statistiche}
+\hypertarget{UC21}{}
+\subsection{Caso d'uso UC21: Visualizza statistiche}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=10]{\textbf{UC22:} Visualizza statistiche}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=10]{\textbf{UC21:} Visualizza statistiche}
 			\umlassoc{Docente}{10}
-			\umlusecase[x=15, y=-4.25, fill=white, width=4cm, name=13]{\textbf{UC25:} Visualizza statistiche classe}
+			\umlusecase[x=15, y=-4.25, fill=white, width=4cm, name=13]{\textbf{UC24:} Visualizza statistiche classe}
 			\umlinherit{13}{10}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=12]{\textbf{UC24:} Visualizza statistiche questionario}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=12]{\textbf{UC23:} Visualizza statistiche questionario}
 			\umlinherit{12}{10}
-			\umlusecase[x=15, y=4.25, fill=white, width=4cm, name=11]{\textbf{UC23:} Visualizza statistiche domanda}
+			\umlusecase[x=15, y=4.25, fill=white, width=4cm, name=11]{\textbf{UC22:} Visualizza statistiche domanda}
 			\umlinherit{11}{10}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC22}: Visualizza statistiche}
-	\label{UC22}
+	\caption{\textbf{UC21}: Visualizza statistiche}
+	\label{UC21}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2348,53 +2357,53 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato le statistiche a cui era interessato.
 \end{description}
-\hypertarget{UC23}{}
-\subsection{Caso d'uso UC23: Visualizza statistiche domanda}\begin{description}
+\hypertarget{UC22}{}
+\subsection{Caso d'uso UC22: Visualizza statistiche domanda}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza il numero di risposte totali, risposte corrette, risposte errate e la percentuale di risposte corrette sul totale
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente ricerca una domanda (\hyperlink{UC26}{UC26});
+		\item Il docente ricerca una domanda (\hyperlink{UC25}{UC25});
 		\item Il docente seleziona la domanda interessata;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato le statistiche relative alla domanda a cui era interessato.
 \end{description}
-\hypertarget{UC24}{}
-\subsection{Caso d'uso UC24: Visualizza statistiche questionario}\begin{description}
+\hypertarget{UC23}{}
+\subsection{Caso d'uso UC23: Visualizza statistiche questionario}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza per ogni punteggio la percentuale degli studenti che ottenuto tale punteggio e la media del punteggio
 	\item[Precondizione:] Il docente è autenticato presso il sistema;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente ricerca un questionario (\hyperlink{UC9}{UC9});
+		\item Il docente ricerca un questionario (\hyperlink{UC4}{UC4});
 		\item Il docente seleziona il questionario interessato;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato le statistiche relative al questionario a cui era interessato.
 \end{description}
-\hypertarget{UC25}{}
-\subsection{Caso d'uso UC25: Visualizza statistiche classe}
+\hypertarget{UC24}{}
+\subsection{Caso d'uso UC24: Visualizza statistiche classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-6.75, fill=white, width=4cm, name=110]{\textbf{UC25.4:} Visualizza statistiche studente della classe}
+			\umlusecase[x=5, y=-6.75, fill=white, width=4cm, name=110]{\textbf{UC24.4:} Visualizza statistiche studente della classe}
 			\umlassoc{Docente}{110}
-			\umlusecase[x=5, y=-2.25, fill=white, width=4cm, name=109]{\textbf{UC25.3:} Visualizza sommario statistiche classe}
+			\umlusecase[x=5, y=-2.25, fill=white, width=4cm, name=109]{\textbf{UC24.3:} Visualizza sommario statistiche classe}
 			\umlassoc{Docente}{109}
-			\umlusecase[x=5, y=2.25, fill=white, width=4cm, name=108]{\textbf{UC25.2:} Visualizza risultati questionari della classe}
+			\umlusecase[x=5, y=2.25, fill=white, width=4cm, name=108]{\textbf{UC24.2:} Visualizza risultati questionari della classe}
 			\umlassoc{Docente}{108}
-			\umlusecase[x=5, y=6.75, fill=white, width=4cm, name=107]{\textbf{UC25.1:} Visualizza risultati domande della classe}
+			\umlusecase[x=5, y=6.75, fill=white, width=4cm, name=107]{\textbf{UC24.1:} Visualizza risultati domande della classe}
 			\umlassoc{Docente}{107}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC25}: Visualizza statistiche classe}
-	\label{UC25}
+	\caption{\textbf{UC24}: Visualizza statistiche classe}
+	\label{UC24}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2404,44 +2413,44 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente seleziona la classe di cui vuole visualizzare le statistiche;
-		\item Il docente può visualizzare i risultati delle sue domande della classe (\hyperlink{UC25.1}{UC25.1});
-		\item Il docente può visualizzare i risultati dei suoi questionari della classe (\hyperlink{UC25.2}{UC25.2});
-		\item Il docente può visualizzare un sommario delle statistiche della classe (\hyperlink{UC25.3}{UC25.3});
-		\item Il docente può visualizzare i risultati dei test di uno studente della classe (\hyperlink{UC25.4}{UC25.4});
+		\item Il docente può visualizzare i risultati delle sue domande della classe (\hyperlink{UC24.1}{UC24.1});
+		\item Il docente può visualizzare i risultati dei suoi questionari della classe (\hyperlink{UC24.2}{UC24.2});
+		\item Il docente può visualizzare un sommario delle statistiche della classe (\hyperlink{UC24.3}{UC24.3});
+		\item Il docente può visualizzare i risultati dei test di uno studente della classe (\hyperlink{UC24.4}{UC24.4});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato le statistiche relative ad una delle sue classi.
 \end{description}
-\hypertarget{UC25.1}{}
-\subsection{Caso d'uso UC25.1: Visualizza risultati domande della classe}\begin{description}
+\hypertarget{UC24.1}{}
+\subsection{Caso d'uso UC24.1: Visualizza risultati domande della classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza i risultati e le statistiche relative alle domande della classe selezionata
 	\item[Precondizione:] Il docente ha selezionato una classe;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente cerca una domanda tra quelle della classe (\hyperlink{UC26}{UC26});
+		\item Il docente cerca una domanda tra quelle della classe (\hyperlink{UC25}{UC25});
 		\item Il docente seleziona la domanda per visualizzarne i risultati e le statistiche;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato i risultati e le statistiche relative alle domande desiderate.
 \end{description}
-\hypertarget{UC25.2}{}
-\subsection{Caso d'uso UC25.2: Visualizza risultati questionari della classe}\begin{description}
+\hypertarget{UC24.2}{}
+\subsection{Caso d'uso UC24.2: Visualizza risultati questionari della classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza i risultati e le statistiche relative ai questionari della classe
 	\item[Precondizione:] Il docente ha selezionato una classe;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente cerca un questionario tra quelli della classe (\hyperlink{UC9}{UC9});
+		\item Il docente cerca un questionario tra quelli della classe (\hyperlink{UC4}{UC4});
 		\item Il docente seleziona il questionario per visualizzarne i risultati e le statistiche;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato i risultati e le statistiche relative ai questionari desiderate.
 \end{description}
-\hypertarget{UC25.3}{}
-\subsection{Caso d'uso UC25.3: Visualizza sommario statistiche classe}\begin{description}
+\hypertarget{UC24.3}{}
+\subsection{Caso d'uso UC24.3: Visualizza sommario statistiche classe}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza le statistiche generali relative alla classe selezionata
 	\item[Precondizione:] Il docente ha selezionato una classe;
@@ -2453,19 +2462,19 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato le statistiche generali relative alla classe selezionata.
 \end{description}
-\hypertarget{UC25.4}{}
-\subsection{Caso d'uso UC25.4: Visualizza statistiche studente della classe}
+\hypertarget{UC24.4}{}
+\subsection{Caso d'uso UC24.4: Visualizza statistiche studente della classe}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=111]{\textbf{UC25.4.1:} Visualizza risultati questionari dello studente}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=111]{\textbf{UC24.4.1:} Visualizza risultati questionari dello studente}
 			\umlassoc{Docente}{111}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC25.4}: Visualizza statistiche studente della classe}
-	\label{UC25.4}
+	\caption{\textbf{UC24.4}: Visualizza statistiche studente della classe}
+	\label{UC24.4}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2475,46 +2484,46 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente seleziona lo studente di cui vuole vedere i risultati e le statistiche;
-		\item Il docente visualizza i risultati e le statistiche di un questionario della classe eseguito dallo studente selezionato (\hyperlink{UC25.4.1}{UC25.4.1});
+		\item Il docente visualizza i risultati e le statistiche di un questionario della classe eseguito dallo studente selezionato (\hyperlink{UC24.4.1}{UC24.4.1});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato i risultati e le statistiche relative allo studente desiderate.
 \end{description}
-\hypertarget{UC25.4.1}{}
-\subsection{Caso d'uso UC25.4.1: Visualizza risultati questionari dello studente}\begin{description}
+\hypertarget{UC24.4.1}{}
+\subsection{Caso d'uso UC24.4.1: Visualizza risultati questionari dello studente}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente visualizza i risultati e le statistiche relative ai questionari dello studente selezionato
 	\item[Precondizione:] Il docente ha selezionato uno studente della classe;
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item Il docente cerca un questionario tra quelli dello studente nella classe (\hyperlink{UC9}{UC9});
+		\item Il docente cerca un questionario tra quelli dello studente nella classe (\hyperlink{UC4}{UC4});
 		\item Il docente seleziona il questionario per visualizzarne i risultati e le statistiche;
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il docente ha visualizzato i risultati e le statistiche relative ai questionari dello studente selezionato.
 \end{description}
-\hypertarget{UC26}{}
-\subsection{Caso d'uso UC26: Ricerca domanda}
+\hypertarget{UC25}{}
+\subsection{Caso d'uso UC25: Ricerca domanda}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=23]{\textbf{UC26:} Ricerca domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=23]{\textbf{UC25:} Ricerca domanda}
 			\umlassoc{Docente}{23}
-			\umlusecase[x=15, y=-6, fill=white, width=4cm, name=27]{\textbf{UC30:} Ricerca domanda per docente}
+			\umlusecase[x=15, y=-6, fill=white, width=4cm, name=27]{\textbf{UC29:} Ricerca domanda per docente}
 			\umlinherit{27}{23}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=26]{\textbf{UC29:} Ricerca domanda per difficoltà}
+			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=26]{\textbf{UC28:} Ricerca domanda per difficoltà}
 			\umlinherit{26}{23}
-			\umlusecase[x=15, y=2, fill=white, width=4cm, name=25]{\textbf{UC28:} Ricerca domanda per argomento}
+			\umlusecase[x=15, y=2, fill=white, width=4cm, name=25]{\textbf{UC27:} Ricerca domanda per argomento}
 			\umlinherit{25}{23}
-			\umlusecase[x=15, y=6, fill=white, width=4cm, name=24]{\textbf{UC27:} Ricerca domanda per keywords}
+			\umlusecase[x=15, y=6, fill=white, width=4cm, name=24]{\textbf{UC26:} Ricerca domanda per keywords}
 			\umlinherit{24}{23}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC26}: Ricerca domanda}
-	\label{UC26}
+	\caption{\textbf{UC25}: Ricerca domanda}
+	\label{UC25}
 \end{figure}
 \begin{description}
 	\item[Attori:] Docente;
@@ -2528,8 +2537,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle domande che soddisfano la ricerca.
 \end{description}
-\hypertarget{UC27}{}
-\subsection{Caso d'uso UC27: Ricerca domanda per keywords}\begin{description}
+\hypertarget{UC26}{}
+\subsection{Caso d'uso UC26: Ricerca domanda per keywords}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente  ricerca una domanda per keywords
 	
@@ -2543,8 +2552,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle domande che contengono nel titolo o nel corpo le parole chiave specificate.
 \end{description}
-\hypertarget{UC28}{}
-\subsection{Caso d'uso UC28: Ricerca domanda per argomento}\begin{description}
+\hypertarget{UC27}{}
+\subsection{Caso d'uso UC27: Ricerca domanda per argomento}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente ricerca una domanda per argomento
 	\item[Precondizione:] Il docente è autenticato presso il sistema
@@ -2557,8 +2566,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle domande che contengono gli argomenti selezionati.
 \end{description}
-\hypertarget{UC29}{}
-\subsection{Caso d'uso UC29: Ricerca domanda per difficoltà}\begin{description}
+\hypertarget{UC28}{}
+\subsection{Caso d'uso UC28: Ricerca domanda per difficoltà}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente ricerca una domanda per difficoltà
 	
@@ -2572,8 +2581,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle domande con la difficoltà selezionata.
 \end{description}
-\hypertarget{UC30}{}
-\subsection{Caso d'uso UC30: Ricerca domanda per docente}\begin{description}
+\hypertarget{UC29}{}
+\subsection{Caso d'uso UC29: Ricerca domanda per docente}\begin{description}
 	\item[Attori:] Docente;
 	\item[Scopo e descrizione:] Il docente ricerca una domanda per docente
 	\item[Precondizione:] Il docente è autenticato presso il sistema
@@ -2586,21 +2595,21 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista delle domande create dal docente selezionato.
 \end{description}
-\hypertarget{UC31}{}
-\subsection{Caso d'uso UC31: Azioni Amministratore}
+\hypertarget{UC30}{}
+\subsection{Caso d'uso UC30: Azioni Amministratore}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Amministratore}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-1.75, fill=white, width=4cm, name=35]{\textbf{UC31.2:} Rimozione utente}
+			\umlusecase[x=5, y=-1.75, fill=white, width=4cm, name=35]{\textbf{UC30.2:} Rimozione utente}
 			\umlassoc{Amministratore}{35}
-			\umlusecase[x=5, y=2, fill=white, width=4cm, name=34]{\textbf{UC31.1:} Cambia ruolo}
+			\umlusecase[x=5, y=2, fill=white, width=4cm, name=34]{\textbf{UC30.1:} Cambia ruolo}
 			\umlassoc{Amministratore}{34}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC31}: Azioni Amministratore}
-	\label{UC31}
+	\caption{\textbf{UC30}: Azioni Amministratore}
+	\label{UC30}
 \end{figure}
 \begin{description}
 	\item[Attori:] Amministratore;
@@ -2609,14 +2618,14 @@
 	
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
-		\item L'amministratore può impostare il ruolo di un utente con ruolo inferiore al proprio (\hyperlink{UC31.1}{UC31.1});
-		\item L'amministratore può rimuovere un utente con ruolo inferiore al proprio (\hyperlink{UC31.2}{UC31.2});
+		\item L'amministratore può impostare il ruolo di un utente con ruolo inferiore al proprio (\hyperlink{UC30.1}{UC30.1});
+		\item L'amministratore può rimuovere un utente con ruolo inferiore al proprio (\hyperlink{UC30.2}{UC30.2});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema ha ottenuto le informazioni sulle operazioni che l’amministratore desidera eseguire.
 \end{description}
-\hypertarget{UC31.1}{}
-\subsection{Caso d'uso UC31.1: Cambia ruolo}\begin{description}
+\hypertarget{UC30.1}{}
+\subsection{Caso d'uso UC30.1: Cambia ruolo}\begin{description}
 	\item[Attori:] Amministratore;
 	\item[Scopo e descrizione:] L'amministratore imposta il ruolo dello studente a docente o viceversa
 	\item[Precondizione:] L'utente selezionato è uno studente o docente;
@@ -2630,8 +2639,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il ruolo dell'utente è diventato quello selezionato.
 \end{description}
-\hypertarget{UC31.2}{}
-\subsection{Caso d'uso UC31.2: Rimozione utente}\begin{description}
+\hypertarget{UC30.2}{}
+\subsection{Caso d'uso UC30.2: Rimozione utente}\begin{description}
 	\item[Attori:] Amministratore;
 	\item[Scopo e descrizione:] L'amministratore rimuove un utente con ruolo inferiore al proprio
 	\item[Precondizione:] L'utente selezionato esiste nel sistema ed ha un ruolo inferiore al proprio;
@@ -2645,23 +2654,23 @@
 	\end{enumerate}
 	\item[Postcondizione:] L'utente selezionato è stato rimosso dal sistema.
 \end{description}
-\hypertarget{UC32}{}
-\subsection{Caso d'uso UC32: Ricerca utente}
+\hypertarget{UC31}{}
+\subsection{Caso d'uso UC31: Ricerca utente}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Amministratore}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=200]{\textbf{UC32:} Ricerca utente}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=200]{\textbf{UC31:} Ricerca utente}
 			\umlassoc{Amministratore}{200}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=203]{\textbf{UC34:} Ricerca utente per username}
+			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=203]{\textbf{UC33:} Ricerca utente per username}
 			\umlinherit{203}{200}
-			\umlusecase[x=15, y=2, fill=white, width=4cm, name=201]{\textbf{UC33:} Ricerca utente per nome completo}
+			\umlusecase[x=15, y=2, fill=white, width=4cm, name=201]{\textbf{UC32:} Ricerca utente per nome completo}
 			\umlinherit{201}{200}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC32}: Ricerca utente}
-	\label{UC32}
+	\caption{\textbf{UC31}: Ricerca utente}
+	\label{UC31}
 \end{figure}
 \begin{description}
 	\item[Attori:] Amministratore;
@@ -2675,21 +2684,21 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista degli utenti che soddisfano i criteri di ricerca.
 \end{description}
-\hypertarget{UC33}{}
-\subsection{Caso d'uso UC33: Ricerca utente per nome completo}
+\hypertarget{UC32}{}
+\subsection{Caso d'uso UC32: Ricerca utente per nome completo}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Amministratore}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=201]{\textbf{UC33:} Ricerca utente per nome completo}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=201]{\textbf{UC32:} Ricerca utente per nome completo}
 			\umlassoc{Amministratore}{201}
-			\umlusecase[x=15, y=0, fill=white, width=4cm, name=204]{\textbf{UC35:} Ricerca utente per ruolo}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=204]{\textbf{UC34:} Ricerca utente per ruolo}
 			\umlinherit{204}{201}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC33}: Ricerca utente per nome completo}
-	\label{UC33}
+	\caption{\textbf{UC32}: Ricerca utente per nome completo}
+	\label{UC32}
 \end{figure}
 \begin{description}
 	\item[Attori:] Amministratore;
@@ -2703,8 +2712,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista degli utenti il cui nome completo corrisponde al nome completo ricercato.
 \end{description}
-\hypertarget{UC34}{}
-\subsection{Caso d'uso UC34: Ricerca utente per username}\begin{description}
+\hypertarget{UC33}{}
+\subsection{Caso d'uso UC33: Ricerca utente per username}\begin{description}
 	\item[Attori:] Amministratore;
 	\item[Scopo e descrizione:] L'amministratore ricerca un utente per username
 	\item[Precondizione:] L'amministratore è autenticato presso il sistema;
@@ -2716,8 +2725,8 @@
 	\end{enumerate}
 	\item[Postcondizione:] Il sistema mostra la lista degli utenti il cui username corrisponde all'username ricercato.
 \end{description}
-\hypertarget{UC35}{}
-\subsection{Caso d'uso UC35: Ricerca utente per ruolo}\begin{description}
+\hypertarget{UC34}{}
+\subsection{Caso d'uso UC34: Ricerca utente per ruolo}\begin{description}
 	\item[Attori:] Amministratore;
 	\item[Scopo e descrizione:] L'amministratore ricerca un utente in base al ruolo 
 	
