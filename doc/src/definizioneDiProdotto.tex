@@ -62,6 +62,20 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		2.0.8 & \AVE & 2016-05-30 & Correzione del design pattern MVC a design pattern MVVM  \\*
+		\midrule
+		2.0.7 & \AVE & 2016-05-30 & Modifica del tipo dei campi dati dei Controller del Client da Object al tipo corretto \\*
+		\midrule
+		2.0.6 & \AVE & 2016-05-30 & Correzione refuso "provedde"  \\*
+		\midrule
+		2.0.5 & \AVE & 2016-05-30 & Approfondimenti descrizione classi Service del Server\\*
+		\midrule
+		2.0.4 & \TP & 2016-05-30 & Approfondimenti descrizione classi Service del Client \\*
+		\midrule
+		2.0.3 & \TP & 2016-05-30 & Modifica della visibilità dei campi dati pubblici, vengono resi privati \\*
+		\midrule
+		2.0.2 & \TP & 2016-05-30 & Aggiunta figura 6 \\*
+		\midrule
 		2.0.1 & \TP & 2016-05-27 & Aggiornato nell'API REST il fatto che la visualizzazione domande, questionari e argomenti è ora pubblico \\*
 		\midrule
 		2.0.0 & \AVE & 2016-05-14 & Approvazione \\*
@@ -395,16 +409,31 @@ Un \mgls{design pattern} descrive problemi che si presentano frequentemente nell
 
 \subsection{Design pattern architetturali}
 \subsubsection{MVC}
+\paragraph{Scopo} 
+Questo pattern è utilizzato per separare le responsabilità dell’applicazione a diversi componenti e permettere di fare una chiara divisione tra presentazione, struttura dei dati e operazioni su di essi;
+\paragraph{Utilizzo}
+Viene utilizzato nel livello \mgls{client} per separare i componenti a seconda delle loro responsabilità e secondo una connotazione semantica. Il formalismo che viene quindi assunto per dividere i \mgls{package} è proprio quello fornito dal pattern in questione e cioè: \mgls{model}, \mgls{view} e \mgls{controller}. Questi però non interagiscono tra di loro nella maniera canonica che il pattern offre, ma seguono lo stile proposto da MVVM descritto alla sezione \ref{mvvm}.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/mvcStarware.png}
+		\caption{Esempio dell'applicazione di MVC in Quizzipedia}
+	\end{figure}
+\end{center}
+
+\subsubsection{MVVM} \label{mvvm}
 \paragraph{Scopo}
-Questo pattern è utilizzato per separare le responsabilità dell'applicazione a diversi componenti e permettere di fare una chiara divisione presentazione, struttura dei dati e operazioni su di essi.
+Questo pattern è utilizzato per separare le responsabilità dell'applicazione a diversi componenti e permettere di fare una chiara divisione tra presentazione, struttura dei dati e operazioni su di essi.
 
 \paragraph{Utilizzo}
-Nel front-end viene utilizzato questo \mgls{design pattern} per dividere la presentazione dei dati dalla logica dell'applicazione e la logica di business. I vari componenti sono identificati nelle seguenti classi:
+
+Nel \mgls{front-end} viene utilizzato questo \mgls{design pattern} per dividere la presentazione e lo sviluppo dell'interfaccia grafica dell'applicazione dalla \textit{business logic}. I vari componenti sono identificati nelle seguenti classi:
 
 \begin{itemize}
-	\item il package \texttt{client::model} è la business logic che gestisce i dati;
-	\item il package \texttt{client::view} è la presentation logic che costruisce le pagine da visualizzare;
-	\item il package \texttt{client::controller} è l'application logic.
+	\item il \mgls{package} \texttt{client::model::data} è il modello dei dati;
+	\item il \mgls{package} \texttt{client::model::service} sono i servizi di \textit{business logic};
+	\item il \mgls{package} \texttt{client::view} è la \textit{presentation logic} che costruisce le pagine da visualizzare attraverso la proiezione del modello;
+	\item il \mgls{package} \texttt{client::controller} espone i metodi dell'\textit{application logic}.
 \end{itemize}
 
 \subsubsection{Middleware}
@@ -429,6 +458,13 @@ Viene utilizzato per rendere visibili solamente alcune componenti agli altri mod
 
 \paragraph{Utilizzo}
 Viene utilizzato all'interno della classe \texttt{server::middleware::Loader}, la quale utilizza Facade per nascondere l'esistenza di tutti i middleware all'esterno. In questo modo le richieste vengono delegate agli oggetti appropriati senza che la classe cliente conosca le classi del sottosistema. Sarà il Facade che si occuperà di trasferire la comunicazione all'oggetto appropriato.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[max width=\textwidth]{../img/facadeStarware.png}
+		\caption{Esempio dell' applicazione del pattern Facade in Quizzipedia}
+	\end{figure}
+\end{center}
 
 \subsection{Design Pattern comportamentali}
 \subsubsection{Chain of Responsibility}
@@ -786,15 +822,16 @@ Oltre a dividere l'applicazione in queste tre componenti, \mgls{mvc} si occupa a
 	\item un \mgls{model} quando cambia il suo stato interno notifica le \mgls{view} associate. Questo permette alle \mgls{view} di cambiare la loro presentazione;
 	\item una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\textwidth]{../img/mvcStarware.png}
-		\caption{Esempio dell'applicazione di MVC in Quizzipedia}
-	\end{figure}
-\end{center}
-
+\TODO{aggiungere immagine}
 Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
+
+\subsubsection{MVVM}
+\TODO{aggiungere immagine}
+Model View View-Model (MVVM) è una variante del pattern \mgls{mvc}. Questo pattern propone un ruolo più attivo della \mgls{view} rispetto a \mgls{mvc}: la \mgls{view} è in grado di gestire eventi, eseguire operazioni ed effettuare il data-binding. In questo contesto, quindi, alcune delle funzionalità del \mgls{controller} vengono inglobate nella \mgls{view}, la quale si
+appoggia su un’estensione del \mgls{model}: il ViewModel. Il ViewModel è quindi un \mgls{model} esteso con funzionalità per la manipolazione dei dati e per l’interazione con la \mgls{view};
+Questo pattern ha un impatto positivo nella progettazione di interfacce utente e viene implementato in modo semplice da \mgls{angularjs}.
+Il pattern MVVM è consigliato qualora si voglia separare interamente la progettazione dell’interfaccia grafica dalla \textit{business logic} dell’applicazione;
+
 
 \subsubsection{Middleware}
 Il Middleware è uno strato \mgls{software} che si interpone tra l'applicazione \mgls{software} e uno strato di servizi per semplificarne le comunicazioni e la gestione di input/output. Viene solitamente utilizzato in applicazioni distribuite e facilita l'interoperabilità, fornendo servizi che permettono la comunicazione tra applicazioni di sistemi operativi diversi. Può accedere che il Middleware fornisca dei servizi abitualmente attribuibili a un sistema operativo. I servizi Middleware forniscono un set di interfacce che permetto a un'applicazione di:
@@ -849,13 +886,6 @@ Questo pattern fornisce un'interfaccia unificata per un insieme di interfacce pr
 	\item nei casi in cui sono molte le dipendenze fra i \mgls{client} e le classi che implementano un'astrazione. Introducendo un Facade si disaccoppia il sottosistema dai \mgls{client} e dagli altri sottosistemi, promuovendo quindi la portabilità e l'indipendenza di sottosistemi;
 	\item quando si vogliono organizzare i sottosistemi in una struttura a livelli. Un Facade può essere utilizzato per definire un punto di ingresso ad ogni livello. Nel caso in cui i sottosistemi non siano indipendenti e le dipendenze esistenti possano essere semplificate facendo comunicare tra loro i sottosistemi soltanto attraverso i rispettivi oggetti Facade.
 \end{itemize}
-
-\begin{center}
-	\begin{figure}[H]
-		\centering \includegraphics[max width=\textwidth]{../img/facadeStarware.png}
-		\caption{Esempio dell' applicazione del pattern Facade in Quizzipedia}
-	\end{figure}
-\end{center}
 
 \subsection{Design Pattern Comportamentali}
 \subsubsection{Chain of Responsibility}

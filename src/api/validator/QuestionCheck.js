@@ -32,6 +32,7 @@ QuestionCheck.prototype.checkTags = function(tags){
 QuestionCheck.prototype.checkQML = function(qml){
     var qt = new QML();
     return qt.parse(qml).status;
+
 };
 
 module.exports = QuestionCheck;
