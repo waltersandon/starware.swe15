@@ -3,9 +3,8 @@ if (typeof angular === 'undefined') {
 }
 
 function MultiAnswerParser() {
-    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
-    this.checked = this.unescaped + /(?:\[\s*\*\s*\])([^\(](.+))/.source;
-    this.unchecked = this.unescaped + /(?:\[\s*\]([^\(](.+)))/.source;
+    this.checked = /^\s?(?:\[\s*\*\s*\])([^\(](.+))$/;
+    this.unchecked = /^\s?(?:\[\s*\]([^\(](.+)))$/;
 }
 
 MultiAnswerParser.prototype.parse = function(qml) {
@@ -18,7 +17,7 @@ MultiAnswerParser.prototype.parse = function(qml) {
     var regularLines = [];
     qml.split('\n').forEach((function(line) {
         var match = null;
-        if (match = line.match(new RegExp(this.checked))) {
+        if (match = line.match(this.checked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
             answerForm += 
@@ -32,7 +31,7 @@ MultiAnswerParser.prototype.parse = function(qml) {
             right = n;
             n++;
             rightAnswers++;
-        } else if (match = line.match(new RegExp(this.unchecked))) {
+        } else if (match = line.match(this.unchecked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
             answerForm += 
@@ -67,7 +66,6 @@ MultiAnswerParser.prototype.parse = function(qml) {
         return {
             status: true,
             type: 'MA',
-            body: txt,
             body: markdown.toHTML(regularLines.join('\n')),
             answerForm: answerForm,
             answers: choices,
@@ -78,9 +76,8 @@ MultiAnswerParser.prototype.parse = function(qml) {
 };
 
 function MultiChoiceParser() {
-    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
-    this.checked = this.unescaped + /(?:\(\s*\*\s*\))(.+)/.source;
-    this.unchecked = this.unescaped + /(?:\(\s*\)(.+))/.source;
+    this.checked = /^\s?(?:\(\s*\*\s*\))(.+)$/;
+    this.unchecked = /^\s?(?:\(\s*\)(.+))$/;
 }
 
 MultiChoiceParser.prototype.parse = function(qml) {
@@ -93,7 +90,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
     var regularLines = [];
     qml.split('\n').forEach((function(line) {
         var match = null;
-        if (match = line.match(new RegExp(this.checked))) {
+        if (match = line.match(this.checked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
             answerForm += 
@@ -107,7 +104,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
             right = n;
             n++;
             rightAnswers++;
-        } else if (match = line.match(new RegExp(this.unchecked))) {
+        } else if (match = line.match(this.unchecked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
             answerForm += 
@@ -156,20 +153,19 @@ MultiChoiceParser.prototype.parse = function(qml) {
     }
 };
 
-function TrueFalseParser() {
-    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
-    this.true = this.unescaped + /(?:\(\s*\+\s*\))/.source;
-    this.false = this.unescaped + /(?:\(\s*\-\s*\))/.source;
+function TrueFalseParser(unescaped) {
+    this.true = /^\s?(?:\(\s*\+\s*\))$/;
+    this.false = /^\s?(?:\(\s*\-\s*\))$/;
 }
 
 TrueFalseParser.prototype.parse = function(qml) {
-    var parsedLines = qml.split('\n').map(function(line) {
-        if (line.match(this.true) || this.match(this.false)) {
+    var parsedLines = qml.split('\n').map((function(line) {
+        if (line.match(this.true) || line.match(this.false)) {
             return { answer: (line.match(this.true)) ? true : false };
         } else {
             return line;
         }
-    });
+    }).bind(this));
 
     var body = parsedLines.filter(function(line) {
         return (typeof line === 'string');
@@ -218,22 +214,24 @@ function QML() {
 }
 
 QML.prototype.parse = function(qml) {
-    console.log("Fuck");
     var result = null;
     this.parsers.forEach((function(parser) {
         var currentResult = parser.parse(qml);
-        if (currentResult && result) {
-            result = {
-                status: false,
-                message: '<strong>Errore! </strong> sono stati rilevati più tipi di domanda differenti'
-            };
-        } else {
-            result = currentResult;
+        if (currentResult) {
+            if (result) {
+                result = {
+                    status: false,
+                    message: '<strong>Errore! </strong> sono stati rilevati più tipi di domanda differenti'
+                };
+            } else {
+                result = currentResult;
+            }
         }
     }).bind(this));
 
     if (!result) {
-        result = {
+
+        return {
             status: false,
             message: '<strong>Errore! </strong> non è stata rilevata alcuna domanda'
         };
