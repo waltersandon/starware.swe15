@@ -15,7 +15,7 @@
                 <div ng-switch on='logged' class="">
                     <ul  ng-switch-when='true' class='nav navbar-nav navbar-right'>
                         <li><a href='' ng-click="changePath('user/user')" id="profile"><span class="glyphicon glyphicon-cog"
-                                                                                aria-hidden="true"></span></a></li>
+                                                                                             aria-hidden="true"></span></a></li>
                         <li><a href='' ng-click='logout()'><span class="glyphicon glyphicon-off"
                                                                  aria-hidden="true"></span></a>
                         </li>
@@ -61,104 +61,117 @@
                 </div>
             </div>
             <div class='col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3 main'>
-                <div ng-switch on='urlPath()[1]'>
-                    <div ng-switch-when='login' >
-                        <div ng-switch on='logged'>
-                            <div ng-switch-when='true'>
+                <div ng-switch on='logged'>
+                    <div ng-switch-when='true'>
+                        <div ng-switch on='urlPath()[1]'>
+                            <div ng-switch-when='user'>
+                                <div ng-switch on='urlPath()[2]'>
+                                    <div ng-switch-when='user'>
+                                        <div ng-include="'html/user/User.html'"></div>
+                                    </div>
+                                    <div ng-switch-default>
+                                        <div ng-include="'html/user/Welcome.html'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when='student'>
+                                <div ng-switch on='urlPath()[2]'>
+                                    <div ng-switch-when='questionnaires'>
+                                        <div ng-include="'html/student/Questionnaires.html'"></div>
+                                    </div>
+                                    <div ng-switch-when='tags'>
+                                        <div ng-include="'html/student/Tags.html'"></div>
+                                    </div>
+                                    <div ng-switch-when='questionnaire'>
+                                        <div ng-include="'html/student/ExecuteQuestionnaire.html'"></div>
+                                    </div>
+                                    <div ng-switch-default>
+                                        <div ng-include="'html/user/Welcome.html'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when='teacher'>
+                                <div ng-switch on='urlPath()[2]'>
+                                    <div ng-switch-when='questions'>
+                                        <div ng-switch on='urlPath()[3]'>
+                                            <div ng-switch-when='new'>
+                                                <div ng-include="'html/teacher/ManipulateQuestion.html'"></div>
+                                            </div>
+                                            <div ng-switch-when='modify'>
+                                                <div ng-include="'html/teacher/ManipulateQuestion.html'"></div>
+                                            </div>
+                                            <div ng-switch-default>
+                                                <div ng-include="'html/teacher/ManageQuestions.html'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-switch-when='questionnaires'>
+                                        <div ng-switch on='urlPath()[3]'>
+                                            <div ng-switch-when='new'>
+                                                <div ng-include="'html/teacher/ManipulateQuestionnaire.html'"></div>
+                                            </div>
+                                            <div ng-switch-when='modify'>
+                                                <div ng-include="'html/teacher/ManipulateQuestionnaire.html'"></div>
+                                            </div>
+                                            <div ng-switch-default>
+                                                <div ng-include="'html/teacher/ManageQuestionnaires.html'"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-switch-when='tags'>
+                                        <div ng-include="'html/teacher/ManageTags.html'"></div>
+                                    </div>
+                                    <div ng-switch-when='guide'>
+                                        <div ng-include="'html/teacher/Guide.html'"></div>
+                                    </div>
+                                    <div ng-switch-default>
+                                        <div ng-include="'html/user/Welcome.html'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-when='admin'>
+                                <div ng-switch on='urlPath()[2]'>
+                                    <div ng-switch-when='userlist'>
+                                        <div ng-include="'html/admin/UsersList.html'"></div>
+                                    </div>
+                                    <div ng-switch-default>
+                                        <div ng-include="'html/user/Welcome.html'"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-switch-default>
                                 <div ng-include="'html/user/Welcome.html'"></div>
                             </div>
-                            <div ng-switch-when='false'>
+                        </div>
+                    </div>
+                    <div ng-switch-when='false'>
+                        <div ng-switch on='urlPath()[1]'>
+                            <div ng-switch-when='login' >
                                 <div ng-include="'html/public/LogIn.html'"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div ng-switch-when='signup'>
-                        <div ng-switch on='logged'>
-                            <div ng-switch-when='true'>
-                                <div ng-include="'html/user/Welcome.html'"></div>
-                            </div>
-                            <div ng-switch-when='false'>
+                            <div ng-switch-when='signup'>
                                 <div ng-include="'html/public/SignUp.html'"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div ng-switch-when='user'>
-                        <div ng-switch on='urlPath()[2]'>
-                            <div ng-switch-when='user'>
-                                <div ng-include="'html/user/User.html'"></div>
-                            </div>
-                            <div ng-switch-default>
-                                <div ng-include="'html/user/Welcome.html'"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-switch-when='student'>
-                        <div ng-switch on='urlPath()[2]'>
-                            <div ng-switch-when='questionnaires'>
-                                <div ng-include="'html/student/Questionnaires.html'"></div>
-                            </div>
-                            <div ng-switch-when='tags'>
-                                <div ng-include="'html/student/Tags.html'"></div>
-                            </div>
-                            <div ng-switch-when='questionnaire'>
-                                <div ng-include="'html/student/ExecuteQuestionnaire.html'"></div>
-                            </div>
-                            <div ng-switch-default>
-                                <div ng-include="'html/user/Welcome.html'"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-switch-when='teacher'>
-                        <div ng-switch on='urlPath()[2]'>
-                            <div ng-switch-when='questions'>
-                                <div ng-switch on='urlPath()[3]'>
-                                    <div ng-switch-when='new'>
-                                        <div ng-include="'html/teacher/ManipulateQuestion.html'"></div>
+                            <div ng-switch-when='student'>
+                                <div ng-switch on='urlPath()[2]'>
+                                    <div ng-switch-when='questionnaires'>
+                                        <div ng-include="'html/student/Questionnaires.html'"></div>
                                     </div>
-                                    <div ng-switch-when='modify'>
-                                        <div ng-include="'html/teacher/ManipulateQuestion.html'"></div>
+                                    <div ng-switch-when='tags'>
+                                        <div ng-include="'html/student/Tags.html'"></div>
+                                    </div>
+                                    <div ng-switch-when='questionnaire'>
+                                        <div ng-include="'html/student/ExecuteQuestionnaire.html'"></div>
                                     </div>
                                     <div ng-switch-default>
-                                        <div ng-include="'html/teacher/ManageQuestions.html'"></div>
+                                        <div ng-include="'html/user/Welcome.html'"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div ng-switch-when='questionnaires'>
-                                <div ng-switch on='urlPath()[3]'>
-                                    <div ng-switch-when='new'>
-                                        <div ng-include="'html/teacher/ManipulateQuestionnaire.html'"></div>
-                                    </div>
-                                    <div ng-switch-when='modify'>
-                                        <div ng-include="'html/teacher/ManipulateQuestionnaire.html'"></div>
-                                    </div>
-                                    <div ng-switch-default>
-                                        <div ng-include="'html/teacher/ManageQuestionnaires.html'"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-switch-when='tags'>
-                                <div ng-include="'html/teacher/ManageTags.html'"></div>
-                            </div>
-                            <div ng-switch-when='guide'>
-                                <div ng-include="'html/teacher/Guide.html'"></div>
-                            </div>
                             <div ng-switch-default>
                                 <div ng-include="'html/user/Welcome.html'"></div>
                             </div>
                         </div>
-                    </div>
-                    <div ng-switch-when='admin'>
-                        <div ng-switch on='urlPath()[2]'>
-                            <div ng-switch-when='userlist'>
-                                <div ng-include="'html/admin/UsersList.html'"></div>
-                            </div>
-                            <div ng-switch-default>
-                                <div ng-include="'html/user/Welcome.html'"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div ng-switch-default>
-                        <div ng-include="'html/user/Welcome.html'"></div>
                     </div>
                 </div>
             </div>

@@ -226,6 +226,66 @@ var QML = function () {
         }
     }
 
+    function completeText(plainText) {
+        plainText = plainText.substr(plainText.indexOf('\n') + 1);
+        exp = extractExplanation(plainText);
+        plainText = exp.plainText;
+        exp = exp.explanation;
+
+        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = [], ans = [], right = [], choice = [], c = 0; //conta i completamenti
+        for (var i = 0; i < a.length; i++) {
+
+            if ((/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) || /^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) && !ansFlag) {
+                ansFlag = true;
+                choice.push([]);
+                ans.push('');
+                txt.push('');
+                ans[c] += '<div class=\'form-group\'>\
+                            <select class=\'form-control\'>';
+                n = 0; //conta le risposte possibili
+            }
+
+            if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i])) {
+                wrongAnswers++;
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
+                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
+                choice[c].push({value: n, str: r.substr(3, r.length - 7)});
+                n++;
+            } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) {
+                rightAnswers++;
+                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
+                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
+                right.push(n);
+                choice[c].push({value: n, str: r.substr(3, r.length - 7)});
+                n++;
+            } else if (ansFlag) {
+                ansFlag = false;
+                ans += '</select></div>';
+                c++;
+                txt.push('');
+                txt[c] += markdown.toHTML(a[i]);
+            } else {
+                txt[c] += markdown.toHTML(a[i]);
+            }
+        }
+        
+        if (ansFlag) {
+            ans += '</select></div>';
+            txt.push('');
+        }
+
+        return {
+            status: true,
+            type: 'CT',
+            body: txt,
+            answers: choice,
+            answer: right,
+            explanation: exp,
+            preview: ans
+        };
+
+    }
+
     this.parse = function (plainText) {
         while (plainText.charAt(0) === ' ' || plainText.charAt(0) === '\n' || plainText.charAt(0) === '\t') {
             plainText = plainText.substr(1);
@@ -241,6 +301,8 @@ var QML = function () {
                     return multipleChoice(plainText);
                 case 'MA':
                     return multipleAnswers(plainText);
+                case 'CT':
+                    return completeText(plainText);
                 default:
                     return {
                         status: false,
