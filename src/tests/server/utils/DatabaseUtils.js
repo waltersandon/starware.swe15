@@ -85,18 +85,18 @@ function databaseSetup(onSetup) {
 
 	var question1 = new Question ({
 		author: user3._id, 
-		body: "<TF F>\nJavascript è un linguaggio compilato",
+		body: "Javascript è un linguaggio compilato\n(-)",
 		tags: [tag2._id,tag1._id]});
  	var question2 = new Question ({
  		author: user3._id, 
- 		body: "<TF T>\nOpen Close principle è uno dei principi SOLID?",
+ 		body: "Open Close principle è uno dei principi SOLID?\n(+)",
  		tags: [tag4._id]
  	});
 	var question3 = new Question ({
 		author: user3._id, 
-		body: "<TF T>\n####La seguente formula è corretta?####" +
+		body: "####La seguente formula è corretta?####" +
         "\n![equation](http://www.sciweavers.org/tex2img.php?eq=e%5E%7Bi%20%20%5Cvarphi%20%7D%20%3D%20sin%28%5Cvarphi%" +
-        "29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])",
+        "29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])\n(+)",
 		tags: [tag1._id]
 	});
 

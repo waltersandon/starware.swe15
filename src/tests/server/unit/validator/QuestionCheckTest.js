@@ -3,27 +3,24 @@ var testSubject = require('../../../../api/validator/QuestionCheck.js');
 describe('Testing di QuestionCheck', function() {
     var check = new testSubject();
     describe('check QML', function() {
-        it('deve bloccare QML TF senza risposta', function() {
-            expect(check.checkQML("<TF> domanda?")).to.equal(false);
-        });
         it('deve bloccare QML MC senza risposta giusta', function() {
-            expect(check.checkQML("<MC> domanda? \n[answers]\n()Opzione")).to.equal(false);
+            expect(check.checkQML("domanda?\n()Opzione")).to.equal(false);
         });
         it('deve bloccare QML MC senza risposte', function() {
-            expect(check.checkQML("<MC> domanda?")).to.equal(false);
+            expect(check.checkQML("domanda?")).to.equal(false);
         });
         it('deve bloccare QML MC con due risposte giuste', function() {
-            expect(check.checkQML("<MC> domanda?\n[answers]\n(*)OpzioneGiusta\n(*)OpzioneGiusta")).to.equal(false);
+            expect(check.checkQML("domanda?\n(*)OpzioneGiusta\n(*)OpzioneGiusta")).to.equal(false);
         });
-        it('deve accettare QML  come corpo della domanda', function() {
-            expect(check.checkQML("<TF T> Questo QML è giusto <TF>Roma è la capitale d’**Italia**? <TF t>?")).to.equal(true);
+        it('deve accettare QML come corpo della domanda', function() {
+            expect(check.checkQML("Questo QML è giusto [*] Roma è la capitale d’**Italia**?\n(+)")).to.equal(true);
         });
         it('deve accettare  QML per domanda vero/falso', function() {
-            expect(check.checkQML("<TF T>Roma è la capitale d’**Italia**?")).to.equal(true);
+            expect(check.checkQML("Roma è la capitale d’**Italia**?\n(+)")).to.equal(true);
 
         });
         it('deve accettare  QML per domanda a risposta multipla', function() {
-            expect(check.checkQML("<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione")).to.equal(true);
+            expect(check.checkQML("Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione")).to.equal(true);
         });
 
     });
