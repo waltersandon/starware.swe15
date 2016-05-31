@@ -40,7 +40,7 @@ var QML = function () {
             status: true,
             type: 'TF',
             body: markdown.toHTML(plainText),
-            answerForm: '<div class=\'form-group\'>\
+            preview: markdown.toHTML(plainText) + '<div class=\'form-group\'>\
                             <div>\
                                 <label>\
                                     <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
@@ -67,7 +67,7 @@ var QML = function () {
             status: true,
             type: 'TF',
             body: markdown.toHTML(plainText),
-            answerForm: '<div class=\'form-group\'>\
+            preview: markdown.toHTML(plainText) + '<div class=\'form-group\'>\
                             <div>\
                                 <label>\
                                     <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
@@ -104,7 +104,7 @@ var QML = function () {
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
                 ans += '<div>\
                             <label>\
-                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
+                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'>' + r.substr(3, r.length - 7) + '\
                             </label>\
                         </div>';
                 choice.push({value: n, str: r.substr(3, r.length - 7)});
@@ -114,7 +114,7 @@ var QML = function () {
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
                 ans += '<div>\
                             <label>\
-                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
+                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'>' + r.substr(3, r.length - 7) + '\
                             </label>\
                         </div>';
                 right = n;
@@ -150,7 +150,7 @@ var QML = function () {
                 status: true,
                 type: 'MC',
                 body: txt,
-                answerForm: ans + '</div>',
+                preview: txt + ans + '</div>',
                 answers: choice,
                 answer: right,
                 explanation: exp
@@ -177,7 +177,7 @@ var QML = function () {
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
                 ans += '<div>\
                             <label>\
-                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
+                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '\
                             </label>\
                         </div>';
                 choice.push({value: n, str: r.substr(3, r.length - 7)});
@@ -187,7 +187,7 @@ var QML = function () {
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
                 ans += '<div>\
                             <label>\
-                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
+                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '\
                             </label>\
                         </div>';
                 right.push(n);
@@ -218,7 +218,7 @@ var QML = function () {
                 status: true,
                 type: 'MA',
                 body: txt,
-                answerForm: ans + '</div>',
+                preview: txt + ans + '</div>',
                 answers: choice,
                 answer: right,
                 explanation: exp
@@ -232,45 +232,44 @@ var QML = function () {
         plainText = exp.plainText;
         exp = exp.explanation;
 
-        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = [], ans = [], right = [], choice = [], c = 0; //conta i completamenti
+        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = [''], preview = '', right = [], choice = [], c = 0; //conta i completamenti
         for (var i = 0; i < a.length; i++) {
 
             if ((/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) || /^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) && !ansFlag) {
                 ansFlag = true;
                 choice.push([]);
-                ans.push('');
                 txt.push('');
-                ans[c] += '<div class=\'form-group\'>\
-                            <select class=\'form-control\'>';
+                preview += '<select class=\'form-control\' style=\'display: block;\' >';
                 n = 0; //conta le risposte possibili
             }
 
             if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i])) {
                 wrongAnswers++;
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
+                preview += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '</option>';
                 choice[c].push({value: n, str: r.substr(3, r.length - 7)});
                 n++;
             } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) {
                 rightAnswers++;
                 var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
+                preview += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '</option>';
                 right.push(n);
                 choice[c].push({value: n, str: r.substr(3, r.length - 7)});
                 n++;
             } else if (ansFlag) {
                 ansFlag = false;
-                ans += '</select></div>';
+                preview += '</select>';
                 c++;
-                txt.push('');
                 txt[c] += markdown.toHTML(a[i]);
+                preview += txt[c];
             } else {
                 txt[c] += markdown.toHTML(a[i]);
+                preview += txt[c];
             }
         }
         
         if (ansFlag) {
-            ans += '</select></div>';
+            preview += '</select>';
             txt.push('');
         }
 
@@ -278,10 +277,10 @@ var QML = function () {
             status: true,
             type: 'CT',
             body: txt,
+            preview: preview,
             answers: choice,
             answer: right,
-            explanation: exp,
-            preview: ans
+            explanation: exp
         };
 
     }
