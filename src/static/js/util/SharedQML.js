@@ -1,321 +1,245 @@
-
 if (typeof angular === 'undefined') {
     var markdown = require('./markdown/lib/index').markdown;
 }
 
-var QML = function () {
-    this.preview = function (plainText) {
-        var b = plainText.split('\n'), f = '';
-        b.forEach(function (item) {
-            if (!item.startsWith('<') && f.trim() === '') {
-                f = markdown.toHTML(item);
-            }
-        });
-        return f.substr(3, f.length - 7);
-    };
+function MultiAnswerParser() {
+    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
+    this.checked = this.unescaped + /(?:\[\s*\*\s*\])([^\(](.+))/.source;
+    this.unchecked = this.unescaped + /(?:\[\s*\]([^\(](.+)))/.source;
+}
 
-    function extractExplanation(plainText) {
-        var expFlag = false, a = plainText.split('\n'), exp = '', newPlainText = '';
-        for (var i = 0; i < a.length; i++) {
-            if (a[i] === '[explanation]' && !expFlag) {
-                expFlag = true;
-            } else if (expFlag) {
-                exp += markdown.toHTML(a[i]);
-            } else {
-                newPlainText += a[i] + '\n';
-            }
-        }
-        return {
-            explanation: exp,
-            plainText: newPlainText
-        };
-    }
-
-    function trueFalseT(plainText) {
-        plainText = plainText.substr(plainText.indexOf('\n') + 1);
-        exp = extractExplanation(plainText);
-        plainText = exp.plainText;
-        exp = exp.explanation;
-        return {
-            status: true,
-            type: 'TF',
-            body: markdown.toHTML(plainText),
-            answerForm: '<div class=\'form-group\'>\
-                            <div>\
-                                <label>\
-                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
-                                </label>\
-                            </div>\
-                            <div>\
-                                <label>\
-                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\'> Falso\
-                                </label>\
-                            </div>\
-                        </div>',
-            answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
-            answer: true,
-            explanation: exp
-        };
-    }
-
-    function trueFalseF(plainText) {
-        plainText = plainText.substr(plainText.indexOf('\n') + 1);
-        exp = extractExplanation(plainText);
-        plainText = exp.plainText;
-        exp = exp.explanation;
-        return {
-            status: true,
-            type: 'TF',
-            body: markdown.toHTML(plainText),
-            answerForm: '<div class=\'form-group\'>\
-                            <div>\
-                                <label>\
-                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
-                                </label>\
-                            </div>\
-                            <div>\
-                                <label>\
-                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\'> Falso\
-                                </label>\
-                            </div>\
-                        </div>',
-            answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
-            answer: false,
-            explanation: exp
-        };
-    }
-
-    function multipleChoice(plainText) {
-        plainText = plainText.substr(plainText.indexOf('\n') + 1);
-        exp = extractExplanation(plainText);
-        plainText = exp.plainText;
-        exp = exp.explanation;
-
-        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right, choice = [], n = 0; //conta le risposte possibili
-        for (var i = 0; i < a.length; i++) {
-
-            if (/^(\t|\s)*\[answers\](\t|\s)*$/.test(a[i]) && !ansFlag) {
-                ansFlag = true;
-                ans += '<div class=\'form-group\'>';
-            }
-
-            if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) && ansFlag) {
-                wrongAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans += '<div>\
-                            <label>\
-                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
-                            </label>\
-                        </div>';
-                choice.push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i]) && ansFlag) {
-                rightAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans += '<div>\
-                            <label>\
-                                <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\' onchange=\'foo(' + n + ')\'>' + r.substr(3, r.length - 3) + '\
-                            </label>\
-                        </div>';
-                right = n;
-                choice.push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (!ansFlag) {
-                txt += markdown.toHTML(a[i]);
-            }
-        }
-
-        if (!ansFlag) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiente il flag <i>[answers]</i> oppure è posizionato in maniera errata'
-            };
-        } else if (rightAnswers > 1) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda contiene più di una risposta giusta'
-            };
-        } else if (rightAnswers < 1) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
-            };
-        } else if (wrongAnswers === 0) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
-            };
+MultiAnswerParser.prototype.parse = function(qml) {
+    var n = 0;
+    var right = null;
+    var rightAnswers = 0;
+    var wrongAnswers = 0;
+    var answerForm = '<div class=\'form-group\'>';
+    var choices = [];
+    var regularLines = [];
+    qml.split('\n').forEach((function(line) {
+        var match = null;
+        if (match = line.match(new RegExp(this.checked))) {
+            var statement = match[1].trim();
+            var statementHTML = markdown.toHTML(statement);
+            answerForm += 
+                '<div>\
+                    <label>\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + 
+                            n + '\'\>' + statementHTML + '\
+                    </label>\
+                </div>';
+            choices.push({value: n, str: statement });
+            right = n;
+            n++;
+            rightAnswers++;
+        } else if (match = line.match(new RegExp(this.unchecked))) {
+            var statement = match[1].trim();
+            var statementHTML = markdown.toHTML(statement);
+            answerForm += 
+                '<div>\
+                    <label>\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + 
+                            n + '\'\>' + statementHTML + '\
+                    </label>\
+                </div>';
+            choices.push({value: n, str: statement });
+            n++;
+            wrongAnswers++;
         } else {
-            return {
-                status: true,
-                type: 'MC',
-                body: txt,
-                answerForm: ans + '</div>',
-                answers: choice,
-                answer: right,
-                explanation: exp
-            };
+            regularLines.push(line);
         }
-    }
+    }).bind(this));
+    answerForm += '</div>';
 
-    function multipleAnswers(plainText) {
-        plainText = plainText.substr(plainText.indexOf('\n') + 1);
-        exp = extractExplanation(plainText);
-        plainText = exp.plainText;
-        exp = exp.explanation;
-
-        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = '', ans = '', right = [], choice = [], n = 0; //conta le risposte possibili
-        for (var i = 0; i < a.length; i++) {
-
-            if (/^(\t|\s)*\[answers\](\t|\s)*$/.test(a[i]) && !ansFlag) {
-                ansFlag = true;
-                ans += '<div class=\'form-group\'>';
-            }
-
-            if (/^(\t|\s)*\[(\t|\s)*\]/.test(a[i]) && ansFlag) {
-                wrongAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
-                ans += '<div>\
-                            <label>\
-                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
-                            </label>\
-                        </div>';
-                choice.push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (/^(\t|\s)*\[(\t|\s)*\*(\t|\s)*\]/.test(a[i]) && ansFlag) {
-                rightAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(']') + 1));
-                ans += '<div>\
-                            <label>\
-                                <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '\
-                            </label>\
-                        </div>';
-                right.push(n);
-                choice.push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (!ansFlag) {
-                txt += markdown.toHTML(a[i]);
-            }
-        }
-
-        if (!ansFlag) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiente il flag <i>[answers]</i> oppure è posizionato in maniera errata'
-            };
-        } else if (rightAnswers < 1) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
-            };
-        } else if (wrongAnswers === 0) {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
-            };
-        } else {
-            return {
-                status: true,
-                type: 'MA',
-                body: txt,
-                answerForm: ans + '</div>',
-                answers: choice,
-                answer: right,
-                explanation: exp
-            };
-        }
-    }
-
-    function completeText(plainText) {
-        plainText = plainText.substr(plainText.indexOf('\n') + 1);
-        exp = extractExplanation(plainText);
-        plainText = exp.plainText;
-        exp = exp.explanation;
-
-        var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = [], ans = [], right = [], choice = [], c = 0; //conta i completamenti
-        for (var i = 0; i < a.length; i++) {
-
-            if ((/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) || /^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) && !ansFlag) {
-                ansFlag = true;
-                choice.push([]);
-                ans.push('');
-                txt.push('');
-                ans[c] += '<div class=\'form-group\'>\
-                            <select class=\'form-control\'>';
-                n = 0; //conta le risposte possibili
-            }
-
-            if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i])) {
-                wrongAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
-                choice[c].push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) {
-                rightAnswers++;
-                var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-                ans[c] += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 3) + '</option>';
-                right.push(n);
-                choice[c].push({value: n, str: r.substr(3, r.length - 7)});
-                n++;
-            } else if (ansFlag) {
-                ansFlag = false;
-                ans += '</select></div>';
-                c++;
-                txt.push('');
-                txt[c] += markdown.toHTML(a[i]);
-            } else {
-                txt[c] += markdown.toHTML(a[i]);
-            }
-        }
-        
-        if (ansFlag) {
-            ans += '</select></div>';
-            txt.push('');
-        }
-
+    if (n == 0) {
+        return null;
+    } else if (rightAnswers < 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
+        };
+    } else if (wrongAnswers === 0) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
+        };
+    } else {
         return {
             status: true,
-            type: 'CT',
+            type: 'MA',
             body: txt,
-            answers: choice,
-            answer: right,
-            explanation: exp,
-            preview: ans
+            body: markdown.toHTML(regularLines.join('\n')),
+            answerForm: answerForm,
+            answers: choices,
+            answer: right
+            // @todo: explanation: exp
         };
-
     }
+};
 
-    this.parse = function (plainText) {
-        while (plainText.charAt(0) === ' ' || plainText.charAt(0) === '\n' || plainText.charAt(0) === '\t') {
-            plainText = plainText.substr(1);
-        }
+function MultiChoiceParser() {
+    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
+    this.checked = this.unescaped + /(?:\(\s*\*\s*\))(.+)/.source;
+    this.unchecked = this.unescaped + /(?:\(\s*\)(.+))/.source;
+}
 
-        if (plainText.charAt(0) === '<') {
-            switch (plainText.substr(1, plainText.indexOf('>') - 1)) {
-                case 'TF T':
-                    return trueFalseT(plainText);
-                case 'TF F':
-                    return trueFalseF(plainText);
-                case 'MC':
-                    return multipleChoice(plainText);
-                case 'MA':
-                    return multipleAnswers(plainText);
-                case 'CT':
-                    return completeText(plainText);
-                default:
-                    return {
-                        status: false,
-                        message: '<strong>Errore! </strong> tipo domanda non corretto'
-                    };
-            }
+MultiChoiceParser.prototype.parse = function(qml) {
+    var n = 0;
+    var right = null;
+    var rightAnswers = 0;
+    var wrongAnswers = 0;
+    var answerForm = '<div class=\'form-group\'>';
+    var choices = [];
+    var regularLines = [];
+    qml.split('\n').forEach((function(line) {
+        var match = null;
+        if (match = line.match(new RegExp(this.checked))) {
+            var statement = match[1].trim();
+            var statementHTML = markdown.toHTML(statement);
+            answerForm += 
+                '<div>\
+                    <label>\
+                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + 
+                            n + '\' onchange=\'foo(' + n + ')\'>' + statementHTML + '\
+                    </label>\
+                </div>';
+            choices.push({value: n, str: statement });
+            right = n;
+            n++;
+            rightAnswers++;
+        } else if (match = line.match(new RegExp(this.unchecked))) {
+            var statement = match[1].trim();
+            var statementHTML = markdown.toHTML(statement);
+            answerForm += 
+                '<div>\
+                    <label>\
+                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + 
+                            n + '\' onchange=\'foo(' + n + ')\'>' + statementHTML + '\
+                    </label>\
+                </div>';
+            choices.push({value: n, str: statement });
+            n++;
+            wrongAnswers++;
         } else {
-            return {
-                status: false,
-                message: '<strong>Errore! </strong> tipo domanda non specificato'
-            };
+            regularLines.push(line);
         }
-    };
+    }).bind(this));
+    answerForm += '</div>';
+
+    if (n == 0) {
+        return null;
+    } else if (rightAnswers > 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> la domanda contiene più di una risposta giusta'
+        };
+    } else if (rightAnswers < 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> la domanda non contiene la risposta giusta'
+        };
+    } else if (wrongAnswers === 0) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
+        };
+    } else {
+        return {
+            status: true,
+            type: 'MC',
+            body: markdown.toHTML(regularLines.join('\n')),
+            answerForm: answerForm,
+            answers: choices,
+            answer: right
+            // @todo: explanation: exp
+        };
+    }
+};
+
+function TrueFalseParser() {
+    this.unescaped = /(?:^|[^\\])(?:\\\\)*/.source; /* common */
+    this.true = this.unescaped + /(?:\(\s*\+\s*\))/.source;
+    this.false = this.unescaped + /(?:\(\s*\-\s*\))/.source;
+}
+
+TrueFalseParser.prototype.parse = function(qml) {
+    var parsedLines = qml.split('\n').map(function(line) {
+        if (line.match(this.true) || this.match(this.false)) {
+            return { answer: (line.match(this.true)) ? true : false };
+        } else {
+            return line;
+        }
+    });
+
+    var body = parsedLines.filter(function(line) {
+        return (typeof line === 'string');
+    }).join('\n');
+    var tfs = parsedLines.filter(function(line) {
+        return !(typeof line === 'string');
+    });
+
+    if (tfs.length > 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> ci può essere al massimo una vero/falso per domanda'
+        };
+    } else if (tfs.length == 0) {
+        return null;
+    } else {
+        return {
+            status: true,
+            type: 'TF',
+            body: markdown.toHTML(body),
+            answerForm: '<div class=\'form-group\'>\
+                            <div>\
+                                <label>\
+                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
+                                </label>\
+                            </div>\
+                            <div>\
+                                <label>\
+                                    <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'false\'> Falso\
+                                </label>\
+                            </div>\
+                        </div>',
+            answers: [{value: true, str: 'Vero'}, {value: false, str: 'Falso'}],
+            answer: tfs[0].answer
+            // @todo: explanation: exp
+        };
+    }
+};
+
+function QML() {
+    this.parsers = [
+        new MultiChoiceParser(),
+        new MultiAnswerParser(),
+        new TrueFalseParser()
+    ];
+}
+
+QML.prototype.parse = function(qml) {
+    console.log("Fuck");
+    var result = null;
+    this.parsers.forEach((function(parser) {
+        var currentResult = parser.parse(qml);
+        if (currentResult && result) {
+            result = {
+                status: false,
+                message: '<strong>Errore! </strong> sono stati rilevati più tipi di domanda differenti'
+            };
+        } else {
+            result = currentResult;
+        }
+    }).bind(this));
+
+    if (!result) {
+        result = {
+            status: false,
+            message: '<strong>Errore! </strong> non è stata rilevata alcuna domanda'
+        };
+    } else {
+        return result;
+    }
 };
 
 if (typeof angular === 'undefined') {
