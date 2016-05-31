@@ -62,6 +62,8 @@
 		\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		2.0.9 & \WS & 2016-05-31 & Inserimento immagini design pattern MVC a design pattern MVVM  \\*
+		\midrule
 		2.0.8 & \AVE & 2016-05-30 & Correzione del design pattern MVC a design pattern MVVM  \\*
 		\midrule
 		2.0.7 & \AVE & 2016-05-30 & Modifica del tipo dei campi dati dei Controller del Client da Object al tipo corretto \\*
@@ -822,11 +824,21 @@ Oltre a dividere l'applicazione in queste tre componenti, \mgls{mvc} si occupa a
 	\item un \mgls{model} quando cambia il suo stato interno notifica le \mgls{view} associate. Questo permette alle \mgls{view} di cambiare la loro presentazione;
 	\item una \mgls{view} riceve aggiornamenti dal \mgls{model} per cambiare il suo stato e notifica al \mgls{controller} i comandi dell'utente.
 \end{itemize}
-\TODO{aggiungere immagine}
+\begin{figure}[H]	
+	\centering
+	\includegraphics[width=1.0\linewidth]{../img/MVC.png}
+	\caption{Disign pattern MVC push model}
+	\label{Disign pattern MVC push model}
+\end{figure}
 Sebbene inizialmente sviluppata per applicazioni \mgls{desktop}, \mgls{mvc} è stato usato moltissimo come architettura per le Web application in tutti i principali linguaggi di programmazione. Moltissimi \mgls{framework} commerciali e non sono stati progettati utilizzando questo \mgls{design pattern}.
 
 \subsubsection{MVVM}
-\TODO{aggiungere immagine}
+	\begin{figure}[H]	
+		\centering
+		\includegraphics[width=1.0\linewidth]{../img/MVVM.png}
+		\caption{Disign pattern MVVM}
+		\label{Disign pattern MVVM}
+	\end{figure}
 Model View View-Model (MVVM) è una variante del pattern \mgls{mvc}. Questo pattern propone un ruolo più attivo della \mgls{view} rispetto a \mgls{mvc}: la \mgls{view} è in grado di gestire eventi, eseguire operazioni ed effettuare il data-binding. In questo contesto, quindi, alcune delle funzionalità del \mgls{controller} vengono inglobate nella \mgls{view}, la quale si
 appoggia su un’estensione del \mgls{model}: il ViewModel. Il ViewModel è quindi un \mgls{model} esteso con funzionalità per la manipolazione dei dati e per l’interazione con la \mgls{view};
 Questo pattern ha un impatto positivo nella progettazione di interfacce utente e viene implementato in modo semplice da \mgls{angularjs}.
