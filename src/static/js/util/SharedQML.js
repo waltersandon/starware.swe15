@@ -282,7 +282,6 @@ var QML = function () {
             answer: right,
             explanation: exp
         };
-
     }
 
     this.parse = function (plainText) {

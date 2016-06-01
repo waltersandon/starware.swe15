@@ -5,9 +5,9 @@
             <span ng-bind-html="currentQuestion.explanation"></span>
         </div>
     </div>
-    <div ng-bind-html="preview"></div>
     <div ng-switch on="currentQuestion.type">
         <div ng-switch-when="TF">
+            <div ng-bind-html="preview"></div>
             <div class='form-group'>
                 <fieldset ng-disabled="!edit">
                     <div ng-repeat="ans in currentQuestion.answers">
@@ -20,6 +20,7 @@
             </div>
         </div>
         <div ng-switch-when="MC">
+            <div ng-bind-html="preview"></div>
             <div class='form-group'>
                 <fieldset ng-disabled="!edit">
                     <div ng-repeat="ans in currentQuestion.answers">
@@ -32,16 +33,29 @@
             </div>
         </div>
         <div ng-switch-when="MA">
+            <div ng-bind-html="preview"></div>
             <div class='form-group'>
                 <fieldset ng-disabled="!edit">
                     <div ng-repeat="ans in currentQuestion.answers track by $index">
                         <label>
-                            <input type='checkbox' name='Question' ng-model='ris.value[$index]'
+                            <input style="display:inline" type='checkbox' name='Question' ng-model='ris.value[$index]'
                                    ng-true-value="{{ans.value}}" ng-false-value="false"><span
                                 ng-bind-html="ans.str"></span>
                         </label>
                     </div>
                 </fieldset>
+            </div>
+        </div>
+        <div ng-switch-when="CT">
+            <div ng-bind-html="preview[0]"></div>
+            <div ng-repeat="ans in currentQuestion.answers track by $index">
+                <div class='form-group'>
+                    <select style="float: left" class="form-control" ng-options="a.value as a.str for a in ans"
+                            ng-model="ris.value[$index]" ng-change="changeAnswer()">
+                        <option value="">Seleziona un'opzione</option>
+                    </select>
+                    <div ng-bind-html="preview[$index + 1]"></div>
+                </div>
             </div>
         </div>
     </div>

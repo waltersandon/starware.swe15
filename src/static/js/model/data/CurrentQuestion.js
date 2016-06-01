@@ -54,6 +54,21 @@ $(function () {
                 }
                 return {point: tot, tot: 1};
             }
+            else if (this.type === 'CT') {
+                var tot = 0;
+                var point = 0 ;
+                var self = this;
+                this.selectedAnswer.forEach(function(ans,i){
+                    tot ++;
+                    if(ans == self.answer[i]){
+                        point++;
+                    }
+                });
+                if (point == tot){
+                    this.right = true;
+                }
+                return {point: point, tot : tot};
+            }
             return null;
         };
         return CurrentQuestion;
