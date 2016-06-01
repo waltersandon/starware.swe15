@@ -534,12 +534,20 @@
 	
 	\subsubsection{Numero di campi dati per classe}
 	Una classe con un numero elevato di campi dati suggerisce che si potrebbe espandere la gerarchia di classi, migliorando l'incapsulamento.
+	A causa delle tecnologie utilizzate e delle diverse modalità di progettazione, sono stati definite due diverse tipologie di range di accettazione.
 	
+	\paragraph{Range di accettazione per classi di tipo "service"}
+	Il seguente range di accettazione è specifico per classi di tipo "service" sia lato front-end che lato back-end. Tali classi sono viste come un raggruppamento di funzionalità. La mancanza di uno stato interno alla classe non viene pertanto visto come una forma di cattiva progettazione.
+	\begin{itemize}
+		\item \textbf{Range di Accettazione}: [0-8]
+		\item \textbf{Range Ottimale}: [0-4]
+	\end{itemize}
+	\paragraph{Range di accettazione generale}
+	Il seguente range di accettazione è adatto a tutte le classi che non appartengono alla categoria "servizi". Per questo tipo di classi una mancanza di uno stato interno è interpretabile come frutto di una cattiva progettazione.
 	\begin{itemize}
 		\item \textbf{Range di Accettazione}: [2-16]
 		\item \textbf{Range Ottimale}: [3-8]
 	\end{itemize}
-	
 	\subsubsection{Numero linee di codice per metodo}
 	La complessità dei metodi molte volte è proporzionale alla loro lunghezza, quindi è bene spezzare elaborazioni complesse in più metodi, in modo da facilitarne anche la comprensione.
 	
