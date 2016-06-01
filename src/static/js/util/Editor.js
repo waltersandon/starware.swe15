@@ -5,7 +5,8 @@ $(function () {
                     element: document.getElementById('editor'),
                     previewRender: function (plainText) {
                         var p = QML.parse(plainText);
-                        return p.status ? p.body + p.answerForm : p.message;
+                        console.log(p);
+                        return p.status ? p.preview : p.message;
                     },
                     toolbar: ['bold', 'italic', '|', 'quote', 'unordered-list', 'ordered-list', '|', 'link', 'image',
                         {
