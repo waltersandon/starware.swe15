@@ -1,6 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
+\usepackage{wrapfig}
 
 %Titolo documento
 \newcommand{\titoloDocumento}{Manuale Installazione}
@@ -244,6 +245,66 @@
 	
 	\newpage
 	\section{Installazione}\label{install}
+		
+		\subsubsection{Pacchetto di installazione per ambiente Windows}
+		\begin{itemize}
+			\item aprire la cartella \texttt{ src};
+			\item eseguire il file per l'installazione (doppio click sul nome del file): \texttt{quizzipediaInstaller.exe}
+			\item si aprirà a questo punto l'interfaccia per l'instaallazione dell'applicazione:
+			\begin{figure}[H]	
+				\centering
+				\includegraphics[width=0.4\linewidth]{../img/manualeInstallazione/win_installer01.png}
+				\caption{Interfaccia installazione Windows}
+				\label{Interfaccia installazione Windows}
+			\end{figure}
+			
+			\item premere sul pulsante "Inizialize/Reset Database" per la configurazione del database. 
+			\item durante l'esecuzione dell'operazione si aprirà la finestra del terminale npm sotto illutrata. Questa si chiuderà automaticamente a operazione completata.
+			\begin{figure}[H]	
+				\centering
+				\includegraphics[width=0.8\linewidth]{../img/manualeInstallazione/win_installer02.png}
+				\caption{Terminale npm: esecuzione inizializzazione o ripristino database}
+				\label{Terminale npm: esecuzione inizializzazione o ripristino database}
+			\end{figure}
+			
+			\item al temrmine dell'operazione, dopo la chiusura automatica del terminale,sulla finestra dell'interfaccia di installazione comparirà la scritta "Done" al di sotto del pulsante "Inizialize/Reset Database" ad indicare che l'operazione è stata completata correttamente:
+			\begin{figure}[H]	
+				\centering
+				\includegraphics[width=0.4\linewidth]{../img/manualeInstallazione/win_installer03.png}
+				\caption{Operazione di inizializzazione/ripristino database avvenuta}
+				\label{Operazione di inizializzazione/ripristino database avvenuta}
+			\end{figure}
+			\item premere sul pulsante "start/stop server" per avviare il server dell'applicazione.
+			\item aprire il browser e digitare sulla barra degli indirizzi:
+				\begin{center}
+					\url{http://localhost:3000}
+				\end{center}
+		
+				
+		\end{itemize}	
+		
+		\subsubsection{Pacchetto di installazione per ambiente Unix}
+		\begin{itemize}
+			\item avviare il terminale;
+			\item posizionarsi nella cartella src;
+			\item avviare lo script "install.sh" come amministratore con i comandi:
+		\[ 	\texttt{sudo  ./install.sh} \]
+		verranno visualizzate le operazioni formite dal pacchetto di installazione e avvio preconfigurato.
+	\end{itemize}
+		\textbf{Per un corretto avvio dell'applicazione è necessario eseguire tutte le operazioni seguenti nell'ordine indicato:}
+	\begin{enumerate}
+		\item \textbf{Installazione}: per eseguire l'installazine, specificare dopo lo script con l'opzione \texttt{install}:
+	 \[ 	\texttt{sudo  ./install.sh install} \]
+		\item \textbf{Ripristino database}: per eseguire il ripristino del database, eseguire lo script con l'opzione \texttt{reset}:
+		 \[ 	\texttt{sudo  ./install.sh reset} \]
+		\item \textbf{Avvio dell'applicazione}: per avviare l'applicazione, eseguire lo script con l'opzione \texttt{start}:
+		 \[ 	\texttt{sudo  ./install.sh start} \]
+		\item \textbf{Terminare l'applicazione}: per terminare l'applicazione, eseguire lo script con l'opzione \texttt{stop}:
+			 \[ 	\texttt{sudo  ./install.sh stop} \]
+	
+			
+
+		\end{enumerate}
 	\subsection{Installazione da linea di comando}
 
 	In seguito vengono forniti i comandi da eseguire da Shell di comando. I comandi sono identici sia in ambiente \mgls{windows}, sia in ambiente UNIX.
@@ -281,25 +342,6 @@
 			
 	\end{enumerate}
 		
-	\subsection{Installazione con utilizzo di script}
-	Vengono forniti script appositi per facilitare l'installazione dell'applicativo. 
-	
-		\subsubsection{Installazione ambiente Windows}
-		\begin{itemize}
-			\item avviare il terminale;
-			\item posizionarsi nella cartella src;
-			\item eseguire lo script \texttt{setup\_win};
-			\item eseguire lo script \texttt{start\_win}.	
-		\end{itemize}	
-	
-		\subsubsection{Installazione ambiente Unix}
-		\begin{itemize}
-			\item avviare il terminale;
-			\item posizionarsi nella cartella src;
-			\item eseguire i seguenti comandi:\\
-			\texttt{\$chmod 755 unix\_setup \\
-			\$chmod 755 unix\_start	 \\
-			\$./unix\_setup }
-		\end{itemize}
+
 
 \end{document}
