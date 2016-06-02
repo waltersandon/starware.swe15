@@ -1,3 +1,4 @@
+
 if (typeof angular === 'undefined') {
     var markdown = require('./markdown/lib/index').markdown;
 }
@@ -23,8 +24,7 @@ MultiAnswerParser.prototype.parse = function(qml) {
             answerForm += 
                 '<div>\
                     <label>\
-                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + 
-                            n + '\'\>' + statementHTML + '\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
                     </label>\
                 </div>';
             choices.push({value: n, str: statement });
@@ -37,8 +37,7 @@ MultiAnswerParser.prototype.parse = function(qml) {
             answerForm += 
                 '<div>\
                     <label>\
-                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + 
-                            n + '\'\>' + statementHTML + '\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
                     </label>\
                 </div>';
             choices.push({value: n, str: statement });
@@ -50,7 +49,7 @@ MultiAnswerParser.prototype.parse = function(qml) {
     }).bind(this));
     answerForm += '</div>';
 
-    if (n == 0) {
+    if (n === 0) {
         return null;
     } else if (rightAnswers < 1) {
         return {
@@ -63,11 +62,12 @@ MultiAnswerParser.prototype.parse = function(qml) {
             message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
         };
     } else {
+        var body = markdown.toHTML(regularLines.join('\n'));
         return {
             status: true,
             type: 'MA',
-            body: markdown.toHTML(regularLines.join('\n')),
-            answerForm: answerForm,
+            body: body,
+            preview: body + answerForm,
             answers: choices,
             answer: right
         };
@@ -95,8 +95,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
             answerForm += 
                 '<div>\
                     <label>\
-                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + 
-                            n + '\' onchange=\'foo(' + n + ')\'>' + statementHTML + '\
+                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
                     </label>\
                 </div>';
             choices.push({value: n, str: statement });
@@ -109,8 +108,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
             answerForm += 
                 '<div>\
                     <label>\
-                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + 
-                            n + '\' onchange=\'foo(' + n + ')\'>' + statementHTML + '\
+                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
             choices.push({value: n, str: statement });
@@ -122,7 +120,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
     }).bind(this));
     answerForm += '</div>';
 
-    if (n == 0) {
+    if (n === 0) {
         return null;
     } else if (rightAnswers > 1) {
         return {
@@ -140,11 +138,12 @@ MultiChoiceParser.prototype.parse = function(qml) {
             message: '<strong>Errore! </strong> la domanda non contiene almeno una risposta sbagliata'
         };
     } else {
+        var body = markdown.toHTML(regularLines.join('\n'));
         return {
             status: true,
             type: 'MC',
-            body: markdown.toHTML(regularLines.join('\n')),
-            answerForm: answerForm,
+            body: body,
+            preview: body + answerForm,
             answers: choices,
             answer: right
         };
@@ -159,7 +158,7 @@ function TrueFalseParser(unescaped) {
 TrueFalseParser.prototype.parse = function(qml) {
     var parsedLines = qml.split('\n').map((function(line) {
         if (line.match(this.true) || line.match(this.false)) {
-            return { answer: (line.match(this.true)) ? true : false };
+            return { answer: line.match(this.true)};
         } else {
             return line;
         }
@@ -177,14 +176,15 @@ TrueFalseParser.prototype.parse = function(qml) {
             status: false,
             message: '<strong>Errore! </strong> ci può essere al massimo una vero/falso per domanda'
         };
-    } else if (tfs.length == 0) {
+    } else if (tfs.length === 0) {
         return null;
     } else {
+        var body = markdown.toHTML(body);
         return {
             status: true,
             type: 'TF',
-            body: markdown.toHTML(body),
-            answerForm: '<div class=\'form-group\'>\
+            body: body,
+            preview: body + '<div class=\'form-group\'>\
                             <div>\
                                 <label>\
                                     <input type=\'radio\' name=\'TFQuestion\' ng-model=\'ris\' value=\'true\'> Vero\
