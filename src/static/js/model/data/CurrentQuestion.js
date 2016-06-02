@@ -6,7 +6,7 @@ $(function () {
             this.body = quest.body;
             this.answers = quest.answers;
             if (this.type === 'TF' || this.type === 'MC') {
-                this.answer = quest.answer.toString();
+                this.answer = quest.answer;
                 this.selectedAnswer = null;
             }
             else {
@@ -20,7 +20,7 @@ $(function () {
 
         CurrentQuestion.prototype.point = function () {
             if (this.type === 'TF' || this.type === 'MC') {
-                if (this.answer === this.selectedAnswer) {
+                if (this.answer.toString() == this.selectedAnswer) {
                     this.right = true;
                     return {point: 1, tot: 1};
                 } else {
