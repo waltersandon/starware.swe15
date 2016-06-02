@@ -60,8 +60,12 @@ mongoose.connect(config.dbUri, function() {
         "() Open Close principle\n" +
         "(*) La pizza\n" +
         "() Liskov Substitution principle", tags: [tag2._id,tag4._id]});
+		var question10 = new Question({author: usr5._id, body: "La chiamavano bocca di [*rosa, cosa, babbuino] metteva l' " +
+		"[aracia,*amore,entropia,uva] sopra ogni [rosa, *cosa, babbuino].\n" +
+		"Appena scesa dalla stazione del paesino di [Monte Magrè, Dromedario,* Sant'Ilario], tutti s'accorsero senza uno " +
+		"sguardo che non si trattava di un [*missionario, rinoceronte, pizza, marajè]", tags: [tag5._id]});
 
-		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id,question3._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
+		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id,question3._id, question10._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 
 
 		// Add basic Roles and Tags
@@ -90,6 +94,7 @@ mongoose.connect(config.dbUri, function() {
 			question7.save(),
 			question8.save(),
             question9.save(),
+			question10.save(),
 			questionnaire1.save()
 
 		]).then(function() {

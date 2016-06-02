@@ -166,7 +166,7 @@ function TrueFalseParser() {
 TrueFalseParser.prototype.parse = function(qml) {
     var parsedLines = qml.split('\n').map((function(line) {
         if (line.match(this.true) || line.match(this.false)) {
-            return { answer: line.match(this.true)};
+            return { answer: this.true.test(line)};
         } else {
             return line;
         }
