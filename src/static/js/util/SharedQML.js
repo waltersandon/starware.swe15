@@ -292,7 +292,6 @@ QML.prototype.parse = function(qml) {
     var result = null;
     this.parsers.forEach((function(parser) {
         var currentResult = parser.parse(extractResult.plainText);
-        console.log(parser);
         if (currentResult) {
             if (result) {
                 result = {
@@ -336,15 +335,13 @@ QML.prototype.extractExplanation = function(plainText) {
 };
 
 QML.prototype.preview = function (body) {
-    var b = body.split('\n'), f = '';
-    b.forEach(function (item) {
-        if (!item.startsWith('<') && f.trim() === '') {
-            f = item;
-        }
-    });
-    return f;
+    body = this.parse(body).body;
+    if (body.length > 100) {
+        return body.substr(0, 100) + " [..]";
+    } else {
+        return body;
+    }
 };
-
 
 if (typeof angular === 'undefined') {
     module.exports = QML;
