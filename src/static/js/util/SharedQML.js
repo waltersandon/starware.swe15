@@ -158,7 +158,7 @@ MultiChoiceParser.prototype.parse = function(qml) {
     }
 };
 
-function TrueFalseParser(unescaped) {
+function TrueFalseParser() {
     this.true = /^\s?(?:\(\s*\+\s*\))$/;
     this.false = /^\s?(?:\(\s*\-\s*\))$/;
 }
@@ -211,11 +211,10 @@ TrueFalseParser.prototype.parse = function(qml) {
 };
 
 
-function CompleteTextParser(unescaped) {
+function CompleteTextParser() {
     this.complete = /\[.+?\,.*?\]/g;
     this.rightChoice = /^\s*\*/g;
 }
-
 
 CompleteTextParser.prototype.parse = function(qml) {
     var match, i, found;
@@ -235,7 +234,10 @@ CompleteTextParser.prototype.parse = function(qml) {
             this.rightChoice.lastIndex=0;
             if(this.rightChoice.test(choices[i])){
                 if(found){
-                    return {status: false, message: "Ogni scelta può avere solo una risposta esatta"}
+                    return {
+                        status: false,
+                        message: "Ogni scelta può avere solo una risposta esatta"
+                    };
                 }
                 found = true;
                 answer.push(i);
@@ -250,7 +252,10 @@ CompleteTextParser.prototype.parse = function(qml) {
         }
         preview += "</select> ";
         if(!found){
-            return {status: false, message: "Ogni scelta deve avere una risposta esatta"}
+            return {
+                status: false,
+                message: "Ogni scelta deve avere una risposta esatta"
+            };
         }
         choice.push(answers);
         qml = qml.substr(this.complete.lastIndex);
@@ -259,7 +264,7 @@ CompleteTextParser.prototype.parse = function(qml) {
     body.push(qml);
     preview += "<span>" + myToHTML(qml) + "</span>";
     if(choice.length === 0){
-        return {status: false, message: "Non è stata inserita nessuna scelta"}
+        return null;
     }
     return {
         status: true,
@@ -287,6 +292,7 @@ QML.prototype.parse = function(qml) {
     var result = null;
     this.parsers.forEach((function(parser) {
         var currentResult = parser.parse(extractResult.plainText);
+        console.log(parser);
         if (currentResult) {
             if (result) {
                 result = {
