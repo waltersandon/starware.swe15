@@ -3,6 +3,14 @@ if (typeof angular === 'undefined') {
     var markdown = require('./markdown/lib/index').markdown;
 }
 
+function myToHTML(str){
+    str = str.replace("\n","òòòòò");
+    var t = markdown.toHTML(str);
+    t = t.substr(3, t.length - 7);
+    t = t.replace("òòòòò","<br>");
+    return t;
+}
+
 function MultiAnswerParser() {
     this.checked = /^\s?(?:\[\s*\*\s*\])([^\(](.+))$/;
     this.unchecked = /^\s?(?:\[\s*\]([^\(](.+)))$/;
@@ -202,12 +210,75 @@ TrueFalseParser.prototype.parse = function(qml) {
     }
 };
 
+
+function CompleteTextParser(unescaped) {
+    this.complete = /\[.+?\,.*?\]/g;
+    this.rightChoice = /^\s*\*/g;
+}
+
+
+CompleteTextParser.prototype.parse = function(qml) {
+    var match, i, found;
+    var body = [];
+    var answers, answer = [], choice = [];
+    var choices;
+    var preview = "";
+    while ((match = this.complete.exec(qml)) !== null){
+        body.push(qml.substr(0,match.index));
+        preview += "<span>" + myToHTML(qml.substr(0,match.index)) + "</span>";
+        choices = match[0].substr(1, match[0].length - 2).split(",");
+        i = 0;
+        found = false;
+        answers = [];
+        preview += " <select style='display:inline-block; min-width: 3em;' ><option value='null'></option>";
+        while (i < choices.length){
+            this.rightChoice.lastIndex=0;
+            if(this.rightChoice.test(choices[i])){
+                if(found){
+                    return {status: false, message: "Ogni scelta può avere solo una risposta esatta"}
+                }
+                found = true;
+                answer.push(i);
+                answers.push({value:i, str: choices[i].substr(this.rightChoice.lastIndex)});
+                preview += "<option value ='" + i + "'>" + choices[i].substr(this.rightChoice.lastIndex) + "</option>";
+            }
+            else{
+                answers.push({value:i, str: choices[i]});
+                preview += "<option value ='" + i + "'>" + choices[i] + "</option>";
+            }
+            i++;
+        }
+        preview += "</select> ";
+        if(!found){
+            return {status: false, message: "Ogni scelta deve avere una risposta esatta"}
+        }
+        choice.push(answers);
+        qml = qml.substr(this.complete.lastIndex);
+        this.complete.lastIndex=0;
+    }
+    body.push(qml);
+    preview += "<span>" + myToHTML(qml) + "</span>";
+    if(choice.length === 0){
+        return {status: false, message: "Non è stata inserita nessuna scelta"}
+    }
+    return {
+        status: true,
+        type: 'CT',
+        body: body,
+        preview: preview,
+        answers: choice,
+        answer: answer
+    };
+};
+
+
 function QML() {
     this.explanation = /^\s?(?:""")\s*$/;
     this.parsers = [
         new MultiChoiceParser(),
         new MultiAnswerParser(),
-        new TrueFalseParser()
+        new TrueFalseParser(),
+        new CompleteTextParser()
     ];
 }
 
@@ -258,65 +329,16 @@ QML.prototype.extractExplanation = function(plainText) {
     };
 };
 
-/*
-QML.prototype.completeText = function(plainText) {
-    plainText = plainText.substr(plainText.indexOf('\n') + 1);
-    exp = extractExplanation(plainText);
-    plainText = exp.plainText;
-    exp = exp.explanation;
-
-    var rightAnswers = 0, wrongAnswers = 0, ansFlag = false, a = plainText.split('\n'), txt = [''], preview = '', right = [], choice = [], c = 0; //conta i completamenti
-    for (var i = 0; i < a.length; i++) {
-
-        if ((/^(\t|\s)*\((\t|\s)*\)/.test(a[i]) || /^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) && !ansFlag) {
-            ansFlag = true;
-            choice.push([]);
-            txt.push('');
-            preview += '<select class=\'form-control\' style=\'display: block;\' >';
-            n = 0; //conta le risposte possibili
+QML.prototype.preview = function (body) {
+    var b = body.split('\n'), f = '';
+    b.forEach(function (item) {
+        if (!item.startsWith('<') && f.trim() === '') {
+            f = item;
         }
-
-        if (/^(\t|\s)*\((\t|\s)*\)/.test(a[i])) {
-            wrongAnswers++;
-            var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-            preview += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '</option>';
-            choice[c].push({value: n, str: r.substr(3, r.length - 7)});
-            n++;
-        } else if (/^(\t|\s)*\((\t|\s)*\*(\t|\s)*\)/.test(a[i])) {
-            rightAnswers++;
-            var r = markdown.toHTML(a[i].substring(a[i].indexOf(')') + 1));
-            preview += '<option name=\'CTQuestion\' ng-model=\'ris\' value=\'' + n + '\'\>' + r.substr(3, r.length - 7) + '</option>';
-            right.push(n);
-            choice[c].push({value: n, str: r.substr(3, r.length - 7)});
-            n++;
-        } else if (ansFlag) {
-            ansFlag = false;
-            preview += '</select>';
-            c++;
-            txt[c] += markdown.toHTML(a[i]);
-            preview += txt[c];
-        } else {
-            txt[c] += markdown.toHTML(a[i]);
-            preview += txt[c];
-        }
-    }
-    
-    if (ansFlag) {
-        preview += '</select>';
-        txt.push('');
-    }
-
-    return {
-        status: true,
-        type: 'CT',
-        body: txt,
-        preview: preview,
-        answers: choice,
-        answer: right,
-        explanation: exp
-    };
+    });
+    return f;
 };
-*/
+
 
 if (typeof angular === 'undefined') {
     module.exports = QML;

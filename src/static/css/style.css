@@ -37,3 +37,6 @@ body {
     cursor: pointer;
 }
 
+.wrong{
+    background: #dd4455;
+}

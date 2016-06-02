@@ -9,7 +9,7 @@ $(function () {
             this.questions = questionnaire.questions;
         }
 
-        CurrentQuestionnaire.prototype.getCurrentQuestions = function(){
+        CurrentQuestionnaire.prototype.getCurrentQuestions = function () {
             var deferred = $q.defer();
 
             var q = [];
@@ -30,9 +30,7 @@ $(function () {
         CurrentQuestionnaire.prototype.checkAnswers = function () {
             var ret = true;
             this.questions.forEach(function (item) {
-                if (item.selectedAnswer === null || (item.selectedAnswer instanceof Array && item.selectedAnswer.length === 0)) {
-                    ret = false;
-                }
+                ret = ret && (item.answered());
             });
             return ret;
         };
