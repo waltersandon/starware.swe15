@@ -9,7 +9,7 @@
                     <span class='icon-bar'></span>
                     <span class='icon-bar'></span>
                 </button>
-                <a class='navbar-brand' href='#/'>Quizzipedia</a>
+                <a class='navbar-brand' href='' ng-click="changePath('')">Quizzipedia</a>
             </div>
             <div id='navbar' class='navbar-collapse collapse'>
                 <div ng-switch on='logged' class="">
@@ -36,7 +36,7 @@
                     <hr>
                     <ul class='nav nav-sidebar'>
                         <li ng-class='{ active : urlPath()[1] === "student" && urlPath()[2] === "questionnaires" }'><a
-                                href='#/student/questionnaires'>Questionari</a></li>
+                                href='' ng-click="changePath('student/questionnaires')">Questionari</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'teacher' || me.role.name === 'admin' || me.role.name === 'superadmin'">
@@ -44,11 +44,11 @@
                     <hr>
                     <ul class='nav nav-sidebar'>
                         <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questions" }'><a
-                                href='#/teacher/questions'>Gestisci domande</a></li>
+                                href='' ng-click="changePath('teacher/questions')">Gestisci domande</a></li>
                         <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "questionnaires" }'><a
-                                href='#/teacher/questionnaires'>Gestisci questionari</a></li>
+                                href='' ng-click="changePath('teacher/questionnaires')">Gestisci questionari</a></li>
                         <li ng-class='{ active : urlPath()[1] === "teacher" && urlPath()[2] === "tags" }'><a
-                                href='#/teacher/tags'>Gestisci argomenti</a></li>
+                                href='' ng-click="changePath('teacher/tags')">Gestisci argomenti</a></li>
                     </ul>
                 </div>
                 <div ng-show="me.role.name === 'admin' || me.role.name === 'superadmin'">
@@ -56,7 +56,7 @@
                     <hr>
                     <ul class='nav nav-sidebar'>
                         <li ng-class='{ active : urlPath()[1] === "admin" && urlPath()[2] === "userlist" }'><a
-                                href='#/admin/userlist'>Lista utenti</a></li>
+                                href='' ng-click="changePath('admin/userlist')">Lista utenti</a></li>
                     </ul>
                 </div>
             </div>
