@@ -3,11 +3,11 @@ if (typeof angular === 'undefined') {
     var markdown = require('./markdown/lib/index').markdown;
 }
 
-function myToHTML(str){
-    str = str.replace("\n","òòòòò");
+function myToHTML(str) {
+    str = str.replace("\n", "òòòòò");
     var t = markdown.toHTML(str);
     t = t.substr(3, t.length - 7);
-    t = t.replace("òòòòò","<br>");
+    t = t.replace("òòòòò", "<br>");
     return t;
 }
 
@@ -16,7 +16,7 @@ function MultiAnswerParser() {
     this.unchecked = /^\s?(?:\[\s*\]([^\(](.+)))$/;
 }
 
-MultiAnswerParser.prototype.parse = function(qml) {
+MultiAnswerParser.prototype.parse = function (qml) {
     var n = 0;
     var right = null;
     var rightAnswers = 0;
@@ -24,31 +24,31 @@ MultiAnswerParser.prototype.parse = function(qml) {
     var answerForm = '<div class=\'form-group\'>';
     var choices = [];
     var regularLines = [];
-    qml.split('\n').forEach((function(line) {
+    qml.split('\n').forEach((function (line) {
         var match = null;
         if (match = line.match(this.checked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
-            answerForm += 
-                '<div>\
+            answerForm +=
+                    '<div>\
                     <label>\
-                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement });
+            choices.push({value: n, str: statement});
             right = n;
             n++;
             rightAnswers++;
         } else if (match = line.match(this.unchecked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
-            answerForm += 
-                '<div>\
+            answerForm +=
+                    '<div>\
                     <label>\
-                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
+                        <input type=\'checkbox\' name=\'MAQuestion\' ng-model=\'ris\' value=\'' + n + '\'\> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement });
+            choices.push({value: n, str: statement});
             n++;
             wrongAnswers++;
         } else {
@@ -87,7 +87,7 @@ function MultiChoiceParser() {
     this.unchecked = /^\s?(?:\(\s*\)(.+))$/;
 }
 
-MultiChoiceParser.prototype.parse = function(qml) {
+MultiChoiceParser.prototype.parse = function (qml) {
     var n = 0;
     var right = null;
     var rightAnswers = 0;
@@ -95,31 +95,31 @@ MultiChoiceParser.prototype.parse = function(qml) {
     var answerForm = '<div class=\'form-group\'>';
     var choices = [];
     var regularLines = [];
-    qml.split('\n').forEach((function(line) {
+    qml.split('\n').forEach((function (line) {
         var match = null;
         if (match = line.match(this.checked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
-            answerForm += 
-                '<div>\
+            answerForm +=
+                    '<div>\
                     <label>\
-                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7)  + '\
+                        <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement });
+            choices.push({value: n, str: statement});
             right = n;
             n++;
             rightAnswers++;
         } else if (match = line.match(this.unchecked)) {
             var statement = match[1].trim();
             var statementHTML = markdown.toHTML(statement);
-            answerForm += 
-                '<div>\
+            answerForm +=
+                    '<div>\
                     <label>\
                         <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement });
+            choices.push({value: n, str: statement});
             n++;
             wrongAnswers++;
         } else {
@@ -163,19 +163,19 @@ function TrueFalseParser() {
     this.false = /^\s?(?:\(\s*\-\s*\))$/;
 }
 
-TrueFalseParser.prototype.parse = function(qml) {
-    var parsedLines = qml.split('\n').map((function(line) {
+TrueFalseParser.prototype.parse = function (qml) {
+    var parsedLines = qml.split('\n').map((function (line) {
         if (line.match(this.true) || line.match(this.false)) {
-            return { answer: line.match(this.true)};
+            return {answer: line.match(this.true)};
         } else {
             return line;
         }
     }).bind(this));
 
-    var body = parsedLines.filter(function(line) {
+    var body = parsedLines.filter(function (line) {
         return (typeof line === 'string');
     }).join('\n');
-    var tfs = parsedLines.filter(function(line) {
+    var tfs = parsedLines.filter(function (line) {
         return !(typeof line === 'string');
     });
 
@@ -212,28 +212,28 @@ TrueFalseParser.prototype.parse = function(qml) {
 
 
 function CompleteTextParser() {
-    this.complete = /\[.+?\,.*?\]/g;
+    this.complete = /\[.+?\,.+?\]/g;
     this.rightChoice = /^\s*\*/g;
 }
 
-CompleteTextParser.prototype.parse = function(qml) {
+CompleteTextParser.prototype.parse = function (qml) {
     var match, i, found;
     var body = [];
     var answers, answer = [], choice = [];
     var choices;
     var preview = "";
-    while ((match = this.complete.exec(qml)) !== null){
-        body.push(qml.substr(0,match.index));
-        preview += "<span>" + myToHTML(qml.substr(0,match.index)) + "</span>";
+    while ((match = this.complete.exec(qml)) !== null) {
+        body.push(qml.substr(0, match.index));
+        preview += "<span>" + myToHTML(qml.substr(0, match.index)) + "</span>";
         choices = match[0].substr(1, match[0].length - 2).split(",");
         i = 0;
         found = false;
         answers = [];
         preview += " <select style='display:inline-block; min-width: 3em;' ><option value='null'></option>";
-        while (i < choices.length){
-            this.rightChoice.lastIndex=0;
-            if(this.rightChoice.test(choices[i])){
-                if(found){
+        while (i < choices.length) {
+            this.rightChoice.lastIndex = 0;
+            if (this.rightChoice.test(choices[i])) {
+                if (found) {
                     return {
                         status: false,
                         message: "Ogni scelta può avere solo una risposta esatta"
@@ -241,17 +241,16 @@ CompleteTextParser.prototype.parse = function(qml) {
                 }
                 found = true;
                 answer.push(i);
-                answers.push({value:i, str: choices[i].substr(this.rightChoice.lastIndex)});
+                answers.push({value: i, str: choices[i].substr(this.rightChoice.lastIndex)});
                 preview += "<option value ='" + i + "'>" + choices[i].substr(this.rightChoice.lastIndex) + "</option>";
-            }
-            else{
-                answers.push({value:i, str: choices[i]});
+            } else {
+                answers.push({value: i, str: choices[i]});
                 preview += "<option value ='" + i + "'>" + choices[i] + "</option>";
             }
             i++;
         }
         preview += "</select> ";
-        if(!found){
+        if (!found) {
             return {
                 status: false,
                 message: "Ogni scelta deve avere una risposta esatta"
@@ -259,11 +258,11 @@ CompleteTextParser.prototype.parse = function(qml) {
         }
         choice.push(answers);
         qml = qml.substr(this.complete.lastIndex);
-        this.complete.lastIndex=0;
+        this.complete.lastIndex = 0;
     }
     body.push(qml);
     preview += "<span>" + myToHTML(qml) + "</span>";
-    if(choice.length === 0){
+    if (choice.length === 0) {
         return null;
     }
     return {
@@ -276,6 +275,69 @@ CompleteTextParser.prototype.parse = function(qml) {
     };
 };
 
+function OrderItemsParser() {
+    this.order = /^\[.+?\|.+?\]$/;
+}
+
+OrderItemsParser.prototype.parse = function (qml) {
+    var parsedLines = qml.split('\n').map((function (line) {
+        if (line.match(this.order)) {
+            return {order: line.match(this.order)};
+        } else {
+            return line;
+        }
+    }).bind(this));
+
+    var body = parsedLines.filter(function (line) {
+        return (typeof line === 'string');
+    }).join('\n');
+
+    var orders = parsedLines.filter(function (line) {
+        return !(typeof line === 'string');
+    });
+
+    if (orders.length > 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> ci può essere al massimo una lista da ordinare'
+        };
+    } else if (orders.length === 0) {
+        return null;
+    } else {
+        console.log(orders[0].order[0]);
+        var body = markdown.toHTML(body);
+        var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
+        var answers = function (a) {
+            var j, x, i, b = a.slice();
+            for (i = b.length; i; i -= 1) {
+                j = Math.floor(Math.random() * i);
+                x = b[i - 1];
+                b[i - 1] = b[j];
+                b[j] = x;
+            }
+            return b;
+        }(answer);
+
+
+        var temp = '[';
+        preview = body;
+        preview += '<ul id="sortable">';
+        answers.forEach(function(item){
+            preview += '<li class="ui-state-default">' + item + '</li>';
+            temp += item + ',';
+        });
+        preview += '</ul>';
+        
+        return {
+            status: true,
+            type: 'OI',
+            body: body,
+            preview: preview,
+            answers: answers,
+            answer: answer
+        };
+    }
+};
 
 function QML() {
     this.explanation = /^\s?(?:""")\s*$/;
@@ -283,14 +345,15 @@ function QML() {
         new MultiChoiceParser(),
         new MultiAnswerParser(),
         new TrueFalseParser(),
-        new CompleteTextParser()
+        new CompleteTextParser(),
+        new OrderItemsParser()
     ];
 }
 
-QML.prototype.parse = function(qml) {
+QML.prototype.parse = function (qml) {
     var extractResult = this.extractExplanation(qml);
     var result = null;
-    this.parsers.forEach((function(parser) {
+    this.parsers.forEach((function (parser) {
         var currentResult = parser.parse(extractResult.plainText);
         if (currentResult) {
             if (result) {
@@ -315,11 +378,11 @@ QML.prototype.parse = function(qml) {
     }
 };
 
-QML.prototype.extractExplanation = function(plainText) {
+QML.prototype.extractExplanation = function (plainText) {
     var expFlag = false;
     var explanationLines = [];
     var newTextLines = [];
-    plainText.split('\n').forEach((function(line) {
+    plainText.split('\n').forEach((function (line) {
         if (expFlag) {
             explanationLines.push(line);
         } else if (line.match(this.explanation)) {
@@ -346,3 +409,19 @@ QML.prototype.preview = function (body) {
 if (typeof angular === 'undefined') {
     module.exports = QML;
 }
+
+
+/*
+ DA TENERE!!!!!
+ $scope.order = //DA DEFINIRE
+ $( "#sortable" ).sortable({
+ placeholder: "ui-state-highlight",
+ update: function(event, ui) {
+ $scope.order = [];
+ $('#sortable li').each( function(e) {
+ $scope.order.push($(this).attr('id'));
+ });
+ }
+ });
+ $( "#sortable" ).disableSelection();
+ */
