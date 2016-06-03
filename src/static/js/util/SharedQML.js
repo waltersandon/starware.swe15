@@ -310,7 +310,7 @@ OrderItemsParser.prototype.parse = function (qml) {
         console.log(Array.from(new Set(answer)).sort());
         console.log(answer.sort());
 
-        if (Array.from(new Set(answer)).sort() != answer.sort()) {
+        if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
             return {
                 status: false,
                 message: '<strong>Errore! </strong> la lista contiene duplicati'
