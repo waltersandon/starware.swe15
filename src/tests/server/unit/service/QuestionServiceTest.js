@@ -123,7 +123,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
+                        body: "Questa domanda verrà eliminata?\n(+)",
                         tags: [tags[0], tags[1]]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -152,7 +152,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF T>\nQuesta domanda verrà eliminata?\n[T]",
+                        body: "Questa domanda verrà eliminata?\n(+)",
                         tags: [tags[0]._id, tags[1]._id]
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -237,7 +237,7 @@ describe('/api/questions', function() {
                     var tags = res.body;
 
                     var newQuestion = {
-                        body: "<TF F>\nQuesta domanda verrà aggiunta?\n[F]",
+                        body: "Questa domanda verrà aggiunta?\n(-)",
                         tags: []
                     };
                     var req = request(app).post('/api/questions').send(newQuestion);
@@ -271,7 +271,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
+                    body: "Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -302,7 +302,7 @@ describe('/api/questions', function() {
                 password: 'password.tullio.vardanega'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
+                    body: "Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -338,7 +338,7 @@ describe('/api/questions', function() {
                 password: 'password.riccardo.cardin'
             }, function(agent) {
                 var newQuestion ={
-                    body: "<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
+                    body: "Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione",
                     tags: []
                 };
                 var req = request(app).get('/api/questions');
@@ -372,7 +372,7 @@ describe('/api/questions', function() {
                 req.end(function(err, res) {
                     expect(res).to.have.property('status', 200);
                     var question = res.body.find(function (question) {
-                        return question.body === "<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione";
+                        return question.body === "Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione";
                     });
                     var req = request(app).delete('/api/questions/'+question._id);
                     agent.attachCookies(req);
@@ -393,7 +393,7 @@ describe('/api/questions', function() {
                 agent.attachCookies(req);
                 req.end(function(err, res) {
                     var question = res.body.find(function (question) {
-                        return question.body === "<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione";
+                        return question.body === "Domanda\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione";
                     });
                     //richiesta di cancellazione
                     var req = request(app).delete('/api/questions/'+question._id);

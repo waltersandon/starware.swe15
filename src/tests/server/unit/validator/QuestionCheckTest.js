@@ -1,33 +1,73 @@
 var expect = require('chai').expect;
 var testSubject = require('../../../../api/validator/QuestionCheck.js');
-describe('Testing di QuestionCheck', function() {
+describe('QuestionCheck', function() {
     var check = new testSubject();
-    describe('check QML', function() {
-        it('deve bloccare QML TF senza risposta', function() {
-            expect(check.checkQML("<TF> domanda?")).to.equal(false);
-        });
-        it('deve bloccare QML MC senza risposta giusta', function() {
-            expect(check.checkQML("<MC> domanda? \n[answers]\n()Opzione")).to.equal(false);
-        });
-        it('deve bloccare QML MC senza risposte', function() {
-            expect(check.checkQML("<MC> domanda?")).to.equal(false);
-        });
-        it('deve bloccare QML MC con due risposte giuste', function() {
-            expect(check.checkQML("<MC> domanda?\n[answers]\n(*)OpzioneGiusta\n(*)OpzioneGiusta")).to.equal(false);
-        });
-        it('deve accettare QML  come corpo della domanda', function() {
-            expect(check.checkQML("<TF T> Questo QML è giusto <TF>Roma è la capitale d’**Italia**? <TF t>?")).to.equal(true);
-        });
-        it('deve accettare  QML per domanda vero/falso', function() {
-            expect(check.checkQML("<TF T>Roma è la capitale d’**Italia**?")).to.equal(true);
+    describe('checkQML', function() {
 
+        /* General */
+        it ('deve bloccare QML senza risposte', function() {
+            expect(check.checkQML("domanda?\nseconda linea")).to.equal(false);
         });
-        it('deve accettare  QML per domanda a risposta multipla', function() {
-            expect(check.checkQML("<MC>Domanda\n[answers]\n()Opzione \n()Opzione\n(*)OpzioneGiusta \n()Opzione")).to.equal(true);
+
+        it('deve accettare QML come corpo della domanda', function() {
+            expect(check.checkQML("Questo QML è giusto [*] Roma è la capitale d’**Italia**?\n(+)")).to.equal(true);
+        });
+
+        it('deve accettare QML con escape', function() {
+            expect(check.checkQML("Questo QML è giusto\n \\[*]\nRoma è la capitale d’**Italia**?\n(+)")).to.equal(true);
+        });
+
+        it ('deve accettare QML con spiegazioni', function() {
+            expect(check.checkQML("Roma è la capitale d’**Italia**?\n(+)\n\"\"\"\nSpiegazione")).to.equal(true);
+        });
+
+        it ('deve ignorare sintassi QML nella spiegazione', function() {
+            expect(check.checkQML("Domanda?\n[*] Risposta A \n [] Risposta B\n\"\"\"\nSpiegazione\n(+)")).to.equal(true);
+            expect(check.checkQML("Domanda?\n[*] Risposta A \n [] Risposta B\nSpiegazione\n(+)")).to.equal(false);
+        });
+
+        /* Multiple choice */
+        it('deve accettare QML MC corretto', function() {
+            expect(check.checkQML("domanda?\n()Opzione \n(*) Giusta \n() Sbagliata")).to.equal(true);
+        });
+
+        it('deve bloccare QML MC senza risposta giusta', function() {
+            expect(check.checkQML("domanda?\n()Opzione")).to.equal(false);
+        });
+
+        it('deve bloccare QML MC senza risposte sbagliate', function() {
+            expect(check.checkQML("domanda?\n(*)Opzione")).to.equal(false);
+        });
+
+        it('deve bloccare QML MC con due risposte giuste', function() {
+            expect(check.checkQML("domanda?\n(*)OpzioneGiusta\n(*)OpzioneGiusta")).to.equal(false);
+        });
+
+        /* Multiple answer */
+        it('deve accettare QML MA corretta', function() {
+            expect(check.checkQML("Domanda\n[]Opzione \n[]Opzione\n[*]OpzioneGiusta \n[]Opzione")).to.equal(true);
+        });
+
+        it('deve accettare QML MA con due risposte giuste', function() {
+            expect(check.checkQML("domanda?\n[*]OpzioneGiusta\n[*]OpzioneGiusta\n[] Sbagliata")).to.equal(true);
+        });
+
+        it('deve bloccare QML MA senza risposta giusta', function() {
+            expect(check.checkQML("domanda?\n[]Opzione\n[] Opzione 2")).to.equal(false);
+        });
+
+        it('deve bloccare QML MA senza risposta sbagliata', function() {
+            expect(check.checkQML("domanda?\n[*]OpzioneGiusta\n[*]OpzioneGiusta")).to.equal(false);
+        });
+
+        /* True false */
+        it('deve accettare  QML TF corretto', function() {
+            expect(check.checkQML("Roma è la capitale d’**Italia**?\n(+)")).to.equal(true);
+            expect(check.checkQML("Roma è la capitale d’**Italia**?\n(-)")).to.equal(true);
         });
 
     });
-    describe('check tags della domanda', function () {
+    describe('checkTags', function () {
         it('deve bloccare domande con la lista dei tag vuote',function () {
          var lista=[];
             expect(check.checkTags(lista)).to.equal(false);

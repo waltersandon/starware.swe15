@@ -47,15 +47,14 @@
             </div>
         </div>
         <div ng-switch-when="CT">
-            <div ng-bind-html="preview[0]"></div>
-            <div ng-repeat="ans in currentQuestion.answers track by $index">
-                <div class='form-group'>
-                    <select style="float: left" class="form-control" ng-options="a.value as a.str for a in ans"
-                            ng-model="ris.value[$index]" ng-change="changeAnswer()">
-                        <option value="">Seleziona un'opzione</option>
+            <span ng-bind-html="preview[0]"></span>
+            <div ng-repeat="ans in currentQuestion.answers track by $index" style="display: inline">
+                    <select ng-model="ris.value[$index]" ng-change="changeAnswer()"
+                            ng-class="ris.value[$index] != currentQuestion.answer[$index] && !edit ? 'wrong' : ''">
+                        <option value=""></option>
+                        <option ng-repeat="a in ans" ng-value="a.value">{{a.str}}</option>
                     </select>
-                    <div ng-bind-html="preview[$index + 1]"></div>
-                </div>
+                    <span ng-bind-html="preview[$index + 1]"></span>
             </div>
         </div>
     </div>

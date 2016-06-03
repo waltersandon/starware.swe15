@@ -6,7 +6,7 @@ $(function () {
             this.body = quest.body;
             this.answers = quest.answers;
             if (this.type === 'TF' || this.type === 'MC') {
-                this.answer = quest.answer.toString();
+                this.answer = quest.answer;
                 this.selectedAnswer = null;
             }
             else {
@@ -20,7 +20,7 @@ $(function () {
 
         CurrentQuestion.prototype.point = function () {
             if (this.type === 'TF' || this.type === 'MC') {
-                if (this.answer === this.selectedAnswer) {
+                if (this.answer.toString() == this.selectedAnswer) {
                     this.right = true;
                     return {point: 1, tot: 1};
                 } else {
@@ -49,28 +49,49 @@ $(function () {
                 if (tot < 0) {
                     tot = 0;
                 }
-                else if(tot === 1){
+                else if (tot === 1) {
                     this.right = true;
                 }
                 return {point: tot, tot: 1};
             }
             else if (this.type === 'CT') {
                 var tot = 0;
-                var point = 0 ;
+                var point = 0;
                 var self = this;
-                this.selectedAnswer.forEach(function(ans,i){
-                    tot ++;
-                    if(ans == self.answer[i]){
+                this.selectedAnswer.forEach(function (ans, i) {
+                    tot++;
+                    if (ans == self.answer[i]) {
                         point++;
                     }
                 });
-                if (point == tot){
+                if (point == tot) {
                     this.right = true;
                 }
-                return {point: point, tot : tot};
+                return {point: point, tot: tot};
             }
             return null;
         };
+
+        CurrentQuestion.prototype.answered = function () {
+            if (this.type === 'TF' || this.type === 'MC') {
+                return this.selectedAnswer !== null;
+            } else if (this.type === 'MA') {
+                return this.selectedAnswer.length !== 0;
+            }
+            else if (this.type === 'CT') {
+                var all = true;
+                if (this.selectedAnswer.length < this.answers.length){
+                    all = false;
+                }
+                this.selectedAnswer.forEach(function(ans){
+                    if(ans === null){
+                        all = false;
+                    }
+                });
+                return all;
+            }
+        };
+
         return CurrentQuestion;
     }]);
 });
