@@ -4,9 +4,9 @@
     attraverso la procedura descritta sotto.
     
     \subsubsection{Riferimenti ad oggetti}
-    	\par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo \texttt{\_id} della risorsa. 
-    	
-    	\par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
+        \par I riferimenti ad altri oggetti sono stringhe che rappresentano l'attributo \texttt{\_id} della risorsa. 
+        
+        \par Nella documentazione seguente vengono identificate con il tipo \texttt{ref} per distinguerle da stringhe normali.
 
     \subsubsection{Errori}
 
@@ -15,11 +15,11 @@
         
     \subsubsection{Sicurezza}
     
-    	\par Le password e tutti gli altri dati, inclusi
-    		quelli di sessione sono passati in chiaro, poiché si assume che 
-    		utilizzato un protocollo sicuro, come \mgls{https}, per la 
-    		comunicazione con l'\mgls{api}, che quindi deve appoggiarsi ad un
-    		server che fornisca i certificati e garanzie adeguate.
+        \par Le password e tutti gli altri dati, inclusi
+            quelli di sessione sono passati in chiaro, poiché si assume che 
+            utilizzato un protocollo sicuro, come \mgls{https}, per la 
+            comunicazione con l'\mgls{api}, che quindi deve appoggiarsi ad un
+            server che fornisca i certificati e garanzie adeguate.
 
     \subsubsection{Struttura}
 
@@ -42,9 +42,9 @@
 
 \subsection{Autenticazione}
 
-	L'utente può effettuare l'autenticazione facendo una richiesta \texttt{POST} sull'\mgls{uri} \texttt{/session} il quale ritornerà come cookie l'ID della sessione assegnata all'utente.
-	
-	Successive richieste all'\mgls{api} potranno essere completate fornendo il valori della sessione attraverso il cookie impostato.
+    L'utente può effettuare l'autenticazione facendo una richiesta \texttt{POST} sull'\mgls{uri} \texttt{/session} il quale ritornerà come cookie l'ID della sessione assegnata all'utente.
+    
+    Successive richieste all'\mgls{api} potranno essere completate fornendo il valori della sessione attraverso il cookie impostato.
 
     \subsubsection{Login}
 
@@ -68,13 +68,13 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": ref,
-	"userName": string,
-	"fullName": string,
-	"role": ref
+    "_id": ref,
+    "userName": string,
+    "fullName": string,
+    "role": ref
 }
                         \end{lstlisting}
-                    	\\ \midrule
+                        \\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -125,8 +125,8 @@
                     \textbf{Richiesta JSON} &
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"userName": string,
-	"fullName": string,
+    "userName": string,
+    "fullName": string,
 }
                         \end{lstlisting}
                      \\ \midrule
@@ -236,7 +236,7 @@
     "role": ref
 }
                         \end{lstlisting}
-                    	\\ \midrule
+                        \\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -436,13 +436,13 @@
                     \textbf{Risposta JSON} & \
                         \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"_id": ref,
+    "_id": ref,
     "body": string,
     "author": ref,
     "tags": [ref]
 }
                         \end{lstlisting}
-                    	\\ \midrule
+                        \\ \midrule
                     \textbf{Note} & \\
                     \bottomrule
                 \end{tabular}
@@ -654,6 +654,106 @@
                 \caption{API REST: \texttt{DELETE /questionnaires/:id}}
             \end{center}
         \end{table}
+        
+\subsection{Risposte}
+
+    \subsubsection{Visualizzazione elenco risposte}
+    
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/answers} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \
+                        \begin{itemize}
+                            \item \textbf{author}: filtro per autore;
+                            \item \textbf{question}: filtro per domanda;
+                            \item \textbf{questionnaire}: filtro per questionario
+                        \end{itemize}
+                        \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione elenco delle risposte \\ \midrule
+                    \textbf{Permessi} & Ospite \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+[
+    {
+        "_id": ref,
+        "question": ref,
+        "questionnaire": ref,
+        "author": ref | null,
+        "selected": boolean | integer | [integer],
+        "score": integer
+    }
+]
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /answers}}
+            \end{center}
+        \end{table}
+        
+    \subsubsection{Visualizzazione risposta}
+    
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/answers/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{GET} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Visualizzazione risposta singola \\ \midrule
+                    \textbf{Permessi} & Ospite \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "_id": ref,
+    "question": ref,
+    "questionnaire": ref,
+    "author": ref | null,
+    "selected": boolean | integer | [integer],
+    "score": integer
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{GET /answers/:id}}
+            \end{center}
+        \end{table}
+        
+    \subsubsection{Creazione risposta}
+    
+        \begin{table}[H]
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/answers} \\ \midrule
+                    \textbf{Metodo} & \texttt{POST} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Creazione nuova risposta \\ \midrule
+                    \textbf{Permessi} & Ospite \\ \midrule
+                    \textbf{Richiesta JSON} & \
+                        \begin{lstlisting}[basicstyle={\ttfamily}]
+{
+    "question": ref,
+    "questionnaire": ref,
+    "selected": boolean | integer | [integer]
+}
+                        \end{lstlisting}
+                        \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & \\
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{POST /answers}}
+            \end{center}
+        \end{table}
 
 \subsection{Argomenti}
 
@@ -679,7 +779,7 @@
     {
         "_id": ref,
         "name": string,
-       	"description": string
+        "description": string
     }
 ]
                         \end{lstlisting}
@@ -722,83 +822,83 @@
     \subsubsection{Creazione argomento}
     
     \begin{table}[H]
-    	\begin{center}
-    		\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-    			\toprule
-    			\textbf{URI} & \texttt{/tags} \\ \midrule
-    			\textbf{Metodo} & \texttt{POST} \\ \midrule
-    			\textbf{Parametri} & \\ \midrule
-    			\textbf{Descrizione} & Creazione nuovo argomento \\ \midrule
-    			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
-    			\textbf{Richiesta JSON} & \
-	    			\begin{lstlisting}[basicstyle={\ttfamily}]	
+        \begin{center}
+            \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                \toprule
+                \textbf{URI} & \texttt{/tags} \\ \midrule
+                \textbf{Metodo} & \texttt{POST} \\ \midrule
+                \textbf{Parametri} & \\ \midrule
+                \textbf{Descrizione} & Creazione nuovo argomento \\ \midrule
+                \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                \textbf{Richiesta JSON} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]  
 {
-	"name": string,
-	"description": string
+    "name": string,
+    "description": string
 }
-	    			\end{lstlisting}
-    			\\ \midrule
-    			\textbf{Risposta JSON} & \
-                	\begin{lstlisting}[basicstyle={\ttfamily}]
+                    \end{lstlisting}
+                \\ \midrule
+                \textbf{Risposta JSON} & \
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
 {
     "_id": ref,
     "name": string,
     "description": string
 }
-      				\end{lstlisting}
-					\\ \midrule
-    			\textbf{Note} & \\
-    			\bottomrule
-    		\end{tabular}
-    		\caption{API REST: \texttt{POST /tags}}
-    	\end{center}
+                    \end{lstlisting}
+                    \\ \midrule
+                \textbf{Note} & \\
+                \bottomrule
+            \end{tabular}
+            \caption{API REST: \texttt{POST /tags}}
+        \end{center}
     \end{table}
     
     \subsubsection{Modifica argomento}
     
     \begin{table}[H]
-    	\begin{center}
-    		\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-    			\toprule
-    			\textbf{URI} & \texttt{/tags/:id} \\ \midrule
-    			\textbf{Metodo} & \texttt{PUT} \\ \midrule
-    			\textbf{Parametri} & \\ \midrule
-    			\textbf{Descrizione} & Modifica argomento \\ \midrule
-    			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
-    			\textbf{Richiesta JSON} &\
-	    			\begin{lstlisting}[basicstyle={\ttfamily}]
+        \begin{center}
+            \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                \toprule
+                \textbf{URI} & \texttt{/tags/:id} \\ \midrule
+                \textbf{Metodo} & \texttt{PUT} \\ \midrule
+                \textbf{Parametri} & \\ \midrule
+                \textbf{Descrizione} & Modifica argomento \\ \midrule
+                \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                \textbf{Richiesta JSON} &\
+                    \begin{lstlisting}[basicstyle={\ttfamily}]
 {
-	"name": string,
-	"description": string
+    "name": string,
+    "description": string
 }
-	    			\end{lstlisting}
-    			\\ \midrule
-    			\textbf{Risposta JSON} & \\ \midrule
-    			\textbf{Note} & \\
-    			\bottomrule
-    		\end{tabular}
-    		\caption{API REST: \texttt{PUT /tags}}
-    	\end{center}
+                    \end{lstlisting}
+                \\ \midrule
+                \textbf{Risposta JSON} & \\ \midrule
+                \textbf{Note} & \\
+                \bottomrule
+            \end{tabular}
+            \caption{API REST: \texttt{PUT /tags}}
+        \end{center}
     \end{table}
     
         \subsubsection{Elimina argomento}
         
         \begin{table}[H]
-        	\begin{center}
-        		\begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
-        			\toprule
-        			\textbf{URI} & \texttt{/tags/:id} \\ \midrule
-        			\textbf{Metodo} & \texttt{DELETE} \\ \midrule
-        			\textbf{Parametri} & \\ \midrule
-        			\textbf{Descrizione} & Elimina argomento \\ \midrule
-        			\textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
-        			\textbf{Richiesta JSON} & \\ \midrule
-        			\textbf{Risposta JSON} & \\ \midrule
-        			\textbf{Note} & Il chiamante può eliminare un argomento solo se non ci sono domande associate allo stesso \\ 
-        			\bottomrule
-        		\end{tabular}
-        		\caption{API REST: \texttt{PUT /tags}}
-        	\end{center}
+            \begin{center}
+                \begin{tabular}{p{0.3\textwidth} p{0.6\textwidth}}
+                    \toprule
+                    \textbf{URI} & \texttt{/tags/:id} \\ \midrule
+                    \textbf{Metodo} & \texttt{DELETE} \\ \midrule
+                    \textbf{Parametri} & \\ \midrule
+                    \textbf{Descrizione} & Elimina argomento \\ \midrule
+                    \textbf{Permessi} & Docente, Amministratore, Proprietario  \\ \midrule
+                    \textbf{Richiesta JSON} & \\ \midrule
+                    \textbf{Risposta JSON} & \\ \midrule
+                    \textbf{Note} & Il chiamante può eliminare un argomento solo se non ci sono domande associate allo stesso \\ 
+                    \bottomrule
+                \end{tabular}
+                \caption{API REST: \texttt{PUT /tags}}
+            \end{center}
         \end{table}
     
 
