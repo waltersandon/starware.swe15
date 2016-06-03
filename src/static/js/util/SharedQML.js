@@ -166,7 +166,7 @@ function TrueFalseParser() {
 TrueFalseParser.prototype.parse = function (qml) {
     var parsedLines = qml.split('\n').map((function (line) {
         if (line.match(this.true) || line.match(this.false)) {
-            return { answer: this.true.test(line)};
+            return {answer: this.true.test(line)};
         } else {
             return line;
         }
@@ -304,7 +304,6 @@ OrderItemsParser.prototype.parse = function (qml) {
     } else if (orders.length === 0) {
         return null;
     } else {
-        console.log(orders[0].order[0]);
         var body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
         var answers = function (a) {
@@ -322,12 +321,12 @@ OrderItemsParser.prototype.parse = function (qml) {
         var temp = '[';
         preview = body;
         preview += '<ul id="sortable">';
-        answers.forEach(function(item){
+        answers.forEach(function (item) {
             preview += '<li class="ui-state-default">' + item + '</li>';
             temp += item + ',';
         });
         preview += '</ul>';
-        
+
         return {
             status: true,
             type: 'OI',
@@ -410,18 +409,16 @@ if (typeof angular === 'undefined') {
     module.exports = QML;
 }
 
-
 /*
- DA TENERE!!!!!
- $scope.order = //DA DEFINIRE
- $( "#sortable" ).sortable({
- placeholder: "ui-state-highlight",
- update: function(event, ui) {
- $scope.order = [];
- $('#sortable li').each( function(e) {
- $scope.order.push($(this).attr('id'));
- });
- }
- });
- $( "#sortable" ).disableSelection();
- */
+    $scope.order = //DEVE CARICARE
+    $("#sortable").sortable({
+        placeholder: "ui-state-highlight",
+        update: function (event, ui) {
+            $scope.order = [];
+            $('#sortable li').each(function (e) {
+                $scope.order.push($(this).attr('id'));
+            });
+        }
+    });
+    $("#sortable").disableSelection();
+*/
