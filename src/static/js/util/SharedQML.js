@@ -306,6 +306,17 @@ OrderItemsParser.prototype.parse = function (qml) {
     } else {
         var body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
+
+        console.log(Array.from(new Set(answer)).sort());
+        console.log(answer.sort());
+
+        if (Array.from(new Set(answer)).sort() != answer.sort()) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la lista contiene duplicati'
+            };
+        }
+
         var answers = function (a) {
             var j, x, i, b = a.slice();
             for (i = b.length; i; i -= 1) {
@@ -409,18 +420,16 @@ if (typeof angular === 'undefined') {
     module.exports = QML;
 }
 
-//2 cvolte settot elemento errore
-
 /*
-    $scope.order = //DEVE CARICARE
-    $("#sortable").sortable({
-        placeholder: "ui-state-highlight",
-        update: function (event, ui) {
-            $scope.order = [];
-            $('#sortable li').each(function (e) {
-                $scope.order.push($(this).attr('id'));
-            });
-        }
-    });
-    $("#sortable").disableSelection();
-*/
+ $scope.order = //DEVE CARICARE
+ $("#sortable").sortable({
+ placeholder: "ui-state-highlight",
+ update: function (event, ui) {
+ $scope.order = [];
+ $('#sortable li').each(function (e) {
+ $scope.order.push($(this).attr('id'));
+ });
+ }
+ });
+ $("#sortable").disableSelection();
+ */
