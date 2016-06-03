@@ -57,7 +57,12 @@
                     <span ng-bind-html="preview[$index + 1]"></span>
             </div>
         </div>
+        <div ng-switch-when="OI">
+            <div ng-bind-html="preview"></div>
+            <ul id="sortable">
+                <li class="ui-state-default"  ng-repeat="ans in currentQuestion.answers track by $index" id="{{ans}}">{{ans}}</li>
+            </ul>
+        </div>
     </div>
-
 </div>
 

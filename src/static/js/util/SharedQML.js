@@ -409,6 +409,8 @@ if (typeof angular === 'undefined') {
     module.exports = QML;
 }
 
+//2 cvolte settot elemento errore
+
 /*
     $scope.order = //DEVE CARICARE
     $("#sortable").sortable({
