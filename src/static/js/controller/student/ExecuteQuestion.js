@@ -31,9 +31,9 @@ $(function () {
                 $("#sortable").sortable({
                     placeholder: "ui-state-highlight",
                     update: function (event, ui) {
-                        $scope.order = [];
+                        $scope.ris.value = [];
                         $('#sortable li').each(function (e) {
-                            $scope.order.push($(this).attr('id'));
+                            $scope.ris.value.push($(this).attr('id'));
                         });
                         $scope.changeAnswer();
                     }

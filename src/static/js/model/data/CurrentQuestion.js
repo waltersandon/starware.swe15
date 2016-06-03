@@ -65,7 +65,15 @@ $(function () {
                     }
                     return {point: point, tot: tot};
                 } else if (this.type === 'OI') {
-                    if (this.answers === this.answer) {
+                    var right = true;
+                    var self = this;
+                    this.answer.forEach(function(ans,i){
+                        if(ans != self.selectedAnswer[i]){
+                            console.log(ans, self.selectedAnswer[i]);
+                            right = false;
+                        }
+                    });
+                    if (right) {
                         return {point: 1, tot: 1};
                     } else {
                         return {point: 0, tot: 1};
