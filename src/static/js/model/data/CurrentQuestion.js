@@ -67,15 +67,18 @@ $(function () {
                 } else if (this.type === 'OI') {
                     var right = true;
                     var self = this;
-                    this.answer.forEach(function(ans,i){
-                        if(ans != self.selectedAnswer[i]){
-                            console.log(ans, self.selectedAnswer[i]);
+                    
+                    this.answer.forEach(function(el, i){
+                        if(el !== self.selectedAnswer[i]){
                             right = false;
                         }
                     });
+
                     if (right) {
+                        this.right = true;
                         return {point: 1, tot: 1};
                     } else {
+                        this.right = false;
                         return {point: 0, tot: 1};
                     }
                 }
