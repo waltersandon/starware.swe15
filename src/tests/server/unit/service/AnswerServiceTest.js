@@ -116,18 +116,16 @@ describe('/api/answers', function() {
                 expect(err).to.not.be.ok;
                 expect(res).to.have.property('status', 200);
                 expect(res.body).to.be.instanceof(Array);
-                expect(res.body.length).to.be.above(1);
+                expect(res.body.length).to.be.above(0);
 
-                var questionnaire = res.body._id;
-                var question = res.body.questions[0]._id;
+                var questionnaire = res.body[0]._id;
+                var question = res.body[0].questions[0];
                 var newAnswer = {
                     question: question,
                     questionnaire: questionnaire,
                     score: 2
                 };
-                var req = request(app).post('/api/answers').send(newAnswer);
-                agent.attachCookies(req);
-                req.end(function(err, res) {
+                request(app).post('/api/answers').send(newAnswer).end(function(err, res) {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     done();
@@ -141,8 +139,8 @@ describe('/api/answers', function() {
 
             // login
             login(app, {
-                userName: 'tullio.vardanega',
-                password: 'password.tullio.vardanega'
+                userName: 'riccardo.cardin',
+                password: 'password.riccardo.cardin'
             }, function(agent) {
 
                 // get list of questionnaires and select first
@@ -152,12 +150,12 @@ describe('/api/answers', function() {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     expect(res.body).to.be.instanceof(Array);
-                    expect(res.body.length).to.be.above(1);
+                    expect(res.body.length).to.be.above(0);
 
                     // post a new answer to the first question of the
                     // questionnaire
-                    var questionnaire = res.body._id;
-                    var question = res.body.questions[0]._id;
+                    var questionnaire = res.body[0]._id;
+                    var question = res.body[0].questions[0];
                     var newAnswer = {
                         question: question,
                         questionnaire: questionnaire,
@@ -170,7 +168,7 @@ describe('/api/answers', function() {
                         expect(res).to.have.property('status', 200);
 
                         // get my id
-                        var req = request(app).post('/api/users/me');
+                        var req = request(app).get('/api/users/me');
                         agent.attachCookies(req);
                         req.end(function(err, res) {
                             expect(err).to.not.be.ok;
@@ -178,16 +176,16 @@ describe('/api/answers', function() {
                             var author = res.body._id;
 
                             // search that the new answer exists
-                            var req = request(app).post(
-                                '/api/answers?author=' + author + 
-                                    '&question=' + questions +
-                                    '&questionnaire=' + questionnaire);
+                            var req = request(app).get(
+                                '/api/answers?authors=' + author + 
+                                    '&questions=' + question +
+                                    '&questionnaires=' + questionnaire);
                             agent.attachCookies(req);
                             req.end(function(err, res) {
                                 expect(err).to.not.be.ok;
                                 expect(res).to.have.property('status', 200);
                                 expect(res.body).to.be.instanceof(Array);
-                                expect(res.body.length).to.be.above(1);
+                                expect(res.body).to.have.property('length', 1);
 
                                 var answer = res.body[0];
                                 expect(answer).to.have.property('_id');
