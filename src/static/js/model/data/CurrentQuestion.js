@@ -8,6 +8,9 @@ $(function () {
                 if (this.type === 'TF' || this.type === 'MC') {
                     this.answer = quest.answer;
                     this.selectedAnswer = null;
+                } else if (this.type === "OI"){
+                    this.answer = quest.answer;
+                    this.selectedAnswer = quest.answers;
                 } else {
                     this.answer = quest.answer;
                     this.selectedAnswer = [];
