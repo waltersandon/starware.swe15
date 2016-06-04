@@ -36,7 +36,8 @@ $(function () {
                             $scope.ris.value.push($(this).attr('id'));
                         });
                         $scope.changeAnswer();
-                    }
+                    },
+                    disabled: !$scope.edit
                 });
                 $("#sortable").disableSelection();
             }, 500);
