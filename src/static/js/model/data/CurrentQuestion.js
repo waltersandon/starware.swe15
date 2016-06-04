@@ -15,7 +15,7 @@ $(function () {
                     this.answer = quest.answer;
                     this.selectedAnswer = [];
                 }
-                this.id = quest.id;
+                this.id = question.id;
                 this.stat = '';
                 this.right = false;
                 this.explanation = quest.explanation;

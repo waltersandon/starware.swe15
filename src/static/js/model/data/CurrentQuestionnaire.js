@@ -39,7 +39,7 @@ $(function () {
             CurrentQuestionnaire.prototype.getResult = function (next) {
                 var point = 0;
                 var tot = 0;
-                var id = this.id;
+                var self = this;
                 var questions = this.questions;
 
                 async.each(questions, function (item, cll) {
@@ -49,9 +49,9 @@ $(function () {
                         tot += result.tot;
                     }
 
-                    AnswerService.new(id, item.id, result.point, function () {
-                        /*AnswerService.get(id, item.id, function (res) {
-                            /*var pt = result.point;
+                    AnswerService.new(self, item, result.point, function () {
+                        AnswerService.get([self.id], [item.id], function (res) {
+                            var pt = result.point;
                             var scores = [];
                             
                             res.forEach(function (item) {
@@ -59,9 +59,13 @@ $(function () {
                             });
                             
                             var vars = Array.from(new Set(scores)).sort();
-                            var couters = [0 for i of vars];
+                            var counters = [for (i of vars) 0];
                             
-                            scores.forEach(function (s) {
+                            console.log(scores);
+                            console.log(vars);
+                            console.log(counters);
+                            
+                            /*scores.forEach(function (s) {
                                 switch (s){
                                     case 0:
                                         zeros++;
@@ -72,13 +76,12 @@ $(function () {
                                     default:
                                         
                                 }
-                            });
+                            });*/
                             
                             cll();
                         }, function (res) {
                             cll();
-                        });*/
-                        cll();
+                        });
                     }, function (res) {
                         cll();
                     });
