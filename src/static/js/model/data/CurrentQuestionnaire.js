@@ -53,31 +53,34 @@ $(function () {
                         AnswerService.get([self.id], [item.id], function (res) {
                             var pt = result.point;
                             var scores = [];
-                            
+
                             res.forEach(function (item) {
                                 scores.push(item.score);
                             });
-                            
+
                             var vars = Array.from(new Set(scores)).sort();
-                            var counters = [for (i of vars) 0];
-                            
+                            var counters = [];
+                            vars.forEach(function () {
+                                counters.push(0);
+                            });
+
                             console.log(scores);
                             console.log(vars);
                             console.log(counters);
-                            
+
                             /*scores.forEach(function (s) {
-                                switch (s){
-                                    case 0:
-                                        zeros++;
-                                        break;
-                                    case 1:
-                                        ones++;
-                                        break;
-                                    default:
-                                        
-                                }
-                            });*/
-                            
+                             switch (s){
+                             case 0:
+                             zeros++;
+                             break;
+                             case 1:
+                             ones++;
+                             break;
+                             default:
+                             
+                             }
+                             });*/
+
                             cll();
                         }, function (res) {
                             cll();
