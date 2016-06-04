@@ -8,7 +8,7 @@ $(function () {
                 if (this.type === 'TF' || this.type === 'MC') {
                     this.answer = quest.answer;
                     this.selectedAnswer = null;
-                } else if (this.type === "OI"){
+                } else if (this.type === "OI") {
                     this.answer = quest.answer;
                     this.selectedAnswer = quest.answers;
                 } else {
@@ -66,13 +66,13 @@ $(function () {
                     if (point == tot) {
                         this.right = true;
                     }
-                    return {point: point, tot: tot};
+                    return {point: point / tot, tot: 1};
                 } else if (this.type === 'OI') {
                     var right = true;
                     var self = this;
-                    
-                    this.answer.forEach(function(el, i){
-                        if(el !== self.selectedAnswer[i]){
+
+                    this.answer.forEach(function (el, i) {
+                        if (el !== self.selectedAnswer[i]) {
                             right = false;
                         }
                     });
