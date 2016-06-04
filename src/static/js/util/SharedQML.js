@@ -307,16 +307,13 @@ OrderItemsParser.prototype.parse = function (qml) {
         var body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
 
-        /*console.log(Array.from(new Set(answer)).sort());
-        console.log(answer.sort());
-
         if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
             return {
                 status: false,
                 message: '<strong>Errore! </strong> la lista contiene duplicati'
             };
-        }*/
-
+        }
+        
         var answers = function (a) {
             var j, x, i, b = a.slice();
             for (i = b.length; i; i -= 1) {
