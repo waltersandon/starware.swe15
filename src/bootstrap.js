@@ -14,6 +14,7 @@ mongoose.connect(config.dbUri, function() {
 	var Questionnaire = require('./api/data/Questionnaire');
 	var Tag = require('./api/data/Tag');
 	var User = require('./api/data/User');
+	var Answer = require('./api/data/Answer');
 
 	// Remove all db content
 	Promise.all([
@@ -21,7 +22,8 @@ mongoose.connect(config.dbUri, function() {
 		User.remove({}),
 		Tag.remove({}),
 		Question.remove({}),
-		Questionnaire.remove({})
+		Questionnaire.remove({}),
+		Answer.remove({})
 	]).then(function() {
 
 		// Add basic Roles and Tags
@@ -55,7 +57,7 @@ mongoose.connect(config.dbUri, function() {
 		"(*) ![zio paperone](http://www.googledrive.com/host/0B6NSpwWzNVlsdzY2d1hnak14ZzA)", tags: [tag5._id]});
 		var question8 = new Question ({author: usr5._id, body: "####La seguente formula è corretta?####\n" +
 		"![equation](http://www.sciweavers.org/tex2img.php?eq=e%5E%7Bi%20%20%5Cvarphi%20%7D%20%3D%20sin%28%5Cvarphi%29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])\n(+)", tags: [tag2._id]});
-        var question9 = new Question ({author: usr5._id, body: "<MC>\nQuale di questi non è uno dei principi SOLID?\n[answers]\n" +
+        var question9 = new Question ({author: usr5._id, body: "Quale di questi non è uno dei principi SOLID?\n" +
         "() Single Responsibility principle\n" +
         "() Open Close principle\n" +
         "(*) La pizza\n" +
@@ -64,9 +66,47 @@ mongoose.connect(config.dbUri, function() {
 		"[aracia,*amore,entropia,uva] sopra ogni [rosa, *cosa, babbuino].\n" +
 		"Appena scesa dalla stazione del paesino di [Monte Magrè, Dromedario,* Sant'Ilario], tutti s'accorsero senza uno " +
 		"sguardo che non si trattava di un [*missionario, rinoceronte, pizza, marajè]", tags: [tag5._id]});
+		var question11 = new Question({author: usr5._id, tags: [tag5._id, tag1._id], body:
+			"Riordina le seguenti serie TV in ordine cronologico in base alla data del loro primo episodio:\n" +
+			"[Lost|Breaking Bad|Game of Thrones]\n"
+		});
 
 		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id,question3._id, question10._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
+		var questionnaire2 = new Questionnaire({author: usr2._id, questions: [question9._id,question4._id,question5._id], tags: [tag5._id], title: "Quiz 2"});
+		var questionnaire3 = new Questionnaire({author: usr2._id, questions: [question4._id,question5._id,question1._id, question8._id, question11._id], tags: [tag1._id,tag3._id], title: "Quiz 3"});
+		var questionnaire4 = new Questionnaire({author: usr4._id, questions: [question3._id,question4._id,question6._id, question8._id], tags: [tag5._id], title: "Quiz 4"});
 
+		// usr1 results / questionnaire1
+		var answer1 = new Answer({ author: usr1._id, questionnaire: questionnaire1._id, question: question1._id, score: 1 });
+		var answer2 = new Answer({ author: usr1._id, questionnaire: questionnaire1._id, question: question2._id, score: 1 });
+		var answer3 = new Answer({ author: usr1._id, questionnaire: questionnaire1._id, question: question3._id, score: 0 });
+		var answer4 = new Answer({ author: usr1._id, questionnaire: questionnaire1._id, question: question10._id, score: 0.40 });
+
+		// usr1 results / questionnaire3
+		var answer5 = new Answer({ author: usr1._id, questionnaire: questionnaire3._id, question: question4._id, score: 0 });
+		var answer6 = new Answer({ author: usr1._id, questionnaire: questionnaire3._id, question: question5._id, score: 1 });
+		var answer7 = new Answer({ author: usr1._id, questionnaire: questionnaire3._id, question: question1._id, score: 1 });
+		var answer8 = new Answer({ author: usr1._id, questionnaire: questionnaire3._id, question: question8._id, score: 0 });
+		var answer9 = new Answer({ author: usr1._id, questionnaire: questionnaire3._id, question: question11._id, score: 1 });
+
+		// usr2 results / questionnaire1
+		var answer10 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question1._id, score: 0 });
+		var answer11 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question2._id, score: 0 });
+		var answer12 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question3._id, score: 1 });
+		var answer13 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question10._id, score: 0.20 });
+
+		// usr2 results / questionnaire1 #2
+		var answer14 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question1._id, score: 0 });
+		var answer15 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question2._id, score: 1 });
+		var answer16 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question3._id, score: 1 });
+		var answer17 = new Answer({ author: usr2._id, questionnaire: questionnaire1._id, question: question10._id, score: 0.60 });
+
+		// usr2 results / questionnaire3
+		var answer18 = new Answer({ author: usr2._id, questionnaire: questionnaire3._id, question: question4._id, score: 1 });
+		var answer19 = new Answer({ author: usr2._id, questionnaire: questionnaire3._id, question: question5._id, score: 1 });
+		var answer20 = new Answer({ author: usr2._id, questionnaire: questionnaire3._id, question: question1._id, score: 0 });
+		var answer21 = new Answer({ author: usr2._id, questionnaire: questionnaire3._id, question: question8._id, score: 0 });
+		var answer22 = new Answer({ author: usr2._id, questionnaire: questionnaire3._id, question: question11._id, score: 0 });
 
 		// Add basic Roles and Tags
 		Promise.all([
@@ -95,15 +135,36 @@ mongoose.connect(config.dbUri, function() {
 			question8.save(),
             question9.save(),
 			question10.save(),
-			questionnaire1.save()
-
+			question11.save(),
+			questionnaire1.save(),
+			questionnaire2.save(),
+			questionnaire3.save(),
+			questionnaire4.save(),
+			answer1.save(),
+			answer2.save(),
+			answer3.save(),
+			answer4.save(),
+			answer5.save(),
+			answer6.save(),
+			answer7.save(),
+			answer8.save(),
+			answer9.save(),
+			answer10.save(),
+			answer11.save(),
+			answer12.save(),
+			answer13.save(),
+			answer14.save(),
+			answer15.save(),
+			answer16.save(),
+			answer17.save(),
+			answer18.save(),
+			answer19.save(),
+			answer20.save(),
+			answer21.save(),
+			answer22.save()
 		]).then(function() {
 			mongoose.disconnect();
-			console.log('Aggiunti ruoli base');
-			console.log('Aggiunti agromenti base');
-			console.log('Aggiunti utenti base');
-			console.log('Aggiunte domande base');
-			console.log('Aggiunto questionario base');
+			console.log('Dati test aggiunti');
 		});
 
 	});

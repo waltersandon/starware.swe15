@@ -3,6 +3,9 @@ var _ = require('./Questionnaire');
 var _ = require('./User');
 var mongoose = require('mongoose');
 
+var AnswerCheck = require('./../validator/AnswerCheck');
+var check = new AnswerCheck();
+
 var AnswerSchema = new mongoose.Schema({
     question: {
         type: mongoose.Schema.Types.ObjectId,
@@ -21,7 +24,11 @@ var AnswerSchema = new mongoose.Schema({
     },
     score: {
         type: Number,
-        required: [true, 'Punteggio non specificato']
+        required: [true, 'Punteggio non specificato'],
+        validate: {
+            validator: check.checkScore,
+            message: 'Punteggio non compreso tra 0 e 1'
+        }
     }
 });
 
