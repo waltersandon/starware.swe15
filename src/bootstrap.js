@@ -66,7 +66,7 @@ mongoose.connect(config.dbUri, function() {
 		"[aracia,*amore,entropia,uva] sopra ogni [rosa, *cosa, babbuino].\n" +
 		"Appena scesa dalla stazione del paesino di [Monte Magrè, Dromedario,* Sant'Ilario], tutti s'accorsero senza uno " +
 		"sguardo che non si trattava di un [*missionario, rinoceronte, pizza, marajè]", tags: [tag5._id]});
-		var question11 = new Question({author: usr5._id, tags: [tag5._id. tag1._id], body:
+		var question11 = new Question({author: usr5._id, tags: [tag5._id, tag1._id], body:
 			"Riordina le seguenti serie TV in ordine cronologico in base alla data del loro primo episodio:\n" +
 			"[Lost|Breaking Bad|Game of Thrones]\n"
 		});
