@@ -48,46 +48,62 @@ $(function () {
                         point += result.point;
                         tot += result.tot;
                     }
+                    
+                    AnswerService.get([self.id], [item.id], function (res) {
+                        var pt = result.point;
+                        var scores = [];
 
-                    AnswerService.new(self, item, result.point, function () {
-                        AnswerService.get([self.id], [item.id], function (res) {
-                            var pt = result.point;
-                            var scores = [];
+                        res.forEach(function (item) {
+                            scores.push(item.score);
+                        });
 
-                            res.forEach(function (item) {
-                                scores.push(item.score);
-                            });
+                        var vars = new Set(scores);
+                        vars = vars.add(0);
+                        vars = vars.add(1);
 
-                            var vars = Array.from(new Set(scores)).sort();
-                            var counters = [];
-                            vars.forEach(function () {
-                                counters.push(0);
-                            });
+                        var vars = Array.from(vars).sort();
+                        var counters = [];
+                        vars.forEach(function () {
+                            counters.push(0);
+                        });
 
-                            console.log(scores);
-                            console.log(vars);
-                            console.log(counters);
+                        scores.forEach(function (s) {
+                            var i = vars.indexOf(s);
+                            counters[i]++;
+                        });
 
-                            /*scores.forEach(function (s) {
-                             switch (s){
-                             case 0:
-                             zeros++;
-                             break;
-                             case 1:
-                             ones++;
-                             break;
-                             default:
-                             
-                             }
-                             });*/
+                        var risp = 0;
+                        counters.forEach(function (i) {
+                            risp += i;
+                        });
 
+                        item.stat.push('Hanno risposto con il massimo del punteggio il <strong>' + Math.round(counters[counters.length - 1] * 100 / risp) + '%</strong> degli studenti');
+                        item.stat.push('Hanno risposto con il minimo del punteggio il <strong>' + Math.round(counters[0] * 100 / risp) + '%</strong> degli studenti');
+
+                        var worse = 0, equal = 0, better = 0, myindex = vars.indexOf(pt);
+                        for (var i = 0; i < vars.length; i++) {
+                            if (i < myindex) {
+                                worse += counters[i];
+                            } else if (i === myindex) {
+                                equal += counters[i];
+                            } else {
+                                better += counters[i];
+                            }
+                        }
+
+                        item.stat.push('Hanno risposto meglio di te il <strong>' + Math.round(better * 100 / risp) + '%</strong> degli studenti');
+                        item.stat.push('Hanno risposto come te il <strong>' + Math.round(equal * 100 / risp) + '%</strong> degli studenti');
+                        item.stat.push('Hanno risposto peggio di te il <strong>' + Math.round(worse * 100 / risp) + '%</strong> degli studenti');
+
+                        cll();
+                    }, function (res) {
+                        AnswerService.new(self, item, result.point, function () {
                             cll();
                         }, function (res) {
                             cll();
                         });
-                    }, function (res) {
-                        cll();
                     });
+
                 }, function (err, res) {
                     next({point: point, tot: tot});
                 });

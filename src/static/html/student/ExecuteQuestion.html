@@ -5,6 +5,14 @@
             <span ng-bind-html="currentQuestion.explanation"></span>
         </div>
     </div>
+    <div class="row" ng-show='result.status'>
+        <div class='col-md-12'>
+            <ul>
+                <li ng-repeat="st in currentQuestion.stat" style=""><span ng-bind-html="st"></span></li>
+            </ul>
+        </div>
+        <hr/>
+    </div>
     <div ng-switch on="currentQuestion.type">
         <div ng-switch-when="TF">
             <div ng-bind-html="preview"></div>
@@ -40,7 +48,7 @@
                         <label>
                             <input style="display:inline" type='checkbox' name='Question' ng-model='ris.value[$index]'
                                    ng-true-value="{{ans.value}}" ng-false-value="false"><span
-                                ng-bind-html="ans.str"></span>
+                                   ng-bind-html="ans.str"></span>
                         </label>
                     </div>
                 </fieldset>
