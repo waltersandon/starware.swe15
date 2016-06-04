@@ -15,7 +15,8 @@ $(function () {
                     this.answer = quest.answer;
                     this.selectedAnswer = [];
                 }
-
+                this.id = quest.id;
+                this.stat = '';
                 this.right = false;
                 this.explanation = quest.explanation;
             }
