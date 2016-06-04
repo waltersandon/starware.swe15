@@ -5,6 +5,7 @@ var Configuration = require('./../app/Configuration');
 var UserService = require('../service/UserService');
 var QuestionService = require('../service/QuestionService');
 var QuestionnaireService = require('../service/QuestionnaireService');
+var AnswerService = require('../service/AnswerService');
 var SessionService = require('../service/SessionService');
 var TagService = require('../service/TagService');
 var RoleService = require('../service/RoleService');
@@ -22,6 +23,7 @@ function Router(auth, error) {
     this.userService = new UserService();
     this.questionService = new QuestionService();
     this.questionnaireService = new QuestionnaireService();
+    this.answerService = new AnswerService();
     this.tagService = new TagService();
     this.roleService = new RoleService();
 
@@ -51,6 +53,11 @@ function Router(auth, error) {
     this.router.post('/questionnaires',auth.requireRole('teacher'),this.questionnaireService.new);
     this.router.put('/questionnaires/:id',auth.requireRole('teacher'),this.questionnaireService.modify);
     this.router.delete('/questionnaires/:id',auth.requireRole('teacher'),this.questionnaireService.delete);
+
+    //Routing answer request
+    this.router.get('/answers',this.answerService.get);
+    this.router.get('/answers/:id',this.answerService.getByID);
+    this.router.post('/answers',this.answerService.new);
 
     //Routing subject requests
     this.router.get('/tags',this.tagService.get);
