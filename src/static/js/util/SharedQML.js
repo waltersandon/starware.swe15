@@ -106,7 +106,7 @@ MultiChoiceParser.prototype.parse = function (qml) {
                         <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement});
+            choices.push({value: n, str: myToHTML(statement)});
             right = n;
             n++;
             rightAnswers++;
@@ -119,7 +119,7 @@ MultiChoiceParser.prototype.parse = function (qml) {
                         <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement});
+            choices.push({value: n, str: myToHTML(statement)});
             n++;
             wrongAnswers++;
         } else {
@@ -392,15 +392,17 @@ QML.prototype.extractExplanation = function (plainText) {
     var expFlag = false;
     var explanationLines = [];
     var newTextLines = [];
-    plainText.split('\n').forEach((function (line) {
-        if (expFlag) {
-            explanationLines.push(line);
-        } else if (line.match(this.explanation)) {
-            expFlag = true;
-        } else {
-            newTextLines.push(line);
-        }
-    }).bind(this));
+    if (plainText){
+        plainText.split('\n').forEach((function (line) {
+            if (expFlag) {
+                explanationLines.push(line);
+            } else if (line.match(this.explanation)) {
+                expFlag = true;
+            } else {
+                newTextLines.push(line);
+            }
+        }).bind(this));
+    }
     return {
         explanation: explanationLines.join('\n'),
         plainText: newTextLines.join('\n')
@@ -409,7 +411,7 @@ QML.prototype.extractExplanation = function (plainText) {
 
 QML.prototype.preview = function (body) {
     body = this.parse(body).body;
-    if (body.length > 100) {
+    if (body && body.length > 100) {
         return body.substr(0, 100) + " [..]";
     } else {
         return body;

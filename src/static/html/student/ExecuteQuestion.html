@@ -50,9 +50,9 @@
             <span ng-bind-html="preview[0]"></span>
             <div ng-repeat="ans in currentQuestion.answers track by $index" style="display: inline">
                 <select ng-model="ris.value[$index]" ng-change="changeAnswer()"
-                        ng-class="ris.value[$index] != currentQuestion.answer[$index] && !edit ? 'wrong' : ''">
+                        ng-class="ris.value[$index] != currentQuestion.answer[$index] && !edit ? 'wrong' : ''" ng-disabled="!edit">
                     <option value=""></option>
-                    <option ng-repeat="a in ans" ng-value="a.value">{{a.str}}</option>
+                    <option ng-repeat="a in ans" value="{{a.value}}">{{a.str}}</option>
                 </select>
                 <span ng-bind-html="preview[$index + 1]"></span>
             </div>

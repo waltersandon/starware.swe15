@@ -36,6 +36,9 @@ $(function () {
                             $scope.ris.value.push($(this).attr('id'));
                         });
                         $scope.changeAnswer();
+                    },
+                    create: function (event, ui) {
+                        console.log("ciao");
                     }
                 });
                 $("#sortable").disableSelection();
