@@ -144,5 +144,6 @@ $(function () {
             }
 
             Questionnaires();
+            $scope.submit();
         }]);
 });
