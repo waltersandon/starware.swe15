@@ -106,7 +106,7 @@ MultiChoiceParser.prototype.parse = function (qml) {
                         <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement});
+            choices.push({value: n, str: myToHTML(statement)});
             right = n;
             n++;
             rightAnswers++;
@@ -119,7 +119,7 @@ MultiChoiceParser.prototype.parse = function (qml) {
                         <input type=\'radio\' name=\'MCQuestion\' ng-model=\'ris\' value=\'' + n + '\'> ' + statementHTML.substr(3, statementHTML.length - 7) + '\
                     </label>\
                 </div>';
-            choices.push({value: n, str: statement});
+            choices.push({value: n, str: myToHTML(statement)});
             n++;
             wrongAnswers++;
         } else {
@@ -166,7 +166,7 @@ function TrueFalseParser() {
 TrueFalseParser.prototype.parse = function (qml) {
     var parsedLines = qml.split('\n').map((function (line) {
         if (line.match(this.true) || line.match(this.false)) {
-            return { answer: this.true.test(line)};
+            return {answer: this.true.test(line)};
         } else {
             return line;
         }
@@ -304,9 +304,16 @@ OrderItemsParser.prototype.parse = function (qml) {
     } else if (orders.length === 0) {
         return null;
     } else {
-        console.log(orders[0].order[0]);
         var body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
+
+        if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la lista contiene duplicati'
+            };
+        }
+        
         var answers = function (a) {
             var j, x, i, b = a.slice();
             for (i = b.length; i; i -= 1) {
@@ -322,12 +329,12 @@ OrderItemsParser.prototype.parse = function (qml) {
         var temp = '[';
         preview = body;
         preview += '<ul id="sortable">';
-        answers.forEach(function(item){
+        answers.forEach(function (item) {
             preview += '<li class="ui-state-default">' + item + '</li>';
             temp += item + ',';
         });
         preview += '</ul>';
-        
+
         return {
             status: true,
             type: 'OI',
@@ -382,15 +389,17 @@ QML.prototype.extractExplanation = function (plainText) {
     var expFlag = false;
     var explanationLines = [];
     var newTextLines = [];
-    plainText.split('\n').forEach((function (line) {
-        if (expFlag) {
-            explanationLines.push(line);
-        } else if (line.match(this.explanation)) {
-            expFlag = true;
-        } else {
-            newTextLines.push(line);
-        }
-    }).bind(this));
+    if (plainText){
+        plainText.split('\n').forEach((function (line) {
+            if (expFlag) {
+                explanationLines.push(line);
+            } else if (line.match(this.explanation)) {
+                expFlag = true;
+            } else {
+                newTextLines.push(line);
+            }
+        }).bind(this));
+    }
     return {
         explanation: explanationLines.join('\n'),
         plainText: newTextLines.join('\n')
@@ -399,7 +408,7 @@ QML.prototype.extractExplanation = function (plainText) {
 
 QML.prototype.preview = function (body) {
     body = this.parse(body).body;
-    if (body.length > 100) {
+    if (body && body.length > 100) {
         return body.substr(0, 100) + " [..]";
     } else {
         return body;
@@ -410,18 +419,16 @@ if (typeof angular === 'undefined') {
     module.exports = QML;
 }
 
-
 /*
- DA TENERE!!!!!
- $scope.order = //DA DEFINIRE
- $( "#sortable" ).sortable({
+ $scope.order = //DEVE CARICARE
+ $("#sortable").sortable({
  placeholder: "ui-state-highlight",
- update: function(event, ui) {
+ update: function (event, ui) {
  $scope.order = [];
- $('#sortable li').each( function(e) {
+ $('#sortable li').each(function (e) {
  $scope.order.push($(this).attr('id'));
  });
  }
  });
- $( "#sortable" ).disableSelection();
+ $("#sortable").disableSelection();
  */

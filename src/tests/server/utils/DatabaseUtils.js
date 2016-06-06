@@ -5,6 +5,7 @@ var Question = require('../../../api/data/Question');
 var Questionnaire = require('../../../api/data/Questionnaire');
 var Tag = require('../../../api/data/Tag');
 var User = require('../../../api/data/User');
+var Answer = require('../../../api/data/Answer');
 
 function databaseSetState(objs, onSetState) {
 	var config = new Configuration({ test: true });
@@ -14,7 +15,8 @@ function databaseSetState(objs, onSetState) {
 			User.remove({}),
 			Tag.remove({}),
 			Question.remove({}),
-			Questionnaire.remove({})
+			Questionnaire.remove({}),
+            Answer.remove({})
 		]).then(function() {
 			Promise.all(objs.map(function(e) { return e.save(); }))
 				.then(function() { onSetState(); }, console.error);
@@ -107,6 +109,34 @@ function databaseSetup(onSetup) {
 		title: "Quiz 1"
 	});
 
+    var answer1 = new Answer({
+        author: user1._id,
+        question: question1._id,
+        questionnaire: questionnaire1._id,
+        score: 1
+    });
+
+    var answer2 = new Answer({
+        author: user1._id,
+        question: question2._id,
+        questionnaire: questionnaire1._id,
+        score: 0
+    });
+
+    var answer3 = new Answer({
+        author: user1._id,
+        question: question3._id,
+        questionnaire: questionnaire1._id,
+        score: 1
+    });
+
+    var answer4 = new Answer({
+        author: user2._id,
+        question: question1._id,
+        questionnaire: questionnaire1._id,
+        score: 0
+    });
+
     databaseSetState([
         studentRole,
         teacherRole,
@@ -125,7 +155,11 @@ function databaseSetup(onSetup) {
         question1,
         question2,
         question3,
-        questionnaire1
+        questionnaire1,
+        answer1,
+        answer2,
+        answer3,
+        answer4
     ], onSetup);
 
 }

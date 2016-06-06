@@ -5,6 +5,14 @@
             <span ng-bind-html="currentQuestion.explanation"></span>
         </div>
     </div>
+    <div class="row" ng-show='result.status'>
+        <div class='col-md-12'>
+            <ul>
+                <li ng-repeat="st in currentQuestion.stat" style=""><span ng-bind-html="st"></span></li>
+            </ul>
+        </div>
+        <hr/>
+    </div>
     <div ng-switch on="currentQuestion.type">
         <div ng-switch-when="TF">
             <div ng-bind-html="preview"></div>
@@ -40,7 +48,7 @@
                         <label>
                             <input style="display:inline" type='checkbox' name='Question' ng-model='ris.value[$index]'
                                    ng-true-value="{{ans.value}}" ng-false-value="false"><span
-                                ng-bind-html="ans.str"></span>
+                                   ng-bind-html="ans.str"></span>
                         </label>
                     </div>
                 </fieldset>
@@ -49,15 +57,20 @@
         <div ng-switch-when="CT">
             <span ng-bind-html="preview[0]"></span>
             <div ng-repeat="ans in currentQuestion.answers track by $index" style="display: inline">
-                    <select ng-model="ris.value[$index]" ng-change="changeAnswer()"
-                            ng-class="ris.value[$index] != currentQuestion.answer[$index] && !edit ? 'wrong' : ''">
-                        <option value=""></option>
-                        <option ng-repeat="a in ans" ng-value="a.value">{{a.str}}</option>
-                    </select>
-                    <span ng-bind-html="preview[$index + 1]"></span>
+                <select ng-model="ris.value[$index]" ng-change="changeAnswer()"
+                        ng-class="ris.value[$index] != currentQuestion.answer[$index] && !edit ? 'wrong' : ''" ng-disabled="!edit">
+                    <option value=""></option>
+                    <option ng-repeat="a in ans" value="{{a.value}}">{{a.str}}</option>
+                </select>
+                <span ng-bind-html="preview[$index + 1]"></span>
             </div>
         </div>
+        <div ng-switch-when="OI">
+            <div ng-bind-html="preview"></div>
+            <ul id="sortable">
+                <li class="ui-state-default"  ng-repeat="ans in currentQuestion.selectedAnswer track by $index" id="{{ans}}">{{ans}}</li>
+            </ul>
+        </div>
     </div>
-
 </div>
 
