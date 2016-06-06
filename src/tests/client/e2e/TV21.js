@@ -24,7 +24,7 @@ describe(' Questionnaires list', function() {
         ' eventualmente specificando parametri per il filtraggio del risultati', function () {
 
 
-        element(by.css('[href="#/student/questionnaires"]')).click();
+        element(by.css('[ng-click="changePath(\'student/questionnaires\')"]')).click();
         element(by.buttonText("Cerca")).click();
         var questionnaireList = element.all(by.repeater("quest in questList"));
         expect(questionnaireList.count()).toBeGreaterThan(0);

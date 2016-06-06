@@ -23,7 +23,7 @@ describe('TagCreation', function() {
         });
     });
     it('docente deve poter creare un nuovo argomento', function() {
-        element(by.css('[href="#/teacher/tags"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/tags\')"]')).click();
 
         element(by.css('[ng-model="newName"]')).clear().sendKeys("Argomento di Test");
 

@@ -24,7 +24,7 @@ describe('Questionnaire Creation', function() {
     });
     it('docente deve poter creare una nuovo questionario', function() {
 
-        element(by.css('[ href="#/teacher/questionnaires"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questionnaires\')"]')).click();
         element(by.css('[href="#/teacher/questionnaires/new/"]')).click();
         element(by.id('title')).clear().sendKeys("Questionnario Test");
         element(by.id('tags')).clear().sendKeys("Matematica, Informatica");

@@ -23,7 +23,7 @@ describe('Admin delete user', function() {
         });
     });
     it('admin deve poter eliminare un utente  di ruolo inferiore al proprio ', function() {
-        element(by.css('[href="#/admin/userlist"]')).click();
+        element(by.css('[ng-click="changePath(\'admin/userlist\')"]')).click();
         var deleteUser = element.all(by.css('[ng-click="deleteUser(user)"]')).last().click();
         browser.switchTo().alert().accept();
     });

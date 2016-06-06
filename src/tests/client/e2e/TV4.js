@@ -25,7 +25,7 @@ describe('Question Creation', function() {
     });
     it('docente deve poter creare una domanda', function() {
 
-        element(by.css('[href="#/teacher/questions"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questions\')"]')).click();
         element(by.css('[href="#/teacher/questions/new/"]')).click();
         browser.waitForAngular();
         browser.executeScript('$("div.CodeMirror-wrap > div").removeAttr("style");');
@@ -34,7 +34,7 @@ describe('Question Creation', function() {
         browser.waitForAngular();
         textareas.sendKeys(
             protractor.Key.CONTROL, "a", protractor.Key.NULL,
-            "<TF F>\n 2+2=5");
+            "2+2=5?\n(-)");
         element(by.css('[type="submit"]')).click();
         browser.waitForAngular();
     });
