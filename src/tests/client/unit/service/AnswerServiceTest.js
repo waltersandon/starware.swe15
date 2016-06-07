@@ -16,23 +16,23 @@ describe('model.service.AnswerService', function () {
 
         it("effettua la richiesta corretta per post della answer", function () {
             var answer = {
-                questionnaire: 'testQuestionnaire',
-                question: 'testQuestion',
+                questionnaire: {id:'testQuestionnaire'},
+                question: {id:'testQuestion'},
                 score: 0.5
             };
 
             $httpBackend
                 .whenPOST(Configuration.remote + 'api/answers', {
-                    questionnaire: answer.questionnaire,
-                    question: answer.question,
+                    questionnaire: answer.questionnaire.id,
+                    question: answer.question.id,
                     score: answer.score
 
                 }).respond(200, 'OK');
 
             $httpBackend
                 .expectPOST(Configuration.remote + 'api/answers', {
-                    questionnaire: answer.questionnaire,
-                    question: answer.question,
+                    questionnaire: answer.questionnaire.id,
+                    question: answer.question.id,
                     score: answer.score
                 });
 
@@ -47,13 +47,13 @@ describe('model.service.AnswerService', function () {
 
         it("rifiuta correttamente post delle answers incorrette", function () {
             var answer = {
-                questionnaire: 'testQuestionnaire',
-                question: 'testQuestion',
+                questionnaire: {id:'testQuestionnaire'},
+                question:{id: 'testQuestion'},
                 score: 0.5
             };
             var wrongAnswer = {
                 questionnaire: [],
-                question: 'testQuestion',
+                question: {id:'testQuestion'},
                 score: 0.5
             };
 
@@ -66,15 +66,15 @@ describe('model.service.AnswerService', function () {
 
             $httpBackend
                 .whenPOST(Configuration.remote + 'api/answers', {
-                    questionnaire: wrongAnswer.questionnaire,
-                    question: wrongAnswer.question,
+                    questionnaire: wrongAnswer.questionnaire.id,
+                    question: wrongAnswer.question.id,
                     score: wrongAnswer.score
                 }).respond(400);
 
             $httpBackend
                 .expectPOST(Configuration.remote + 'api/answers', {
-                    questionnaire: wrongAnswer.questionnaire,
-                    question: wrongAnswer.question,
+                    questionnaire: wrongAnswer.questionnaire.id,
+                    question: wrongAnswer.question.id,
                     score: wrongAnswer.score
                 });
 
@@ -99,9 +99,9 @@ describe('model.service.AnswerService', function () {
                 author: "TestAuthor",
                 score: 0.5
             };
-            var questionnaires = ['key1', 'key2'];
-            var questions = ['key1question', 'key2question'];
-            var param = function (questionnaires, questions) {
+            var questionnaire = ['key1', 'key2'];
+            var question = ['key1question', 'key2question'];
+            var param = function (questionnaire, question) {
                 return'api/answers?' +
                     'questionnaires=' + function () {
                         var a = '';
@@ -126,15 +126,15 @@ describe('model.service.AnswerService', function () {
             };
 
             $httpBackend
-                .whenGET(Configuration.remote + param(questionnaires, questions), {}).respond([answer]);
+                .whenGET(Configuration.remote + param(questionnaire, question), {}).respond([answer]);
 
             $httpBackend
-                .expectGET(Configuration.remote + param(questionnaires, questions), {
+                .expectGET(Configuration.remote + param(questionnaire, question), {
                     "Accept": "application/json, text/plain, */*"
 
                 }).respond([answer]);
 
-            AnswerService.get(questionnaires, questions, function (ret) {
+            AnswerService.get(questionnaire, question, function (ret) {
                 expect(true).toBe(true);
             }, function () {
                 expect(true).toBe(false);
@@ -143,9 +143,9 @@ describe('model.service.AnswerService', function () {
 
         });
         it("gestisce correttamente risposta vuota", function () {
-            var questionnaires = ['key1', 'key2'];
-            var questions = ['key1question', 'key2question'];
-            var param = function (questionnaires, questions) {
+            var questionnaire = ['key1', 'key2'];
+            var question = ['key1question', 'key2question'];
+            var param = function (questionnaire, question) {
                 return'api/answers?' +
                     'questionnaires=' + function () {
                         var a = '';
@@ -170,14 +170,14 @@ describe('model.service.AnswerService', function () {
             };
 
             $httpBackend
-                .whenGET(Configuration.remote + param(questionnaires, questions), {}).respond([]);
+                .whenGET(Configuration.remote + param(questionnaire, question), {}).respond([]);
             $httpBackend
-                .expectGET(Configuration.remote + param(questionnaires, questions), {
+                .expectGET(Configuration.remote + param(questionnaire, question), {
                     "Accept": "application/json, text/plain, */*"
 
                 }).respond([]);
 
-            AnswerService.get(questionnaires, questions, function () {
+            AnswerService.get(questionnaire, question, function () {
                 expect(true).toBe(true);
             }, function () {
                 expect(true).toBe(false);

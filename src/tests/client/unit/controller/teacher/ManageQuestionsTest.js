@@ -14,19 +14,19 @@ describe('controller.teacher.ManageQuestions', function() {
     var questions = [
         {
             id: 'id_question_1',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
+            body: 'Testo domanda\nSeconda linea\n(-)',
             author: 'id_author_1',
             tags: [ { id: 'id_tag_1' } ]
         },
         {
             id: 'id_question_2',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
+            body: 'Testo domanda\nSeconda linea\n(-)',
             author: 'id_author_1',
             tags: [ { id: 'id_tag_1' } ]
         },
         {
             id: 'id_question_3',
-            body: '<TF F>\nTesto domanda\nSeconda linea',
+            body: 'Testo domanda\nSeconda linea\n(-)',
             author: 'id_author_1',
             tags: [ { id: 'id_tag_1' } ]
         }
@@ -89,7 +89,7 @@ describe('controller.teacher.ManageQuestions', function() {
         it('deve ritornare la prima riga della domanda', function () {
             $scope.questions = questions;
             var preview = $scope.preview($scope.questions[1].body);
-            expect(preview).toBe('Testo domanda');
+            expect(preview).toBe('<p>Testo domanda\nSeconda linea</p>');
         });
 
     });

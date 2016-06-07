@@ -44,6 +44,9 @@ describe('controller.user.Home', function() {
             $location = $injector.get('$location');
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
+            $rootScope.urlPath = function () {
+                return $location.path().split('/');
+            };
             $cookies = $injector.get('$cookies');
             var $controller = $injector.get('$controller');
             controller = $controller('controller.user.Home', {
