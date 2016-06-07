@@ -304,7 +304,7 @@ OrderItemsParser.prototype.parse = function (qml) {
     } else if (orders.length === 0) {
         return null;
     } else {
-        var body = markdown.toHTML(body);
+        body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
 
         if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
@@ -328,7 +328,7 @@ OrderItemsParser.prototype.parse = function (qml) {
 
         var temp = '[';
         preview = body;
-        preview += '<ul id="sortable">';
+        preview += '<ul class="sortable">';
         answers.forEach(function (item) {
             preview += '<li class="ui-state-default">' + item + '</li>';
             temp += item + ',';
@@ -346,6 +346,99 @@ OrderItemsParser.prototype.parse = function (qml) {
     }
 };
 
+function CoupleItemsParser() {
+    this.couples = /^\{.+?\,.+?\|.+?\,.+?\}$/;
+}
+
+CoupleItemsParser.prototype.parse = function (qml) {
+    var parsedLines = qml.split('\n').map((function (line) {
+        if (line.match(this.couples)) {
+            return {couple: line.match(this.couples)};
+        } else {
+            return line;
+        }
+    }).bind(this));
+
+    var body = parsedLines.filter(function (line) {
+        return (typeof line === 'string');
+    }).join('\n');
+
+    var couples = parsedLines.filter(function (line) {
+        return !(typeof line === 'string');
+    });
+
+    if (couples.length > 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> ci può essere al massimo una lista di coppie da collegare'
+        };
+    } else if (couples.length === 0) {
+        return null;
+    } else {
+        body = markdown.toHTML(body);
+        var answer = couples[0].couple[0].substr(1, couples[0].couple[0].length - 2).split("|");
+
+        if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> la lista contiene duplicati'
+            };
+        }
+
+        var self = this;
+        var answerLeft = [], answerRight = [];
+        answer.forEach(function(ans){
+            var s = ans.split(",");
+            if(s.length == 2){
+                answerLeft.push(s[0]);
+                answerRight.push(s[1]);
+            }
+        });
+
+        if(answerRight.length != answer.length){
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> una coppia deve essere formata solo da 2 elementi'
+            };
+        }
+
+        var mix = function (a) {
+            var j, x, i, b = a.slice();
+            for (i = b.length; i; i -= 1) {
+                j = Math.floor(Math.random() * i);
+                x = b[i - 1];
+                b[i - 1] = b[j];
+                b[j] = x;
+            }
+            return b;
+        };
+
+        var answersLeft = mix(answerLeft);
+        var answersRight = mix(answerRight);
+
+        preview = body + '<div class="row">';
+        preview += '<ul class="sortable col-xs-6">';
+        answersLeft.forEach(function (item) {
+            preview += '<li class="ui-state-default">' + item + '</li>';
+        });
+        preview += '</ul>';
+        preview += '<ul class="sortable col-xs-6">';
+        answersRight.forEach(function (item) {
+            preview += '<li class="ui-state-default">' + item + '</li>';
+        });
+        preview += '</ul></div>';
+
+        return {
+            status: true,
+            type: 'CI',
+            body: body,
+            preview: preview,
+            answers: {left: answersLeft, right: answersRight},
+            answer: {left: answerLeft, right: answerRight}
+        };
+    }
+};
+
 function QML() {
     this.explanation = /^\s?(?:""")\s*$/;
     this.parsers = [
@@ -353,7 +446,8 @@ function QML() {
         new MultiAnswerParser(),
         new TrueFalseParser(),
         new CompleteTextParser(),
-        new OrderItemsParser()
+        new OrderItemsParser(),
+        new CoupleItemsParser()
     ];
 }
 
