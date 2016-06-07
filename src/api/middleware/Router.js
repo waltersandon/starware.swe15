@@ -1,7 +1,12 @@
+/**
+ * @file Router.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
 var express = require('express');
-
 var Configuration = require('./../app/Configuration');
-
 var UserService = require('../service/UserService');
 var QuestionService = require('../service/QuestionService');
 var QuestionnaireService = require('../service/QuestionnaireService');
@@ -10,21 +15,30 @@ var SessionService = require('../service/SessionService');
 var TagService = require('../service/TagService');
 var RoleService = require('../service/RoleService');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @param auth
- * @param error
- * @constructor
+/*!
+ * @class   Router
+ * @details Classe che si occupa di instradare le richieste verso le relative
+ *          richieste
+ * @par Usage
+ * Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare
+ * l’opportuno servizio
  */
 function Router(auth, error) {
 
     this.router = express.Router();
+    //!campo dati che rappresenta un oggetto SessionService
     this.sessionService = new SessionService();
+    //!campo dati che rappresenta un oggetto UserService
     this.userService = new UserService();
+    //!campo dati che rappresenta un oggetto QuestionService
     this.questionService = new QuestionService();
+    //!campo dati che rappresenta un oggetto QuestionnaireService
     this.questionnaireService = new QuestionnaireService();
+    //!campo dati che rappresenta un oggetto Answer Service
     this.answerService = new AnswerService();
+    //!campo dati che rappresenta un oggetto TagService
     this.tagService = new TagService();
+    //!campo dati che rappresenta un oggetto RoleService
     this.roleService = new RoleService();
 
     //login & logout
