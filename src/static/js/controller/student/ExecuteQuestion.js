@@ -1,3 +1,22 @@
+/*!
+ * @class   ExecuteQuestion
+ * @details La classe che controlla l'esecuzione di una domanda
+ * @par Usage
+ * Viene chiamata per dare la possibilità ad uno studente di eseguire una
+ * specifica domanda all'interno di un questionario in esecuzione
+ */
+
+
+/*!
+ * @details costruttore della classe
+ * @param[in]  currentQuestion contiene la domanda corrente da eseguire
+ * @param[in]  edit            true - si può modificare, false - no
+ * @param[in]  rootScope       oggetto di angular che identifica
+ *                              l’elemento con attributo ng-app
+ * @param[in]  scope           oggetto di angular che fa riferimento ad una
+ *                              porzione di model di pertinenza di uno
+ *                              specifico controller
+ */
 $(function () {
     angular.module('app.App').controller('controller.student.ExecuteQuestion', ['$scope', '$sce', '$interpolate', function ($scope, $sce, $interpolate) {
 
