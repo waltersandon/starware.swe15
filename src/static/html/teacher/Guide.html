@@ -1,11 +1,9 @@
-
 <div class='row'>
     <div class='col-md-8 col-md-offset-2'>
         <h1 style='text-align:center;'>Guida al Markdown</h1>
 
         <h4>Enfasi</h4>
-        <pre>
-**<strong>grassetto</strong>**
+        <pre>**<strong>grassetto</strong>**
 *<em>corsivo</em>*
 ~~<strike>barrato</strike>~~</pre>
 
@@ -59,6 +57,59 @@ alert(example);
 
         <h1 style='text-align:center;'>Guida al QML</h1>
 
+        <p>Ogni tipologia di domanda ha un insieme diverso di elementi aggiungibili attraverso specifiche sintassi.</p>
+        <p>Per permettere l'inserimento di qualsiasi tipologia di testo all'interno della domanda, ogni elemento prefissato da <code>\</code> viene ignorato.</p>
+        <p>Tutte le regole definite di seguito vengono controllate dal sistema che previene l'inserimento di sintassi incorrette o che non soddisfano le regole specifice della domanda.</p>
+
+        <h4>Domande vero o falso</h4>
+        <p>Per aggiungere le opzioni vero e falso è necessario inserire su una linea a se stante <code>[+]</code> oppure <code>[-]</code> per definire rispettivamente che la risposta corretta è vero o falsa.</p>
+        <p>Esempio domanda vera:</p>
+        <pre>Roma è la capitale d'Italia.
+[+]</pre>
+        <p>Esempio domanda falsa:</p>
+        <pre>Il capo luogo del Veneto è Padova.
+[-]</pre>
+
+        <h4>Domande a scelta multipla</h4>
+        <p>Per aggiungere le opzioni a scelta multipla è necessario inserire, per ogni opzione, una linea a se stante prefissata con <code>(*)</code> oppure <code>()</code> rispettivamente per indicare una opzione corretta o scorretta.</p>
+        <p>Deve esistere almeno una risposta corretta, e quest'ultima deve essere l'unica; nel caso si vogliano definire più risposte corrette si consiglia di usare una domanda a risposta multipla.</p>
+        <p>Esempio:</p>
+        <pre>Qual'è la capitale d'Italia:
+( ) Venezia
+( ) Milano
+(*) Roma
+( ) Padova</pre>
+
+        <h4>Domande a risposta multipla</h4>
+        <p>Per aggiungere le opzioni a risposta multipla è necessario inserire, per ogni opzione, una linea a se stante prefissata con <code>[*]</code> oppure <code>[]</code> rispettivamente per indicare una opzione corretta o scorretta.</p>
+        <p>Ovviamente ogni domanda a risposta multipla può contenere più opzioni corrette, ma deve sempre contenere almeno un opzione corretta e una scorretta.</p>
+        <p>Esempio:</p>
+        <pre>Quali dei seguenti sono nomi di sistemi operativi?
+[*] Mint
+[ ] Shoe
+[*] Windows
+[ ] Tubuntu</pre>
+
+        <h4>Domande a completamento</h4>
+        <p>Per aggiungere una opzione a completamento è necessario inserire le opzioni all'interno di parentesi quadre separate da <code>,</code> (virgola). La risposta corretta è definire prefissando una delle opzioni con un asterisco <code>*</code>.</p>
+        <p>Ogni opzione deve contenere solo ed almeno una risposta corretta.</p>
+        <p>Esempio:</p>
+        <pre>Completa il ritornello della celebre canzone "Another Brick in the Wall":
+
+We don't need no education 
+We don't need no [mind,*thought,brain] control 
+No dark sarcasm in the classroom 
+Teachers leave [*them,their,the] kids alone 
+Hey [principal,*teacher,student] leave them kids alone 
+All in all it's just [some,some other,*another] brick in the wall 
+All in [wall,*all,ball] you're just another brick in the wall</pre>
+
+        <h4>Domande ad ordinamento</h4>
+        <p>Per aggiungere l'orinamento basta inserire su una linea a se stante e racchiuse tra parentesi quadre, la lista degli elementi da ordinare separati da <code>|</code> (<i>pipe</i>). L'ordine in cui vengono elencati viene considerato come corretto.</p>
+        <p>Esempio:</p>
+        <pre>Riordina le seguenti serie TV in ordine cronologico 
+in base alla data del loro primo episodio:
+[Lost|Breaking Bad|Game of Thrones]</pre>
 
     </div>
 </div>
