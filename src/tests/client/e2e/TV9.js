@@ -24,7 +24,7 @@ describe('Questionnaire Delete', function() {
     });
     it('docente deve poter  eliminare un proprio questionario', function() {
 
-        element(by.css('[ href="#/teacher/questionnaires"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questionnaires\')"]')).click();
         element(by.id("titleSearch")).clear().sendKeys("Questionnario Test");
         element(by.css('[ng-click="remove(questionnaire)"]')).click();
         browser.switchTo().alert().accept();

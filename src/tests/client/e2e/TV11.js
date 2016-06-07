@@ -23,7 +23,7 @@ describe('TagModify', function() {
         });
     });
     it('docente deve poter modificare un argomento', function() {
-        element(by.css('[href="#/teacher/tags"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/tags\')"]')).click();
         var tag = element.all(by.css('[ng-repeat="tag in tags| orderBy : myOrderBy"]')).last();
         var tagName = tag.$$('[ng-model="tag.name"]').first().clear();
         var tagDescription = tag.$$('[ng-model="tag.description"]').first().clear();

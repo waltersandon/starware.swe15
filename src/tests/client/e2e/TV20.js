@@ -26,7 +26,7 @@ describe('Question List', function() {
     it('docente sia in grado di visualizzare la lista delle domande,' +
         ' eventualmente specificando parametri per il filtraggio del risultati', function() {
 
-        element(by.css('[href="#/teacher/questions"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questions\')"]')).click();
         var questionList = element.all(by.repeater("question in questions"));
         expect(questionList.count()).toBeGreaterThan(0);
 

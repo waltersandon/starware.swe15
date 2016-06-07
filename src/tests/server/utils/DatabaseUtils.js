@@ -108,6 +108,12 @@ function databaseSetup(onSetup) {
 		tags: [tag1._id,tag2._id,tag4._id],
 		title: "Quiz 1"
 	});
+    var questionnaire2 = new Questionnaire({
+        author: user3._id,
+        questions: [question1._id,question2._id,question3._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 2"
+    });
 
     var answer1 = new Answer({
         author: user1._id,
@@ -156,6 +162,7 @@ function databaseSetup(onSetup) {
         question2,
         question3,
         questionnaire1,
+        questionnaire2,
         answer1,
         answer2,
         answer3,

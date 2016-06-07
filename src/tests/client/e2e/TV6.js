@@ -26,7 +26,7 @@ describe('Question Delete', function() {
     });
     it('docente deve poter cancellare una domanda non usata in nessun questionario', function() {
         
-        element(by.css('[href="#/teacher/questions"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questions\')"]')).click();
         element(by.id("bodySearch")).clear().sendKeys("Roma");
         element(by.css('[ng-click="remove(question)"]')).click();
         browser.switchTo().alert().accept();

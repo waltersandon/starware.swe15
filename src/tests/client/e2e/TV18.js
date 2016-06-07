@@ -24,7 +24,7 @@ describe('Admin userlist', function() {
     });
     it('admin sia in grado di visualizzare la lista degli utenti,' +
         ' eventualmente specificando parametri per il filtraggio del risultati ', function() {
-        element(by.css('[href="#/admin/userlist"]')).click();
+        element(by.css('[ng-click="changePath(\'admin/userlist\')"]')).click();
         var userList = element.all(by.repeater("user in usersList"));
         expect(userList.count()).toBeGreaterThan(0);
         //TODO

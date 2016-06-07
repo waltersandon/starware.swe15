@@ -24,7 +24,7 @@ describe('Questionnaire Modify', function() {
     });
     it('docente deve poter  modificare un proprio questionario', function() {
 
-        element(by.css('[ href="#/teacher/questionnaires"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questionnaires\')"]')).click();
         element(by.id("titleSearch")).clear().sendKeys("Questionnario Test");
         element(by.repeater("questionnaire in questionnaires")).click();
         element(by.id("title")).clear().sendKeys("Questionnario Test Dopo Modifica");
