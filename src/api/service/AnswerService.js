@@ -1,19 +1,32 @@
+/*!
+ * @class   AnswerService
+ * @details Classe che si occupa della operazioni di inserimento e
+ *          visualizzazione di risposte a domande dei questionari, sfruttando la
+ *          classe server::data::Answer per accedere ai dati persistenti nel
+ *          database.
+ * @par Usage
+ * Fornisce i punteggi delle risposte date alle domande dei questionari a chi ne
+ * ha il permesso di accesso ed esegue operazioni di aggiunta e visualizzazione.
+ */
+
 var Question = require('./../data/Question');
 var Questionnaire = require('./../data/Questionnaire');
 var Answer = require('./../data/Answer');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @constructor
+/*!
+ * @details costruttore della classe
  */
 function AnswerService() {}
 
-/**
- * Metodo che invoca il servizio per ritornare una lista di risposte
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che invia al client la lista delle risposte in formato
+ *          JSON in base alle impostazioni di filtraggio impostate
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 AnswerService.prototype.get = function(req,res,next){
     var query = {};
@@ -35,12 +48,15 @@ AnswerService.prototype.get = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per ritornare una risposta specifica
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che ritorna al client un oggetto JSON contenente i dati
+ *          della risposta identificata nella richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 AnswerService.prototype.getByID = function(req,res,next){
     Answer.findById(req.params.id).exec(function(err, answer){
@@ -50,12 +66,14 @@ AnswerService.prototype.getByID = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per creare una nuova risposta
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che aggiunge una nuova risposta nel database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 AnswerService.prototype.new = function(req,res,next){
     if (req.session.user)

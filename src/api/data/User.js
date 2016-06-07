@@ -1,3 +1,8 @@
+/*!
+ * @class   User
+ * @details Classe che rappresenta un utente dell'applicazione
+ */
+
 var _ = require('./Role');
 var mongoose = require('mongoose');
 

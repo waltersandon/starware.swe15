@@ -4,10 +4,9 @@
  */
 function AnswerCheck() {}
 
-/**
- * Funzione che controlla se il punteggio passato è compreso tra 0 e 1 compresi
- * @param score - Punteggio da controllare
- * @returns {boolean}
+/*
+ * @details metodo che controlla se il punteggio passato sia compreso tra 0 e 1 compresi
+ * @param[in]  score Punteggio da controllare della domanda
  */
 AnswerCheck.prototype.checkScore = function(score) {
     return (score >= 0 && score <= 1);

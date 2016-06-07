@@ -1,3 +1,8 @@
+/*!
+ * @class   Role
+ * @details Classe che rappresenta un ruolo all'interno dell'applicazione
+ */
+
 var mongoose = require('mongoose');
 
 var RoleSchema = new mongoose.Schema({

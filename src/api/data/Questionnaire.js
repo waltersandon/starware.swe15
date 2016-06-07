@@ -1,3 +1,8 @@
+/*!
+ * @class   Questionnaire
+ * @details Classe che rappresenta un questionario
+ */
+
 var _ = require('./User');
 var _ = require('./Question');
 var _ = require('./Tag');

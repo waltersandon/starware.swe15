@@ -67,9 +67,20 @@
         </div>
         <div ng-switch-when="OI">
             <div ng-bind-html="preview"></div>
-            <ul id="sortable">
-                <li class="ui-state-default"  ng-repeat="ans in currentQuestion.selectedAnswer track by $index" id="{{ans}}">{{ans}}</li>
+            <ul class="sortable">
+                <li class="ui-state-default" ng-repeat="ans in currentQuestion.selectedAnswer track by $index" id="{{ans}}">{{ans}}</li>
             </ul>
+        </div>
+        <div ng-switch-when="CI">
+            <div ng-bind-html="preview"></div>
+            <div clas="row">
+                <ul class="sortable col-xs-6">
+                    <li class="ui-state-default" ng-repeat="ans in currentQuestion.selectedAnswer.left track by $index" id="{{ans}}">{{ans}}</li>
+                </ul>
+                <ul class="sortable col-xs-6">
+                    <li class="ui-state-default" ng-repeat="ans in currentQuestion.selectedAnswer.right track by $index" id="{{ans}}">{{ans}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

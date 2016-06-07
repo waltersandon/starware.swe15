@@ -128,8 +128,8 @@ $(function () {
             }
 
             setInterval(function () {
-                $("#sortable").sortable();
-                $("#sortable").disableSelection();
+                $(".sortable").sortable();
+                $(".sortable").disableSelection();
             }, 500);
 
             ManipulateQuestion();

@@ -39,7 +39,7 @@ body {
 .wrong{
     background: #dd4455;
 }
-  #sortable { list-style-type: none; margin: 0; padding: 0;}
-  #sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
-  #sortable li { height: 1.5em; line-height: 1.2em; }
+  .sortable { list-style-type: none; margin: 0; padding: 0;}
+  .sortable li { margin: 0 5px 5px 5px; padding: 5px; font-size: 1.2em; height: 1.5em; }
+  .sortable li { height: 1.5em; line-height: 1.2em; }
   .ui-state-highlight { height: 1.5em; line-height: 1.2em; }
