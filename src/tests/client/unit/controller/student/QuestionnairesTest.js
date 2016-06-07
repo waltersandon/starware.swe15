@@ -5,14 +5,14 @@ describe('controller.student.Questionnaires', function() {
     var $scope;
     var $cookies;
     var controller;
-    var users = {
-        'id_author_1': {
+    var users = [
+        {
             id: 'id_author_1',
             userName: 'mario.rossi',
             fullName: 'Mario Rossi',
             role: 'role_id_1'
         }
-    };
+    ];
     var questionnaires = [
         {
             id: 'id_questionnaire_1',
@@ -37,13 +37,13 @@ describe('controller.student.Questionnaires', function() {
         }
     ];
 
-    var tags = {
-        'id_tag_1': {
+    var tags = [
+         {
             id: 'id_tag_1',
             name: 'tag1',
             description: 'tag1_description'
         }
-    };
+    ];
     beforeEach(function() {
         module('app.App', function($provide){
             var UserService = function () {
@@ -53,7 +53,7 @@ describe('controller.student.Questionnaires', function() {
                     success(values);
                 };
                 this.getByID = function(id, success, fail) {
-                    success(users[id]);
+                    id === users[0].id ? success(users[0]): fail();
                 };
             };
             var TagService = function () {
@@ -63,7 +63,7 @@ describe('controller.student.Questionnaires', function() {
                     success(values);
                 };
                 this.getByID = function(id, success, fail) {
-                    success(tags[id]);
+                    id === tags[0].id ? success(tags[0]) : fail();
                 };
             };
             var QuestionnaireService = function() {

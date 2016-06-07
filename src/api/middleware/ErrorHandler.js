@@ -1,16 +1,31 @@
 /**
- * Classe utilizzata per gestire tutti gli errori che vengono generati
- * @constructor
+ * @file ErrorHandler.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+/*!
+ * @class   ErrorHandler
+ * @details Classe che gestisce gli errori generati nei controllers restituendo
+ *          al client la risposta contenente il codice dell'errore verificatosi
+ * @par Usage
+ * Questo middleware viene utilizzato per ultimo nella catena di gestione delle
+ * richieste di Express, in modo da gestire tutti gli errori generati
+ * precedentemente
  */
 function ErrorHandler() {}
 
-/**
- * Metodo che spedisce l'errore ricevuto al client
- * @param err - Questo oggetto rappresenta l’errore che il metodo deve gestire
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che gestisce l'errore generato dalla richiesta e da la
+ *          relativa risposta con il codice dell'errore al client
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
+ * @param[in]  err  questo parametro rappresenta l'oggetto  dell'errore
  */
 ErrorHandler.prototype.handler = function(err, req, res, next) {
 	if (typeof err === 'number') {

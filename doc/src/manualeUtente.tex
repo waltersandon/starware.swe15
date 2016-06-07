@@ -61,6 +61,8 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
+			1.0.1 & \WS{} & 2016-06-06 &  Aggiunta sezione markdown \\*			
+			\midrule
 			1.0.0 & \AVE{} & 2016-05-13 &  Approvazione \\*			
 			\midrule
 			0.1.0 & \TP{} & 2016-05-12 &  Verifica \\*
@@ -608,6 +610,93 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	[*] Roma
 	[] Padova
 	\end{verbatim}
+
+\section{Markdown}
+
+È un linguaggio di \mgls{markup} usato per definire la sintassi del QML in modo tale che una domanda, una volta costruita, possa essere convertita in \mgls{html}.
+
+\subsection{Enfasi}
+
+$\ast\ \ast$ \textbf{grassetto}$\ast\ \ast$
+\newline
+$\ast$ \textit{corsivo} $\ast$
+\newline
+$ \sim\ \sim$\textst{barrato}$ \sim\ \sim$
+
+\subsection{Titoli}
+
+\# {\Large Titolo grosso}
+\newline
+\# \#{\normalsize Titilo medio}
+\newline
+\# \# \# {\small Titolo piccolo}
+\newline
+\# \# \# \#{\tiny Titolo minuscolo}
+
+\subsection{Liste}
+\renewcommand{\labelitemi}{$\ast$}
+\begin{itemize}
+	\item Elemento di una lista generica
+	\item Elemento di una lista generica
+	\item Elemento di una lista generica
+\end{itemize}
+\begin{verbatim}
+
+\end{verbatim}
+\begin{enumerate}
+	\item Elemento di una lista generica
+	\item Elemento di una lista generica
+	\item Elemento di una lista generica
+\end{enumerate}
+
+\subsection{Links}
+
+\begin{verbatim}
+
+[Testo](http:\\www.example.com)
+
+\end{verbatim}
+
+\subsection{Citazioni}
+
+\begin{verbatim}
+> Questa è una citazione.
+>può essere su più linee!
+\end{verbatim}
+
+\subsection{Immagini}
+\begin{verbatim}
+![](http:\\www.example.com/image.jpg)
+\end{verbatim}
+
+\subsection{Tabelle}
+\begin{verbatim}
+
+| Colonna 1 | Colonna 2 | Colonna 3 |
+|_ _ _ _ _ _ _ |_ _ _ _ _ _ _ |_ _ _ _ _ _ _ |
+|    John      |    Doe       |     Male      |
+|    Mary      |    Smith    |    Female    |
+
+O senza allineare le colonne. . . . 
+
+| Colonna 1 | Colonna 2 | Colonna 3 |
+|_ _ _ _ _ |_ _ _ _  _ |_ _ _ _ _ _|
+|  John |   Doe    |   Male   |
+|    Mary      |    Smith    |    Female    |
+
+\end{verbatim}
 	
-	
+\subsection{Codice}
+\begin{verbatim}
+' var example = ' hello! ' ; '
+
+O su più righe . . . .
+
+' ' ' 
+var example = ' hello! ' ; 
+alert(example);
+
+' ' '
+
+\end{verbatim}
 \end{document}
