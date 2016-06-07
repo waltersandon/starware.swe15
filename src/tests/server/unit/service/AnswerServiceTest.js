@@ -348,6 +348,72 @@ describe('/api/answers', function() {
             });
 
         });
+        it("richiesta answers questionario non inizializzato", function (done) {
+
+            // login
+            login(app, {
+                userName: 'riccardo.cardin',
+                password: 'password.riccardo.cardin'
+            }, function(agent) {
+
+                // get list of questionnaires and select first
+                var req = request(app).get('/api/questionnaires');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.be.instanceof(Array);
+                    expect(res.body.length).to.be.above(0);
+
+                    // post a new answer to the first question of the
+                    // questionnaire
+                    var questionnaire = res.body[1]._id;
+                    var question = res.body[1].questions[0];
+                    /*var newAnswer = {
+                        question: question,
+                        questionnaire: questionnaire,
+                        score: 3
+                    };
+                    var req = request(app).post('/api/answers').send(newAnswer);
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(res).to.have.property('status', 400);
+*/
+                        // get my id
+                        var req = request(app).get('/api/users/me');
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(err).to.not.be.ok;
+                            expect(res).to.have.property('status', 200);
+                            var author = res.body._id;
+
+                            // search that the new answer exists
+                            var req = request(app).get(
+                                '/api/answers?authors=' + author +
+                                '&questions=' + question +
+                                '&questionnaires=' + questionnaire);
+                            agent.attachCookies(req);
+                            req.end(function(err, res) {
+                                expect(err).to.not.be.ok;
+                                expect(res).to.have.property('status', 200);
+                                expect(res.body).to.be.instanceof(Array);
+                                //expect(res.body).to.have.property('length', 1);
+
+                                var answer = res.body[0];
+                                expect(answer).to.be.eqls(undefined);
+
+                                done();
+                            });
+
+                        });
+
+                   // });
+
+                });
+
+            });
+
+        });
 
     });
 
