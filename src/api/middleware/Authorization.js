@@ -1,17 +1,26 @@
+/**
+ * @file Authorization.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
 var User = require('./../data/User');
 var Role = require('./../data/Role');
 
-/**
- * Classe utilizzata per verificare i dati inseriti dall’utente e concedere all'utente i relativi permessi
- * @constructor
+/*!
+ * @class   Authorization
+ * @details Classe che si occupa dell’autorizzazione delle richieste
+ * @par Usage
+ * Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
  */
 function Authorization() {}
 
-/**
- * Metodo che ritorna il middleware che verifica che l’utente sia autenticato 
- * richiamando il successivo middleware in caso affermativo, rispondendo con 
- * un errore altrimenti
- * @param name - Nome del ruolo richiesto
+/*!
+ * @details metodo che verifica che l’utente autenticato sia almeno di
+ *          ruolo specificato, richiamando il successivo middleware in caso
+ *          affermativo, rispondendo con un errore altrimenti
+ * @param[in]  name il nome del ruolo minimo richiesto
  */
 Authorization.prototype.requireRole = function(name) {
     return function(req, res, next) {

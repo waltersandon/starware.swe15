@@ -114,12 +114,17 @@ describe('controller.teacher.ManipulateQuestionnaire', function() {
                     success({_id : tag.id});
                 }
             };
+            var Util = function() {
+                this.confirm = function(m) { return true; }
+                this.alert = function(m) {}
+            };
             var QML = function () {
                 this.preview = function(body) {
                     return "<p>QML parsato a HTML"+body+" </p>";
                 };
             };
             $provide.service("util.QML", QML);
+            $provide.service("util.Util", Util);
             $provide.service("model.service.UserService", UserService);
             $provide.service("model.service.QuestionService", QuestionService);
             $provide.service("model.service.QuestionnaireService", QuestionnaireService);

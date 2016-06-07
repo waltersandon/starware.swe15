@@ -17,7 +17,7 @@ describe('model.service.QuestionService', function () {
             it("effettua la richiesta corretta per post della domanda", function () {
                 var question = {
                     author: "autorTest",
-                    body: "<TF>\nQuesta domanda è da test?\n[T]",
+                    body: "Questa domanda è da test?\n(+)",
                     tags: ['tagid1', 'tagid2']
                 };
 
@@ -46,12 +46,12 @@ describe('model.service.QuestionService', function () {
             it("rifiuta correttamente post delle domande incorrette", function () {
                 var question = {
                     author: "autorTest",
-                    body: "<TF>\nQuesta domanda è da test?\n[T]",
+                    body: "Questa domanda è da test?\n(+)",
                     tags: ['tagid1', 'tagid2']
                 };
                 var wrongQuestion = {
                     author: "autorTest",
-                    body: "<TF>\nQuesta domanda è sbagliata?",
+                    body: "Questa domanda è sbagliata?\n(-)",
                     tags: ['tagid1', 'tagid2']
                 };
 
@@ -87,7 +87,7 @@ describe('model.service.QuestionService', function () {
             it("effettua la richiesta corretta per put della domanda", function () {
                 var question = {
                     id: "questionTest",
-                    body: "<TF>\nQuesta domanda è da test?\n[T]",
+                    body: "Questa domanda è da test?\n(+)",
                     tags: ['tagid1', 'tagid2']
                 };
 
@@ -119,7 +119,7 @@ describe('model.service.QuestionService', function () {
                 var question = {
                     _id: "questionTest",
                     author: "autorTest",
-                    body: "<TF>\nQuesta domanda è da test?\n[T]",
+                    body: "Questa domanda è da test?\n(+)",
                     tags: ['tagid1', 'tagid2']
                 };
 
@@ -183,7 +183,7 @@ describe('model.service.QuestionService', function () {
 
                 $httpBackend
                     .whenGET(Configuration.remote + param(author, keywords, tags), {}).respond([{
-                    " body ": "<TF>\nQuesta domanda è da test?\n[T]",
+                    " body ": "Questa domanda è da test?\n(+)",
                     " tags ": ['tagid1', 'tagid2']
                 }]);
 
@@ -193,7 +193,7 @@ describe('model.service.QuestionService', function () {
 
                     }).respond(
                     [{
-                        " body ": "<TF>\nQuesta domanda è da test?\n[T]",
+                        " body ": "Questa domanda è da test?\n(+)",
                         " tags ": ['tagid1', 'tagid2']
                     }]
                 );
@@ -267,7 +267,7 @@ describe('model.service.QuestionService', function () {
             var question = {
                 id: "questionTest",
                 author: "autorTest",
-                body: "<TF>\nQuesta domanda è da test?\n[T]",
+                body: "Questa domanda è da test?\n(+)",
                 tags: ['tagid1', 'tagid2']
             };
 
