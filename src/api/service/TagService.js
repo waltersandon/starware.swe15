@@ -1,3 +1,12 @@
+/*!
+ * @class   TagService
+ * @details Classe che si occupa di gestire gli argomenti, sfruttando la classe
+ *          server::data::Tag per accedere ai dati persistenti nel database
+ * @par Usage
+ * Offre metodi per restituire gli argomenti presenti. Permette inoltre ad un
+ * docente di effettuare l'inserimento, la modifica, l'eliminazione di argomenti
+ */
+
 var Tag = require('./../data/Tag');
 var TagCheck = require('./../validator/TagCheck');
 var Question = require('./../data/Question');
@@ -9,12 +18,15 @@ var Questionnaire = require('./../data/Questionnaire');
  */
 function TagService() {}
 
-/**
- * Metodo che invoca il servizio per ritornare la lista degli argomenti
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che invia al client la lista degli argomenti attraverso
+ *          un Json
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 TagService.prototype.get = function(req, res, next){
     this.query = {};
@@ -28,12 +40,15 @@ TagService.prototype.get = function(req, res, next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per ritornare un argomento specifico
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che ritorna al client un Json contenente l'argomento
+ *          specifico identificato nella richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 TagService.prototype.getByID = function(req,res,next){
     Tag.findById(req.params.id, function(err, tag){
@@ -43,12 +58,14 @@ TagService.prototype.getByID = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per creare un nuovo argomento
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che aggiunge un nuovo argomento al database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 TagService.prototype.new = function(req, res, next){
     this.tag = new Tag(req.body);
@@ -58,12 +75,15 @@ TagService.prototype.new = function(req, res, next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per modificare un argomento specifico
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che modifica un argomento specificato nella richiesta
+ *          http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 TagService.prototype.modify = function(req, res, next) {
     Tag.findByIdAndUpdate(req.params.id, req.body, function(err) {
@@ -72,12 +92,14 @@ TagService.prototype.modify = function(req, res, next) {
     });
 };
 
-/**
- * Metodo che invoca il servizio per eliminare un argomento specifico
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che elimina un argomento specifico dal database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 TagService.prototype.delete = function(req,res,next){
     Tag.findById(req.params.id, function(err, tag) {

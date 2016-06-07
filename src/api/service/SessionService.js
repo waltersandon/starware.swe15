@@ -1,17 +1,28 @@
+/*!
+ * @class   SessionService
+ * @details Classe che si occupa della gestione della sessione dell'utente,
+ *          sfruttando la classe server::data::User per accedere ai dati
+ *          persistenti nel database
+ * @par Usage
+ * Viene utilizzata per gestire il login e logout dell'utente
+ */
+
 var User = require('./../data/User');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @constructor
+/*!
+ * @details costruttore della classe
  */
 function SessionService() {}
 
-/**
- * Metodo che invoca il servizio per creare una nuova sessione associata all'utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che crea una sessione con una volta che l'utente effettua
+ *          l'accesso all'applicazione
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 SessionService.prototype.new = function(req, res, next){
     var userName = req.body.userName;
@@ -31,12 +42,14 @@ SessionService.prototype.new = function(req, res, next){
     }
 };
 
-/**
- * Metodo che invoca il servizio per eliminare la sessione dell'utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che elimina la sessione dell'utente dal database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 SessionService.prototype.delete = function(req,res,next){
     req.session.user = null;

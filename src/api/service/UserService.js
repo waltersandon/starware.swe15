@@ -1,18 +1,31 @@
+/*!
+ * @class   UserService
+ * @details Classe che si occupa della operazioni di inserimento, modifica e
+ *          rimozione di account utenti, sfruttando la classe server::data::User
+ *          per accedere ai dati persistenti nel database.
+ * @par Usage
+ * Fornisce i dati personali degli utenti a chi ne ha il permesso di accesso ed
+ * esegue operazioni di aggiunta, modifica, rimozione e cambio di ruolo per gli
+ * utenti del sistema.
+ */
+
 var User = require('./../data/User');
 var Role = require('./../data/Role');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @constructor
+/*!
+ * @details costruttore della classe
  */
 function UserService() {}
 
-/**
- * Metodo che invoca il servizio per ritornare la lista degli utenti
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che invia al client la lista degli utenti attraverso un
+ *          Json
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.get = function(req, res, next) {
     this.query = { isActive: true };
@@ -30,12 +43,15 @@ UserService.prototype.get = function(req, res, next) {
     });
 };
 
-/**
- * Metodo che invoca il servizio per ritornare un utente specificato dalla variabile id
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che ritorna al client un Json contenente l'utente
+ *          specifico identificato nella richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.getByID = function(req, res, next){
     User.findById(req.params.id, function(err, user) {
@@ -47,12 +63,15 @@ UserService.prototype.getByID = function(req, res, next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per ritornare l'utente loggato
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che restituisce al client un Json con i dati relativi
+ *          all'utente loggato
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.getMe = function(req, res, next){
     User.findById(req.session.user._id, function(err, user) {
@@ -62,12 +81,14 @@ UserService.prototype.getMe = function(req, res, next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per aggiungere un nuovo utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che aggiunge un nuovo utente al database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.new = function(req, res, next) {
     Role.findOne({ name: 'student' }).exec(function(err, role)  {
@@ -85,13 +106,15 @@ UserService.prototype.new = function(req, res, next) {
     });
 };
 
-/**
- * Metodo che invoca il servizio per modificare il ruolo dell'utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
- *
+/*!
+ * @details metodo che modifica i dati dell'utente specificato nella
+ *          richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.modify = function(req, res, next){
     Role.findById(req.session.user.role, function(err, userRole) {
@@ -115,13 +138,15 @@ UserService.prototype.modify = function(req, res, next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per modificare i dati dell'utente autenticato
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
- *
+/*!
+ * @details metodo che modifica i dati dell'utente connesso al sistema se
+ *          presente
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.modifyMe = function(req, res, next){
     if (req.body.fullName || req.body.userName) {
@@ -155,12 +180,14 @@ UserService.prototype.modifyMe = function(req, res, next){
     }
 };
 
-/**
- * Metodo che invoca il servizio per eliminare un utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che elimina un utente dal database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 UserService.prototype.delete = function(req, res, next){
     User.findByIdAndUpdate(req.params.id, {
