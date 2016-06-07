@@ -95,15 +95,14 @@ $(function () {
                         item.stat.push('Hanno risposto come te il <strong>' + Math.round(equal * 100 / risp) + '%</strong> degli studenti');
                         item.stat.push('Hanno risposto peggio di te il <strong>' + Math.round(worse * 100 / risp) + '%</strong> degli studenti');
 
-                        cll();
-                    }, function (res) {
                         AnswerService.new(self, item, result.point, function () {
                             cll();
                         }, function (res) {
                             cll();
                         });
+                    }, function (res) {
+                        cll();
                     });
-
                 }, function (err, res) {
                     next({point: point, tot: tot});
                 });
