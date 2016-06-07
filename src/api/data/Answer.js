@@ -1,3 +1,9 @@
+/*!
+ * @class   Answer
+ * @details Classe che rappresenta una risposta ad una domanda di un
+ *          questionario all'interno dell'applicazione
+ */
+
 var _ = require('./Question');
 var _ = require('./Questionnaire');
 var _ = require('./User');

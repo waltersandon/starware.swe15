@@ -1,3 +1,8 @@
+/*!
+ * @class   Question
+ * @details Classe base comune a tutti i tipi di domanda
+ */
+
 var _ = require('./Tag');
 var _ = require('./User');
 var mongoose = require('mongoose');
