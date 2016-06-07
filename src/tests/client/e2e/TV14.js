@@ -23,7 +23,7 @@ describe('Admin change role', function() {
         });
     });
     it('admin deve poter cambiare il ruolo di un utente di ruolo inferiore al proprio ', function() {
-        element(by.css('[href="#/admin/userlist"]')).click();
+        element(by.css('[ng-click="changePath(\'admin/userlist\')"]')).click();
         var select = element.all(by.model('user.role')).last().click();
         select.$$('[ng-repeat="role in roles| filter : filterRoleList()"]').first().click();
     });

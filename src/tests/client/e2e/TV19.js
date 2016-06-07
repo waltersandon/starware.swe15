@@ -24,7 +24,7 @@ describe('tag list', function() {
     });
     it('docente sia in grado di visualizzare la lista degli argomenti,' +
         ' eventualmente specificando parametri per il filtraggio del risultati', function() {
-        element(by.css('[href="#/teacher/tags"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/tags\')"]')).click();
         var tagList = element.all(by.repeater("tag in tags"));
         expect(tagList.count()).toBeGreaterThan(0);
 

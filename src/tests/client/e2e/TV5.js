@@ -26,7 +26,7 @@ describe('Question Modify', function() {
     });
     it('docente deve poter modificare una domanda', function() {
 
-        element(by.css('[href="#/teacher/questions"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questions\')"]')).click();
         element.all(by.css('[ng-click="modify(question)"]')).last().click();
         browser.waitForAngular();
         browser.executeScript('$("div.CodeMirror-wrap > div").removeAttr("style");');
@@ -37,7 +37,7 @@ describe('Question Modify', function() {
             browser.actions().sendKeys(protractor.Key.DELETE).perform();
 
         }
-        textareas.sendKeys("<TF T>\nRoma è la capitale d'Italia");
+        textareas.sendKeys("Roma è la capitale d'Italia\n(+)");
         element(by.css('[type="submit"]')).click();
         browser.waitForAngular();
     });

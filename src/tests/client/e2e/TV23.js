@@ -24,7 +24,7 @@ describe('Questionnaire inspection', function() {
     });
     it('docente sia in grado di visualizzare un questionario', function() {
 
-        element(by.css('[ href="#/teacher/questionnaires"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/questionnaires\')"]')).click();
         var questionnaireList = element.all(by.repeater("questionnaire in questionnaires"));
         questionnaireList.first().click();
 

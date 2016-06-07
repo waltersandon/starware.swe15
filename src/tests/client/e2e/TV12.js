@@ -23,7 +23,7 @@ describe('TagDelete', function() {
         });
     });
     it('docente deve poter eliminare un  argomento', function() {
-        element(by.css('[href="#/teacher/tags"]')).click();
+        element(by.css('[ng-click="changePath(\'teacher/tags\')"]')).click();
         var tag = element.all(by.css('[ng-repeat="tag in tags| orderBy : myOrderBy"]')).last();
         tag.$$('[ng-click="remove(tag)"]').first().click();
         browser.switchTo().alert().accept();
