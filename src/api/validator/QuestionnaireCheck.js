@@ -6,6 +6,10 @@ var Questionnaire = require('./../data/Questionnaire');
  */
 function QuestionnaireCheck() {}
 
+/*
+ * @details metodo che controlla che la lista/array di domande passate non sia vuota e che non contenga domande duplicate
+ * @param[in]  questions l'elenco delle domande del questionario
+ */
 QuestionnaireCheck.prototype.checkQuestions = function(questions){
     //non vuota
     if (typeof questions === 'undefined' || questions.length === 0){
@@ -21,11 +25,18 @@ QuestionnaireCheck.prototype.checkQuestions = function(questions){
     return true;
 };
 
-//controlla che il titolo del questionario non sia vuoto
+/*!
+ * @details metodo che controlla che il titolo del questionario non sia vuoto
+ * @param[in]  title il titolo del questionario da controllare
+ */
 QuestionnaireCheck.prototype.checkTitle = function(title){
     return (title.length !== 0);
 };
 
+/*
+ * @details metodo che controlla che la lista/array di argomenti passati non sia vuota
+ * @param[in]  tags elenco degli argomenti	
+ */
 QuestionnaireCheck.prototype.checkTags = function(tags){
     //non vuota
     if (typeof tags === 'undefined' || tags.length === 0){

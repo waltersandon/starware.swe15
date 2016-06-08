@@ -7,6 +7,10 @@ var QML = require('./../../static/js/util/SharedQML');
  */
 function QuestionCheck() {}
 
+/*!
+ * @details metodo che controlla che la lista/array di argomenti passati non sia vuota
+ * @param[in]  tags elenco degli argomenti
+ */
 QuestionCheck.prototype.checkTags = function(tags){
 
     //non vuota
@@ -24,10 +28,8 @@ QuestionCheck.prototype.checkTags = function(tags){
 
 };
 
-/**
- * Funzione che controlla se il QML è valido
- * @param qml - Stringa qml da parsare
- * @returns {boolean}
+/* @details metodo che controlla che la stringa di QML (generalmente quella dell'attributo body del model Question) sia QML valido
+ * @param[in]  qml la stringa in formato QML da controllare
  */
 QuestionCheck.prototype.checkQML = function(qml){
     var qt = new QML();

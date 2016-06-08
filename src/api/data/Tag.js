@@ -1,3 +1,9 @@
+/*!
+ * @class   Tag
+ * @details Classe che rappresenta una String contenente l'argomento da
+ *          assegnare alle domande o ai questionari
+ */
+
 var mongoose = require('mongoose');
 
 var TagCheck = require('./../validator/TagCheck');
