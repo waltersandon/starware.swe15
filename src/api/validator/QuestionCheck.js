@@ -1,8 +1,13 @@
-
+/*!
+ * @class   QuestionCheck
+ * @details Classe contenente tutte le funzioni di controllo della validità dei
+ *          campi del model Question
+ * @par Usage 
+ * Viene utilizzata dai service per effettuare controlli sul model Question
+ */
 var QML = require('./../../static/js/util/SharedQML');
 
-/**
- * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Question
+/*
  * @constructor
  */
 function QuestionCheck() {}

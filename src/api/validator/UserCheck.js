@@ -1,7 +1,13 @@
+/*!
+ * @class   UserCheck
+ * @details Classe contenente tutte le funzioni di controllo della validità dei
+ *          campi del model User
+ * @par Usage 
+ * Viene utilizzata dai service per effettuare controlli sul model User
+ */
 var User = require('./../data/User');
 
-/**
- * Classe che contiene tutte le funzioni di controllo della validità dei campi del model User
+/*
  * @constructor
  */
 function UserCheck() {}

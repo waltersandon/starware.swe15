@@ -1,6 +1,10 @@
-
-/*
- * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Tag
+/*!
+ * @class   TagCheck
+ * @details Classe contenente tutte le funzioni di controllo della validità dei
+ *          campi del model Tag
+ * @par Usage 
+ * Viene utilizzata dai service per effettuare controlli sul model Tag
+ *
  * @constructor
  */
 function TagCheck() {}

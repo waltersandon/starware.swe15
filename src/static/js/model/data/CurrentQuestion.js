@@ -1,14 +1,31 @@
+/*!
+ * @class   CurrentQuestion
+ * @details La classe che modella la domanda in esecuzione
+ */
 $(function () {
     angular.module('CurrentQuestionModule', []).factory('model.data.CurrentQuestion', ['util.QML', function (QML) {
+      
+    /*!
+     * @details costruttore della classe
+     * @param[in]  author ID dell'autore della domanda
+     * @param[in]  body   e' la rappresentazione testuale della domanda
+     * @param[in]  id     ID della Question
+     * @param[in]  tags   lista di ID di riferimenti ad argomenti
+     */
             function CurrentQuestion(question) {
                 var quest = QML.parse(question.body);
+                //!oggetto che rappresenta la tipologia della domanda
                 this.type = quest.type;
+                //!contiene il corpo della domanda corrente 
                 this.body = quest.body;
+                //!oggetto che rappresenta una lista di risposte
                 this.answers = quest.answers;
                 if (this.type === 'TF' || this.type === 'MC') {
                     this.answer = quest.answer;
+                    //!oggetto che rappresenta la risposta selezionata
                     this.selectedAnswer = null;
                 } else if (this.type === "OI") {
+                    //!contiene il corpo della domanda corrente
                     this.answer = quest.answer;
                     this.selectedAnswer = quest.answers;
                 } else {
@@ -20,7 +37,14 @@ $(function () {
                 this.right = false;
                 this.explanation = quest.explanation;
             }
-
+      
+    /*
+     * @details restituisce i punti relativi alla domanda risposta
+     *          
+     *          Metodo che restituisce un oggetto di tipo json con attributi
+     *          'point' e 'tot' che contengono due interi rappresentanti i punti
+     *          totalizzati sui punti totali del risposta
+     */
             CurrentQuestion.prototype.point = function () {
                 if (this.type === 'TF' || this.type === 'MC') {
                     if (this.answer.toString() == this.selectedAnswer) {

@@ -1,3 +1,10 @@
+/*!
+ * @class   ManipulateQuestionnaire
+ * @details Classe che si occupa della gestione di un questionario lato docente
+ * @par Usage 
+ * Viene richiamata quando un docente vuole creare un nuovo questionario o
+ * modificare o eliminare uno già esistente
+ */
 $(function () {
     angular.module('app.App').controller('controller.teacher.ManipulateQuestionnaire', ['$timeout', 'model.data.Error', '$location', '$rootScope', 'util.QML', 'model.service.QuestionService', 'model.data.Questionnaire', 'model.service.QuestionnaireService', '$scope', 'model.data.Tag', 'model.service.TagService', 'model.service.UserService', 'util.Util', function ($timeout, Error, $location, $rootScope, QML, QuestionService, Questionnaire, QuestionnaireService, $scope, Tag, TagService, UserService, Util) {
         $scope.error = new Error();
@@ -8,23 +15,47 @@ $(function () {
             $rootScope.dirt = true;
         };
 
+        /*!
+         * @details aggiunge la domanda passata come parametro al questionario
+         *          d'istanza
+         * @param[in]  question contiene la domanda da aggiungere al
+         *                       questionario 
+         */
         $scope.addQuestion = function (question) {
             $scope.questionnaire.questions.push(question);
             $scope.onSelect = false;
             $rootScope.dirt = true;
         };
+    /*!
+     * @details provvede a fornire un'anteprima di una domanda da QML in HTML
+     */
         $scope.preview = function (body) {
             return QML.preview(body);
         };
+    /*!
+     * @details rimuove la domanda passata per parametro dal questionario
+     *          d'istanza
+     * @param[in]  question contiene la domanda da eliminare dal questionario 
+     */
         $scope.removeQuestion = function (question) {
             if(Util.confirm('Sei sicuro di voler rimuovere la domanda dal questionario?')){
                 $scope.questionnaire.questions.splice($scope.questionnaire.questions.indexOf(question), 1);
                 $rootScope.dirt = true;
             }
         };
+    /*!
+     * @details metodo setter
+     * @param[in]  onSelect indica se si è in fase di selezione di una domanda
+     *                       da aggiungere
+     */
         $scope.setOnSelect = function (b) {
             $scope.onSelect = b;
         };
+    /*!
+     * @details dopo aver controllato la validità delle domande, titolo e tags
+     *          inseriti, invia i dati presenti nel questionario al servizio che
+     *          si occupa di aggiungerlo al sistema
+     */
         $scope.submit = function () {
             if ($scope.questionnaire.questions.length > 0) {
                 $scope.questionnaire.tags = [];
@@ -74,6 +105,19 @@ $(function () {
                 $scope.error = new Error('non è stato selezionata alcuna domanda', 'errorQuestions', true, 'alert-danger');
             }
         };
+
+    /*!
+     * @details costruttore della classe
+     * @param[in]  questionnaireService campo dati che rappresenta un oggetto
+     *                                   QuestionnaireService
+     * @param[in]  questionnaire        contiene il riferimento al modello
+     *                                   degli questionari 
+     * @param[in]  scope                oggetto di angular che fa riferimento
+     *                                   ad una porzione di model di pertinenza
+     *                                   di uno specifico controller
+     * @param[in]  rootScope            oggetto di angular che identifica
+     *                                   l’elemento con attributo ng-app
+     */
 
         function ManipulateQuestionnaire() {
             if ($scope.urlPath()[3] === 'new') {
@@ -130,6 +174,7 @@ $(function () {
                 });
             }
 
+          
             TagService.get('', function (tags) {
                 $scope.tags = tags;
 

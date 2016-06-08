@@ -1,3 +1,8 @@
+/*!
+ * @class   App
+ * @details Classe che si occupa di avviare il client e attivare i moduli
+ *          angularjs
+ */
 $(function () {
     $.material.init();
 

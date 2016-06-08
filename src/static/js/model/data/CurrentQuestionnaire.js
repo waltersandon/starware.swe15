@@ -1,15 +1,34 @@
+/*!
+ * @class   CurrentQuestionnaire
+ * @details La classe che modella il questionario in esecuzione
+ */
+
 $(function () {
     angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', 'model.service.AnswerService', function ($q, QuestionService, CurrentQuestion, AnswerService) {
+    /*!
+     * @details costruttore della classe
+     * @param[in]  questions lista di domande del questionario corrente
+     * @param[in]  tags      contiene la lista degli argomenti del questionario
+     * @param[in]  title     titolo del questionario corrente
+     */
             function CurrentQuestionnaire(questionnaire) {
                 this.id = questionnaire.id;
+              //!contiene numero della domanda corrente che si sta eseguendo
                 this.currentNumber = 0;
+              //!contiene il numero totale delle domande nel questionario corrente
                 this.questionNumber = questionnaire.questions.length;
-
+              //!contiene la lista degli argomenti del questionario
                 this.tags = questionnaire.tags;
+              //!titolo del questionario corrente
                 this.title = questionnaire.title;
+              //!lista di domande del questionario corrente
                 this.questions = questionnaire.questions;
             }
 
+      /*!
+       * @details metodo setter
+       * @param[in]  questions lista di domande del questionario corrente
+       */
             CurrentQuestionnaire.prototype.getCurrentQuestions = function () {
                 var deferred = $q.defer();
 
@@ -27,7 +46,12 @@ $(function () {
 
                 return deferred.promise;
             };
-
+      
+      /*!
+       * @details metodo che controlla che tutte le domande abbiano una
+       *          risposta data, restituendo vero in caso positivo, falso
+       *          altrimenti
+       */
             CurrentQuestionnaire.prototype.checkAnswers = function () {
                 var ret = true;
                 this.questions.forEach(function (item) {
@@ -36,6 +60,11 @@ $(function () {
                 return ret;
             };
 
+      /*!
+       * @details metodo che restituisce un oggetto di tipo json con attributi
+       *          'point' e 'tot' che contengono due interi rappresentanti i
+       *          punti totalizzati sui punti totali del questionario
+       */
             CurrentQuestionnaire.prototype.getResult = function (next) {
                 var point = 0;
                 var tot = 0;
@@ -107,7 +136,9 @@ $(function () {
                     next({point: point, tot: tot});
                 });
             };
-
+      /*!
+       * @details metodo che ritorna la prossima domanda
+       */
             CurrentQuestionnaire.prototype.getNext = function () {
                 if (this.currentNumber < this.questionNumber - 1) {
                     this.currentNumber++;
@@ -116,6 +147,9 @@ $(function () {
                 }
                 return this.questions[this.currentNumber];
             };
+      /*!
+       * @details metodo che ritorna la domanda precedente
+       */
             CurrentQuestionnaire.prototype.getPrevious = function () {
                 if (this.currentNumber > 0) {
                     this.currentNumber--;

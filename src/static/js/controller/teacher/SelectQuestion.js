@@ -1,5 +1,21 @@
+/*!
+ * @class   SelectQuestion
+ * @details Classe che gestisce la ricerca di una domanda e la sua eventuale
+ *          selezione
+ * @par Usage 
+ * Viene chiamata quando in fase di costruzione di un questionario si ha la
+ * necessità di ricercare per poi inserire una particolare domanda
+ */
 $(function () {
     angular.module('app.App').controller('controller.teacher.SelectQuestion', ['$q', 'model.service.QuestionService', '$scope', 'model.service.TagService', 'model.service.UserService', function ($q, QuestionService, $scope, TagService, UserService) {
+    /*!
+     * @details trova tutte le domande correlate ad un autore e a delle parole
+     *          chiave passati come parametro
+     * @param[in]  author        contiene il nome dell'autore della domanda da
+     *                            ricercare 
+     * @param[in]  keywordsQuery contiene la lista di parole chiave per
+     *                            ricercare la domanda
+     */
             $scope.submit = function () {
                 this.authors = function () {
                     var deferred = $q.defer();
@@ -100,6 +116,16 @@ $(function () {
                 });
             };
 
+    /*!
+     * @details costruttore della classe
+     * @param[in]  questionService campo dati che rappresenta un oggetto
+     *                              QuestionService
+     * @param[in]  rootScope       oggetto di angular che identifica
+     *                              l’elemento con attributo ng-app
+     * @param[in]  scope           oggetto di angular che fa riferimento ad una
+     *                              porzione di model di pertinenza di uno
+     *                              specifico controller
+     */
             function SelectQuestion() {
                 TagService.get('', function (tags) {
                     $('#tagSearch').bind('keydown', function (event) {

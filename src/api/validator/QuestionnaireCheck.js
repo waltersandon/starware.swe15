@@ -1,7 +1,13 @@
+/*!
+ * @class   QuestionnaireCheck
+ * @details Classe contenente tutte le funzioni di controllo della validità dei
+ *          campi del model Questionnaire
+ * @par Usage 
+ * Viene utilizzata dai service per effettuare controlli sul model User
+ */
 var Questionnaire = require('./../data/Questionnaire');
 
-/**
- * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Questionnaire
+/*
  * @constructor
  */
 function QuestionnaireCheck() {}
