@@ -1,5 +1,5 @@
 $(function () {
-    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', 'model.service.AnswerService', function ($q, QuestionService, CurrentQuestion, AnswerService) {
+    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule', 'AnswerServiceModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', 'model.service.AnswerService', function ($q, QuestionService, CurrentQuestion, AnswerService) {
             function CurrentQuestionnaire(questionnaire) {
                 this.id = questionnaire.id;
                 this.currentNumber = 0;
