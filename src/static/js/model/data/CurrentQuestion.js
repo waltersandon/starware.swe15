@@ -23,7 +23,7 @@ $(function () {
                 if (this.type === 'TF' || this.type === 'MC') {
                     this.answer = quest.answer;
                     //!oggetto che rappresenta la risposta selezionata
-                    this.selectedAnswer = null;{
+                    this.selectedAnswer = null;
                     //!contiene il corpo della domanda corrente
                 } else if (this.type === "OI" || this.type === "CI") {
                     this.answer = quest.answer;
