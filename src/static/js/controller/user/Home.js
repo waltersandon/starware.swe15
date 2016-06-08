@@ -1,6 +1,28 @@
+/*!
+ * @class   Home
+ * @details Classe che si occupa della gestione della home page di un utente
+ *          generico registrato
+ */
+
+/*!
+ * @details costruttore della classe
+ * @param[in]  scope          oggetto di angular che fa riferimento ad una
+ *                             porzione di model di pertinenza di uno
+ *                             specifico controller
+ * @param[in]  rootScope      oggetto di angular che identifica
+ *                             l’elemento con attributo ng-app
+ * @param[in]  sessionService campo dati che rappresenta un oggetto
+ *                             SessionService
+ * @param[in]  cookies        oggetto di angular che permette di manipolare
+ *                             i cookies
+ */
 $(function () {
     angular.module('app.App').controller('controller.user.Home', ['$cookies', '$rootScope', '$scope', '$location', 'model.service.SessionService', 'util.Util', function ($cookies, $rootScope, $scope, $location, SessionService, Util) {
 
+    /*!
+     * @details esegue il logout dell'utente che è autenticato distruggendo i
+     *          cookies di sessione
+     */
         $scope.logout = function () {
             this.out = function(){
                 SessionService.logout(function () {
@@ -24,7 +46,6 @@ $(function () {
                 this.out();
             }
         };
-
 
         $rootScope.changePath = function(path){
             if(($rootScope.urlPath()[1] === "student" && $rootScope.urlPath()[2] === "questionnaire") ||

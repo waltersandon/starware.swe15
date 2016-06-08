@@ -11,9 +11,8 @@ function App(config) {
     this.configuration = config;
 }
 
-/**
- * Metodo che configura i parametri del server sulla base dell'oggetto di configurazione
- * @param config - Oggetto per la configurazione del server
+/*
+ * @details metodo che configura i parametri del server sulla base dell'oggetto di configurazione
  */
 App.prototype.config = function() {
 	//app.use(cors());
@@ -22,8 +21,8 @@ App.prototype.config = function() {
     return this.app;
 };
 
-/**
- * Metodo che fa partire il server, non ritorna il controllo finché il server è in funzione
+/*
+ * @details metodo che avvia il server. Non ritorna il controllo fino a che il server è in funzione
  */
 App.prototype.start = function(){
     mongoose.connection.on('error', (function(err) {

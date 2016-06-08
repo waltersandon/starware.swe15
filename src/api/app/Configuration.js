@@ -1,76 +1,42 @@
-/**
- * Created by alessio on 19/03/16.
- */
 
-/**
+/*
  * Classe che rappresenta i parametri di configurazione del server
  * @constructor
  */
 function Configuration(options) {
 
-    /**
-     * Variabile d'ambiente che informa se l'applicazione deve essere
-     * eseguita in modalità development o production
-     * @type {string}
-     */
+    //!variabile d'ambiente che informa se l'applicazione deve essere eseguita in modalità development o production
     this.environment = process.env.NODE_ENV;
 
-    /**
-     * Indirizzo ip dell'host
-     * @type {string}
-     */
+    //!campo dati che identifica l'Indirizzo IP dell'host
     this.serverHost = process.env.OPENSHIFT_NODEJS_IP || 'localhost';
 
-    /**
-     * Porta su cui il server deve mettersi in ascolto
-     * @type {number}
-     */
+    //!campo dati che identifica la porta su cui il server deve mettersi in ascolto
     this.serverPort = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
-    /**
-     * Percorso della cartella che il server deve utilizzare per fornire file statici
-     * @type {string}
-     */
+    //!campo dati che identifica il percorso della cartella che il server utilizza per fornire file statici
     this.serverStaticPath = "../../static";
 
-    /**
-     * Stringa che identifica l'host del database
-     * @type {string}
-     */
+    //!campo dati che identifica l'host del database
     this.dbHost = process.env.OPENSHIFT_MONGODB_DB_HOST || 'localhost';
 
-    /**
-     * Porta su cui il server di mongodb deve mettersi in ascolto
-     * @type {number}
-     */
+    //!campo dati che identifica la porta su cui il server di mongodb deve mettersi in ascolto
     this.dbPort = process.env.OPENSHIFT_MONGODB_DB_PORT || 27017;
 
-    /**
-     * Nome del database dell'applicazione
-     * @type {string}
-     */
+    //!campo dati che identifica il nome del database dell'applicazione
     this.dbName = (options && options.test)
         ? 'quizzipedia-test'
         : 'quizzipedia';
 
     this.test = (options && options.test);
 
-    /**
-     * Username per connettersi al database
-     * @type {*|string}
-     */
+    //!campo dati che identifica l'Username per connettersi al database
     this.dbUser = process.env.OPENSHIFT_MONGODB_DB_USERNAME || null;
 
-    /**
-     * Password per connettersi al database
-     * @type {*|string}
-     */
+    //!campo dati che identifica la password per connettersi al database
     this.dbPassword = process.env.OPENSHIFT_MONGODB_DB_PASSWORD || null;
 
-    /**
-     * Stringa di connessione al database
-     * @type {string}
-     */
+    //!campo dati che identifica l'Uri di connessione al database
     this.dbUri = (this.dbPassword)
         ? 'mongodb://' + this.dbUser + ":" + this.dbPassword + "@" +
         this.dbHost + ':' + this.dbPort + '/' + this.dbName
