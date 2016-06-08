@@ -63,21 +63,35 @@ describe('model.data.CurrentQuestionnaire', function() {
         questionnaire: "",
         score: NaN
     };
+    var score = [
+        {
+            _id: "test_score_1",
+            question: "id_question_1",
+            questionnaire: "id_questionnaire_1",
+            author: "id_author_1",
+            score: 1
+        },
+        {
+            _id: "test_score_2",
+            question: "id_question_2",
+            questionnaire: "id_questionnaire_1",
+            author: "id_author_1",
+            score: 1
+        }
+    ];
 
     beforeEach(function () {
         module('CurrentQuestionnaireModule', function ($provide) {
             var CurrentQuestionMock = function () {
                 function CurrentQuestion(question) {
-                   this.stat = [];
+                    this.stat = [];
                 }
 
                 CurrentQuestion.prototype.answered = function () {
-                   // return curQuestion.id === "id_question_1";
+                    // return curQuestion.id === "id_question_1";
                     return true;
                 };
                 CurrentQuestion.prototype.point = function (id, success, fail) {
-                    console.log("mi current hanno chiamato point");
-
                     return {point: 1, tot: 1, answer: true};
                 };
                 return CurrentQuestion;
@@ -94,8 +108,9 @@ describe('model.data.CurrentQuestionnaire', function() {
             };
             var AnswerService = function () {
                 this.get = function(questionnaire, question, next, err) {
-                    console.log("mi answer hanno chiamato get");
-                    next();
+                    questionnaire == 'id_questionnaire_1' ? next(score) : next([]);
+
+
                 };
                 this.new = function (questionnaire, question, score, next, err) {
                     console.log("mi anwser hanno chiamato new");
@@ -109,11 +124,10 @@ describe('model.data.CurrentQuestionnaire', function() {
         });
         module('app.App');
         inject(function ($injector) {
-              CurrentQuestionnaire = $injector.get('model.data.CurrentQuestionnaire');
-              CurrentQuestionMock = $injector.get('CurrentQuestionModule');
-              answerMock = $injector.get('model.service.AnswerService');
+            CurrentQuestionnaire = $injector.get('model.data.CurrentQuestionnaire');
+            CurrentQuestionMock = $injector.get('CurrentQuestionModule');
+            answerMock = $injector.get('model.service.AnswerService');
             q = $injector.get('$q');
-             currentQuest = new CurrentQuestionnaire(questionnaires[0]);
 
 
         });
@@ -123,14 +137,14 @@ describe('model.data.CurrentQuestionnaire', function() {
     describe('Controllo statistiche ', function () {
         it('Deve visualizzare le statistiche', function () {
             var currentQuest = new CurrentQuestionnaire(questionnaires[0]);
-           // currentQuest.getCurrentQuestions();
+
+            // currentQuest.getCurrentQuestions();
             currentQuest.questions = [];
 
-            console.log("Prima --> "+currentQuest.questions[0]);
             currentQuest.questions.push(new  CurrentQuestionMock(questions[0]));
             currentQuest.questions.push(new  CurrentQuestionMock(questions[1]));
 
-           // console.log("lunghezza --> "+currentQuest.questions.length());
+            // console.log("lunghezza --> "+currentQuest.questions.length());
 
             currentQuest.getResult(function (res) {
                 expect(res).toBeDefined();
@@ -138,27 +152,32 @@ describe('model.data.CurrentQuestionnaire', function() {
             });
 
             currentQuest.questions.forEach(function (item) {
-                console.log("item  --> "+item.answered());
+                expect(item.stat).toMatch('100%');
 
             });
-            var a = 0;
-for(var i = 0; i < 1000000 ; i++){ a++; }
+
             console.log("Mamma mia fuori --> "+currentQuest.questions[0].stat);
-            currentQuest.questions[0].stat.push("dopo mamma mia");
-            console.log("Mamma mia fuori 2 --> "+currentQuest.questions[0].stat);
-
-
-
-
-
-
-
         });
         it('Deve mandare al server nuovi scores', function () {
             //TODO
         });
         it('Deve gestire caso del scores al nuovo questionario', function () {
-            //TODO
+            var currentQuest = new CurrentQuestionnaire(questionnaires[1]);
+
+            currentQuest.questions = [];
+          //  currentQuest.questions = currentQuest.getCurrentQuestions();
+
+            currentQuest.questions.push(new  CurrentQuestionMock(questions[0]));
+            currentQuest.questions.push(new  CurrentQuestionMock(questions[1]));
+
+            // console.log("lunghezza --> "+currentQuest.questions.length());
+
+
+
+            currentQuest.questions.forEach(function (item) {
+                expect(item.stat).toMatch('0%');
+
+            });
         });
 
     });
