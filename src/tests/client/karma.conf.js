@@ -19,6 +19,7 @@ module.exports = function(config){
             'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-sanitize.js',
             'static/js/async.min.js',
             'static/js/jquery-ui.min.js',
+            'https://code.jquery.com/ui/1.11.4/jquery-ui.js',
             'https://cdn.jsdelivr.net/editor/0.1.0/editor.js',
             'https://cdn.jsdelivr.net/editor/0.1.0/marked.js',
             'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js',
@@ -31,6 +32,7 @@ module.exports = function(config){
             'static/js/util/markdown/lib/markdown.min.js',
             'tests/client/unit/service/*.js',
             'tests/client/unit/controller/**/*.js',
+            'tests/client/unit/data/*.js',
             'tests/client/unit/util/*.js'
         ],
 
@@ -52,6 +54,7 @@ module.exports = function(config){
             suite: 'unit'
         },
         preprocessors: {
+            'statis/html/**/*.html':['html2js'],
             'static/js/app/*.js': ['coverage'],
             'static/js/controller/**/*.js':['coverage'],
             'static/js/model/**/**.js':['coverage'],
