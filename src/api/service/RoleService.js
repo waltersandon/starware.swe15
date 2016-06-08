@@ -1,17 +1,29 @@
+/*!
+ * @class   RoleService
+ * @details Classe che rappresenta il servizio per la lettura dei ruoli utente,
+ *          sfruttando la classe server::data::Role per accedere ai dati
+ *          persistenti nel database
+ * @par Usage
+ * Viene utilizzata per fornire un punto d'accesso per l'elenco di tutti i ruoli
+ * dell'applicazione e la lettura di un singolo ruolo
+ */
+
 var Role = require('./../data/Role');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @constructor
+/*!
+ * @details costruttore della classe
  */
 function RoleService() {}
 
-/**
- * Metodo che invoca il servizio per ottenere i ruoli presenti
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che invia al client la lista di tutti i ruoli assumibili
+ *          dagli utenti dell'applicazione attraverso un Json
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 RoleService.prototype.get = function(req, res, next){
     Role.find({},function(err, role){
@@ -21,12 +33,15 @@ RoleService.prototype.get = function(req, res, next){
 };
 
 
-/**
- * Metodo che invoca il servizio per ottenere il ruolo di un utente specificato
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che ritorna al client un Json contenente il ruolo
+ *          specificato nella richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 RoleService.prototype.getByID = function(req, res, next){
     Role.findById(req.params.id,function(err,role){

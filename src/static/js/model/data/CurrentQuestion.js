@@ -23,9 +23,9 @@ $(function () {
                 if (this.type === 'TF' || this.type === 'MC') {
                     this.answer = quest.answer;
                     //!oggetto che rappresenta la risposta selezionata
-                    this.selectedAnswer = null;
-                } else if (this.type === "OI") {
+                    this.selectedAnswer = null;{
                     //!contiene il corpo della domanda corrente
+                } else if (this.type === "OI" || this.type === "CI") {
                     this.answer = quest.answer;
                     this.selectedAnswer = quest.answers;
                 } else {
@@ -46,6 +46,7 @@ $(function () {
      *          totalizzati sui punti totali del risposta
      */
             CurrentQuestion.prototype.point = function () {
+                var self = this;
                 if (this.type === 'TF' || this.type === 'MC') {
                     if (this.answer.toString() == this.selectedAnswer) {
                         this.right = true;
@@ -58,7 +59,6 @@ $(function () {
                     var rightPoint = 1 / this.answer.length;
                     var wrongPoint = 1 / (this.answers.length - this.answer.length);
                     var tot = 0;
-                    var self = this;
                     this.selectedAnswer.forEach(function (ans) {
                         var found = false;
                         self.answer.forEach(function (rightAnswer) {
@@ -81,7 +81,6 @@ $(function () {
                 } else if (this.type === 'CT') {
                     var tot = 0;
                     var point = 0;
-                    var self = this;
                     this.selectedAnswer.forEach(function (ans, i) {
                         tot++;
                         if (ans == self.answer[i]) {
@@ -94,7 +93,6 @@ $(function () {
                     return {point: point / tot, tot: 1};
                 } else if (this.type === 'OI') {
                     var right = true;
-                    var self = this;
 
                     this.answer.forEach(function (el, i) {
                         if (el !== self.selectedAnswer[i]) {
@@ -109,7 +107,26 @@ $(function () {
                         this.right = false;
                         return {point: 0, tot: 1};
                     }
+                } else if (this.type === 'CI') {
+                    var right = true;
+
+                    this.selectedAnswer.left.forEach(function (el, i) {
+                        self.answer.left.forEach(function(ans, j){
+                            if(el === ans && self.selectedAnswer.right[i] != self.answer.right[j]){
+                                right = false;
+                            }
+                        });
+                    });
+
+                    if (right) {
+                        this.right = true;
+                        return {point: 1, tot: 1};
+                    } else {
+                        this.right = false;
+                        return {point: 0, tot: 1};
+                    }
                 }
+
                 return null;
             };
 
@@ -129,7 +146,7 @@ $(function () {
                         }
                     });
                     return all;
-                } else if (this.type === 'OI') {
+                } else if (this.type === 'OI' || this.type === 'CI') {
                     return true;
                 }
             };

@@ -4,6 +4,7 @@
  */
 
 $(function () {
+<<<<<<< HEAD
     angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', 'model.service.AnswerService', function ($q, QuestionService, CurrentQuestion, AnswerService) {
     /*!
      * @details costruttore della classe
@@ -11,6 +12,9 @@ $(function () {
      * @param[in]  tags      contiene la lista degli argomenti del questionario
      * @param[in]  title     titolo del questionario corrente
      */
+=======
+    angular.module('CurrentQuestionnaireModule', ['QuestionServiceModule', 'CurrentQuestionModule', 'AnswerServiceModule']).factory('model.data.CurrentQuestionnaire', ['$q', 'model.service.QuestionService', 'model.data.CurrentQuestion', 'model.service.AnswerService', function ($q, QuestionService, CurrentQuestion, AnswerService) {
+>>>>>>> ef8e04f0af66e3eae080b77828471f18ce16614e
             function CurrentQuestionnaire(questionnaire) {
                 this.id = questionnaire.id;
               //!contiene numero della domanda corrente che si sta eseguendo

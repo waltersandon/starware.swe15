@@ -1,18 +1,30 @@
+/*!
+ * @class   QuestionnaireService
+ * @details Classe che si occupa di gestire questionari, sfruttando la classe
+ *          server::data::Questionnaire per accedere ai dati persistenti nel
+ *          database.
+ * @par Usage
+ * Offre metodi per restituire questionari. Permette inoltre ad un docente di
+ * effettuare l'inserimento, la modifica, l'eliminazione di questionari
+ */
+
 var Questionnaire = require('./../data/Questionnaire');
 var QuestionnaireCheck = require('./../validator/QuestionnaireCheck');
 
-/**
- * Classe che si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
- * @constructor
+/*!
+ * @details costruttore della classe
  */
 function QuestionnaireService() {}
 
-/**
- * Metodo che invoca il servizio per ritornare il questionario specifico richiesto dall'utente
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che ritorna al client un Json contenente il questionario
+ *          specifico richiesto identificato nella richiesta http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 QuestionnaireService.prototype.getByID = function(req,res,next){
     Questionnaire.findById(req.params.id).exec(function(err, quest){
@@ -22,12 +34,15 @@ QuestionnaireService.prototype.getByID = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per ritornare una lista di questionari
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che invia al client una lista di questionari attraverso
+ *          un Json
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 QuestionnaireService.prototype.get = function(req,res,next){
     this.query = {};
@@ -50,13 +65,14 @@ QuestionnaireService.prototype.get = function(req,res,next){
     });
 };
 
-
-/**
- * Metodo che invoca il servizio per creare un nuovo questionario
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che aggiunge un nuovo questionario al database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 QuestionnaireService.prototype.new = function(req,res,next){
     req.body.author = req.session.user._id;
@@ -67,12 +83,15 @@ QuestionnaireService.prototype.new = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per modificare un questionario specifico
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che modifica un questionario specificato nella richiesta
+ *          http
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 QuestionnaireService.prototype.modify = function(req,res,next){
     Questionnaire.findById(req.params.id, function (err, questionnaire) {
@@ -89,12 +108,14 @@ QuestionnaireService.prototype.modify = function(req,res,next){
     });
 };
 
-/**
- * Metodo che invoca il servizio per cancellare un questionario specifico
- * @param req - Questo oggetto rappresenta la richiesta di tipo Request arrivata al server che il metodo deve gestire
- * @param res - Questo oggetto rappresenta la risposta che il server dovrà inviare al termine ell’elaborazione
- * @param next - Questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
- * per passare il controllo ai successivi middleware.
+/*!
+ * @details metodo che cancella un questionario specifico dal database
+ * @param[in]  req  questo oggetto rappresenta la richiesta arrivata al
+ *                   server che il metodo deve gestire
+ * @param[in]  res  questo oggetto rappresenta la risposta che il server
+ *                   dovrà inviare al termine dell'elaborazione
+ * @param[in]  next questo parametro rappresenta la callback che il metodo
+ *                   dovrà chiamare al termine dell’elaborazione
  */
 QuestionnaireService.prototype.delete = function(req,res,next){
     Questionnaire.findById(req.params.id, function(err, questionnaire) {
