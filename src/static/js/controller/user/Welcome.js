@@ -31,17 +31,23 @@ $(function () {
                         tot++;
                     });
 
-                    var data = [];
+                    var percs = [];
                     if (tot !== 0) {
                         for (var i = 0; i < vars.length; i++) {
-                            data.push(counters[i] * 100 / tot);
+                            percs.push(counters[i] * 100 / tot);
                         }
                     }
 
                     $scope.stat = [];
                     for (var i = 0; i < vars.length; i++) {
-                        $scope.stat.push({pt: vars[i],txt: 'Hai fatto <strong>' + vars[i] + '</strong> punti nel <strong>' + data[i] + ' %</strong> delle domande'});
+                        vars[i] = vars[i] + (vars[i] === 1 ? " punto" : " punti");
+                        $scope.stat.push({pt: vars[i],txt: 'Hai fatto <strong>' + vars[i] + '</strong> nel <strong>' + Math.round(percs[i]) + ' %</strong> delle domande'});
                     }
+
+                    $scope.data = counters;
+                    $scope.labels = vars;
+
+
                 }, function (res) {
 
                 });
@@ -49,8 +55,6 @@ $(function () {
             
             if ($rootScope.me) {
                 retriveStatistics();
-                $scope.labelsd = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-                $scope.datad = [300, 500, 100];
             } else {
                 $scope.me = {fullName: 'Visitatore'};
             }
