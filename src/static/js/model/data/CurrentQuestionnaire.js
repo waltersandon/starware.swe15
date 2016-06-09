@@ -78,7 +78,7 @@ $(function () {
                         tot += result.tot;
                     }
 
-                    AnswerService.get([self.id], [item.id], function (res) {
+                    AnswerService.get([self.id], [item.id], null, function (res) {
                         var pt = result.point;
                         var scores = [];
 
@@ -106,24 +106,28 @@ $(function () {
                             risp += i;
                         });
 
-                        item.stat.push('Hanno risposto con il massimo del punteggio il <strong>' + Math.round(counters[counters.length - 1] * 100 / risp) + '%</strong> degli studenti');
-                        item.stat.push('Hanno risposto con il minimo del punteggio il <strong>' + Math.round(counters[0] * 100 / risp) + '%</strong> degli studenti');
+                        if (risp === 0) {
+                            item.stat.push('Non sono presenti statistiche precedenti per questa domanda');
+                        } else {
+                            item.stat.push('Hanno risposto con il massimo del punteggio il <strong>' + Math.round(counters[counters.length - 1] * 100 / risp) + '%</strong> degli studenti');
+                            item.stat.push('Hanno risposto con il minimo del punteggio il <strong>' + Math.round(counters[0] * 100 / risp) + '%</strong> degli studenti');
 
-                        var worse = 0, equal = 0, better = 0, myindex = vars.indexOf(pt);
-                        for (var i = 0; i < vars.length; i++) {
-                            if (i < myindex) {
-                                worse += counters[i];
-                            } else if (i === myindex) {
-                                equal += counters[i];
-                            } else {
-                                better += counters[i];
+                            var worse = 0, equal = 0, better = 0, myindex = vars.indexOf(pt);
+                            for (var i = 0; i < vars.length; i++) {
+                                if (i < myindex) {
+                                    worse += counters[i];
+                                } else if (i === myindex) {
+                                    equal += counters[i];
+                                } else {
+                                    better += counters[i];
+                                }
                             }
+
+                            item.stat.push('Hanno risposto meglio di te il <strong>' + Math.round(better * 100 / risp) + '%</strong> degli studenti');
+                            item.stat.push('Hanno risposto come te il <strong>' + Math.round(equal * 100 / risp) + '%</strong> degli studenti');
+                            item.stat.push('Hanno risposto peggio di te il <strong>' + Math.round(worse * 100 / risp) + '%</strong> degli studenti');
                         }
-
-                        item.stat.push('Hanno risposto meglio di te il <strong>' + Math.round(better * 100 / risp) + '%</strong> degli studenti');
-                        item.stat.push('Hanno risposto come te il <strong>' + Math.round(equal * 100 / risp) + '%</strong> degli studenti');
-                        item.stat.push('Hanno risposto peggio di te il <strong>' + Math.round(worse * 100 / risp) + '%</strong> degli studenti');
-
+                        
                         AnswerService.new(self, item, result.point, function () {
                             cll();
                         }, function (res) {
