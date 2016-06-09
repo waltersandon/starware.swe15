@@ -49,6 +49,8 @@ $(function () {
             
             if ($rootScope.me) {
                 retriveStatistics();
+                $scope.labelsd = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+                $scope.datad = [300, 500, 100];
             } else {
                 $scope.me = {fullName: 'Visitatore'};
             }
