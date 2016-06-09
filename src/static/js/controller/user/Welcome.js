@@ -46,6 +46,11 @@ $(function () {
 
                 });
             }
-            retriveStatistics();
+            
+            if ($rootScope.me) {
+                retriveStatistics();
+            } else {
+                $scope.me = {fullName: 'Visitatore'};
+            }
         }]);
 });
