@@ -4,14 +4,14 @@
  */
 $(function () {
     angular.module('CurrentQuestionModule', []).factory('model.data.CurrentQuestion', ['util.QML', function (QML) {
-      
-    /*!
-     * @details costruttore della classe
-     * @param[in]  author ID dell'autore della domanda
-     * @param[in]  body   e' la rappresentazione testuale della domanda
-     * @param[in]  id     ID della Question
-     * @param[in]  tags   lista di ID di riferimenti ad argomenti
-     */
+
+            /*!
+             * @details costruttore della classe
+             * @param[in]  author ID dell'autore della domanda
+             * @param[in]  body   e' la rappresentazione testuale della domanda
+             * @param[in]  id     ID della Question
+             * @param[in]  tags   lista di ID di riferimenti ad argomenti
+             */
             function CurrentQuestion(question) {
                 var quest = QML.parse(question.body);
                 //!oggetto che rappresenta la tipologia della domanda
@@ -28,6 +28,9 @@ $(function () {
                 } else if (this.type === "OI" || this.type === "CI") {
                     this.answer = quest.answer;
                     this.selectedAnswer = quest.answers;
+                } else if (this.type === "NT") {
+                    this.answer = quest.answer;
+                    this.selectedAnswer = "NaN";
                 } else {
                     this.answer = quest.answer;
                     this.selectedAnswer = [];
@@ -37,14 +40,14 @@ $(function () {
                 this.right = false;
                 this.explanation = quest.explanation;
             }
-      
-    /*
-     * @details restituisce i punti relativi alla domanda risposta
-     *          
-     *          Metodo che restituisce un oggetto di tipo json con attributi
-     *          'point' e 'tot' che contengono due interi rappresentanti i punti
-     *          totalizzati sui punti totali del risposta
-     */
+
+            /*
+             * @details restituisce i punti relativi alla domanda risposta
+             *          
+             *          Metodo che restituisce un oggetto di tipo json con attributi
+             *          'point' e 'tot' che contengono due interi rappresentanti i punti
+             *          totalizzati sui punti totali del risposta
+             */
             CurrentQuestion.prototype.point = function () {
                 var self = this;
                 if (this.type === 'TF' || this.type === 'MC') {
@@ -111,8 +114,8 @@ $(function () {
                     var right = true;
 
                     this.selectedAnswer.left.forEach(function (el, i) {
-                        self.answer.left.forEach(function(ans, j){
-                            if(el === ans && self.selectedAnswer.right[i] != self.answer.right[j]){
+                        self.answer.left.forEach(function (ans, j) {
+                            if (el === ans && self.selectedAnswer.right[i] != self.answer.right[j]) {
                                 right = false;
                             }
                         });
@@ -125,8 +128,19 @@ $(function () {
                         this.right = false;
                         return {point: 0, tot: 1};
                     }
-                }
+                } else if (this.type === "NT") {
+                    var ans = parseFloat(this.selectedAnswer)
+                    var min = parseFloat(this.answer.number) - parseFloat(this.answer.tollerance);
+                    var max = parseFloat(this.answer.number) + parseFloat(this.answer.tollerance);
 
+                    if (ans >= min && ans <= max) {
+                        this.right = true;
+                        return {point: 1, tot: 1};
+                    } else {
+                        this.right = false;
+                        return {point: 0, tot: 1};
+                    }
+                }
                 return null;
             };
 
@@ -146,7 +160,7 @@ $(function () {
                         }
                     });
                     return all;
-                } else if (this.type === 'OI' || this.type === 'CI') {
+                } else if (this.type === 'OI' || this.type === 'CI' || this.type === 'NT') {
                     return true;
                 }
             };

@@ -3,10 +3,10 @@
 \input{../tex/glossario.tex}
 \usepackage{verbatim}
 %Titolo documento
-\newcommand{\titoloDocumento}{Manuale Utente}
+\newcommand{\titoloDocumento}{Manuale Amministratore}
 
 %Prima data di creazione del documento
-\newcommand{\dataCreazione}{26 aprile 2016}
+\newcommand{\dataCreazione}{30 maggio 2016}
 
 %Inserite la versione attuale del documento
 \newcommand{\versione}{1.0.0}
@@ -59,26 +59,17 @@
 	\begin{center}
 		\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
 			\toprule
-			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*		
-				
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*	
 			\midrule
-			1.0.2 & \WS{} & 2016-06-06 &  Aggiunta sezione markdown \\*	
-			\midrule	
-			1.0.1 & \AB{} & 2016-05-30 &  Rimozione delle sezioni amministratore e proprietario\\*		
+			1.0.0 & \AVE{} & 2016-06-10 &  Approvazione \\*			
 			\midrule
-			1.0.0 & \AVE{} & 2016-05-13 &  Approvazione \\*			
+			0.1.0 & \TP{} & 2016-06-10 &  Verifica \\*
 			\midrule
-			0.1.0 & \TP{} & 2016-05-12 &  Verifica \\*
+			0.0.2 & \WS{} & 2016-06-10 &  Correzioni grammaticali \\*
 			\midrule
-			0.0.4 & \WS{} & 2016-05-11 &  Correzioni grammaticali \\*
+			0.0.1 & \WS{} & 2016-06-01 &  Inserimento sezione amministratore e proprietario \\*
 			\midrule
-			0.0.3 & \WS{} & 2016-05-11 &  Correzioni struttura documento \\*
-			\midrule
-			0.0.2 & \WS{} & 2016-05-10 &  Correzioni al documento ed inserimento screenshot \\*
-			\midrule
-			0.0.1 & \WS{} & 2016-05-09 &  Inserimento sezione amministratore e proprietario \\*
-			\midrule
-			0.0.0 & \AB{} & 2016-04-26 &  Creazione documento \\*
+			0.0.0 & \AB{} & 2016-05-30 &  Creazione documento \\*
 			\bottomrule
 			\caption{\mGls{versionamento}  del documento}
 			\label{tabVers1}
@@ -96,11 +87,11 @@
 	\section{Introduzione}	\label{intro}
 	
 	\subsection{Scopo}
-	Lo scopo del seguente documento è fornire una guida dettagliata all’utente per l’utilizzo dell’applicazione \prj{}. Sono descritte le funzionalità dell'applicazione e i profili utente offerti.
+	Lo scopo del seguente documento è fornire una guida dettagliata alle figure di amministratore e proprietario per l’utilizzo e la gestione dell’applicazione \prj{}. Sono inoltre riportate le modalità di autenticazione e regitrazione. 
 	Vengono inoltre specificati i requisiti tecnici per l'utilizzo dell'applicazione \prj{}.
 
 	\subsection{Descrizione}
-    Il documento include la descrizione dettagliata delle funzionalità offerte dal sistema per gli utenti non registrati e registrati di tipo studente e docente. In particolar modo, vengono definite tutte le funzionalità offerte dal sistema all’utente con l’ausilio di immagini illustrative. 
+    Il documento include la descrizione dettagliata delle funzionalità offerte dal sistema per l'utente amministratore e proprietario. In particolar modo, vengono definite le funzionalità offerte dal sistema all’utente con l’ausilio di immagini illustrative. 
     I requisiti tecnici per l'utilizzo dell'applicazione \prj{} sono specificati nel dettaglio.
 	
 	\subsection{Descrizione Prodotto}
@@ -251,190 +242,106 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	
 	\newpage
 
-	\section{Studente}\label{studente}
-	Il profilo studente è il profilo  base offerto dal sistema. Ogni utente registrato dispone di tali funzionalità. Tali funzionalità sono:
+
+		
+	\section{Amministratore}
+		\par Un profilo amministratore ha accesso a tutte le funzionalità di un profilo docente e studente; inoltre offre funzionalità aggiuntive quali: \\
+		\begin{itemize}
+			\item la possibilità di promuovere uno studente a ruolo di docente;
+			\item la possibilità di degradare un docente a ruolo di studente;
+			\item la possibilità di rimuovere un docente o uno studente dal sistema.
+		\end{itemize}
+		\subsection{Funzionalità aministratore}
+		
+	\subsubsection{Lista utenti e filtri}
+		Per accedere alla pagina di gestione degli utenti è necessario cliccare il pulsante \textbf{Lista utenti} del menù \textbf{Amministratore}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.2\linewidth]{../img/screenshot/usersListMenu.png}
+			\caption{Lista utenti}
+			\label{Lista utenti}
+		\end{figure}
+        Dalla schermata \textbf{Lista Utenti} è possibile filtrare gli utenti presenti nel sistema per ruolo cliccando sulla relativa opzione del filtro \textbf{Mostra}.
+		\begin{figure}[H]
+			
+			\centering
+			\includegraphics[width=1.0\linewidth]{../img/screenshot/usersListCrop.png}
+			\caption{Lista utenti}
+			\label{Lista utenti}
+		\end{figure}
+	
+	\subsubsection{Gestione utenti}
+	Selezionando un utente dalla lista utenti, un amministratore può effettuare alcune operazioni quali il cambiamento di ruolo di un utente selezionato o la sua eliminazione dal sistema.
+		
+	\subsubsubsection{Eliminazione utente}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla \textbf{x} che si trova a destra del nome selezionato. Prima di eliminare definitivamente un utente, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'utente selezionato verrà eliminato in maniera irreversibile. Cliccando su \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'utente non verrà eliminato.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{../img/screenshot/rimozioneUtente.png}
+			\caption{Rimozione utente}
+			\label{Rimozione utente}
+		\end{figure}
+	\subsubsubsection{Promozione a ruolo docente}
+	Dalla lista utenti l'amministratore per promuovere lo studente a docente dovrà cliccare in corrispondenza del ruolo dello studente selezionato. In questo modo comparirà una combo box e tra le varie voci scegliere \textbf{Docente}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{../img/screenshot/cambioRuoloStudDoc.png}
+		\caption{Promozione a ruolo docente}
+		\label{Promozione a ruolo docente}
+	\end{figure}
+	
+	\subsubsubsection{Rimozione da ruolo docente}
+	Per rimuovere un docente dal suo incarico l'amministratore dovrà cliccare in corrispondenza del ruolo del docente che si vuole degradare. In questo modo comparirà una combo box e tra le varie voci si dovrà cliccare \textbf{Studente}.
+	L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
+	
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\linewidth]{../img/screenshot/cambioRuoloDocStud.png}
+			\caption{Rimozione da ruolo docente}
+			\label{Rimozione da ruolo docente}
+		\end{figure}
+	
+	\section{Proprietario} 
+	\par Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore; inoltre offre funzionalità aggiuntive quali: \\
 	\begin{itemize}
-		\item la possibilità di ricercare questionari in base a più parametri;
-		\item la possibilità di esplorare i questionari presenti nel sistema per argomento;
-		\item la possibilità di eseguire un questionario presente nel sistema.
+		\item la possibilità di promuovere uno utente (docente/studente) a ruolo di amministratore;
+		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
+		\item la possibilità di rimuovere un amministratore dal sistema.
 	\end{itemize}
+	\subsection{Funzionalità proprietario}
 	
-	\subsection{Funzionalità studente}
-	\subsubsection{Ricerca questionario}\label{ricerca_questionario}
-	\subsubsubsection{Pagina di ricerca  di un questionario}
-	L'accesso alla pagina di ricerca questionari si effettua dal \textbf{menu laterale}. 
-	E' necessario cliccare il pulsante \textbf{Questionari} nella sezione \textbf{Studente} del menu.
-	\subsubsubsection{Effettuare una ricerca}
-	Una volta entrati nella pagina di ricerca, è possibile inserire i parametri di ricerca nella barra apposita.
+	\subsubsection{Gestione  amministratori}
+	\par Selezionando un utente dalla lista utenti, il proprietario può eseguire tutte le operazioni descritte nella sezione amministratore con la possibilità di promuovere o degradare un utente a qualsiasi ruolo escluso ovviamente quello del proprietario. \\
 	
-	\begin{figure}[H]	
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/ricercaQuestionario.png}
-		\caption{Ricerca questionario}
-		\label{Ricerca questionario}
-	\end{figure}
+	\subsubsubsection{Promozione ad amministratore}
+	Dalla lista utenti il proprietario per promuovere un utente ad amministratore dovrà cliccare in corrispondenza del ruolo che attualmente tale utente riveste. In questo modo comparirà una combo box e scegliere su \textbf{Amministratore}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
-	E' possibile inserire dei filtri per la ricerca. 
-	
-	\begin{figure}[H]		
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/filtriRicerca.png}
-		\caption{Ricerca questionario con filtri}
-		\label{Ricerca questionario con filtri}
-	\end{figure}
-	
-	e avviare la ricerca cliccando sul pulsante \textbf{Cerca}.
-	
-	
-	\subsubsection{Esecuzione questionario}
-	\subsubsubsection{Trovare il questionario}
-	Per trovare un questionario da eseguire è possibile effettuare una ricerca, vedi \ref{ricerca_questionario}.
-	\subsubsection{Eseguire un questionario}
-	\par Una volta trovato il questionario desiderato, è possibile eseguirlo cliccando sulla riga corrispondente. \\
-	\par Durante l'esecuzione di un questionario sarà possibile navigare tra le domande presenti con i tasti \textbf{Precedente} e \textbf{Successiva}.
-	Una volta terminato la selezione delle risposte, cliccando sul tasto \textbf{Conferma}, sarà possibile vedere la soluzione del questionario svolto. \\
-	\par Tutte le domande devono essere compilate affinché sia possibile visualizzarne la correzione. \\
-	
-	\begin{figure}[H]	
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/esecuzioneQuestionario.png}
-		\caption{Eseguire questionario}
-		\label{Eseguire questionario}
-	\end{figure}
-	
-	\section{Docente}\label{docente}
-	Un profilo docente ha accesso a tutte le funzionalità di uno studente (si veda sezione \ref{studente}). \\
-		Inoltre offre funzionalità aggiuntive quali:
-		\begin{itemize}
-			\item la possibilità di gestire questionari (aggiungerli, rimuoverli e modificarli);
-			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
-			\item la possibilità di gestire argomenti (aggiungerli, rimuoverli e modificarli).
-		\end{itemize}
-	\subsection{Funzionalità docente}
-	
-    \subsubsection{Gestione domande}
-
-    Cliccando il pulsante \textbf{Gestione domande} dal menu a lato, nella sezione \textbf{Docente}, vengono visualizzate le domande precedentemente create dall'utente autenticato. 
-    
-	\subsubsubsection{Creazione domanda}
-	Per creare una nuova domanda è sufficiente premere il tasto $\boldsymbol{+}$ in alto a destra. Si aprirà un form apposito per l'inserimento del \mgls{qml} per la descrizione della domanda. Una volta inserito il \mgls{qml}, cliccare il pulsante \textbf{Conferma} in basso a destra.
-	
-	Se il \mgls{qml} inserito non è valido, l'applicazione chiederà di correggere il \mgls{qml} inserito e di cliccare nuovamente il pulsante \textbf{Conferma}.
-	
-		\begin{figure}[H]	
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\linewidth]{../img/screenshot/creazioneDomanda.png}
-			\caption{Creazione domanda}
-			\label{Creazione domanda}
+			\includegraphics[width=1\linewidth]{../img/screenshot/cambioRuoloDocAmm.png}
+			\caption{Promozione ad amministratore}
+			\label{Promozione ad amministratore}
 		\end{figure}
 	
-	\subsubsubsection{Modifica domanda}
-	\par Per modificare una domanda è necessario selezionarla dalla lista delle domande; una volta selezionata si aprirà una schermata che permetterà di modificare il \mgls{qml} della domanda scelta. \\
-	\par Una volta modificata la domanda, premere il pulsante \textbf{Conferma} in basso a destra per confermare le modifiche effettuate. Con il pulsante \textbf{Annulla} si annulla l'operazione. \\
-	\par Se il \mgls{qml} modificato non risulta corretto, il sistema chiederà di correggere il \mgls{qml} inserito prima di salvare nuovamente. \\
+	\subsubsubsection{Rimozione dal ruolo amministratore}
+	Per rimuovere un amministratore dal suo incarico il proprietario dovrà cliccare in corrispondenza del ruolo dell'amministratore che si vuole degradare. In questo modo comparirà una combo box e scegliere su \textbf{Studente} o \textbf{Docente}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
-		\begin{figure}[H]	
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=\linewidth]{../img/screenshot/modificaDomanda.png}
-			\caption{Modifica domanda}
-			\label{Modifica domanda}
+			\includegraphics[width=1\linewidth]{../img/screenshot/cambioRuoloAmmDoc.png}
+			\caption{Rimozione dal ruolo amministratore}
+			\label{Rimozione dal ruolo amministratore}
 		\end{figure}
 	
-	\subsubsubsection{Eliminazione domanda}
-	
-	\par Per eliminare una domanda è necessario cliccare l'icona a \textbf{x} a fianco della domanda da eliminare.
-	Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, la domanda selezionata verrà eliminata irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e la domanda non verrà eliminata. \\
-	
-	\begin{figure}[H]	
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/eliminaDomanda.png}
-		\caption{Elimina domanda}
-		\label{Elimina domanda}
-	\end{figure}
-		
-	\subsubsection{Gestione argomenti}
-	\par Cliccando \textbf{Gestione argomenti} dal menu a lato, sotto la voce \textbf{Docente}, vengono visualizzati gli argomenti precedentemente creati da qualsiasi altro utente.
-	
-		\subsubsubsection{Creazione argomenti}
-
-		\par Per creare un nuovo argomento sarà necessario:
-		\begin{itemize}
-			\item inserire il nome del argomento;
-			\item inserire la descrizione dell'argomento;
-			\item premere il pulsante $\boldsymbol{+}$ per confermare la creazione dell'argomento.
-		\end{itemize}
-		
-			\begin{figure}[H]	
-				\centering
-				\includegraphics[width=1.0\linewidth]{../img/screenshot/aggiungiArgomento.png}
-				\caption{Creazione argomento}
-				\label{Creazione argomento}
-			\end{figure}
-		
-		Una volta creato un nuovo argomento, questo comparirà nella schermata degli argomenti precedentemente creati.
-		
-		\subsubsubsection{Modifica argomento}
-		\par Per modificare un argomento è necessario modificarne il nome o la descrizione. Una volta modificato anche solo un campo, il pulsante con la spunta si presenterà di color verde e la modifica effettiva dell'argomento sarà effettuata solo alla sua pressione. \\
-		
-			\begin{figure}[H]	
-				\centering
-				\includegraphics[width=1.0\linewidth]{../img/screenshot/modificaArgomento.png}
-				\caption{Modifica argomento}
-				\label{Modifica argomento}
-			\end{figure}
-		
-		\subsubsubsection{Eliminazione argomento}
-		\par Per eliminare un argomento è necessario cliccare il pulsante \textbf{x} a fianco del argomento da eliminare.
-		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'argomento selezionato verrà eliminato irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'argomento non verrà eliminato. \\
-		\par Per evitare uno stato inconsistente dei dati, non è possibile eliminare argomenti che hanno domande o questionari ad essi associati. \\
-		
-			\begin{figure}[H]	
-				\centering
-				\includegraphics[width=1.0\linewidth]{../img/screenshot/eliminaArgomento.png}
-				\caption{Elimina argomento}
-				\label{Elimina argomento}
-			\end{figure}
-		
-		\subsubsection{Gestione questionario}
-		\subsubsubsection{Creazione questionario}
-		\par Per creare un questionario è necessario cliccare $\boldsymbol{+}$ in alto a destra della pagina. Si aprirà una schermata che permetterà di inserire il titolo, le domande e gli argomenti del questionario. \\
-		\par Una volta terminata la compilazione, cliccando il pulsante \textbf{Conferma}, sarà possibile confermare la creazione. 
-		In ogni momento sarà possibile annullare l'operazione di creazione del questionario cliccando \textbf{Annulla}.
-		
-		\par Nel caso il questionario creato non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente. \\
-		
-		\begin{figure}[H]	
+	\subsubsubsection{Rimozione amministratore}
+	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla \textbf{x} che si trova a destra in corrispondenza dell'amministratore selezionato. Prima di eliminare definitivamente un'amministratore, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'amministratore selezionato verrà eliminato in maniera irreversibile. Cliccando su \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'amministratore non verrà eliminato.
+		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1.0\linewidth]{../img/screenshot/creazioneQuestionario.png}
-			\caption{Creazione questionario}
-			\label{Creazione questionario}
+			\includegraphics[width=1\linewidth]{../img/screenshot/rimozioneAmministratore.png}
+			\caption{Rimozione di un amministratore dal sistema}
+			\label{Rimozione di un amministratore dal sistema}
 		\end{figure}
-		
-		\subsubsubsection{Modifica questionario}
-		\par Per modificare un questionario è necessario selezionarlo dalla lista dei questionari. Si aprirà una schermata che permetterà di modificare il titolo del questionario, di aggiungere o rimuovere domande e di aggiungere o rimuovere argomenti dal questionario corrente. \\
-		\par Una volta terminata la modifica, cliccando il pulsante \textbf{Conferma} sarà possibile confermare le modifiche. In ogni momento sarà possibile annullare l'operazione cliccando sul pulsante \textbf{Annulla}. \\
-			
-		\par Nel caso la modifica non rispetti le regole per la definizione di un questionario, il sistema chiederà di modificare il questionario prima di salvare nuovamente. \\
-		
-		\begin{figure}[H]	
-			\centering
-			\includegraphics[width=1.0\linewidth]{../img/screenshot/modificaQuestionario.png}
-			\caption{Modifica Questionario}
-			\label{Modifica Questionario}
-		\end{figure}
-			
-		\subsubsubsection{Eliminazione questionario}
-		\par Per eliminare un questionario è necessario cliccare il pulsante \textbf{x} a fianco del questionario da eliminare. \\
-		\par Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, il questionario selezionato verrà eliminato irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e il questionario non verrà eliminato. \\
-		
-		\begin{figure}[H]	
-			\centering
-			\includegraphics[width=\linewidth]{../img/screenshot/eliminaQuestionario.png}
-			\caption{Elimina questionario}
-			\label{Elimina questionario}
-		\end{figure}
-		
-
 	
 	\section{QML}
 	Il QML (Question Markup Language) è il linguaggio per definire la struttura di una domanda. La struttura comincia con la definizione del tipo di domanda e continua con una parte variabile a seconda del tipo.\\

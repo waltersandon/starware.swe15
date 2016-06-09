@@ -8,16 +8,25 @@
     </div>
     <div class='row'>
         <div class='col-md-10 col-md-offset-1'>
-            <h2>Ciao {{ me.fullName}}</h2>
+            <h2>Ciao {{ me.fullName }}</h2>
             <div class='well'>
-                <p>Benvenuto su Quizzipedia</p>
-                <p>Rispondi a tutte le domande se ci riesci!!!</p>
+                <p>Bentornato su Quizzipedia</p>
+                <ul>
+                    <li ng-repeat="st in stat | orderBy: st.pt : true"><span ng-bind-html="st.txt"></span></li>
+                </ul>
             </div>
         </div>
     </div>
+
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <canvas id="doughnut" class="chart chart-doughnut" chart-legend="true" chart-data="data" chart-labels="labels"></canvas>
+        </div>
+    </div>
+
     <br><br>
     <div class="row text-center">
-        <img src="../../img/logoGrande.png" style="height: 100px">
+        <img src="../../img/logoGrande.png" style="height: 50px">
     </div>
 </div>
 
