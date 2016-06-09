@@ -4,8 +4,8 @@
  */
 
 $(function () {
-    angular.module('app.App').controller('controller.user.Welcome', ['AnswerService', '$scope', '$rootScope', function (AnswerService, $scope, $rootScope) {
-            $scope.retriveStatistics = function () {
+    angular.module('app.App').controller('controller.user.Welcome', ['model.service.AnswerService', '$scope', '$rootScope', function (AnswerService, $scope, $rootScope) {
+            function retriveStatistics() {
                 AnswerService.get(null, null, [$rootScope.me.id], function (res) {
 
                     var scores = [];
@@ -37,19 +37,23 @@ $(function () {
                             data.push(counters[i] / tot);
                         }
                     }
+                    /*
+                    angular.module("app", ["chart.js"]).controller("DoughnutCtrl", function ($scope) {
+  $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+  $scope.data = [300, 500, 100];
+});
 
                     var ctx = document.getElementById("myChart");
-
-                    var Chart = require('js/util/Chart.js/src/chart.js')
                     var myDoughnutChart = new Chart(ctx, {
                         type: 'doughnut',
                         data: data
                     });
-
+*/
                 }, function (res) {
 
                 });
 
-            };
+            }
+            retriveStatistics();
         }]);
 });

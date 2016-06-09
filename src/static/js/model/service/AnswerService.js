@@ -51,7 +51,7 @@ $(function () {
                                 a = a.substr(0, a.length - 1);
                             return a;
                         }() +
-                        'authors=' + function () {
+                        '&authors=' + function () {
                             var a = '';
                             if (author instanceof Array)
                                 author.forEach(function (item) {
