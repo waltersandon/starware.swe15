@@ -90,7 +90,7 @@ $(function () {
                         vars = vars.add(0);
                         vars = vars.add(1);
 
-                        var vars = Array.from(vars).sort();
+                        vars = Array.from(vars).sort();
                         var counters = [];
                         vars.forEach(function () {
                             counters.push(0);

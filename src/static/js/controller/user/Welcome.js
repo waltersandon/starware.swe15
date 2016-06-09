@@ -18,7 +18,7 @@ $(function () {
                     vars = vars.add(0);
                     vars = vars.add(1);
 
-                    var vars = Array.from(vars).sort();
+                    vars = Array.from(vars).sort();
                     var counters = [];
                     vars.forEach(function () {
                         counters.push(0);
@@ -34,25 +34,17 @@ $(function () {
                     var data = [];
                     if (tot !== 0) {
                         for (var i = 0; i < vars.length; i++) {
-                            data.push(counters[i] / tot);
+                            data.push(counters[i] * 100 / tot);
                         }
                     }
-                    /*
-                    angular.module("app", ["chart.js"]).controller("DoughnutCtrl", function ($scope) {
-  $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-  $scope.data = [300, 500, 100];
-});
 
-                    var ctx = document.getElementById("myChart");
-                    var myDoughnutChart = new Chart(ctx, {
-                        type: 'doughnut',
-                        data: data
-                    });
-*/
+                    $scope.stat = [];
+                    for (var i = 0; i < vars.length; i++) {
+                        $scope.stat.push({pt: vars[i],txt: 'Hai fatto <strong>' + vars[i] + '</strong> punti nel <strong>' + data[i] + ' %</strong> delle domande'});
+                    }
                 }, function (res) {
 
                 });
-
             }
             retriveStatistics();
         }]);

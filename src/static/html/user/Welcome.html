@@ -11,12 +11,10 @@
             <h2>Ciao {{ me.fullName}}</h2>
             <div class='well'>
                 <p>Bentornato su Quizzipedia</p>
+                <ul>
+                    <li ng-repeat="st in stat | orderBy: st.pt : true"><span ng-bind-html="st.txt"></span></li>
+                </ul>
             </div>
-        </div>
-    </div>
-    <div class='row'>
-        <div class='col-md-2'>
-            <canvas id="myChart" width="400" height="400"></canvas>
         </div>
     </div>
     <br><br>
