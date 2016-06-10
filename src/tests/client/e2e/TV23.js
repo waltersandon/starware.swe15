@@ -20,6 +20,7 @@ describe('Questionnaire inspection', function() {
         browser.getLocationAbsUrl().then(function(url) {
             expect(url).toEqual('/teacher/questionnaires');
             element(by.css('[ng-click="logout()"]')).click();
+           // browser.switchTo().alert().accept();
         });
     });
     it('docente sia in grado di visualizzare un questionario', function() {

@@ -107,8 +107,8 @@ describe('model.data.CurrentQuestionnaire', function() {
                     return testQuestion !== undefined ? success(testQuestion) : fail();                };
             };
             var AnswerService = function () {
-                this.get = function(questionnaire, question, next, err) {
-                    questionnaire == 'id_questionnaire_1' ? next(score) : next([]);
+                this.get = function(questionnaire, question,author, next, err) {
+                    questionnaire == 'id_questionnaire_1' ? next(score) : next([answer]);
 
 
                 };
@@ -138,13 +138,11 @@ describe('model.data.CurrentQuestionnaire', function() {
         it('Deve visualizzare le statistiche', function () {
             var currentQuest = new CurrentQuestionnaire(questionnaires[0]);
 
-            // currentQuest.getCurrentQuestions();
             currentQuest.questions = [];
 
             currentQuest.questions.push(new  CurrentQuestionMock(questions[0]));
             currentQuest.questions.push(new  CurrentQuestionMock(questions[1]));
 
-            // console.log("lunghezza --> "+currentQuest.questions.length());
 
             currentQuest.getResult(function (res) {
                 expect(res).toBeDefined();
@@ -156,7 +154,6 @@ describe('model.data.CurrentQuestionnaire', function() {
 
             });
 
-            console.log("Mamma mia fuori --> "+currentQuest.questions[0].stat);
         });
         it('Deve mandare al server nuovi scores', function () {
             //TODO
@@ -165,17 +162,17 @@ describe('model.data.CurrentQuestionnaire', function() {
             var currentQuest = new CurrentQuestionnaire(questionnaires[1]);
 
             currentQuest.questions = [];
-          //  currentQuest.questions = currentQuest.getCurrentQuestions();
 
             currentQuest.questions.push(new  CurrentQuestionMock(questions[0]));
             currentQuest.questions.push(new  CurrentQuestionMock(questions[1]));
 
-            // console.log("lunghezza --> "+currentQuest.questions.length());
 
-
+            currentQuest.getResult(function (res) {
+                expect(res).toBeDefined();
+            });
 
             currentQuest.questions.forEach(function (item) {
-                expect(item.stat).toMatch('0%');
+                expect(item.stat).toMatch('Non sono presenti statistiche precedenti per questa domanda');
 
             });
         });

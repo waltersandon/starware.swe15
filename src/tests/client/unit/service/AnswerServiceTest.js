@@ -101,7 +101,8 @@ describe('model.service.AnswerService', function () {
             };
             var questionnaire = ['key1', 'key2'];
             var question = ['key1question', 'key2question'];
-            var param = function (questionnaire, question) {
+            var author = "";
+            var param = function (questionnaire, question, author) {
                 return'api/answers?' +
                     'questionnaires=' + function () {
                         var a = '';
@@ -122,19 +123,31 @@ describe('model.service.AnswerService', function () {
                         if (a.length >= 1)
                             a = a.substr(0, a.length - 1);
                         return a;
+                    }()+
+                    '&authors=' + function () {
+                        var a = '';
+                        if (author instanceof Array)
+                            author.forEach(function (item) {
+                                a += item + '|';
+                            });
+                        if (a.length >= 1)
+                            a = a.substr(0, a.length - 1);
+                        return a;
                     }();
             };
 
             $httpBackend
-                .whenGET(Configuration.remote + param(questionnaire, question), {}).respond([answer]);
+                .whenGET(Configuration.remote + param(questionnaire, question,author), {
+
+                }).respond([answer]);
 
             $httpBackend
-                .expectGET(Configuration.remote + param(questionnaire, question), {
+                .expectGET(Configuration.remote + param(questionnaire, question,author), {
                     "Accept": "application/json, text/plain, */*"
 
                 }).respond([answer]);
 
-            AnswerService.get(questionnaire, question, function (ret) {
+            AnswerService.get(questionnaire, question,author, function (ret) {
                 expect(true).toBe(true);
             }, function () {
                 expect(true).toBe(false);
@@ -145,7 +158,8 @@ describe('model.service.AnswerService', function () {
         it("gestisce correttamente risposta vuota", function () {
             var questionnaire = ['key1', 'key2'];
             var question = ['key1question', 'key2question'];
-            var param = function (questionnaire, question) {
+            var author = "";
+            var param = function (questionnaire, question, author) {
                 return'api/answers?' +
                     'questionnaires=' + function () {
                         var a = '';
@@ -166,18 +180,28 @@ describe('model.service.AnswerService', function () {
                         if (a.length >= 1)
                             a = a.substr(0, a.length - 1);
                         return a;
+                    }()+
+                    '&authors=' + function () {
+                        var a = '';
+                        if (author instanceof Array)
+                            author.forEach(function (item) {
+                                a += item + '|';
+                            });
+                        if (a.length >= 1)
+                            a = a.substr(0, a.length - 1);
+                        return a;
                     }();
             };
 
             $httpBackend
-                .whenGET(Configuration.remote + param(questionnaire, question), {}).respond([]);
+                .whenGET(Configuration.remote + param(questionnaire, question, author), {}).respond([]);
             $httpBackend
-                .expectGET(Configuration.remote + param(questionnaire, question), {
+                .expectGET(Configuration.remote + param(questionnaire, question, author), {
                     "Accept": "application/json, text/plain, */*"
 
                 }).respond([]);
 
-            AnswerService.get(questionnaire, question, function () {
+            AnswerService.get(questionnaire, question,author, function () {
                 expect(true).toBe(true);
             }, function () {
                 expect(true).toBe(false);
