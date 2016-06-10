@@ -319,7 +319,7 @@ OrderItemsParser.prototype.parse = function (qml) {
                 message: '<strong>Errore! </strong> la lista contiene duplicati'
             };
         }
-        
+
         var answers = function (a) {
             var j, x, i, b = a.slice();
             for (i = b.length; i; i -= 1) {
@@ -393,15 +393,15 @@ CoupleItemsParser.prototype.parse = function (qml) {
 
         var self = this;
         var answerLeft = [], answerRight = [];
-        answer.forEach(function(ans){
+        answer.forEach(function (ans) {
             var s = ans.split(",");
-            if(s.length == 2){
+            if (s.length == 2) {
                 answerLeft.push(s[0]);
                 answerRight.push(s[1]);
             }
         });
 
-        if(answerRight.length != answer.length){
+        if (answerRight.length != answer.length) {
             return {
                 status: false,
                 message: '<strong>Errore! </strong> una coppia deve essere formata solo da 2 elementi'
@@ -445,6 +445,62 @@ CoupleItemsParser.prototype.parse = function (qml) {
     }
 };
 
+function RangeNumberParser() {
+    this.number = /^\{\s*-?\d+(\.\d+)?(e-?\d+)?\s*,\s*\d+(\.\d+)?(e-?\d+)?\s*\}$/;
+}
+
+RangeNumberParser.prototype.parse = function (qml) {
+    var parsedLines = qml.split('\n').map((function (line) {
+        if (line.match(this.number)) {
+            return {number: line.match(this.number)};
+        } else {
+            return line;
+        }
+    }).bind(this));
+
+    var body = parsedLines.filter(function (line) {
+        return (typeof line === 'string');
+    }).join('\n');
+
+    var numbers = parsedLines.filter(function (line) {
+        return !(typeof line === 'string');
+    });
+
+    if (numbers.length > 1) {
+        return {
+            status: false,
+            message: '<strong>Errore! </strong> ci può essere al massimo una riposta numerica'
+        };
+    } else if (numbers.length === 0) {
+        return null;
+    } else {
+        body = markdown.toHTML(body);
+        var answer = numbers[0].number[0].substr(1, numbers[0].number[0].length - 2).split(",");
+
+        if (answer.length !== 2) {
+            return {
+                status: false,
+                message: '<strong>Errore! </strong> una riposta numerica deve contentere solo la risposta e la tolleranza'
+            };
+        } else {
+            var num = parseFloat(answer[0]);
+            var toll = parseFloat(answer[1]);
+
+            var preview = body + '<div class=\'form-group\'>\
+                                    <input type=\'text\' name=\'NTQuestion\'/>\
+                                </div>';
+            
+            return {
+                status: true,
+                type: 'NT',
+                body: body,
+                preview: preview,
+                answer: {number: num, tollerance: toll}
+            };
+        }
+    }
+};
+
 function QML() {
     this.explanation = /^\s?(?:""")\s*$/;
     this.parsers = [
@@ -453,7 +509,8 @@ function QML() {
         new TrueFalseParser(),
         new CompleteTextParser(),
         new OrderItemsParser(),
-        new CoupleItemsParser()
+        new CoupleItemsParser(),
+        new RangeNumberParser()
     ];
 }
 
@@ -489,7 +546,7 @@ QML.prototype.extractExplanation = function (plainText) {
     var expFlag = false;
     var explanationLines = [];
     var newTextLines = [];
-    if (plainText){
+    if (plainText) {
         plainText.split('\n').forEach((function (line) {
             if (expFlag) {
                 explanationLines.push(line);
@@ -509,7 +566,11 @@ QML.prototype.extractExplanation = function (plainText) {
 QML.prototype.preview = function (body) {
     body = this.parse(body).body;
     if (body && body.length > 100) {
-        return body.substr(0, 100) + " [..]";
+        var i = 100;
+        while (body.charAt(i) !== " ") {
+            i--;
+        }
+        return body.substr(0, i) + "[..]";
     } else {
         return body;
     }
@@ -518,17 +579,3 @@ QML.prototype.preview = function (body) {
 if (typeof angular === 'undefined') {
     module.exports = QML;
 }
-
-/*
- $scope.order = //DEVE CARICARE
- $("#sortable").sortable({
- placeholder: "ui-state-highlight",
- update: function (event, ui) {
- $scope.order = [];
- $('#sortable li').each(function (e) {
- $scope.order.push($(this).attr('id'));
- });
- }
- });
- $("#sortable").disableSelection();
- */
