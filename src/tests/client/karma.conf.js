@@ -23,6 +23,8 @@ module.exports = function(config){
             'https://cdn.jsdelivr.net/editor/0.1.0/editor.js',
             'https://cdn.jsdelivr.net/editor/0.1.0/marked.js',
             'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js',
+            'https://jtblin.github.io/angular-chart.js/bower_components/Chart.js/Chart.js',
+            'https://jtblin.github.io/angular-chart.js/dist/angular-chart.js',
             
 
             'static/js/app/*.js',

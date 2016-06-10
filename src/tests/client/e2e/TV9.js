@@ -28,5 +28,6 @@ describe('Questionnaire Delete', function() {
         element(by.id("titleSearch")).clear().sendKeys("Questionnario Test");
         element(by.css('[ng-click="remove(questionnaire)"]')).click();
         browser.switchTo().alert().accept();
+        browser.waitForAngular();
     });
 });
