@@ -1,3 +1,11 @@
+/**
+ * @file CurrentUser.js
+ * @date 23/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   CurrentUser
  * @details La classe che modella un l'utente correntemente loggato         

@@ -1,3 +1,10 @@
+/**
+ * @file Questionnaire.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
 /*!
  * @class   Questionnaire
  * @details Classe che rappresenta un questionario

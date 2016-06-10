@@ -1,3 +1,11 @@
+/**
+ * @file ExecuteQuestion.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   ExecuteQuestion
  * @details La classe che controlla l'esecuzione di una domanda

@@ -1,3 +1,11 @@
+/**
+ * @file UserService.js
+ * @date 20/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   UserService
  * @details Questa classe fornisce al client i servizi relativi al profilo,

@@ -1,3 +1,11 @@
+/**
+ * @file QuestionnaireCheck.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   QuestionnaireCheck
  * @details Classe contenente tutte le funzioni di controllo della validità dei

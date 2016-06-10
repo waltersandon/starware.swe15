@@ -1,3 +1,11 @@
+/**
+ * @file TagCheck.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   TagCheck
  * @details Classe contenente tutte le funzioni di controllo della validità dei

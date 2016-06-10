@@ -1,3 +1,11 @@
+/**
+ * @file QuestionService.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   QuestionService
  * @details Classe che si occupa di gestire domande, sfruttando la classe

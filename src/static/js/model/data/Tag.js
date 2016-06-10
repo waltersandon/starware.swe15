@@ -1,3 +1,11 @@
+/**
+ * @file Tag.js
+ * @date 23/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*
  * @class   Tag
  * @details Questa classe modella il tag argomento di un questionario e/o di una

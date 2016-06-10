@@ -1,3 +1,11 @@
+/**
+ * @file UserService.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   UserService
  * @details Classe che si occupa della operazioni di inserimento, modifica e

@@ -1,3 +1,11 @@
+/**
+ * @file Questionnaires.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Alessio vitella
+ *
+ */
+
 /*!
  * @class   Questionnaires
  * @details Classe che si occupa della ricerca di un questionario da parte di

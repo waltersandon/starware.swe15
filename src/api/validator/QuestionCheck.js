@@ -1,3 +1,11 @@
+/**
+ * @file QuestionCheck.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   QuestionCheck
  * @details Classe contenente tutte le funzioni di controllo della validità dei

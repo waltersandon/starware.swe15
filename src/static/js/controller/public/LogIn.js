@@ -1,3 +1,11 @@
+/**
+ * @file LogIn.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   LogIn
  * @details Classe che gestisce le operazioni e la logica applicativa

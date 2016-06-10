@@ -1,3 +1,11 @@
+/**
+ * @file QuestionnaireService.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   QuestionnaireService
  * @details Classe che si occupa di gestire questionari, sfruttando la classe

@@ -1,3 +1,10 @@
+/**
+ * @file Home.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
 /*!
  * @class   Home
  * @details Classe che gestisce le operazioni e la logica applicativa

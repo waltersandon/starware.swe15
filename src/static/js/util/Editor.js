@@ -1,3 +1,11 @@
+/**
+ * @file Editor.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   Editor
  * @details Classe che si occupa di gestire l'editor per il QML

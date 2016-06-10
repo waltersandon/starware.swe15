@@ -1,3 +1,10 @@
+/**
+ * @file Question.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
 /*!
  * @class   Question
  * @details Classe base comune a tutti i tipi di domanda

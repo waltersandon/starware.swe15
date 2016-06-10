@@ -1,3 +1,11 @@
+/**
+ * @file Home.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   Home
  * @details Classe che si occupa della gestione della home page di un utente

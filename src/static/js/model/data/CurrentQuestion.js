@@ -1,3 +1,11 @@
+/**
+ * @file CurrentQuestion.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   CurrentQuestion
  * @details La classe che modella la domanda in esecuzione

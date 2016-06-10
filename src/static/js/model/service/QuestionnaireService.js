@@ -1,3 +1,11 @@
+/**
+ * @file QuestionnaireService.js
+ * @date 20/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   QuestionnaireService
  * @details Questa classe fornisce al client i servizi necessari alla gestione

@@ -1,3 +1,11 @@
+/**
+ * @file RoleService.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   RoleService
  * @details Questa classe fornisce al client i servizi necessari per la gestione

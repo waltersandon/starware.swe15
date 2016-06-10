@@ -1,3 +1,11 @@
+/**
+ * @file CurrentQuestionnaire.js
+ * @date 23/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   CurrentQuestionnaire
  * @details La classe che modella il questionario in esecuzione
