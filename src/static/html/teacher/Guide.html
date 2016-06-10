@@ -57,11 +57,19 @@ alert(example);
 
         <h1 style='text-align:center;'>Guida al QML</h1>
 
+<!--    ++++++++++++++++++++++++++++++++++++++++++++++++
+        ATTENZIONE:
+        ++++++++++++++++++++++++++++++++++++++++++++++++
+        Se modifichi qualcosa in questa sezione, fai il buon samaritano e vai a modificarla anche
+        sotto doc/src/manualeUtente.tex
+-->
+
         <p>Ogni tipologia di domanda ha un insieme diverso di elementi aggiungibili attraverso specifiche sintassi.</p>
         <p>Per permettere l'inserimento di qualsiasi tipologia di testo all'interno della domanda, ogni elemento prefissato da <code>\</code> viene ignorato.</p>
         <p>Tutte le regole definite di seguito vengono controllate dal sistema che previene l'inserimento di sintassi incorrette o che non soddisfano le regole specifice della domanda.</p>
 
         <h4>Domande vero o falso</h4>
+        <p>Questa tipologia fornisce all'utente la possibilità di scegliere se la risposta è vera o falsa alla domanda posta.</p>
         <p>Per aggiungere le opzioni vero e falso è necessario inserire su una linea a se stante <code>[+]</code> oppure <code>[-]</code> per definire rispettivamente che la risposta corretta è vero o falsa.</p>
         <p>Esempio domanda vera:</p>
         <pre>Roma è la capitale d'Italia.
@@ -71,6 +79,7 @@ alert(example);
 [-]</pre>
 
         <h4>Domande a scelta multipla</h4>
+        <p>Questa tipologia propone diverse risposte possibile, delle quali solo una è corretta.</p>
         <p>Per aggiungere le opzioni a scelta multipla è necessario inserire, per ogni opzione, una linea a se stante prefissata con <code>(*)</code> oppure <code>()</code> rispettivamente per indicare una opzione corretta o scorretta.</p>
         <p>Deve esistere almeno una risposta corretta, e quest'ultima deve essere l'unica; nel caso si vogliano definire più risposte corrette si consiglia di usare una domanda a risposta multipla.</p>
         <p>Esempio:</p>
@@ -81,6 +90,7 @@ alert(example);
 ( ) Padova</pre>
 
         <h4>Domande a risposta multipla</h4>
+        <p>Questa tipologia propone diverse risposte possibile, delle quali una o più sono corrette.</p>
         <p>Per aggiungere le opzioni a risposta multipla è necessario inserire, per ogni opzione, una linea a se stante prefissata con <code>[*]</code> oppure <code>[]</code> rispettivamente per indicare una opzione corretta o scorretta.</p>
         <p>Ovviamente ogni domanda a risposta multipla può contenere più opzioni corrette, ma deve sempre contenere almeno un opzione corretta e una scorretta.</p>
         <p>Esempio:</p>
@@ -91,6 +101,7 @@ alert(example);
 [ ] Tubuntu</pre>
 
         <h4>Domande a completamento</h4>
+        <p>Una domanda a completamento presenta spazi all'interno del testo che devono essere completati selezionando una parola tra quelle proposte.</p>
         <p>Per aggiungere una opzione a completamento è necessario inserire le opzioni all'interno di parentesi quadre separate da <code>,</code> (virgola). La risposta corretta è definire prefissando una delle opzioni con un asterisco <code>*</code>.</p>
         <p>Ogni opzione deve contenere solo ed almeno una risposta corretta.</p>
         <p>Esempio:</p>
@@ -105,11 +116,27 @@ All in all it's just [some,some other,*another] brick in the wall
 All in [wall,*all,ball] you're just another brick in the wall</pre>
 
         <h4>Domande ad ordinamento</h4>
+        <p>Questa tipologia di domanda propone una lista di elementi e chiede all'utente di riordinarli in modo corretto.</p>
         <p>Per aggiungere l'orinamento basta inserire su una linea a se stante e racchiuse tra parentesi quadre, la lista degli elementi da ordinare separati da <code>|</code> (<i>pipe</i>). L'ordine in cui vengono elencati viene considerato come corretto.</p>
         <p>Esempio:</p>
         <pre>Riordina le seguenti serie TV in ordine cronologico 
 in base alla data del loro primo episodio:
 [Lost|Breaking Bad|Game of Thrones]</pre>
+
+        <h4>Domande ad intervallo</h4>
+        <p>Queste tipo di domande sono composte da un campo in cui l'utente è in grado di inserire un numero; la risposta corretta però può variare all'interno di un range.</p>
+        <p>Per inserire il campo basta inserire su una linea a se stante e racchiuse tra parentesi graffe, prima il punto medio del'intervallo e poi la distanza dal punto medio che viene considerata accettabile per la risposta, separati da <code>,</code> (virgola).</p>
+        <p>Ad esempio <code>{65, 7}</code> rappresenta un intervallo con punto medio 65 e risposte corretta da (65 - 7) a (65 + 7), ovvero da 58 a 62.</p>
+        <p>Esempio:</p>
+        <pre>Una pallina di gomma viene lanciata verso il basso con velocità pari a 3m/s da un balcone alto 20m rispetto al suolo. Determinare l’istante (in secondi) in cui tocca terra:
+{1.74,0.05}</pre>
+
+        <h4>Domande ad accoppiamento di elementi</h4>
+        <p>Queste tipo di domande sono composte da due insiemi di elementi ai quali ogni elemento del primo insieme corrisponde un elemento corretto del secondo insieme a cui è possibile associarlo. In generale viene utilizzato per rappresentare associazioni di elementi uno a uno.</p>
+        <p>Per inserire tale input è necessario definire tra parentesi graffe e su una linea a se stante le associazioni corrette. Il sistema provvederà a mischiarle in modo casuale all'utente. Ogni coppia deve essere separata dalle altre attraverso <code>|</code> (<i>pipe</i>) e all'interno di ogni coppia i due elementi devono essere separati da <code>,</code> (virgola).</p>
+        <p>Esempio:</p>
+        <pre>Collega città e squadra di calcio:
+{Juventus,Torino|Inter,Milano|Sampdoria,Genova|Lazio,Roma|Lanerossi,Vicenza}</pre>
 
     </div>
 </div>
