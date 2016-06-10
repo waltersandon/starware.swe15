@@ -1,3 +1,11 @@
+/**
+ * @file RoleService.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   RoleService
  * @details Classe che rappresenta il servizio per la lettura dei ruoli utente,

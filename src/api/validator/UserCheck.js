@@ -1,3 +1,11 @@
+/**
+ * @file UserCheck.js
+ * @date 23/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   UserCheck
  * @details Classe contenente tutte le funzioni di controllo della validità dei

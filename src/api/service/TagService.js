@@ -1,3 +1,11 @@
+/**
+ * @file TagService.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   TagService
  * @details Classe che si occupa di gestire gli argomenti, sfruttando la classe

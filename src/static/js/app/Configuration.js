@@ -1,3 +1,11 @@
+/**
+ * @file Authorization.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   Configuration
  * @details Classe che rappresenta i parametri di configurazione del client

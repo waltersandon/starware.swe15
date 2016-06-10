@@ -1,3 +1,11 @@
+/**
+ * @file Configuration.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 
 /*
  * Classe che rappresenta i parametri di configurazione del server

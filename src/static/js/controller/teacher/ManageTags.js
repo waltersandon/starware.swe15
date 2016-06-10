@@ -1,3 +1,11 @@
+/**
+ * @file ManageTags.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   ManageTags
  * @details Classe che si occupa della gestione degli argomenti lato docente

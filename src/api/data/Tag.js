@@ -1,3 +1,11 @@
+/**
+ * @file Tag.js
+ * @date 20/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   Tag
  * @details Classe che rappresenta una String contenente l'argomento da

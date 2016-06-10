@@ -1,3 +1,11 @@
+/**
+ * @file AnswerService.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   AnswerService
  * @details Questa classe fornisce al client i servizi necessari alla gestione

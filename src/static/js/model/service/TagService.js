@@ -1,3 +1,11 @@
+/**
+ * @file TagService.js
+ * @date 23/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   TagService
  * @details Questa classe fornisce al client i servizi relativi alla modifica,

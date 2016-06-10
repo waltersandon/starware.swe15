@@ -1,3 +1,11 @@
+/**
+ * @file Questionnaire.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   Questionnaire
  * @details Questa classe modella il tipo di dato "questionario" nella rappresentazione locale dei dati lato client

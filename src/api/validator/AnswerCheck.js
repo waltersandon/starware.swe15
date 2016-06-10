@@ -1,4 +1,12 @@
 /**
+ * @file AnswerCheck.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
+/**
  * Classe che contiene tutte le funzioni di controllo della validità dei campi del model Question
  * @constructor
  */
