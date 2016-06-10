@@ -1,3 +1,11 @@
+/**
+ * @file ManipulateQuestionnaire.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   ManipulateQuestionnaire
  * @details Classe che si occupa della gestione di un questionario lato docente

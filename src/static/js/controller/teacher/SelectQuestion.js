@@ -1,3 +1,11 @@
+/**
+ * @file SelectQuestion.js
+ * @date 18/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   SelectQuestion
  * @details Classe che gestisce la ricerca di una domanda e la sua eventuale

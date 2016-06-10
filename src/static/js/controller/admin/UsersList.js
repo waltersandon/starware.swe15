@@ -1,3 +1,11 @@
+/**
+ * @file UserList.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   UsersList
  * @details Classe che si occupa della gestione di tutti gli utenti presenti

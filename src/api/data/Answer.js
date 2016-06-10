@@ -1,3 +1,11 @@
+/**
+ * @file Answer.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   Answer
  * @details Classe che rappresenta una risposta ad una domanda di un

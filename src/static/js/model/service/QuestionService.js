@@ -1,3 +1,11 @@
+/**
+ * @file QuestionService.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 /*!
  * @class   QuestionService
  * @details Questa classe fornisce al client i servizi necessari alla gestione

@@ -1,3 +1,11 @@
+/**
+ * @file SignUp.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   SignUp
  * @details Classe che gestisce le operazioni e la logica applicativa

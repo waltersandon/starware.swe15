@@ -19,7 +19,6 @@ describe('Question Modify', function() {
     });
     afterEach(function () {
         browser.getLocationAbsUrl().then(function(url) {
-            expect(url).toEqual('/teacher/questions');
             element(by.css('[ng-click="logout()"]')).click();
            // browser.switchTo().alert().accept();
         });

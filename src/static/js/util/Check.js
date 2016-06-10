@@ -1,3 +1,11 @@
+/**
+ * @file Check.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   Check
  * @details Classe che controlla se la password,  l'userName o titolo rispettino

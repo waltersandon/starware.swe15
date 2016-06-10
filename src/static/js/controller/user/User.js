@@ -1,3 +1,11 @@
+/**
+ * @file User.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   User
  * @details Classe per la gestione del profilo di un'utente generico registrato

@@ -66,6 +66,63 @@ describe('QuestionCheck', function() {
             expect(check.checkQML("Roma è la capitale d’**Italia**?\n(-)")).to.equal(true);
         });
 
+        /* Order Items */
+        it('deve accettare QML OI corretto', function() {
+            expect(check.checkQML(
+            "Riordina le seguenti serie TV in ordine cronologico in base alla data del loro primo episodio:\n" +
+            "[Lost|Breaking Bad|Game of Thrones]")).to.equal(true);
+        });
+
+        it('deve bloccare QML OI con una singola opzione', function() {
+            expect(check.checkQML(
+                "Riordina le seguenti serie TV in ordine cronologico in base alla data del loro primo episodio:\n" +
+                "[Lost]")).to.equal(false);
+        });
+
+        /* Couple Items */
+        it('deve accettare QML CI corretto', function() {
+            expect(check.checkQML(
+                "Collega città e squadra di calcio\n" +
+                "{Juventus,Torino|Inter,Milano|Sampdoria,Genova|Lazio,Roma|Lanerossi,Vicenza}")).to.equal(true);
+        });
+
+        it('deve bloccare QML CI con secondo elemento coppia mancante', function() {
+            expect(check.checkQML(
+                "Collega città e squadra di calcio\n" +
+                "{Juventus,Torino|Inter,Milano|Sampdoria|Lazio,Roma|Lanerossi,Vicenza}")).to.equal(false);
+        });
+
+        it('deve bloccare QML CI con solo un opzione', function() {
+            expect(check.checkQML(
+                "Collega città e squadra di calcio\n" +
+                "{Juventus,Torino}")).to.equal(false);
+        });
+
+        it('deve bloccare QML CI con nessuna opzione', function() {
+            expect(check.checkQML(
+                "Collega città e squadra di calcio\n" +
+                "{}")).to.equal(false);
+        });
+
+        /* Range Number */
+        it('deve accettare QML RN corretto', function() {
+            expect(check.checkQML(
+                "Testo\n" +
+                "{100, 3}")).to.equal(true);
+        });
+
+        it('deve rifiutare QML RN con solo un numero', function() {
+            expect(check.checkQML(
+                "Testo\n" +
+                "{100}")).to.equal(false);
+        });
+
+        it('deve rifiutare QML RN con nessun numero', function() {
+            expect(check.checkQML(
+                "Testo\n" +
+                "{}")).to.equal(false);
+        });
+
     });
     describe('checkTags', function () {
         it('deve bloccare domande con la lista dei tag vuote',function () {

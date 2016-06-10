@@ -1,3 +1,11 @@
+/**
+ * @file Util.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   Util
  * @details Classe che espone metodi pubblici utili a varie classi del sistema

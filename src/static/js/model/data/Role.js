@@ -1,3 +1,11 @@
+/**
+ * @file Role.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   Role
  * @details Questa classe modella il ruolo e i permessi di un utente autenticato nel sistema

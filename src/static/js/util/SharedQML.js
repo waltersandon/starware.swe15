@@ -1,4 +1,10 @@
-
+/**
+ * @file ShareQML.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
 if (typeof angular === 'undefined') {
     var markdown = require('./markdown/lib/index').markdown;
 }

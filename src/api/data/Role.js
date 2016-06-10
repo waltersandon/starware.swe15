@@ -1,3 +1,11 @@
+/**
+ * @file Role.js
+ * @date 21/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   Role
  * @details Classe che rappresenta un ruolo all'interno dell'applicazione

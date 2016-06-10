@@ -1,3 +1,11 @@
+/**
+ * @file App.js
+ * @date 22/04/2016
+ * @version 2.0
+ * @author Alessio Vitella
+ *
+ */
+
 var express = require('express');
 var http = require('http');
 var mongoose = require('mongoose');

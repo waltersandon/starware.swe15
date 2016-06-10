@@ -1,3 +1,11 @@
+/**
+ * @file User.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Andrea Venier
+ *
+ */
+
 /*!
  * @class   User
  * @details Questa classe modella le informazioni del profilo di un utente autenticato nel sistema

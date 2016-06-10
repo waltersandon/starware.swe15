@@ -1,3 +1,11 @@
+/**
+ * @file ManageQuestionnaires.js
+ * @date 20/04/2016
+ * @version 2.0
+ * @author Nicola De Cao
+ *
+ */
+
 /*!
  * @class   ManageQuestionnaires
  * @details La classe che controlla la gestione dei questionari creati dal

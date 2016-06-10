@@ -1,3 +1,11 @@
+/**
+ * @file ExecuteQuestionnaire.js
+ * @date 19/04/2016
+ * @version 2.0
+ * @author Thomas Pigarelli
+ *
+ */
+
 /*!
  * @class   ExecuteQuestionnaire
  * @details La classe che controlla esecuzione del questionario
