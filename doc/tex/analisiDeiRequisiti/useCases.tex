@@ -411,7 +411,7 @@
 		\item L'ospite può andare alla domanda precedente;
 		\item L'ospite conferma il questionario (\hyperlink{UC3.3}{UC3.3});
 		\item L'ospite visualizza la valutazione per il questionario (\hyperlink{UC3.11}{UC3.11});
-		\item Lo studente può lasciare un feedback (\hyperlink{UC3.10}{UC3.10});
+		\item L'ospite può lasciare un feedback (\hyperlink{UC3.10}{UC3.10});
 		
 	\end{enumerate}
 	\item[Postcondizione:] Il questionario è stato compilato e vengono visualizzati i risultati.
@@ -421,21 +421,25 @@
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
-		\umlactor[x=0, y=0]{Ospite}
+		\umlactor[x=0, y=3]{Ospite}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=124]{\textbf{UC3.1:} Rispondi domanda}
+			\umlusecase[x=5, y=3, fill=white, width=3.50cm, name=124]{\textbf{UC3.1:} Rispondi domanda}
 			\umlassoc{Ospite}{124}
-			\umlusecase[x=15, y=-11, fill=white, width=4cm, name=159]{\textbf{UC3.9:} Rispondi domanda a risposta aperta}
+			\umlusecase[x=15, y=-8, fill=white, width=3.50cm, name=221]{\textbf{UC3.14:} Rispondi domanda a tolleranza numerica}
+			\umlinherit{221}{124}
+			\umlusecase[x=15, y=-4.75, fill=white, width=3.50cm, name=220]{\textbf{UC3.13:} Rispondi domanda ad ordinamento}
+			\umlinherit{220}{124}
+			\umlusecase[x=15, y=-1.25, fill=white, width=3.50cm, name=159]{\textbf{UC3.9:} Rispondi domanda a risposta aperta}
 			\umlinherit{159}{124}
-			\umlusecase[x=15, y=-6.5, fill=white, width=4cm, name=158]{\textbf{UC3.8:} Rispondi domanda con associazione di parole}
+			\umlusecase[x=15, y=2, fill=white, width=3.50cm, name=158]{\textbf{UC3.8:} Rispondi domanda con associazione di parole}
 			\umlinherit{158}{124}
-			\umlusecase[x=15, y=-2, fill=white, width=4cm, name=157]{\textbf{UC3.7:} Rispondi domanda di tipo testo con parole omesse}
+			\umlusecase[x=15, y=5.25, fill=white, width=3.50cm, name=157]{\textbf{UC3.7:} Rispondi domanda di tipo testo con parole omesse}
 			\umlinherit{157}{124}
-			\umlusecase[x=15, y=2.5, fill=white, width=4cm, name=156]{\textbf{UC3.6:} Rispondi domanda a risposta multipla}
+			\umlusecase[x=15, y=8.75, fill=white, width=3.50cm, name=156]{\textbf{UC3.6:} Rispondi domanda a risposta multipla}
 			\umlinherit{156}{124}
-			\umlusecase[x=15, y=7, fill=white, width=4cm, name=155]{\textbf{UC3.5:} Rispondi domanda a scelta multipla}
+			\umlusecase[x=15, y=12.25, fill=white, width=3.50cm, name=155]{\textbf{UC3.5:} Rispondi domanda a scelta multipla}
 			\umlinherit{155}{124}
-			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=154]{\textbf{UC3.4:} Rispondi domanda vero/falso}
+			\umlusecase[x=15, y=15.5, fill=white, width=3.50cm, name=154]{\textbf{UC3.4:} Rispondi domanda vero/falso}
 			\umlinherit{154}{124}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -594,7 +598,23 @@
 	\item[Postcondizione:] Il feedback dell'ospite viene memorizzato per il questionario svolto .
 \end{description}
 \hypertarget{UC3.11}{}
-\subsection{Caso d'uso UC3.11: Visualizza valutazione questionario}\begin{description}
+\subsection{Caso d'uso UC3.11: Visualizza valutazione questionario}
+\begin{figure}[H]
+	\centering
+	\begin{resizedtikzpicture}{\textwidth}
+		\umlactor[x=0, y=0]{Ospite}
+		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=205]{\textbf{UC3.11:} Visualizza valutazione questionario}
+			\umlassoc{Ospite}{205}
+			\umlusecase[x=15, y=0, fill=white, width=4cm, name=219]{\textbf{UC3.12:} Visualizza spiegazione domanda}
+			\umlextend[name=ext-219-205]{219}{205}
+			\umlnote[x=23, y=0, fill=white, width=4cm, geometry=|-|, arm=-2cm]{ext-219-205-1}{L'ospite ha eseguito e confermato il questionario}
+		\end{umlsystem}
+	\end{resizedtikzpicture}
+	\caption{\textbf{UC3.11}: Visualizza valutazione questionario}
+	\label{UC3.11}
+\end{figure}
+\begin{description}
 	\item[Attori:] Ospite;
 	\item[Scopo e descrizione:] L'ospite visualizza la valutazione del questionario eseguito
 	\item[Precondizione:] L'ospite ha eseguito e confermato il questionario;
@@ -604,7 +624,55 @@
 		\item L'ospite visualizza la valutazione del questionario eseguito;
 		
 	\end{enumerate}
+	\item[Estensioni:]
+	\begin{enumerate}
+		\item Se è presente una descrizione che spiega la risposta corretta ad una domanda, questa viene visualizzata (\hyperlink{UC3.12}{UC3.12});
+		
+	\end{enumerate}
 	\item[Postcondizione:] L'ospite visualizza la valutazione del questionario eseguito.
+\end{description}
+\hypertarget{UC3.12}{}
+\subsection{Caso d'uso UC3.12: Visualizza spiegazione domanda}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite visualizza una descrizione lasciata dal docente che ha creato la domanda, che indica la spiegazione della risposta corretta
+	\item[Precondizione:] L'ospite ha eseguito e confermato il questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite visualizza una descrizione lasciata dal docente che ha creato la domanda, che indica la spiegazione della risposta corretta;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite visualizza la spiegazione del perchè la risposta ad una domanda è corretta o errata .
+\end{description}
+\hypertarget{UC3.13}{}
+\subsection{Caso d'uso UC3.13: Rispondi domanda ad ordinamento}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda ad ordinamento
+	
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario
+	;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite ordina una lista di termini che sono stati mescolati in maniera casuale;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda ad ordinamento
+	.
+\end{description}
+\hypertarget{UC3.14}{}
+\subsection{Caso d'uso UC3.14: Rispondi domanda a tolleranza numerica}\begin{description}
+	\item[Attori:] Ospite;
+	\item[Scopo e descrizione:] L'ospite risponde ad una domanda a tolleranza numerica
+	\item[Precondizione:] È stata iniziata l'esecuzione di un questionario;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item L'ospite risponde alla domanda con un numero, che deve rientrare nella tolleranza definita dal docente per essere una risposta corretta  ;
+		
+	\end{enumerate}
+	\item[Postcondizione:] L'ospite ha risposto alla domanda a tolleranza numerica
+	.
 \end{description}
 \hypertarget{UC4}{}
 \subsection{Caso d'uso UC4: Ricerca questionario}
@@ -1250,11 +1318,11 @@
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=-4.5, fill=white, width=4cm, name=162]{\textbf{UC17.1.5:} Scrittura nuova domanda da interfaccia grafica}
+			\umlusecase[x=5, y=-4.25, fill=white, width=4cm, name=162]{\textbf{UC17.1.5:} Scrittura nuova domanda da interfaccia grafica}
 			\umlassoc{Docente}{162}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura domanda in QML della nuova domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura nuova domanda in QML}
 			\umlassoc{Docente}{114}
-			\umlusecase[x=5, y=4.5, fill=white, width=4cm, name=112]{\textbf{UC17.1.1:} Selezione argomenti nuova domanda}
+			\umlusecase[x=5, y=4.25, fill=white, width=4cm, name=112]{\textbf{UC17.1.1:} Selezione argomenti nuova domanda}
 			\umlassoc{Docente}{112}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -1269,17 +1337,21 @@
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
 			\umlusecase[x=5, y=0, fill=white, width=4cm, name=43]{\textbf{UC17.1:} Inserimento domanda}
 			\umlassoc{Docente}{43}
-			\umlusecase[x=15, y=-11.25, fill=white, width=4cm, name=153]{\textbf{UC17.9:} Inserimento domanda a risposta aperta}
+			\umlusecase[x=15, y=-15.75, fill=white, width=4cm, name=223]{\textbf{UC17.13:} Inserimento domanda a tolleranza numerica }
+			\umlinherit{223}{43}
+			\umlusecase[x=15, y=-11.25, fill=white, width=4cm, name=222]{\textbf{UC17.12:} Inserimento domanda ad ordinamento}
+			\umlinherit{222}{43}
+			\umlusecase[x=15, y=-6.75, fill=white, width=4cm, name=153]{\textbf{UC17.9:} Inserimento domanda a risposta aperta}
 			\umlinherit{153}{43}
-			\umlusecase[x=15, y=-6.75, fill=white, width=4cm, name=152]{\textbf{UC17.8:} Inserimento domanda con l'associazione di parole}
+			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=152]{\textbf{UC17.8:} Inserimento domanda con l'associazione di parole}
 			\umlinherit{152}{43}
-			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=151]{\textbf{UC17.7:} Inserimento domanda di tipo testo con parole omesse}
+			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=151]{\textbf{UC17.7:} Inserimento domanda di tipo testo con parole omesse}
 			\umlinherit{151}{43}
-			\umlusecase[x=15, y=2.25, fill=white, width=4cm, name=150]{\textbf{UC17.6:} Inserimento domanda a risposta multipla}
+			\umlusecase[x=15, y=6.75, fill=white, width=4cm, name=150]{\textbf{UC17.6:} Inserimento domanda a risposta multipla}
 			\umlinherit{150}{43}
-			\umlusecase[x=15, y=6.75, fill=white, width=4cm, name=149]{\textbf{UC17.5:} Inserimento domanda a scelta multipla}
+			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=149]{\textbf{UC17.5:} Inserimento domanda a scelta multipla}
 			\umlinherit{149}{43}
-			\umlusecase[x=15, y=11.25, fill=white, width=4cm, name=148]{\textbf{UC17.4:} Inserimento domanda di tipo vero/falso}
+			\umlusecase[x=15, y=15.75, fill=white, width=4cm, name=148]{\textbf{UC17.4:} Inserimento domanda di tipo vero/falso}
 			\umlinherit{148}{43}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
@@ -1337,13 +1409,13 @@
 	.
 \end{description}
 \hypertarget{UC17.1.2}{}
-\subsection{Caso d'uso UC17.1.2: Scrittura domanda in QML della nuova domanda}
+\subsection{Caso d'uso UC17.1.2: Scrittura nuova domanda in QML}
 \begin{figure}[H]
 	\centering
 	\begin{resizedtikzpicture}{\textwidth}
 		\umlactor[x=0, y=0]{Docente}
 		\begin{umlsystem}[x=0, fill=lightgray!20]{Quizzipedia}
-			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura domanda in QML della nuova domanda}
+			\umlusecase[x=5, y=0, fill=white, width=4cm, name=114]{\textbf{UC17.1.2:} Scrittura nuova domanda in QML}
 			\umlassoc{Docente}{114}
 			\umlusecase[x=15, y=-2.25, fill=white, width=4cm, name=142]{\textbf{UC17.1.3:} Errore QML non valido}
 			\umlextend[name=ext-142-114]{142}{114}
@@ -1352,7 +1424,7 @@
 			\umlinherit{162}{114}
 		\end{umlsystem}
 	\end{resizedtikzpicture}
-	\caption{\textbf{UC17.1.2}: Scrittura domanda in QML della nuova domanda}
+	\caption{\textbf{UC17.1.2}: Scrittura nuova domanda in QML}
 	\label{UC17.1.2}
 \end{figure}
 \begin{description}
@@ -1363,6 +1435,7 @@
 	\item[Flusso principale degli eventi:] \ 
 	\begin{enumerate}
 		\item Il docente compone la domanda in QML;
+		\item Il docente può fornire la spiegazione della risposta ad una domanda, scrivendola in QML;
 		
 	\end{enumerate}
 	\item[Estensioni:]
@@ -1719,6 +1792,38 @@
 		
 	\end{enumerate}
 	\item[Postcondizione:] Non viene eliminata la domanda e viene mostrato un messaggio di errore.
+\end{description}
+\hypertarget{UC17.12}{}
+\subsection{Caso d'uso UC17.12: Inserimento domanda ad ordinamento}\begin{description}
+	\item[Attori:] Docente;
+	\item[Scopo e descrizione:] Il docente inserisce una domanda ad ordinamento
+	\item[Precondizione:] Il docente è autenticato presso il sistema;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item Il docente seleziona gli argomenti della domanda	 (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda in QML (\hyperlink{UC17.1.2}{UC17.1.2});
+		\item Il docente compone la domanda attraverso l'interfaccia grafica	 (\hyperlink{UC17.1.5}{UC17.1.5});
+		\item Il docente conferma la creazione della domanda	;
+		
+	\end{enumerate}
+	\item[Postcondizione:] È stata creata una nuova domanda ad ordinamento.
+\end{description}
+\hypertarget{UC17.13}{}
+\subsection{Caso d'uso UC17.13: Inserimento domanda a tolleranza numerica }\begin{description}
+	\item[Attori:] Docente;
+	\item[Scopo e descrizione:] Il docente inserisce una domanda a tolleranza numerica
+	\item[Precondizione:] Il docente è autenticato presso il sistema;
+	
+	\item[Flusso principale degli eventi:] \ 
+	\begin{enumerate}
+		\item Il docente seleziona gli argomenti della domanda	 (\hyperlink{UC17.1.1}{UC17.1.1});
+		\item Il docente compone la domanda in QML (\hyperlink{UC17.1.2}{UC17.1.2});
+		\item Il docente compone la domanda attraverso l'interfaccia grafica (\hyperlink{UC17.1.5}{UC17.1.5});
+		\item Il docente conferma la creazione della domanda	;
+		
+	\end{enumerate}
+	\item[Postcondizione:] È stata creata una nuova domanda di tipo vero/falso.
 \end{description}
 \hypertarget{UC18}{}
 \subsection{Caso d'uso UC18: Gestione questionari}
