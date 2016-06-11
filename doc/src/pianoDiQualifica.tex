@@ -2262,9 +2262,10 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 				\begin{tabular}{p{0.3\textwidth} l l l}
 					\midrule
 					\textbf{Metrica} & \textbf{Superato} & \textbf{Ottimale} & \textbf{ Non superato} \\ \midrule\midrule
-					\# campi dati/ classe & \% & \% & \% \\\midrule
-					\# parametri/metodo &\% & \% & \% \\\midrule
-					\mgls{complessità ciclomatica} & \% & \% & \% \\\midrule
+					\# campi dati/ classe & 80\% & 20\% & 0\% \\\midrule
+					\# campi dati/ classe "service"& 100\% & 0\% & 0\% \\\midrule
+					\# parametri/metodo & 98\% & 2\% & \% \\\midrule
+					\mgls{complessità ciclomatica} & 99.8\% & 0.2\% & 0\% \\\midrule
 					\# linee codice/metodo & 100\% & 0\% & 0\% \\\midrule
 					\# livelli annidamento & 100\% & 0\% & 0\% \\\midrule
 					
@@ -2278,7 +2279,7 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 					\midrule
 					\textbf{Metrica} & \textbf{Valore} & \textbf{Esito test}  \\ \midrule\midrule
 					Instabiltà & 0.18 & Ottimale  \\\midrule
-					Copertura da parte dei test &   & Ottimale \\ \midrule
+					Copertura da parte dei test & \TODO{test}  & Ottimale \\ \midrule
 				\end{tabular}	
 			\end{center}
 			\caption{Test Qualità del \mgls{software} nella fase di \FV (2)}
@@ -2294,8 +2295,8 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 					\midrule
 					\textbf{Metrica} & \textbf{FA}  & \textbf{FAD}& \textbf{FPA} & \textbf{FPD}  & \textbf{ FC } & \textbf{ FV } \\ \midrule\midrule
 					
-					SV&0.5\%[Acc]& 167\% [NA] & 12\% [NA]& 0\% [Ott] & 0.95\% [Acc] & \% [] \\\midrule
-					CV &0\% [Ott]&-157\% [NA] & -12\% [NA]& 0\% [Ott] & -0.5\% [Acc] & \% \\\midrule
+					SV&0.5\%[Acc]& 167\% [NA] & 12\% [NA]& 0\% [Ott] & 0.95\% [Acc] & \TODO{}\% [] \\\midrule
+					CV &0\% [Ott]&-157\% [NA] & -12\% [NA]& 0\% [Ott] & -0.5\% [Acc] & \TODO{}\% \\\midrule
 					MSV &--& 80\%&[NA]  4\% [Acc]& 0\% [Ott] & 3.22\% [Acc] & 1.5\% [Acc] \\\midrule
 					CoPQ &--& 23\%[Acc] & 40\%[NA] & 21\%[Acc] & 24\%[Acc] & 2.5\%[Ott] \\\midrule
 					RSI &--& 81\% [Acc] & 94\% [Ott] & 91\%[Ott] & 100\% [Ott]& 95\% [Ott]\\\midrule\midrule
@@ -2327,17 +2328,31 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 				\begin{tabular}{l l l l l ll}
 					\midrule	\textbf{Metrica} &   \textbf{FPD}  & \textbf{ FC } & \textbf{ FV } \\ \midrule\midrule
 					
-					Campi dati/classe  & 95\% & 82.28\% & \% \\\midrule
-					Parametri/metodo  & 100\% &  100\% & \% \\\midrule
-					Instabilità  & -- & 0.20 & 0.18 \\\midrule
-					Compl.Ciclomatica  & -- & 100\% & \% \\\midrule
-					Copertura Test  & -- & 76.1\% & \% \\\midrule
-					\# linee codice/metodo & -- & -- & 100\% & 100\% \\\midrule
-					Annidamento  & -- & 100\% & 100\% \\\bottomrule
+					Campi dati/classe  & [Sup] & [NonSup] & [Sup] \\
+					\midrule
+					Campi dati/classe "service" & ** & ** & [Ott]
+					\\\midrule
+					Parametri/metodo  & [Ott]&  [Ott] & [Ott] \\\midrule
+					Instabilità  & -- & [Ott] & [Ott] \\\midrule
+					Compl.Ciclomatica  & -- & [Ott] & [Sup] \\\midrule
+					Copertura Test  & -- & [Ott] & \TODO{test} \\\midrule
+					\# linee codice/metodo & -- & [Ott] & [Ott] \\\midrule
+					Annidamento  & -- & [Ott] & [Ott] \\\bottomrule
 				\end{tabular}	
 			\end{center}
 			\caption{Riepilogo sulle misurazioni della qualità del prodotto \mgls{software}}
 		\end{table}
+		
+		Nella tabella soprastante sono riportati i risultati complessivi relativi alla qualità del prodotto software.
+		I risultati, per maggiore leggibilità sono riassunti come:
+		\begin{itemize}
+			\item \textbf{[Ott]} se i risultati rientrano nel range ottimale nel 100\% dei casi;
+			\item \textbf{[Sup] }se i risultati rientrano nel range ottimale o accettabile nel 100\% dei casi;
+			\item\textbf{ [NonSup]} se almeno per qualche caso i risultati non rientrano nel range accettabile;
+			\item \textbf{**} se la metrica non risulta definita durante una fase attraversata;
+			\item \textbf{--} se la metrica non risulta inerente al prodotto della fase attraversata.
+			
+		\end{itemize}
 		Per una descrizione dettagliata delle misurazione della qualità del prodotto \mgls{software} si veda l'appendice \ref{resocontoanalisi} e le relative sottosezioni relative alla qualità del prodotto \mgls{software} nelle varie fasi attraversate.
 		\subsubsection{Sintesi analisi dinamica su prodotto software}\TODO{completare fase  \FV}
 		
@@ -2383,14 +2398,15 @@ Per ogni unità \mgls{software} qui definita, devono essere verificati i seguent
 		\subsection{\RQ{}}
 		\begin{itemize}
 			\item \textbf{Generale}: 
-			\item \textbf{\AdR{}:} 
-			\item \textbf{\DP{}:} 
+			\item \textbf{\DP{}:} modificata la visibilità degli attributi delle classi in privata. Corretta figura 6, prima mancante. Chiarito il ruolo delle classi Service per Client e Server. Eliminati i diagrammi delle classi View, sostituiti da una descrizione più generale. Approfondita la descrizione delle classi service del client, fornendo indicazioni su quali servizi REST vengano invocati. Modificati i tipi degli attributi nelle classi interne al package Controller, prima segnati di tipo Object. Descritto nel dettaglio l'utilizzo delle direttive Angular. Modificatta la descrizione del design pattern MVC in MVVM. Sepatata inoltre la descrizione e le immagini
+			del design pattern dalla sua implementazione nel progetto.   
 			\item \textbf{\PdP{}:} 
-			\item \textbf{\PdQ{}:} E' stata inserita una sezione di riepilogo sui risultati di analisi statica e dinamica. 
-			\item \textbf{\GL{}:} 
-			\item \textbf{\MU{}:} Sono state inserite maggiori informazioni per l'utente relative all'interfaccia QML e maggiori informazioni relative al linguaggio Markdown. La sezione relativa ai test è stata spostata in appendice.
+			\item \textbf{\PdQ{}:} E' stata inserita una sezione di riepilogo sui risultati di analisi statica e dinamica. La sezione relativa ai test è stata spostata in appendice.
+			\item \textbf{\GL{}:} Modificati i bookmark nel documento pdf per renderli funzionanti. 
+			\item \textbf{Manuali:} creato un glossario apposito per i manuali forniti.
+			\item \textbf{\MU{}:} Sono state inserite maggiori informazioni per l'utente relative all'interfaccia QML e maggiori informazioni relative al linguaggio Markdown. 
 			\item \textbf{\textit{Manuale Amministratore}: }è stato creato come suggerito un manuale amministratore, suddividendo i contenuti presenti nel \MU{}.  
-			\item \textbf{\textit{Manuale sviluppatore}:} 
+			\item \textbf{\textit{Manuale installazione}:} corretto refuso "MondoDB". Arricchito il documento con nuovi screenshot che possano guidare l'utente meno esperto. Eliminato supporto a versioni future dei framework. Aggiunte indicazioni per l'utilizzo dei pacchetti di installazione ora forniti. 
 		\end{itemize}
 	
 
