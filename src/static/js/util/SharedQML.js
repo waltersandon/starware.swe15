@@ -24,7 +24,7 @@ function MultiAnswerParser() {
 
 MultiAnswerParser.prototype.parse = function (qml) {
     var n = 0;
-    var right = null;
+    var right = [];
     var rightAnswers = 0;
     var wrongAnswers = 0;
     var answerForm = '<div class=\'form-group\'>';
@@ -42,7 +42,7 @@ MultiAnswerParser.prototype.parse = function (qml) {
                     </label>\
                 </div>';
             choices.push({value: n, str: statement});
-            right = n;
+            right.push(n);
             n++;
             rightAnswers++;
         } else if (match = line.match(this.unchecked)) {
