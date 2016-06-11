@@ -24,58 +24,68 @@ Seguendo si può vedere il diagramma delle classi di \texttt{controller}, \textt
 	\end{figure}
 \end{center}
 
+\subsection{Introduzione alle classi view}
+Le classi \mgls{view}, che hanno una corrispondenza uno ad uno con le classi \mgls{controller} (logica applicativa), sono scritte come pagine \mgls{html}, quindi sono sprovviste di campi dati o metodi.
+Per permette l’interazione delle le \mgls{view} \mgls{html} con l'applicazione, vengono usate le direttive di \mgls{angularjs} le quali permettono, attraverso l'utilizzo del pattern MVVM e in particolare del pattern observer,
+di notificare ai \mgls{controller} gli eventi innescati dall'utente attraverso l'User Interface. 
+Inoltre grazie al two-way data binding di \mgls{angularjs} le viste e i dati sono sincronizzati e qualsiasi modifica ad uno di questi componenti verrà rispecchiata automaticamente sull'altro. 
+Al fine di rendere maggiormente comprensibile la descrizione testuale delle classi del \mgls{package} \mgls{view}, verranno elencate le direttive \mgls{angularjs} usate dalle stesse per rendere le pagine \mgls{html} dinamiche:
+
+\begin{itemize}
+	\item \textbf{ng-controller:} permette l’attivazione del \mgls{controller} dedicato al corrispondente template \mgls{html}
+	\item \textbf{ng-model:} permette di creare un legame tra le variabili presenti nel \$scope e i campi di tipo input della pagina \mgls{html}
+	\item \textbf{ng-click:} Rileva una scelta dell’utente e attiva una funzione definita nel \mgls{controller} associato
+	\item \textbf{ng-show:} Permette di visualizzare o meno del contenuti \mgls{html} a seconda se una determina condizione sia verificata
+	\item \textbf{ng-change:} Permette di rilevare un cambiamento su un determinato elemento di una form
+	\item \textbf{ng-repeat:} Permette di iterare ogni elemento di una lista e di poterlo utilizzare all’interno del template \mgls{html} grazie alla direttiva ng-bind potendone ricavare dati o eseguire metodi su di esso
+	\item \textbf{ng-submit:} Rileva una scelta di invio dati dell’utente e attiva una funzione
+	\item \textbf{ng-class:} Permette di associare una determinata classe, a un elemento del template, qualora la condizione specificata risultasse vera
+	\item \textbf{ng-blur:} Permette di impostare delle azioni quando un elemento \mgls{html} perde il focus
+	\item \textbf{ng-bind:} Permette di rimpiazzare il contenuto di un elemento con il valore dato dall’espressione definita. Questa direttiva viene preferita all’uso dell’operatore {{ }}. Viene utilizzata per stampare il valore degli elementi che si stanno iterando tramite la direttiva ng-repeat
+	\item \textbf{ng-bind-html:} Permette di rimpiazzare il contenuto di un elemento con del codice \mgls{html} che non viene interpretato come stringa ma come codice della pagina. Viene usato per il valore dato dall’espressione definita. Questa direttiva viene preferita all’uso dell’operatore {{ }}
+	\item \textbf{ng-include:} Permette recupera, compila e include un frammento \mgls{html} esterno
+	\item \textbf{ng-disable:} Permette di impostare l'attributo disabled su un determinato elemento, il che permette di renderlo non editabile dall'utente
+	\item \textbf{ng-switch:} E' usata per scambiare la struttura del'\mgls{dom} sul template \mgls{html} in base ad un espressione dello scope. Funziona in maniera analoga ad ng-include tuttavia ,invece di scraicare il codice del teamplate \mgls{html} da includere, ngSwitch sceglie uno degli elementi al suo interno (appoggiandosi alle direttive ng-switch-default e ng-switch-when) e lo rende visibile basandosi sul valore ottenuto dall'espressione valutata
+	\item \textbf{ng-true-value:} Permette l'esecuzione di funzioni javascript se il valore ottenuto dall'espressione valutata è true
+	\item \textbf{ng-false-value:} Permette l'esecuzione di funzioni javascript se il valore ottenuto dall'espressione valutata è false
+	\end{itemize}
+
 \subsection{client::view}
 È il package che contiene tutte le classi che costituiscono la view del client. 
-Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente.\begin{center}
+Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente.
+
+\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view.png}
 		\caption{Diagramma package - client::view}
 	\end{figure}
 \end{center}\subsubsection{client::view::public}
-È il package che contiene tutte le classi che costituiscono la view della porzione pubblica di client. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente non autenticato.\begin{center}
+È il package che contiene tutte le classi che costituiscono la view della porzione publica di client. Ogni componente si occupa della visualizzazione di una particolare porzione dell'interfaccia di un utente non autenticato.\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/view/public.png}
 		\caption{Diagramma package - client::view::public}
 	\end{figure}
 \end{center}\hypertarget{client::view::public::LogIn}{}
 \subsubsubsection[LogIn]{client::view::public::LogIn}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::public::LogIn} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::public::LogIn}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione dell'area di autenticazione
+La classe rappresenta un template HTML che si occupa della visualizzazione dell'area di autenticazione
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::public::SignUp}{}
 \subsubsubsection[SignUp]{client::view::public::SignUp}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::public::SignUp} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::public::SignUp}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione sul client dell'area di registrazione
+La classe rappresenta un template HTML che si occupa della visualizzazione sul client dell'area di registrazione
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::public::Home}{}
 \subsubsubsection[Home]{client::view::public::Home}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::public::Home} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::public::Home}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa della visualizzazione della home page di un'utente generico
+La classe rappresenta un template HTML che si occupa della visualizzazione della home page di un'utente generico. Questa permetterà di svolgere questionari anche senza autenticazione.
 \end{description}
 
 \vspace{0.5cm}
@@ -87,43 +97,25 @@ Classe che si occupa della visualizzazione della home page di un'utente generico
 	\end{figure}
 \end{center}\hypertarget{client::view::student::Questionnaires}{}
 \subsubsubsection[Questionnaires]{client::view::student::Questionnaires}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::student::Questionnaires} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::student::Questionnaires}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione della lista dei questionari eseguibili
+La classe rappresenta un template HTML che si occupa della visualizzazione della lista dei questionari eseguibili
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::student::ExecuteQuestionnaire}{}
 \subsubsubsection[ExecuteQuestionnaire]{client::view::student::ExecuteQuestionnaire}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::student::ExecuteQuestionnaire} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::student::ExecuteQuestionnaire}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione di un questionario in esecuzione
+La classe rappresenta un template HTML che si occupa della visualizzazione di un questionario in esecuzione
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::student::ExecuteQuestion}{}
 \subsubsubsection[ExecuteQuestion]{client::view::student::ExecuteQuestion}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::student::ExecuteQuestion} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::student::ExecuteQuestion}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione una domanda in esecuzione
+La classe rappresenta un template HTML che si occupa della visualizzazione una domanda in esecuzione
 \end{description}
 
 \vspace{0.5cm}
@@ -135,85 +127,49 @@ La classe che si occupa della visualizzazione una domanda in esecuzione
 	\end{figure}
 \end{center}\hypertarget{client::view::teacher::ManipulateQuestion}{}
 \subsubsubsection[ManipulateQuestion]{client::view::teacher::ManipulateQuestion}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::ManipulateQuestion} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::ManipulateQuestion}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa delle visualizzazione della gestione della domanda
+La classe rappresenta un template HTML che si occupa delle visualizzazione della gestione della domanda
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::teacher::ManipulateQuestionnaire}{}
 \subsubsubsection[ManipulateQuestionnaire]{client::view::teacher::ManipulateQuestionnaire}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::ManipulateQuestionnaire} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::ManipulateQuestionnaire}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa della visualizzazione della gestione del questionario 
+La classe rappresenta un template HTML che si occupa della visualizzazione della gestione del questionario 
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::teacher::SelectQuestion}{}
 \subsubsubsection[SelectQuestion]{client::view::teacher::SelectQuestion}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::SelectQuestion} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::SelectQuestion}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa della visualizzazione di selezione delle domande
+La classe rappresenta un template HTML che si occupa della visualizzazione di selezione delle domande
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::teacher::ManageTags}{}
 \subsubsubsection[ManageTags]{client::view::teacher::ManageTags}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::ManageTags} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::ManageTags}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa della visualizzazione dell'albero degli argomenti per selezionare un eventuale argomento da gestire
+La classe rappresenta un template HTML che si occupa della visualizzazione degli argomenti per selezionare un eventuale argomento da gestire
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::teacher::ManageQuestions}{}
 \subsubsubsection[ManageQuestions]{client::view::teacher::ManageQuestions}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::ManageQuestions} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::ManageQuestions}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa della visualizzazione della lista delle proprie domande per selezionare la domanda da gestire
+La classe rappresenta un template HTML che si occupa della visualizzazione della lista delle proprie domande per selezionare la domanda da gestire
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::teacher::ManageQuestionnaires}{}
 \subsubsubsection[ManageQuestionnaires]{client::view::teacher::ManageQuestionnaires}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::teacher::ManageQuestionnaires} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::teacher::ManageQuestionnaires}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe view che si occupa della visualizzazione della lista dei propri questionari per selezionare il questionario da gestire
+La classe rappresenta un template HTML che si occupa della visualizzazione della lista dei propri questionari per selezionare il questionario da gestire
 \end{description}
 
 \vspace{0.5cm}
@@ -225,15 +181,9 @@ La classe view che si occupa della visualizzazione della lista dei propri questi
 	\end{figure}
 \end{center}\hypertarget{client::view::admin::UsersList}{}
 \subsubsubsection[UsersList]{client::view::admin::UsersList}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::admin::UsersList} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::admin::UsersList}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-La classe che si occupa della visualizzazione della lista degli utenti.Consente di applicare un filtro ai risultati tra FullName, Role, UserName per la selezione di un utente per la gestione delle sue informazioni.
+La classe rappresenta un template HTML che si occupa della visualizzazione della lista degli utenti.Consente di applicare un filtro ai risultari tra FullName, Role, UserName per la selezione di un utente per la gestione delle sue informazioni.
 \end{description}
 
 \vspace{0.5cm}
@@ -245,43 +195,25 @@ La classe che si occupa della visualizzazione della lista degli utenti.Consente 
 	\end{figure}
 \end{center}\hypertarget{client::view::user::Welcome}{}
 \subsubsubsection[Welcome]{client::view::user::Welcome}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::user::Welcome} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::user::Welcome}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa della visualizzazione della pagina di benvenuto
+La classe rappresenta un template HTML che si occupa della visualizzazione della pagina di benvenuto
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::user::Home}{}
 \subsubsubsection[Home]{client::view::user::Home}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::user::Home} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::user::Home}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa della visualizzazione della home page di un'utente generico autenticato
+La classe rappresenta un template HTML che si occupa della visualizzazione della home page di un'utente generico autenticato
 \end{description}
 
 \vspace{0.5cm}
 \hypertarget{client::view::user::User}{}
 \subsubsubsection[User]{client::view::user::User}
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}
-	\umlclass{client::view::user::User} {}{}
-	\end{tikzpicture}
-	\caption{Diagramma classe - client::view::user::User}
-\end{figure}\begin{description}
+\begin{description}
 \item[Descrizione] \hfill \\
-Classe visualizzare la pagina per la gestione del profilo di un'utente generico registrato
+la classe rappresenta un template HTML che si occupa di visualizzare la pagina per la gestione del profilo di un'utente generico registrato
 \end{description}
 
 \vspace{0.5cm}
@@ -342,28 +274,28 @@ Questa classe modella il tipo di dato "questionario" nella rappresentazione loca
 		\item title $\rightarrow$ nome del questionario
 	\end{itemize}
 	
-	\item getQuestions() : String[] $\rightarrow$ metodo getter
-	\item getTags() : String[] $\rightarrow$ metodo getter
-	\item getAuthor() : String $\rightarrow$ metodo getter
-	\item getTitle() : String $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item setQuestions(questions : String[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getQuestions() : String[] $\rightarrow$ metodo che restituisce il valore del campo dati questions
+	\item getTags() : String[] $\rightarrow$ metodo che restituisce il valore del campo dati tags
+	\item getAuthor() : String $\rightarrow$ metodo che restituisce il valore del campo dati author
+	\item getTitle() : String $\rightarrow$ metodo che restituisce il valore del campo dati title
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item setQuestions(questions : String[]) : void $\rightarrow$ metodo che cambia il valore del campo dati questions\begin{itemize}
 		\item questions $\rightarrow$ insieme di ID di riferimenti a Question
 	\end{itemize}
 	
-	\item setTags(tags : String[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : String[]) : void $\rightarrow$ metodo che cambia il valore del campo dati tags\begin{itemize}
 		\item tags $\rightarrow$ lista di ID di riferimenti ad argomenti 
 	\end{itemize}
 	
-	\item setAuthor(author : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setAuthor(author : String) : void $\rightarrow$ metodo che cambia il valore del campo dati author\begin{itemize}
 		\item author $\rightarrow$ ID dell'autore del questionario
 	\end{itemize}
 	
-	\item setTitle(title : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTitle(title : String) : void $\rightarrow$ metodo che cambia il valore del campo dati title\begin{itemize}
 		\item title $\rightarrow$ nome del questionario
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID del Questionnaire
 	\end{itemize}
 	
@@ -413,23 +345,23 @@ Questa classe modella il tipo di dato "domanda" nella rappresentazione locale de
 		\item tags $\rightarrow$ lista di ID di riferimenti ad argomenti
 	\end{itemize}
 	
-	\item getBody() : String $\rightarrow$ metodo getter
-	\item getAuthor() : String $\rightarrow$ metodo getter
-	\item getTags () : String[] $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item setBody(body : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getBody() : String $\rightarrow$ metodo che restituisce il valore del campo dati body
+	\item getAuthor() : String $\rightarrow$ metodo che restituisce il valore del campo dati author
+	\item getTags () : String[] $\rightarrow$ metodo che restituisce il valore del campo dati tags 
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item setBody(body : String) : void $\rightarrow$ metodo che cambia il valore del campo dati body\begin{itemize}
 		\item body $\rightarrow$ e' la rappresentazione testuale della domanda
 	\end{itemize}
 	
-	\item setAuthor(author : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setAuthor(author : String) : void $\rightarrow$ metodo che cambia il valore del campo dati author\begin{itemize}
 		\item author $\rightarrow$ ID dell'autore della domanda
 	\end{itemize}
 	
-	\item setTags (tags  : String[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags (tags  : String[]) : void $\rightarrow$ metodo che cambia il valore del campo dati tags \begin{itemize}
 		\item tags  $\rightarrow$ lista di ID di riferimenti ad argomenti
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID della Question
 	\end{itemize}
 	
@@ -477,18 +409,18 @@ Questa classe modella il tag argomento di un questionario e/o di una domanda nel
 		\item name $\rightarrow$ nome dell'argomento
 	\end{itemize}
 	
-	\item getName() : String $\rightarrow$ metodo getter
-	\item getDescription() : String $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item setName(name : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getName() : String $\rightarrow$ metodo che restituisce il valore del campo dati name
+	\item getDescription() : String $\rightarrow$ metodo che restituisce il valore del campo dati description
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item setName(name : String) : void $\rightarrow$ metodo che cambia il valore del campo dati name\begin{itemize}
 		\item name $\rightarrow$ nome dell'argomento
 	\end{itemize}
 	
-	\item setDescription(description : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDescription(description : String) : void $\rightarrow$ metodo che cambia il valore del campo dati description\begin{itemize}
 		\item description $\rightarrow$ descrizione dell'argomento
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID del Tag
 	\end{itemize}
 	
@@ -532,13 +464,13 @@ Questa classe modella il ruolo e i permessi di un utente autenticato nel sistema
 		\item name $\rightarrow$ e' il ruolo che un utente può assumere
 	\end{itemize}
 	
-	\item getName() : String $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item setName(name : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getName() : String $\rightarrow$ metodo che restituisce il valore del campo dati name
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item setName(name : String) : void $\rightarrow$ metodo che cambia il valore del campo dati name\begin{itemize}
 		\item name $\rightarrow$ e' il ruolo che un utente può assumere
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID del Role
 	\end{itemize}
 	
@@ -584,23 +516,23 @@ Questa classe modella le informazioni del profilo di un utente autenticato nel s
 		\item userName $\rightarrow$ userName dell'utente
 	\end{itemize}
 	
-	\item getRole() : String $\rightarrow$ metodo getter
-	\item getFullName() : String $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item setRole(role : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getRole() : String $\rightarrow$ metodo che restituisce il valore del campo dati role
+	\item getFullName() : String $\rightarrow$ metodo che restituisce il valore del campo dati fullName
+	\item getUserName() : String $\rightarrow$ metodo che restituisce il valore del campo dati userName
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item setRole(role : String) : void $\rightarrow$ metodo che cambia il valore del campo dati role\begin{itemize}
 		\item role $\rightarrow$ ID del Role del ruolo dell'utente
 	\end{itemize}
 	
-	\item setFullName(fullName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setFullName(fullName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati fullName\begin{itemize}
 		\item fullName $\rightarrow$ nome completo dell'utente
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati userName\begin{itemize}
 		\item userName $\rightarrow$ userName dell'utente
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID dell'User
 	\end{itemize}
 	
@@ -647,28 +579,28 @@ La classe che modella la domanda in esecuzione
 	\item point() : Json $\rightarrow$ restituisce i punti relativi alla domanda risposta
 	
 	Metodo che restituisce un oggetto di tipo json con attributi 'point' e 'tot' che contengono due interi rappresentanti i punti totalizzati sui punti totali del risposta
-	\item getBody() : String $\rightarrow$ metodo getter
-	\item getAnswer() : String $\rightarrow$ metodo getter
-	\item getType() : String $\rightarrow$ metodo getter
-	\item setBody(body : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getBody() : String $\rightarrow$ metodo che restituisce il valore del campo dati body
+	\item getAnswer() : String $\rightarrow$ metodo che restituisce il valore del campo dati answer
+	\item getType() : String $\rightarrow$ metodo che restituisce il valore del campo dati type
+	\item setBody(body : String) : void $\rightarrow$ metodo che cambia il valore del campo dati body\begin{itemize}
 		\item body $\rightarrow$ contiene il corpo della domanda corrente 
 	\end{itemize}
 	
-	\item setAnswer(answer : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setAnswer(answer : String) : void $\rightarrow$ metodo che cambia il valore del campo dati answer\begin{itemize}
 		\item answer $\rightarrow$ contiene la risposta alla domanda corrente
 	\end{itemize}
 	
-	\item setType(type : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setType(type : String) : void $\rightarrow$ metodo che cambia il valore del campo dati type\begin{itemize}
 		\item type $\rightarrow$ oggetto che rappresenta la tipologia della domanda
 	\end{itemize}
 	
-	\item getAnswers() : String [] $\rightarrow$ metodo getter
-	\item getSelectedAnswer() : String $\rightarrow$ metodo getter
-	\item setAnswers(answers : String []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getAnswers() : String [] $\rightarrow$ metodo che restituisce il valore del campo dati answers
+	\item getSelectedAnswer() : String $\rightarrow$ metodo che restituisce il valore del campo dati selectedAnswer
+	\item setAnswers(answers : String []) : void $\rightarrow$ metodo che cambia il valore del campo dati answers\begin{itemize}
 		\item answers $\rightarrow$ oggetto che rappresenta una lista di risposte
 	\end{itemize}
 	
-	\item setSelectedAnswer(selectedAnswer : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setSelectedAnswer(selectedAnswer : String) : void $\rightarrow$ metodo che cambia il valore del campo dati selectedAnswer\begin{itemize}
 		\item selectedAnswer $\rightarrow$ oggetto che rappresenta la risposta selezionata
 	\end{itemize}
 	
@@ -720,28 +652,28 @@ La classe che modella il questionario in esecuzione
 	\end{itemize}
 	
 	\item getResult() : Json $\rightarrow$ metodo che restituisce un oggetto di tipo json con attributi 'point' e 'tot' che contengono due interi rappresentanti i punti totalizzati sui punti totali del questionario
-	\item getTags() : String[] $\rightarrow$ metodo getter
-	\item getCurrentNumber() : int $\rightarrow$ metodo getter
-	\item getQuestionNumber() : int $\rightarrow$ metodo getter
-	\item getQuestions() : CurrentQuestion[] $\rightarrow$ metodo getter
-	\item getTitle() : String[] $\rightarrow$ metodo getter
-	\item setTags(tags : String[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getTags() : String[] $\rightarrow$ metodo che restituisce il valore del campo dati tags
+	\item getCurrentNumber() : int $\rightarrow$ metodo che restituisce il valore del campo dati currentNumber
+	\item getQuestionNumber() : int $\rightarrow$ metodo che restituisce il valore del campo dati questionNumber
+	\item getQuestions() : CurrentQuestion[] $\rightarrow$ metodo che restituisce il valore del campo dati questions
+	\item getTitle() : String[] $\rightarrow$ metodo che restituisce il valore del campo dati title
+	\item setTags(tags : String[]) : void $\rightarrow$ metodo che cambia il valore del campo dati tags\begin{itemize}
 		\item tags $\rightarrow$ contiene la lista degli argomenti del questionario
 	\end{itemize}
 	
-	\item setCurrentNumber(currentNumber : int) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setCurrentNumber(currentNumber : int) : void $\rightarrow$ metodo che cambia il valore del campo dati currentNumber\begin{itemize}
 		\item currentNumber $\rightarrow$  Contiene numero della domanda corrente che si sta eseguendo
 	\end{itemize}
 	
-	\item setQuestionNumber(questionNumber : int) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestionNumber(questionNumber : int) : void $\rightarrow$ metodo che cambia il valore del campo dati questionNumber\begin{itemize}
 		\item questionNumber $\rightarrow$ contiene il numero totale delle domande nel questionario corrente
 	\end{itemize}
 	
-	\item setQuestions(questions : CurrentQuestion[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestions(questions : CurrentQuestion[]) : void $\rightarrow$ metodo che cambia il valore del campo dati questions\begin{itemize}
 		\item questions $\rightarrow$ lista di domande del questionario corrente
 	\end{itemize}
 	
-	\item setTitle(title : String[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTitle(title : String[]) : void $\rightarrow$ metodo che cambia il valore del campo dati title\begin{itemize}
 		\item title $\rightarrow$ titolo del questionario corrente
 	\end{itemize}
 	
@@ -788,23 +720,23 @@ La classe che modella un l'utente correntemente loggato
 		\item userName $\rightarrow$ userName dell'utente
 	\end{itemize}
 	
-	\item getFullName() : String $\rightarrow$ metodo getter
-	\item getId() : String $\rightarrow$ metodo getter
-	\item getRole() : Role $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item setFullName(fullName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getFullName() : String $\rightarrow$ metodo che restituisce il valore del campo dati fullName
+	\item getId() : String $\rightarrow$ metodo che restituisce il valore del campo dati id
+	\item getRole() : Role $\rightarrow$ metodo che restituisce il valore del campo dati role
+	\item getUserName() : String $\rightarrow$ metodo che restituisce il valore del campo dati userName
+	\item setFullName(fullName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati fullName\begin{itemize}
 		\item fullName $\rightarrow$ nome completo dell'utente	
 	\end{itemize}
 	
-	\item setId(id : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setId(id : String) : void $\rightarrow$ metodo che cambia il valore del campo dati id\begin{itemize}
 		\item id $\rightarrow$ ID dell'User
 	\end{itemize}
 	
-	\item setRole(role : Role) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setRole(role : Role) : void $\rightarrow$ metodo che cambia il valore del campo dati role\begin{itemize}
 		\item role $\rightarrow$ role del ruolo dell'utente
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati userName\begin{itemize}
 		\item userName $\rightarrow$ userName dell'utente
 	\end{itemize}
 	
@@ -860,23 +792,23 @@ Classe che rappresenta un errore da visualizzare all'utente
 		\item name $\rightarrow$ nome dell'errore
 	\end{itemize}
 	
-	\item getMessage() : String $\rightarrow$ metodo getter
-	\item getName() : String $\rightarrow$ metodo getter
-	\item getType() : String $\rightarrow$ metodo getter
-	\item getStatus() : boolean $\rightarrow$ metodo getter
-	\item setMessage(message : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getMessage() : String $\rightarrow$ metodo che restituisce il valore del campo dati message
+	\item getName() : String $\rightarrow$ metodo che restituisce il valore del campo dati name
+	\item getType() : String $\rightarrow$ metodo che restituisce il valore del campo dati type
+	\item getStatus() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati status
+	\item setMessage(message : String) : void $\rightarrow$ metodo che cambia il valore del campo dati message\begin{itemize}
 		\item message $\rightarrow$ rappresenta il messaggio da visualizzare
 	\end{itemize}
 	
-	\item setName(name : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setName(name : String) : void $\rightarrow$ metodo che cambia il valore del campo dati name\begin{itemize}
 		\item name $\rightarrow$ nome dell'errore
 	\end{itemize}
 	
-	\item setType(type : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setType(type : String) : void $\rightarrow$ metodo che cambia il valore del campo dati type\begin{itemize}
 		\item type $\rightarrow$ tipologia dell'errore
 	\end{itemize}
 	
-	\item setStatus(status : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setStatus(status : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati status\begin{itemize}
 		\item status $\rightarrow$ rappresenta se l'errore è nascosto o no nella vista
 	\end{itemize}
 	
@@ -896,12 +828,12 @@ Questo package contiene le classi che gestiscono il recupero dei dati, che siano
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::SessionService} {--http : Object\\--configuration : Configuration}{+SessionService(http : Object, configuration : Configuration)\\+login(password : String, userName : String, next : Function, err : Function) : void\\+logout(next : Function, err : Function) : void}
+	\umlclass{client::model::service::SessionService} {--http : \$http\\--configuration : Configuration}{+SessionService(http : Object, configuration : Configuration)\\+login(password : String, userName : String, next : Function, err : Function) : void\\+logout(next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::SessionService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi relativi  alle credenziali accesso di un utente
+Questa classe fornisce al client i servizi relativi  alle credenziali d'accesso di un utente utilizzando chiamate HTTP all'end-point /api/session
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -918,7 +850,7 @@ Questa classe fornisce al client i servizi relativi  alle credenziali accesso di
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 \end{itemize}
 
@@ -951,14 +883,13 @@ Questa classe fornisce al client i servizi relativi  alle credenziali accesso di
 \subsubsubsection[UserService]{client::model::service::UserService}
 \begin{figure}[H]
 	\centering
-	\leftskip-1cm
 	\begin{tikzpicture}
-	\umlclass{client::model::service::UserService} {--http : Object\\--configuration : Configuration\\--roleService : RoleService}{+UserService(http : Object)\\+get(fullName : String[], userName : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+getMe(next : Function, err : Function) : void\\+signUp(fullName : String, password : String, userName : String, next : Function, err : Function) : void\\+updateInformation(fullName : String, userName : String, next : Function, err : Function) : void\\+updatePassword(newPassword : String, oldPassword : String, next : Function, err : Function) : void\\+modifyRole(user : User, role : Role, next : Function, err : Function) : void\\+delete(user : User, next : Function, err : Function) : void}
+	\umlclass{client::model::service::UserService} {--http : \$http\\--configuration : Configuration\\--roleService : RoleService}{+UserService(http : Object)\\+get(fullName : String[], userName : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+getMe(next : Function, err : Function) : void\\+signUp(fullName : String, password : String, userName : String, next : Function, err : Function) : void\\+updateInformation(fullName : String, userName : String, next : Function, err : Function) : void\\+updatePassword(newPassword : String, oldPassword : String, next : Function, err : Function) : void\\+modifyRole(user : User, role : Role, next : Function, err : Function) : void\\+delete(user : User, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::UserService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi relativi al profilo 
+Questa classe fornisce al client i servizi relativi al profilo, utilizzando chiamate HTTP agli end-point /api/users e /api/roles
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -987,7 +918,7 @@ Questa classe fornisce al client i servizi relativi al profilo
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 	\item roleService : RoleService $\rightarrow$ campo dati che rappresenta un oggetto RoleService
 \end{itemize}
@@ -1062,12 +993,12 @@ Questa classe fornisce al client i servizi relativi al profilo
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::TagService} {--http : Object\\--configuration : Configuration}{+TagService(http : Object, configuration : Configuration)\\+delete(tag : Tag, next : Function, err : Function) : void\\+get(keywords : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(tag : Tag, next : Function, err : Function) : void\\+new(tag : Tag, next : Function, err : Function) : void}
+	\umlclass{client::model::service::TagService} {--http : \$http\\--configuration : Configuration}{+TagService(http : Object, configuration : Configuration)\\+delete(tag : Tag, next : Function, err : Function) : void\\+get(keywords : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(tag : Tag, next : Function, err : Function) : void\\+new(tag : Tag, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::TagService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi relativi alla modifica, cancellazione e lettura e inserimento dei tag presenti nel sistema
+Questa classe fornisce al client i servizi relativi alla modifica, cancellazione e lettura e inserimento dei tag presenti nel sistema, utilizzando chiamate HTTP all'end-point /api/tags
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1092,7 +1023,7 @@ Questa classe fornisce al client i servizi relativi alla modifica, cancellazione
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 \end{itemize}
 
@@ -1144,12 +1075,12 @@ Questa classe fornisce al client i servizi relativi alla modifica, cancellazione
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::RoleService} {--http : Object\\--configuration : Configuration}{+RoleService(http : Object, configuration : Configuration)\\+get(keywords : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void}
+	\umlclass{client::model::service::RoleService} {--http : \$http\\--configuration : Configuration}{+RoleService(http : Object, configuration : Configuration)\\+get(keywords : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::RoleService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi necessari per la gestione dei ruoli
+Questa classe fornisce al client i servizi necessari per la gestione dei ruoli, utilizzando chiamate HTTP all'end-point /api/tags
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1164,7 +1095,7 @@ Questa classe fornisce al client i servizi necessari per la gestione dei ruoli
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 \end{itemize}
 
@@ -1198,12 +1129,12 @@ Questa classe fornisce al client i servizi necessari per la gestione dei ruoli
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::QuestionService} {--http : Object\\--configuration : Configuration}{+QuestionService(http : Object, configuration : Configuration)\\+delete(question : Question, next : Function, err : Function) : void\\+get(author : String[], keywords : String[], tags : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(question : Question, next : Function, err : Function) : void\\+new(question : Question, next : Function, err : Function) : void}
+	\umlclass{client::model::service::QuestionService} {--http : \$http\\--configuration : Configuration}{+QuestionService(http : Object, configuration : Configuration)\\+delete(question : Question, next : Function, err : Function) : void\\+get(author : String[], keywords : String[], tags : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(question : Question, next : Function, err : Function) : void\\+new(question : Question, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::QuestionService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi necessari alla gestione delle domande
+Questa classe fornisce al client i servizi necessari alla gestione delle domande, utilizzando chiamate HTTP all'end-point /api/questions
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1222,7 +1153,7 @@ Questa classe fornisce al client i servizi necessari alla gestione delle domande
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 \end{itemize}
 
@@ -1276,12 +1207,12 @@ Questa classe fornisce al client i servizi necessari alla gestione delle domande
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::QuestionnaireService} {--http : Object\\--configuration : Configuration}{+QuestionnaireService(http : Object, configuration : Configuration)\\+delete(questionnaire : Questionnaire, next : Function, err : Function) : void\\+get (author : String[], tags  : String[], title : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(questionnaire : Questionnaire, next : Function, err : Function) : void\\+new(questionnaire : Questionnaire, next : Function, err : Function) : void}
+	\umlclass{client::model::service::QuestionnaireService} {--http : \$http\\--configuration : Configuration}{+QuestionnaireService(http : Object, configuration : Configuration)\\+delete(questionnaire : Questionnaire, next : Function, err : Function) : void\\+get (author : String[], tags  : String[], title : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+modify(questionnaire : Questionnaire, next : Function, err : Function) : void\\+new(questionnaire : Questionnaire, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::QuestionnaireService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Questa classe fornisce al client i servizi necessari alla gestione dei questionari
+Questa classe fornisce al client i servizi necessari alla gestione dei questionari, utilizzando chiamate HTTP all'end-point /api/questionnaires
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1300,7 +1231,7 @@ Questa classe fornisce al client i servizi necessari alla gestione dei questiona
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item http : Object $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http
 	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
 \end{itemize}
 
@@ -1349,9 +1280,68 @@ Questa classe fornisce al client i servizi necessari alla gestione dei questiona
 \end{description}
 
 \vspace{0.5cm}
+\hypertarget{client::model::service::AnswerService}{}
+\subsubsubsection[AnswerService]{client::model::service::AnswerService}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\umlclass{client::model::service::AnswerService} {--configuration : Configuration\\--http : \$http}{+AnswerService(configuration : Configuration, http : Object)\\+get(next : Function, err : Function, author : String[], question : Question	, questionnaire : Questionnaire) : void\\+new(next : Function, err : Function, questionnaire : Questionnaire, question : Question	, score : double) : void}
+	\end{tikzpicture}
+	\caption{Diagramma classe - client::model::service::AnswerService}
+\end{figure}\begin{description}
+\item[Descrizione] \hfill \\
+Questa classe fornisce al client i servizi necessari alla gestione delle statistiche, utilizzando chiamate HTTP all'end-point /api/answers
+\item[Relazioni con altre classi] \hfill \\
+\vspace{-7mm}
+\begin{description}
+	\item[\hyperlink{client::app::Configuration}{client::app::Configuration}] \hfill \\
+	Relazione uscente, campo dati che rappresenta un oggetto Configuration
+	\item[\hyperlink{client::controller::student::ExecuteQuestionnaire}{client::controller::student::ExecuteQuestionnaire}] \hfill \\
+	Relazione entrante, campo dati che rappresenta un oggetto AnswerService	
+	\item[\hyperlink{client::controller::user::Welcome}{client::controller::user::Welcome}] \hfill \\
+	Relazione entrante, campo dati che rappresenta un oggetto AnswerService
+\end{description}
+
+\item[Attributi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item configuration : Configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration
+	\item http : \$http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http	
+\end{itemize}
+
+\item[Metodi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item AnswerService(configuration : Configuration, http : Object) $\rightarrow$ costruttore della classe\begin{itemize}
+		\item configuration $\rightarrow$ campo dati che rappresenta un oggetto Configuration	
+		\item http $\rightarrow$ oggetto del servizio offerto da angulajs per le richieste http	
+	\end{itemize}
+	
+	\item get(next : Function, err : Function, author : String[], question : Question	, questionnaire : Questionnaire) : void $\rightarrow$ tramite API REST ritorna una lista di questionari sul server filtrate in base ai parametri	\begin{itemize}
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore	
+		\item author $\rightarrow$ contiene il nome dell'autore del questionario da ricercare
+		\item question $\rightarrow$ contiene la domanda a cui l'utente ha risposto
+		\item questionnaire $\rightarrow$ contiene il questionario che l'utente ha eseguito
+	\end{itemize}
+	
+	\item new(next : Function, err : Function, questionnaire : Questionnaire, question : Question	, score : double) : void $\rightarrow$ tramite API REST crea una nuova risposta ad una domanda sul server
+	\begin{itemize}
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di successo
+		\item err $\rightarrow$ questo parametro rappresenta la callback che il metodo chiama in caso di errore
+		\item questionnaire $\rightarrow$ contiene il questionario che l'utente ha eseguito
+		\item question $\rightarrow$ contiene la domanda a cui l'utente ha risposto
+		\item score $\rightarrow$ contiene il punteggio che l'utente ha totalizzato sulla singola domanda risposta
+	\end{itemize}
+	
+\end{itemize}
+
+\end{description}
+
+\vspace{0.5cm}
 \subsection{client::controller}
 È il package che contiene le componenti che contengono i
-controller dell'applicazione e che incapsulano le funzionalità di two-way data binding tra le View e il Model. In esse è contenuta la logica applicativa riguardante le diverse pagine HTML.\begin{center}
+controller dell’applicazione e che incapsulano le funzionalità di two-way data binding tra le View e il Model. In esse è contenuta la logica applicativa riguardante le diverse pagine HTML.\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller.png}
 		\caption{Diagramma package - client::controller}
@@ -1364,20 +1354,17 @@ controller dell'applicazione e che incapsulano le funzionalità di two-way data 
 	\end{figure}
 \end{center}\hypertarget{client::controller::public::LogIn}{}
 \subsubsubsection[LogIn]{client::controller::public::LogIn}
-
 \begin{figure}[H]
 	\centering
-	%\begin{turn}{90}
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::LogIn} {--location : Object\\--rootScope : Object\\--scope : Object\\--sessionService : SessionService\\--check : Check\\--userService : UserService\\--cookies : Object\\--error : Error\\--userName : String\\--password : String}{+LogIn(check : Check, cookies : Object, location : Object, userService : UserService, \\ rootScope : Object, scope : Object, sessionService : SessionService)\\+submit() : void\\+checkUserName() : boolean\\+checkPassword() : boolean\\+getError() : Error\\+getUserName() : String\\+getPassword() : String\\+setError(error : Error) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void}
+	\umlclass{client::controller::public::LogIn} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--check : Check\\--userService : UserService\\--cookies : \$cookies\\--error : Error\\--userName : String\\--password : String}{+LogIn(check : Check, cookies : Object, location : Object, userService : UserService, rootScope : Object, scope : Object, sessionService : SessionService)\\+submit() : void\\+checkUserName() : boolean\\+checkPassword() : boolean\\+getError() : Error\\+getUserName() : String\\+getPassword() : String\\+setError(error : Error) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void}
 	\end{tikzpicture}
-	%\end{turn}
 	\caption{Diagramma classe - client::controller::public::LogIn}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
 Classe che gestisce le operazioni e la logica applicativa riguardante la pagina di autenticazione sul client
 \item[Utilizzo] \hfill \\
-Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prima della creazione della view viene effettuato un controllo sull'esistenza di una sessione utente. In caso positivo il controller si occuperà di visualizzare la home dell'utente loggato, altrimenti si procederà alla pagina di Login predefinita.
+Viene utilizzata per generare la pagina di autenticazione all’applicazione. Prima della creazione della view viene effettuato un controllo sull’esistenza di una sessione utente. In caso positivo il controller si occuperà di visualizzare la home dell'utente loggato, altrimenti si procederà alla pagina di Login predefinita.
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1394,13 +1381,13 @@ Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prim
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\item check : Check $\rightarrow$ campo dati che rappresenta un oggetto Check
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
-	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
+	\item cookies : \$cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 	\item error : Error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\item userName : String $\rightarrow$ rappresenta il campo userName nella View
 	\item password : String $\rightarrow$ rappresenta il campo password nella view
@@ -1414,7 +1401,7 @@ Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prim
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\end{itemize}
@@ -1422,18 +1409,18 @@ Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prim
 	\item submit() : void $\rightarrow$ invia lo username e la password dell'utente al servizio che effettua l'autenticazione istanziando una nuova sessione
 	\item checkUserName() : boolean $\rightarrow$ metodo che controlla che l'userName inserito rispetti alcuni parametri richiamando il relativo metodo nella classe Check
 	\item checkPassword() : boolean $\rightarrow$ metodo che controlla che la password inserita rispetti alcuni parametri richiamando il relativo metodo nella classe Check
-	\item getError() : Error $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item getPassword() : String $\rightarrow$ metodo getter
-	\item setError(error : Error) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getError() : Error $\rightarrow$ metodo che restituisce il valore del campo dati error
+	\item getUserName() : String $\rightarrow$ metodo che restituisce il valore del campo dati userName
+	\item getPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati password
+	\item setError(error : Error) : void $\rightarrow$ metodo che cambia il valore del campo dati error\begin{itemize}
 		\item error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati userName\begin{itemize}
 		\item userName $\rightarrow$ rappresenta il campo userName nella View
 	\end{itemize}
 	
-	\item setPassword(password : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setPassword(password : String) : void $\rightarrow$ metodo che cambia il valore del campo dati password\begin{itemize}
 		\item password $\rightarrow$ rappresenta il campo password nella view
 	\end{itemize}
 	
@@ -1447,14 +1434,14 @@ Viene utilizzata per generare la pagina di autenticazione all'applicazione. Prim
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::SignUp} {--location : Object\\--rootScope : Object\\--scope : Object\\--sessionService : SessionService\\--userService : UserService\\--cookies : Object\\--check : Check\\--error	 : Error	\\--userName : String\\--password : String\\--fullName : String\\--repeatPassword : String}{+SignUp(check : Check, cookies : Object, location : Object, scope : Object, rootScope : Object, \\ sessionService : SessionService, userService : UserService)\\+checkPassword() : boolean\\+checkRepeatPassword() : boolean\\+checkUserName() : boolean\\+submit() : void\\+checkFullName() : boolean\\+getError	() : Error	\\+getUserName() : String\\+getPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+setError	(error	 : Error	) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void}
+	\umlclass{client::controller::public::SignUp} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--userService : UserService\\--cookies : \$cookies\\--check : Check\\--error	 : Error	\\--userName : String\\--password : String\\--fullName : String\\--repeatPassword : String}{+SignUp(check : Check, cookies : Object, location : Object, scope : Object, rootScope : Object, sessionService : SessionService, userService : UserService)\\+checkPassword() : boolean\\+checkRepeatPassword() : boolean\\+checkUserName() : boolean\\+submit() : void\\+checkFullName() : boolean\\+getError	() : Error	\\+getUserName() : String\\+getPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+setError	(error	 : Error	) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::public::SignUp}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
 Classe che gestisce le operazioni e la logica applicativa riguardante la pagina di Registrazione sul client
 \item[Utilizzo] \hfill \\
-Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. Deve poter gestire l'eventuale caso di errore se la mail dello studente è già presente nel sistema. Inoltre deve poter gestire il caso in cui di la password dello studente non rispetta i parametri prestabiliti 
+Deve visualizzare campi per l’inserimento della mail, password, nome e cognome. Deve poter gestire l'eventuale caso di errore se la mail dello studente è già presente nel sistema. Inoltre deve poter gestire il caso in cui di la password dello studente non rispetta i parametri prestabiliti 
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -1471,12 +1458,12 @@ Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. 
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
-	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
+	\item cookies : \$cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 	\item check : Check $\rightarrow$ campo dati che rappresenta un oggetto Check
 	\item error	 : Error	 $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente
 	\item userName : String $\rightarrow$ rappresenta il campo userName nella View
@@ -1493,7 +1480,7 @@ Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. 
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\end{itemize}
@@ -1503,28 +1490,28 @@ Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. 
 	\item checkUserName() : boolean $\rightarrow$ controlla su lo username ha i requisiti minimi richiamando il relativo metodo nella classe Check
 	\item submit() : void $\rightarrow$ invia i dati dell'utente al servizio che effettua la registrazione
 	\item checkFullName() : boolean $\rightarrow$ controlla se il nome inserito ha i requisiti minimi richiamando il relativo metodo nella classe Check
-	\item getError	() : Error	 $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item getPassword() : String $\rightarrow$ metodo getter
-	\item getFullName() : String $\rightarrow$ metodo getter
-	\item getRepeatPassword() : String $\rightarrow$ metodo getter
-	\item setError	(error	 : Error	) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getError	() : Error	 $\rightarrow$ metodo che restituisce il valore del campo dati error	
+	\item getUserName() : String $\rightarrow$ metodo che restituisce il valore del campo dati userName
+	\item getPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati password
+	\item getFullName() : String $\rightarrow$ metodo che restituisce il valore del campo dati fullName
+	\item getRepeatPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati repeatPassword
+	\item setError	(error	 : Error	) : void $\rightarrow$ metodo che cambia il valore del campo dati error	\begin{itemize}
 		\item error	 $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati userName\begin{itemize}
 		\item userName $\rightarrow$ rappresenta il campo userName nella View
 	\end{itemize}
 	
-	\item setPassword(password : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setPassword(password : String) : void $\rightarrow$ metodo che cambia il valore del campo dati password\begin{itemize}
 		\item password $\rightarrow$ rappresenta il campo password nella View
 	\end{itemize}
 	
-	\item setFullName(fullName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setFullName(fullName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati fullName\begin{itemize}
 		\item fullName $\rightarrow$ rappresenta il campo fullName nella View
 	\end{itemize}
 	
-	\item setRepeatPassword(repeatPassword : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setRepeatPassword(repeatPassword : String) : void $\rightarrow$ metodo che cambia il valore del campo dati repeatPassword\begin{itemize}
 		\item repeatPassword $\rightarrow$ rappresenta il campo repeatPassword nella View
 	\end{itemize}
 	
@@ -1538,7 +1525,7 @@ Deve visualizzare campi per l'inserimento della mail, password, nome e cognome. 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::Home} {--location : Object\\--scope : Object\\--cookies : Object\\--rootScope : Object\\--userService : UserService}{+Home(rootScope : Object, cookies : Object, scope : Object, location : Object, \\ userService : UserService)\\+checkLogged() : void\\+urlPath() : void}
+	\umlclass{client::controller::public::Home} {--location : \$location\\--scope : \$scope\\--cookies : \$cookies\\--rootScope : \$rootScope\\--userService : UserService}{+Home(rootScope : Object, cookies : Object, scope : Object, location : Object, userService : UserService)\\+checkLogged() : void\\+urlPath() : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::public::Home}
 \end{figure}\begin{description}
@@ -1554,10 +1541,10 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item cookies : \$cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 \end{itemize}
 
@@ -1565,7 +1552,7 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 \vspace{-7mm}
 \begin{itemize}
 	\item Home(rootScope : Object, cookies : Object, scope : Object, location : Object, userService : UserService) $\rightarrow$ costruttore della classe\begin{itemize}
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
@@ -1590,7 +1577,7 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::Questionnaires} {--scope : Object\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--questList : Questionnaire[]\\--userService : UserService\\--titleSearch : String\\--tagSearch : String\\--authorSearch : String\\--myOrderBy : String\\--location : Object}{+Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, \\ rootScope : Object, scope : Object, tagService : TagService)\\+executeQuestionnaire(questID : integer) : void\\+submit() : void\\+setMyOrderBy(myOrderBy : String) : void\\+setAuthorSearch(authorSearch : String) : void\\+setQuestList(questList : Questionnaire[]) : void\\+setTagSearch(tagSearch : String) : void\\+setTitleSearch(titleSearch : String) : void\\+getAuthorSearch() : String\\+getQuestList() : Questionnaire []\\+getTagSearch() : String\\+getTitleSearch() : String\\+getMyOrderBy() : String}
+	\umlclass{client::controller::student::Questionnaires} {--scope : \$scope\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--questList : Questionnaire[]\\--userService : UserService\\--titleSearch : String\\--tagSearch : String\\--authorSearch : String\\--myOrderBy : String\\--location : \$location}{+Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, tagService : TagService)\\+executeQuestionnaire(questID : integer) : void\\+submit() : void\\+setMyOrderBy(myOrderBy : String) : void\\+setAuthorSearch(authorSearch : String) : void\\+setQuestList(questList : Questionnaire[]) : void\\+setTagSearch(tagSearch : String) : void\\+setTitleSearch(titleSearch : String) : void\\+getAuthorSearch() : String\\+getQuestList() : Questionnaire []\\+getTagSearch() : String\\+getTitleSearch() : String\\+getMyOrderBy() : String}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::Questionnaires}
 \end{figure}\begin{description}
@@ -1614,7 +1601,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
 	\item questList : Questionnaire[] $\rightarrow$ lista di questionari
@@ -1623,7 +1610,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 	\item tagSearch : String $\rightarrow$ rappresenta il campo tagSearch nella View
 	\item authorSearch : String $\rightarrow$ rappresenta il campo authorSearch nella View
 	\item myOrderBy : String $\rightarrow$ stringa che si riferisce al campo per cui ordinare i questionari
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 \end{itemize}
 
 \item[Metodi] \hfill \\
@@ -1632,7 +1619,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 	\item Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, tagService : TagService) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item tagService $\rightarrow$ campo dati che rappresenta un oggetto TagService 
 	\end{itemize}
@@ -1642,31 +1629,31 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 	\end{itemize}
 	
 	\item submit() : void $\rightarrow$ permette di ricercare questionari filtrandoli in base ad autore, titolo e argomenti, richiamando gli opportuni servizi che mandano la richiesta al server
-	\item setMyOrderBy(myOrderBy : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setMyOrderBy(myOrderBy : String) : void $\rightarrow$ metodo che cambia il valore del campo dati myOrderBy\begin{itemize}
 		\item myOrderBy $\rightarrow$ stringa che si riferisce al campo per cui ordinare i questionari
 	\end{itemize}
 	
-	\item setAuthorSearch(authorSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setAuthorSearch(authorSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati authorSearch\begin{itemize}
 		\item authorSearch $\rightarrow$ rappresenta il campo authorSearch nella View
 	\end{itemize}
 	
-	\item setQuestList(questList : Questionnaire[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestList(questList : Questionnaire[]) : void $\rightarrow$ metodo che cambia il valore del campo dati questList\begin{itemize}
 		\item questList $\rightarrow$ lista di questionari
 	\end{itemize}
 	
-	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati tagSearch\begin{itemize}
 		\item tagSearch $\rightarrow$ rappresenta il campo tagSearch nella View
 	\end{itemize}
 	
-	\item setTitleSearch(titleSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTitleSearch(titleSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati titleSearch\begin{itemize}
 		\item titleSearch $\rightarrow$ rappresenta il campo titleSearch nella View
 	\end{itemize}
 	
-	\item getAuthorSearch() : String $\rightarrow$ metodo getter
-	\item getQuestList() : Questionnaire [] $\rightarrow$ metodo getter
-	\item getTagSearch() : String $\rightarrow$ metodo getter
-	\item getTitleSearch() : String $\rightarrow$ metodo getter
-	\item getMyOrderBy() : String $\rightarrow$ metodo getter
+	\item getAuthorSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati authorSearch
+	\item getQuestList() : Questionnaire [] $\rightarrow$ metodo che restituisce il valore del campo dati questList
+	\item getTagSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati tagSearch
+	\item getTitleSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati titleSearch
+	\item getMyOrderBy() : String $\rightarrow$ metodo che restituisce il valore del campo dati myOrderBy
 \end{itemize}
 
 \end{description}
@@ -1677,7 +1664,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::ExecuteQuestionnaire} {--questionnaireService : QuestionnaireService\\--scope : Object\\--questionnaire : CurrentQuestionnaire\\--currentQuestion : ExecuteQuestion\\--util : Util\\--q : Object}{+ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, \\ rootScope : Object, scope : Object, edit : boolean)\\+getNext() : void\\+getPrevious() : void\\+submit() : void}
+	\umlclass{client::controller::student::ExecuteQuestionnaire} {--questionnaireService : QuestionnaireService\\--scope : \$scope\\--questionnaire : CurrentQuestionnaire\\--currentQuestion : ExecuteQuestion\\--util : Util\\--q : \$q\\--answerService : AnswerService}{+ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, edit : boolean)\\+getNext() : void\\+getPrevious() : void\\+submit() : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::ExecuteQuestionnaire}
 \end{figure}\begin{description}
@@ -1696,17 +1683,20 @@ Viene chiamata quando uno studente comincia a rispondere ad un questionario. Lo 
 	Relazione uscente, campo dati che rappresenta un oggetto Util
 	\item[\hyperlink{client::model::service::QuestionnaireService}{client::model::service::QuestionnaireService}] \hfill \\
 	Relazione uscente, campo dati che rappresenta un oggetto QuestionnaireService
+	\item[\hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}] \hfill \\
+	Relazione uscente, campo dati che rappresenta un oggetto AnswerService	
 \end{description}
 
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item questionnaire : CurrentQuestionnaire $\rightarrow$ istanza del questionario in esecuzione
 	\item currentQuestion : ExecuteQuestion $\rightarrow$ oggetto controller di ExecuteQuestion che gestisce la domanda corrente
 	\item util : Util $\rightarrow$ campo dati che rappresenta un oggetto Util
-	\item q : Object $\rightarrow$ oggetto di angular che permette di eseguire funzioni asincrone
+	\item q : \$q $\rightarrow$ oggetto di angular che permette di eseguire funzioni asincrone
+	\item answerService : AnswerService $\rightarrow$ campo dati che rappresenta un oggetto AnswerService	
 \end{itemize}
 
 \item[Metodi] \hfill \\
@@ -1715,7 +1705,7 @@ Viene chiamata quando uno studente comincia a rispondere ad un questionario. Lo 
 	\item ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, edit : boolean) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item edit $\rightarrow$ indica se esecuzione del questionario è in modalità read-only. Ovvero se variabile è true allora si possono cambiare le risposte alle domande, altrimenti si può solo visualizzare il questionario senza poter cambiare le risposte già selezionate 
 	\end{itemize}
@@ -1733,7 +1723,7 @@ Viene chiamata quando uno studente comincia a rispondere ad un questionario. Lo 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::ExecuteQuestion} {--scope : Object\\--interpolate : Object\\--sce : Object}{+ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, \\ scope : Object)\\+giveAnswer(option : String) : void\\+setCurrentQuestion(currentQuestion : currentQuesion) : void}
+	\umlclass{client::controller::student::ExecuteQuestion} {--scope : \$scope\\--interpolate : \$interpolate\\--sce : \$sce}{+ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, scope : Object)\\+giveAnswer(option : String) : void\\+setCurrentQuestion(currentQuestion : currentQuesion) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::ExecuteQuestion}
 \end{figure}\begin{description}
@@ -1751,9 +1741,9 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item interpolate : Object $\rightarrow$ oggetto di angular che permette l'interpolazione di stringhe
-	\item sce : Object $\rightarrow$ oggetto di angular che permette il trattamento di stringhe in alcuni contesti dove richiedono di essere marcate come sicure
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item interpolate : \$interpolate $\rightarrow$ oggetto di angular che permette l'interpolazione di stringhe
+	\item sce : \$sce $\rightarrow$ oggetto di angular che permette il trattamento di stringhe in alcuni contesti dove richiedono di essere marcate come sicure
 \end{itemize}
 
 \item[Metodi] \hfill \\
@@ -1762,7 +1752,7 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 	\item ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, scope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item currentQuestion $\rightarrow$ contiene la domanda corrente da eseguire 
 		\item edit $\rightarrow$ true - si può modificare, false - no 
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\end{itemize}
 	
@@ -1790,7 +1780,7 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManipulateQuestion} {--question : Question \\--rootScope : Object\\--questionService : QuestionService\\--scope : Object\\--tagService : TagService\\--location : Object\\--qml : QML\\--error : Error\\--edit : boolean\\--editor : SimpleMDE\\--tagsInput : String\\--tags : Tag []\\--editorBuilder : Editor}{+ManipulateQuestion(question : Question, questionService : QuestionService, scope : Object, \\ rootScope : Object)\\+submit() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEditor() : SimpleMDE\\+getEdit() : boolean\\+getQuestion() : Question \\+getTags() : Tag []\\+getTagsInput() : String\\+setEditor(editor : SimpleMDE) : void\\+setEdit(edit : boolean) : void\\+setQuestion(question : Question ) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
+	\umlclass{client::controller::teacher::ManipulateQuestion} {--question : Question \\--rootScope : \$rootScope\\--questionService : QuestionService\\--scope : \$scope\\--tagService : TagService\\--location : \$location\\--qml : QML\\--error : Error\\--edit : boolean\\--editor : SimpleMDE\\--tagsInput : String\\--tags : Tag []\\--editorBuilder : Editor}{+ManipulateQuestion(question : Question, questionService : QuestionService, scope : Object, rootScope : Object)\\+submit() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEditor() : SimpleMDE\\+getEdit() : boolean\\+getQuestion() : Question \\+getTags() : Tag []\\+getTagsInput() : String\\+setEditor(editor : SimpleMDE) : void\\+setEdit(edit : boolean) : void\\+setQuestion(question : Question ) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManipulateQuestion}
 \end{figure}\begin{description}
@@ -1821,15 +1811,15 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 \vspace{-7mm}
 \begin{itemize}
 	\item question : Question  $\rightarrow$ oggetto che rappresenta una singola domanda
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item qml : QML $\rightarrow$ campo dati che rappresenta un oggetto QML
 	\item error : Error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\item edit : boolean $\rightarrow$ indica se la domanda corrente è nuova o se si sta modificando una già creata
-	\item editor : SimpleMDE $\rightarrow$ oggetto che rappresenta l'editor per manipolare la domanda
+	\item editor : SimpleMDE $\rightarrow$ oggetto che rappreseta l'editor per manipolare la domanda
 	\item tagsInput : String $\rightarrow$ rappresenta il campo tagsInput nella View
 	\item tags : Tag [] $\rightarrow$ argomenti che compaiono nei suggerimenti
 	\item editorBuilder : Editor $\rightarrow$ campo dati che rappresenta un oggetto Editor
@@ -1842,37 +1832,37 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 		\item question $\rightarrow$ contiene il riferimento verso il modello delle domande 
 		\item questionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\end{itemize}
 	
 	\item submit() : void $\rightarrow$ dopo aver controllato la validità del titolo, tags e QML inseriti, invia i dati al servizio che si occupa di inserire la domanda nel sistema
-	\item getError() : Error $\rightarrow$ metodo getter
-	\item setError(error : Error) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getError() : Error $\rightarrow$ metodo che restituisce il valore del campo dati error
+	\item setError(error : Error) : void $\rightarrow$ metodo che cambia il valore del campo dati error\begin{itemize}
 		\item error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\end{itemize}
 	
-	\item getEditor() : SimpleMDE $\rightarrow$ metodo getter
-	\item getEdit() : boolean $\rightarrow$ metodo getter
-	\item getQuestion() : Question  $\rightarrow$ metodo getter
-	\item getTags() : Tag [] $\rightarrow$ metodo getter
-	\item getTagsInput() : String $\rightarrow$ metodo getter
-	\item setEditor(editor : SimpleMDE) : void $\rightarrow$ metodo setter\begin{itemize}
-		\item editor $\rightarrow$ oggetto che rappresenta l'editor per manipolare la domanda
+	\item getEditor() : SimpleMDE $\rightarrow$ metodo che restituisce il valore del campo dati editor
+	\item getEdit() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati edit
+	\item getQuestion() : Question  $\rightarrow$ metodo che restituisce il valore del campo dati question
+	\item getTags() : Tag [] $\rightarrow$ metodo che restituisce il valore del campo dati tags
+	\item getTagsInput() : String $\rightarrow$ metodo che restituisce il valore del campo dati tagsInput
+	\item setEditor(editor : SimpleMDE) : void $\rightarrow$ metodo che cambia il valore del campo dati editor\begin{itemize}
+		\item editor $\rightarrow$ oggetto che rappreseta l'editor per manipolare la domanda
 	\end{itemize}
 	
-	\item setEdit(edit : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setEdit(edit : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati edit\begin{itemize}
 		\item edit $\rightarrow$ indica se la domanda corrente è nuova o se si sta modificando una già creata
 	\end{itemize}
 	
-	\item setQuestion(question : Question ) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestion(question : Question ) : void $\rightarrow$ metodo che cambia il valore del campo dati question\begin{itemize}
 		\item question $\rightarrow$ oggetto che rappresenta una singola domanda
 	\end{itemize}
 	
-	\item setTags(tags : Tag []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : Tag []) : void $\rightarrow$ metodo che cambia il valore del campo dati tags\begin{itemize}
 		\item tags $\rightarrow$ argomenti che compaiono nei suggerimenti
 	\end{itemize}
 	
-	\item setTagsInput(tagsInput : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTagsInput(tagsInput : String) : void $\rightarrow$ metodo che cambia il valore del campo dati tagsInput\begin{itemize}
 		\item tagsInput $\rightarrow$ rappresenta il campo tagsInput nella View
 	\end{itemize}
 	
@@ -1886,7 +1876,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManipulateQuestionnaire} {--questionnaire : Questionnaire\\--questionnaireService : QuestionnaireService\\--rootScope : Object\\--scope : Object\\--edit : boolean\\--location : Object\\--qml : QML\\--questionService : QuestionService\\--tagService : TagService\\--userService : UserService\\+error : Error\\--onSelect : boolean\\--tagsInput : String\\--tags : Tag []}{+ManipulateQuestionnaire(questionnaireService : QuestionnaireService, \\ questionnaire : Questionnaire, scope : Object, rootScope : Object)\\+addQuestion(question : Question) : void\\+removeQuestion(question : Question) : void\\+submit() : void\\+preview() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEdit() : boolean\\+getOnSelect() : boolean\\+getQuestionnaire() : Questionnaire\\+getTags() : Tag []\\+getTagsInput() : String\\+setEdit(edit : boolean) : void\\+setOnSelect(onSelect : boolean) : void\\+setQuestionnaire(questionnaire : Questionnaire) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
+	\umlclass{client::controller::teacher::ManipulateQuestionnaire} {--questionnaire : Questionnaire\\--questionnaireService : QuestionnaireService\\--rootScope : \$rootScope\\--scope : \$scope\\--edit : boolean\\--location : \$location\\--qml : QML\\--questionService : QuestionService\\--tagService : TagService\\--userService : UserService\\--error : Error\\--onSelect : boolean\\--tagsInput : String\\--tags : Tag []}{+ManipulateQuestionnaire(questionnaireService : QuestionnaireService, questionnaire : Questionnaire, scope : Object, rootScope : Object)\\+addQuestion(question : Question) : void\\+removeQuestion(question : Question) : void\\+submit() : void\\+preview() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEdit() : boolean\\+getOnSelect() : boolean\\+getQuestionnaire() : Questionnaire\\+getTags() : Tag []\\+getTagsInput() : String\\+setEdit(edit : boolean) : void\\+setOnSelect(onSelect : boolean) : void\\+setQuestionnaire(questionnaire : Questionnaire) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManipulateQuestionnaire}
 \end{figure}\begin{description}
@@ -1920,10 +1910,10 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \begin{itemize}
 	\item questionnaire : Questionnaire $\rightarrow$ oggetto che rappresenta un questionario
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item edit : boolean $\rightarrow$ indica se il questionario corrente è nuovo o se si sta modificando uno già creato
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item qml : QML $\rightarrow$ campo dati che rappresenta un oggetto QML
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
@@ -1941,7 +1931,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item questionnaire $\rightarrow$ contiene il riferimento al modello degli questionari 
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\end{itemize}
 	
 	\item addQuestion(question : Question) : void $\rightarrow$ aggiunge la domanda passata come parametro al questionario d'istanza\begin{itemize}
@@ -1954,33 +1944,33 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 	
 	\item submit() : void $\rightarrow$ dopo aver controllato la validità delle domande, titolo e tags inseriti, invia i dati presenti nel questionario al servizio che si occupa di aggiungerlo al sistema
 	\item preview() : void $\rightarrow$ provvede a fornire un'anteprima di una domanda da QML in HTML
-	\item getError() : Error $\rightarrow$ metodo getter
-	\item setError(error : Error) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getError() : Error $\rightarrow$ metodo che restituisce il valore del campo dati error
+	\item setError(error : Error) : void $\rightarrow$ metodo che cambia il valore del campo dati error\begin{itemize}
 		\item error $\rightarrow$ campo dati che rappresenta un oggetto Error
 	\end{itemize}
 	
-	\item getEdit() : boolean $\rightarrow$ metodo getter
-	\item getOnSelect() : boolean $\rightarrow$ metodo getter
-	\item getQuestionnaire() : Questionnaire $\rightarrow$ metodo getter
-	\item getTags() : Tag [] $\rightarrow$ metodo getter
-	\item getTagsInput() : String $\rightarrow$ metodo getter
-	\item setEdit(edit : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getEdit() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati edit
+	\item getOnSelect() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati onSelect
+	\item getQuestionnaire() : Questionnaire $\rightarrow$ metodo che restituisce il valore del campo dati questionnaire
+	\item getTags() : Tag [] $\rightarrow$ metodo che restituisce il valore del campo dati tags
+	\item getTagsInput() : String $\rightarrow$ metodo che restituisce il valore del campo dati tagsInput
+	\item setEdit(edit : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati edit\begin{itemize}
 		\item edit $\rightarrow$ indica se il questionario corrente è nuovo o se si sta modificando uno già creato
 	\end{itemize}
 	
-	\item setOnSelect(onSelect : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setOnSelect(onSelect : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati onSelect\begin{itemize}
 		\item onSelect $\rightarrow$ indica se si è in fase di selezione di una domanda da aggiungere
 	\end{itemize}
 	
-	\item setQuestionnaire(questionnaire : Questionnaire) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestionnaire(questionnaire : Questionnaire) : void $\rightarrow$ metodo che cambia il valore del campo dati questionnaire\begin{itemize}
 		\item questionnaire $\rightarrow$ oggetto che rappresenta un questionario
 	\end{itemize}
 	
-	\item setTags(tags : Tag []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : Tag []) : void $\rightarrow$ metodo che cambia il valore del campo dati tags\begin{itemize}
 		\item tags $\rightarrow$ argomenti che compaiono nei suggerimenti
 	\end{itemize}
 	
-	\item setTagsInput(tagsInput : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTagsInput(tagsInput : String) : void $\rightarrow$ metodo che cambia il valore del campo dati tagsInput\begin{itemize}
 		\item tagsInput $\rightarrow$ rappresenta il campo tagsInput nella View
 	\end{itemize}
 	
@@ -1994,7 +1984,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::SelectQuestion} {--questionService : QuestionService\\--scope : Object\\--tagService : TagService\\--userService : UserService\\--q : Object\\--authorSearch : String\\--tagSearch : String\\--bodySearch : String\\--questions : Question []}{+SelectQuestion(questionService : QuestionService, rootScope : Object, scope : Object)\\+submit(author : String, keywordsQuery : String) : void\\+getAuthorSearch() : String\\+getBodySearch() : String\\+getQuestions() : Question []\\+getTagSearch() : String\\+setAuthorSearch(authorSearch : String) : void\\+setBodySearch(bodySearch : String) : void\\+setQuestions(questions : Question []) : void\\+setTagSearch(tagSearch : String) : void}
+	\umlclass{client::controller::teacher::SelectQuestion} {--questionService : QuestionService\\--scope : \$scope\\--tagService : TagService\\--userService : UserService\\--q : \$q\\--authorSearch : String\\--tagSearch : String\\--bodySearch : String\\--questions : Question []}{+SelectQuestion(questionService : QuestionService, rootScope : Object, scope : Object)\\+submit(author : String, keywordsQuery : String) : void\\+getAuthorSearch() : String\\+getBodySearch() : String\\+getQuestions() : Question []\\+getTagSearch() : String\\+setAuthorSearch(authorSearch : String) : void\\+setBodySearch(bodySearch : String) : void\\+setQuestions(questions : Question []) : void\\+setTagSearch(tagSearch : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::SelectQuestion}
 \end{figure}\begin{description}
@@ -2019,10 +2009,10 @@ Viene chiamata quando in fase di costruzione di un questionario si ha la necessi
 \vspace{-7mm}
 \begin{itemize}
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
-	\item q : Object $\rightarrow$ oggetto di angular che permette di eseguire funzioni asincrone
+	\item q : \$q $\rightarrow$ oggetto di angular che permette di eseguire funzioni asincrone
 	\item authorSearch : String $\rightarrow$ rappresenta il campo authorSearch nella View
 	\item tagSearch : String $\rightarrow$ rappresenta il campo tagSearch nella View
 	\item bodySearch : String $\rightarrow$ rappresenta il campo bodySearch nella View
@@ -2034,7 +2024,7 @@ Viene chiamata quando in fase di costruzione di un questionario si ha la necessi
 \begin{itemize}
 	\item SelectQuestion(questionService : QuestionService, rootScope : Object, scope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\end{itemize}
 	
@@ -2043,23 +2033,23 @@ Viene chiamata quando in fase di costruzione di un questionario si ha la necessi
 		\item keywordsQuery $\rightarrow$ contiene la lista di parole chiave per ricercare la domanda
 	\end{itemize}
 	
-	\item getAuthorSearch() : String $\rightarrow$ metodo getter
-	\item getBodySearch() : String $\rightarrow$ metodo getter
-	\item getQuestions() : Question [] $\rightarrow$ metodo getter
-	\item getTagSearch() : String $\rightarrow$ metodo getter
-	\item setAuthorSearch(authorSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getAuthorSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati authorSearch
+	\item getBodySearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati bodySearch
+	\item getQuestions() : Question [] $\rightarrow$ metodo che restituisce il valore del campo dati questions
+	\item getTagSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati tagSearch
+	\item setAuthorSearch(authorSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati authorSearch\begin{itemize}
 		\item authorSearch $\rightarrow$ rappresenta il campo authorSearch nella View
 	\end{itemize}
 	
-	\item setBodySearch(bodySearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setBodySearch(bodySearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati bodySearch\begin{itemize}
 		\item bodySearch $\rightarrow$ rappresenta il campo bodySearch nella View
 	\end{itemize}
 	
-	\item setQuestions(questions : Question []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestions(questions : Question []) : void $\rightarrow$ metodo che cambia il valore del campo dati questions\begin{itemize}
 		\item questions $\rightarrow$ domande visualizzate nella view
 	\end{itemize}
 	
-	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati tagSearch\begin{itemize}
 		\item tagSearch $\rightarrow$ rappresenta il campo tagSearch nella View
 	\end{itemize}
 	
@@ -2073,7 +2063,7 @@ Viene chiamata quando in fase di costruzione di un questionario si ha la necessi
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManageTags} {--scope : Object\\--tagService : TagService\\--util : Util\\--tagSearch : String\\--newName : String\\--newDescription : String\\--tags : Tag []}{+ManageTags(rootScope : Object, scope : Object, tagService : TagService)\\+add() : void\\+modify(tag : Tag) : void\\+remove (tag : Tag) : void\\+submit() : void\\+getNewDescription() : String\\+getNewName() : String\\+getTags() : Tag []\\+getTagSearch() : String\\+setNewDescription(newDescription : String) : void\\+setNewName(newName : String) : void\\+setTags(tags : Tag []) : void\\+setTagSearch(tagSearch : String) : void}
+	\umlclass{client::controller::teacher::ManageTags} {--scope : \$scope\\--tagService : TagService\\--util : Util\\--tagSearch : String\\--newName : String\\--newDescription : String\\--tags : Tag []}{+ManageTags(rootScope : Object, scope : Object, tagService : TagService)\\+add() : void\\+modify(tag : Tag) : void\\+remove (tag : Tag) : void\\+submit() : void\\+getNewDescription() : String\\+getNewName() : String\\+getTags() : Tag []\\+getTagSearch() : String\\+setNewDescription(newDescription : String) : void\\+setNewName(newName : String) : void\\+setTags(tags : Tag []) : void\\+setTagSearch(tagSearch : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManageTags}
 \end{figure}\begin{description}
@@ -2095,7 +2085,7 @@ Viene richiamata quando un docente vuole creare un nuovo argomento o modificarne
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
 	\item util : Util $\rightarrow$ campo dati che rappresenta un oggetto Util
 	\item tagSearch : String $\rightarrow$ rappresenta il campo tagSearch nella view
@@ -2108,7 +2098,7 @@ Viene richiamata quando un docente vuole creare un nuovo argomento o modificarne
 \vspace{-7mm}
 \begin{itemize}
 	\item ManageTags(rootScope : Object, scope : Object, tagService : TagService) $\rightarrow$ costruttore della classe\begin{itemize}
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item tagService $\rightarrow$ campo dati che rappresenta un oggetto TagService 
 	\end{itemize}
@@ -2123,23 +2113,23 @@ Viene richiamata quando un docente vuole creare un nuovo argomento o modificarne
 	\end{itemize}
 	
 	\item submit() : void $\rightarrow$ cerca i tag filtrandoli in base alle keywords inserite dall'utente
-	\item getNewDescription() : String $\rightarrow$ metodo getter
-	\item getNewName() : String $\rightarrow$ metodo getter
-	\item getTags() : Tag [] $\rightarrow$ metodo getter
-	\item getTagSearch() : String $\rightarrow$ metodo getter
-	\item setNewDescription(newDescription : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getNewDescription() : String $\rightarrow$ metodo che restituisce il valore del campo dati newDescription
+	\item getNewName() : String $\rightarrow$ metodo che restituisce il valore del campo dati newName
+	\item getTags() : Tag [] $\rightarrow$ metodo che restituisce il valore del campo dati tags
+	\item getTagSearch() : String $\rightarrow$ metodo che restituisce il valore del campo dati tagSearch
+	\item setNewDescription(newDescription : String) : void $\rightarrow$ metodo che cambia il valore del campo dati newDescription\begin{itemize}
 		\item newDescription $\rightarrow$ rappresenta il campo newDescription nella View
 	\end{itemize}
 	
-	\item setNewName(newName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setNewName(newName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati newName\begin{itemize}
 		\item newName $\rightarrow$ rappresenta il campo newName nella View
 	\end{itemize}
 	
-	\item setTags(tags : Tag []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : Tag []) : void $\rightarrow$ metodo che cambia il valore del campo dati tags\begin{itemize}
 		\item tags $\rightarrow$ tags visualizzati nella view
 	\end{itemize}
 	
-	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTagSearch(tagSearch : String) : void $\rightarrow$ metodo che cambia il valore del campo dati tagSearch\begin{itemize}
 		\item tagSearch $\rightarrow$ rappresenta il campo tagSearch nella view
 	\end{itemize}
 	
@@ -2153,7 +2143,7 @@ Viene richiamata quando un docente vuole creare un nuovo argomento o modificarne
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManageQuestions} {--scope : Object\\--rootScope : Object\\--questionService : QuestionService\\--location : Object\\--util : Util\\--qml : QML\\--tagService : TagService\\--questions : Question []}{+ManageQuestions(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object)\\+modify(question : Question) : void\\+remove (question : Question) : void\\+preview() : String\\+getQuestions() : Question []\\+setQuestions(questions : Question []) : void}
+	\umlclass{client::controller::teacher::ManageQuestions} {--scope : \$scope\\--rootScope : \$rootScope\\--questionService : QuestionService\\--location : \$location\\--util : Util\\--qml : QML\\--tagService : TagService\\--questions : Question []}{+ManageQuestions(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object)\\+modify(question : Question) : void\\+remove (question : Question) : void\\+preview() : String\\+getQuestions() : Question []\\+setQuestions(questions : Question []) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManageQuestions}
 \end{figure}\begin{description}
@@ -2179,10 +2169,10 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item questionService : QuestionService $\rightarrow$ campo dati che rappresenta un oggetto QuestionService
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item util : Util $\rightarrow$ campo dati che rappresenta un oggetto Util
 	\item qml : QML $\rightarrow$ campo dati che rappresenta un oggetto QML
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
@@ -2195,7 +2185,7 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 	\item ManageQuestions(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\end{itemize}
 	
 	\item modify(question : Question) : void $\rightarrow$ modifica la domanda passata per parametro\begin{itemize}
@@ -2207,8 +2197,8 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 	\end{itemize}
 	
 	\item preview() : String $\rightarrow$ provvede a fornire un'anteprima di una domanda da QML in HTML
-	\item getQuestions() : Question [] $\rightarrow$ metodo getter
-	\item setQuestions(questions : Question []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getQuestions() : Question [] $\rightarrow$ metodo che restituisce il valore del campo dati questions
+	\item setQuestions(questions : Question []) : void $\rightarrow$ metodo che cambia il valore del campo dati questions\begin{itemize}
 		\item questions $\rightarrow$ domande visualizzate nella view
 	\end{itemize}
 	
@@ -2221,9 +2211,8 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 \subsubsubsection[ManageQuestionnaires]{client::controller::teacher::ManageQuestionnaires}
 \begin{figure}[H]
 	\centering
-	\leftskip-1cm
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManageQuestionnaires} {--scope : Object\\--rootScope : Object\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--location : Object\\--qml : QML\\--util : Util\\--questionnaires : Questionnaire []}{+ManageQuestionnaires(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object)\\+modify(questionnaire : Questionnaire) : void\\+remove (questionnaire : Questionnaire) : void\\+preview() : String\\+getQuestionnaires() : Questionnaire []\\+setQuestionnaires(questionnaires : Questionnaire []) : void}
+	\umlclass{client::controller::teacher::ManageQuestionnaires} {--scope : \$scope\\--rootScope : \$rootScope\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--location : \$location\\--qml : QML\\--util : Util\\--questionnaires : Questionnaire []}{+ManageQuestionnaires(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object)\\+modify(questionnaire : Questionnaire) : void\\+remove (questionnaire : Questionnaire) : void\\+preview() : String\\+getQuestionnaires() : Questionnaire []\\+setQuestionnaires(questionnaires : Questionnaire []) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManageQuestionnaires}
 \end{figure}\begin{description}
@@ -2249,11 +2238,11 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
 	\item qml : QML $\rightarrow$ campo dati che rappresenta un oggetto QML
 	\item util : Util $\rightarrow$ campo dati che rappresenta un oggetto Util
 	\item questionnaires : Questionnaire [] $\rightarrow$ questionari visualizzati nella view
@@ -2265,7 +2254,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 	\item ManageQuestionnaires(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item questionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\end{itemize}
 	
 	\item modify(questionnaire : Questionnaire) : void $\rightarrow$ modifica il questionario passato come parametro\begin{itemize}
@@ -2277,8 +2266,8 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 	\end{itemize}
 	
 	\item preview() : String $\rightarrow$ provvede a fornire un'anteprima di una domanda da QML in HTML
-	\item getQuestionnaires() : Questionnaire [] $\rightarrow$ metodo getter
-	\item setQuestionnaires(questionnaires : Questionnaire []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getQuestionnaires() : Questionnaire [] $\rightarrow$ metodo che restituisce il valore del campo dati questionnaires
+	\item setQuestionnaires(questionnaires : Questionnaire []) : void $\rightarrow$ metodo che cambia il valore del campo dati questionnaires\begin{itemize}
 		\item questionnaires $\rightarrow$ questionari visualizzati nella view
 	\end{itemize}
 	
@@ -2298,7 +2287,7 @@ Viene richiamata quando un docente vuole creare un nuovo questionario o modifica
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::admin::UsersList} {--scope : Object\\--userService : UserService\\--roleService : RoleService\\--usersList : User[]\\--roles : Role []\\--roleFilter : String\\--myOrderBy : String}{+UsersList(scope : Object, roleService : RoleService, userService : UserService)\\+changeUserRole(user  : User) : void\\+deleteUser(user  : User) : void\\+filterByRole(roleName : String) : void\\+getUsersList() : User[]\\+getRoles() : Role []\\+getMyOrderBy() : String\\+setUsersList(usersList : User[]) : void\\+setRoles(roles : Role []) : void\\+setMyOrderBy(myOrderBy : String) : void}
+	\umlclass{client::controller::admin::UsersList} {--scope : \$scope\\--userService : UserService\\--roleService : RoleService\\--usersList : User[]\\--roles : Role []\\--roleFilter : String\\--myOrderBy : String}{+UsersList(scope : Object, roleService : RoleService, userService : UserService)\\+changeUserRole(user  : User) : void\\+deleteUser(user  : User) : void\\+filterByRole(roleName : String) : void\\+getUsersList() : User[]\\+getRoles() : Role []\\+getMyOrderBy() : String\\+setUsersList(usersList : User[]) : void\\+setRoles(roles : Role []) : void\\+setMyOrderBy(myOrderBy : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::admin::UsersList}
 \end{figure}\begin{description}
@@ -2322,7 +2311,7 @@ Carica la view che permette avere la lista completa dei tutti gli utenti, consen
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\item roleService : RoleService $\rightarrow$ campo dati che rappresenta un oggetto RoleService
 	\item usersList : User[] $\rightarrow$ lista di utenti
@@ -2352,18 +2341,18 @@ Carica la view che permette avere la lista completa dei tutti gli utenti, consen
 		\item roleName $\rightarrow$ name del Role
 	\end{itemize}
 	
-	\item getUsersList() : User[] $\rightarrow$ metodo getter
-	\item getRoles() : Role [] $\rightarrow$ metodo getter
-	\item getMyOrderBy() : String $\rightarrow$ metodo getter
-	\item setUsersList(usersList : User[]) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getUsersList() : User[] $\rightarrow$ metodo che restituisce il valore del campo dati usersList
+	\item getRoles() : Role [] $\rightarrow$ metodo che restituisce il valore del campo dati roles
+	\item getMyOrderBy() : String $\rightarrow$ metodo che restituisce il valore del campo dati myOrderBy
+	\item setUsersList(usersList : User[]) : void $\rightarrow$ metodo che cambia il valore del campo dati usersList\begin{itemize}
 		\item usersList $\rightarrow$ lista di utenti
 	\end{itemize}
 	
-	\item setRoles(roles : Role []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setRoles(roles : Role []) : void $\rightarrow$ metodo che cambia il valore del campo dati roles\begin{itemize}
 		\item roles $\rightarrow$ lista di tutti i ruoli che può assumere un utente
 	\end{itemize}
 	
-	\item setMyOrderBy(myOrderBy : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setMyOrderBy(myOrderBy : String) : void $\rightarrow$ metodo che cambia il valore del campo dati myOrderBy\begin{itemize}
 		\item myOrderBy $\rightarrow$ rappresenta il campo di user da ordinare
 	\end{itemize}
 	
@@ -2383,12 +2372,27 @@ Carica la view che permette avere la lista completa dei tutti gli utenti, consen
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::user::Welcome} {}{+Welcome()}
+	\umlclass{client::controller::user::Welcome} {--answerService : AnswerService\\--rootScope : \$rootScope\\--scope : \$scope}{+Welcome()}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::user::Welcome}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
 Classe che si occupa della visualizzazione della pagina di benvenuto
+\item[Relazioni con altre classi] \hfill \\
+\vspace{-7mm}
+\begin{description}
+	\item[\hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}] \hfill \\
+	Relazione uscente, campo dati che rappresenta un oggetto AnswerService
+\end{description}
+
+\item[Attributi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item answerService : AnswerService $\rightarrow$ campo dati che rappresenta un oggetto AnswerService
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app	
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+\end{itemize}
+
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
@@ -2403,7 +2407,7 @@ Classe che si occupa della visualizzazione della pagina di benvenuto
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::user::Home} {--cookies : Object\\--location : Object\\--rootScope : Object\\--sessionService : SessionService\\--scope : Object}{+logout() : void\\+Logout(scope : Object, rootScope : Object, sessionService : SessionService, cookies : Object)}
+	\umlclass{client::controller::user::Home} {--cookies : \$cookies\\--location : \$location\\--rootScope : \$rootScope\\--sessionService : SessionService\\--scope : \$scope}{+logout() : void\\+Logout(scope : Object, rootScope : Object, sessionService : SessionService, cookies : Object)}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::user::Home}
 \end{figure}\begin{description}
@@ -2419,11 +2423,11 @@ Classe che si occupa della gestione della home page di un utente generico regist
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item cookies : Object $\rightarrow$ oggetto di angular che permette di manipolare i cookies
-	\item location : Object $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item cookies : \$cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
+	\item location : \$location $\rightarrow$ oggetto di angular che analizza l'URL nella barra degli indirizzi del browser e lo rende disponibile all'applicazione
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item sessionService : SessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 \end{itemize}
 
 \item[Metodi] \hfill \\
@@ -2432,7 +2436,7 @@ Classe che si occupa della gestione della home page di un utente generico regist
 	\item logout() : void $\rightarrow$ esegue il logout dell'utente che è autenticato distruggendo i cookies di sessione
 	\item Logout(scope : Object, rootScope : Object, sessionService : SessionService, cookies : Object) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item sessionService $\rightarrow$ campo dati che rappresenta un oggetto SessionService
 		\item cookies $\rightarrow$ oggetto di angular che permette di manipolare i cookies
 	\end{itemize}
@@ -2447,7 +2451,7 @@ Classe che si occupa della gestione della home page di un utente generico regist
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::user::User} {--scope : Object\\--check : Check\\--rootScope : Object\\--userService : UserService\\--errorPassword : Error\\--errorInformation : Error\\--userName : String\\--newPassword : String\\--fullName : String\\--repeatPassword : String\\--oldPassword : String\\--successInformation : boolean\\--successPassword : boolean}{+User(check : Check, rootScope : Object, scope : Object, userService : UserService)\\+checkFullName() : boolean\\+checkPassword() : boolean\\+checkUserName() : boolean\\+checkRepeatPassword() : boolean\\+submitInformation() : void\\+submitPassword() : void\\+getErrorPassword() : Error\\+getErrorInformation() : Error\\+getUserName() : String\\+getNewPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+getOldPassword() : String\\+getSuccessInformation() : boolean\\+getSuccessPassword() : boolean\\+setErrorPassword(errorPassword : Error) : void\\+setErrorInformation(errorInformation : Error) : void\\+setUserName(userName : String) : void\\+setNewPassword(newPassword : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void\\+setOldPassword(oldPassword : String) : void\\+setSuccessInformation(successInformation : boolean) : void\\+setSuccessPassword(successPassword : boolean) : void}
+	\umlclass{client::controller::user::User} {--scope : \$scope\\--check : Check\\--rootScope : \$rootScope\\--userService : UserService\\--errorPassword : Error\\--errorInformation : Error\\--userName : String\\--newPassword : String\\--fullName : String\\--repeatPassword : String\\--oldPassword : String\\--successInformation : boolean\\--successPassword : boolean}{+User(check : Check, rootScope : Object, scope : Object, userService : UserService)\\+checkFullName() : boolean\\+checkPassword() : boolean\\+checkUserName() : boolean\\+checkRepeatPassword() : boolean\\+submitInformation() : void\\+submitPassword() : void\\+getErrorPassword() : Error\\+getErrorInformation() : Error\\+getUserName() : String\\+getNewPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+getOldPassword() : String\\+getSuccessInformation() : boolean\\+getSuccessPassword() : boolean\\+setErrorPassword(errorPassword : Error) : void\\+setErrorInformation(errorInformation : Error) : void\\+setUserName(userName : String) : void\\+setNewPassword(newPassword : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void\\+setOldPassword(oldPassword : String) : void\\+setSuccessInformation(successInformation : boolean) : void\\+setSuccessPassword(successPassword : boolean) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::user::User}
 \end{figure}\begin{description}
@@ -2469,9 +2473,9 @@ Classe per la gestione del profilo di un'utente generico registrato
 \item[Attributi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item scope : Object $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
+	\item scope : \$scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 	\item check : Check $\rightarrow$ campo dati che rappresenta un oggetto Check
-	\item rootScope : Object $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+	\item rootScope : \$rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 	\item userService : UserService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\item errorPassword : Error $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sulla password
 	\item errorInformation : Error $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sui dati inseriti
@@ -2489,7 +2493,7 @@ Classe per la gestione del profilo di un'utente generico registrato
 \begin{itemize}
 	\item User(check : Check, rootScope : Object, scope : Object, userService : UserService) $\rightarrow$ costruttore della classe\begin{itemize}
 		\item check $\rightarrow$ campo dati che rappresenta un oggetto Check
-		\item rootScope $\rightarrow$ oggetto di angular che identifica l'elemento con attributo ng-app
+		\item rootScope $\rightarrow$ oggetto di angular che identifica l’elemento con attributo ng-app
 		\item scope $\rightarrow$ oggetto di angular che fa riferimento ad una porzione di model di pertinenza di uno specifico controller
 		\item userService $\rightarrow$ campo dati che rappresenta un oggetto UserService
 	\end{itemize}
@@ -2500,48 +2504,48 @@ Classe per la gestione del profilo di un'utente generico registrato
 	\item checkRepeatPassword() : boolean $\rightarrow$ controlla se la password sia uguale a quella inserita nel campo "Ripeti password"
 	\item submitInformation() : void $\rightarrow$ invia i dati dell'utente al servizio che ne effettua l'aggiornamento
 	\item submitPassword() : void $\rightarrow$ invia i dati sulla password dell'utente modificata al servizio che ne effettua l'aggiornamento
-	\item getErrorPassword() : Error $\rightarrow$ metodo getter
-	\item getErrorInformation() : Error $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item getNewPassword() : String $\rightarrow$ metodo getter
-	\item getFullName() : String $\rightarrow$ metodo getter
-	\item getRepeatPassword() : String $\rightarrow$ metodo getter
-	\item getOldPassword() : String $\rightarrow$ metodo getter
-	\item getSuccessInformation() : boolean $\rightarrow$ metodo getter
-	\item getSuccessPassword() : boolean $\rightarrow$ metodo getter
-	\item setErrorPassword(errorPassword : Error) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getErrorPassword() : Error $\rightarrow$ metodo che restituisce il valore del campo dati errorPassword
+	\item getErrorInformation() : Error $\rightarrow$ metodo che restituisce il valore del campo dati errorInformation
+	\item getUserName() : String $\rightarrow$ metodo che restituisce il valore del campo dati userName
+	\item getNewPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati newPassword
+	\item getFullName() : String $\rightarrow$ metodo che restituisce il valore del campo dati fullName
+	\item getRepeatPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati repeatPassword
+	\item getOldPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati oldPassword
+	\item getSuccessInformation() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati successInformation
+	\item getSuccessPassword() : boolean $\rightarrow$ metodo che restituisce il valore del campo dati successPassword
+	\item setErrorPassword(errorPassword : Error) : void $\rightarrow$ metodo che cambia il valore del campo dati errorPassword\begin{itemize}
 		\item errorPassword $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sulla password
 	\end{itemize}
 	
-	\item setErrorInformation(errorInformation : Error) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setErrorInformation(errorInformation : Error) : void $\rightarrow$ metodo che cambia il valore del campo dati errorInformation\begin{itemize}
 		\item errorInformation $\rightarrow$ oggetto che rappresenta un errore da visualizzare all'utente sui dati inseriti
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati userName\begin{itemize}
 		\item userName $\rightarrow$ rappresenta il campo userName nella View
 	\end{itemize}
 	
-	\item setNewPassword(newPassword : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setNewPassword(newPassword : String) : void $\rightarrow$ metodo che cambia il valore del campo dati newPassword\begin{itemize}
 		\item newPassword $\rightarrow$ rappresenta il campo newPassword nella View	
 	\end{itemize}
 	
-	\item setFullName(fullName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setFullName(fullName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati fullName\begin{itemize}
 		\item fullName $\rightarrow$ rappresenta il campo fullName nella View
 	\end{itemize}
 	
-	\item setRepeatPassword(repeatPassword : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setRepeatPassword(repeatPassword : String) : void $\rightarrow$ metodo che cambia il valore del campo dati repeatPassword\begin{itemize}
 		\item repeatPassword $\rightarrow$ rappresenta il campo repeatPassword nella view	
 	\end{itemize}
 	
-	\item setOldPassword(oldPassword : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setOldPassword(oldPassword : String) : void $\rightarrow$ metodo che cambia il valore del campo dati oldPassword\begin{itemize}
 		\item oldPassword $\rightarrow$ rappresenta il campo oldPassword nella view
 	\end{itemize}
 	
-	\item setSuccessInformation(successInformation : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setSuccessInformation(successInformation : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati successInformation\begin{itemize}
 		\item successInformation $\rightarrow$ rappresenta se visualizzare il messaggio di invio con successo dei dati utente
 	\end{itemize}
 	
-	\item setSuccessPassword(successPassword : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setSuccessPassword(successPassword : boolean) : void $\rightarrow$ metodo che cambia il valore del campo dati successPassword\begin{itemize}
 		\item successPassword $\rightarrow$ rappresenta se visualizzare il messaggio di invio con successo dei dati password utente
 	\end{itemize}
 	
@@ -2645,7 +2649,7 @@ Classe che espone metodi pubblici utili a varie classi del sistema
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::util::QML} {}{+parse(plainText : String) : Json\\+preview(plainText : String) : void\\+QML()}
+	\umlclass{client::util::QML} {}{+parse(plainText : String) : Json\\+QML()}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::util::QML}
 \end{figure}\begin{description}
@@ -2668,10 +2672,6 @@ Classe che provvede metodi per gestire il QML
 \vspace{-7mm}
 \begin{itemize}
 	\item parse(plainText : String) : Json $\rightarrow$ provvede a fare il parsing del QML e restituisce un oggetto Json con i seguenti campi: status è un booleano che rappresenta la validità del QML, type è una stringa che rappresenta il tipo di domanda, body è una stringa che contiene il codice HTML per renderizzare la domanda, answers è un array di possibili risposte, answer rappresenta la risposta esatta.\begin{itemize}
-		\item plainText $\rightarrow$ 
-	\end{itemize}
-	
-	\item preview(plainText : String) : void $\rightarrow$ provvede a fornire un'anteprima di una domanda da QML in HTML\begin{itemize}
 		\item plainText $\rightarrow$ 
 	\end{itemize}
 	
@@ -2760,6 +2760,8 @@ Classe che rappresenta i parametri di configurazione del client
 	\item[\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}] \hfill \\
 	Relazione entrante, campo dati che rappresenta un oggetto Configuration
 	\item[\hyperlink{client::model::service::RoleService}{client::model::service::RoleService}] \hfill \\
+	Relazione entrante, campo dati che rappresenta un oggetto Configuration
+	\item[\hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}] \hfill \\
 	Relazione entrante, campo dati che rappresenta un oggetto Configuration
 \end{description}
 
