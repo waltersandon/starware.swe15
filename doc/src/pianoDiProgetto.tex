@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{3.0.1}
+\newcommand{\versione}{3.0.2}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -63,6 +63,8 @@
 		\toprule
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
+		\midrule
+		3.0.2 & \TP{} & 2016-06-14 & Aggiunti riscontri rischi \\*
 		\midrule
 		3.0.1 & \TP{} & 2016-05-27 & Cambiato "Analisi delle tendenze" in "Consuntivo di periodo" come da correzione \\*
 		\midrule
@@ -172,7 +174,7 @@ Lo scopo di questo documento è quello di fornire le basi per poter stimare real
 
 Si divide lo sviluppo del progetto in 4 periodi:
 \begin{itemize}
-	\item \textbf{\FA{}:} è il prima periodo, in certi aspetti la più importante, dove si delineano documenti cruciali che faranno da fondamenta per la buona riuscita del progetto come:
+	\item \textbf{\FA{}:} è il primo periodo, in certi aspetti il più importante, dove si delineano documenti cruciali che faranno da fondamenta per la buona riuscita del progetto come:
 	\begin{itemize}
 		\item \NdP{};
 		\item \SdF{};
@@ -254,7 +256,7 @@ Si è deciso di pianificare per la consegna della \RP{} MAX per le sopracitate e
 
 \section{Analisi dei rischi}\label{Analisi dei rischi}
 
-Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettuata un’approfondita analisi dei rischi che potrebbero verificarsi. L’Analisi si suddivide in 5 momenti:
+Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettuata un’approfondita analisi dei rischi che potrebbero verificarsi. L’Analisi si suddivide in 7 momenti:
 \begin{itemize}
 	\item \textbf{Identificazione:} individuare i potenziali rischi che possono presentarsi durante l’avanzamento del processo e capirne la natura. I rischi vengono divisi in 4 categorie:
 	\begin{itemize}
@@ -268,7 +270,7 @@ Per proteggere l’avanzamento del progetto da potenziali rischi, si è effettua
 	\item \textbf{Controllo:} si verifica il successo della pianificazione, modificandola se ritenuta insufficiente, e si controlla se la probabilità di occorrenza del rischio sia variata
 	\item \textbf{Mitigazione:} istituire un piano per mitigare gli effetti di un rischio nel caso questo dovesse verificarsi
 	\item \textbf{Riscontro:} descrizione del riscontro ed effettiva attuazione del rischio specifico
-	\item \textbf{Previsione:} previsioni di riscontri del rischio nei periodi futuri di lavoro
+	\item \textbf{Previsione:} previsioni di riscontri del rischio nei periodi futuri di lavoro; nell'ultimo periodo questa si sustituirà con una breve analisi del riscontro del rischio per tutta la durata del progetto.
 \end{itemize}
 Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati dei quali viene indicata la probabilità che accada e un livello di gravità se dovesse verificarsi.
 
@@ -301,9 +303,12 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
             \textbf{\FPA{}}: Gli impegni e necessità personali di ogni membro del gruppo non hanno
                 complessivamente comportato alcun ritardo significativo. \newline
             \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi causati da problemi personali. \newline
-          		\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla formazione del gruppo. \\*
+          	\textbf{\FC{}}: Alcuni membri del gruppo hanno potuto cominciare lo stage ma questo non ha causato
+          		particolari ritardi in quanto gli interessati hanno avvisato preventivamente alla 
+          		formazione del gruppo. \newline
+          	\textbf{\FVV{}}: Non ci sono stati ritardi dovuti a problemi personali del gruppo. \\*
 		\midrule
-		\textbf{Previsione} & Per tutta la durata del progetto ci saranno occasioni in cui i membri avranno impegni personali o urgenze. Non c'è motivo di credere che essi saranno di particolare gravità e/o che causeranno ritardi notevoli. \\*
+		\textbf{Conclusione} & Per tutta la durata del progetto ci sono stati casi minori in cui i membri del gruppo hanno avuto impegni personali e raramente anche improvvisi, ma essi non hanno comportato alcun ritardo rilevante nella pianificazione e il \PM{} è sempre stato in grado di riorganizzare il lavoro in modo opportuno. \\*
 		\bottomrule
 		\caption{Problemi personali dei membri del gruppo - Analisi dei rischi}
 	\end{longtable}
@@ -332,9 +337,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
             \textbf{\FAD{}}: Non si sono riscontrati problemi tra i membri del gruppo. \newline
             \textbf{\FPA{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
             \textbf{\FPD{}}: Non ci sono stati casi di dissidi tra i membri del gruppo. \newline
-            \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \\*
+            \textbf{\FC{}}: C'è stato un piccolo dissidio per quanto riguarda la mancata esecuzione dei test alla modifica del codice, ma è stato risolto nell'arco di meno di un ora chiarendo le procedure da eseguire alla modifica e aggiunta del codice testato. \newline
+            \textbf{\FVV{}}: I membri del gruppo non hanno avuto dissidi rilevanti. \\*
         \midrule
-		\textbf{Previsione} & E' stato apprezzato il modo in cui i membri hanno reagito in condizioni di pressione. Non sono per cui previsti particolari dissidi. \\*
+		\textbf{Conclusione} & A parte un minore dissidio interno, risolto molto velocemente, non ci sono stati particolari interazioni negative tra i membri. I membri hanno sempre discusso apertamente eventuali problemi con il lavoro di altri e tali critiche costruttive hanno favorito un'atmosfera serena di lavoro e fiducia reciproca. \\*
 		\bottomrule
 		\caption{Dissidi tra i membri del gruppo - Analisi dei rischi}
 	\end{longtable}
@@ -363,9 +369,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
             \textbf{\FAD{}}: Non si sono riscontrati episodi di guasti hardware. \newline
             \textbf{\FPA{}}: Non è stato riscontrato nessun malfunzionamento hardware. \newline
             \textbf{\FPD{}}: Non vi sono stati particolari riscontri. \newline
-            \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \\*
+            \textbf{\FC{}}: Anche in questo periodo non vi sono stati guasti hardware. \newline
+            \textbf{\FVV{}}: Un membro del gruppo ha avuto problemi con il proprio computer, dovendo reinstallare da nuovo il sistema operativo e quindi perdendo tutto ciò che aveva salvato localmente. Fortunatamente, tutti i dati importanti avevano un \mgls{backup} recente. Il tutto ha semplicemente richiesto mezza giornata per la reinstallazione di tutti gli strumenti necessari al lavoro di gruppo. \\*
         \midrule
-		\textbf{Previsione} & Non c'è motivo di credere che si verificheranno particolari danni all'hardware utilizzato. Anche se essi dovessero capitare, sono previste specifiche misure di prevenzione. \\*
+		\textbf{Conclusione} & Solo in un caso si sono rilevati guasti hardware, ma essi non hanno comportato ne ritardi ne perdite di dati, anche grazie ai \mgls{backup} frequenti e all'utilizzo della \mgls{repository}. \\*
 		\bottomrule
 		\caption{Guasti hardware - Analisi dei rischi}
 	\end{longtable}
@@ -409,9 +416,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
 		\textbf{\FPD{}}: Ci sono stati minori problemi con la gestione delle classi con \mgls{tracy} ma grazie
 			ai frequenti \mgls{backup} preventivi (anche considerando precedenti incidenti) i ritardi sono stati
 			minimi. \newline
-		\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \\* 
+		\textbf{\FC{}}: Non ci sono stati casi di malfunzionamento software. Le librerie utilizzate in questo periodo sono ampiamente utilizzate dalla comunità da anni e raramente contengono \mgls{bug} evidenti. \newline
+		\textbf{\FVV{}}: Tutte le librerie e strumenti sono rimaste le stesse dei periodi precedenti. Come previsto non si sono riscontrati particolari problemi con esse. \\* 
   		\midrule
-	    \textbf{Previsione} & In vista degli eventi passati, sono previsti malfunzionamenti al \mgls{software} utilizzato sia per quanto riguarda le librerie e applicazioni utilizzate dai membri. Per questo motivo è stato aumentato il livello di probabilità da "basso" a "medio". \\*
+	    \textbf{Conclusione} & Il gruppo si è scontrato inizialmente con alcuni problemi software dello strumento di tracciamento \mgls{tracy} il quale ha portato ad un atteggiamento paranoico nei confronti di tutti gli strumenti utilizzati. È stata infatti prevista tutta una serie di backup sistematici per tutto ciò che non veniva già salvato all'interno della repository (come lo stato del server, i database, e altri strumenti utilizzati). In alcuni casi è stato fatto persino un backup della repository per tutte le operazioni con \mgls{git} che non facevano parte del flusso normale. \\*
 		\bottomrule
 		\caption{Malfunzionamenti \mgls{software} - Analisi dei rischi}
 	\end{longtable}
@@ -449,11 +457,12 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
             degni di nota. \newline
         \textbf{\FPD{}}: In questo periodo tutti gli strumenti utilizzati erano già conosciuti dai membri
               	del gruppo e per questo motivo non hanno comportato ritardi. \newline
-             	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \\**
-	  		\midrule
-	    \textbf{Previsione} & Per il periodo di \FA{} è stata prevista l'inesperienza con le tecnologie di base per la comunicazione e collaborazione del gruppo e stesura dei documenti. Per i periodi di \FPA{} e \FPD{} è prevista la necessità di ripassare i diagrammi \mgls{uml} e gli strumenti utilizzati per la progettazione. Per il periodo di \FPDC{} è prevista la necessità di studiare li librerie e i linguaggi che verranno utilizzati per la codifica effettiva del prodotto. Per il periodo di \FVV{} è previsto lo studio degli strumenti atti a verificare la correttezza del prodotto. \\**
+             	\textbf{\FC{}}: I membri del gruppo si sono informati riguardo la maggior parte delle librerie da utilizzare, sviluppando anche un piccolo progetto di prova nei periodi precedenti. Non si sono rilevati per questa ragione particolari ritardi. \newline
+        \textbf{\FVV{}}: Tutti gli strumenti utilizzati erano già conosciuti dai membri del gruppo. \\*
+	  	\midrule
+	    \textbf{Conclusione} & In generale i membri che per primi dovevano scontrarsi con altre tecnologie si sono dedicati, qualche settimana prima, allo studio indiduale delle tecnologie. In alcuni casi alcuni membri del gruppo avevano già le conoscenze necessarie (come nel caso di \mgls{git}) e questo li ha natualmente portati a condividere tali conoscenze. I membri che cedevano un particolare ruolo ad un altro membro, provvedevano ad istruirlo brevemente sulle conoscenze minime necessarie ed eventuali intoppi che loro stessi avevano trovato. \\*
 		\bottomrule
-		\caption{Versionamento del documento}
+		\caption{Inesperienza tecnologica - Analisi dei rischi}
 	\end{longtable}
 \end{center}
 
@@ -487,9 +496,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 la progettazione. L'incorretta analisi di alcuni requisiti ha causato una sovrastima dei tempi
                 e dei costi per questo periodo, che sono quindi risultati notevolmente minori rispetto a quanto
                 pianificato. \newline
-              	\textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \\*
+            \textbf{\FC{}}: I costi e tempi previsti erano stati sovrastimati considerando unicamente i requisiti, ma l'effettivo tempo richiesto per la scrittura del codice è risultato sottostimato, portando involontariamente ad una corretta stima per questo periodo. \newline
+            \textbf{\FVV{}}: In questo periodo, anche grazie alla stesura della maggior parte dei test nel periodo precedente, i requisiti minimi e sono stati consolidati nella prima settimana, permettendoci di lavorare anche su requisiti opzionali per il tempo restante. \\*
         \midrule
-        \textbf{Previsione} & Sono previsti errori di valutazione di tempi e costi che dovranno essere mitigati come descritto in questa sezione. \\*
+        \textbf{Conclusione} & Le stime effettuate inizialmente sono risultate spesso errate. A parte per lo sviluppo e stesura iniziale dei documenti, quasi ogni attività ha richiesto un numero di ore minore o superiore a quanto previsto. Nel caso delle correzioni, in particolar modo, si sono spesso sottovalutati i tempi e le risorse necessarie. Per quanto riguarda la scrittura del codice invece, le ore richieste sono risultate minori. Con l'eccezione del periodo di \FAD{}, le ore previste per ogni periodo sono risultate per lo più corrette e solo la loro distribuzione tra le varie attività è risultata incorretta; questo ha permesso di rimanere all'interno dei costi previsti inizialmente. \\*
 		\bottomrule
 		\caption{Valutazione tempi e costi - Analisi dei rischi}
 	\end{longtable}
@@ -520,9 +530,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 dei ruoli. \newline
             \textbf{\FPA{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
             \textbf{\FPD{}}: Non si sono riscontrati particolari ritardi dovuti alla rotazione dei ruoli. \newline
-            \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \\*
+            \textbf{\FC{}}: La rotazione dei ruoli non ha causato ritardi. \newline
+            \textbf{\FVV{}}: Tutti i ruoli previsti per questo periodo erano già stati impersonati almeno una volta da ogni membro. \\*
         \midrule
-        \textbf{Previsione} & Con l'avanzamento del progetto non c'è motivo di credere che i membri si trovino spiazzati dalla rotazione dei ruoli. Inoltre col tempo i membri stanno imparando le mansioni di ogni ruolo, per cui la probabilità di occorrenza di questo rischio diminuisce in modo lineare con l'avanzamento del progetto. \\*
+        \textbf{Conclusione} & Inialmente la rotazione dei ruoli non ha comportato particolari ritardi. Con l'avanzamento del progetto i membri si sono trovati sempre meno spiazzati dalla rotazione dei ruoli e dall'introduzione di nuovi ruoli; questo ha portato ad una probabilità sempre più bassa che questo rischio si manifestasse. \\*
 		\bottomrule
 		\caption{Rotazione dei ruoli - Analisi dei rischi}
 	\end{longtable}
@@ -559,10 +570,10 @@ Di seguito viene riportata la tabella riassuntiva di tutti i rischi individuati 
                 altri problemi al riguardo. La sovrastima dei requisiti obbligatori ha invece semplificato
                 notevolmente questo periodo. \newline
             \textbf{\FPD{}}: I requisiti sono stati consolidati nei periodi precedenti. \newline
-            \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \\*
+            \textbf{\FC{}}: I requisiti erano stati consolidati nei periodi precedenti e la loro specifica ha dovuto subire minori correzioni in uscita dalla \RP{}. \newline
+            \textbf{\FVV{}}: I requisiti sono risultati per lo più stabili. \\*
         \midrule
-        \textbf{Previsione} & Si prevede che la probabilità che i requisiti vengano compresi in modo errato
-           	diminuisca in modo lineare con l'avanzamento del progetto. \\*
+        \textbf{Conclusione} & Alcuni requisiti erano stati inizialmente rilevati in modo errato. Questo ha portato a notevoli ritardi, in particolar modo nel periodo di \FAD{}. Dopo questo periodo iniziale, i requisiti sono stati chiariti con il proponente e committente e questo ha permesso un'avanzamento sereno del progetto. Nel periodo di \FVV{} il committente ha potuto vedere il prodotto funzionante confermando i requisiti rilevati. \\*
 		\bottomrule
 		\caption{Comprensione errata dei requisiti - Analisi dei rischi}
 	\end{longtable}
