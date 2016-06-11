@@ -72,6 +72,7 @@ $(function () {
                     var tot = 0;
                     this.selectedAnswer.forEach(function (ans) {
                         var found = false;
+                        console.log(self.answers);
                         self.answer.forEach(function (rightAnswer) {
                             if (ans == rightAnswer) {
                                 found = true;
