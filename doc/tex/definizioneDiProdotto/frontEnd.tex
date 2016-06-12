@@ -883,7 +883,7 @@ Questa classe fornisce al client i servizi relativi  alle credenziali d'accesso 
 \subsubsubsection[UserService]{client::model::service::UserService}
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[thick,scale=0.9, every node/.style={transform shape}]
 	\umlclass{client::model::service::UserService} {--http : \$http\\--configuration : Configuration\\--roleService : RoleService}{+UserService(http : Object)\\+get(fullName : String[], userName : String[], next : Function, err : Function) : void\\+getByID(id : String, next : Function, err : Function) : void\\+getMe(next : Function, err : Function) : void\\+signUp(fullName : String, password : String, userName : String, next : Function, err : Function) : void\\+updateInformation(fullName : String, userName : String, next : Function, err : Function) : void\\+updatePassword(newPassword : String, oldPassword : String, next : Function, err : Function) : void\\+modifyRole(user : User, role : Role, next : Function, err : Function) : void\\+delete(user : User, next : Function, err : Function) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::UserService}
@@ -1285,7 +1285,7 @@ Questa classe fornisce al client i servizi necessari alla gestione dei questiona
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::model::service::AnswerService} {--configuration : Configuration\\--http : \$http}{+AnswerService(configuration : Configuration, http : Object)\\+get(next : Function, err : Function, author : String[], question : Question	, questionnaire : Questionnaire) : void\\+new(next : Function, err : Function, questionnaire : Questionnaire, question : Question	, score : double) : void}
+	\umlclass{client::model::service::AnswerService} {--configuration : Configuration\\--http : \$http}{+AnswerService(configuration : Configuration, http : Object)\\+get(next : Function, err : Function, author : String[], question : Question	, \\questionnaire : Questionnaire) : void\\+new(next : Function, err : Function, questionnaire : Questionnaire, \\question : Question	, score : double) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::model::service::AnswerService}
 \end{figure}\begin{description}
@@ -1357,7 +1357,7 @@ controller dell’applicazione e che incapsulano le funzionalità di two-way dat
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::LogIn} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--check : Check\\--userService : UserService\\--cookies : \$cookies\\--error : Error\\--userName : String\\--password : String}{+LogIn(check : Check, cookies : Object, location : Object, userService : UserService, rootScope : Object, scope : Object, sessionService : SessionService)\\+submit() : void\\+checkUserName() : boolean\\+checkPassword() : boolean\\+getError() : Error\\+getUserName() : String\\+getPassword() : String\\+setError(error : Error) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void}
+	\umlclass{client::controller::public::LogIn} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--check : Check\\--userService : UserService\\--cookies : \$cookies\\--error : Error\\--userName : String\\--password : String}{+LogIn(check : Check, cookies : Object, location : Object, userService : UserService, \\rootScope : Object, scope : Object, sessionService : SessionService)\\+submit() : void\\+checkUserName() : boolean\\+checkPassword() : boolean\\+getError() : Error\\+getUserName() : String\\+getPassword() : String\\+setError(error : Error) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::public::LogIn}
 \end{figure}\begin{description}
@@ -1434,7 +1434,7 @@ Viene utilizzata per generare la pagina di autenticazione all’applicazione. Pr
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::SignUp} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--userService : UserService\\--cookies : \$cookies\\--check : Check\\--error	 : Error	\\--userName : String\\--password : String\\--fullName : String\\--repeatPassword : String}{+SignUp(check : Check, cookies : Object, location : Object, scope : Object, rootScope : Object, sessionService : SessionService, userService : UserService)\\+checkPassword() : boolean\\+checkRepeatPassword() : boolean\\+checkUserName() : boolean\\+submit() : void\\+checkFullName() : boolean\\+getError	() : Error	\\+getUserName() : String\\+getPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+setError	(error	 : Error	) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void}
+	\umlclass{client::controller::public::SignUp} {--location : \$location\\--rootScope : \$rootScope\\--scope : \$scope\\--sessionService : SessionService\\--userService : UserService\\--cookies : \$cookies\\--check : Check\\--error	 : Error	\\--userName : String\\--password : String\\--fullName : String\\--repeatPassword : String}{+SignUp(check : Check, cookies : Object, location : Object, scope : Object, rootScope : Object, \\sessionService : SessionService, userService : UserService)\\+checkPassword() : boolean\\+checkRepeatPassword() : boolean\\+checkUserName() : boolean\\+submit() : void\\+checkFullName() : boolean\\+getError	() : Error	\\+getUserName() : String\\+getPassword() : String\\+getFullName() : String\\+getRepeatPassword() : String\\+setError	(error	 : Error	) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setFullName(fullName : String) : void\\+setRepeatPassword(repeatPassword : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::public::SignUp}
 \end{figure}\begin{description}
@@ -1525,7 +1525,7 @@ Deve visualizzare campi per l’inserimento della mail, password, nome e cognome
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::public::Home} {--location : \$location\\--scope : \$scope\\--cookies : \$cookies\\--rootScope : \$rootScope\\--userService : UserService}{+Home(rootScope : Object, cookies : Object, scope : Object, location : Object, userService : UserService)\\+checkLogged() : void\\+urlPath() : void}
+	\umlclass{client::controller::public::Home} {--location : \$location\\--scope : \$scope\\--cookies : \$cookies\\--rootScope : \$rootScope\\--userService : UserService}{+Home(rootScope : Object, cookies : Object, scope : Object, location : Object, \\userService : UserService)\\+checkLogged() : void\\+urlPath() : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::public::Home}
 \end{figure}\begin{description}
@@ -1577,7 +1577,7 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::Questionnaires} {--scope : \$scope\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--questList : Questionnaire[]\\--userService : UserService\\--titleSearch : String\\--tagSearch : String\\--authorSearch : String\\--myOrderBy : String\\--location : \$location}{+Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, tagService : TagService)\\+executeQuestionnaire(questID : integer) : void\\+submit() : void\\+setMyOrderBy(myOrderBy : String) : void\\+setAuthorSearch(authorSearch : String) : void\\+setQuestList(questList : Questionnaire[]) : void\\+setTagSearch(tagSearch : String) : void\\+setTitleSearch(titleSearch : String) : void\\+getAuthorSearch() : String\\+getQuestList() : Questionnaire []\\+getTagSearch() : String\\+getTitleSearch() : String\\+getMyOrderBy() : String}
+	\umlclass{client::controller::student::Questionnaires} {--scope : \$scope\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--questList : Questionnaire[]\\--userService : UserService\\--titleSearch : String\\--tagSearch : String\\--authorSearch : String\\--myOrderBy : String\\--location : \$location}{+Questionnaires(userService : UserService, questionnaireService : QuestionnaireService, \\rootScope : Object, scope : Object, tagService : TagService)\\+executeQuestionnaire(questID : integer) : void\\+submit() : void\\+setMyOrderBy(myOrderBy : String) : void\\+setAuthorSearch(authorSearch : String) : void\\+setQuestList(questList : Questionnaire[]) : void\\+setTagSearch(tagSearch : String) : void\\+setTitleSearch(titleSearch : String) : void\\+getAuthorSearch() : String\\+getQuestList() : Questionnaire []\\+getTagSearch() : String\\+getTitleSearch() : String\\+getMyOrderBy() : String}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::Questionnaires}
 \end{figure}\begin{description}
@@ -1664,7 +1664,7 @@ Si occupa di gestire la ricerca di un questionario e di permettere ad uno studen
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::ExecuteQuestionnaire} {--questionnaireService : QuestionnaireService\\--scope : \$scope\\--questionnaire : CurrentQuestionnaire\\--currentQuestion : ExecuteQuestion\\--util : Util\\--q : \$q\\--answerService : AnswerService}{+ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, rootScope : Object, scope : Object, edit : boolean)\\+getNext() : void\\+getPrevious() : void\\+submit() : void}
+	\umlclass{client::controller::student::ExecuteQuestionnaire} {--questionnaireService : QuestionnaireService\\--scope : \$scope\\--questionnaire : CurrentQuestionnaire\\--currentQuestion : ExecuteQuestion\\--util : Util\\--q : \$q\\--answerService : AnswerService}{+ExecuteQuestionnaire(location : Object, questionnaireService : QuestionnaireService, \\rootScope : Object, scope : Object, edit : boolean)\\+getNext() : void\\+getPrevious() : void\\+submit() : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::ExecuteQuestionnaire}
 \end{figure}\begin{description}
@@ -1723,7 +1723,7 @@ Viene chiamata quando uno studente comincia a rispondere ad un questionario. Lo 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::student::ExecuteQuestion} {--scope : \$scope\\--interpolate : \$interpolate\\--sce : \$sce}{+ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, scope : Object)\\+giveAnswer(option : String) : void\\+setCurrentQuestion(currentQuestion : currentQuesion) : void}
+	\umlclass{client::controller::student::ExecuteQuestion} {--scope : \$scope\\--interpolate : \$interpolate\\--sce : \$sce}{+ExecuteQuestion(currentQuestion : CurrentQuestion, edit : boolean, rootScope : Object, \\scope : Object)\\+giveAnswer(option : String) : void\\+setCurrentQuestion(currentQuestion : currentQuesion) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::student::ExecuteQuestion}
 \end{figure}\begin{description}
@@ -1780,7 +1780,7 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManipulateQuestion} {--question : Question \\--rootScope : \$rootScope\\--questionService : QuestionService\\--scope : \$scope\\--tagService : TagService\\--location : \$location\\--qml : QML\\--error : Error\\--edit : boolean\\--editor : SimpleMDE\\--tagsInput : String\\--tags : Tag []\\--editorBuilder : Editor}{+ManipulateQuestion(question : Question, questionService : QuestionService, scope : Object, rootScope : Object)\\+submit() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEditor() : SimpleMDE\\+getEdit() : boolean\\+getQuestion() : Question \\+getTags() : Tag []\\+getTagsInput() : String\\+setEditor(editor : SimpleMDE) : void\\+setEdit(edit : boolean) : void\\+setQuestion(question : Question ) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
+	\umlclass{client::controller::teacher::ManipulateQuestion} {--question : Question \\--rootScope : \$rootScope\\--questionService : QuestionService\\--scope : \$scope\\--tagService : TagService\\--location : \$location\\--qml : QML\\--error : Error\\--edit : boolean\\--editor : SimpleMDE\\--tagsInput : String\\--tags : Tag []\\--editorBuilder : Editor}{+ManipulateQuestion(question : Question, questionService : QuestionService, scope : Object, \\rootScope : Object)\\+submit() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEditor() : SimpleMDE\\+getEdit() : boolean\\+getQuestion() : Question \\+getTags() : Tag []\\+getTagsInput() : String\\+setEditor(editor : SimpleMDE) : void\\+setEdit(edit : boolean) : void\\+setQuestion(question : Question ) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManipulateQuestion}
 \end{figure}\begin{description}
@@ -1876,7 +1876,7 @@ Viene richiamata quando un docente vuole aggiungere,  modificare o eliminare una
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{client::controller::teacher::ManipulateQuestionnaire} {--questionnaire : Questionnaire\\--questionnaireService : QuestionnaireService\\--rootScope : \$rootScope\\--scope : \$scope\\--edit : boolean\\--location : \$location\\--qml : QML\\--questionService : QuestionService\\--tagService : TagService\\--userService : UserService\\--error : Error\\--onSelect : boolean\\--tagsInput : String\\--tags : Tag []}{+ManipulateQuestionnaire(questionnaireService : QuestionnaireService, questionnaire : Questionnaire, scope : Object, rootScope : Object)\\+addQuestion(question : Question) : void\\+removeQuestion(question : Question) : void\\+submit() : void\\+preview() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEdit() : boolean\\+getOnSelect() : boolean\\+getQuestionnaire() : Questionnaire\\+getTags() : Tag []\\+getTagsInput() : String\\+setEdit(edit : boolean) : void\\+setOnSelect(onSelect : boolean) : void\\+setQuestionnaire(questionnaire : Questionnaire) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
+	\umlclass{client::controller::teacher::ManipulateQuestionnaire} {--questionnaire : Questionnaire\\--questionnaireService : QuestionnaireService\\--rootScope : \$rootScope\\--scope : \$scope\\--edit : boolean\\--location : \$location\\--qml : QML\\--questionService : QuestionService\\--tagService : TagService\\--userService : UserService\\--error : Error\\--onSelect : boolean\\--tagsInput : String\\--tags : Tag []}{+ManipulateQuestionnaire(questionnaireService : QuestionnaireService, questionnaire : Questionnaire, \\scope : Object, rootScope : Object)\\+addQuestion(question : Question) : void\\+removeQuestion(question : Question) : void\\+submit() : void\\+preview() : void\\+getError() : Error\\+setError(error : Error) : void\\+getEdit() : boolean\\+getOnSelect() : boolean\\+getQuestionnaire() : Questionnaire\\+getTags() : Tag []\\+getTagsInput() : String\\+setEdit(edit : boolean) : void\\+setOnSelect(onSelect : boolean) : void\\+setQuestionnaire(questionnaire : Questionnaire) : void\\+setTags(tags : Tag []) : void\\+setTagsInput(tagsInput : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManipulateQuestionnaire}
 \end{figure}\begin{description}
@@ -2211,7 +2211,7 @@ Viene richiamata quando un docente vuole creare un nuova domanda o modificarne o
 \subsubsubsection[ManageQuestionnaires]{client::controller::teacher::ManageQuestionnaires}
 \begin{figure}[H]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[thick,scale=0.9, every node/.style={transform shape}]
 	\umlclass{client::controller::teacher::ManageQuestionnaires} {--scope : \$scope\\--rootScope : \$rootScope\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--location : \$location\\--qml : QML\\--util : Util\\--questionnaires : Questionnaire []}{+ManageQuestionnaires(questionnaireService : QuestionnaireService, scope : Object, rootScope : Object)\\+modify(questionnaire : Questionnaire) : void\\+remove (questionnaire : Questionnaire) : void\\+preview() : String\\+getQuestionnaires() : Questionnaire []\\+setQuestionnaires(questionnaires : Questionnaire []) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - client::controller::teacher::ManageQuestionnaires}
