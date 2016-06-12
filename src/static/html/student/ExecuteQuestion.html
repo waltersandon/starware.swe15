@@ -47,7 +47,7 @@
                     <div ng-repeat="ans in currentQuestion.answers track by $index">
                         <label>
                             <input style="display:inline" type='checkbox' name='Question' ng-model='ris.value[$index]'
-                                   ng-true-value="{{ans.value}}" ng-false-value="false"><span
+                                   ng-true-value="{{ans.value}}" ng-false-value="false" ng-change="changeAnswer()"><span
                                    ng-bind-html="ans.str"></span>
                         </label>
                     </div>

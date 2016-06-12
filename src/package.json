@@ -55,7 +55,8 @@
     "karma-mocha": "^1.0.1",
     "mocha": "^2.4.5",
     "protractor": "^3.3.0",
-    "shelljs": "^0.7.0"
+    "shelljs": "^0.7.0",
+    "simplemde": "^1.11.1"
   },
   "bundleDependencies": [],
   "scripts": {

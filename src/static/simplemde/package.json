@@ -1,0 +1,122 @@
+{
+  "_args": [
+    [
+      "simplemde@^1.10.1",
+      "/Users/igor/starware.swe15/src"
+    ]
+  ],
+  "_from": "simplemde@>=1.10.1 <2.0.0",
+  "_id": "simplemde@1.10.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/simplemde",
+  "_nodeVersion": "0.12.7",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/simplemde-1.10.1.tgz_1458009597966_0.34333048132248223"
+  },
+  "_npmUser": {
+    "email": "support@nextstepwebs.com",
+    "name": "nextstepwebs"
+  },
+  "_npmVersion": "2.11.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "simplemde",
+    "raw": "simplemde@^1.10.1",
+    "rawSpec": "^1.10.1",
+    "scope": null,
+    "spec": ">=1.10.1 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/simplemde/-/simplemde-1.10.1.tgz",
+  "_shasum": "609019888df129e6d2bd6b188840191f05b4af08",
+  "_shrinkwrap": null,
+  "_spec": "simplemde@^1.10.1",
+  "_where": "/Users/igor/starware.swe15/src",
+  "author": {
+    "name": "Wes Cossick",
+    "url": "http://www.WesCossick.com"
+  },
+  "browser": {
+    "spell-checker": "./node_modules/codemirror-spell-checker/src/js/spell-checker.js",
+    "typo": "./node_modules/codemirror-spell-checker/src/js/typo.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "spell-checker": {
+      "depends": [
+        "codemirror:CodeMirror",
+        "typo:Typo"
+      ]
+    },
+    "typo": {
+      "exports": "Typo"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/NextStepWebs/simplemde-markdown-editor/issues"
+  },
+  "company": "Next Step Webs, Inc.",
+  "dependencies": {
+    "codemirror": "github:codemirror/CodeMirror",
+    "codemirror-spell-checker": "github:nextstepwebs/codemirror-spell-checker",
+    "marked": "0.3.5"
+  },
+  "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "browserify-shim": "^3.8.10",
+    "debug": "^2.2.0",
+    "eslint": "*",
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-debug": "^2.1.1",
+    "gulp-eslint": "*",
+    "gulp-header": "*",
+    "gulp-jsbeautifier": "*",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "*",
+    "vinyl-buffer": "*",
+    "vinyl-source-stream": "*"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "609019888df129e6d2bd6b188840191f05b4af08",
+    "tarball": "https://registry.npmjs.org/simplemde/-/simplemde-1.10.1.tgz"
+  },
+  "gitHead": "24ec612c448cafde501b02a9e1f7779ba335628a",
+  "homepage": "https://github.com/NextStepWebs/simplemde-markdown-editor",
+  "keywords": [
+    "editor",
+    "embeddable",
+    "javascript",
+    "markdown",
+    "wysiwyg"
+  ],
+  "license": "MIT",
+  "main": "./src/js/simplemde.js",
+  "maintainers": [
+    {
+      "name": "nextstepwebs",
+      "email": "support@nextstepwebs.com"
+    }
+  ],
+  "name": "simplemde",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NextStepWebs/simplemde-markdown-editor.git"
+  },
+  "scripts": {},
+  "version": "1.10.1"
+}
