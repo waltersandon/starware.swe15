@@ -1,9 +1,7 @@
 describe('controller.admin.UsersList', function() {
 
-    var $location;
     var $rootScope;
     var $scope;
-    var $cookies;
     var controller;
     var users = [
         {
@@ -20,9 +18,15 @@ describe('controller.admin.UsersList', function() {
         },
         {
             id: 'id_user_3',
+            userName: 'giovanni.rossi',
+            fullName: 'Giovanni Rossi',
+            role: 'role_id_3'
+        },
+        {
+            id: 'id_user_4',
             userName: 'giacomo.rossi',
             fullName: 'Giacomo Rossi',
-            role: 'role_id_3'
+            role: 'role_id_4'
         }
     ];
     var roles = [
@@ -55,27 +59,37 @@ describe('controller.admin.UsersList', function() {
             $provide.service("model.service.UserService", UserService);
         });
         inject(function($injector) {
-            $location = $injector.get('$location');
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
-            $cookies = $injector.get('$cookies');
+            $rootScope.me = {
+                id: 'id_user_4',
+                userName: 'giacomo.rossi',
+                fullName: 'Giacomo Rossi',
+                role: {name : 'superadmin'}
+            };
+            $rootScope.roleFilter =["student","teacher"];
+            $scope.userNameSearch = "";
+            $scope.fullNameSearch = "";
             var $controller = $injector.get('$controller');
             controller = $controller('controller.admin.UsersList', {
-                $location: $location,
                 $rootScope: $rootScope,
-                $scope: $scope,
-                $cookies: $cookies
+                $scope: $scope
             });
         });
     });
 
     describe('filterByRole', function() {
 
-        /*it('deve filtrare la lista dei ruoli', function() {
+        it('deve filtrare la lista dei ruoli con utente admin', function() {
             $scope.roles = roles;
-            var result = $scope.filterByRole('admin');
-            expect(result).toBe('role_id_3');
-        });*/
+            var result = $scope.filterByRole(users[0]);
+            expect(result).toBe(true);
+        });
+        it('deve filtrare la lista dei ruoli', function() {
+            $scope.roles = roles;
+            var result = $scope.filterByRole();
+            expect(result).toBe(false);
+        });
 
     });
 

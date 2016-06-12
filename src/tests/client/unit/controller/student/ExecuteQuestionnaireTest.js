@@ -61,18 +61,20 @@ describe('controller.student.ExecuteQuestionnaire', function() {
             };
 			var QuestionService = function() {
 				this.getByID = function(id, success, fail) {
-					if (questions[id]) success(questions[id])
+					if (questions[id]) success(questions[id]);
 					else fail();
 				};
 			};
             var Util = function() {
-                this.confirm = function(m) { return true; }
+                this.confirm = function(m) { return true; };
                 this.alert = function(m) {}
             };
+			
             $provide.service("util.Util", Util);
             $provide.service("model.service.QuestionnaireService", QuestionnaireService);
             $provide.service("model.service.QuestionService", QuestionService);
-        });
+
+		});
     });
 
     describe('getNext', function () {
