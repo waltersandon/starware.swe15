@@ -26,19 +26,7 @@ describe('util.QML', function() {
             QMLModule = $injector.get('util.QML');
         });
     });
-    describe('preview', function () {
-        it('visualizza preview body  ', function () {
-            var risposta = QMLModule.preview(questions[0].body);
-           // expect(risposta).toBeDefined();
-            //expect(risposta).toEqual("<p>Testo domanda\n Seconda linea</p>");
-        });
-        it('visualizza preview body  ', function () {
-            var risposta = QMLModule.preview("");
-           // expect(risposta).toBeDefined();
-           // expect(risposta).toEqual("");
-        });
-
-    });
+    
     describe('parse', function () {
         it('esegue parse della domanda TF F', function () {
             var risposta = QMLModule.parse(questions[0].body);

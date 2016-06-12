@@ -1,8 +1,6 @@
 describe('model.data.CurrentQuestionnaire', function() {
     var CurrentQuestionnaire;
-    var q;
     var CurrentQuestionMock;
-    var currentQuest;
     var answerMock;
     var questionnaires = [
         {
@@ -27,17 +25,7 @@ describe('model.data.CurrentQuestionnaire', function() {
             title: "Questionario Test"
         }
     ];
-    var author = {
-        id: 'id_author_1',
-        userName: 'mario.rossi',
-        fullName: 'Mario Rossi',
-        role: 'role_id_1'
-    };
-    var testTags = [{
-        id: 'id_tag_1',
-        name: 'Matematica',
-        description: 'Descrizione matematica'
-    }];
+
     var questions = [
         {
             id: 'id_question_1',
@@ -58,11 +46,7 @@ describe('model.data.CurrentQuestionnaire', function() {
             tags: ['id_tag_1']
         }
     ];
-    var answer = {
-        question: "",
-        questionnaire: "",
-        score: NaN
-    };
+    
     var score = [
         {
             _id: "test_score_1",
@@ -108,12 +92,13 @@ describe('model.data.CurrentQuestionnaire', function() {
             };
             var AnswerService = function () {
                 this.get = function(questionnaire, question,author, next, err) {
-                    questionnaire == 'id_questionnaire_1' ? next(score) : next([answer]);
+                    questionnaire == 'id_questionnaire_1' ? next(score) : next([]);
 
 
                 };
                 this.new = function (questionnaire, question, score, next, err) {
-                    console.log("mi anwser hanno chiamato new");
+                    expect(score).toEqual(1);
+                    next();
                 }
             };
 
@@ -127,14 +112,13 @@ describe('model.data.CurrentQuestionnaire', function() {
             CurrentQuestionnaire = $injector.get('model.data.CurrentQuestionnaire');
             CurrentQuestionMock = $injector.get('CurrentQuestionModule');
             answerMock = $injector.get('model.service.AnswerService');
-            q = $injector.get('$q');
 
 
         });
 
 
     });
-    describe('Controllo statistiche ', function () {
+    describe('Controllo statistiche test getResult ', function () {
         it('Deve visualizzare le statistiche', function () {
             var currentQuest = new CurrentQuestionnaire(questionnaires[0]);
 
@@ -146,7 +130,6 @@ describe('model.data.CurrentQuestionnaire', function() {
 
             currentQuest.getResult(function (res) {
                 expect(res).toBeDefined();
-                console.log("Mamma mia");
             });
 
             currentQuest.questions.forEach(function (item) {
@@ -155,9 +138,7 @@ describe('model.data.CurrentQuestionnaire', function() {
             });
 
         });
-        it('Deve mandare al server nuovi scores', function () {
-            //TODO
-        });
+
         it('Deve gestire caso del scores al nuovo questionario', function () {
             var currentQuest = new CurrentQuestionnaire(questionnaires[1]);
 
@@ -177,6 +158,25 @@ describe('model.data.CurrentQuestionnaire', function() {
             });
         });
 
+    });
+    describe('Controllo getCurrentQuestions ', function () {
+        it('Deve ritornare la liste delle currentQuestions', function () {
+            var currentQuest = new CurrentQuestionnaire(questionnaires[0]);
+            currentQuest.questions = [];
+            var res = currentQuest.getCurrentQuestions();
+            expect(res).toBeDefined();
+        });
+    });
+    describe('Controllo checkAnswers ', function () {
+        it('Deve ritornare la liste delle currentQuestions', function () {
+            var currentQuest = new CurrentQuestionnaire(questionnaires[0]);
+            currentQuest.questions = [];
+            currentQuest.questions.push(new  CurrentQuestionMock(questions[0]));
+            currentQuest.questions.push(new  CurrentQuestionMock(questions[1]));
+
+            var res = currentQuest.checkAnswers();
+            expect(res).toBe(true);
+        });
     });
 
 
