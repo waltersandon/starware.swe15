@@ -8,7 +8,7 @@ describe('controller.teacher.ManipulateQuestion', function() {
 
     var questionInput = {
         body: 'Testo domanda\nSeconda linea(+)',
-        tags: 'tag1, tag2'
+        tags: 'tag1, tag3'
     };
 
     var question = {
@@ -17,7 +17,7 @@ describe('controller.teacher.ManipulateQuestion', function() {
         author: 'id_author_1',
         tags: [ 
             'id_tag1',
-            'id_tag2'
+            'id_tag3'
         ]
     };
 
@@ -84,9 +84,21 @@ describe('controller.teacher.ManipulateQuestion', function() {
                     return new EditorInner();
                 };
             };
+            var QML = function() {
+                this.parse = function(status) {
+                    return {status: true};
+                };
+            };
+            var Util = function() {
+                this.confirm = function(alert) {
+                    return alert === 'Vuoi annullare le modifiche della domanda corrente?' ? true: false;
+                };
+            };
             $provide.service("model.service.TagService", TagService);
             $provide.service("model.service.QuestionService", QuestionService);
             $provide.service('util.Editor', Editor);
+            $provide.service('util.QML', QML);
+            $provide.service('util.Util', Util);
         });
     });
 
@@ -125,9 +137,10 @@ describe('controller.teacher.ManipulateQuestion', function() {
             $scope.tagsInput = questionInput.tags;
 
             $scope.submit();
-           /* expect($scope.question.body).toBe(question.body);
+            $scope.$apply();
+            expect($scope.question.body).toBe(question.body);
             expect($scope.question.tags[0]).toBe(question.tags[0]);
-            expect($scope.question.tags[1]).toBe(question.tags[1]);*/
+            expect($scope.question.tags[1]).toBe(question.tags[1]);
         });
 
     });
@@ -160,7 +173,7 @@ describe('controller.teacher.ManipulateQuestion', function() {
             });
         });
 
-        it('deve permettere la creazione di una domanda', function () {
+        it('deve permettere la modifica di una domanda', function () {
             expect($scope.edit).toBe(true);
 
             $scope.editor.value(questionInput.body);
@@ -172,6 +185,17 @@ describe('controller.teacher.ManipulateQuestion', function() {
             expect($scope.question.tags[1]).toBe(question.tags[1]);
         });
 
+    });
+    describe("test cancel ", function () {
+        it("deve creare un allert di conferma", function () {
+            $scope.cancel();
+            $scope.$apply();
+            expect($rootScope.urlPath()[0]).toEqual('');
+            expect($rootScope.urlPath()[1]).toEqual('teacher');
+            expect($rootScope.urlPath()[2]).toEqual('questions');
+
+        })
+        
     });
 
 });

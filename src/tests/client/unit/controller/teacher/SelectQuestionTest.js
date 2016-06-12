@@ -47,13 +47,13 @@ describe('controller.teacher.SelectQuestion', function() {
         module('app.App', function ($provide) {
             var QuestionService = function () {
                 this.get = function(author, keywords, tags, success, fail) {
-                    return author[0] === 'id_author_1' ? success(questions) : fail();
+                    return  success(questions);
                 };
             };
             var TagService = function () {
                 this.get = function(keywords, success, fail) {
-                    return keywords[0] === 'matematica' ?
-                        success([testTag]) : fail();
+                    return keywords[0] === 'pippo' ?
+                          fail():success([testTag]);
                 };
                 this.getByID = function(id, success, fail) {
                     return id === 'id_tag_1' ?
@@ -63,7 +63,7 @@ describe('controller.teacher.SelectQuestion', function() {
             var UserService = function () {
                 this.get = function(fullName, userName,success, fail) {
                     return fullName[0] === 'Mario Rossi'?
-                        success([author]) : fail();
+                        success([author]) : fullName[0] === 'fail'?fail([]):success([]);
                 };
                 this.getByID = function(id,success, fail) {
                     return id === 'id_author_1'? success(author) : fail();
@@ -99,9 +99,31 @@ describe('controller.teacher.SelectQuestion', function() {
     describe('submit', function () {
 
 
-        it('deve inizializzare la lista con delle domande', function () {
-            $scope.authorSearch = 'Mario Rossi';
+        it('deve inizializzare la lista con delle domande usando tutti i campi per filtraggio', function () {
+            $scope.authorSearch = 'Mario Rossi, ';
             $scope.tagSearch = 'matematica';
+            $scope.submit();
+            $scope.$apply();
+            expect($scope.questions.length).toBe(3);
+            expect($scope.questions[0].id).toBe('id_question_1');
+            expect($scope.questions[1].id).toBe('id_question_2');
+            expect($scope.questions[2].id).toBe('id_question_3');
+        });
+        it('deve non inizializzare la lista con delle domande usando argomento che non esiste', function () {
+            $scope.authorSearch = 'Mario,Rossi';
+            $scope.tagSearch = 'pippo';
+            $scope.submit();
+            $scope.$apply();
+            expect($scope.questions).toBeUndefined();
+        });
+        it('deve non  inizializzare la lista con delle domande usando autore che non esiste', function () {
+            $scope.authorSearch = 'fail';
+            $scope.tagSearch = 'pippo';
+            $scope.submit();
+            $scope.$apply();
+            expect($scope.questions).toBeUndefined();
+        });
+        it('deve inizializzare la lista con tutte le domande', function () {
             $scope.submit();
             $scope.$apply();
             expect($scope.questions.length).toBe(3);
