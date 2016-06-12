@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{3.0.2}
+\newcommand{\versione}{3.0.4}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -64,7 +64,11 @@
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
-		3.0.2 & \TP{} & 2016-06-14 & Aggiunti riscontri rischi \\*
+		3.0.4 & \TP{} & 2016-06-14 & Aggiunto consuntivo finale \\*
+		\midrule
+		3.0.3 & \TP{} & 2016-06-13 & Aggiunto consuntivo di periodo \\*
+		\midrule
+		3.0.2 & \TP{} & 2016-06-13 & Aggiunti riscontri rischi \\*
 		\midrule
 		3.0.1 & \TP{} & 2016-05-27 & Cambiato "Analisi delle tendenze" in "Consuntivo di periodo" come da correzione \\*
 		\midrule
@@ -2169,6 +2173,159 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 \par Il costo totale dell'applicazione si è alzato leggermente rimanendo comunque inferiore a quanto preventivato inizialmente e attualmente è di \euro{}14 190.00(-113.00).
 
 \newpage
+
+\subsection{Validazione}
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+\toprule
+\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} 	& \textbf{Pg} 	& \textbf{Pr} 	& \textbf{Ve} 	& \textbf{Totale}\\
+\midrule
+\midrule
+\IB{} 			& 				& 2(-6)			& 				& 				& 6(+6)			& 8(-2) 		& 16(-2) \\
+\midrule
+\AB{} 			& 				& 3(-3)			& 				& 				& 11(+2)		& 6(+3)			& 20(+2) \\
+\midrule
+\NDC{} 			& 				& 4(-2)			& 				& 8(+2)			& 				& 5(-1)			& 17(-1) \\
+\midrule
+\TP{} 			& 3(-1)			& 				& 				& 				& 3(+3)			& 11(-3)		& 17(-1) \\
+\midrule
+\WS{} 			& 1(-1)			& 				& 2(+2)			& 9(+2)			& 7(+7)			& 8(-1)			& 27(+9) \\
+\midrule
+\AVE{} 			& 1(-1)			& 				& 3(+3)			& 7(-1)			& 2(+2)			& 7(-1)			& 20(+2) \\
+\midrule
+\AVI{} 			& 4(-4)			& 				& 				& 				& 13(+4)		& 4(+3)			& 21(+3) \\
+\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - \FVV{}}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule	
+			\RE{} & 9(-7) 	& 30 & 270.00(-210.00) \\ \midrule
+			\AM{} & 9(-11)	& 20 & 180.00(-220.00) \\ \midrule
+			\AN{} & 5(+5)	& 25 & 125.00(+125.00) \\ \midrule
+			\PG{} & 24(+3)	& 22 & 528.00(+66.00) \\ \midrule
+			\PR{} & 42(+24)	& 15 & 630.00(+360.00) \\ \midrule
+			\VR{} & 49(-2)	& 15 & 735.00(-30.00) \\ \midrule
+			\textbf{Totale effettivo} & \textbf{138} &  & \textbf{2 468.00} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{126} &  & \textbf{2 377.00} \\ \midrule
+			\textbf{Differenza} & \textbf{+12} &  & \textbf{+91.00} \\ \midrule			
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - \FVV{}}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreValidazioneConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - \FVV{}}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+
+\par Nel complesso si sono osservate un minor numero di ore per la verifica e per la stesura dei test grazie al fatto che nel periodo precedente si sono potuti scrivere una buona parte dei test necessari. Sono invece state richieste un maggior numero di ore per la programmazione e la progettazione (e relativi test) dei requisiti opzionali.
+
+\par Il totale delle ore ha portato ad un incremento di \euro{}91.00 che sommato ai consuntivi precedenti porta il costo totale del progetto ad una riduzione di \euro{}22.00. \\
+
+\subsubsection{Consuntivo di periodo}
+
+\par La discesa in costo evidenziata dopo il periodo di \FAD{} si è decisamente fermata, facendo spazio ad un leggero rialzo delle ore e risorse impiegate. 
+
+\par Grazie alla riduzione dei costi passata, è stato però possibile impiegare più risorse in questo periodo e dedicarsi a buona parte dei requisiti opzionali.
+
+\subsubsection{Preventivo a finire}
+
+\par Il costo totale dell'applicazione risulta di \euro{}14 281.00(-22.00), rimanendo all'interno del \textit{budget} preventivato.
+
+\newpage
+
+\subsection{Totale}
+
+Verrà mostrato il prospetto economico delle spese che effettivamente sono state sostenute rispetto alle ore preventivate, per tutta la durata del progetto.
+
+\subsubsection{Rotazione dei Ruoli}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste per ogni membro del gruppo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r r r r r r r}
+\toprule
+\textbf{Membro}	&	\textbf{Re}	&	\textbf{Am}	& \textbf{An} 	& \textbf{Pg} 	& \textbf{Pr} 	& \textbf{Ve} 	& \textbf{Totale}\\
+\midrule
+\midrule
+\IB{} 			& 5(-1)			& 4(-6)			& 18(+5)		& 26(-2)		& 17(+3)		& 35(+1)		& 105(0) \\
+\midrule
+\AB{} 			& 4(0)			& 9(-3)			& 14(+3)		& 26(-2)		& 21(-2)		& 31(+4)		& 105(0) \\
+\midrule
+\NDC{} 			& 8(+2)			& 11(-2)		& 11(+3)		& 37(+2)		& 13(-1)		& 25(-4)		& 105(0) \\
+\midrule
+\TP{} 			& 13(+5)		& 12(-2)		& 19(0)			& 17(-6)		& 15(+1)		& 29(+2)		& 105(0) \\
+\midrule
+\WS{} 			& 3(-2)			& 13(0)			& 12(-1)		& 28(-2)		& 17(+4)		& 32(-1)		& 105(0) \\
+\midrule
+\AVE{} 			& 6(+1)			& 7(0)			& 14(-3)		& 33(-3)		& 13(0)			& 32(-1)		& 105(0) \\
+\midrule
+\AVI{} 			& 4(-4)			& 4(0)			& 8(-1)			& 26(-3)		& 27(+5)		& 36(+3)		& 105(0) \\
+\bottomrule
+		\end{tabular}
+		\caption{Rotazione dei ruoli effettive - Totale}
+	\end{center}
+\end{table}
+
+\subsubsection{Prospetto economico}
+Nella tabella seguente sono riportate le differenze tra le ore di lavoro previste ed il loro costo per ogni ruolo con quelle realmente impiegate.
+
+\begin{table}[H]
+	\begin{center}
+		\begin{tabular}{l r c r}
+			\toprule
+			\textbf{Ruolo}	& \textbf{Ore} & \textbf{Costo (\euro/ora)}	& \textbf{Costo (\euro)} \\ \midrule
+			\midrule	
+			\RE{} & 43(+1) 		& 30 & 1 290.00(+30.00) \\ \midrule
+			\AM{} & 60(-13)		& 20 & 1 200.00(-260.00) \\ \midrule
+			\AN{} & 96(+14)		& 25 & 2 400.00(+350.00) \\ \midrule
+			\PG{} & 193(-16)	& 22 & 4 246.00(-352.00) \\ \midrule
+			\PR{} & 123(+10)	& 15 & 1 845.00(+150.00) \\ \midrule
+			\VR{} & 220(+4)		& 15 & 3 300.00(+60.00) \\ \midrule
+			\textbf{Totale effettivo} & \textbf{735} &  & \textbf{14 281.00} \\ \midrule
+			\textbf{Totale preventivo} & \textbf{735} &  & \textbf{14 303.00} \\ \midrule
+			\textbf{Differenza} & \textbf{0} &  & \textbf{-22.00} \\ \midrule			
+			\bottomrule
+		\end{tabular}
+		\caption{Ripartizione oraria dei ruoli effettivi - Totale}
+	\end{center}
+\end{table}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{../img/diagrammaBarreTotaleConsuntivo.png}
+		\caption{Diagramma della ripartizione oraria dei ruoli effettiva - Totale}
+	\end{figure}
+\end{center}
+
+\subsubsection{Conclusioni}
+
+\par Il numero delle ore è pressochè rimasto invariato, mentre la distribuzione di tali ore tra i vari ruoli ha subito molte variazioni. I ruoli di \AN{}, \PR{} e \VR{} hanno richiesto più risorse, mentre i ruoli di \AM{} e \PG{} hanno richiesto meno ore effettive, tutto sommato portando ad una riduzione dei costi. \\
+
+\par Sono state impiegate in media 105 ore a testa per ogni membro del gruppo, risultando in 735 ore totali. Il costo totale del progetto è di \euro{}14 281.00 con un risparmio di \euro{}22.00 rispetto a quanto preventivato. \\
 
 \appendix
 \section{Organigramma}

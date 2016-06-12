@@ -15,7 +15,7 @@ Package che ha il compito di fornire i parametri di configurazione e avviare il 
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::app::App} {+app : Express\\--config : Configuration}{+App(config : Configuration)\\+start() : void\\+config() : Express\\+getApp() : Express\\+setApp(app : Express) : void}
+	\umlclass{server::app::App} {--app : Express\\--config : Configuration}{+App(config : Configuration)\\+start() : void\\+config() : Express\\+getApp() : Express\\+setApp(app : Express) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::app::App}
 \end{figure}\begin{description}
@@ -46,8 +46,8 @@ Viene utilizzata per avviare il server dell'applicazione
 	
 	\item start() : void $\rightarrow$ metodo che avvia il server. Non ritorna il controllo fino a che il server è in funzione
 	\item config() : Express $\rightarrow$ metodo che configura i parametri del server sulla base dell'oggetto di configurazione
-	\item getApp() : Express $\rightarrow$ metodo getter
-	\item setApp(app : Express) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getApp() : Express $\rightarrow$ metodo che restituisce il valore del campo dati app
+	\item setApp(app : Express) : void $\rightarrow$ metodo che cambia il valore del campo dati app\begin{itemize}
 		\item app $\rightarrow$ campo dati che rappresenta l'applicazione Express
 	\end{itemize}
 	
@@ -61,7 +61,7 @@ Viene utilizzata per avviare il server dell'applicazione
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::app::Configuration} {+environment : String\\+serverHost : String\\+serverPort : Number\\+serverStaticPath : String\\+dbHost : String\\+dbName : String\\+dbUser : String\\+dbPassword : String\\+dbUri : String\\+dbPort : number}{+getEnvironment() : String\\+getServerHost() : String\\+getServerPort() : Number\\+getServerStaticPath() : String\\+getDbHost() : String\\+getDbName() : String\\+getDbUser() : String\\+getDbPassword() : String\\+getDbUri() : String\\+getDbPort() : number\\+setEnvironment(environment : String) : void\\+setServerHost(serverHost : String) : void\\+setServerPort(serverPort : Number) : void\\+setServerStaticPath(serverStaticPath : String) : void\\+setDbHost(dbHost : String) : void\\+setDbName(dbName : String) : void\\+setDbUser(dbUser : String) : void\\+setDbPassword(dbPassword : String) : void\\+setDbUri(dbUri : String) : void\\+setDbPort(dbPort : number) : void}
+	\umlclass{server::app::Configuration} {--environment : String\\--serverHost : String\\--serverPort : Number\\--serverStaticPath : String\\--dbHost : String\\--dbName : String\\--dbUser : String\\--dbPassword : String\\--dbUri : String\\--dbPort : number}{+getEnvironment() : String\\+getServerHost() : String\\+getServerPort() : Number\\+getServerStaticPath() : String\\+getDbHost() : String\\+getDbName() : String\\+getDbUser() : String\\+getDbPassword() : String\\+getDbUri() : String\\+getDbPort() : number\\+setEnvironment(environment : String) : void\\+setServerHost(serverHost : String) : void\\+setServerPort(serverPort : Number) : void\\+setServerStaticPath(serverStaticPath : String) : void\\+setDbHost(dbHost : String) : void\\+setDbName(dbName : String) : void\\+setDbUser(dbUser : String) : void\\+setDbPassword(dbPassword : String) : void\\+setDbUri(dbUri : String) : void\\+setDbPort(dbPort : number) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::app::Configuration}
 \end{figure}\begin{description}
@@ -94,53 +94,53 @@ Viene utilizzata per definire le configurazioni dell'applicazione, passando un o
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item getEnvironment() : String $\rightarrow$ metodo getter
-	\item getServerHost() : String $\rightarrow$ metodo getter
-	\item getServerPort() : Number $\rightarrow$ metodo getter
-	\item getServerStaticPath() : String $\rightarrow$ metodo getter
-	\item getDbHost() : String $\rightarrow$ metodo getter
-	\item getDbName() : String $\rightarrow$ metodo getter
-	\item getDbUser() : String $\rightarrow$ metodo getter
-	\item getDbPassword() : String $\rightarrow$ metodo getter
-	\item getDbUri() : String $\rightarrow$ metodo getter
-	\item getDbPort() : number $\rightarrow$ metodo getter
-	\item setEnvironment(environment : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getEnvironment() : String $\rightarrow$ metodo che restituisce il valore del campo dati environment
+	\item getServerHost() : String $\rightarrow$ metodo che restituisce il valore del campo dati serverHost
+	\item getServerPort() : Number $\rightarrow$ metodo che restituisce il valore del campo dati serverPort
+	\item getServerStaticPath() : String $\rightarrow$ metodo che restituisce il valore del campo dati serverStaticPath
+	\item getDbHost() : String $\rightarrow$ metodo che restituisce il valore del campo dati dbHost
+	\item getDbName() : String $\rightarrow$ metodo che restituisce il valore del campo dati dbName
+	\item getDbUser() : String $\rightarrow$ metodo che restituisce il valore del campo dati dbUser
+	\item getDbPassword() : String $\rightarrow$ metodo che restituisce il valore del campo dati dbPassword
+	\item getDbUri() : String $\rightarrow$ metodo che restituisce il valore del campo dati dbUri
+	\item getDbPort() : number $\rightarrow$ metodo che restituisce il valore del campo dati dbPort
+	\item setEnvironment(environment : String) : void $\rightarrow$ metodo che cambia il valore del campo dati environment\begin{itemize}
 		\item environment $\rightarrow$ variabile d'ambiente che informa se l'applicazione deve essere eseguita in modalità development o production
 	\end{itemize}
 	
-	\item setServerHost(serverHost : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setServerHost(serverHost : String) : void $\rightarrow$ metodo che cambia il valore del campo dati serverHost\begin{itemize}
 		\item serverHost $\rightarrow$ campo dati che identifica l'Indirizzo IP dell'host
 	\end{itemize}
 	
-	\item setServerPort(serverPort : Number) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setServerPort(serverPort : Number) : void $\rightarrow$ metodo che cambia il valore del campo dati serverPort\begin{itemize}
 		\item serverPort $\rightarrow$ campo dati che identifica la porta su cui il server deve mettersi in ascolto
 	\end{itemize}
 	
-	\item setServerStaticPath(serverStaticPath : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setServerStaticPath(serverStaticPath : String) : void $\rightarrow$ metodo che cambia il valore del campo dati serverStaticPath\begin{itemize}
 		\item serverStaticPath $\rightarrow$ campo dati che identifica il percorso della cartella che il server utilizza per fornire file statici
 	\end{itemize}
 	
-	\item setDbHost(dbHost : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbHost(dbHost : String) : void $\rightarrow$ metodo che cambia il valore del campo dati dbHost\begin{itemize}
 		\item dbHost $\rightarrow$ campo dati che identifica l'host del database
 	\end{itemize}
 	
-	\item setDbName(dbName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbName(dbName : String) : void $\rightarrow$ metodo che cambia il valore del campo dati dbName\begin{itemize}
 		\item dbName $\rightarrow$ campo dati che identifica il nome del database dell'applicazione
 	\end{itemize}
 	
-	\item setDbUser(dbUser : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbUser(dbUser : String) : void $\rightarrow$ metodo che cambia il valore del campo dati dbUser\begin{itemize}
 		\item dbUser $\rightarrow$ campo dati che identifica l'Username per connettersi al database
 	\end{itemize}
 	
-	\item setDbPassword(dbPassword : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbPassword(dbPassword : String) : void $\rightarrow$ metodo che cambia il valore del campo dati dbPassword\begin{itemize}
 		\item dbPassword $\rightarrow$ campo dati che identifica la password per connettersi al database
 	\end{itemize}
 	
-	\item setDbUri(dbUri : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbUri(dbUri : String) : void $\rightarrow$ metodo che cambia il valore del campo dati dbUri\begin{itemize}
 		\item dbUri $\rightarrow$ campo dati che identifica l'Uri di connessione al database
 	\end{itemize}
 	
-	\item setDbPort(dbPort : number) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDbPort(dbPort : number) : void $\rightarrow$ metodo che cambia il valore del campo dati dbPort\begin{itemize}
 		\item dbPort $\rightarrow$ campo dati che identifica la porta su cui il server di mongodb deve mettersi in ascolto
 	\end{itemize}
 	
@@ -152,7 +152,7 @@ Viene utilizzata per definire le configurazioni dell'applicazione, passando un o
 \subsection{server::express}
 Express è un framework minimale, basato sul design pattern architetturale MVC per creare applicazioni web con Node.js. Express offre funzionalità che semplificano e aumentano le potenzialità di Node.js, fornendo una migliore implementazione del sistema di routing, incrementando
 le funzioni di richiesta e risposta estendendole per una maggior flessibilità, integrando nuovi middleware, ed agevolando la realizzazione delle viste.
-Express non limita l'utente nella scelta del linguaggio di templating, lo aiuta a gestire le route, le request e le view\begin{center}
+Express non limita l’utente nella scelta del linguaggio di templating, lo aiuta a gestire le route, le request e le view\begin{center}
 	\begin{figure}[H]
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/server/expressApp.png}
 		\caption{Diagramma package - server::express}
@@ -168,14 +168,14 @@ Package che si occupa di ricevere richieste, richiamare il servizio adatto e res
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::middleware::Router} {--router : express.Router\\--sessionService : SessionService\\--userService : UserService\\--questionService : QuestionService\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--roleService : RoleService}{+Router(auth : Authorization, error : ErrorHandler)}
+	\umlclass{server::middleware::Router} {--router : express.Router\\--sessionService : SessionService\\--userService : UserService\\--questionService : QuestionService\\--questionnaireService : QuestionnaireService\\--tagService : TagService\\--roleService : RoleService\\--answerService : AnswerService}{+Router(auth : Authorization, error : ErrorHandler)}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::middleware::Router}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
 Classe che si occupa di instradare le richieste verso le relative richieste
 \item[Utilizzo] \hfill \\
-Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l'opportuno servizio
+Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l’opportuno servizio
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -193,6 +193,8 @@ Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l'op
 	Relazione uscente, campo dati che rappresenta un oggetto RoleService
 	\item[\hyperlink{server::middleware::Loader}{server::middleware::Loader}] \hfill \\
 	Relazione entrante, campo dati che rappresenta un riferimento al Middleware Router per gestire il reindirizzamento delle richieste
+	\item[\hyperlink{server::service::AnswerService}{server::service::AnswerService}] \hfill \\
+	Relazione uscente, campo dati che rappresenta un oggetto Answer Service
 \end{description}
 
 \item[Attributi] \hfill \\
@@ -205,6 +207,7 @@ Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l'op
 	\item questionnaireService : QuestionnaireService $\rightarrow$ campo dati che rappresenta un oggetto QuestionnaireService
 	\item tagService : TagService $\rightarrow$ campo dati che rappresenta un oggetto TagService
 	\item roleService : RoleService $\rightarrow$ campo dati che rappresenta un oggetto RoleService
+	\item answerService : AnswerService $\rightarrow$ campo dati che rappresenta un oggetto Answer Service
 \end{itemize}
 
 \item[Metodi] \hfill \\
@@ -230,7 +233,7 @@ Si occupa di smistare la richiesta in base all’URI ricevuto e ad invocare l'op
 	\caption{Diagramma classe - server::middleware::Authorization}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa dell'autorizzazione delle richieste
+Classe che si occupa dell’autorizzazione delle richieste
 \item[Utilizzo] \hfill \\
 Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Relazioni con altre classi] \hfill \\
@@ -243,7 +246,7 @@ Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item requireRole(name : String) : Function $\rightarrow$ metodo che verifica che l'utente autenticato sia almeno di ruolo specificato, richiamando il successivo middleware in caso affermativo, rispondendo con un errore altrimenti\begin{itemize}
+	\item requireRole(name : String) : Function $\rightarrow$ metodo che verifica che l’utente autenticato sia almeno di ruolo specificato, richiamando il successivo middleware in caso affermativo, rispondendo con un errore altrimenti\begin{itemize}
 		\item name $\rightarrow$ il nome del ruolo minimo richiesto
 	\end{itemize}
 	
@@ -265,7 +268,7 @@ Viene utilizzata per verificare i permessi dell'utente per ogni richiesta
 \item[Descrizione] \hfill \\
 Classe utilizzata per istanziare tutti i middleware dell'applicazione
 \item[Utilizzo] \hfill \\
-Viene utilizzato per istanziare in modo nascosto all'applicazione tutti i middleware presenti nel componente server::middleware
+Viene utilizzato per istanziare in modo nascosto all’applicazione tutti i middleware presenti nel componente server::middleware
 \item[Relazioni con altre classi] \hfill \\
 \vspace{-7mm}
 \begin{description}
@@ -323,7 +326,7 @@ Questo middleware viene utilizzato per ultimo nella catena di gestione delle ric
 	\item handler(req : Request, res : Response, next : Function, err : Error) : void $\rightarrow$ metodo che gestisce l'errore generato dalla richiesta e da la relativa risposta con il codice dell'errore al client\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire	
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione	
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione	
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione	
 		\item err $\rightarrow$ questo parametro rappresenta l'oggetto  dell'errore
 	\end{itemize}
 	
@@ -344,7 +347,7 @@ Package contenente le componenti che gestiscono i dati utilizzati dall'applicazi
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::data::Tag} {+name : String\\+description : String}{+getName() : String\\+getDescription() : String\\+setName(name : String) : void\\+setDescription(description : String) : void}
+	\umlclass{server::data::Tag} {--name : String\\--description : String}{+getName() : String\\+getDescription() : String\\+setName(name : String) : void\\+setDescription(description : String) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::data::Tag}
 \end{figure}\begin{description}
@@ -369,13 +372,13 @@ Classe che rappresenta una String contenente l'argomento da assegnare alle doman
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item getName() : String $\rightarrow$ metodo getter
-	\item getDescription() : String $\rightarrow$ metodo getter
-	\item setName(name : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getName() : String $\rightarrow$ restituisce il nome identificativo dell'argomento
+	\item getDescription() : String $\rightarrow$ restituisce la descrizione dell'argomento
+	\item setName(name : String) : void $\rightarrow$ modifica il nome identificativo dell'argomento\begin{itemize}
 		\item name $\rightarrow$ campo dati contenente le parole dell'argomento separate da '-'
 	\end{itemize}
 	
-	\item setDescription(description : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setDescription(description : String) : void $\rightarrow$ imposta la descrizione dell'argomento\begin{itemize}
 		\item description $\rightarrow$ campo dati che rappresenta una breve descrizione dell'attributo
 	\end{itemize}
 	
@@ -389,7 +392,7 @@ Classe che rappresenta una String contenente l'argomento da assegnare alle doman
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::data::Questionnaire} {+title : String\\+tags : Tag []\\+author : User\\+questions : Question []}{+getTitle() : String\\+getTags() : Tag []\\+getAuthor() : User\\+getQuestions() : Question []\\+setTitle(title : String) : void\\+setTags(tags : Tag []) : void\\+setAuthor(author : User) : void\\+setQuestions(questions : Question []) : void}
+	\umlclass{server::data::Questionnaire} {--title : String\\--tags : Tag []\\--author : User\\--questions : Question []}{+getTitle() : String\\+getTags() : Tag []\\+getAuthor() : User\\+getQuestions() : Question []\\+setTitle(title : String) : void\\+setTags(tags : Tag []) : void\\+setQuestions(questions : Question []) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::data::Questionnaire}
 \end{figure}\begin{description}
@@ -404,6 +407,8 @@ Classe che rappresenta un questionario
 	Relazione uscente, campo dati che rappresenta l'insieme di riferimenti agli argomenti associati al questionario
 	\item[\hyperlink{server::data::User}{server::data::User}] \hfill \\
 	Relazione uscente, campo dati che rappresenta il riferimento all'autore del questionario
+	\item[\hyperlink{server::data::Answer}{server::data::Answer}] \hfill \\
+	Relazione entrante, campo dati che rappresenta il questionario della domanda a cui la risposta fa riferimento
 \end{description}
 
 \item[Attributi] \hfill \\
@@ -418,23 +423,19 @@ Classe che rappresenta un questionario
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item getTitle() : String $\rightarrow$ metodo getter
-	\item getTags() : Tag [] $\rightarrow$ metodo getter
-	\item getAuthor() : User $\rightarrow$ metodo getter
-	\item getQuestions() : Question [] $\rightarrow$ metodo getter
-	\item setTitle(title : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getTitle() : String $\rightarrow$ restituisce il titolo del questionario
+	\item getTags() : Tag [] $\rightarrow$ restituisce la lista dei riferimenti agli argomenti del questionario
+	\item getAuthor() : User $\rightarrow$ restituisce il riferimento all'autore del questionario
+	\item getQuestions() : Question [] $\rightarrow$ restituisce la lista dei riferimenti alle domande del questionario
+	\item setTitle(title : String) : void $\rightarrow$ imposta il titolo del questionario\begin{itemize}
 		\item title $\rightarrow$ campo dati che rappresenta il titolo del questionario
 	\end{itemize}
 	
-	\item setTags(tags : Tag []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : Tag []) : void $\rightarrow$ imposta la lista dei riferimenti agli argomenti del questionario\begin{itemize}
 		\item tags $\rightarrow$ campo dati che rappresenta l'insieme di riferimenti agli argomenti associati al questionario
 	\end{itemize}
 	
-	\item setAuthor(author : User) : void $\rightarrow$ metodo setter\begin{itemize}
-		\item author $\rightarrow$ campo dati che rappresenta il riferimento all'autore del questionario
-	\end{itemize}
-	
-	\item setQuestions(questions : Question []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setQuestions(questions : Question []) : void $\rightarrow$ imposta la lista dei riferimenti alle domande del questionario\begin{itemize}
 		\item questions $\rightarrow$ campo dati che rappresenta l'insieme di riferimenti alle domande del questionario
 	\end{itemize}
 	
@@ -448,7 +449,7 @@ Classe che rappresenta un questionario
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::data::Question} {+body : String\\+author : User\\+tags : Tag []}{+getBody() : String\\+getAuthor() : User\\+getTags() : Tag []\\+setBody(body : String) : void\\+setAuthor(author : User) : void\\+setTags(tags : Tag []) : void}
+	\umlclass{server::data::Question} {--body : String\\--author : User\\--tags : Tag []}{+getBody() : String\\+getAuthor() : User\\+getTags() : Tag []\\+setBody(body : String) : void\\+setTags(tags : Tag []) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::data::Question}
 \end{figure}\begin{description}
@@ -463,6 +464,8 @@ Classe base comune a tutti i tipi di domanda
 	Relazione uscente, campo dati che rappresenta il riferimento al docente che ha creato la domanda
 	\item[\hyperlink{server::data::Questionnaire}{server::data::Questionnaire}] \hfill \\
 	Relazione entrante, campo dati che rappresenta l'insieme di riferimenti alle domande del questionario
+	\item[\hyperlink{server::data::Answer}{server::data::Answer}] \hfill \\
+	Relazione entrante, campo dati che rappresenta la domanda a cui si riferisce la risposta
 \end{description}
 
 \item[Attributi] \hfill \\
@@ -476,18 +479,14 @@ Classe base comune a tutti i tipi di domanda
 \item[Metodi] \hfill \\
 \vspace{-7mm}
 \begin{itemize}
-	\item getBody() : String $\rightarrow$ metodo getter
-	\item getAuthor() : User $\rightarrow$ metodo getter
-	\item getTags() : Tag [] $\rightarrow$ metodo getter
-	\item setBody(body : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getBody() : String $\rightarrow$ restituisce il corpo della domanda in formato QML
+	\item getAuthor() : User $\rightarrow$ restituisce il riferimento all'autore della domanda
+	\item getTags() : Tag [] $\rightarrow$ restituisce la lista dei riferimenti agli argomenti della domanda
+	\item setBody(body : String) : void $\rightarrow$ imposta il corto della domanda in formato QML\begin{itemize}
 		\item body $\rightarrow$ campo dati che rappresenta il QML del corpo della domanda
 	\end{itemize}
 	
-	\item setAuthor(author : User) : void $\rightarrow$ metodo setter\begin{itemize}
-		\item author $\rightarrow$ campo dati che rappresenta il riferimento al docente che ha creato la domanda
-	\end{itemize}
-	
-	\item setTags(tags : Tag []) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setTags(tags : Tag []) : void $\rightarrow$ imposta la lista dei riferimenti agli argomenti della domanda\begin{itemize}
 		\item tags $\rightarrow$ campo dati che rappresenta l'insieme di riferimenti agli argomenti associati alla domanda
 	\end{itemize}
 	
@@ -501,7 +500,7 @@ Classe base comune a tutti i tipi di domanda
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::data::Role} {+name : String}{+greaterThan(role : Role) : boolean\\+equalTo(role : Role) : boolean\\+getName() : String\\+setName(name : String) : void}
+	\umlclass{server::data::Role} {--name : String}{+greaterThan(role : Role) : boolean\\+equalTo(role : Role) : boolean\\+getName() : String}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::data::Role}
 \end{figure}\begin{description}
@@ -531,11 +530,7 @@ Classe che rappresenta un ruolo all'interno dell'applicazione
 		\item role $\rightarrow$ l'altro ruolo da comparare
 	\end{itemize}
 	
-	\item getName() : String $\rightarrow$ metodo getter
-	\item setName(name : String) : void $\rightarrow$ metodo setter\begin{itemize}
-		\item name $\rightarrow$ campo dati che identifica la tipologia di utente
-	\end{itemize}
-	
+	\item getName() : String $\rightarrow$ restituisce il nome identificativo del ruolo
 \end{itemize}
 
 \end{description}
@@ -546,7 +541,7 @@ Classe che rappresenta un ruolo all'interno dell'applicazione
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
-	\umlclass{server::data::User} {+fullName : String\\+role : Role\\+userName : String\\+password : String\\+isActive : boolean}{+hasPassword(rawPassword : String) : boolean\\+getFullName() : String\\+getRole() : Role\\+getUserName() : String\\+getPassword() : String\\+getIsActive() : boolean\\+setFullName(fullName : String) : void\\+setRole(role : Role) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setIsActive(isActive : boolean) : void}
+	\umlclass{server::data::User} {--fullName : String\\--role : Role\\--userName : String\\--password : String\\--isActive : boolean}{+hasPassword(rawPassword : String) : boolean\\+getFullName() : String\\+getRole() : Role\\+getUserName() : String\\+getIsActive() : boolean\\+setFullName(fullName : String) : void\\+setRole(role : Role) : void\\+setUserName(userName : String) : void\\+setPassword(password : String) : void\\+setIsActive(isActive : boolean) : void}
 	\end{tikzpicture}
 	\caption{Diagramma classe - server::data::User}
 \end{figure}\begin{description}
@@ -561,6 +556,8 @@ Classe che rappresenta un utente dell'applicazione
 	Relazione entrante, campo dati che rappresenta il riferimento all'autore del questionario
 	\item[\hyperlink{server::data::Role}{server::data::Role}] \hfill \\
 	Relazione uscente, campo dati che rappresenta il riferimento al Role dell'utente nell'applicazione
+	\item[\hyperlink{server::data::Answer}{server::data::Answer}] \hfill \\
+	Relazione entrante, campo dati che rappresenta l'autore della risposta
 \end{description}
 
 \item[Attributi] \hfill \\
@@ -580,31 +577,73 @@ Classe che rappresenta un utente dell'applicazione
 		\item rawPassword $\rightarrow$ la password in chiaro
 	\end{itemize}
 	
-	\item getFullName() : String $\rightarrow$ metodo getter
-	\item getRole() : Role $\rightarrow$ metodo getter
-	\item getUserName() : String $\rightarrow$ metodo getter
-	\item getPassword() : String $\rightarrow$ metodo getter
-	\item getIsActive() : boolean $\rightarrow$ metodo getter
-	\item setFullName(fullName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item getFullName() : String $\rightarrow$ restituisce la stringa rappresentante il nome e cognome (ed eventuale secondo nome) dell'utente
+	\item getRole() : Role $\rightarrow$ restituisce il riferimento al ruolo dell'utente
+	\item getUserName() : String $\rightarrow$ restituisce il nome identificativo dell'utente utilizzato per l'accesso al sistema
+	\item getIsActive() : boolean $\rightarrow$ restituisce un booleano che rappresenta lo stato dell'utente: false significa che l'utente non è abilitato (a tutti gli effetti è rimosso dal sistema), altrimenti l'utente è abilitato
+	\item setFullName(fullName : String) : void $\rightarrow$ imposta il nome completo (nome, secondo nome, cognome) dell'utente\begin{itemize}
 		\item fullName $\rightarrow$ campo dati che rappresenta il nome e cognome dell'utente
 	\end{itemize}
 	
-	\item setRole(role : Role) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setRole(role : Role) : void $\rightarrow$ imposta il riferimento al ruolo dell'utente\begin{itemize}
 		\item role $\rightarrow$ campo dati che rappresenta il riferimento al Role dell'utente nell'applicazione
 	\end{itemize}
 	
-	\item setUserName(userName : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setUserName(userName : String) : void $\rightarrow$ imposta il nome identificativo dell'utente\begin{itemize}
 		\item userName $\rightarrow$ campo dati che rappresenta l'Username univoco con la quale, in combinazione con la password, l'utente accede al sistema
 	\end{itemize}
 	
-	\item setPassword(password : String) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setPassword(password : String) : void $\rightarrow$ imposta la password dell'utente\begin{itemize}
 		\item password $\rightarrow$ campo dati contenente l'hash della password utilizzata per l'accesso
 	\end{itemize}
 	
-	\item setIsActive(isActive : boolean) : void $\rightarrow$ metodo setter\begin{itemize}
+	\item setIsActive(isActive : boolean) : void $\rightarrow$ imposta lo stato di attività dell'utente (true = abilitato, false = disabilitato)\begin{itemize}
 		\item isActive $\rightarrow$ campo dati che definisce se l'utente è attivo all'interno del sistema o se è stato disattivato
 	\end{itemize}
 	
+\end{itemize}
+
+\end{description}
+
+\vspace{0.5cm}
+\hypertarget{server::data::Answer}{}
+\subsubsection[Answer]{server::data::Answer}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\umlclass{server::data::Answer} {--question : Question\\--questionnaire : Questionnaire\\--author : User\\--score : Number}{+getQuestion() : Question\\+getQuestionnaire() : Questionnaire\\+getAuthor() : User\\+getScore() : Number}
+	\end{tikzpicture}
+	\caption{Diagramma classe - server::data::Answer}
+\end{figure}\begin{description}
+\item[Descrizione] \hfill \\
+Classe che rappresenta una risposta ad una domanda di un questionario all'interno dell'applicazione
+\item[Relazioni con altre classi] \hfill \\
+\vspace{-7mm}
+\begin{description}
+	\item[\hyperlink{server::data::User}{server::data::User}] \hfill \\
+	Relazione uscente, campo dati che rappresenta l'autore della risposta
+	\item[\hyperlink{server::data::Question}{server::data::Question}] \hfill \\
+	Relazione uscente, campo dati che rappresenta la domanda a cui si riferisce la risposta
+	\item[\hyperlink{server::data::Questionnaire}{server::data::Questionnaire}] \hfill \\
+	Relazione uscente, campo dati che rappresenta il questionario della domanda a cui la risposta fa riferimento
+\end{description}
+
+\item[Attributi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item question : Question $\rightarrow$ campo dati che rappresenta la domanda a cui si riferisce la risposta
+	\item questionnaire : Questionnaire $\rightarrow$ campo dati che rappresenta il questionario della domanda a cui la risposta fa riferimento
+	\item author : User $\rightarrow$ campo dati che rappresenta l'autore della risposta
+	\item score : Number $\rightarrow$ campo dati che rappresenta il punteggio ottenuto per la risposta (valore razionale tra 0.0 e 1.0 compresi)
+\end{itemize}
+
+\item[Metodi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item getQuestion() : Question $\rightarrow$ restituisce il riferimento alla domanda alla quale la risposta è stata data all'interno del questionario
+	\item getQuestionnaire() : Questionnaire $\rightarrow$ ritorna il riferimento al questionario all'interno della quale si trova la domanda a cui questa risposta è stata data
+	\item getAuthor() : User $\rightarrow$ restituisce il riferimento all'autore della risposta
+	\item getScore() : Number $\rightarrow$ ritorna il punteggio normalizzato ottenuto da questa risposta (valore razionale tra 0.0 e 1.0 compresi)
 \end{itemize}
 
 \end{description}
@@ -626,7 +665,7 @@ Package contenente le classi che implementano tutti i servizi offerti dall'appli
 	\caption{Diagramma classe - server::service::UserService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa della operazioni di inserimento, modifica e rimozione di account utenti.
+Classe che si occupa della operazioni di inserimento, modifica e rimozione di account utenti, sfruttando la classe server::data::User per accedere ai dati persistenti nel database.
 \item[Utilizzo] \hfill \\
 Fornisce i dati personali degli utenti a chi ne ha il permesso di accesso ed esegue operazioni di aggiunta, modifica, rimozione e cambio di ruolo per gli utenti del sistema.
 \item[Relazioni con altre classi] \hfill \\
@@ -642,43 +681,43 @@ Fornisce i dati personali degli utenti a chi ne ha il permesso di accesso ed ese
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente l'utente specifico identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item getMe(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che restituisce al client un Json con i dati relativi all'utente loggato\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista degli utenti attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo utente al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica i dati dell'utente specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina un utente dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item modifyMe(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica i dati dell'utente connesso al sistema se presente\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item UserService() $\rightarrow$ costruttore della classe
@@ -697,7 +736,7 @@ Fornisce i dati personali degli utenti a chi ne ha il permesso di accesso ed ese
 	\caption{Diagramma classe - server::service::QuestionnaireService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa di gestire questionari. È uno dei componenti product del Design Pattern Abstract Factory
+Classe che si occupa di gestire questionari, sfruttando la classe server::data::Questionnaire per accedere ai dati persistenti nel database.
 \item[Utilizzo] \hfill \\
 Offre metodi per restituire questionari. Permette inoltre ad un docente di effettuare l'inserimento, la modifica, l'eliminazione di questionari
 \item[Relazioni con altre classi] \hfill \\
@@ -713,31 +752,31 @@ Offre metodi per restituire questionari. Permette inoltre ad un docente di effet
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente il questionario specifico richiesto identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client una lista di questionari attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo questionario al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica un questionario specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che cancella un questionario specifico dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item QuestionnaireService() $\rightarrow$ costruttore della classe
@@ -756,7 +795,7 @@ Offre metodi per restituire questionari. Permette inoltre ad un docente di effet
 	\caption{Diagramma classe - server::service::QuestionService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa di gestire domande. È uno dei componenti product del Design Pattern Abstract Factory
+Classe che si occupa di gestire domande, sfruttando la classe server::data::Question per accedere ai dati persistenti nel database
 \item[Utilizzo] \hfill \\
 Offre metodi per restituire le domande. Permette inoltre ad un docente di effettuare l'inserimento, la modifica, l'eliminazione di domande
 \item[Relazioni con altre classi] \hfill \\
@@ -772,31 +811,31 @@ Offre metodi per restituire le domande. Permette inoltre ad un docente di effett
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client una lista di domande attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente la domanda specifica identificata nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge una nuova domanda al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica una domanda specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina una domanda selezionata dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item QuestionService() $\rightarrow$ costruttore della classe
@@ -815,7 +854,7 @@ Offre metodi per restituire le domande. Permette inoltre ad un docente di effett
 	\caption{Diagramma classe - server::service::TagService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa di gestire gli argomenti. È uno dei componenti product del Design Pattern Abstract Factory
+Classe che si occupa di gestire gli argomenti, sfruttando la classe server::data::Tag per accedere ai dati persistenti nel database
 \item[Utilizzo] \hfill \\
 Offre metodi per restituire gli argomenti presenti. Permette inoltre ad un docente di effettuare l'inserimento, la modifica, l'eliminazione di argomenti
 \item[Relazioni con altre classi] \hfill \\
@@ -831,31 +870,31 @@ Offre metodi per restituire gli argomenti presenti. Permette inoltre ad un docen
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista degli argomenti attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente l'argomento specifico identificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge un nuovo argomento al database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item modify(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che modifica un argomento specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina un argomento specifico dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item TagService() $\rightarrow$ costruttore della classe
@@ -874,7 +913,7 @@ Offre metodi per restituire gli argomenti presenti. Permette inoltre ad un docen
 	\caption{Diagramma classe - server::service::SessionService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che si occupa della gestione della sessione dell'utente
+Classe che si occupa della gestione della sessione dell'utente, sfruttando la classe server::data::User per accedere ai dati persistenti nel database
 \item[Utilizzo] \hfill \\
 Viene utilizzata per gestire il login e logout dell'utente
 \item[Relazioni con altre classi] \hfill \\
@@ -890,13 +929,13 @@ Viene utilizzata per gestire il login e logout dell'utente
 	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che crea una sessione con una volta che l'utente effettua l'accesso all'applicazione\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item delete(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che elimina la sessione dell'utente dal database\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item SessionService() $\rightarrow$ costruttore della classe
@@ -915,7 +954,7 @@ Viene utilizzata per gestire il login e logout dell'utente
 	\caption{Diagramma classe - server::service::RoleService}
 \end{figure}\begin{description}
 \item[Descrizione] \hfill \\
-Classe che rappresenta il servizio per la lettura dei ruoli utente
+Classe che rappresenta il servizio per la lettura dei ruoli utente, sfruttando la classe server::data::Role per accedere ai dati persistenti nel database
 \item[Utilizzo] \hfill \\
 Viene utilizzata per fornire un punto d'accesso per l'elenco di tutti i ruoli dell'applicazione e la lettura di un singolo ruolo
 \item[Relazioni con altre classi] \hfill \\
@@ -931,16 +970,63 @@ Viene utilizzata per fornire un punto d'accesso per l'elenco di tutti i ruoli de
 	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista di tutti i ruoli assumibili dagli utenti dell'applicazione attraverso un Json\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un Json contenente il ruolo specificato nella richiesta http\begin{itemize}
 		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
 		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
-		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
 	\end{itemize}
 	
 	\item RoleService() $\rightarrow$ costruttore della classe
+\end{itemize}
+
+\end{description}
+
+\vspace{0.5cm}
+\hypertarget{server::service::AnswerService}{}
+\subsubsection[AnswerService]{server::service::AnswerService}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\umlclass{server::service::AnswerService} {}{+get(req : Request, res : Response, next : Function) : void\\+getByID(req : Request, res : Response, next : Function) : void\\+new(req : Request, res : Response, next : Function) : void\\+AnswerService()}
+	\end{tikzpicture}
+	\caption{Diagramma classe - server::service::AnswerService}
+\end{figure}\begin{description}
+\item[Descrizione] \hfill \\
+Classe che si occupa della operazioni di inserimento e visualizzazione di risposte a domande dei questionari, sfruttando la classe server::data::Answer per accedere ai dati persistenti nel database.
+\item[Utilizzo] \hfill \\
+Fornisce i punteggi delle risposte date alle domande dei questionari a chi ne ha il permesso di accesso ed esegue operazioni di aggiunta e visualizzazione.
+\item[Relazioni con altre classi] \hfill \\
+\vspace{-7mm}
+\begin{description}
+	\item[\hyperlink{server::middleware::Router}{server::middleware::Router}] \hfill \\
+	Relazione entrante, campo dati che rappresenta un oggetto Answer Service
+\end{description}
+
+\item[Metodi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item get(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che invia al client la lista delle risposte in formato JSON in base alle impostazioni di filtraggio impostate\begin{itemize}
+		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
+		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+	\end{itemize}
+	
+	\item getByID(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che ritorna al client un oggetto JSON contenente i dati della risposta identificata nella richiesta http\begin{itemize}
+		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
+		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+	\end{itemize}
+	
+	\item new(req : Request, res : Response, next : Function) : void $\rightarrow$ metodo che aggiunge una nuova risposta nel database\begin{itemize}
+		\item req $\rightarrow$ questo oggetto rappresenta la richiesta arrivata al server che il metodo deve gestire
+		\item res $\rightarrow$ questo oggetto rappresenta la risposta che il server dovrà inviare al termine dell'elaborazione
+		\item next $\rightarrow$ questo parametro rappresenta la callback che il metodo dovrà chiamare al termine dell’elaborazione
+	\end{itemize}
+	
+	\item AnswerService() $\rightarrow$ costruttore della classe
 \end{itemize}
 
 \end{description}
@@ -1071,6 +1157,32 @@ Viene utilizzata dai service per effettuare controlli sul model Question
 	\end{itemize}
 	
 	\item QuestionCheck() $\rightarrow$ costruttore della classe
+\end{itemize}
+
+\end{description}
+
+\vspace{0.5cm}
+\hypertarget{server::validator::AnswerCheck}{}
+\subsubsection[AnswerCheck]{server::validator::AnswerCheck}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+	\umlclass{server::validator::AnswerCheck} {}{+AnswareCheck()\\+checkScore(score : double) : boolean}
+	\end{tikzpicture}
+	\caption{Diagramma classe - server::validator::AnswerCheck}
+\end{figure}\begin{description}
+\item[Descrizione] \hfill \\
+Classe contenente tutte le funzioni di controllo della validità dei campi del model Answare
+\item[Utilizzo] \hfill \\
+Viene utilizzata dai service per effettuare controlli sul model Answare
+\item[Metodi] \hfill \\
+\vspace{-7mm}
+\begin{itemize}
+	\item AnswareCheck() $\rightarrow$ costruttore della classe
+	\item checkScore(score : double) : boolean $\rightarrow$ metodo che controlla se il punteggio passato sia compreso tra 0 e 1 compresi\begin{itemize}
+		\item score $\rightarrow$ Punteggio da controllare della domanda
+	\end{itemize}
+	
 \end{itemize}
 
 \end{description}
