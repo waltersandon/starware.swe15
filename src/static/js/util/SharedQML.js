@@ -24,7 +24,7 @@ function MultiAnswerParser() {
 
 MultiAnswerParser.prototype.parse = function (qml) {
     var n = 0;
-    var right = null;
+    var right = [];
     var rightAnswers = 0;
     var wrongAnswers = 0;
     var answerForm = '<div class=\'form-group\'>';
@@ -42,7 +42,7 @@ MultiAnswerParser.prototype.parse = function (qml) {
                     </label>\
                 </div>';
             choices.push({value: n, str: statement});
-            right = n;
+            right.push(n);
             n++;
             rightAnswers++;
         } else if (match = line.match(this.unchecked)) {
@@ -312,8 +312,8 @@ OrderItemsParser.prototype.parse = function (qml) {
     } else {
         body = markdown.toHTML(body);
         var answer = orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|");
-
-        if (Array.from(new Set(answer)).sort().toString() !== answer.sort().toString()) {
+        
+        if (Array.from(new Set(answer)).sort().toString() !== orders[0].order[0].substr(1, orders[0].order[0].length - 2).split("|").sort().toString()) {
             return {
                 status: false,
                 message: '<strong>Errore! </strong> la lista contiene duplicati'
@@ -330,7 +330,6 @@ OrderItemsParser.prototype.parse = function (qml) {
             }
             return b;
         }(answer);
-
 
         var temp = '[';
         preview = body;
@@ -422,8 +421,7 @@ CoupleItemsParser.prototype.parse = function (qml) {
         var answersLeft = mix(answerLeft);
         var answersRight = mix(answerRight);
 
-        preview = body + '<div class="row">';
-        preview += '<ul class="sortable col-xs-6">';
+        preview = body + '<ul class="sortable col-xs-6">';
         answersLeft.forEach(function (item) {
             preview += '<li class="ui-state-default">' + item + '</li>';
         });
@@ -432,7 +430,7 @@ CoupleItemsParser.prototype.parse = function (qml) {
         answersRight.forEach(function (item) {
             preview += '<li class="ui-state-default">' + item + '</li>';
         });
-        preview += '</ul></div>';
+        preview += '</ul>';
 
         return {
             status: true,
