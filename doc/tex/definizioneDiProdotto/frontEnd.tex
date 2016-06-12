@@ -1572,7 +1572,26 @@ Classe che gestisce le operazioni e la logica applicativa riguardante la status 
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/student.png}
 		\caption{Diagramma package - client::controller::student}
 	\end{figure}
-\end{center}\hypertarget{client::controller::student::Questionnaires}{}
+\end{center}
+
+Al fine di rendere più chiare le relazioni principali del \mgls{package} \texttt{client::controller::student}, in seguito verranno riportati delle porzioni del diagramma delle classi del client, in particolare per evidenziare il rapporto con il \mgls{package} \texttt{client:model}.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/controllerStudent_modelData.png}
+		\caption{Relazione tra \texttt{client::controller::student} con \texttt{client::model::data}}
+	\end{figure}
+\end{center}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/controllerStudent_modelService.png}
+		\caption{Relazione tra \texttt{client::controller::student} con \texttt{client::model::service}}
+	\end{figure}
+\end{center}
+
+
+\hypertarget{client::controller::student::Questionnaires}{}
 \subsubsubsection[Questionnaires]{client::controller::student::Questionnaires}
 \begin{figure}[H]
 	\centering
@@ -1775,7 +1794,26 @@ Viene chiamata per dare la possibilità ad uno studente di eseguire una specific
 		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/teacher.png}
 		\caption{Diagramma package - client::controller::teacher}
 	\end{figure}
-\end{center}\hypertarget{client::controller::teacher::ManipulateQuestion}{}
+\end{center}
+
+
+Al fine di rendere più chiare le relazioni principali del \mgls{package} \texttt{client::controller::teacher}, in seguito verranno riportati delle porzioni del diagramma delle classi del client, in particolare per evidenziare il rapporto con il \mgls{package} \texttt{client:model}.
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/controllerTeacher_modelData.png}
+		\caption{Relazione tra \texttt{client::controller::teacher} con \texttt{client::model::data}}
+	\end{figure}
+\end{center}
+
+\begin{center}
+	\begin{figure}[H]
+		\centering \includegraphics[scale=4, max width=\textwidth, max height=\myheight]{../img/diagrammiClassi/client/controller/controllerTeacher_modelService.png}
+		\caption{Relazione tra \texttt{client::controller::teacher} con \texttt{client::model::service}}
+	\end{figure}
+\end{center}
+
+\hypertarget{client::controller::teacher::ManipulateQuestion}{}
 \subsubsubsection[ManipulateQuestion]{client::controller::teacher::ManipulateQuestion}
 \begin{figure}[H]
 	\centering
