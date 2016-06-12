@@ -33,7 +33,7 @@ describe('controller.student.ExecuteQuestionnaire', function() {
 	    		'id_tag_1',
 	    		'id_tag_2'
 	    	]
-	    },
+	    }
 	};
 
 	var questionnaire = {
@@ -174,8 +174,6 @@ describe('controller.student.ExecuteQuestionnaire', function() {
         	$scope.questionnaire.questions[1].selectedAnswer = 'false';
         	$scope.questionnaire.questions[2].selectedAnswer = 'true';
             $scope.submit();
-           // expect($scope.questionnaire.getResult().tot).toBe(3);
-           // expect($scope.questionnaire.getResult().point).toBe(1);
         });
 
     });
