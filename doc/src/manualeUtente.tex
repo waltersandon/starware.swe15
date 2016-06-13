@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \input{../style/stile.sty}
 \input{../tex/glossario.tex}
-\usepackage{verbatim}
+%\usepackage{verbatim}
 %Titolo documento
 \newcommand{\titoloDocumento}{Manuale Utente}
 
@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{26 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.4}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -37,8 +37,9 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione}	& \AB \\& \WS \\
-						\textbf{Verifica}	& \TP		\\
+						\textbf{Redazione}	& \AB \\& \WS \\&
+						\TP \\
+						\textbf{Verifica}	& \AVI		\\
 						\textbf{Approvazione}	& \AVE{} \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
@@ -59,7 +60,12 @@
 	\begin{center}
 		\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
 			\toprule
-			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*		
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+			\midrule	
+			\midrule
+			2.0.0 & \AVE{} & 2016-06-13 & Approvazione \\*	
+			\midrule
+			1.1.0 & \AVI{} & 2016-06-13 & Verifica \\*	
 			\midrule
 			1.0.4 & \TP{} & 2016-06-10 & Aggiunta descrizione nuova tipologia di domande \\*	
 			\midrule
@@ -449,21 +455,29 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\item Domanda a risposta multipla
 		\item Domanda a completamento
 		\item Domanda a ordinamento
-		\item Domanda ad intervallo
+		\item Domanda ad tolleranza numerica
 		\item Domanda ad accoppiamento di elementi
 	\end{itemize}
-	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}. In questo modo, per esempio è possibile aggiungere formattazione al testo, tabelle e immagini, queste ultime tramite il comando\\
-	 \texttt{![alt text](https://flic.kr/p/GxRmqq "Immagine1")}\\
+	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet} ed inoltre vengono illustrati i comandi principali nella sezione \ref{markdownGuide}. Grazie ad esso è possibile aggiungere formattazione al testo, tabelle e immagini.
 	 
 	\subsection{Interfaccia per l'inserimento del QML}
 	L'interfaccia che permette di inserire la definizione di una domanda in QML offre, oltre all'apposita area per l'inserimento del codice, alcuni funzionalità di supporto, per facilitare l'operazione di inserimento.
+	
+		\begin{figure}[H]	
+			\centering
+			\includegraphics[width=\linewidth]{../img/screenshot/simpleMDEMenu.png}
+			\caption{Pulsanti dell'editor per l'inserimento del QML}
+			\label{simpleMDEEditor}
+		\end{figure}
+		
+		
 	\subsubsection{Errori e anteprima della domanda}
 	\paragraph{Tasto anteprima} permette di visualizzare l'anteprima della domanda inserita ed eventualmente segnala errori nel codice QML inserito.
 	\subsubsection{Inserimento veloce di Markdown}
 	\paragraph{Testo corsivo} permette di trasformare il testo selezionato in testo\textit{ corsivo.} 
-	Per fare cio, selezionare il testo desiderto, premete il pulsante "I";
+	Per fare cio, selezionare il testo desiderato, premete il pulsante "I";
 	\paragraph{Testo grassetto} permette di trasformare il testo selezionato in testo \textbf{grassetto}. 
-	Per fare cio, selezionare il testo desiderato, premete il pulsante "B";
+	Per fare ciò, selezionare il testo desiderato, premete il pulsante "B";
 	\paragraph{Elenco ordinato} permette l'inserimento del markdown per la visualizzazione del testo come elenco ordinato. 
 	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
 	\paragraph{Elenco non ordinato}permette l'inserimento del markdown per la visualizzazione del testo come elenco non ordinato. 
@@ -606,7 +620,7 @@ Collega città e squadra di calcio:
 {Juventus,Torino|Inter,Milano|Sampdoria,Genova|Lazio,Roma|Lanerossi,Vicenza}
 \end{verbatim}
 
-\section{Markdown}
+\section{Markdown}\label{markdownGuide}
 
 È un linguaggio di \mgls{markup} usato per definire la sintassi del QML in modo tale che una domanda, una volta costruita, possa essere convertita in \mgls{html}.
 

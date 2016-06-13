@@ -273,11 +273,11 @@ Viene utilizzato per istanziare in modo nascosto all’applicazione tutti i midd
 \vspace{-7mm}
 \begin{description}
 	\item[\hyperlink{server::middleware::Authorization}{server::middleware::Authorization}] \hfill \\
-	Relazione uscente, campo dati che rappresenta un riferimento al Middleware Authorization, utilizzato per l'autorizzazione delle richieste
+	Relazione uscente, campo dati che rappresenta un riferimento al Middleware Authorization, utilizzato per l'autorizzazione delle richieste. Il Loader si occupa di instanziare questa classe
 	\item[\hyperlink{server::middleware::Router}{server::middleware::Router}] \hfill \\
-	Relazione uscente, campo dati che rappresenta un riferimento al Middleware Router per gestire il reindirizzamento delle richieste
+	Relazione uscente, campo dati che rappresenta un riferimento al Middleware Router per gestire il reindirizzamento delle richieste. Il Loader si occupa di instanziare questa classe
 	\item[\hyperlink{server::middleware::ErrorHandler}{server::middleware::ErrorHandler}] \hfill \\
-	Relazione uscente, campo dati che rappresenta un riferimento al Middleware ErrorHandler, che si occupa di inoltrare le risposte d'errore al client
+	Relazione uscente, campo dati che rappresenta un riferimento al Middleware ErrorHandler, che si occupa di inoltrare le risposte d'errore al client. Il Loader si occupa di instanziare questa classe
 \end{description}
 
 \item[Attributi] \hfill \\
