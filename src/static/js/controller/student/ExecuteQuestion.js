@@ -81,9 +81,5 @@ $(function () {
             $(".sortable").disableSelection();
         }, 1000);
 
-        $scope.trust = function (str) {
-            return $sce.trustAsHtml(str);
-        };
-
     }]);
 });
