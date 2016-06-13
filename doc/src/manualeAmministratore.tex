@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{30 maggio 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.0}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -37,9 +37,9 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione}	& \AB \\& \WS \\
-						\textbf{Verifica}	& \TP		\\
-						\textbf{Approvazione}	& \AVE{} \\
+						\textbf{Redazione}	& \NDC \\
+						\textbf{Verifica}	& \AVE		\\
+						\textbf{Approvazione}	& \AVI \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
 						\ 	&	\Cardin{}	\\
@@ -61,6 +61,13 @@
 			\toprule
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*	
 			\midrule
+			\midrule
+			2.0.0 & \AVI{} & 2016-06-13 & Approvazione \\*
+			\midrule
+			1.1.0 & \AVE{} & 2016-06-13 & Verifica \\*
+			\midrule
+			1.0.1 & \NDC{} & 2016-06-13 & Cambiato riferimento al glossario \\*
+			\midrule
 			1.0.0 & \AVE{} & 2016-06-10 &  Approvazione \\*			
 			\midrule
 			0.1.0 & \TP{} & 2016-06-10 &  Verifica \\*
@@ -78,7 +85,7 @@
 	
 	\newpage
 	\tableofcontents
-	\newpage
+
 	\listoftables
 	\listoffigures
 	\newpage
@@ -102,8 +109,7 @@
 	
 	\subsection{Comunicazione malfunzionamenti}
 	Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o 	malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email all’indirizzo:
-	\url{starware.swe@gmail.com}. \\
-	Nella mail di segnalazione si dovranno riportare:
+	\url{starware.swe@gmail.com}. Nella mail di segnalazione si dovranno riportare:
 	\begin{itemize}
 		\item \mgls{username} fornito in fase di registrazione dell’applicazione (ATTENZIONE: non è richiesta la password di autenticazione);
 		\item versione di browser e sistema operativo utilizzato. Nel caso di dispositivi mobile il modello utilizzato;
@@ -121,6 +127,7 @@
 
 \subsubsection{Informativi}
 \begin{itemize}
+	\item \textbf{Manuale utente}: \MUv;
 	\item \textbf{Supporto per Mozzilla Firefox}: \url{https://support.mozilla.org/it/products/firefox};
 	\item \textbf{Supporto per Google Chrome}: \url{https://support.google.com/chrome/?hl=it};
 	\item \textbf{Supporto per Apple Safari}: \url{https://www.apple.com/it/support/mac-apps/safari};
@@ -148,103 +155,8 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	\item \textit{\textbf{Android}} dalla versione 4.0
 	\item \textit{\textbf{iOS}} dalla versione iOS6
 \end{itemize}
-
-	\newpage
-	\section{Autenticazione e gestione profilo}
-	\subsection{Registrazione}\label{registrazione}
-	Per accedere all'applicazione la prima volta è necessario effettuare la registrazione. Nel caso si sia già effettuata questa procedura una volta, si veda la sezione \ref{autenticazione}.
-	Per effettuare la procedura di registrazione è necessario:
-	\begin{itemize}
-		\item inserire l'\mgls{username};
-		\item inserire nome completo;
-		\item inserire la password;
-		\item ripetere la password;
-		\item cliccare il pulsante \textbf{Registrati}. 
-	\end{itemize}
-
-\begin{figure}[h]
-		
-\centering
-\includegraphics[width=\linewidth]{../img/screenshot/signup.png}
-\caption{Schermata di registrazione}
-\label{Schermata di registrazione}
-\end{figure}
-
-
-	\subsection{Autenticazione}\label{autenticazione}
-	Per accedere alle funzionalità dell'applicazione è necessario effettuare l'autenticazione. Nel caso non si posseggano le credenziali di accesso si veda la sezione di \ref{registrazione}.
-	Per effettuare l'autenticazione è necessario:
-	\begin{itemize}
-		\item inserire l'\mgls{username} corretto;
-		\item inserire la password corrispondente corretta;
-		\item cliccare il pulsante \textbf{Accedi}.
-	\end{itemize}
+\newpage
 	
-		\begin{figure}[h]
-		
-		\centering
-		\includegraphics[width=\linewidth]{../img/screenshot/loginCrop.png}
-		\caption{Schermata di autenticazione}
-		\label{Schermata di autenticazione}
-		\end{figure}
-		
-		
-	\subsection{Logout}
-	Per effettuare il logout e uscire dall'applicazione è necessario aver precedentemente effettuato l'autenticazione.
-	E' necessario cliccare il pulsante in alto a destra in figura.
-	\begin{figure}[h]	
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/barraLogout.png}
-		\caption{Pulsante di logout}
-		\label{Pulsante di logout}
-	\end{figure}
-
-	\subsection{Modifica profilo personale}
-	Una volta effettuato l'accesso all'applicazione, vedi \ref{autenticazione}, è possibile modificare i propri dati personali salvati nel sistema.
-    
-	\paragraph{Pagina di modifica profilo}
-	Per accedere alla pagina delle impostazioni personali è necessario cliccare il pulsante in alto a destra sul simbolo indicato in figura.
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/barraImpostaz.png}
-		\caption{Pulsante di modifica profilo}
-		\label{Pulsante di modifica profilo}
-	\end{figure}
-	
-	\subsubsection{Modifica username e nome completo}
-	Per modificare il \mgls{username}, nome e cognome salvati è necessario:
-	\begin{itemize}
-		\item inserire il nome completo e/o \mgls{username};
-		\item cliccare sul pulsante \textbf{Conferma} per confermare la modifica.
-	\end{itemize}
-	\begin{figure}[h]	
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/user1.png}
-		\caption{Modifica profilo}
-		\label{Modifica profilo}
-	\end{figure}
-
-	
-	\subsection{Modifica password}
-	Per modificare la password  è necessario:
-	\begin{itemize}
-		\item inserire la password attuale;
-		\item inserire la nuova password;
-		\item ripetere la nuova password;
-		\item cliccare il pulsante \textbf{Conferma} per confermare la modifica.
-	\end{itemize}
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=1.0\linewidth]{../img/screenshot/user2.png}
-		\caption{Modifica password}
-		\label{Modifica password}
-	\end{figure}
-	
-	\newpage
-
-
-		
 	\section{Amministratore}
 		\par Un profilo amministratore ha accesso a tutte le funzionalità di un profilo docente e studente; inoltre offre funzionalità aggiuntive quali: \\
 		\begin{itemize}
@@ -252,9 +164,8 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\item la possibilità di degradare un docente a ruolo di studente;
 			\item la possibilità di rimuovere un docente o uno studente dal sistema.
 		\end{itemize}
-		\subsection{Funzionalità aministratore}
 		
-	\subsubsection{Lista utenti e filtri}
+	\subsection{Lista utenti e filtri}
 		Per accedere alla pagina di gestione degli utenti è necessario cliccare il pulsante \textbf{Lista utenti} del menù \textbf{Amministratore}.
 		\begin{figure}[H]
 			\centering
@@ -271,10 +182,10 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Lista utenti}
 		\end{figure}
 	
-	\subsubsection{Gestione utenti}
+	\subsection{Gestione utenti}
 	Selezionando un utente dalla lista utenti, un amministratore può effettuare alcune operazioni quali il cambiamento di ruolo di un utente selezionato o la sua eliminazione dal sistema.
 		
-	\subsubsubsection{Eliminazione utente}
+	\subsubsection{Eliminazione utente}
 	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla \textbf{x} che si trova a destra del nome selezionato. Prima di eliminare definitivamente un utente, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'utente selezionato verrà eliminato in maniera irreversibile. Cliccando su \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'utente non verrà eliminato.
 		\begin{figure}[H]
 			\centering
@@ -282,7 +193,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\caption{Rimozione utente}
 			\label{Rimozione utente}
 		\end{figure}
-	\subsubsubsection{Promozione a ruolo docente}
+	\subsubsection{Promozione a ruolo docente}
 	Dalla lista utenti l'amministratore per promuovere lo studente a docente dovrà cliccare in corrispondenza del ruolo dello studente selezionato. In questo modo comparirà una combo box e tra le varie voci scegliere \textbf{Docente}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
 	\begin{figure}[H]
@@ -292,7 +203,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\label{Promozione a ruolo docente}
 	\end{figure}
 	
-	\subsubsubsection{Rimozione da ruolo docente}
+	\subsubsection{Rimozione da ruolo docente}
 	Per rimuovere un docente dal suo incarico l'amministratore dovrà cliccare in corrispondenza del ruolo del docente che si vuole degradare. In questo modo comparirà una combo box e tra le varie voci si dovrà cliccare \textbf{Studente}.
 	L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
@@ -303,6 +214,8 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Rimozione da ruolo docente}
 		\end{figure}
 	
+	\newpage
+	
 	\section{Proprietario} 
 	\par Un profilo proprietario ha accesso a tutte le funzionalità di docente, studente e amministratore; inoltre offre funzionalità aggiuntive quali: \\
 	\begin{itemize}
@@ -310,12 +223,10 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\item la possibilità di degradare un amministratore a ruolo di studente o docente;
 		\item la possibilità di rimuovere un amministratore dal sistema.
 	\end{itemize}
-	\subsection{Funzionalità proprietario}
+
+	\par Selezionando un utente dalla lista utenti, il proprietario può eseguire tutte le operazioni descritte nella sezione amministratore con la possibilità di promuovere o degradare un utente a qualsiasi ruolo escluso ovviamente quello del proprietario.
 	
-	\subsubsection{Gestione  amministratori}
-	\par Selezionando un utente dalla lista utenti, il proprietario può eseguire tutte le operazioni descritte nella sezione amministratore con la possibilità di promuovere o degradare un utente a qualsiasi ruolo escluso ovviamente quello del proprietario. \\
-	
-	\subsubsubsection{Promozione ad amministratore}
+	\subsection{Promozione ad amministratore}
 	Dalla lista utenti il proprietario per promuovere un utente ad amministratore dovrà cliccare in corrispondenza del ruolo che attualmente tale utente riveste. In questo modo comparirà una combo box e scegliere su \textbf{Amministratore}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
 		\begin{figure}[H]
@@ -325,7 +236,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Promozione ad amministratore}
 		\end{figure}
 	
-	\subsubsubsection{Rimozione dal ruolo amministratore}
+	\subsection{Rimozione dal ruolo amministratore}
 	Per rimuovere un amministratore dal suo incarico il proprietario dovrà cliccare in corrispondenza del ruolo dell'amministratore che si vuole degradare. In questo modo comparirà una combo box e scegliere su \textbf{Studente} o \textbf{Docente}. L'opzione con la spunta coinciderà con il ruolo che l'utente possiede in questo momento, mentre la parte evidenziata coincide con il ruolo che si vuole avere dopo la modifica.
 	
 		\begin{figure}[H]
@@ -335,7 +246,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Rimozione dal ruolo amministratore}
 		\end{figure}
 	
-	\subsubsubsection{Rimozione amministratore}
+	\subsection{Rimozione amministratore}
 	L'amministratore per eliminare un utente dal sistema, dovrà cliccare sulla \textbf{x} che si trova a destra in corrispondenza dell'amministratore selezionato. Prima di eliminare definitivamente un'amministratore, il sistema chiederà se confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'amministratore selezionato verrà eliminato in maniera irreversibile. Cliccando su \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'amministratore non verrà eliminato.
 		\begin{figure}[H]
 			\centering
@@ -343,174 +254,5 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\caption{Rimozione di un amministratore dal sistema}
 			\label{Rimozione di un amministratore dal sistema}
 		\end{figure}
-	
-	\section{QML}
-	Il QML (Question Markup Language) è il linguaggio per definire la struttura di una domanda. La struttura comincia con la definizione del tipo di domanda e continua con una parte variabile a seconda del tipo.\\
-	\begin{verbatim}
-	<Tipo di domanda>
-	parte variabile
-	\end{verbatim}
-		
-	 I tipi supportati sono:
-	\begin{verbatim}
-		\item Domanda Vero/Falso
-		\item Domanda a scelta multipla
-	\end{verbatim}
-	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}. In questo modo, per esempio è possibile aggiungere formattazione al testo, tabelle e immagini, queste ultime tramite il comando\\
-	 \texttt{![alt text](https://flic.kr/p/GxRmqq "Immagine1")}\\
-	 
-	\subsection{Interfaccia per l'inserimento del QML}
-	L'interfaccia che permette di inserire la definizione di una domanda in QML offre, oltre all'apposita area per l'inserimento del codice, alcuni funzionalità di supporto, per facilitare l'operazione di inserimento.
-	\subsubsection{Errori e anteprima della domanda}
-	\paragraph{Tasto anteprima} permette di visualizzare l'anteprima della domanda inserita ed eventualmente segnala errori nel codice QML inserito.
-	\subsubsection{Inserimento veloce di Markdown}
-	\paragraph{Testo corsivo} permette di trasformare il testo selezionato in testo\textit{ corsivo.} 
-	Per fare cio, selezionare il testo desiderto, premete il pulsante "I";
-	\paragraph{Testo grassetto} permette di trasformare il testo selezionato in testo \textbf{grassetto}. 
-	Per fare cio, selezionare il testo desiderato, premete il pulsante "B";
-	\paragraph{Elenco ordinato} permette l'inserimento del markdown per la visualizzazione del testo come elenco ordinato. 
-	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
-	\paragraph{Elenco non ordinato}permette l'inserimento del markdown per la visualizzazione del testo come elenco non ordinato. 
-	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
 
-	\paragraph{Inserimento immagine}\TODO{controllare}
-	Facilita l'inserimento di un'immagine nel testo della domanda. Premere il tasto ed inserire il link dell'immagine.
-	\paragraph{Inserimento link}\TODO{controllare}
-		Facilita l'inserimento di un link nel testo della domanda. Premere il tasto ed inserire il link scelto.
-   \subsubsection{Aiuto per l'utente}
-	\paragraph{Tasto aiuto}
-	Fornisce informazioni utili all'utente sul QML e sulle sue funzionalità, in caso di bisogno.
-	\begin{figure}[H]	
-		\centering
-		\includegraphics[width=\linewidth]{../img/screenshot/modificaDomanda.png}
-		\caption{Interfaccia inserimento QML}
-		\label{Interfaccia inserimento QML}
-	\end{figure}
-	
-	
-	\subsection{Tipi di domanda}	
-	\subsubsection{Domanda Vero/Falso}
-	\paragraph{Domanda vera}
-	\begin{verbatim}
-	<TF T>
-	Domanda_in_markdown
-	\end{verbatim}
-	\paragraph{Domanda falsa}
-	\begin{verbatim}
-	<TF F>
-	Domanda_in_markdown
-	\end{verbatim}
-	\paragraph{Esempio}
-	\begin{verbatim}
-	<TF T>
-	Roma e' la capitale d'**Italia**?
-	\end{verbatim}
-	
-	\subsubsection{Domanda a scelta multipla}
-	\begin{verbatim}
-	<MultipleChoice>
-	Domanda_in_markdown
-	[answers]
-	[]Risposta_sbagliata
-	[*]Risposta_giusta
-	[]Risposta_sbagliata
-	\end{verbatim}
-	\paragraph{Esempio}
-	\begin{verbatim}
-	<MultipleChoice>
-	Qual è la capitale d'**Italia**?
-	[answers]
-	[] Berlino
-	[*] Roma
-	[] Padova
-	\end{verbatim}
-
-\section{Markdown}
-
-È un linguaggio di \mgls{markup} usato per definire la sintassi del QML in modo tale che una domanda, una volta costruita, possa essere convertita in \mgls{html}.
-
-\subsection{Enfasi}
-
-$\ast\ \ast$ \textbf{grassetto}$\ast\ \ast$
-\newline
-$\ast$ \textit{corsivo} $\ast$
-\newline
-$ \sim\ \sim$\textst{barrato}$ \sim\ \sim$
-
-\subsection{Titoli}
-
-\# {\Large Titolo grosso}
-\newline
-\# \#{\normalsize Titilo medio}
-\newline
-\# \# \# {\small Titolo piccolo}
-\newline
-\# \# \# \#{\tiny Titolo minuscolo}
-
-\subsection{Liste}
-\renewcommand{\labelitemi}{$\ast$}
-\begin{itemize}
-	\item Elemento di una lista generica
-	\item Elemento di una lista generica
-	\item Elemento di una lista generica
-\end{itemize}
-\begin{verbatim}
-
-\end{verbatim}
-\begin{enumerate}
-	\item Elemento di una lista generica
-	\item Elemento di una lista generica
-	\item Elemento di una lista generica
-\end{enumerate}
-
-\subsection{Links}
-
-\begin{verbatim}
-
-[Testo](http:\\www.example.com)
-
-\end{verbatim}
-
-\subsection{Citazioni}
-
-\begin{verbatim}
-> Questa è una citazione.
->può essere su più linee!
-\end{verbatim}
-
-\subsection{Immagini}
-\begin{verbatim}
-![](http:\\www.example.com/image.jpg)
-\end{verbatim}
-
-\subsection{Tabelle}
-\begin{verbatim}
-
-| Colonna 1 | Colonna 2 | Colonna 3 |
-|_ _ _ _ _ _ _ |_ _ _ _ _ _ _ |_ _ _ _ _ _ _ |
-|    John      |    Doe       |     Male      |
-|    Mary      |    Smith    |    Female    |
-
-O senza allineare le colonne. . . . 
-
-| Colonna 1 | Colonna 2 | Colonna 3 |
-|_ _ _ _ _ |_ _ _ _  _ |_ _ _ _ _ _|
-|  John |   Doe    |   Male   |
-|    Mary      |    Smith    |    Female    |
-
-\end{verbatim}
-	
-\subsection{Codice}
-\begin{verbatim}
-' var example = ' hello! ' ; '
-
-O su più righe . . . .
-
-' ' ' 
-var example = ' hello! ' ; 
-alert(example);
-
-' ' '
-
-\end{verbatim}
 \end{document}

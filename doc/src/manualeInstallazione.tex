@@ -7,10 +7,10 @@
 \newcommand{\titoloDocumento}{Manuale Installazione}
 
 %Prima data di creazione del documento
-\newcommand{\dataCreazione}{26 aprile 2016}
+\newcommand{\dataCreazione}{30 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.0}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -38,9 +38,9 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione} & \AB \\
-						\textbf{Verifica}	&	\TP	\\
-						\textbf{Approvazione}	& \AVE{} \\
+						\textbf{Redazione} & \WS \\
+						\textbf{Verifica}	&	\NDC	\\
+						\textbf{Approvazione}	& \AVI{} \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
 						\ 	&	\Cardin{}	\\
@@ -63,9 +63,13 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
+			2.0.0 & \AVI{} & 2016-06-05 & Approvazione  \\*
+			\midrule
+			1.1.0 & \NDC{} & 2016-06-03 & Verifica  \\*
+			\midrule
 			1.0.2 & \WS{} & 2016-05-29 & Aggiunte guide all'installazione MongoDB e Node.js ai riferimenti informativi  \\*
 			\midrule
-			1.0.1 & \WS{} & 2016-05-28 & Inseriti screenshot  \\*
+			1.0.1 & \WS{} & 2016-05-28 & Inseriti screenshot e cambiato riferimento al glossario \\*
 			\midrule
 			1.0.0 & \AVE{} & 2016-05-13 & Approvazione \\*
 			\midrule
@@ -109,9 +113,8 @@
 	\subsection{Glossario}
 	\glossarioManualiPrint
 	\subsection{Comunicazione malfunzionamenti}
-		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email 		all’indirizzo:
-		\url{starware.swe@gmail.com}
-		Nella mail di segnalazione si dovranno riportare:
+		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email all’indirizzo:
+		\url{starware.swe@gmail.com}. Nella mail di segnalazione si dovranno riportare:
 		\begin{itemize}
 			\item sistema operativo utilizzato;
 			\item versione di MongoDB utilizzata;
@@ -246,7 +249,7 @@
 	\newpage
 	\section{Installazione}\label{install}
 		
-		\subsubsection{Pacchetto di installazione per ambiente Windows}
+		\subsection{Pacchetto di installazione per ambiente Windows}
 		\begin{itemize}
 			\item aprire la cartella \texttt{ src};
 			\item eseguire il file per l'installazione (doppio click sul nome del file): \texttt{quizzipediaInstaller.exe}
@@ -283,7 +286,7 @@
 				
 		\end{itemize}	
 		
-		\subsubsection{Pacchetto di installazione per ambiente Unix}
+		\subsection{Pacchetto di installazione per ambiente Unix}
 		\begin{itemize}
 			\item avviare il terminale;
 			\item posizionarsi nella cartella src;
