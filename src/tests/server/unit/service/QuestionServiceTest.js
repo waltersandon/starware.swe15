@@ -15,7 +15,7 @@ describe('/api/questions', function() {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     expect(res.body).to.be.instanceof(Array);
-                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body.length).to.be.equal(9);
                     expect(res.body[0]).to.have.property('_id');
                     expect(res.body[0]).to.have.property('body');
                     expect(res.body[0]).to.have.property('author');
@@ -36,7 +36,7 @@ describe('/api/questions', function() {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     expect(res.body).to.be.instanceof(Array);
-                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body.length).to.be.equal(9);
                     expect(res.body[0]).to.have.property('_id');
                     expect(res.body[0]).to.have.property('body');
                     expect(res.body[0]).to.have.property('author');
