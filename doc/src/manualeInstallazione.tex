@@ -7,10 +7,10 @@
 \newcommand{\titoloDocumento}{Manuale Installazione}
 
 %Prima data di creazione del documento
-\newcommand{\dataCreazione}{26 aprile 2016}
+\newcommand{\dataCreazione}{30 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.0}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -38,9 +38,9 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione} & \AB \\
-						\textbf{Verifica}	&	\TP	\\
-						\textbf{Approvazione}	& \AVE{} \\
+						\textbf{Redazione} & \WS \\
+						\textbf{Verifica}	&	\NDC	\\
+						\textbf{Approvazione}	& \AVI{} \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
 						\ 	&	\Cardin{}	\\
@@ -63,9 +63,13 @@
 			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
 			\midrule
 			\midrule
+			2.0.0 & \AVI{} & 2016-06-05 & Approvazione  \\*
+			\midrule
+			1.1.0 & \NDC{} & 2016-06-03 & Verifica  \\*
+			\midrule
 			1.0.2 & \WS{} & 2016-05-29 & Aggiunte guide all'installazione MongoDB e Node.js ai riferimenti informativi  \\*
 			\midrule
-			1.0.1 & \WS{} & 2016-05-28 & Inseriti screenshot  \\*
+			1.0.1 & \WS{} & 2016-05-28 & Inseriti screenshot e cambiato riferimento al glossario \\*
 			\midrule
 			1.0.0 & \AVE{} & 2016-05-13 & Approvazione \\*
 			\midrule
@@ -107,11 +111,10 @@
 	\descrizioneProdotto
 	
 	\subsection{Glossario}
-	\glossarioPrint
+	\glossarioManualiPrint
 	\subsection{Comunicazione malfunzionamenti}
-		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email 		all’indirizzo:
-		\url{starware.swe@gmail.com}
-		Nella mail di segnalazione si dovranno riportare:
+		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email all’indirizzo:
+		\url{starware.swe@gmail.com}. Nella mail di segnalazione si dovranno riportare:
 		\begin{itemize}
 			\item sistema operativo utilizzato;
 			\item versione di MongoDB utilizzata;
@@ -246,11 +249,11 @@
 	\newpage
 	\section{Installazione}\label{install}
 		
-		\subsubsection{Pacchetto di installazione per ambiente Windows}
+		\subsection{Pacchetto di installazione per ambiente Windows}
 		\begin{itemize}
 			\item aprire la cartella \texttt{ src};
 			\item eseguire il file per l'installazione (doppio click sul nome del file): \texttt{quizzipediaInstaller.exe}
-			\item si aprirà a questo punto l'interfaccia per l'instaallazione dell'applicazione:
+			\item si aprirà a questo punto l'interfaccia per l'installazione dell'applicazione:
 			\begin{figure}[H]	
 				\centering
 				\includegraphics[width=0.4\linewidth]{../img/manualeInstallazione/win_installer01.png}
@@ -259,7 +262,7 @@
 			\end{figure}
 			
 			\item premere sul pulsante "Inizialize/Reset Database" per la configurazione del database. 
-			\item durante l'esecuzione dell'operazione si aprirà la finestra del terminale npm sotto illutrata. Questa si chiuderà automaticamente a operazione completata.
+			\item durante l'esecuzione dell'operazione si aprirà la finestra del terminale npm sotto illustrata. Questa si chiuderà automaticamente a operazione completata.
 			\begin{figure}[H]	
 				\centering
 				\includegraphics[width=0.8\linewidth]{../img/manualeInstallazione/win_installer02.png}
@@ -283,7 +286,7 @@
 				
 		\end{itemize}	
 		
-		\subsubsection{Pacchetto di installazione per ambiente Unix}
+		\subsection{Pacchetto di installazione per ambiente Unix}
 		\begin{itemize}
 			\item avviare il terminale;
 			\item posizionarsi nella cartella src;
@@ -293,7 +296,7 @@
 	\end{itemize}
 		\textbf{Per un corretto avvio dell'applicazione è necessario eseguire tutte le operazioni seguenti nell'ordine indicato:}
 	\begin{enumerate}
-		\item \textbf{Installazione}: per eseguire l'installazine, specificare dopo lo script con l'opzione \texttt{install}:
+		\item \textbf{Installazione}: per eseguire l'installazione, specificare dopo lo script con l'opzione \texttt{install}:
 	 \[ 	\texttt{sudo  ./install.sh install} \]
 		\item \textbf{Ripristino database}: per eseguire il ripristino del database, eseguire lo script con l'opzione \texttt{reset}:
 		 \[ 	\texttt{sudo  ./install.sh reset} \]
@@ -318,7 +321,7 @@
 		\begin{center}
 			\texttt{\$ npm install} 
 		\end{center}
-		\item su una seconda Shell (assicurandosi di non chiuderla dino a quando si desidera utilizzare l'applicazione), avviare il \mgls{database} \mgls{mongodb} con il comando:
+		\item su una seconda Shell (assicurandosi di non chiuderla fino a quando si desidera utilizzare l'applicazione), avviare il \mgls{database} \mgls{mongodb} con il comando:
 		\begin{center}
 			\texttt{\$ mongod} 	
 		\end{center}	
