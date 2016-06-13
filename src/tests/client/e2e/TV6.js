@@ -31,7 +31,6 @@ describe('Question Delete', function() {
         browser.sleep(100);
         element(by.css('[ng-click="remove(question)"]')).click();
         browser.switchTo().alert().accept();
-        browser.sleep(100);
     });
 
 

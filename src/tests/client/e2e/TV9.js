@@ -29,7 +29,6 @@ describe('Questionnaire Delete', function() {
         browser.sleep(100);
         element(by.css('[ng-click="remove(questionnaire)"]')).click();
         browser.switchTo().alert().accept();
-        browser.sleep(100);
 
     });
 });
