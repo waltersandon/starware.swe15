@@ -68,6 +68,27 @@ describe('/api/questionnaires', function() {
                 });
             });
         });
+        it('ritorna il tag specificato con keywords all\'utente autenticato', function (done) {
+            login(app, {
+                userName: 'mario.rossi',
+                password: 'password.mario.rossi'
+            }, function(agent) {
+                var req = request(app).get('/api/tags?keywords=computer');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    
+                    expect(res.body.find(function (tag) {
+                        return tag.name === "Informatica";
+                    }).name).to.eql("Informatica");
+
+
+
+                    done();
+                });
+            });
+        });
 
     });
     describe('GET /api/tags/:id', function() {

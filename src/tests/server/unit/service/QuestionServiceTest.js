@@ -15,7 +15,7 @@ describe('/api/questions', function() {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     expect(res.body).to.be.instanceof(Array);
-                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body.length).to.be.equal(9);
                     expect(res.body[0]).to.have.property('_id');
                     expect(res.body[0]).to.have.property('body');
                     expect(res.body[0]).to.have.property('author');
@@ -36,13 +36,54 @@ describe('/api/questions', function() {
                     expect(err).to.not.be.ok;
                     expect(res).to.have.property('status', 200);
                     expect(res.body).to.be.instanceof(Array);
-                    expect(res.body.length).to.be.equal(3);
+                    expect(res.body.length).to.be.equal(9);
                     expect(res.body[0]).to.have.property('_id');
                     expect(res.body[0]).to.have.property('body');
                     expect(res.body[0]).to.have.property('author');
                     expect(res.body[0]).to.have.property('tags');
                     expect(res.body[0].tags).to.be.instanceof(Array);
                     done();
+                });
+            });
+        });
+        it("ritorna la  domanda specificata all'utente autenticato", function (done) {
+            login(app, {
+                userName: 'tullio.vardanega',
+                password: 'password.tullio.vardanega'
+            }, function(agent) {
+                var tagId;
+                request(app)
+                    .get('/api/tags')
+                    .end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                        tagId = res.body.find(function (tag) {
+                            return tag.name === "Informatica";
+                        })._id;
+                    });
+                // Ottieni la lista di tutti gli utenti
+                var req = request(app).get('/api/users');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    var author = res.body.find(function (user) {
+                        return user.userName == 'tullio.vardanega';
+                    });
+                    var req = request(app).get('/api/questions?author='+author._id+'&keywords=Javascript&tags='+tagId);
+                    agent.attachCookies(req);
+                    req.end(function (err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body).to.be.instanceof(Array);
+                        expect(res.body.length).to.be.equal(1);
+                        expect(res.body[0]).to.have.property('_id');
+                        expect(res.body[0]).to.have.property('body');
+                        expect(res.body[0]).to.have.property('author');
+                        expect(res.body[0]).to.have.property('tags');
+                        expect(res.body[0].tags).to.be.instanceof(Array);
+                        done();
+                    });
                 });
             });
         });

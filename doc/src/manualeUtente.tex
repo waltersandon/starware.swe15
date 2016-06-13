@@ -9,7 +9,7 @@
 \newcommand{\dataCreazione}{26 aprile 2016}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{1.0.4}
+\newcommand{\versione}{2.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -37,9 +37,10 @@
 						\textbf{Uso}	&	\emph{\uso}	\\
 						\textbf{Data Creazione}	&	\dataCreazione	\\
 						\textbf{Data Ultima Modifica}	&	\today	\\
-						\textbf{Redazione}	& \AB \\& \WS \\
-						\textbf{Verifica}	& \TP		\\
-						\textbf{Approvazione}	& \AVE{} \\
+						\textbf{Redazione}	& \AB \\& \WS \\&
+						\TP \\
+						\textbf{Verifica}	& 	\AVE{}	\\
+						\textbf{Approvazione}	& \AVI \\
 						\textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 						\ 	&	\Vardanega{}	\\
 						\ 	&	\Cardin{}	\\
@@ -59,7 +60,12 @@
 	\begin{center}
 		\begin{longtable}[H]{p{0.12\textwidth} p{0.2\textwidth} p{0.18\textwidth} p{0.39\textwidth}}
 			\toprule
-			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*		
+			\textbf{Versione}	&	\textbf{Autore}	&	\textbf{Data}	&	\textbf{Descrizione}\\*
+			\midrule	
+			\midrule
+			2.0.0 & \AVE{} & 2016-06-13 & Approvazione \\*	
+			\midrule
+			1.1.0 & \AVI{} & 2016-06-13 & Verifica \\*	
 			\midrule
 			1.0.4 & \TP{} & 2016-06-10 & Aggiunta descrizione nuova tipologia di domande \\*	
 			\midrule
@@ -110,7 +116,7 @@
 	\descrizioneProdotto
 	
 	\subsection{Glossario}
-	\glossarioPrint
+	\glossarioManualiPrint
 	\subsection{Comunicazione malfunzionamenti}
 	Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o 	malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email all’indirizzo:
 	\url{starware.swe@gmail.com}. \\
@@ -262,12 +268,11 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\item la possibilità di eseguire un questionario presente nel sistema.
 	\end{itemize}
 	
-	\subsection{Funzionalità studente}
-	\subsubsection{Ricerca questionario}\label{ricerca_questionario}
-	\subsubsubsection{Pagina di ricerca  di un questionario}
+	\subsection{Ricerca questionario}\label{ricerca_questionario}
+	\subsubsection{Pagina di ricerca  di un questionario}
 	L'accesso alla pagina di ricerca questionari si effettua dal \textbf{menu laterale}. 
 	E' necessario cliccare il pulsante \textbf{Questionari} nella sezione \textbf{Studente} del menu.
-	\subsubsubsection{Effettuare una ricerca}
+	\subsubsection{Effettuare una ricerca}
 	Una volta entrati nella pagina di ricerca, è possibile inserire i parametri di ricerca nella barra apposita.
 	
 	\begin{figure}[H]	
@@ -289,10 +294,10 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 	e avviare la ricerca cliccando sul pulsante \textbf{Cerca}.
 	
 	
-	\subsubsection{Esecuzione questionario}
-	\subsubsubsection{Trovare il questionario}
+	\subsection{Esecuzione questionario}
+	\subsubsection{Trovare il questionario}
 	Per trovare un questionario da eseguire è possibile effettuare una ricerca, vedi \ref{ricerca_questionario}.
-	\subsubsection{Eseguire un questionario}
+	\subsection{Eseguire un questionario}
 	\par Una volta trovato il questionario desiderato, è possibile eseguirlo cliccando sulla riga corrispondente. \\
 	\par Durante l'esecuzione di un questionario sarà possibile navigare tra le domande presenti con i tasti \textbf{Precedente} e \textbf{Successiva}.
 	Una volta terminato la selezione delle risposte, cliccando sul tasto \textbf{Conferma}, sarà possibile vedere la soluzione del questionario svolto. \\
@@ -313,13 +318,12 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\item la possibilità di gestire domande (aggiungerle, rimuoverle e modificarle);
 			\item la possibilità di gestire argomenti (aggiungerli, rimuoverli e modificarli).
 		\end{itemize}
-	\subsection{Funzionalità docente}
 	
-    \subsubsection{Gestione domande}
+    \subsection{Gestione domande}
 
     Cliccando il pulsante \textbf{Gestione domande} dal menu a lato, nella sezione \textbf{Docente}, vengono visualizzate le domande precedentemente create dall'utente autenticato. 
     
-	\subsubsubsection{Creazione domanda}
+	\subsubsection{Creazione domanda}
 	Per creare una nuova domanda è sufficiente premere il tasto $\boldsymbol{+}$ in alto a destra. Si aprirà un form apposito per l'inserimento del \mgls{qml} per la descrizione della domanda. Una volta inserito il \mgls{qml}, cliccare il pulsante \textbf{Conferma} in basso a destra.
 	
 	Se il \mgls{qml} inserito non è valido, l'applicazione chiederà di correggere il \mgls{qml} inserito e di cliccare nuovamente il pulsante \textbf{Conferma}.
@@ -331,7 +335,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Creazione domanda}
 		\end{figure}
 	
-	\subsubsubsection{Modifica domanda}
+	\subsubsection{Modifica domanda}
 	\par Per modificare una domanda è necessario selezionarla dalla lista delle domande; una volta selezionata si aprirà una schermata che permetterà di modificare il \mgls{qml} della domanda scelta. \\
 	\par Una volta modificata la domanda, premere il pulsante \textbf{Conferma} in basso a destra per confermare le modifiche effettuate. Con il pulsante \textbf{Annulla} si annulla l'operazione. \\
 	\par Se il \mgls{qml} modificato non risulta corretto, il sistema chiederà di correggere il \mgls{qml} inserito prima di salvare nuovamente. \\
@@ -343,7 +347,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Modifica domanda}
 		\end{figure}
 	
-	\subsubsubsection{Eliminazione domanda}
+	\subsubsection{Eliminazione domanda}
 	
 	\par Per eliminare una domanda è necessario cliccare l'icona a \textbf{x} a fianco della domanda da eliminare.
 	Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, la domanda selezionata verrà eliminata irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e la domanda non verrà eliminata. \\
@@ -355,10 +359,10 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\label{Elimina domanda}
 	\end{figure}
 		
-	\subsubsection{Gestione argomenti}
+	\subsection{Gestione argomenti}
 	\par Cliccando \textbf{Gestione argomenti} dal menu a lato, sotto la voce \textbf{Docente}, vengono visualizzati gli argomenti precedentemente creati da qualsiasi altro utente.
 	
-		\subsubsubsection{Creazione argomenti}
+		\subsubsection{Creazione argomenti}
 
 		\par Per creare un nuovo argomento sarà necessario:
 		\begin{itemize}
@@ -376,7 +380,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		
 		Una volta creato un nuovo argomento, questo comparirà nella schermata degli argomenti precedentemente creati.
 		
-		\subsubsubsection{Modifica argomento}
+		\subsubsection{Modifica argomento}
 		\par Per modificare un argomento è necessario modificarne il nome o la descrizione. Una volta modificato anche solo un campo, il pulsante con la spunta si presenterà di color verde e la modifica effettiva dell'argomento sarà effettuata solo alla sua pressione. \\
 		
 			\begin{figure}[H]	
@@ -386,7 +390,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 				\label{Modifica argomento}
 			\end{figure}
 		
-		\subsubsubsection{Eliminazione argomento}
+		\subsubsection{Eliminazione argomento}
 		\par Per eliminare un argomento è necessario cliccare il pulsante \textbf{x} a fianco del argomento da eliminare.
 		Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, l'argomento selezionato verrà eliminato irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e l'argomento non verrà eliminato. \\
 		\par Per evitare uno stato inconsistente dei dati, non è possibile eliminare argomenti che hanno domande o questionari ad essi associati. \\
@@ -398,8 +402,8 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 				\label{Elimina argomento}
 			\end{figure}
 		
-		\subsubsection{Gestione questionario}
-		\subsubsubsection{Creazione questionario}
+		\subsection{Gestione questionario}
+		\subsubsection{Creazione questionario}
 		\par Per creare un questionario è necessario cliccare $\boldsymbol{+}$ in alto a destra della pagina. Si aprirà una schermata che permetterà di inserire il titolo, le domande e gli argomenti del questionario. \\
 		\par Una volta terminata la compilazione, cliccando il pulsante \textbf{Conferma}, sarà possibile confermare la creazione. 
 		In ogni momento sarà possibile annullare l'operazione di creazione del questionario cliccando \textbf{Annulla}.
@@ -413,7 +417,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Creazione questionario}
 		\end{figure}
 		
-		\subsubsubsection{Modifica questionario}
+		\subsubsection{Modifica questionario}
 		\par Per modificare un questionario è necessario selezionarlo dalla lista dei questionari. Si aprirà una schermata che permetterà di modificare il titolo del questionario, di aggiungere o rimuovere domande e di aggiungere o rimuovere argomenti dal questionario corrente. \\
 		\par Una volta terminata la modifica, cliccando il pulsante \textbf{Conferma} sarà possibile confermare le modifiche. In ogni momento sarà possibile annullare l'operazione cliccando sul pulsante \textbf{Annulla}. \\
 			
@@ -426,7 +430,7 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 			\label{Modifica Questionario}
 		\end{figure}
 			
-		\subsubsubsection{Eliminazione questionario}
+		\subsubsection{Eliminazione questionario}
 		\par Per eliminare un questionario è necessario cliccare il pulsante \textbf{x} a fianco del questionario da eliminare. \\
 		\par Verrà aperta una finestra che chiederà di confermare o annullare l'eliminazione. Cliccando il pulsante \textbf{Elimina}, il questionario selezionato verrà eliminato irreversibilmente. Cliccando il pulsante \textbf{Annulla}, il procedimento di eliminazione verrà interrotto e il questionario non verrà eliminato. \\
 		
@@ -449,40 +453,44 @@ Il browser deve avere necessariamente \mgls{javascript} abilitato.  L'applicazio
 		\item Domanda a risposta multipla
 		\item Domanda a completamento
 		\item Domanda a ordinamento
-		\item Domanda ad intervallo
+		\item Domanda ad tolleranza numerica
 		\item Domanda ad accoppiamento di elementi
 	\end{itemize}
-	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet}. In questo modo, per esempio è possibile aggiungere formattazione al testo, tabelle e immagini, queste ultime tramite il comando\\
-	 \texttt{![alt text](https://flic.kr/p/GxRmqq "Immagine1")}\\
+	Per i testi delle domande e delle risposte si utilizza il linguaggio \mgls{markdown}. Per una guida su questo linguaggio si rimanda a: \url{https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet} ed inoltre vengono illustrati i comandi principali nella sezione \ref{markdownGuide}. Grazie ad esso è possibile aggiungere formattazione al testo, tabelle e immagini.
 	 
 	\subsection{Interfaccia per l'inserimento del QML}
 	L'interfaccia che permette di inserire la definizione di una domanda in QML offre, oltre all'apposita area per l'inserimento del codice, alcuni funzionalità di supporto, per facilitare l'operazione di inserimento.
-	\subsubsection{Errori e anteprima della domanda}
-	\paragraph{Tasto anteprima} permette di visualizzare l'anteprima della domanda inserita ed eventualmente segnala errori nel codice QML inserito.
-	\subsubsection{Inserimento veloce di Markdown}
-	\paragraph{Testo corsivo} permette di trasformare il testo selezionato in testo\textit{ corsivo.} 
-	Per fare cio, selezionare il testo desiderto, premete il pulsante "I";
-	\paragraph{Testo grassetto} permette di trasformare il testo selezionato in testo \textbf{grassetto}. 
-	Per fare cio, selezionare il testo desiderato, premete il pulsante "B";
-	\paragraph{Elenco ordinato} permette l'inserimento del markdown per la visualizzazione del testo come elenco ordinato. 
-	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
-	\paragraph{Elenco non ordinato}permette l'inserimento del markdown per la visualizzazione del testo come elenco non ordinato. 
-	Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario.
-
-	\paragraph{Inserimento immagine}\TODO{controllare}
-	Facilita l'inserimento di un'immagine nel testo della domanda. Premere il tasto ed inserire il link dell'immagine.
-	\paragraph{Inserimento link}\TODO{controllare}
-		Facilita l'inserimento di un link nel testo della domanda. Premere il tasto ed inserire il link scelto.
-   \subsubsection{Aiuto per l'utente}
-	\paragraph{Tasto aiuto}
-	Fornisce informazioni utili all'utente sul QML e sulle sue funzionalità, in caso di bisogno.
 	\begin{figure}[H]	
 		\centering
 		\includegraphics[width=\linewidth]{../img/screenshot/modificaDomanda.png}
 		\caption{Interfaccia inserimento QML}
 		\label{Interfaccia inserimento QML}
 	\end{figure}
-	
+		
+
+		
+	\subsubsection{Pulsanti dell'Editor}
+	In questa sezione viene spiegata la funzione dei tasti dell'Editor per l'inserimento del \mgls{qml}.
+	\begin{figure}[H]	
+		\centering
+		\includegraphics[width=\linewidth]{../img/screenshot/simpleMDEMenu.png}
+		\caption{Pulsanti dell'editor per l'inserimento del QML}
+		\label{simpleMDEEditor}
+	\end{figure}
+	\begin{itemize}
+		
+		\item \textbf{Testo corsivo:} permette di trasformare il testo selezionato in testo\textit{corsivo} (figura \ref{simpleMDEEditor} pulsante 1)
+		\item \textbf{Testo grassetto:} permette di trasformare il testo selezionato in testo \textbf{grassetto} (figura \ref{simpleMDEEditor} pulsante 2)
+		\item \textbf{Citazioni:} permette di fare citazioni inserendo il testo tra virgolette (figura \ref{simpleMDEEditor} pulsante 3)
+		\item \textbf{Elenco non ordinato:} permette l'inserimento del markdown per la visualizzazione del testo come elenco non ordinato 
+		Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario (figura \ref{simpleMDEEditor} pulsante 4) 
+		\item \textbf{Elenco ordinato} permette l'inserimento del markdown per la visualizzazione del testo come elenco ordinato. 
+		Selezionare il testo desiderato e premere il tasto per inserire automaticamente il markdown necessario (figura \ref{simpleMDEEditor} pulsante 5) 
+		\item \textbf{Inserimento link:} Facilita l'inserimento di un link nel testo della domanda. Premere il tasto ed inserire il link scelto (figura \ref{simpleMDEEditor} pulsante 6)
+		\item \textbf{Inserimento immagine:} Facilita l'inserimento di un'immagine nel testo della domanda. Premere il tasto ed inserire il link dell'immagine (figura \ref{simpleMDEEditor} pulsante 7) 
+		\item \textbf{Tasto aiuto:} Fornisce informazioni utili all'utente sul QML e sulle sue funzionalità, in caso di bisogno (figura \ref{simpleMDEEditor} pulsante 8) 
+		\item \textbf{Tasto anteprima:} permette di visualizzare l'anteprima della domanda inserita ed eventualmente segnala errori nel codice QML inserito (figura \ref{simpleMDEEditor} pulsante 9) 
+	\end{itemize}
 	
 	\subsection{Tipi di domanda}
 
@@ -569,7 +577,7 @@ All in [wall,*all,ball] you're just another brick in the wall
 
 \par Questa tipologia di domanda propone una lista di elementi e chiede all'utente di riordinarli in modo corretto. \\
 
-\par Per aggiungere l'orinamento basta inserire su una linea a se stante e racchiuse tra parentesi quadre, la lista degli elementi da ordinare separati da \texttt{|} (\textit{pipe}). L'ordine in cui vengono elencati viene considerato come corretto. \\
+\par Per aggiungere l'ordinamento basta inserire su una linea a se stante e racchiuse tra parentesi quadre, la lista degli elementi da ordinare separati da \texttt{|} (\textit{pipe}). L'ordine in cui vengono elencati viene considerato come corretto. \\
 
 \par Esempio: \\
 \begin{verbatim}
@@ -578,7 +586,7 @@ in base alla data del loro primo episodio:
 [Lost|Breaking Bad|Game of Thrones]
 \end{verbatim}
 
-\subsubsection{Domande ad intervallo}
+\subsubsection{Domande a tolleranza numerica}
 
 \par Queste tipo di domande sono composte da un campo in cui l'utente è in grado di inserire un numero; la risposta corretta però può variare all'interno di un range. \\
 
@@ -606,7 +614,7 @@ Collega città e squadra di calcio:
 {Juventus,Torino|Inter,Milano|Sampdoria,Genova|Lazio,Roma|Lanerossi,Vicenza}
 \end{verbatim}
 
-\section{Markdown}
+\section{Markdown}\label{markdownGuide}
 
 È un linguaggio di \mgls{markup} usato per definire la sintassi del QML in modo tale che una domanda, una volta costruita, possa essere convertita in \mgls{html}.
 
