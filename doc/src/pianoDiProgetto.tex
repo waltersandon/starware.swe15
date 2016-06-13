@@ -10,7 +10,7 @@
 \newcommand{\dataCreazione}{24 dicembre 2015}
 
 %Inserite la versione attuale del documento
-\newcommand{\versione}{3.0.4}
+\newcommand{\versione}{4.0.0}
 
 %Stato in cui si trova il documento: Formale solo all'atto di consegna
 \newcommand{\stato}{Formale}
@@ -38,10 +38,9 @@
 \textbf{Uso}	&	\emph{\uso}	\\
 \textbf{Data Creazione}	&	\dataCreazione	\\
 \textbf{Data Ultima Modifica}	&	\today	\\
-\textbf{Redazione}	& \AVE{} \\
-\ 	& \WS{} \\
+\textbf{Redazione}	& \TP{} \\
 \textbf{Verifica}	&	\NDC{}	\\
-\textbf{Approvazione}	& \AVE{} \\
+\textbf{Approvazione}	& \AVI{} \\
 \textbf{Lista distribuzione}	&	\nomeGruppo{}	\\
 \ 	&	\Vardanega{}	\\
 \ 	&	\Cardin{}	\\
@@ -64,11 +63,15 @@
 		\textbf{Versione} & \textbf{Autore} & \textbf{Data}	&	\textbf{Descrizione}\\*
 		\midrule
 		\midrule
+		4.0.0 & \AVI{} & 2016-06-14 & Approvazione \\*
+		\midrule
+		3.1.0 & \NDC{} & 2016-06-14 & Verifica \\*
+		\midrule
 		3.0.4 & \TP{} & 2016-06-14 & Aggiunto consuntivo finale \\*
 		\midrule
-		3.0.3 & \TP{} & 2016-06-13 & Aggiunto consuntivo di periodo \\*
+		3.0.3 & \TP{} & 2016-06-13 & Aggiunto consuntivo \FV \\*
 		\midrule
-		3.0.2 & \TP{} & 2016-06-13 & Aggiunti riscontri rischi \\*
+		3.0.2 & \TP{} & 2016-06-13 & Aggiunti riscontri rischi \FV \\*
 		\midrule
 		3.0.1 & \TP{} & 2016-05-27 & Cambiato "Analisi delle tendenze" in "Consuntivo di periodo" come da correzione \\*
 		\midrule
@@ -2240,19 +2243,19 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Conclusioni}
 
-\par Nel complesso si sono osservate un minor numero di ore per la verifica e per la stesura dei test grazie al fatto che nel periodo precedente si sono potuti scrivere una buona parte dei test necessari. Sono invece state richieste un maggior numero di ore per la programmazione e la progettazione (e relativi test) dei requisiti opzionali.
+Nel complesso si sono osservate un minor numero di ore per la verifica e per la stesura dei test grazie al fatto che nel periodo precedente si sono potuti scrivere una buona parte dei test necessari. Sono invece state richieste un maggior numero di ore per la programmazione e la progettazione (e relativi test) dei requisiti opzionali.
 
-\par Il totale delle ore ha portato ad un incremento di \euro{}91.00 che sommato ai consuntivi precedenti porta il costo totale del progetto ad una riduzione di \euro{}22.00. \\
+Il totale delle ore ha portato ad un incremento di \euro{}91.00 che sommato ai consuntivi precedenti porta il costo totale del progetto ad una riduzione di \euro{}22.00 rispetto al preventivo iniziale.
 
 \subsubsection{Consuntivo di periodo}
 
-\par La discesa in costo evidenziata dopo il periodo di \FAD{} si è decisamente fermata, facendo spazio ad un leggero rialzo delle ore e risorse impiegate. 
+\par La discesa in costo evidenziata dopo il periodo di \FAD{} si è decisamente fermata, facendo spazio ad un leggero rialzo delle risorse impiegate. 
 
-\par Grazie alla riduzione dei costi passata, è stato però possibile impiegare più risorse in questo periodo e dedicarsi a buona parte dei requisiti opzionali.
+\par Grazie alla riduzione dei costi dei periodi precedenti, è stato però possibile impiegare più risorse in questo periodo e dedicarsi a buona parte dei requisiti opzionali.
 
 \subsubsection{Preventivo a finire}
 
-\par Il costo totale dell'applicazione risulta di \euro{}14 281.00(-22.00), rimanendo all'interno del \textit{budget} preventivato.
+\par Il costo totale dell'applicazione risulta di \euro{}14 281.00, \euro22.00 in meno rispetto al preventivo iniziale, rientrando quindi all'interno del \textit{budget} preventivato.
 
 \newpage
 
@@ -2323,9 +2326,9 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \subsubsection{Conclusioni}
 
-\par Il numero delle ore è pressochè rimasto invariato, mentre la distribuzione di tali ore tra i vari ruoli ha subito molte variazioni. I ruoli di \AN{}, \PR{} e \VR{} hanno richiesto più risorse, mentre i ruoli di \AM{} e \PG{} hanno richiesto meno ore effettive, tutto sommato portando ad una riduzione dei costi. \\
+\par Il numero delle ore totali preventivate è rimasto invariato, mentre la distribuzione di tali ore tra i vari ruoli ha subito molte variazioni. I ruoli di \AN{}, \PR{} e \VR{} hanno richiesto più risorse, mentre i ruoli di \AM{} e \PG{} hanno richiesto meno ore effettive, tutto sommato portando ad una riduzione dei costi.
 
-\par Sono state impiegate in media 105 ore a testa per ogni membro del gruppo, risultando in 735 ore totali. Il costo totale del progetto è di \euro{}14 281.00 con un risparmio di \euro{}22.00 rispetto a quanto preventivato. \\
+\par Sono state impiegate 105 ore a testa per ogni membro del gruppo, risultando in 735 ore totali. Il costo totale del progetto è di \euro{}14 281.00 con un risparmio di \euro{}22.00 rispetto a quanto preventivato. 
 
 \appendix
 \section{Organigramma}
@@ -2404,7 +2407,7 @@ Nella tabella seguente sono riportate le differenze tra le ore di lavoro previst
 
 \begin{table}[H]
 	\begin{center}
-		\begin{tabular}{l r}
+		\begin{tabular}{l c}
 			\toprule
             \textbf{Ruolo}	& \textbf{Costo (\euro/ora)} \\ \midrule
 			\midrule

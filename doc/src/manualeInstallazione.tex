@@ -107,7 +107,7 @@
 	\descrizioneProdotto
 	
 	\subsection{Glossario}
-	\glossarioPrint
+	\glossarioManualiPrint
 	\subsection{Comunicazione malfunzionamenti}
 		Se durante l’utilizzo dell’applicazione Quizzipedia si dovessero riscontrare problemi o malfunzionamenti, si invitano gli utilizzatori a segnalare l’errore inviando una email 		all’indirizzo:
 		\url{starware.swe@gmail.com}
@@ -250,7 +250,7 @@
 		\begin{itemize}
 			\item aprire la cartella \texttt{ src};
 			\item eseguire il file per l'installazione (doppio click sul nome del file): \texttt{quizzipediaInstaller.exe}
-			\item si aprirà a questo punto l'interfaccia per l'instaallazione dell'applicazione:
+			\item si aprirà a questo punto l'interfaccia per l'installazione dell'applicazione:
 			\begin{figure}[H]	
 				\centering
 				\includegraphics[width=0.4\linewidth]{../img/manualeInstallazione/win_installer01.png}
@@ -259,7 +259,7 @@
 			\end{figure}
 			
 			\item premere sul pulsante "Inizialize/Reset Database" per la configurazione del database. 
-			\item durante l'esecuzione dell'operazione si aprirà la finestra del terminale npm sotto illutrata. Questa si chiuderà automaticamente a operazione completata.
+			\item durante l'esecuzione dell'operazione si aprirà la finestra del terminale npm sotto illustrata. Questa si chiuderà automaticamente a operazione completata.
 			\begin{figure}[H]	
 				\centering
 				\includegraphics[width=0.8\linewidth]{../img/manualeInstallazione/win_installer02.png}
@@ -293,7 +293,7 @@
 	\end{itemize}
 		\textbf{Per un corretto avvio dell'applicazione è necessario eseguire tutte le operazioni seguenti nell'ordine indicato:}
 	\begin{enumerate}
-		\item \textbf{Installazione}: per eseguire l'installazine, specificare dopo lo script con l'opzione \texttt{install}:
+		\item \textbf{Installazione}: per eseguire l'installazione, specificare dopo lo script con l'opzione \texttt{install}:
 	 \[ 	\texttt{sudo  ./install.sh install} \]
 		\item \textbf{Ripristino database}: per eseguire il ripristino del database, eseguire lo script con l'opzione \texttt{reset}:
 		 \[ 	\texttt{sudo  ./install.sh reset} \]
@@ -318,7 +318,7 @@
 		\begin{center}
 			\texttt{\$ npm install} 
 		\end{center}
-		\item su una seconda Shell (assicurandosi di non chiuderla dino a quando si desidera utilizzare l'applicazione), avviare il \mgls{database} \mgls{mongodb} con il comando:
+		\item su una seconda Shell (assicurandosi di non chiuderla fino a quando si desidera utilizzare l'applicazione), avviare il \mgls{database} \mgls{mongodb} con il comando:
 		\begin{center}
 			\texttt{\$ mongod} 	
 		\end{center}	
