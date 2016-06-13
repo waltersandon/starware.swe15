@@ -84,6 +84,14 @@ function databaseSetup(onSetup) {
 		name: 'SWE', 
 		description: 'Scienza che si occupa dello studio della qualità di un SW'
 	});
+    var tag5 = new Tag({
+        name: 'Svago',
+        description: 'Tema libero della cultura generale'
+    });
+    var tag6 = new Tag({
+        name: 'Fisica',
+        description: 'la scienza della natura nel senso più ampio'
+    });
 
 	var question1 = new Question ({
 		author: user3._id, 
@@ -101,18 +109,89 @@ function databaseSetup(onSetup) {
         "29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])\n(+)",
 		tags: [tag1._id]
 	});
+    var question4 = new Question ({
+        author: user3._id,
+        body: "Chi ha scritto il Decameron\n() Dante\n() Petrarca\n(*) " +
+        "Boccaccio\n() D'annunzio",
+        tags: [tag3._id]
+    });
+    var question5 = new Question ({
+        author: user3._id,
+        body: "Chi di questi è un autore italiano\n[] Tolstoj\n[*] Petrarca\n[*] " +
+        "Boccaccio\n[] Dickens",
+        tags: [tag3._id]
+    });
+    var question6 = new Question ({
+        author: user3._id,
+        body: "La chiamavano bocca di [*rosa, cosa, babbuino] metteva l' " +
+        "[aracia,*amore,entropia,uva] sopra ogni [rosa, *cosa, babbuino].\n" +
+        "Appena scesa dalla stazione del paesino di [Monte Magrè, Dromedario,* " +
+        "Sant'Ilario], tutti s'accorsero senza uno sguardo che non si trattava di un" +
+        " [*missionario, rinoceronte, pizza, marajè]",
+        tags: [tag5._id]
+    });
+    var question7 = new Question ({
+        author: user3._id,
+        body: "Riordina le seguenti serie TV in ordine cronologico in base alla" +
+        " data del loro primo episodio:\n" +
+        "[Lost|Breaking Bad|Game of Thrones]\n",
+        tags: [tag5._id]
+    });
+    var question8 = new Question ({
+        author: user3._id,
+        body: 'Collega città e squadra di calcio:' +
+        '\n{Juventus,Torino|Inter,Milano|Sampdoria,Genova}',
+        tags: [tag5._id]
+    });
+    var question9 = new Question ({
+        author: user3._id,
+        body: 'Una pallina di gomma viene lanciata verso il basso con velocità pari a 3m/s da un balcone alto 20m ' +
+        'rispetto al suolo. Determinare l’istante (in secondi) in cui tocca terra:\n{1.74,0.05}',
+        tags: [tag6._id]
+    });
 
 	var questionnaire1 = new Questionnaire({
 		author: user3._id, 
-		questions: [question1._id,question2._id,question3._id], 
-		tags: [tag1._id,tag2._id,tag4._id],
+		questions: [question1._id,question2._id,question3._id],
+
+		tags: [tag1._id,tag2._id,tag4._id,tag5._id,tag6._id],
 		title: "Quiz 1"
 	});
     var questionnaire2 = new Questionnaire({
         author: user3._id,
-        questions: [question1._id,question2._id,question3._id],
+        questions: [question4._id],
         tags: [tag1._id,tag2._id,tag4._id],
         title: "Quiz 2"
+    });
+    var questionnaire3 = new Questionnaire({
+        author: user3._id,
+        questions: [question5._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 3"
+    });
+    var questionnaire4 = new Questionnaire({
+        author: user3._id,
+        questions: [question6._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 4"
+    });
+    var questionnaire5 = new Questionnaire({
+        author: user3._id,
+        questions: [question7._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 5"
+    });
+    var questionnaire6 = new Questionnaire({
+        author: user3._id,
+        questions: [question8._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 6"
+    });
+    var questionnaire7 = new Questionnaire({
+        author: user3._id,
+        questions: [question9._id],
+        tags: [tag1._id,tag2._id,tag4._id],
+        title: "Quiz 7"
     });
 
     var answer1 = new Answer({
@@ -161,8 +240,19 @@ function databaseSetup(onSetup) {
         question1,
         question2,
         question3,
+        question4,
+        question5,
+        question6,
+        question7,
+        question8,
+        question9,
         questionnaire1,
         questionnaire2,
+        questionnaire3,
+        questionnaire4,
+        questionnaire5,
+        questionnaire6,
+        questionnaire7,
         answer1,
         answer2,
         answer3,
