@@ -35,6 +35,44 @@ describe('/api/questionnaires', function() {
                 });
             });
         });
+        it('ritorna  questionario specificato all\'utente autenticato', function (done) {
+
+            login(app, {
+                userName: 'mario.rossi',
+                password: 'password.mario.rossi'
+            }, function(agent) {
+                var TagId;
+                request(app)
+                    .get('/api/tags')
+                    .end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                         TagId = res.body.find(function (tag) {
+                            return tag.name === "Matematica";
+                        })._id;
+                    });
+                // Ottieni la lista di tutti gli utenti
+                var req = request(app).get('/api/users');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    var author = res.body.find(function (user) {
+                        return user.userName == 'tullio.vardanega';
+                    });
+                    var req = request(app).get('/api/questionnaires?author='+author._id+'&tags='+TagId+'&title=Quiz 1');
+                    agent.attachCookies(req);
+                    req.end(function (err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                        expect(res.body.find(function (questionnaire) {
+                            return questionnaire.title === "Quiz 1";
+                        }).title).to.eql("Quiz 1");
+                        done();
+                    });
+                });
+            });
+        });
     });
     describe('GET /api/questionnaires/:id', function() {
         it('permette l\'accesso ad un utente non autenticato', function (done) {
