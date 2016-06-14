@@ -535,7 +535,7 @@ QML.prototype.parse = function (qml) {
             message: '<strong>Errore! </strong> non è stata rilevata alcuna domanda'
         };
     } else {
-        result.explanation = markdown.toHTML(extractResult.explanation);
+        result.explanation = extractResult.explanation;
         return result;
     }
 };
@@ -554,7 +554,7 @@ QML.prototype.extractExplanation = function (plainText) {
                 newTextLines.push(line);
             }
         }).bind(this));
-    }
+    }   
     return {
         explanation: explanationLines.join(''),
         plainText: newTextLines.join('\n')

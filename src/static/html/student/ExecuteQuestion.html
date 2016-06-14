@@ -1,6 +1,6 @@
-<div id="outer" ng-controller="controller.student.ExecuteQuestion">
+<div id="outer" ng-controller="controller.student.ExecuteQuestion">   
     <div class="row" ng-show='result.status'>
-        <div class='alert col-md-12' ng-class='currentQuestion.right === true ? "alert-success" : "alert-danger"'>
+        <div class='alert col-md-12' ng-class='currentQuestion.right === true ? "alert-success" : "alert-warning"'>
             <strong>{{currentQuestion.right === true ? "Corretta" : "Errata"}}</strong>
             <div ng-bind-html="currentQuestion.explanation"></div>
         </div>
@@ -8,7 +8,7 @@
     <div class="row" ng-show='result.status'>
         <div class='col-md-12'>
             <ul>
-                <li ng-repeat="st in currentQuestion.stat" style=""><span ng-bind-html="st"></span></li>
+                <li ng-repeat="st in currentQuestion.stat"><span ng-bind-html="st"></span></li>
             </ul>
         </div>
         <hr/>
