@@ -1,20 +1,26 @@
-# Starware
+#Installazione
 
-##Appunti
+Pacchetto di installazione per ambiente Unix
+* avviare il terminale;
+* posizionarsi nella cartella src;
+* avviare lo script install.sh come amministratore con i comandi:
+```sudo ./install.sh```
 
-###Piano di Progetto
+verranno visualizzate le operazioni formite dal pacchetto di installazione e avvio
+preconfigurato.
+Per un corretto avvio dell’applicazione è necessario eseguire tutte le ope-
+razioni seguenti nell’ordine indicato:
 
-####Generazione diagrammi di Gantt
+1. Installazione: per eseguire l’installazione, specificare dopo lo script con l’op-
+zione install:
+```sudo ./install.sh install```
+2. Ripristino database: per eseguire il ripristino del database, eseguire lo script
+con l’opzione reset:
+```sudo ./install.sh reset```
+3. Avvio dell’applicazione: per avviare l’applicazione, eseguire lo script con
+l’opzione start:
+```sudo ./install.sh start```
+4. Terminare l’applicazione: per terminare l’applicazione, eseguire lo script con
+l’opzione stop:
+```sudo ./install.sh stop```
 
-Per la generazione dei diagrammi di Gantt, il sistema più efficiente che ho trovato è:
-
- - Aprire il file .pod
- - Aggiustare lo zoom necessario per farci stare il diagramma nella pagina
- - Selezionare il tab "File"
- - Cliccare "Preview"
- - Andare su "Paper" e selezionare "One big page"
- - Assicurarsi che il diagramma compaia nella sua interezza
- - Cliccare sull'icona "PDF" in alto e salvare il PDF risultante
- - Aprire il PDF e esportarlo come Immagine (Su Mac: File > Export > Format = PNG)
-
-Se qualcuno trova un modo migliore per favore aggiorni qui.
