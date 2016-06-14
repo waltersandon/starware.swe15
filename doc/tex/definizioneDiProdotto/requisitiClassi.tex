@@ -1,6 +1,6 @@
 \begin{longtable}{r l p{10cm}}
 	\midrule
-	\multicolumn{2}{|c|}{Requisito} & Classi\tabularnewline
+	\multicolumn{2}{c}{Requisito} & Classi\tabularnewline
 	\hline
 	& \hyperlink{R-3V1}{R-3V1} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
 	
@@ -110,6 +110,10 @@
 	\hline
 	\begin{tikzpicture}
 	\draw [->, thick] (0.6,0.2) -- (0.6,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F7.5.1.1}{R-2F7.5.1.1} & \hyperlink{client::util::QML}{client::util::QML}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.6,0.2) -- (0.6,0.1) -- (1,0.1);
 	\end{tikzpicture} & \hyperlink{R-3F7.5.1.2}{R-3F7.5.1.2} & \hyperlink{server::app::App}{server::app::App}
 	
 	\hyperlink{server::data::Question}{server::data::Question}
@@ -117,6 +121,14 @@
 	\hyperlink{server::service::QuestionService}{server::service::QuestionService}
 	
 	\hyperlink{server::validator::QuestionCheck}{server::validator::QuestionCheck}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.6,0.2) -- (0.6,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F7.5.1.3}{R-2F7.5.1.3} & \hyperlink{client::util::QML}{client::util::QML}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.6,0.2) -- (0.6,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F7.5.1.4}{R-2F7.5.1.4} & \hyperlink{client::util::QML}{client::util::QML}\tabularnewline
 	\hline
 	\begin{tikzpicture}
 	\draw [->, thick] (0.6,0.2) -- (0.6,0.1) -- (1,0.1);
@@ -209,6 +221,14 @@
 	\hyperlink{server::service::QuestionnaireService}{server::service::QuestionnaireService}
 	
 	\hyperlink{server::validator::QuestionnaireCheck}{server::validator::QuestionnaireCheck}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F7.10}{R-2F7.10} & \hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}
+	
+	\hyperlink{server::data::Answer}{server::data::Answer}
+	
+	\hyperlink{server::service::AnswerService}{server::service::AnswerService}\tabularnewline
 	\hline
 	\begin{tikzpicture}
 	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
@@ -377,6 +397,46 @@
 	\hyperlink{server::validator::QuestionCheck}{server::validator::QuestionCheck}\tabularnewline
 	\hline
 	\begin{tikzpicture}
+	\draw [->, thick] (0.8,0.2) -- (0.8,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.11.1.2.5}{R-1F7.11.1.2.5} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.8,0.2) -- (0.8,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.11.1.2.6}{R-1F7.11.1.2.6} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.8,0.2) -- (0.8,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.11.1.2.8}{R-1F7.11.1.2.8} & \hyperlink{client::model::data::CurrentQuestion}{client::model::data::CurrentQuestion}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.8,0.2) -- (0.8,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.11.1.2.9}{R-1F7.11.1.2.9} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
 	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
 	\end{tikzpicture} & \hyperlink{R-3F7.11.2}{R-3F7.11.2} & \hyperlink{client::controller::teacher::ManipulateQuestion}{client::controller::teacher::ManipulateQuestion}
 	
@@ -517,6 +577,30 @@
 	\hyperlink{server::middleware::Authorization}{server::middleware::Authorization}
 	
 	\hyperlink{server::service::QuestionnaireService}{server::service::QuestionnaireService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.15}{R-1F7.15} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::data::CurrentQuestion}{client::model::data::CurrentQuestion}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F7.16}{R-1F7.16} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::data::CurrentQuestion}{client::model::data::CurrentQuestion}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
 	\hline
 	& \hyperlink{R-3F8}{R-3F8} & \hyperlink{client::model::data::Role}{client::model::data::Role}
 	
@@ -1017,6 +1101,66 @@
 	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
 	\hline
 	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F16.1.3}{R-1F16.1.3} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F16.1.4}{R-1F16.1.4} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F16.1.5}{R-1F16.1.5} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F16.1.7}{R-1F16.1.7} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::data::CurrentQuestion}{client::model::data::CurrentQuestion}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-1F16.1.8}{R-1F16.1.8} & \hyperlink{client::controller::teacher::ManageQuestions}{client::controller::teacher::ManageQuestions}
+	
+	\hyperlink{client::model::service::QuestionService}{client::model::service::QuestionService}
+	
+	\hyperlink{client::util::QML}{client::util::QML}
+	
+	\hyperlink{client::view::teacher::ManageQuestions}{client::view::teacher::ManageQuestions}
+	
+	\hyperlink{server::service::QuestionService}{server::service::QuestionService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
 	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
 	\end{tikzpicture} & \hyperlink{R-3F16.2}{R-3F16.2} & \hyperlink{client::controller::student::ExecuteQuestionnaire}{client::controller::student::ExecuteQuestionnaire}
 	
@@ -1349,6 +1493,30 @@
 	\hyperlink{server::validator::AnswerCheck}{server::validator::AnswerCheck}\tabularnewline
 	\hline
 	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F24.1.1}{R-2F24.1.1} & \hyperlink{client::controller::user::Welcome}{client::controller::user::Welcome}
+	
+	\hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}
+	
+	\hyperlink{client::view::user::Welcome}{client::view::user::Welcome}
+	
+	\hyperlink{server::data::Answer}{server::data::Answer}
+	
+	\hyperlink{server::service::AnswerService}{server::service::AnswerService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F24.1.3}{R-2F24.1.3} & \hyperlink{client::controller::user::Welcome}{client::controller::user::Welcome}
+	
+	\hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}
+	
+	\hyperlink{client::view::user::Welcome}{client::view::user::Welcome}
+	
+	\hyperlink{server::data::Answer}{server::data::Answer}
+	
+	\hyperlink{server::service::AnswerService}{server::service::AnswerService}\tabularnewline
+	\hline
+	\begin{tikzpicture}
 	\draw [->, thick] (0.2,0.2) -- (0.2,0.1) -- (1,0.1);
 	\end{tikzpicture} & \hyperlink{R-2F24.2}{R-2F24.2} & \hyperlink{client::controller::user::Welcome}{client::controller::user::Welcome}
 	
@@ -1361,6 +1529,14 @@
 	\hyperlink{server::service::AnswerService}{server::service::AnswerService}
 	
 	\hyperlink{server::validator::AnswerCheck}{server::validator::AnswerCheck}\tabularnewline
+	\hline
+	\begin{tikzpicture}
+	\draw [->, thick] (0.4,0.2) -- (0.4,0.1) -- (1,0.1);
+	\end{tikzpicture} & \hyperlink{R-2F24.3.3}{R-2F24.3.3} & \hyperlink{client::model::service::AnswerService}{client::model::service::AnswerService}
+	
+	\hyperlink{server::data::Answer}{server::data::Answer}
+	
+	\hyperlink{server::service::AnswerService}{server::service::AnswerService}\tabularnewline
 	\hline
 	& \hyperlink{R-3F29}{R-3F29} & \hyperlink{server::app::App}{server::app::App}
 	
@@ -1494,5 +1670,5 @@
 	
 	\hyperlink{server::service::UserService}{server::service::UserService}\tabularnewline
 	\hline
-\caption{Tabella requisiti / classi} \tabularnewline
+	\caption{Tabella requisiti / classi} \tabularnewline
 \end{longtable}
