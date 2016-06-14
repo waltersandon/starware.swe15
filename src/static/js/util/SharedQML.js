@@ -547,7 +547,7 @@ QML.prototype.extractExplanation = function (plainText) {
     if (plainText) {
         plainText.split('\n').forEach((function (line) {
             if (expFlag) {
-                explanationLines.push(line);
+                explanationLines.push(markdown.toHTML(line));
             } else if (line.match(this.explanation)) {
                 expFlag = true;
             } else {
@@ -556,7 +556,7 @@ QML.prototype.extractExplanation = function (plainText) {
         }).bind(this));
     }
     return {
-        explanation: explanationLines.join('\n'),
+        explanation: explanationLines.join(''),
         plainText: newTextLines.join('\n')
     };
 };
