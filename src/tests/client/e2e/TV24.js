@@ -6,10 +6,6 @@ describe('Execute Questionnaire Ospite', function() {
     beforeEach(function () {
         browser.get('/index.html');
     });
-    afterEach(function () {
-        browser.get('/index.html');
-        //browser.switchTo().alert().accept();
-    });
 
     it('ospite deve poter eseguire un questionario', function () {
 
@@ -32,11 +28,12 @@ describe('Execute Questionnaire Ospite', function() {
         element(by.css('[value="true"]')).click();
         element(by.css('[ng-click="getNext()"]')).click();
 
-        browser.waitForAngular();
         element(by.css('[ng-click="submit()"]')).click();
         browser.switchTo().alert().accept();
         for(var i = 0; i < 3; i++){
             element(by.css('[ng-click="getNext()"]')).click();
         }
+        element(by.css('[ng-click="changePath(\'\')"]')).click();
+        browser.switchTo().alert().accept();
     });
 });

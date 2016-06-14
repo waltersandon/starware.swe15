@@ -28,6 +28,7 @@ describe('Question Delete', function() {
         
         element(by.css('[ng-click="changePath(\'teacher/questions\')"]')).click();
         element(by.id("bodySearch")).clear().sendKeys("Roma");
+        browser.sleep(100);
         element(by.css('[ng-click="remove(question)"]')).click();
         browser.switchTo().alert().accept();
     });

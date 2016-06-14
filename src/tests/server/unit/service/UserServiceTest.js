@@ -17,8 +17,25 @@ describe('/api/users', function() {
                     done();
                 });
         });
+        it('fornisce utente specifico ad un proprietario', function (done) {
+            login(app, {
+                userName: 'gregorio.piccoli',
+                password: 'password.gregorio.piccoli'
+            }, function(agent) {
+                var req = request(app).get('/api/users?fullName=Mario Rossi&userName=mario.rossi');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    expect(res.body).to.be.instanceof(Array);
+                    expect(res.body).to.have.length.above(0);
+                    done();
+                });
+            });
+        });
 
         it('fornisce la lista degli utenti ad un proprietario', function (done) {
+
             login(app, {
                 userName: 'gregorio.piccoli',
                 password: 'password.gregorio.piccoli'
@@ -55,6 +72,15 @@ describe('/api/users', function() {
                 });
             });
         });
+        it('restituisce errore ad un utente non autenticato', function (done) {
+            request(app)
+                .get('/api/users/me')
+                .end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 401);
+                    done();
+                });
+        });
 
     });
 
@@ -76,6 +102,24 @@ describe('/api/users', function() {
                         expect(res).to.have.property('status', 200);
                         expect(res.body).to.have.property('userName', testUser.userName);
                         expect(res.body).to.have.property('fullName', testUser.fullName);
+                        done();
+                    });
+                });
+            });
+        });
+        it("restituisce errore per id sbagliato  l'utente specificato ad un proprietario", function(done) {
+            login(app, {
+                userName: 'gregorio.piccoli',
+                password: 'password.gregorio.piccoli'
+            }, function(agent) {
+                var req = request(app).get('/api/users');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    var testUser = res.body[0];
+                    var req = request(app).get('/api/users/' + testUser._id+'é');
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(res).to.have.property('status', 400);
                         done();
                     });
                 });
@@ -286,7 +330,48 @@ describe('/api/users', function() {
                 });
             });
         });
+        it("ritorna errore la modifica di un ruolo non esistente", function (done) {
 
+            // Effettua l'accesso come amministratore
+            login(app, {
+                userName: 'francesco.ranzato',
+                password: 'password.francesco.ranzato'
+            }, function(agent) {
+
+                // Ottieni la lista di tutti gli utenti
+                var req = request(app).get('/api/users');
+                agent.attachCookies(req);
+                req.end(function(err, res) {
+                    expect(err).to.not.be.ok;
+                    expect(res).to.have.property('status', 200);
+                    var testUser = res.body.find(function(user) {
+                        return user.userName == 'utente.test.1.modified';
+                    });
+
+                    // Ottieni la lista di tutti i ruoli per cercare
+                    // quello da impostare all'utente
+                    var req = request(app).get('/api/roles');
+                    agent.attachCookies(req);
+                    req.end(function(err, res) {
+                        expect(err).to.not.be.ok;
+                        expect(res).to.have.property('status', 200);
+                        var teacherRole = res.body.find(function(role) {
+                            return role.name == 'teacher';
+                        });
+
+                        // Richiedi la modifica del ruolo
+                        var req = request(app).post('/api/users/' + testUser._id).send({
+                            role: "ù"
+                        });
+                        agent.attachCookies(req);
+                        req.end(function(err, res) {
+                            expect(res).to.have.property('status', 500);
+                            done();
+                        });
+                    });
+                });
+            });
+        });
         it("non permette l'impostazione di un ruolo superiore al proprio ", function (done) {
 
             // Effettua l'accesso come amministratore

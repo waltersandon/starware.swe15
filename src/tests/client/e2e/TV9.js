@@ -26,8 +26,9 @@ describe('Questionnaire Delete', function() {
 
         element(by.css('[ng-click="changePath(\'teacher/questionnaires\')"]')).click();
         element(by.id("titleSearch")).clear().sendKeys("Questionnario Test");
+        browser.sleep(100);
         element(by.css('[ng-click="remove(questionnaire)"]')).click();
         browser.switchTo().alert().accept();
-        browser.waitForAngular();
+
     });
 });
