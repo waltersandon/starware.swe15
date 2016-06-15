@@ -56,22 +56,48 @@ mongoose.connect(config.dbUri, function() {
 		"() ![qui quo qua](http://www.googledrive.com/host/0B6NSpwWzNVlsSWcwTnA2MzhTWDQ)\n" +
 		"(*) ![zio paperone](http://www.googledrive.com/host/0B6NSpwWzNVlsdzY2d1hnak14ZzA)", tags: [tag5._id]});
 		var question8 = new Question ({author: usr5._id, body: "####La seguente formula è corretta?####\n" +
-		"![equation](http://www.sciweavers.org/tex2img.php?eq=e%5E%7Bi%20%20%5Cvarphi%20%7D%20%3D%20sin%28%5Cvarphi%29%20%2B%20i%20%20%20cos%28%20%5Cvarphi%20%29&bc=Transparent&fc=Black&im=png&fs=18&ff=mathptmx&edit=0[/img])\n(+)", tags: [tag2._id]});
+		"![equation](http://mathurl.com/hkn6tdn.png)\n(+)", tags: [tag2._id]});
         var question9 = new Question ({author: usr5._id, body: "Quale di questi non è uno dei principi SOLID?\n" +
         "() Single Responsibility principle\n" +
         "() Open Close principle\n" +
-        "(*) La pizza\n" +
+        "(*) Master Theorem\n" +
         "() Liskov Substitution principle", tags: [tag2._id,tag4._id]});
-		var question10 = new Question({author: usr5._id, body: "La chiamavano bocca di [*rosa, cosa, babbuino] metteva l' " +
-		"[aracia,*amore,entropia,uva] sopra ogni [rosa, *cosa, babbuino].\n" +
-		"Appena scesa dalla stazione del paesino di [Monte Magrè, Dromedario,* Sant'Ilario], tutti s'accorsero senza uno " +
-		"sguardo che non si trattava di un [*missionario, rinoceronte, pizza, marajè]", tags: [tag5._id]});
+		var question10 = new Question({author: usr5._id, body: "La chiamavano bocca di [*rosa, cosa, prosa] metteva l'[ipocrisia,*amore,impegno,arte] sopra ogni [rosa, *cosa, prosa].\n" +
+		"Appena scesa dalla stazione del paesino di [Monte Mario, Icario,* Sant'Ilario], tutti s'accorsero senza uno sguardo che non si trattava di un [*missionario, precario, funzionario, operaio].\n" +
+		"\"\"\"\n" +
+		"Bocca di Rosa è una delle canzoni più famose di Fabrizio De André, nonché quella che, come ha dichiarato in un'intervista televisiva concessa a Vincenzo Mollica, il cantautore genovese considerava più cara e più vicina al suo modo di essere.\n" +
+		"A testimonianza di quanto questa canzone sia entrata nell'immaginario collettivo, si può citare il fatto che l'espressione \"bocca di rosa\" è entrata nel linguaggio comune, essendo usata - se pur erroneamente - come eufemismo di prostituta; erroneamente in quanto, in realtà, come si afferma nel testo: \"Bocca di rosa né l'uno né l'altro, lei lo faceva per passione\", riferito all'amore.", tags: [tag5._id]});
 		var question11 = new Question({author: usr5._id, tags: [tag5._id, tag1._id], body:
 			"Riordina le seguenti serie TV in ordine cronologico in base alla data del loro primo episodio:\n" +
 			"[Lost|Breaking Bad|Game of Thrones]\n"
 		});
+		var question12 = new Question({author: usr5._id, tags: [tag1._id], body:"Una pallina di gomma viene lanciata verso il basso con velocità pari a 3m/s da un balcone alto 20m rispetto al suolo. Determinare l’istante (in secondi) in cui tocca terra:\n" +
+		"{1.74,0.05}\n" +
+		"\"\"\"\n" +
+		"La legge oraria della pallina è ![legge](http://mathurl.com/jm878le.png); determiniamo ora l’istante in cui abbiamo ![zero](http://mathurl.com/33acycl.png):\n" +
+		"![sistema](http://mathurl.com/hqyrb7a.png)\n" +
+		"ovviamente la soluzione negativa va scartata, per cui la soluzione è ![sol](http://mathurl.com/h6wn579.png)"});
+		var question13 = new Question({author: usr5._id, tags: [tag2._id], body: "Riordina le seguenti fasi del ciclo di Deming:\n" +
+		"[Plan|Do|Check|Act]\n" +
+		"\"\"\"\n" +
+		"Il ciclo di Deming o Deming Cycle (ciclo di PDCA - plan–do–check–act) è un modello studiato per il miglioramento continuo della qualità in un'ottica a lungo raggio. Serve per promuovere una cultura della qualità che è tesa al miglioramento continuo dei processi e all'utilizzo ottimale delle risorse.\n" +
+		"* **Plan:** definire attività, scandenze, responsabilità, risorse utili a raggiungere specifici obbiettivi di miglioramento\n" +
+		"*  **Do:** eseguire le attività secondo i piani\n" +
+		"*  **Check:** verificare l’esito delle azioni di miglioramento rispetto alle attese\n" +
+		"*  **Act:** applicare soluzioni correttive alle carenze rilevate"});
+		
+		var question14 = new Question({author: usr5._id, tags: [tag3._id], body: "Riordina i seguenti termini in modo tale che ad ogni parola corrisponda la lingua in cui è scritta:\n" +
+		"{Patata,Italiano|Kartoffel,Tesesco|Potato,Inglese|Batata,Portoghese|Potatis,Svedese}\n" +
 
-		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id,question3._id, question10._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
+		"\"\"\"\n" +
+		"L'associazione corretta tra i precedenti termini è:\n" +
+		"* Patata = Italiano\n" +
+		"* Kartoffel = Tedesco\n" +
+		"* Potato = Inglese\n" +
+		"* Batata = Portoghese\n" +
+		"* Potatis = Svedese"});
+		
+		var questionnaire1 = new Questionnaire({author: usr5._id, questions: [question1._id,question2._id, question7._id, question10._id,  question12._id,  question13._id,  question14._id], tags: [tag1._id,tag2._id,tag3._id], title: "Quiz 1"});
 		var questionnaire2 = new Questionnaire({author: usr2._id, questions: [question9._id,question4._id,question5._id], tags: [tag5._id], title: "Quiz 2"});
 		var questionnaire3 = new Questionnaire({author: usr2._id, questions: [question4._id,question5._id,question1._id, question8._id, question11._id], tags: [tag1._id,tag3._id], title: "Quiz 3"});
 		var questionnaire4 = new Questionnaire({author: usr4._id, questions: [question3._id,question4._id,question6._id, question8._id], tags: [tag5._id], title: "Quiz 4"});
@@ -136,6 +162,9 @@ mongoose.connect(config.dbUri, function() {
             question9.save(),
 			question10.save(),
 			question11.save(),
+			question12.save(),
+			question13.save(),
+			question14.save(),
 			questionnaire1.save(),
 			questionnaire2.save(),
 			questionnaire3.save(),
