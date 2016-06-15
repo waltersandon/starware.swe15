@@ -36,7 +36,6 @@ $(function () {
                 if ($scope.currentQuestion.type === "TF" || $scope.currentQuestion.type === "MC" || $scope.currentQuestion.type === "MA"
                     || $scope.currentQuestion.type === "OI" || $scope.currentQuestion.type === "CI" || $scope.currentQuestion.type === "NT") {
                     $scope.preview = $sce.trustAsHtml($interpolate($scope.currentQuestion.body)($scope));
-                    $scope.exp = $sce.trustAsHtml($interpolate($scope.currentQuestion.explanation)($scope));
                 } else if ($scope.currentQuestion.type === "CT") {
                     $scope.preview = [];
                     $scope.currentQuestion.body.forEach(function (b) {
@@ -49,10 +48,6 @@ $(function () {
         $scope.$watch('ris.value', function () {
             $scope.changeAnswer();
         });
-        
-        $scope.trust = function (str) {
-            return $sce.trustAsHtml($interpolate(str)($scope));
-        };
 
         $scope.changeAnswer = function () {
             if ($scope.currentQuestion) {
